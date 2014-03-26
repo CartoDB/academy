@@ -1,2 +1,3 @@
 name: CartoDB Academy
 baseurl: ''
+permalink: /:title.html
