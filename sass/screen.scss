@@ -1,13 +1,37 @@
 @import "compass/reset";
+@import "compass/css3/border-radius";
+@import "compass/css3/opacity";
+@import "compass/css3/transition";
+
 @import "_fonts";
 
 @import 'home-icons/*.png';
+
+.clearfix {
+  zoom:1;
+
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
 
 a {
   text-decoration: none;
 }
 
 .header {
+  padding: 110px 0 25px;
   text-align: center;
   background: #397DBA image-url('header-bg.png');
 }
@@ -16,7 +40,7 @@ a {
   display: inline-block;
   width: 53px;
   height: 70px;
-  margin: 110px auto 30px;
+  margin-bottom: 30px;
   @include home-icons-sprite(logo);
 }
 
@@ -31,7 +55,129 @@ a {
 }
 
 .site-description {
+  margin-bottom: 30px;
   font-size: 31px;
-  font-family: 'Proxima Nova Cn Lt';
+  font-family: 'Proxima Nova Lt';
+  line-height: 1.2;
   color: #fff;
+}
+
+.more {
+  display: inline-block;
+  border: 2px solid #fff;
+  width: 235px;
+  font-weight: 700;
+  line-height: 48px;
+  font-family: 'Proxima Nova Rg';
+  background: rgba(#000, .2);
+  @include border-radius(25px);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.small {
+  margin-top: 75px;
+  font-size: 15px;
+  font-family: 'Proxima Nova Rg';
+  color: #ececec;
+  @include opacity(.75);
+
+  a {
+    color: #fff;
+  }
+}
+
+.section {
+  padding: 130px;
+}
+
+.section-inner {
+  width: 940px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.section-title {
+  margin-bottom: 60px;
+  font-size: 30px;
+  line-height: 1;
+  font-family: 'Proxima Nova Th';
+  background: image-url('section_title-bg.png') no-repeat center;
+  text-align: center;
+}
+
+.blocks {
+  @extend .clearfix;
+  list-style: none;
+}
+
+.block {
+  position: relative;
+  float: left;
+  margin-right: 20px;
+
+  a {
+    display: block;
+    width: 300px;
+    height: 216px;
+    background: #FF8000;
+    @include border-radius(3);
+    @include transition(.3s all);
+
+    &:hover {
+      background: darken(#FF8000, 3%);
+    }
+  }
+
+  &.last {
+    margin: 0;
+  }
+
+  .level {
+    display: block;
+    float: right;
+    margin: 15px 25px 0 0;
+    padding: 10px 15px;
+    font: 14px "Proxima Nova Rg";
+    color: rgba(#000, .5);
+    text-transform: uppercase;
+    background: rgba(#fff, .5);
+    @include border-radius(4);
+  }
+}
+
+.block-header {
+  @extend .clearfix;
+}
+
+.course-category {
+  display: block;
+  float: left;
+  margin: 15px 0 0 25px;
+  width: 30px;
+  height: 30px;
+  @include home-icons-sprite(book);
+
+  &.org {
+    @include home-icons-sprite(org);
+  }
+
+  &.design {
+    @include home-icons-sprite(design);
+  }
+}
+
+.block-title {
+  position: absolute;
+  right: 20px; bottom: 20px; left: 20px;
+  font-size: 18px;
+  font-family: 'Proxima Nova Rg';
+  color: #fff;
+
+  strong {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-family: "Proxima Nova Th";
+    display: block;
+  }
 }

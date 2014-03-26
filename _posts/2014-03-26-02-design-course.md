@@ -4,7 +4,7 @@ title:  "Design course"
 description: Create maps to communicate your Business
 categories: basic
 tag: org
-difficulty: basic
+level: basic
 time: 3 hours
 ---
 

@@ -4,7 +4,7 @@ title:  "Beginners course"
 description: Basic concepts of online mapping
 categories: basic
 tag: book
-difficulty: basic
+level: basic
 time: 3 hours
 ---
 
