@@ -2,3 +2,13 @@
 
 {{ page.difficulty }}
 {{ page.time }}
+
+{% for course in site.courses %}
+{% for page in site.pages %}
+{% if page.course == course %}
+
+<li><a href="/{{ page.id }}.html">{{ page.title }}</a></li>
+
+{% endif %}
+{% endfor %}
+{% endfor %}

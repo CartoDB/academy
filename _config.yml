@@ -1,3 +1,4 @@
 name: CartoDB Academy
 baseurl: ''
 permalink: /:title.html
+courses: ['course-01', 'course-02']
