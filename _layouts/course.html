@@ -1,14 +1,86 @@
-{{ content }}
+<!DOCTYPE HTML>
 
-{{ page.difficulty }}
-{{ page.time }}
+<html>
 
-{% for course in site.courses %}
-{% for page in site.pages %}
-{% if page.course == course %}
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Your Website</title>
+		<link href="css/screen.css" rel="stylesheet" type="text/css" />
+		<link href="css/course.css" rel="stylesheet" type="text/css" />
 
-<li><a href="/{{ page.id }}.html">{{ page.title }}</a></li>
 
-{% endif %}
-{% endfor %}
-{% endfor %}
+	</head>
+
+	<body>
+		
+		<header class="header">
+			<div class="hdr-inner cf container">
+				hello
+			</div>
+		</header>
+		<div class="container cf">
+			hello
+		</div>
+
+		<section>
+			<header class="hdr-course">
+				<div class="hdr-crs-inner container h-valign h-tcenter">
+					<div class="h-iblock h-malign">
+						<h1>{{ page.title }}</h1>
+						<h2>{{ page.subtitle }}</h2>
+					</div>
+				</div>
+			</header>
+
+				{{ content }}
+			<div class="cf container">
+				<nav class="crs-nav h-left">
+					<ul>
+						{% for course in site.courses %}
+						{% for page in site.pages %}
+						{% if page.course == course %}
+							<li><a href="/{{ page.id }}.html">{{ page.title }}</a></li>
+						{% endif %}
+						{% endfor %}
+						{% endfor %}
+					</ul>
+				</nav>
+				<div class="crs-inner h-right">
+					<article class="crs-info">
+						<div class="crs-info-container">
+							<h2>What you’ll learn</h2>
+							{{ page.description }}
+							<h2>Prerequesites</h2>
+						</div>
+						<footer class="crs-footer">
+							{{ page.difficulty }}
+							{{ page.time }}
+
+							<p class="button btn-m btn-black btn-white btn-20">
+								<a href="#">START COURSE</a>
+							</p>
+						</footer>
+					</article>
+
+					<article class="crs-subscribe">
+						hola
+
+					</article>
+				</div>
+
+			</div>
+
+
+		</section>
+
+
+
+
+
+
+	</body>
+
+</html>
+
+
+
