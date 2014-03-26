@@ -1,7 +1,37 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
 @import "_fonts";
+
+@import 'home-icons/*.png';
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  text-align: center;
+  background: #397DBA image-url('header-bg.png');
+}
+
+.logo {
+  display: inline-block;
+  width: 53px;
+  height: 70px;
+  margin: 110px auto 30px;
+  @include home-icons-sprite(logo);
+}
+
+.site-title {
+  margin-bottom: 15px;
+  font-size: 60px;
+  font-family: "Proxima Nova Th";
+
+  a {
+    color: #fff;
+  }
+}
+
+.site-description {
+  font-size: 31px;
+  font-family: 'Proxima Nova Cn Lt';
+  color: #fff;
+}

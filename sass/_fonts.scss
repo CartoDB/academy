@@ -47,24 +47,24 @@
 }
 
 @font-face {
-  font-family: 'Proxima Nova Cn Rg';
-  src: font-url('ProximaNovaCond-Regular.eot'); /* IE9 Compat Modes */
-  src: font-url('ProximaNovaCond-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       font-url('ProximaNovaCond-Regular.woff') format('woff'), /* Modern Browsers */
-       font-url('ProximaNovaCond-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       font-url('ProximaNovaCond-Regular.svg#598bcf032c4302a7676e5334c07a46ff') format('svg'); /* Legacy iOS */
+  font-family: 'Proxima Nova Rg';
+  src: url('ProximaNova-Regular.eot'); /* IE9 Compat Modes */
+  src: url('ProximaNova-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('ProximaNova-Regular.woff') format('woff'), /* Modern Browsers */
+       url('ProximaNova-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('ProximaNova-Regular.svg#2c1459d58560f08b4b0586fbe80aa4cd') format('svg'); /* Legacy iOS */
 
   font-style:   normal;
   font-weight:  400;
 }
 
 @font-face {
-  font-family: 'Proxima Nova Cn Lt';
-  src: font-url('ProximaNovaCond-Light.eot'); /* IE9 Compat Modes */
-  src: font-url('ProximaNovaCond-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       font-url('ProximaNovaCond-Light.woff') format('woff'), /* Modern Browsers */
-       font-url('ProximaNovaCond-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-       font-url('ProximaNovaCond-Light.svg#6378ee1b20712f833e6f1164b7a7a968') format('svg'); /* Legacy iOS */
+  font-family: 'Proxima Nova Lt';
+  src: url('ProximaNova-Light.eot'); /* IE9 Compat Modes */
+  src: url('ProximaNova-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('ProximaNova-Light.woff') format('woff'), /* Modern Browsers */
+       url('ProximaNova-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('ProximaNova-Light.svg#da6ddaf3cf69afbba47bd74b5010b98d') format('svg'); /* Legacy iOS */
 
   font-style:   normal;
   font-weight:  200;
