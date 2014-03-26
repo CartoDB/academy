@@ -1,7 +1,25 @@
 ---
 layout: default
+description: 'Learn to create maps on the web<br />and visualize geospatial data'
 ---
 
-{% for post in site.posts reversed %}
-  <li>{{ post.tag }}<a href="{{ post.url }}">{{ post.title }}</a>{{ post.description }}</li>
-{% endfor %}
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Our courses</h2>
+
+    <ul class="blocks">
+      {% for post in site.posts reversed %}
+        <li class="block {% cycle '', '', 'last' %}">
+          <a href="{{ post.url }}">
+            <div class="block-header">
+              <i class="course-category {{ post.tag }}"></i>
+              <span class="level">{{ post.level }}</span>
+            </div>
+
+            <span class="block-title"><strong>{{ post.title }}</strong>{{ post.description }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
