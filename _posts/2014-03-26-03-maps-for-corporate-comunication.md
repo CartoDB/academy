@@ -8,5 +8,3 @@ difficulty: basic
 time: 3 hours
 ---
 
-{{ page.title }}
-{{ page.description }}
