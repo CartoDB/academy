@@ -1,10 +1,10 @@
 $principal-colour: #397DBA;
+$secondary-colour: #424A50;
 $max-width: 940px;
 $medium-width: 720px;
 $small-width: 320px; 
 
 
-// helpers 
 
 .h-valign { position: relative; }
 	.h-valign:before {
@@ -67,6 +67,13 @@ $small-width: 320px;
 		border-bottom-left-radius: 4px;
 
 	}
+
+.crs-subscribe { 
+	background: $secondary-colour;
+	color: #fff; 
+	border-radius: 4px;
+	padding: 40px;
+}
 
 	.button { border-radius: 100px; display: inline-block;  }
 		.button a { display: block; text-decoration: none; }
