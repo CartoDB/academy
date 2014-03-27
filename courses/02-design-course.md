@@ -6,6 +6,6 @@ subtitle: Create maps to communicate your Business
 categories: basic
 tag: org
 time: 3 hours
-description:
-published: true
+description: ""
+published: false
 ---
