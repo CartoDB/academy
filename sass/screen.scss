@@ -87,8 +87,16 @@ a {
   }
 }
 
-.section {
+.content {
   padding: 130px;
+}
+
+.section {
+  margin-bottom: 110px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .section-inner {

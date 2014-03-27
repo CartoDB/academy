@@ -8,17 +8,42 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
     <h2 class="section-title">Our courses</h2>
 
     <ul class="blocks">
-      {% for post in site.posts reversed %}
+      {% for course in site.data.courses %}
+      {% if course.draft == false %}
         <li class="block {% cycle '', '', 'last' %}">
-          <a href="{{ post.url }}">
+          <a href="{{ course.url }}">
             <div class="block-header">
-              <i class="course-category {{ post.tag }}"></i>
-              <span class="level">{{ post.level }}</span>
+              <i class="course-category {{ course.tag }}"></i>
+              <span class="level">{{ course.categories }}</span>
             </div>
 
-            <span class="block-title"><strong>{{ post.title }}</strong>{{ post.description }}</span>
+            <span class="block-title"><strong>{{ course.title }}</strong>{{ course.description }}</span>
           </a>
         </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Coming soon</h2>
+
+    <ul class="blocks">
+      {% for course in site.data.courses reversed %}
+      {% if course.draft == true %}
+        <li class="block {% cycle '', '', 'last' %}">
+          <a href="{{ course.url }}">
+            <div class="block-header">
+              <i class="course-category {{ course.tag }}"></i>
+              <span class="level">{{ course.categories }}</span>
+            </div>
+
+            <span class="block-title"><strong>{{ course.title }}</strong>{{ course.description }}</span>
+          </a>
+        </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>
