@@ -1,0 +1,33 @@
+- 01_beginners_course:
+  title: "Beginners course"
+  subtitle: Basic concepts of online mapping
+  categories: basic
+  tag: book
+  time: 3 hours
+  description: A short paragraph with the key things that you will learn in this lesson.
+  draft: false
+
+- 02_design_course:
+  title: "Design course"
+  description: Create maps to communicate your Business
+  categories: basic
+  tag: org
+  time: 3 hours
+  draft: false
+
+- 03_maps_for_corporate_communication:
+  title: "Maps for corporate Comunication"
+  description: Design principles for mapping
+  categories: basic
+  tag: design
+  time: 3 hours
+  draft: false
+
+- 04_beginners_course:
+  title: "Beginners course"
+  subtitle: Basic concepts of online mapping
+  categories: basic
+  tag: book
+  time: 3 hours
+  description: A short paragraph with the key things that you will learn in this lesson.
+  draft: true
