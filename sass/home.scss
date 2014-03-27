@@ -88,6 +88,7 @@ a {
 
     .section-title {
       color: #fff;
+      background: transparent;
     }
   }
 }
@@ -109,6 +110,10 @@ a {
   font-family: 'Proxima Nova Th';
   background: image-url('section_title-bg.png') no-repeat center;
   text-align: center;
+
+  span {
+    padding: 0 30px;
+  }
 }
 
 .blocks {
