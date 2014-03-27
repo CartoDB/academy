@@ -7,6 +7,14 @@ $medium-width: 720px;
 $small-width: 320px;
 
 
+a { 
+    color: $principal-colour; 
+    text-decoration: none; 
+    &:hover { text-decoration: underline;}
+}
+
+
+
 .cf:after{
     content: "";
     display: block;
@@ -34,7 +42,7 @@ $small-width: 320px;
 .h-pa { position: absolute; }
 .h-pr { position: relative; }
 
-.title-l { font: 24px 'Proxima Nova Th'; }
+.title-l { font: 24px 'Proxima Nova Th';  letter-spacing: -1px; }
 .size-l { font: 18px 'Proxima Nova Rg'; }
 .size-bl { font: 18px 'Proxima Nova Th'; }
 .size-sbl { font: 18px 'Proxima Nova Lt'; }
@@ -67,7 +75,7 @@ $small-width: 320px;
 }
     .header a { color: #fff; }
     .hdr-brand { opacity: .6; }
-    .hdr-title { font: 22px/24px 'Proxima Nova Th'; margin-bottom: 4px;}
+    .hdr-title { font: 22px/24px 'Proxima Nova Th'; margin-bottom: 4px; letter-spacing: -1px; }
 
 
 
@@ -95,6 +103,12 @@ $small-width: 320px;
 
 
 .crs-nav { width: 218px; }
+    .crs-nav li {  margin-bottom: 32px;  }
+    .crs-nav h2 { margin-bottom: 4px; }
+    .crs-nav-info { color: #666; }
+
+
+
 .crs-inner { width: 700px; }
 
     .crs-info { 
