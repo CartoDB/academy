@@ -1,1 +1,63 @@
-@charset "UTF-8";.h-valign{position:relative}.h-valign:before{content:"";height:100%;display:inline-block;vertical-align:middle}.h-iblock{display:inline-block}.h-malign{vertical-align:middle}.h-tcenter{text-align:center}.h-left{float:left}.h-right{float:right}.h-txt-white{color:  #fff}.title-l{font:24px 'Proxima Nova Th'}.size-l{font:18px 'Proxima Nova Rg'}.cf:after{content:"";display:block;width:100%;clear:both}.container{width:940px;margin:0 auto;-webkit-font-smoothing:antialiased}.header{background:#397dba;color:#fff;box-shadow:inset 0 -1px 0 rgba(0,0,0,0.2)}.hdr-course{box-shadow:inset 0 1px 0 rgba(0,0,0,0.2),inset 0 -1px 0 rgba(0,0,0,0.2);background:orange;margin-bottom:40px}.hdr-crs-inner{height:330px}.crs-nav{width:218px}.crs-inner{width:700px}.crs-info{position:relative;margin-bottom:40px}.crs-info:before{content:"";position:absolute;border:1px solid rgba(0,0,0,0.2);top:0;right:0;bottom:0;left:0;border-radius:4px;pointer-events:none}.crs-info-container{padding:40px}.crs-footer{background:#FF8000;padding:40px;border-bottom-right-radius:4px;border-bottom-left-radius:4px}.crs-info-title{margin-bottom:16px}.crs-info-txt{margin-bottom:40px;font:18px/1.3 'Proxima Nova Rg';-webkit-font-smoothing:antialiased}.crs-subscribe{background:#424a50;color:#fff;border-radius:4px;padding:40px;margin-bottom:80px}.button{border-radius:100px;display:inline-block}.button a{display:block;text-decoration:none}.btn-black.btn-20{background:rgba(0,0,0,0.2)}.btn-m a{padding:15px 50px;min-width:200x}.btn-white{border:2px solid #fff}.btn-white a{color:#fff}
+/*
+Syntax error: Invalid US-ASCII character "\xC2"
+        on line 23 of /Users/matallo/workspace/cartodb-academy/sass/course.scss
+
+Backtrace:
+/Users/matallo/workspace/cartodb-academy/sass/course.scss:23
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/engine.rb:373:in `block in check_encoding!'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/util.rb:604:in `rescue in block in check_encoding'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/util.rb:601:in `block in check_encoding'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/util.rb:600:in `each'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/util.rb:600:in `each_with_index'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/util.rb:600:in `check_encoding'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/util.rb:654:in `check_sass_encoding'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/engine.rb:372:in `check_encoding!'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/engine.rb:339:in `_to_tree'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/engine.rb:315:in `_render'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/sass-3.2.18/lib/sass/engine.rb:262:in `render'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:139:in `block (2 levels) in compile'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:126:in `timed'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:138:in `block in compile'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/logger.rb:45:in `red'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:137:in `compile'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:118:in `compile_if_required'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:101:in `each'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:101:in `block in run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:126:in `timed'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/compiler.rb:100:in `run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/commands/watch_project.rb:147:in `recompile'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `block in modified'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:30:in `block in temporary_multipath_handler'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:27:in `each'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:27:in `temporary_multipath_handler'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:17:in `block (2 levels) in run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:16:in `each'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:16:in `block in run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/rb-fsevent-0.9.4/lib/rb-fsevent/fsevent.rb:45:in `call'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/rb-fsevent-0.9.4/lib/rb-fsevent/fsevent.rb:45:in `run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:20:in `run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm/monitor.rb:26:in `run'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/fssm-0.2.10/lib/fssm.rb:70:in `monitor'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/commands/watch_project.rb:87:in `perform'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/bin/compass:30:in `block in <top (required)>'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/bin/compass:44:in `call'
+/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.4/bin/compass:44:in `<top (required)>'
+/usr/local/var/rbenv/versions/2.1.0/bin/compass:23:in `load'
+/usr/local/var/rbenv/versions/2.1.0/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid US-ASCII character \"\xC2\"\A         on line 23 of /Users/matallo/workspace/cartodb-academy/sass/course.scss"; }

@@ -1,0 +1,18 @@
+@import "compass/css3/opacity";
+
+@import 'icons/*.png';
+@include all-icons-sprites;
+
+.icon {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+
+  &.i-hard { @include opacity(.8); }
+  &.i-medium { @include opacity(.6); }
+  &.i-light { @include opacity(.2); }
+
+  &.i-xl { width: 44px; height: 44px; }
+  &.i-m { width: 24px; height: 24px; }
+}
