@@ -2,119 +2,124 @@
 
 <html>
 
-	<head>
-		<meta http-equiv="Content-Type" content="charset=UTF-8" />
-		<title>Your Website</title>
-		<link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
-		<link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
-	</head>
+    <head>
+        <meta http-equiv="Content-Type" content="charset=UTF-8" />
+        <title>Your Website</title>
+        <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
+        <link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
+    </head>
 
-	<body>
-		
-		<header class="header">
-			<div class="hdr-inner cf container">
-				hello
-			</div>
-		</header>
-		<div class="hdr-nav container cf">
-			hello
-		</div>
+    <body>
+        
+        <header class="header">
+            <div class="hdr-inner cf container">
+                hello
+            </div>
+        </header>
+        <div class="hdr-nav container cf">
+            hello
+        </div>
 
-		<section>
-			<header class="hdr-course">
-				<div class="hdr-crs-inner container h-valign h-tcenter">
-					<div class="h-iblock h-malign">
-						<h1 class="hdr-crs-title">{{ page.title }}</h1>
-						<h2 class="hdr-crs-subtitle">{{ page.subtitle }}</h2>
-					</div>
-				</div>
-			</header>
+        <section>
+            <header class="hdr-course">
+                <div class="hdr-crs-inner container h-valign h-tcenter">
+                    <div class="h-iblock h-malign">
+                        <span class="hdr-crs-icon h-valign h-tcenter">
+                            <span class="h-iblock h-malign">
+                              <i class="course-category icon i-medium icons-{{ page.tag }}-medium-white"></i>
+                            </span>
+                        </span>
+                        <h1 class="hdr-crs-title">{{ page.title }}</h1>
+                        <h2 class="hdr-crs-subtitle">{{ page.subtitle }}</h2>
+                    </div>
+                </div>
+            </header>
 
-				{{ content }}
-			<div class="cf container">
-				<nav class="crs-nav h-left">
-					<ul>
-						{% for course in site.courses %}
-						{% for page in site.pages %}
-						{% if page.course == course %}
-							<li><a href="/{{ page.id }}.html">{{ page.title }}</a></li>
-						{% endif %}
-						{% endfor %}
-						{% endfor %}
-					</ul>
-				</nav>
-				<div class="crs-inner h-right">
-					<article class="crs-info">
-						<div class="crs-info-container">
-							<h2 class="crs-info-title title-l">What you’ll learn</h2>
-							<p class="crs-info-txt">{{ page.description }}</p>
-							<h2 class="crs-info-title title-l">Prerequesites</h2>
-						</div>
-						<footer class="crs-footer">
-							<ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
-								<li>
-									<span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
-										<span class="h-iblock h-malign">
-											<i class="icon icons-difficulty-medium-orange"></i>
-										</span>
-									</span>
-									<dl class="h-iblock h-malign">
-										<dt class="size-sbxs">DIFFICULTY</dd>
-										<dd class="size-s">{{ page.categories }}</dd>
-									</dl>
-								</li>
-								<li>
-									<span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
-										<span class="h-iblock h-malign">
-							              	<i class="icon icons-time-medium-orange"></i>
-										</span>
-									</span>
-									<dl class="h-iblock h-malign">
-										<dt class="size-sbxs">TIME</dd>
-										<dd class="size-s ">{{ page.time }}</dd>
-									</dl>
-								</li>
-							</ul>
-							
+                {{ content }}
+            <div class="cf container">
+                <nav class="crs-nav h-left">
+                    <ul>
+                        {% for course in site.courses %}
+                        {% for page in site.pages %}
+                        {% if page.course == course %}
+                            <li><a href="/{{ page.id }}.html">{{ page.title }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </nav>
+                <div class="crs-inner h-right">
+                    <article class="crs-info">
+                        <div class="crs-info-container">
+                            <h2 class="crs-info-title title-l">What you’ll learn</h2>
+                            <p class="crs-info-txt">{{ page.description }}</p>
+                            <h2 class="crs-info-title title-l">Prerequesites</h2>
+                        </div>
+                        <footer class="crs-footer">
+                            <ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
+                                <li>
+                                    <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                                        <span class="h-iblock h-malign">
+                                            <i class="icon icons-difficulty-medium-orange"></i>
+                                        </span>
+                                    </span>
+                                    <dl class="h-iblock h-malign">
+                                        <dt class="size-sbxs">DIFFICULTY</dd>
+                                        <dd class="size-s">{{ page.categories }}</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                                        <span class="h-iblock h-malign">
+                                            <i class="icon icons-time-medium-orange"></i>
+                                        </span>
+                                    </span>
+                                    <dl class="h-iblock h-malign">
+                                        <dt class="size-sbxs">TIME</dd>
+                                        <dd class="size-s ">{{ page.time }}</dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                            
 
-							<p class="button btn-m btn-black btn-white btn-20 size-bm">
-								<a href="#">START COURSE</a>
-							</p>
-						</footer>
-					</article>
+                            <p class="button btn-m btn-black btn-white btn-20 size-bm">
+                                <a href="#">START COURSE</a>
+                            </p>
+                        </footer>
+                    </article>
 
-					<article class="crs-subscribe">
-						<header class="crs-sbs-header">
-							<div class="h-iblock h-malign  crs-sbs-icon">
-								<i class="icon i-light i-xl icons-calendar-large-white"></i>
-							</div>
-							<div class="h-iblock h-malign">
-								<h2 class="title-l h-txt-white crs-sbs-title">123 persons have taken this course</h2>
-								<p class="h-txt-white size-l">Join them now for free, and receive each new lessons each week</p>
-							</div>
-						</header>
-
-
-							hola	
-			
-
-						<p class="crs-disclaimer h-tcenter size-m">
-							We dont use your email for comercial advertisings
-						</p>
-					</article>
-				</div>
-
-			</div>
+                    <article class="crs-subscribe">
+                        <header class="crs-sbs-header">
+                            <div class="h-iblock h-malign  crs-sbs-icon">
+                                <i class="icon i-light i-xl icons-calendar-large-white"></i>
+                            </div>
+                            <div class="h-iblock h-malign">
+                                <h2 class="title-l h-txt-white crs-sbs-title">123 persons have taken this course</h2>
+                                <p class="h-txt-white size-l">Join them now for free, and receive each new lessons each week</p>
+                            </div>
+                        </header>
 
 
-		</section>
+                            hola    
+            
+
+                        <p class="crs-disclaimer h-tcenter size-m">
+                            We dont use your email for comercial advertisings
+                        </p>
+                    </article>
+                </div>
+
+            </div>
+
+
+        </section>
 
 
 
 
 
 
-	</body>
+    </body>
 
 </html>
 
