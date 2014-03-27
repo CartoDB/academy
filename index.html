@@ -10,9 +10,8 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
     <ul class="blocks">
       {% for page in site.pages %}
       {% if page.layout == 'course' %}
-      {% if page.published == true %}
         <li class="block {% cycle '', '', 'last' %}">
-          <a href="{{ page.url }}" class="block-inner">
+          <a href="{{ page.url }}" class="block-inner {% if page.published == true %}disabled{% endif %}">
             <div class="block-header">
               <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
               <span class="level">{{ page.categories }}</span>
@@ -21,32 +20,6 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
             <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
           </a>
         </li>
-      {% endif %}
-      {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <h2 class="section-title">Coming soon</h2>
-
-    <ul class="blocks">
-      {% for page in site.pages %}
-      {% if page.layout == 'course' %}
-      {% if page.published == false %}
-        <li class="block {% cycle '', '', 'last' %}">
-          <div class="block-inner disabled">
-            <div class="block-header">
-              <i class="course-category {{ page.tag }}"></i>
-              <span class="level">{{ page.categories }}</span>
-            </div>
-
-            <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
-          </div>
-        </li>
-      {% endif %}
       {% endif %}
       {% endfor %}
     </ul>
