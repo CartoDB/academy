@@ -164,21 +164,23 @@ a {
   @extend .clearfix;
 }
 
-.course-category {
+.icon {
   display: block;
   float: left;
   margin: 15px 0 0 25px;
   width: 30px;
   height: 30px;
-  @include home-icons-sprite(book);
 
-  &.org {
-    @include home-icons-sprite(org);
-  }
+  &.i-hard { opacity: .8; }
+  &.i-medium { opacity: .6; }
+  &.i-light { opacity: .2; }
 
-  &.design {
-    @include home-icons-sprite(design);
-  }
+  &.i-xl { width: 44px; height: 44px; }
+  &.i-m { width: 24px; height: 24px; }
+}
+
+.course-category {
+  margin: 15px 0 0 25px;
 }
 
 .block-title {
