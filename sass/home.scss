@@ -1,5 +1,7 @@
 @import '_application';
-@import 'home-icons/*.png';
+
+
+
 
 .clearfix {
   zoom:1;
@@ -35,7 +37,7 @@ a {
   width: 53px;
   height: 70px;
   margin-bottom: 30px;
-  @include home-icons-sprite(logo);
+  @include icons-sprite(logo);
 }
 
 .site-title {
@@ -164,20 +166,7 @@ a {
   @extend .clearfix;
 }
 
-.icon {
-  display: block;
-  float: left;
-  margin: 15px 0 0 25px;
-  width: 30px;
-  height: 30px;
 
-  &.i-hard { opacity: .8; }
-  &.i-medium { opacity: .6; }
-  &.i-light { opacity: .2; }
-
-  &.i-xl { width: 44px; height: 44px; }
-  &.i-m { width: 24px; height: 24px; }
-}
 
 .course-category {
   margin: 15px 0 0 25px;

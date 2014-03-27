@@ -5,10 +5,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Your Website</title>
-		<link href="css/screen.css" rel="stylesheet" type="text/css" />
-		<link href="css/course.css" rel="stylesheet" type="text/css" />
-
-
+		<link href="{{ site.baseurl }}/css/screen.css" rel="stylesheet" type="text/css" />
+		<link href="{{ site.baseurl }}/css/_fonts.css" rel="stylesheet" type="text/css" />
+		<link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" type="text/css" />
+		<link href="{{ site.baseurl }}/css/icons.css" rel="stylesheet" type="text/css" />
+		<link href="{{ site.baseurl }}/css/course.css" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
@@ -48,12 +49,12 @@
 				<div class="crs-inner h-right">
 					<article class="crs-info">
 						<div class="crs-info-container">
-							<h2>What you’ll learn</h2>
-							{{ page.description }}
-							<h2>Prerequesites</h2>
+							<h2 class="crs-info-title title-l">What you’ll learn</h2>
+							<p class="crs-info-txt">{{ page.description }}</p>
+							<h2 class="crs-info-title title-l">Prerequesites</h2>
 						</div>
 						<footer class="crs-footer">
-							{{ page.difficulty }}
+							{{ page.categories }}
 							{{ page.time }}
 
 							<p class="button btn-m btn-black btn-white btn-20">
@@ -63,8 +64,8 @@
 					</article>
 
 					<article class="crs-subscribe">
-						hola
-
+						<h2 class="title-l h-txt-white">123 persons have taken this course</h2>
+						<p class="h-txt-white size-l">Join them now for free, and receive each new lessons each week</p>
 					</article>
 				</div>
 
