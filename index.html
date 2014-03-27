@@ -11,7 +11,7 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
       {% for page in site.pages %}
       {% if page.layout == 'course' %}
         <li class="block {% cycle '', '', 'last' %}">
-          <a href="{{ page.url }}" class="block-inner {% if page.published == true %}disabled{% endif %}">
+          <a href="{{ page.url }}" class="block-inner {% if page.published == false %}disabled{% endif %}">
             <div class="block-header">
               <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
               <span class="level">{{ page.categories }}</span>
