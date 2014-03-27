@@ -80,22 +80,26 @@ a {
   }
 }
 
-.content {
-  padding: 130px;
-}
-
 .section {
-  margin-bottom: 110px;
+  padding: 130px 0;
 
-  &:last-child {
-    margin-bottom: 0;
+  &.dark {
+    background: #384047;
+
+    .section-title {
+      color: #fff;
+    }
   }
 }
 
 .section-inner {
   width: 940px;
   padding: 0 10px;
-  margin: 0 auto;
+  margin: 0 auto 110px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .section-title {
