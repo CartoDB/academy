@@ -9,7 +9,7 @@
     <meta name="description" content="{{ site.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css">
     <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
   </head>
   <body>
@@ -17,11 +17,11 @@
       <i class="logo"></i>
       <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
       <p class="site-description">{{ page.description }}</p>
-      <a href="#courses" class="more">View courses</a>
+      <a href="#content" class="more">View courses</a>
       <p class="small">brought to your by <a href="http://cartodb.com">CartoDB</a></p>
     </header>
 
-    <div class="content">
+    <div class="content" id="content">
       {{ content }}
     </div>
 

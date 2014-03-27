@@ -1,10 +1,4 @@
-@import "compass/reset";
-@import "compass/css3/border-radius";
-@import "compass/css3/opacity";
-@import "compass/css3/transition";
-
-@import "_fonts";
-
+@import '_application';
 @import 'home-icons/*.png';
 
 .clearfix {
@@ -136,7 +130,11 @@ a {
       background: #eee;
 
       &:hover {
-        background: #ddd;
+        background: darken(#eee, 3%);
+      }
+
+      .block-title {
+        color: #ccc;
       }
     }
 
