@@ -45,12 +45,15 @@
             <div class="cf container">
                 <nav class="crs-nav h-left">
                     <ul>
-                        {% for course in site.courses %}
                         {% for page in site.pages %}
-                        {% if page.course == course %}
-                            <li><a href="/{{ page.id }}.html">{{ page.title }}</a></li>
+                        {% if page.layout == 'course' %}
+                            <li>
+                                <h2 class="size-bm"><a href="/{{ page.id }}.html">{{ page.title }}
+                                 {{ page.title }}
+                                </a></h2>
+                                <p class="size-s crs-nav-info">{{ page.subtitle }}</p>
+                            </li>
                         {% endif %}
-                        {% endfor %}
                         {% endfor %}
                     </ul>
                 </nav>
