@@ -8,18 +8,20 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
     <h2 class="section-title">Our courses</h2>
 
     <ul class="blocks">
-      {% for course in site.data.courses %}
-      {% if course.draft == false %}
+      {% for page in site.pages %}
+      {% if page.layout == 'course' %}
+      {% if page.published == true %}
         <li class="block {% cycle '', '', 'last' %}">
-          <a href="{{ course.url }}">
+          <a href="{{ page.url }}" class="block-inner">
             <div class="block-header">
-              <i class="course-category {{ course.tag }}"></i>
-              <span class="level">{{ course.categories }}</span>
+              <i class="course-category {{ page.tag }}"></i>
+              <span class="level">{{ page.categories }}</span>
             </div>
 
-            <span class="block-title"><strong>{{ course.title }}</strong>{{ course.description }}</span>
+            <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
           </a>
         </li>
+      {% endif %}
       {% endif %}
       {% endfor %}
     </ul>
@@ -31,18 +33,20 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
     <h2 class="section-title">Coming soon</h2>
 
     <ul class="blocks">
-      {% for course in site.data.courses reversed %}
-      {% if course.draft == true %}
+      {% for page in site.pages %}
+      {% if page.layout == 'course' %}
+      {% if page.published == false %}
         <li class="block {% cycle '', '', 'last' %}">
-          <a href="{{ course.url }}">
+          <div class="block-inner disabled">
             <div class="block-header">
-              <i class="course-category {{ course.tag }}"></i>
-              <span class="level">{{ course.categories }}</span>
+              <i class="course-category {{ page.tag }}"></i>
+              <span class="level">{{ page.categories }}</span>
             </div>
 
-            <span class="block-title"><strong>{{ course.title }}</strong>{{ course.description }}</span>
-          </a>
+            <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
+          </div>
         </li>
+      {% endif %}
       {% endif %}
       {% endfor %}
     </ul>
