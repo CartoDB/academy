@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title:  "Lesson 1"
-course: "course-01"
+course: "01-beginners-course"
 ---
 
 Lesson 1

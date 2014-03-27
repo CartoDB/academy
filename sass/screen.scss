@@ -124,13 +124,21 @@ a {
   float: left;
   margin-right: 20px;
 
-  a {
+  .block-inner {
     display: block;
     width: 300px;
     height: 216px;
     background: #FF8000;
     @include border-radius(3);
     @include transition(.3s all);
+
+    &.disabled {
+      background: #eee;
+
+      &:hover {
+        background: #ddd;
+      }
+    }
 
     &:hover {
       background: darken(#FF8000, 3%);
