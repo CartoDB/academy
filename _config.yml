@@ -1,4 +1,5 @@
 name: The Map Academy
 description: Learn to create maps on the web and visualize geospatial data
 baseurl: ''
+cartodburl: 'http://cartodb.com/'
 permalink: /:title.html

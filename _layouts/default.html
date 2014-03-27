@@ -18,14 +18,13 @@
       <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
       <p class="site-description">{{ page.description }}</p>
       <a href="#content" class="more">View courses</a>
-      <p class="small">brought to your by <a href="http://cartodb.com">CartoDB</a></p>
+      <p class="small">brought to your by <a href="{{ site.cartodburl }}">CartoDB</a></p>
     </header>
 
     <div class="content" id="content">
       {{ content }}
     </div>
 
-    <footer class="footer">
-    </footer>
+    {% include footer.html %}
   </body>
 </html>
