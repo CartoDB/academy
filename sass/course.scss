@@ -64,8 +64,18 @@ $small-width: 320px;
 .hdr-crs-inner { height: 330px;  }
     .hdr-crs-title { font: 48px/52px 'Proxima Nova Th'; margin-bottom: 8px; letter-spacing: -2px; }
     .hdr-crs-subtitle { font: 26px/30px 'Proxima Nova Lt'; letter-spacing: -2px; }
+    .hdr-crs-icon {
+        width: 85px;
+        height: 85px;
+        border: 4px solid rgba(255,255,255,.8);
+        background: #FF8000;
+        border-radius: 50%;
+        display: inline-block;
+        margin-bottom: 12px; 
+    }
 
 .hdr-nav { padding: 25px 0; }
+
 
 
 .crs-nav { width: 218px; }
