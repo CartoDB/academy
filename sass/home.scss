@@ -108,11 +108,12 @@ a {
   font-size: 30px;
   line-height: 1;
   font-family: 'Proxima Nova Th';
-  background: image-url('section_title-bg.png') no-repeat center;
+  background: image-url('section_title-bg.png') repeat-x center;
   text-align: center;
 
   span {
     padding: 0 30px;
+    background: #fff;
   }
 }
 
