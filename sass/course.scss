@@ -74,7 +74,8 @@ a {
     padding: 25px 0; 
 }
     .header a { color: #fff; }
-    .hdr-brand { opacity: .6; }
+    .hdr-info { opacity: .6; margin-top: 32px; }
+    .hdr-info a { text-decoration: underline; }
     .hdr-title { font: 22px/24px 'Proxima Nova Th'; margin-bottom: 4px; letter-spacing: -1px; }
 
 
@@ -221,5 +222,28 @@ a {
     }
     > li:last-child:after { visibility: hidden; }
 }
+
+.h-dropdown {
+    right: 0;
+    top: 14px; 
+    background: #EEEEEE;
+    border-radius: 4px;
+    padding: 12px 50px 12px 12px;
+    overflow: hidden;
+    height: 16px; 
+
+    a { color:#000; }
+
+    li { margin-bottom: 10px;  line-height: 1; }
+    li:last-child { margin-bottom: 0; }
+
+}
+    .h-drp-actions { 
+        right: 12px;
+        top: 8px;
+        padding: 8px 0 8px 12px;
+        border-left: 1px solid #ccc;
+    }
+
 
 .crs-title {}
