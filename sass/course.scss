@@ -211,6 +211,15 @@ a {
         }
 
 
-
+.breadcumbs {
+    a { color: #000; }
+    > li { font: 16px 'Proxima Nova Lt'; }
+    > li:last-child { font-family: 'Proxima Nova Rg'; font-weight: 700;  }
+    > li:after { 
+        content:"›";
+        margin: 0 5px 0 8px;
+    }
+    > li:last-child:after { visibility: hidden; }
+}
 
 .crs-title {}
