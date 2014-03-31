@@ -23,17 +23,36 @@
                     </div>
                 </div>
                 <div class="h-right h-tright">
-                    <p class="size-s hdr-brand">brought to your by <a href="#">CartoDB</a></p>
+                    <p class="size-s hdr-info">brought to your by <a href="#">CartoDB</a></p>
                 </div>
             </div>
         </header>
-        <div class="hdr-nav container cf">
+        <div class="hdr-nav container h-pr cf">
             <nav class="h-left">
                 <ul class="inb-list breadcumbs">
                     <li><a href="#">All courses</a></li>
                     <li><a href="#">Beginner course</a></li>
                 </ul>
             </nav>
+            <div class="h-dropdown h-pa">
+                <nav>
+                    <a href="#" class="h-drp-actions h-pa">
+                        <i class="icon arrow-down icons-arrow-down"></i>
+                    </a>
+                    <ul>
+                        {% for page in site.pages %}
+                        {% if page.layout == 'course' %}
+                            <li>
+                                <p><a class="size-s" href="/{{ page.id }}.html">
+                                 {{ page.title }}
+                                </a></p>
+                            </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+
         </div>
 
         <section>
@@ -56,14 +75,17 @@
                 <nav class="crs-nav h-left">
                     <ul>
                         {% for page in site.pages %}
-                        {% if page.layout == 'course' %}
-                            <li>
-                                <h2 class="size-bm"><a href="/{{ page.id }}.html">{{ page.title }}
-                                 {{ page.title }}
-                                </a></h2>
-                                <p class="size-s crs-nav-info">{{ page.subtitle }}</p>
-                            </li>
-                        {% endif %}
+                         {% if page.layout == 'course' %}
+                            {% for lesson in site.pages %}
+                                {% if page.id == lesson.course %}
+                                    <li>
+                                        <h2 class="size-bm"><a href="/{{ lesson.id }}.html">{{ lesson.title }}
+                                        </a></h2>
+                                        <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                          {% endif %}
                         {% endfor %}
                     </ul>
                 </nav>
