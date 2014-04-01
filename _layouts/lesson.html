@@ -133,7 +133,21 @@
 
 
                 window.addEventListener("scroll", function(){
-                  var heightDiv = document.querySelector('.lss-hdr-inner').offsetHeight-80;
+                    var header = document.querySelector('.lss-hdr-inner');
+                    var heightDiv = header.offsetHeight-80;
+
+
+                    if( document.body.scrollTop != 0) {
+                        if ( !hasClass(header, 'border') ) { 
+                             addClass (header, 'border');
+                        }   
+                    } else if(document.body.scrollTop == 0) {
+                        if ( hasClass(header, 'border') ) { 
+                            removeClass (header, 'border');
+                        } 
+                    }
+
+
 
                     if( document.body.scrollTop <= heightDiv) {
                         if ( hasClass(scrollInner, 'scroll') ) { 

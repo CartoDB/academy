@@ -273,7 +273,10 @@ a {
 
 .fixed { position: fixed; }
 .lss-hdr-inner {  width: 100%; background: #fff;  }
-.lss-hdr-inner.scroll { border-bottom: 1px solid #ccc; }
+.lss-hdr-inner.border {
+    border-bottom: 1px solid #ccc; 
+    border-bottom: 1px solid rgba(0, 0, 0, .2)
+ }
     .lss-hdr-inner.scroll:after { 
         content:"";
         position: absolute;
