@@ -146,7 +146,7 @@ a {
     display: block;
     width: 300px;
     height: 216px;
-    background: #FF8000;
+    background: #85C77C;
     @include border-radius(3);
     @include transition(.3s all);
 
@@ -163,7 +163,7 @@ a {
     }
 
     &:hover {
-      background: darken(#FF8000, 3%);
+      background: darken(#85C77C, 3%);
     }
   }
 
