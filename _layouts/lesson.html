@@ -5,6 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="charset=UTF-8" />
         <title>Your Website</title>
+        <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+
         <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
         <link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
     </head>
@@ -35,24 +37,9 @@
                       <li><a href="#">Beginner course</a></li>
                   </ul>
               </nav>
-              <div class="h-dropdown h-pa">
-                  <nav>
-                      <a href="#" class="h-drp-actions h-pa">
-                          <i class="icon arrow-down icons-arrow-down"></i>
-                      </a>
-                      <ul>
-                          {% for page in site.pages %}
-                          {% if page.layout == 'course' %}
-                              <li>
-                                  <p><a class="size-s" href="/{{ page.id }}.html">
-                                   {{ page.title }}
-                                  </a></p>
-                              </li>
-                          {% endif %}
-                          {% endfor %}
-                      </ul>
-                  </nav>
-              </div>
+
+              {% include dropdown.html %}
+
 
               <span class="progress-bar h-pa hide" style="width:0%;"></span>
 
@@ -74,7 +61,8 @@
                               {% for lesson in site.pages %}
                                   {% if page.id == lesson.course %}
                                       <li>
-                                          <h2 class="size-bm"><a href="/{{ lesson.id }}.html">{{ lesson.title }}
+
+                                          <h2 class="size-bm"><a href="{{ site.baseurl }}/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
                                           </a></h2>
                                           <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
                                       </li>
@@ -90,7 +78,6 @@
                           {% for lesson in site.pages %}
                               {% if page.id == lesson.course %}
                                       {{ lesson.text }}
-                                     
                               {% endif %}
                           {% endfor %}
                         {% endif %}
@@ -101,43 +88,25 @@
            </div>
         </section>
 
+        {% include footer.html %}
 
+        <script src="{{ site.baseurl }}/js/general.js"></script>
 
         <script>
+
             window.addEventListener("load", function(){
 
                 var scrollInner = document.querySelector('#lss-scroll-recieve');
 
               
-                function hasClass(node, klass){
-                    var classList = node.className;
-                    if(classList.indexOf(klass)===-1){
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-
-                function removeClass(node, classRemove){
-                    node.className = node.className.replace(classRemove,"");
-                }
-
-                function addClass(node, classAdd){
-                    node.className += ' ' + classAdd;
-                } 
-
-
                 window.addEventListener("scroll", function(){
                     var header = document.querySelector('.lss-hdr-inner');
                     var progressbar = document.querySelector('.progress-bar');
                     var heightDiv = header.offsetHeight-80;
                     var heightScroll = document.querySelector('.lss-inner').offsetHeight;
                     var value = document.body.scrollTop-100;
-
-                    var percent = (((value*100)/heightScroll)+'%');
-                    console.log(percent);
-
-                    
+                    var percentNum = (value*100)/heightScroll;
+                    var percent = percentNum+'%';
 
 
                     if( document.body.scrollTop != 0) {
@@ -161,9 +130,11 @@
                             progressbar.style.width= 0+'%';
                         }   
                     } else {
-
-                        document.querySelector('.progress-bar').style.width = percent;
-                      
+                        if (percentNum < 100) {
+                          document.querySelector('.progress-bar').style.width = percent;
+                        } else {
+                          document.querySelector('.progress-bar').style.width = "100%";
+                        }
                         if ( !hasClass(scrollInner, 'scroll') ) { 
                             addClass (scrollInner, 'scroll');
                         }
@@ -175,9 +146,6 @@
 
                  
                 });
-
-
-
 
             });
         </script>

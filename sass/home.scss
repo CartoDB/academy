@@ -1,25 +1,5 @@
 @import '_application';
 
-.clearfix {
-  zoom:1;
-
-  &:before, &:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden;
-  }
-
-  &:after {
-    clear: both;
-  }
-}
-
-.inner {
-  width: 940px;
-  margin: 0 auto;
-  padding: 0 10px;
-}
 
 .text-c {
   text-align: center;
@@ -88,10 +68,6 @@ a {
   a {
     color: #fff;
   }
-}
-
-.content {
-  margin-bottom: 150px;
 }
 
 .section {
@@ -260,66 +236,4 @@ a {
 .disclaimer {
   font: 16px "Proxima Nova Lt";
   color: rgba(#fff, .5);
-}
-
-.footer {
-  font: 14px "Proxima Nova Rg";
-  background: rgba(#ddd, .2);
-  color: #555;
-
-  a {
-    color: #397DB8;
-    @include transition(.3s all);
-
-    &:hover {
-      color: darken(#397DB8, 5%);
-    }
-  }
-}
-
-.footer-inner {
-  padding-top: 55px;
-
-  p {
-    padding: 50px 0 40px;
-    border-top: 1px solid #eee;
-  }
-}
-
-.footer-columns {
-  @extend .clearfix;
-}
-
-.footer-column {
-  display: block;
-  float: left;
-  width: 210px;
-  min-height: 290px;
-  font: 15px "Proxima Nova Lt";
-
-  &.first {
-    background: image-url('icons/logo-gray.png') no-repeat;
-  }
-
-  &.last {
-    width: 100px;
-  }
-
-  dt {
-    margin-bottom: 20px;
-    font-weight: 700;
-    font-family: "Proxima Nova Rg";
-  }
-
-  dd {
-    margin-bottom: 10px;
-  }
-
-  a {
-    color: #555;
-
-    &:hover {
-      color: #333;
-    }
-  }
 }
