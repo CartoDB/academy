@@ -54,6 +54,8 @@
                   </nav>
               </div>
 
+              <span class="progress-bar h-pa hide" style="width:0%;"></span>
+
           </div>
        </div>
 
@@ -83,23 +85,16 @@
                       </ul>
                   </nav>
                   <div class="crs-inner h-right lss-inner">
-
                     {% for page in site.pages %}
-                           {% if page.layout == 'course' %}
-                              {% for lesson in site.pages %}
-                                  {% if page.id == lesson.course %}
-                                          {{ lesson.text }}
-                                         
-                                  {% endif %}
-                              {% endfor %}
-                            {% endif %}
+                       {% if page.layout == 'course' %}
+                          {% for lesson in site.pages %}
+                              {% if page.id == lesson.course %}
+                                      {{ lesson.text }}
+                                     
+                              {% endif %}
                           {% endfor %}
-
-
-
-
-
-
+                        {% endif %}
+                      {% endfor %}
                   </div>
 
               </div>
@@ -134,7 +129,15 @@
 
                 window.addEventListener("scroll", function(){
                     var header = document.querySelector('.lss-hdr-inner');
+                    var progressbar = document.querySelector('.progress-bar');
                     var heightDiv = header.offsetHeight-80;
+                    var heightScroll = document.querySelector('.lss-inner').offsetHeight;
+                    var value = document.body.scrollTop-100;
+
+                    var percent = (((value*100)/heightScroll)+'%');
+                    console.log(percent);
+
+                    
 
 
                     if( document.body.scrollTop != 0) {
@@ -152,14 +155,25 @@
                     if( document.body.scrollTop <= heightDiv) {
                         if ( hasClass(scrollInner, 'scroll') ) { 
                             removeClass (scrollInner, 'scroll');
+                        }
+                        if ( !hasClass(progressbar, 'hide') ) { 
+                            addClass (progressbar, 'hide');
+                            progressbar.style.width= 0+'%';
                         }   
                     } else {
+
+                        document.querySelector('.progress-bar').style.width = percent;
+                      
                         if ( !hasClass(scrollInner, 'scroll') ) { 
                             addClass (scrollInner, 'scroll');
+                        }
+                        if ( hasClass(progressbar, 'hide') ) { 
+                            removeClass (progressbar, 'hide');
+                            
                         } 
                     }
 
-                     
+                 
                 });
 
 
