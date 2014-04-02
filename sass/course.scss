@@ -240,10 +240,11 @@ a {
     height: 16px; 
     z-index: 2;
     border: 1px solid rgba(0, 0, 0, .1);
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
     a { color:#000; }
     li { margin-bottom: 10px;  line-height: 1; }
     li:last-child { margin-bottom: 0; }
-
 }
     .h-dropdown.drp-open {
         height: auto;
@@ -277,7 +278,7 @@ a {
 }
 
 .fixed { position: fixed; }
-.lss-hdr-inner {  width: 100%; background: #fff;  }
+.lss-hdr-inner {  width: 100%; background: #fff;}
 .lss-hdr-inner.border {
     border-bottom: 1px solid #ccc; 
     border-bottom: 1px solid rgba(0, 0, 0, .2);

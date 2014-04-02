@@ -56,7 +56,12 @@ a {
   @include border-radius(25px);
   color: #fff;
   text-transform: uppercase;
+  -webkit-transition: background .2s linear;
+  transition: background .2s linear;
 }
+  .more:hover {
+    background: rgba(#000, .3);
+  }
 
 .small {
   margin-top: 75px;

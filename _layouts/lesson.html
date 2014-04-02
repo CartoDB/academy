@@ -30,11 +30,15 @@
                   </div>
               </div>
           </header>
+          
+          {{ content }}
+
+
           <div class="hdr-nav container h-pr cf">
               <nav class="h-left">
                   <ul class="inb-list breadcumbs">
-                      <li><a href="#">All courses</a></li>
-                      <li><a href="#">Beginner course</a></li>
+                      <li><a href="/">All courses</a></li>
+                      <li><a href="{{ site.baseurl }}/{{ page.id }}">Beginner course</a></li>
                   </ul>
               </nav>
 
@@ -52,7 +56,6 @@
                  
               </header>
 
-              {{ content }}
               <div class="cf container">
                   <nav class="crs-nav h-left">
                       <ul>
