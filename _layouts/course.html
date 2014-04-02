@@ -5,6 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="charset=UTF-8" />
         <title>Your Website</title>
+        <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+
         <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
         <link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
     </head>
@@ -34,24 +36,8 @@
                     <li><a href="#">Beginner course</a></li>
                 </ul>
             </nav>
-            <div class="h-dropdown h-pa">
-                <nav>
-                    <a href="#" class="h-drp-actions h-pa">
-                        <i class="icon arrow-down icons-arrow-down"></i>
-                    </a>
-                    <ul>
-                        {% for page in site.pages %}
-                        {% if page.layout == 'course' %}
-                            <li>
-                                <p><a class="size-s" href="/{{ page.id }}/lesson-1.html">
-                                 {{ page.title }}
-                                </a></p>
-                            </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-                </nav>
-            </div>
+            {% include dropdown.html %}
+
 
         </div>
 
@@ -79,7 +65,7 @@
                             {% for lesson in site.pages %}
                                 {% if page.id == lesson.course %}
                                     <li>
-                                        <h2 class="size-bm"><a href="/{{ page.id }}.html">{{ lesson.title }}
+                                        <h2 class="size-bm"><a href="{{ site.baseurl }}/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
                                         </a></h2>
                                         <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
                                     </li>
@@ -174,6 +160,10 @@
 
         </section>
 
+    {% include footer.html %}
+        
+
+        <script src="{{ site.baseurl }}/js/general.js"></script>
 
 
 
