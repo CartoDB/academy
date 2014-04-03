@@ -10,9 +10,15 @@ $small-width: 320px;
 
 a { 
     color: $principal-colour; 
-    text-decoration: none; 
-    &:hover { text-decoration: underline;}
-}
+    text-decoration: none;
+    -webkit-transition: color .2s linear;
+    transition: color .2s linear;
+    &:hover {
+        text-decoration: none;
+        color: darken($principal-colour, 10%);
+    }
+}    
+
 
 
 
@@ -220,7 +226,8 @@ a {
 
 
 .breadcumbs {
-    a { color: #000; }
+    a { color: #333; }
+    a:hover { color: #000; }
     > li { font: 16px 'Proxima Nova Lt'; }
     > li:last-child { font-family: 'Proxima Nova Rg'; font-weight: 700;  }
     > li:after { 
@@ -245,11 +252,22 @@ a {
     a { color:#000; }
     li { margin-bottom: 10px;  line-height: 1; }
     li:last-child { margin-bottom: 0; }
-}
-    .h-dropdown.drp-open {
+    &.drp-open {
         height: auto;
         box-shadow: 0px 0px 7px rgba(0, 0, 0, .1); 
     }
+    a {
+        -webkit-transition: color .2s linear;
+        transition: color .2s linear;
+        color: #333;
+    }
+    a:hover {
+        color: #000;
+        text-decoration: none;
+    }
+
+}
+    
     .h-drp-actions { 
         right: 12px;
         top: 8px;

@@ -31,7 +31,6 @@
               </div>
           </header>
           
-          {{ content }}
 
 
           <div class="hdr-nav container h-pr cf">
@@ -80,7 +79,7 @@
                        {% if page.layout == 'course' %}
                           {% for lesson in site.pages %}
                               {% if page.id == lesson.course %}
-                                      {{ lesson.text }}
+                                {{ content }}
                               {% endif %}
                           {% endfor %}
                         {% endif %}
