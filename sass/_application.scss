@@ -43,7 +43,7 @@
     @include transition(.3s all);
 
     &:hover {
-      color: darken(#397DB8, 5%);
+      color: #000;
     }
   }
 }
