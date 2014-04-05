@@ -4,7 +4,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="charset=UTF-8" />
-        <title>Your Website</title>
+        <title>Map Academy - {{ page.course }} - {{ page.title }}</title>
         <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
         <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
                           {% for page in site.pages %}
                            {% if page.layout == 'course' %}
                               {% for lesson in site.pages %}
-                                  {% if page.id == lesson.course %}
+                                  {% if page.id == lesson.slug %}
                                       <li>
 
                                           <h2 class="size-bm"><a href="{{ site.baseurl }}/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
@@ -78,7 +78,7 @@
                     {% for page in site.pages %}
                        {% if page.layout == 'course' %}
                           {% for lesson in site.pages %}
-                              {% if page.id == lesson.course %}
+                              {% if page.id == lesson.slug %}
                                 {{ content }}
                               {% endif %}
                           {% endfor %}
