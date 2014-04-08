@@ -1,10 +1,10 @@
 ---
-id: 1
+id: 02
 layout: lesson
-title:  "Lesson 1"
+title:  "Lesson 2"
 subtitle: "Subtitulo"
 course: "Beginners course"
-slug: "01-beginners-course"
+course_slug: "01-beginners-course"
 ---
 
 
