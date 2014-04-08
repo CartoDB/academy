@@ -11,6 +11,6 @@
 
 ## How to fix a typo
 
-- For this repo. 
+- Fork this repo. 
 - Edit the affected ```.md``` files.
 - Send a Pull Request.
