@@ -8,3 +8,9 @@
 - Look for the course folder.
 - Add a ```.md``` file within that folder following the current name pattern.
 - Be sure you don't create a ```.md``` from scratch. Better if you start duplicating an existing ```.md``` (like [this one](https://raw.githubusercontent.com/CartoDB/academy/master/courses/01-beginners-course/lesson-1.md))
+
+## How to fix a typo
+
+- For this repo. 
+- Edit the affected ```.md``` files.
+- Send a Pull Request.
