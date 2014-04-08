@@ -24,9 +24,9 @@ As you might have guessed, most designers choose this unit arbitrarily. The prob
 
 <div class="lss-code">
       <pre>
-          <code>
-              hola
-          </code>
+          <code>function addClass(node, classAdd){
+	node.className += ' ' + classAdd;
+}</code>
       </pre>
 </div>
 
