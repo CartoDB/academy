@@ -35,3 +35,6 @@ drp.addEventListener("mouseleave", function(){
     } 
   return true;
 });
+
+//Initialize syntax highlighter
+hljs.initHighlightingOnLoad();
