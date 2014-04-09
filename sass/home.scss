@@ -242,3 +242,47 @@ a {
   font: 16px "Proxima Nova Lt";
   color: rgba(#fff, .5);
 }
+
+
+
+.info-course { 
+  background: #e5e5e5;
+  padding: 100px 0;
+  text-align: center;
+}
+  .inf-inner { 
+    display: inline-block;
+    text-align: left;
+    > li {
+      padding: 30px;
+      display: inline-block;
+      vertical-align: top;
+      background: #fff;
+      background: rgba(255,255,255, .9);
+      border: 1px solid rgba(0, 0, 0, .2);
+      width: 290px;
+      height: 326px;
+      @include border-radius(4px);
+      margin-left: 150px;
+    }
+    > li:first-child { margin: 0}
+  }
+  .inf-title { margin-bottom: 30px; font: 24px/26px 'Proxima Nova Th'; }
+  .inf-list { color: #777; 
+    > li { 
+      margin-bottom: 24px; 
+      font: 16px/22px 'Proxima Nova Rg';
+      padding-left: 30px;
+      position: relative;
+      &:before {
+        content:"";
+        position: absolute;
+        width: 15px;
+        height: 13px;
+        background: image-url('arrow.png');
+        left: 0;
+        top: 4px; 
+      }
+    }
+
+  }

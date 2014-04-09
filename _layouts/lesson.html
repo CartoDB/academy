@@ -75,15 +75,7 @@
                       </ul>
                   </nav>
                   <div class="crs-inner h-right lss-inner">
-                    {% for page in site.pages %}
-                       {% if page.layout == 'course' %}
-                          {% for lesson in site.pages %}
-                              {% if page.id == lesson.course %}
-                                {{ content }}
-                              {% endif %}
-                          {% endfor %}
-                        {% endif %}
-                      {% endfor %}
+                       {{ content }}
                   </div>
 
               </div>
