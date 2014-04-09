@@ -3,7 +3,8 @@ id: 1
 layout: lesson
 title:  "Lesson 1"
 subtitle: "Subtitulo"
-course: "01-beginners-course"
+course: "Beginners course"
+course_slug: "01-beginners-course"
 ---
 
 ##titular
@@ -27,9 +28,9 @@ As you might have guessed, most designers choose this unit arbitrarily. The prob
 
 <div class="lss-code">
       <pre>
-          <code>
-              hola
-          </code>
+          <code>function addClass(node, classAdd){
+	node.className += ' ' + classAdd;
+}</code>
       </pre>
 </div>
 

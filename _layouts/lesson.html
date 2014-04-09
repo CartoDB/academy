@@ -4,11 +4,12 @@
 
     <head>
         <meta http-equiv="Content-Type" content="charset=UTF-8" />
-        <title>Your Website</title>
+        <title>Map Academy - {{ page.course }} - {{ page.title }}</title>
         <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
         <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
         <link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
+        <link href="{{ site.baseurl }}/css/code_theme.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -37,7 +38,7 @@
               <nav class="h-left">
                   <ul class="inb-list breadcumbs">
                       <li><a href="/">All courses</a></li>
-                      <li><a href="{{ site.baseurl }}/{{ page.id }}">Beginner course</a></li>
+                      <li><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}">Beginner course</a></li>
                   </ul>
               </nav>
 
@@ -52,7 +53,6 @@
         <section>
           <div class="lss-container">
               <header class="lss-course" id="lss-hdr-course">
-                 
               </header>
 
               <div class="cf container">
@@ -61,10 +61,9 @@
                           {% for page in site.pages %}
                            {% if page.layout == 'course' %}
                               {% for lesson in site.pages %}
-                                  {% if page.id == lesson.course %}
+                                  {% if page.id == lesson.course_slug %}
                                       <li>
-
-                                          <h2 class="size-bm"><a href="{{ site.baseurl }}/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
+                                          <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
                                           </a></h2>
                                           <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
                                       </li>
@@ -84,6 +83,7 @@
 
         {% include footer.html %}
 
+        <script src="{{ site.baseurl }}/js/vendor/highlight.pack.js"></script>
         <script src="{{ site.baseurl }}/js/general.js"></script>
 
         <script>

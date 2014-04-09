@@ -3,7 +3,8 @@ id: 02
 layout: lesson
 title:  "Lesson 2"
 subtitle: "Subtitulo"
-course: "01-beginners-course"
+course: "Beginners course"
+course_slug: "01-beginners-course"
 ---
 
 
