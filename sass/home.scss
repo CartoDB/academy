@@ -1,4 +1,5 @@
 @import '_application';
+@import '_buttons';
 
 
 .text-c {
@@ -13,7 +14,7 @@ a {
   text-decoration: none;
 }
 
-.header {
+.site-header {
   padding: 110px 0 25px;
   text-align: center;
   background: #397DBA image-url('header-bg.png');
