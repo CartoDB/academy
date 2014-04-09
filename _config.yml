@@ -5,3 +5,4 @@ cartodburl: 'http://cartodb.com'
 permalink: /:title.html
 analytics_property_id:
 highlighter: 'pygments'
+encoding: utf-8
