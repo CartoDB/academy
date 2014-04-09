@@ -2,10 +2,12 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "compass/css3/transition";
+@import "compass";
 
 @import "_mixins";
 @import "_fonts";
 @import "_icons";
+@import '_buttons';
 
 
 
@@ -31,7 +33,6 @@ html {
 /* Header */
 
 .header {
-  @extend .text-c;
   padding: 25px 0;
   background: $principal-colour;
   color: #fff;
@@ -57,30 +58,27 @@ html {
 
 .footer {
   font: 14px "Proxima Nova Rg";
-  background: rgba(#ddd, .2);
-  color: #555;
+  background: #252A2F;
+  color: #fff;
 
   a {
-    color: #397DB8;
+    color: #fff;
     @include transition(.3s all);
-
     &:hover {
-      color: #000;
+      color: darken(#fff, 30%);
     }
   }
 }
 
 .footer-inner {
-  padding-top: 55px;
+  padding: 20px;
+  @extend .clearfix;
 
   p {
-    padding: 50px 0 40px;
-    border-top: 1px solid #eee;
+    @include inline-block;
+    font: 14px 'Proxima Nova Lt';
+    font-weight: 700;
   }
-}
-
-.footer-columns {
-  @extend .clearfix;
 }
 
 .footer-column {
@@ -89,31 +87,25 @@ html {
   width: 205px;
   min-height: 195px;
   font: 15px "Proxima Nova Lt";
-
-
-  &.first {
-    background: image-url('icons/logo-gray.png') no-repeat;
-  }
-
-  &.last {
-    width: 100px;
-  }
-
-  dt {
-    margin-bottom: 20px;
-    font-weight: 700;
-    font-family: "Proxima Nova Rg";
-  }
-
-  dd {
-    margin-bottom: 10px;
-  }
-
-  a {
-    color: #555;
-
-    &:hover {
-      color: #333;
-    }
-  }
 }
+
+.ftr-brand {
+  text-indent:-9000px;
+  width: 53px;
+  height: 70px;
+  background: image-url('icons/logo-footer.png') no-repeat;
+  margin-right: 20px;
+}
+
+.ftr-left { @include float(left); }
+.ftr-right { @include float(right); }
+.ftr-twitter {
+   @include inline-block;
+   width:29px;
+   height: 20px;
+   margin-right: 8px;
+   background: image-url('icons/twitter-footer.png') no-repeat;
+   @include opacity(0.5);
+}
+
+.ftr-share { margin-top: 26px; }
