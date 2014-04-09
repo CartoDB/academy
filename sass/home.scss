@@ -2,14 +2,6 @@
 @import '_buttons';
 
 
-.text-c {
-  text-align: center;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-}
-
 a {
   text-decoration: none;
 }
@@ -129,7 +121,7 @@ a {
     width: 300px;
     height: 216px;
     background: #85C77C;
-    @include border-radius(3);
+    @include border-radius(3px);
     @include transition(.3s all);
 
     &.disabled {
@@ -162,7 +154,7 @@ a {
     color: rgba(#000, .5);
     text-transform: uppercase;
     background: rgba(#fff, .5);
-    @include border-radius(4);
+    @include border-radius(4px);
   }
 }
 
@@ -187,6 +179,10 @@ a {
     font-family: "Proxima Nova Th";
     display: block;
   }
+}
+
+.subscribe {
+  text-align: center;
 }
 
 .field {

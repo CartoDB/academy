@@ -12,143 +12,149 @@
 
   <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
   <link rel="stylesheet" href="{{ site.baseurl }}/css/course.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="crs-home">
   {% include header.html %}
-
   {% include navigation.html %}
 
-        <section>
-            <header class="hdr-course">
-                <div class="hdr-crs-inner container h-valign h-tcenter">
-                    <div class="h-iblock h-malign">
-                        <span class="hdr-crs-icon h-valign h-tcenter">
-                            <span class="h-iblock h-malign">
-                              <i class="course-category icon i-medium icons-{{ page.tag }}-medium-white"></i>
-                            </span>
-                        </span>
-                        <h1 class="hdr-crs-title">{{ page.title }}</h1>
-                        <h2 class="hdr-crs-subtitle">{{ page.subtitle }}</h2>
-                    </div>
-                </div>
-            </header>
+  <section>
+    <header class="hdr-course">
+      <div id="cartodb-map"></div>
+      <div class="hdr-crs-inner container h-valign h-tcenter">
+        <div class="h-iblock h-malign">
+          <span class="hdr-crs-icon h-valign h-tcenter">
+            <span class="h-iblock h-malign">
+              <i class="course-category icon i-medium icons-{{ page.tag }}-medium-white"></i>
+            </span>
+          </span>
 
-            {{ content }}
-            <div class="cf container">
-                <nav class="crs-nav h-left">
-                    <ul>
-                        {% for page in site.pages %}
-                         {% if page.layout == 'course' %}
-                            {% for lesson in site.pages %}
-                                {% if page.id == lesson.course_slug %}
-                                    <li>
-                                        <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
-                                        </a></h2>
-                                        <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                          {% endif %}
-                        {% endfor %}
-                    </ul>
-                </nav>
-                <div class="crs-inner h-right">
-                    <article class="crs-info">
-                        <div class="crs-info-container">
-                            <h2 class="crs-info-title title-l">What you’ll learn</h2>
-                            <p class="crs-info-txt">{{ page.description }}</p>
-                            <h2 class="crs-info-title title-l">Prerequesites</h2>
-                            <ul class="crs-info-pre">
-                            {% for prerequisite in page.prerequisite %}
-                                <li class="size-l">
-                                    <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
-                                    <p class="h-iblock h-malign">{{ prerequisite }}</p>
-                                </li>
-                            {% endfor %}
-                            <ul>
-                        </div>
-                        <footer class="crs-footer">
-                            <ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
-                                <li>
-                                    <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
-                                        <span class="h-iblock h-malign">
-                                            <i class="icon icons-difficulty-medium-black i-light"></i>
-                                        </span>
-                                    </span>
-                                    <dl class="h-iblock h-malign">
-                                        <dt class="size-sbxs">DIFFICULTY</dd>
-                                        <dd class="size-s">{{ page.categories }}</dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
-                                        <span class="h-iblock h-malign">
-                                            <i class="icon icons-time-medium-black i-light"></i>
-                                        </span>
-                                    </span>
-                                    <dl class="h-iblock h-malign">
-                                        <dt class="size-sbxs">TIME</dd>
-                                        <dd class="size-s ">{{ page.time }}</dd>
-                                    </dl>
-                                </li>
-                            </ul>
+          <h1 class="hdr-crs-title">{{ page.title }}</h1>
+          <h2 class="hdr-crs-subtitle">{{ page.subtitle }}</h2>
+        </div>
+      </div>
+    </header>
 
+    {{ content }}
+    <div class="cf container">
+      <nav class="crs-nav h-left">
+        <ul>
+        {% for page in site.pages %}
+          {% if page.layout == 'course' %}
+            {% for lesson in site.pages %}
+              {% if page.id == lesson.course_slug %}
+                <li>
+                  <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h2>
+                  <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        </ul>
+      </nav>
 
-                            <p class="button btn-m btn-black btn-white btn-20 size-bm">
-                                <a href="/courses/{{ page.id }}/lesson-1.html">START COURSE</a>
-                            </p>
-                        </footer>
-                    </article>
+      <div class="crs-inner h-right">
+        <article class="crs-info">
+            <div class="crs-info-container">
+              <h2 class="crs-info-title title-l">What you’ll learn</h2>
+              <p class="crs-info-txt">{{ page.description }}</p>
 
-                    <article class="crs-subscribe">
-                        <header class="crs-sbs-header">
-                            <div class="h-iblock h-malign  crs-sbs-icon">
-                                <i class="icon i-light i-xl icons-calendar-large-white"></i>
-                            </div>
-                            <div class="h-iblock h-malign">
-                                <h2 class="title-l h-txt-white crs-sbs-title">123 persons have taken this course</h2>
-                                <p class="h-txt-white size-l">Join them now for free, and receive each new lessons each week</p>
-                            </div>
-                        </header>
-
-
-
-                        <form class="crs-sbs-form">
-                            <fieldset class="h-pr cf">
-                                <input type="text" name="email" class="h-left size-sbl" />
-                                <label class="h-pa size-sbl">Your email</label>
-
-                                <button class="h-right crs-sbs-submit">
-                                    <span class="size-bm h-txt-white">SEND</span>
-                                </button>
-                            </fieldset>
-                        </form>
-
-
-
-                        <p class="crs-disclaimer h-tcenter size-m">
-                            We dont use your email for comercial advertisings
-                        </p>
-                    </article>
-                </div>
-
+              <h2 class="crs-info-title title-l">Prerequesites</h2>
+              <ul class="crs-info-pre">
+                {% for prerequisite in page.prerequisite %}
+                  <li class="size-l">
+                    <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
+                    <p class="h-iblock h-malign">{{ prerequisite }}</p>
+                  </li>
+                {% endfor %}
+              <ul>
             </div>
 
+            <footer class="crs-footer">
+              <ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
+                <li>
+                  <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                    <span class="h-iblock h-malign">
+                      <i class="icon icons-difficulty-medium-black i-light"></i>
+                    </span>
+                  </span>
 
-        </section>
+                  <dl class="h-iblock h-malign">
+                    <dt class="size-sbxs">DIFFICULTY</dd>
+                    <dd class="size-s">{{ page.categories }}</dd>
+                  </dl>
+                </li>
+                <li>
+                  <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                    <span class="h-iblock h-malign">
+                      <i class="icon icons-time-medium-black i-light"></i>
+                    </span>
+                  </span>
 
-    {% include footer.html %}
+                  <dl class="h-iblock h-malign">
+                    <dt class="size-sbxs">TIME</dd>
+                    <dd class="size-s ">{{ page.time }}</dd>
+                  </dl>
+                </li>
+            </ul>
 
+            <p class="button btn-m btn-black btn-white btn-20 size-bm">
+              <a href="/courses/{{ page.id }}/lesson-1.html">START COURSE</a>
+            </p>
+          </footer>
+        </article>
 
-        <script src="{{ site.baseurl }}/js/general.js"></script>
+        <article class="crs-subscribe">
+          <header class="crs-sbs-header">
+            <div class="h-iblock h-malign  crs-sbs-icon">
+              <i class="icon i-light i-xl icons-calendar-large-white"></i>
+            </div>
 
+            <div class="h-iblock h-malign">
+              <h2 class="title-l h-txt-white crs-sbs-title">123 persons have taken this course</h2>
+              <p class="h-txt-white size-l">Join them now for free, and receive each new lessons each week</p>
+            </div>
+          </header>
 
+          <form class="crs-sbs-form">
+            <fieldset class="h-pr cf">
+              <input type="text" name="email" class="h-left size-sbl" />
+              <label class="h-pa size-sbl">Your email</label>
 
-    </body>
+              <button class="h-right crs-sbs-submit">
+                <span class="size-bm h-txt-white">SEND</span>
+              </button>
+            </fieldset>
+          </form>
 
+          <p class="crs-disclaimer h-tcenter size-m">
+            We dont use your email for comercial advertisings
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {% include footer.html %}
+
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="{{ site.baseurl }}/js/application.js"></script>
+  <script src="{{ site.baseurl }}/js/course.js"></script>
+
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.course = new academy.Views.Course({
+          vizjson: '{{ page.vizjson }}'
+        });
+      });
+    });
+  </script>
+</body>
 </html>
-
-
-

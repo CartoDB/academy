@@ -11,6 +11,7 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
       {% for page in site.pages %}
       {% if page.layout == 'course' %}
         <li class="block {% cycle '', '', 'last' %}">
+          {% if page.published %}
           <a href="{{ page.url }}" class="block-inner {% if page.published == false %}disabled{% endif %}">
             <div class="block-header">
               <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
@@ -19,6 +20,16 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
 
             <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
           </a>
+          {% else %}
+          <div class="block-inner disabled">
+            <div class="block-header">
+              <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
+              <span class="level">{{ page.categories }}</span>
+            </div>
+
+            <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
+          </a>
+          {% endif %}
         </li>
       {% endif %}
       {% endfor %}
@@ -27,7 +38,7 @@ description: 'Learn to create maps on the web<br />and visualize geospatial data
 </section>
 
 <section class="section dark">
-  <div class="section-inner last text-c">
+  <div class="section-inner last subscribe">
     <h2 class="section-title">Subscribe and recieve info about our courses</h2>
     <form>
       <div class="field">
