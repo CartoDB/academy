@@ -3,31 +3,47 @@
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ site.name }}</title>
-    <meta name="description" content="{{ site.description }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ site.name }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css">
-    <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
-  </head>
-  <body>
-    <header class="header">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css">
+  <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+  <header class="header site-header">
+    <div class="inner">
       <i class="logo"></i>
       <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
       <p class="site-description">{{ page.description }}</p>
-      <a href="#content" class="more">View courses</a>
+      <a href="#content" class="more" data-href="#content">View courses</a>
       <p class="small">brought to your by <a href="{{ site.cartodburl }}">CartoDB</a></p>
-    </header>
-
-    <div class="content" id="content">
-      {{ content }}
     </div>
+  </header>
 
-    {% include footer.html %}
-  </body>
+  <div class="content" id="content">
+    {{ content }}
+  </div>
+
+  {% include footer.html %}
+
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="{{ site.baseurl }}/js/application.js"></script>
+  <script src="{{ site.baseurl }}/js/home.js"></script>
+
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.course = new academy.Views.Home({
+          vizjson: '{{ page.vizjson }}'
+        });
+      });
+    });
+  </script>
+</body>
 </html>

@@ -23,14 +23,11 @@ When using a baseline grid, the first thing you must decide on is your baseline 
 
 As you might have guessed, most designers choose this unit arbitrarily. The problem with this approach is that the resulting baseline grid unit is not directly related to the primary font size, which is the most fundamental design element on the page.
 
-<div class="lss-code">
-<pre>
-<code>function addClass(node, classAdd){
-node.className += ' ' + classAdd;
-}</code>
-</pre>
-</div>
-
+{% highlight javascript %}
+function addClass(node, classAdd) {
+  node.className += ' ' + classAdd;
+}
+{% endhighlight %}
 
 ##titular
 
