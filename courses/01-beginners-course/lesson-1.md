@@ -5,6 +5,7 @@ title:  "Lesson 1"
 subtitle: "Subtitulo"
 course: "Beginners course"
 course_slug: "01-beginners-course"
+vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
 
@@ -23,11 +24,11 @@ When using a baseline grid, the first thing you must decide on is your baseline 
 As you might have guessed, most designers choose this unit arbitrarily. The problem with this approach is that the resulting baseline grid unit is not directly related to the primary font size, which is the most fundamental design element on the page.
 
 <div class="lss-code">
-      <pre>
-          <code>function addClass(node, classAdd){
-	node.className += ' ' + classAdd;
+<pre>
+<code>function addClass(node, classAdd){
+node.className += ' ' + classAdd;
 }</code>
-      </pre>
+</pre>
 </div>
 
 

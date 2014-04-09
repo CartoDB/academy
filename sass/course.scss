@@ -1,4 +1,5 @@
 @import '_application';
+@import '_buttons';
 
 $principal-colour: #397DBA;
 $secondary-colour: #424A50;
@@ -231,7 +232,7 @@ a {
     > li { font: 16px 'Proxima Nova Lt'; }
     > li:last-child { font-family: 'Proxima Nova Rg'; font-weight: 700;  }
     > li:after {
-        content: "›";
+        content: '\203A';
         margin: 0 5px 0 8px;
     }
     > li:last-child:after { visibility: hidden; }
@@ -293,8 +294,16 @@ a {
     margin-bottom: 38px;
 }
 
-.fixed { position: fixed; }
-.lss-hdr-inner {  width: 100%; background: #fff;}
+.fixed {
+  position: fixed;
+  z-index: 1000001;
+}
+
+.lss-hdr-inner {
+  border-bottom: 1px solid #CCC;
+  width: 100%; background: #fff;
+}
+
 .lss-hdr-inner.border {
     border-bottom: 1px solid #ccc;
     border-bottom: 1px solid rgba(0, 0, 0, .2);

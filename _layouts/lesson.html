@@ -1,161 +1,83 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ site.name }} &rsaquo; {{ page.course }} &rsaquo; {{ page.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<html>
+  <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
-    <head>
-        <meta http-equiv="Content-Type" content="charset=UTF-8" />
-        <title>Map Academy - {{ page.course }} - {{ page.title }}</title>
-        <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/course.css">
+  <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+  <div class="fixed lss-hdr-inner" id="lss-scroll-recieve">
+    {% include header.html %}
+    {% include navigation.html %}
+  </div>
 
-        <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
-        <link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
-        <link href="{{ site.baseurl }}/css/code_theme.css" rel="stylesheet" />
-    </head>
+  <section>
+    <div class="lss-container">
+      <div class="lss-course" id="cartodb-map"></div>
 
-    <body>
-        
-        <div class="fixed lss-hdr-inner" id="lss-scroll-recieve">
-          <header class="header">
-              <div class="hdr-inner cf container">
-                  <div class="h-left">
-                      <div class="h-iblock">
-                          <i class="icon brand-inside icons-logo-inside"></i>
-                      </div>
-                      <div class="h-iblock">
-                          <h1 class="hdr-title">The map Academy</h1>
-                          <h2 class="size-s">Learn to create maps on the web and visualize geospatial data</h2>
-                      </div>
-                  </div>
-                  <div class="h-right h-tright">
-                      <p class="size-s hdr-info">brought to your by <a href="#">CartoDB</a></p>
-                  </div>
-              </div>
-          </header>
-          
+      <div class="cf container">
+        <nav class="crs-nav h-left">
+          <ul>
+            {% for page in site.pages %}
+              {% if page.layout == 'course' %}
+                {% for lesson in site.pages %}
+                  {% if page.id == lesson.course_slug %}
+                    <li>
+                      <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h2>
+                      <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
 
+        <div class="crs-inner h-right lss-inner">
+        {% for page in site.pages %}
+          {% if page.layout == 'course' %}
+            {% for lesson in site.pages %}
+              {% if page.id == lesson.course_slug %}
+                {{ content }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        </div>
 
-          <div class="hdr-nav container h-pr cf">
-              <nav class="h-left">
-                  <ul class="inb-list breadcumbs">
-                      <li><a href="/">All courses</a></li>
-                      <li><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}">Beginner course</a></li>
-                  </ul>
-              </nav>
+        </div>
+     </div>
+  </section>
 
-              {% include dropdown.html %}
+  {% include footer.html %}
 
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="{{ site.baseurl }}/js/vendor/jquery-1.10.2.min.js"></script>
+  <script src="{{ site.baseurl }}/js/application.js"></script>
+  <script src="{{ site.baseurl }}/js/lesson.js"></script>
 
-              <span class="progress-bar h-pa hide" style="width:0%;"></span>
-
-          </div>
-       </div>
-
-        <section>
-          <div class="lss-container">
-              <header class="lss-course" id="lss-hdr-course">
-              </header>
-
-              <div class="cf container">
-                  <nav class="crs-nav h-left">
-                      <ul>
-                          {% for page in site.pages %}
-                           {% if page.layout == 'course' %}
-                              {% for lesson in site.pages %}
-                                  {% if page.id == lesson.course_slug %}
-                                      <li>
-                                          <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}
-                                          </a></h2>
-                                          <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
-                                      </li>
-                                  {% endif %}
-                              {% endfor %}
-                            {% endif %}
-                          {% endfor %}
-                      </ul>
-                  </nav>
-                  <div class="crs-inner h-right lss-inner">
-                    {% for page in site.pages %}
-                       {% if page.layout == 'course' %}
-                          {% for lesson in site.pages %}
-                              {% if page.id == lesson.course_slug %}
-                                {{ content }}
-                              {% endif %}
-                          {% endfor %}
-                        {% endif %}
-                      {% endfor %}
-                  </div>
-
-              </div>
-           </div>
-        </section>
-
-        {% include footer.html %}
-
-        <script src="{{ site.baseurl }}/js/vendor/highlight.pack.js"></script>
-        <script src="{{ site.baseurl }}/js/general.js"></script>
-
-        <script>
-
-            window.addEventListener("load", function(){
-
-                var scrollInner = document.querySelector('#lss-scroll-recieve');
-
-              
-                window.addEventListener("scroll", function(){
-                    var header = document.querySelector('.lss-hdr-inner');
-                    var progressbar = document.querySelector('.progress-bar');
-                    var heightDiv = header.offsetHeight-80;
-                    var heightScroll = document.querySelector('.lss-inner').offsetHeight;
-                    var value = document.body.scrollTop-100;
-                    var percentNum = (value*100)/heightScroll;
-                    var percent = percentNum+'%';
-
-
-                    if( document.body.scrollTop != 0) {
-                        if ( !hasClass(header, 'border') ) { 
-                             addClass (header, 'border');
-                        }   
-                    } else if(document.body.scrollTop == 0) {
-                        if ( hasClass(header, 'border') ) { 
-                            removeClass (header, 'border');
-                        } 
-                    }
-
-
-
-                    if( document.body.scrollTop <= heightDiv) {
-                        if ( hasClass(scrollInner, 'scroll') ) { 
-                            removeClass (scrollInner, 'scroll');
-                        }
-                        if ( !hasClass(progressbar, 'hide') ) { 
-                            addClass (progressbar, 'hide');
-                            progressbar.style.width= 0+'%';
-                        }   
-                    } else {
-                        if (percentNum < 100) {
-                          document.querySelector('.progress-bar').style.width = percent;
-                        } else {
-                          document.querySelector('.progress-bar').style.width = "100%";
-                        }
-                        if ( !hasClass(scrollInner, 'scroll') ) { 
-                            addClass (scrollInner, 'scroll');
-                        }
-                        if ( hasClass(progressbar, 'hide') ) { 
-                            removeClass (progressbar, 'hide');
-                            
-                        } 
-                    }
-
-                 
-                });
-
-            });
-        </script>
-
-
-    </body>
-
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.lesson = new academy.Views.Lesson({
+          vizjson: '{{ page.vizjson }}'
+        });
+      });
+    });
+  </script>
+</body>
 </html>
-
-
-

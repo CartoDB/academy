@@ -1,45 +1,24 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Map Academy - {{ page.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<html>
+  <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
-    <head>
-        <meta http-equiv="Content-Type" content="charset=UTF-8" />
-        <title>Map Academy - {{ page.title }}</title>
-        <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/course.css">
+  <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body class="crs-home">
+  {% include header.html %}
 
-        <link href="{{ site.baseurl }}/css/buttons.css" rel="stylesheet" />
-        <link href="{{ site.baseurl }}/css/course.css" rel="stylesheet"  />
-    </head>
-
-    <body class="crs-home">
-        
-        <header class="header">
-            <div class="hdr-inner cf container">
-                <div class="h-left">
-                    <div class="h-iblock">
-                        <i class="icon brand-inside icons-logo-inside"></i>
-                    </div>
-                    <div class="h-iblock">
-                        <h1 class="hdr-title">The map Academy</h1>
-                        <h2 class="size-s">Learn to create maps on the web and visualize geospatial data</h2>
-                    </div>
-                </div>
-                <div class="h-right h-tright">
-                    <p class="size-s hdr-info">brought to your by <a href="#">CartoDB</a></p>
-                </div>
-            </div>
-        </header>
-        <div class="hdr-nav container h-pr cf">
-            <nav class="h-left">
-                <ul class="inb-list breadcumbs">
-                    <li><a href="#">All courses</a></li>
-                    <li><a href="#">Beginner course</a></li>
-                </ul>
-            </nav>
-            {% include dropdown.html %}
-
-
-        </div>
+  {% include navigation.html %}
 
         <section>
             <header class="hdr-course">
@@ -115,7 +94,7 @@
                                     </dl>
                                 </li>
                             </ul>
-                            
+
 
                             <p class="button btn-m btn-black btn-white btn-20 size-bm">
                                 <a href="/courses/{{ page.id }}/lesson-1.html">START COURSE</a>
@@ -135,7 +114,7 @@
                         </header>
 
 
-                            
+
                         <form class="crs-sbs-form">
                             <fieldset class="h-pr cf">
                                 <input type="text" name="email" class="h-left size-sbl" />
@@ -147,7 +126,7 @@
                             </fieldset>
                         </form>
 
-            
+
 
                         <p class="crs-disclaimer h-tcenter size-m">
                             We dont use your email for comercial advertisings
@@ -161,7 +140,7 @@
         </section>
 
     {% include footer.html %}
-        
+
 
         <script src="{{ site.baseurl }}/js/general.js"></script>
 

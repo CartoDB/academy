@@ -1,0 +1,36 @@
+<div class="hdr-nav container h-pr cf">
+  <nav class="h-left">
+    <ul class="inb-list breadcumbs">
+      <li><a href="{{ site.baseurl }}/">All courses</a></li>
+      {% if page.layout == 'course' %}
+        <li><a href="{{ site.baseurl }}/courses/{{ page.id }}.html">{{ page.title }}</a></li>
+      {% elsif page.layout == 'lesson' %}
+        <li><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}.html">{{ page.course }}</a></li>
+        <li><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html">{{ page.title }}</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class="h-dropdown h-pa">
+    <nav>
+      <a href="javascript:void(0);" class="h-drp-actions h-pa">
+        <i class="icon arrow-down icons-arrow-down"></i>
+      </a>
+
+      <ul>
+        {% for page in site.pages %}
+        {% if page.layout == 'course' %}
+          <li>
+          <p>
+            <a class="size-s" href="{{ site.baseurl }}/courses/{{ page.id }}.html">{{ page.title }}</a>
+          </p>
+          </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  <span class="progress-bar h-pa hide"></span>
+</div>
+
