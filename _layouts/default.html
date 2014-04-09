@@ -12,6 +12,10 @@
 
   <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
   <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -21,7 +25,7 @@
       <i class="logo"></i>
       <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
       <p class="site-description">{{ page.description }}</p>
-      <a href="#content" class="more" data-href="#content">View courses</a>
+      <a href="#content" class="more" data-href="#courses">View courses</a>
       <p class="small">brought to your by <a href="{{ site.cartodburl }}">CartoDB</a></p>
     </div>
   </header>
