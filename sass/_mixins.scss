@@ -6,9 +6,3 @@ $secondary-colour: #424A50;
 $max-width: 940px;
 $medium-width: 720px;
 $small-width: 320px;
-
-
-/* =Mixins
------------------------------------------------ */
-
-.clearfix { @include pie-clearfix; }

@@ -17,7 +17,7 @@ html {
 }
 
 .inner {
-  @extend .clearfix;
+  @include pie-clearfix;
   width: $max-width;
   margin: 0 auto;
   padding: 0 10px;
@@ -98,7 +98,7 @@ a {
 }
 
 .footer-inner {
-  @extend .clearfix;
+  @include pie-clearfix;
   padding: 20px;
 
   p {
