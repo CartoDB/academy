@@ -13,5 +13,7 @@ academy.Views.Course = cdb.core.View.extend({
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions);
+
+    this.dropdown = new academy.ui.Views.Dropdown();
   }
 });
