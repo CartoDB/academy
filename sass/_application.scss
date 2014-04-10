@@ -108,10 +108,11 @@ a {
 
 .ftr-brand {
   text-indent: -9000px;
-  width: 53px;
-  height: 70px;
+  width: 38px;
+  height: 50px;
   margin-right: 20px;
   background: image-url('icons/logo-footer.png') no-repeat;
+  background-size: 38px;
 }
 
 .ftr-left { float: left; }
@@ -125,4 +126,4 @@ a {
   @include opacity(.5);
 }
 
-.ftr-share { margin-top: 26px; }
+.ftr-share { margin-top: 16px; }
