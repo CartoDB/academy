@@ -26,7 +26,7 @@
   <section>
     <header class="hdr-course">
       <div id="cartodb-map"></div>
-      <div class="hdr-crs-inner container h-valign h-tcenter">
+      <div class="hdr-crs-inner inner h-valign h-tcenter">
         <div class="h-iblock h-malign">
           <span class="hdr-crs-icon h-valign h-tcenter">
             <span class="h-iblock h-malign">
@@ -41,7 +41,8 @@
     </header>
 
     {{ content }}
-    <div class="cf container">
+
+    <div class="inner">
       <nav class="crs-nav h-left">
         <ul>
         {% for page in site.pages %}
@@ -61,52 +62,50 @@
 
       <div class="crs-inner h-right">
         <article class="crs-info">
-            <div class="crs-info-container">
-              <h2 class="crs-info-title title-l">What you’ll learn</h2>
-              <p class="crs-info-txt">{{ page.description }}</p>
+          <div class="crs-info-container">
+            <h2 class="crs-info-title title-l">What you’ll learn</h2>
+            <p class="crs-info-txt">{{ page.description }}</p>
 
-              <h2 class="crs-info-title title-l">Prerequesites</h2>
-              <ul class="crs-info-pre">
-                {% for prerequisite in page.prerequisite %}
-                  <li class="size-l">
-                    <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
-                    <p class="h-iblock h-malign">{{ prerequisite }}</p>
-                  </li>
-                {% endfor %}
-              <ul>
-            </div>
-
-            <footer class="crs-footer">
-              <ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
-                <li>
-                  <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
-                    <span class="h-iblock h-malign">
-                      <i class="icon icons-difficulty-medium-black i-light"></i>
-                    </span>
-                  </span>
-
-                  <dl class="h-iblock h-malign">
-                    <dt class="size-sbxs">DIFFICULTY</dd>
-                    <dd class="size-s">{{ page.categories }}</dd>
-                  </dl>
+            <h2 class="crs-info-title title-l">Prerequesites</h2>
+            <ul class="crs-info-pre">
+              {% for prerequisite in page.prerequisite %}
+                <li class="size-l">
+                  <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
+                  <p class="h-iblock h-malign">{{ prerequisite }}</p>
                 </li>
-                <li>
-                  <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
-                    <span class="h-iblock h-malign">
-                      <i class="icon icons-time-medium-black i-light"></i>
-                    </span>
-                  </span>
+              {% endfor %}
+            <ul>
+          </div>
 
-                  <dl class="h-iblock h-malign">
-                    <dt class="size-sbxs">TIME</dd>
-                    <dd class="size-s ">{{ page.time }}</dd>
-                  </dl>
-                </li>
+          <footer class="crs-footer">
+            <ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
+              <li>
+                <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                  <span class="h-iblock h-malign">
+                    <i class="icon icons-difficulty-medium-black i-light"></i>
+                  </span>
+                </span>
+
+                <dl class="h-iblock h-malign">
+                  <dt class="size-sbxs">DIFFICULTY</dd>
+                  <dd class="size-s">{{ page.categories }}</dd>
+                </dl>
+              </li>
+              <li>
+                <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                  <span class="h-iblock h-malign">
+                    <i class="icon icons-time-medium-black i-light"></i>
+                  </span>
+                </span>
+
+                <dl class="h-iblock h-malign">
+                  <dt class="size-sbxs">TIME</dd>
+                  <dd class="size-s ">{{ page.time }}</dd>
+                </dl>
+              </li>
             </ul>
 
-            <p class="button btn-m btn-black btn-white btn-20 size-bm">
-              <a href="/courses/{{ page.id }}/lesson-1.html">START COURSE</a>
-            </p>
+            <a href="/courses/{{ page.id }}/lesson-1.html" class="btn-round size-bm">START COURSE</a>
           </footer>
         </article>
 
