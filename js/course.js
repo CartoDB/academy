@@ -1,6 +1,10 @@
 academy.Views.Course = cdb.core.View.extend({
   el: document.body,
 
+  events: {
+    'submit .crs-sbs-form': '_onSubmitForm'
+  },
+
   initialize: function() {
     this._initViews();
   },
@@ -15,5 +19,9 @@ academy.Views.Course = cdb.core.View.extend({
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions);
 
     this.dropdown = new academy.ui.Views.Dropdown();
+  },
+
+  _onSubmitForm: function(e) {
+    e.preventDefault();
   }
 });
