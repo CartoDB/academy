@@ -1,20 +1,12 @@
 @import '_application';
 
 
-.text-c {
-  text-align: center;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-}
-
 a {
   text-decoration: none;
 }
 
-.header {
-  padding: 50px 0;
+.site-header {
+  padding: 110px 0 25px;
   text-align: center;
   background: #397DBA image-url('header-bg.png');
 }
@@ -28,7 +20,7 @@ a {
 }
 
 .site-title {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-size: 60px;
   font-family: "Proxima Nova Th";
 
@@ -38,33 +30,15 @@ a {
 }
 
 .site-description {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-size: 31px;
   font-family: 'Proxima Nova Lt';
   line-height: 1.2;
   color: #fff;
 }
 
-.more {
-  display: inline-block;
-  border: 2px solid #fff;
-  width: 235px;
-  font-weight: 700;
-  line-height: 48px;
-  font-family: 'Proxima Nova Rg';
-  background: rgba(#000, .2);
-  @include border-radius(25px);
-  color: #fff;
-  text-transform: uppercase;
-  -webkit-transition: background .2s linear;
-  transition: background .2s linear;
-}
-  .more:hover {
-    background: rgba(#000, .3);
-  }
-
 .small {
-  margin-top: 75px;
+  margin-top: 95px;
   font-size: 15px;
   font-family: 'Proxima Nova Rg';
   color: #ececec;
@@ -128,7 +102,7 @@ a {
     width: 300px;
     height: 216px;
     background: #85C77C;
-    @include border-radius(3);
+    @include border-radius(3px);
     @include transition(.3s all);
 
     &.disabled {
@@ -161,7 +135,7 @@ a {
     color: rgba(#000, .5);
     text-transform: uppercase;
     background: rgba(#fff, .5);
-    @include border-radius(4);
+    @include border-radius(4px);
   }
 }
 
@@ -188,6 +162,10 @@ a {
   }
 }
 
+.subscribe {
+  text-align: center;
+}
+
 .field {
   @extend .clearfix;
   display: inline-block;
@@ -210,32 +188,10 @@ a {
   &:-moz-placeholder { color: #ddd; }
   &::-moz-placeholder { color: #ddd; }
   &:-ms-input-placeholder { color: #ddd; }
-}
 
-.button {
-  float: left;
-  margin: 0;
-  padding: 0 40px;
-  background: #397DBA;
-  border: 0;
-  font: 18px/57px 'Proxima Nova Th';
-  color: #fff;
-  outline: none;
-  @include transition(.3s all);
-
-  &:hover {
-    background: darken(#397DBA, 5%);
-    cursor: pointer;
+  &.prepend-input {
+    margin-right: -5px;
   }
-}
-
-.append-button {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.prepend-input {
-  margin-right: -5px;
 }
 
 .disclaimer {
@@ -243,46 +199,50 @@ a {
   color: rgba(#fff, .5);
 }
 
-
-
-.info-course { 
+.info-course {
+  position: relative;
   background: #e5e5e5;
   padding: 100px 0;
   text-align: center;
 }
-  .inf-inner { 
-    display: inline-block;
-    text-align: left;
-    > li {
-      padding: 30px;
-      display: inline-block;
-      vertical-align: top;
-      background: #fff;
-      background: rgba(255,255,255, .9);
-      border: 1px solid rgba(0, 0, 0, .2);
-      width: 290px;
-      height: 326px;
-      @include border-radius(4px);
-      margin-left: 150px;
-    }
-    > li:first-child { margin: 0}
-  }
-  .inf-title { margin-bottom: 30px; font: 24px/26px 'Proxima Nova Th'; }
-  .inf-list { color: #777; 
-    > li { 
-      margin-bottom: 24px; 
-      font: 16px/22px 'Proxima Nova Rg';
-      padding-left: 30px;
-      position: relative;
-      &:before {
-        content:"";
-        position: absolute;
-        width: 15px;
-        height: 13px;
-        background: image-url('arrow.png');
-        left: 0;
-        top: 4px; 
-      }
-    }
 
+.inf-inner {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+
+  > li {
+    padding: 30px;
+    float: left;
+    vertical-align: top;
+    background: #fff;
+    background: rgba(255,255,255, .9);
+    border: 1px solid rgba(0, 0, 0, .2);
+    width: 358px;
+    @include border-radius(4px);
+    margin-left: 100px;
+
+    &:first-child { margin: 0; }
   }
+}
+
+.inf-title { margin-bottom: 30px; font: 24px/26px 'Proxima Nova Th'; }
+
+.inf-list { color: #777;
+  > li {
+    margin-bottom: 24px;
+    font: 16px/22px 'Proxima Nova Rg';
+    padding-left: 30px;
+    position: relative;
+
+    &:before {
+      content:"";
+      position: absolute;
+      width: 15px;
+      height: 13px;
+      background: image-url('icons/arrow-right.png');
+      left: 0;
+      top: 4px;
+    }
+  }
+}
