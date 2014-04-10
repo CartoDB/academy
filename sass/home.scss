@@ -20,7 +20,7 @@ a {
 }
 
 .site-title {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-size: 60px;
   font-family: "Proxima Nova Th";
 
@@ -30,34 +30,15 @@ a {
 }
 
 .site-description {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-size: 31px;
   font-family: 'Proxima Nova Lt';
   line-height: 1.2;
   color: #fff;
 }
 
-.more {
-  display: inline-block;
-  border: 2px solid #fff;
-  width: 235px;
-  font-weight: 700;
-  line-height: 48px;
-  font-family: 'Proxima Nova Rg';
-  background: rgba(#000, .2);
-  @include border-radius(25px);
-  color: #fff;
-  text-transform: uppercase;
-  -webkit-transition: background .2s linear;
-  transition: background .2s linear;
-
-  &::hover {
-    background: rgba(#000, .3);
-  }
-}
-
 .small {
-  margin-top: 75px;
+  margin-top: 95px;
   font-size: 15px;
   font-family: 'Proxima Nova Rg';
   color: #ececec;
@@ -207,32 +188,10 @@ a {
   &:-moz-placeholder { color: #ddd; }
   &::-moz-placeholder { color: #ddd; }
   &:-ms-input-placeholder { color: #ddd; }
-}
 
-.button {
-  float: left;
-  margin: 0;
-  padding: 0 40px;
-  background: #397DBA;
-  border: 0;
-  font: 18px/57px 'Proxima Nova Th';
-  color: #fff;
-  outline: none;
-  @include transition(.3s all);
-
-  &:hover {
-    background: darken(#397DBA, 5%);
-    cursor: pointer;
+  &.prepend-input {
+    margin-right: -5px;
   }
-}
-
-.append-button {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.prepend-input {
-  margin-right: -5px;
 }
 
 .disclaimer {
@@ -281,7 +240,7 @@ a {
       position: absolute;
       width: 15px;
       height: 13px;
-      background: image-url('arrow.png');
+      background: image-url('icons/arrow-right.png');
       left: 0;
       top: 4px;
     }

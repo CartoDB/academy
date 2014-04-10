@@ -1,15 +1,36 @@
-.button {  display: inline-block;  }
-	.btn-black.btn-20 a { background: rgba(0,0,0,.2); }
-		.btn-black.btn-20 a:hover { background: rgba(0,0,0,.4); }
-	.btn-m a {
-		padding: 15px 50px;
-		min-width: 200x;
-	}
+.button {
+  float: left;
+  margin: 0;
+  padding: 0 40px;
+  background: #397DBA;
+  border: 0;
+  font: 18px/57px 'Proxima Nova Th';
+  color: #fff;
+  outline: none;
+  @include transition(background .15s);
 
-	.btn-white {  }
-	.btn-white a {
-		color: #fff; border: 2px solid #fff; border-radius: 100px;
-	    -webkit-transition: background .2s linear;
-	    transition: background .2s linear;
-	    &:hover { color: #fff; }
-	}
+  &:hover {
+    background: darken(#397DBA, 5%);
+    cursor: pointer;
+  }
+}
+
+.append-button {
+  @include border-radius(0 5px 5px 0);
+}
+
+.btn-round {
+  min-width: 200px;
+  border: 2px solid #FFF;
+  padding: 15px 50px;
+  background: rgba(#000, .2);
+  @include border-radius(100px);
+  color: #FFF;
+  text-transform: uppercase;
+  @include transition(all .15s);
+
+  &:hover {
+    background: rgba(#000, .4);
+    color: #fff;
+  }
+}
