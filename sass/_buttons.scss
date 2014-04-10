@@ -1,0 +1,36 @@
+.button {
+  float: left;
+  margin: 0;
+  padding: 0 40px;
+  background: #397DBA;
+  border: 0;
+  font: 18px/57px 'Proxima Nova Th';
+  color: #fff;
+  outline: none;
+  @include transition(background .15s);
+
+  &:hover {
+    background: darken(#397DBA, 5%);
+    cursor: pointer;
+  }
+}
+
+.append-button {
+  @include border-radius(0 5px 5px 0);
+}
+
+.btn-round {
+  min-width: 200px;
+  border: 2px solid #FFF;
+  padding: 15px 50px;
+  background: rgba(#000, .2);
+  @include border-radius(100px);
+  color: #FFF;
+  text-transform: uppercase;
+  @include transition(all .15s);
+
+  &:hover {
+    background: rgba(#000, .4);
+    color: #fff;
+  }
+}
