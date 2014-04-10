@@ -77,6 +77,7 @@
 
 .crs-nav {
   width: 218px;
+  padding-top: 2px;
 
   .crs-home  & { padding-top: 41px; }
 
@@ -286,9 +287,9 @@
   overflow: auto;
   background-color: #F8F8F8;
   margin-bottom: 38px;
-  padding: 6px 10px;
+  padding: 20px;
   border: 1px solid #DDD;
-  font: 13px/19px Consolas, "Liberation Mono", Courier, monospace;
+  font: 16px/22px Consolas, "Liberation Mono", Courier, monospace;
   @include border-radius(3px);
 }
 
