@@ -6,3 +6,4 @@ permalink: /:title.html
 analytics_property_id:
 highlighter: 'pygments'
 encoding: utf-8
+markdown: kramdown
