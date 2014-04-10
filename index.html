@@ -44,7 +44,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
       {% if page.layout == 'course' %}
         <li class="block {% cycle '', '', 'last' %}">
           {% if page.published %}
-            <a href="{{ page.url }}" class="block-inner {% if page.published == false %}disabled{% endif %}">
+            <a href="{{ site.baseurl }}/{{ page.url }}" class="block-inner {% if page.published == false %}disabled{% endif %}">
               <div class="block-header">
                 <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
                 <span class="level">{{ page.categories }}</span>
