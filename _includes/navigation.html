@@ -19,7 +19,7 @@
 
       <ul>
         {% for page in site.pages %}
-        {% if page.layout == 'course' %}
+        {% if page.layout == 'course' and page.published %}
           <li>
           <p>
             <a class="size-s" href="{{ site.baseurl }}/courses/{{ page.id }}.html">{{ page.title }}</a>
