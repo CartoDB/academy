@@ -5,6 +5,7 @@ title:  "Lesson 1"
 subtitle: "Subtitulo"
 course: "Beginners course"
 course_slug: "01-beginners-course"
+continue_link: "01-beginners-course/lesson-2" 
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
