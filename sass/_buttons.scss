@@ -33,4 +33,15 @@
     background: rgba(#000, .4);
     color: #fff;
   }
+
+  &.blue{
+    background: #FFF;
+    border: 2px solid #3B7EBB;
+    color: #3B7EBB;
+    &:hover {
+      color: darken(#3B7EBB,20%);
+      border-color: darken(#3B7EBB,20%);
+    }
+  }
+
 }
