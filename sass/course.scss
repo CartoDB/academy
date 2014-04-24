@@ -140,7 +140,6 @@
 
 .crs-info-pre > li {
   margin-top: 22px;
-
   &:first-child { margin-top: 0; }
 }
 
@@ -150,7 +149,6 @@
   height: 48px;
   background: #fff;
   @include border-radius(2px);
-
 }
 
 .crs-subscribe {
@@ -288,8 +286,12 @@
   }
 
   .lss-end {
+    padding: 40px 0 20px 0;
+    margin: 0 0 40px 0;
     border-top: 1px solid #DDD;
-    padding: 40px 0 0 0;
+    border-bottom: 1px solid #DDD;
+    @include pie-clearfix;
+
     h2{margin: 0;}
     p{margin: 0 0 24px 0; font-size: 16px; color: #999;}
     .h-right{margin: 15px 0 0 0;}
