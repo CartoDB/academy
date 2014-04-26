@@ -10,8 +10,7 @@ tweet_text: "Step by step is the way to go. I've finished the first lesson of th
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
-#Lesson 1
-## Making your First Map 
+#Lesson 1: Making your First Map 
 
 Welcome to CartoDB Academy! In this first lesson of Course 1, we will walk you through some steps to make your first map. This is intended to be a quick overview to get to familiar with some of the basics of CartoDB. In subsequent lessons, we'll dive in to some more specifics of mapping with CartoDB.
 
