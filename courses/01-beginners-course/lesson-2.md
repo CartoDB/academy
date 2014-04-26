@@ -55,8 +55,4 @@ In the column selector, you can change with column of data CartoDB is mapping on
 
 In a choropleth wizard, you can change the fill colors, the borders, opacity, just like you could in the Simple visualization. Go ahead and play around with these!
 
-##More on Sharing
-Once you're done, you can share a link to your visualization, embed it, and more with the sharing window. To access this, make sure that you're in a visualization, and click "Share" in the top-right of your screen. In the share window, you can also change settings of the public map, which will affect how people can see it. Depending on what plan you have, you can also change the privacy level.
-
-![Edit polygon stroke.](/img/course1/lesson2/sharewindow.png)
-
+As always, once you finish your visualization, you can share it using the "Share" button on the top right of your screen. Remember that you can only share visualizations, not the Map View of a table.
