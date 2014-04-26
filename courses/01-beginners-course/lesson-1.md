@@ -56,4 +56,3 @@ We can also use our own markers. To do so, click on "IMG" next to the color sele
 
 At this point, we are still looking at our data in Map View from our Table. This isn't a shareable visualization just yet. To make it one, just click Visualize in the upper right-hand corner. Once you name and create the visualization, you can share it via the "Share" link in the top right of the Visualization screen. 
 
-![Alt text](/path/to/img.jpg)
