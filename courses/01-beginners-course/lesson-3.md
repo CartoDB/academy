@@ -62,11 +62,11 @@ In the Density visualization you can also change the number of buckets, which is
 
 ![Changing data type](/img/course1/lesson3/textlabel.png)
 
-Choose which column you want to be the label in "Label Text." This will bring up many other options. 
+Thought his dataset isn't ideal for adding labels, let's take a look at how we would do it just in case you have a dataset that would benefit from labeling. 
 
-Dataset isn't great for labels, but you can play around with the options [[[LIST THEM]]] to see if there's anything cool.
+To add labels, you'll need to select the Simple visualization. From there, scroll down to "Label Text" and from there, select the column that contains the text that will be the label. With our tornado dataset, we chose the `damage` column.
 
-You can turn them off by changing "Label Text" to "none."
+There are many parameters that affect the way the text is displayed - font, halo, offset, overlap, and placement. You can play with the font and halo to see the visual effects these have. The "label overlap" parameter changes whether the labels are allowed to overlap one another or not, and can be set to "true" or "false."
 
 ###Data Filtering
 Chart icon on the right, pulls out the tray. Select the column where you want to run the filter, and a graphic will pop up showing the distribution of the data. 
