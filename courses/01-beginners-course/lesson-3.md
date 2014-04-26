@@ -1,5 +1,5 @@
 ---
-id: 2
+id: 3
 layout: lesson
 title:  "Lesson 3"
 subtitle: "Thematic Maps with Point Data"
@@ -52,12 +52,11 @@ There are fewer parameters to play with in this visualization, but if you play w
 
 ![Changing data type](/img/course1/lesson3/density.png)
 
-Creates a gridded system, counts points in each cell, and giving it a color based on the number of points in each cell.
-Like to change the size of the cells themselves. You can do this in "Polygon size"
-you can also change number of buckets, which is the number of tranches that your data is split into.
-If you like, you can also use rectangles.
+The final CartoDB visualization which we'll take a look at is the Density visualization. This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives the cell a color based on the number of points inside of the cell. 
 
-And, as always, you can change the stroke, fill and opacity.
+Unlike other visualizations, here you have the option to change the cell size and method (hexagons or rectangles). In our demo, we find that the data is best displayed with smaller cells.
+
+In the Density visualization you can also change the number of buckets, which is the number of tranches that your data is split in to. Finally, as with the other visualizations, you can change the stroke, fill and opacity to suit the needs of your visualization.
 
 ###Adding Labels
 
