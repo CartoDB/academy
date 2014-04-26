@@ -2,7 +2,7 @@
 id: 1
 layout: lesson
 title:  "Lesson 1"
-subtitle: "Subtitulo"
+subtitle: "Making your First Map"
 course: "Beginners course"
 course_slug: "01-beginners-course"
 continue_link: "lesson-2"
