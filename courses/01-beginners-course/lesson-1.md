@@ -22,22 +22,18 @@ Creating an account with CartoDB is quick and easy. You can head over to [our we
 
 If you're interested in a plan with more data storage or other features, check out a full [list of our plans](http://cartodb.com/pricing/). 
 
-When using a baseline grid, the first thing you must decide on is your baseline grid unit. You’ll commonly see baseline grid values of something like 20px, but where does a value like that come from?
+### Creating a Table
+Once you have created a table, we'll go ahead and use a dataset in CartoDB's Common Data called "Populated Places." From your CartoDB Dashboard, click on "common data" in the top right. There, find Populated places, and click on the "+" to the right to Copy this dataset to your tables.
 
-As you might have guessed, most designers choose this unit arbitrarily. The problem with this approach is that the resulting baseline grid unit is not directly related to the primary font size, which is the most fundamental design element on the page.
+![Add Common Data](/img/lesson1/commondata.png)
 
-{% highlight javascript %}
-function addClass(node, classAdd) {
-  node.className += ' ' + classAdd;
-}
-{% endhighlight %}
+Once the dataset copies, you will be taken straight to the Table View of your data. Here, you can see the full data in a table. You can take a minute to explore the data, and see what columns you have available to you, and what kinds of data the table contains. 
 
-##titular
+As you look at the data, take note of the column called `the_geom`. This column contains data needed to display the data on a map. Without values in this column - like the coordinates we have in this dataset - you won't be able to map your data.
 
-When using a baseline grid, the first thing you must decide on is your baseline grid unit. You’ll commonly see baseline grid values of something like 20px, but where does a value like that come from?
+![the_geom column](/img/lesson1/the_geom.png)
 
-As you might have guessed, most designers choose this unit arbitrarily. The problem with this approach is that the resulting baseline grid unit is not directly related to the primary font size, which is the most fundamental design element on the page.
+From here, we can go to Map View, which you can select to the right of Table View, to begin designing our visualization. 
 
-When using a baseline grid, the first thing you must decide on is your baseline grid unit. You’ll commonly see baseline grid values of something like 20px, but where does a value like that come from?
+![Table and Map View](/img/lesson1/table_map_view.png)
 
-As you might have guessed, most designers choose this unit arbitrarily. The problem with this approach is that the resulting baseline grid unit is not directly related to the primary font size, which is the most fundamental design element on the page.
