@@ -68,10 +68,10 @@ To add labels, you'll need to select the Simple visualization. From there, scrol
 
 There are many parameters that affect the way the text is displayed - font, halo, offset, overlap, and placement. You can play with the font and halo to see the visual effects these have. The "label overlap" parameter changes whether the labels are allowed to overlap one another or not, and can be set to "true" or "false."
 
-###Data Filtering
-Chart icon on the right, pulls out the tray. Select the column where you want to run the filter, and a graphic will pop up showing the distribution of the data. 
+You can turn off the labels by changing "Label Text" to "none."
 
-This allows you to see the distribution of the data. 
+###Data Filtering
+One final thing to start looking at is data filtering. To get started, click the Chart icon on the right-hand pull-out tray. This will pull up a screen that allows you to select a column whose data you'd like to filter. Once you choose a column, a small graph will appear, showing the distribution of the data. There are two sliders on either side that you can move to include/exclude areas of the dataset. The map visualization will change to reflect which range of data you have filtered to show, and you can create visualizations with filters applied.
 
 ![Changing data type](/img/course1/lesson3/damagefilter.png)
 
@@ -79,8 +79,7 @@ In our tornado data, by looking at the `damage` column, we can see that there ma
 
 ![Changing data type](/img/course1/lesson3/datefilter.png)
 
-If we filter by the `date` column, we can see an interesting variance in when tornados occur with higer frequency. This could be an interesting thing to map. Which brings us to TORQUE. In Lesson four!
-
+If we filter by the `date` column, we can see an interesting variance in when tornados occur with higher and lower frequency. This could be an interesting thing to map: the appearance of tornados over time. This is exactly what we will cover in Lesson 4!
 
 
 
