@@ -15,7 +15,7 @@ To make your first choropleth map, we will be using data on the populations of U
 
 Navigate to your CartoDB dashboard, and create a new table. If it's your first table, you can scroll down to the bottom of your dashboard and click on the green button reading "Create your First Table." Otherwise, click the "New table" button to the right of your existing tables. In the dialogue box that appears, just paste the link we provided above in the available field and click "Create table."
 
-![Add data from a link](/img/lesson2/newtableURL.png)
+![Add data from a link](/img/course1/lesson2/newtableURL.png)
 
 Your data will open up in Table View. There, like we discussed in Lesson 1, you can take a look at the data columns you have. Note that this time `the_geom` column has "Polygon" values. This means that the geometry that CartoDB will map is in polygon format.
 
@@ -28,8 +28,8 @@ Go ahead and navigate to "Map View" to begin formatting your map. The first para
 
 Next, in the right-hand pull-out tray you can change the polygon color, stroke and opacity, and the polygon stroke and opacity from the Wizards section. 
 
-![Edit polygon fill.](/img/lesson2/polygonfill.png) 
-![Edit polygon stroke.](/img/lesson2/polygonstroke.png)
+![Edit polygon fill.](/img/course1/lesson2/polygonfill.png) 
+![Edit polygon stroke.](/img/course1/lesson2/polygonstroke.png)
 
 The Wizards menu also allows you to select different kinds of visualizations, which we will begin to explore in this lesson.
 
@@ -38,7 +38,7 @@ Since we have interesting data in our table, which we want viewers of our map to
 
 Depending on what columns you have in your table, different label options will appear here. Each column can have its own label or display, and you can choose which ones you would like displayed. You can also choose from our pre-set designs or create your own. For now, we'll toggle just a few fields on, and select a design from the dropdown menu.
 
-![Edit polygon stroke.](/img/lesson2/infowindow.png)
+![Edit polygon stroke.](/img/course1/lesson2/infowindow.png)
 
 
 ##Choropleth Mapping
@@ -47,7 +47,7 @@ If you would like to display your polygon data differently, a frequently-used an
 
 To explore it, let's go ahead and select "Choropleth" from our Wizard menu in the right-hand pull-out tray.
 
-![Edit polygon stroke.](/img/lesson2/choropleth.png)
+![Edit polygon stroke.](/img/course1/lesson2/choropleth.png)
 
 Once you choose this, CartoDB will automatically choose a number column to display. In our example, it will select the `pop` column. CartoDB will also automatically add a legend that corresponds with what is displayed. 
 
@@ -58,5 +58,5 @@ In a choropleth wizard, you can change the fill colors, the borders, opacity, ju
 ##More on Sharing
 Once you're done, you can share a link to your visualization, embed it, and more with the sharing window. To access this, make sure that you're in a visualization, and click "Share" in the top-right of your screen. In the share window, you can also change settings of the public map, which will affect how people can see it. Depending on what plan you have, you can also change the privacy level.
 
-![Edit polygon stroke.](/img/lesson2/sharewindow.png)
+![Edit polygon stroke.](/img/course1/lesson2/sharewindow.png)
 
