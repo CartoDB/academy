@@ -39,7 +39,8 @@
           <ul>
             {% for page in site.pages %}
               {% if page.layout == 'course' %}
-                {% for lesson in site.pages %}
+                {% assign sorted_pages = site.pages | sort:"path" %}
+                {% for lesson in sorted_pages %}
                   {% if page.id == lesson.course_slug %}
                     <li>
                       <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h2>
@@ -54,7 +55,7 @@
 
         <div class="crs-inner h-right lss-inner">
                   {{ content }}
-        
+
           {% if page.tweet_text %}
           <div class="lss-end">
             <div class="h-left">
