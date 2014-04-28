@@ -18,6 +18,11 @@
   <![endif]-->
   <link rel="stylesheet" href="{{ site.baseurl }}/css/lesson.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+  mixpanel.init("{{ site.mixpanel_token }}");</script>
+  <!-- end Mixpanel -->
 </head>
 <body>
   <div class="fixed lss-hdr-inner" id="lss-scroll-recieve">
@@ -48,19 +53,39 @@
         </nav>
 
         <div class="crs-inner h-right lss-inner">
-        {% for page in site.pages %}
-          {% if page.layout == 'course' %}
-            {% for lesson in site.pages %}
-              {% if page.id == lesson.course_slug %}
-                {{ content }}
-              {% endif %}
-            {% endfor %}
+                  {{ content }}
+        
+          {% if page.tweet_text %}
+          <div class="lss-end">
+            <div class="h-left">
+              <h2>Awesome, this is the end of this lesson</h2>
+              <p>Just a few more steps and you will become a basic mapper</p>
+              <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.tweet_text }}&url={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+            </div>
+            {% if page.continue_link %}
+            <div class="h-right">
+              <a class="btn-round blue size-bm" href="{{ site.baseurl }}/courses/{{ page.course_slug }}/{{ page.continue_link }}.html">CONTINUE</a>
+            </div>
+            {% endif %}
+          </div>
           {% endif %}
-        {% endfor %}
-        </div>
 
+          <div class="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'mapacademy';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
         </div>
-     </div>
+      </div>
+   </div>
   </section>
 
   {% include footer.html %}
@@ -68,6 +93,7 @@
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
   <script src="{{ site.baseurl }}/js/application.js"></script>
   <script src="{{ site.baseurl }}/js/lesson.js"></script>
+  <script src="{{ site.baseurl }}/js/ui/dropdown.js"></script>
 
   <script>
     $(function() {

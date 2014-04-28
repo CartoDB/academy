@@ -1,0 +1,25 @@
+@import '_application';
+
+section{
+	padding: 100px 0 0 0;
+}
+
+.lss-about {
+  box-shadow: none;
+}
+
+.hdr-about {
+  position: relative;
+  height: 360px;
+  margin-bottom: 40px;
+  background:url('../img/header-about.jpg') 0 0 no-repeat;
+}
+
+.hdr-title {
+  display: inline-block;
+  margin-bottom: 4px;
+  font: 22px/24px 'Proxima Nova Th';
+  letter-spacing: -1px;
+}
+
+.hdr-crs-inner { height: 360px; }
