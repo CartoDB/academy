@@ -26,11 +26,11 @@ Your data will open up in Table View. There, like we discussed in Lesson 1, you 
 
 ### Creating a Simple Visualization
 
-In lesson 1, we gave you a quick intro to creating a visualization. We'll review this here, and then move on to create a more complex visualization. 
+In lesson 1, we gave you a quick intro to creating a visualization. We'll review this here, and then move on to create a more complex visualization.
 
 Go ahead and navigate to "Map View" to begin formatting your map. The first parameter which you can edit is the basemap. This time, we selected the CartoDB Dark basemap to highlight our data. Choose whichever you think works best for you.
 
-Next, in the right-hand pull-out tray you can change the polygon color, stroke and opacity, and the polygon stroke and opacity from the Wizards section. 
+Next, in the right-hand pull-out tray you can change the polygon color, stroke and opacity, and the polygon stroke and opacity from the Wizards section.
 
 ![Edit polygon fill.]({{site.baseurl}}/img/course1/lesson2/polygonfill.png)
 
@@ -46,13 +46,13 @@ Depending on what columns you have in your table, different label options will a
 
 ### Choropleth Mapping
 
-If you would like to display your polygon data differently, a frequently-used and very useful type of map is the choropleth map. This map takes numerical data in your table, and formats your polygons based upon it. 
+If you would like to display your polygon data differently, a frequently-used and very useful type of map is the choropleth map. This map takes numerical data in your table, and formats your polygons based upon it.
 
 To explore it, let's go ahead and select "Choropleth" from our Wizard menu in the right-hand pull-out tray.
 
 ![Edit polygon stroke.]({{site.baseurl}}/img/course1/lesson2/choropleth.png)
 
-Once you choose this, CartoDB will automatically choose a number column to display. In our example, it will select the `pop` column. CartoDB will also automatically add a legend that corresponds with what is displayed. 
+Once you choose this, CartoDB will automatically choose a number column to display. In our example, it will select the `pop` column. CartoDB will also automatically add a legend that corresponds with what is displayed.
 
 In the column selector, you can change with column of data CartoDB is mapping on to the choropleth map. Remember that only columns which have numerical data can be used in a choropleth map. With our data, we can go ahead and change the column to `pop_sqkm` to map data on population per square kilometer. This information represents population density, unlike the `pop` column which is just a raw number.
 
