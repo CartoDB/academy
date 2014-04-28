@@ -52,7 +52,8 @@
         <ul>
         {% for page in site.pages %}
           {% if page.layout == 'course' %}
-            {% for lesson in site.pages %}
+            {% assign sorted_pages = site.pages | sort:"path" %}
+            {% for lesson in sorted_pages %}
               {% if page.id == lesson.course_slug %}
                 <li>
                   <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h2>
