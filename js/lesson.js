@@ -23,6 +23,7 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.$scrollInner = this.$('#lss-scroll-recieve');
     this.$progressBar = this.$('.progress-bar');
     this.$progressNum = this.$('.progress-num');
+    this.$content = this.$('.crs-content');
     this.elHeight = this.$el.outerHeight();
     this.mapHeight = this.$('.lss-course').outerHeight();
     this.footerHeight = this.$('.footer').outerHeight();
@@ -44,6 +45,7 @@ academy.Views.Lesson = cdb.core.View.extend({
       zoomControl: false,
       cartodb_logo: false
     }
+
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
     .done(function(vis){
       map = vis.getNativeMap();
@@ -53,6 +55,41 @@ academy.Views.Lesson = cdb.core.View.extend({
     });
 
     this.dropdown = new academy.ui.Views.Dropdown();
+
+    this._buildToc();
+  },
+
+  _buildToc: function() {
+    var $item = $('<ul>'),
+      $el,
+      title,
+      link;
+
+    this.$content.find('h2').each(function() {
+      $el = $(this);
+      title = $el.text();
+      link = "#" + $el.attr("id");
+      $item.append('<p class="size-s crs-nav-info"><a href="'+link+'">'+title+'</a></p>');
+
+      var $subItem = $('<ul>'),
+        $subEl,
+        subTitle,
+        subLink;
+
+      $(this).nextAll('h4,h3,h2').each(function(j) {
+        if ($(this).is('h2')) return false;
+
+        $subEl = $(this);
+        subTitle = $subEl.text();
+        subLink = "#" + $subEl.attr("id");
+
+        $subItem.append('<p class="size-s crs-nav-info"><a href="'+subLink+'">'+subTitle+'</a></p>');
+      });
+
+      $item.append($subItem);
+    });
+
+    this.$(".nav-toc").append($item);
   },
 
   _showProgress: function() {
