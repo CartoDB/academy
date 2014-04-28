@@ -10,23 +10,19 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 #Lesson 5: Multilayer Visualizations
 
-- Using both the US cities and the tornados data
+In this final lesson of Course 1, we will be talking about creating a two-layer map. We'll be using both data sets - the one on US Counties and on Tornados in the US - so make sure you have both in the Tables section of your dashboard.
 
 ##Creating a Two-Layer Map
-- Go to counties, create viz
-- Remember, if you want you can add description
-- You should have infowindows, but if not, can add them now
-- In viz, add tornado layer (button at the top, appears best when you pull out the tray on the right)
-- Brings up a menu, we're going to add an existing table
-- You can drag one on top of the other to change which is rendered on top and which is on bottom
-- You can style the layers independently
-- Do play around with the different layers to see what you can come up with: change colors, opacity, and order of layer
 
-###Publishing with Two Layers
-- You can toggle this on/off so your user can decide whether or not to see both layers
+In order to create a multi-layer visualization, start by creating a visualization from one of the layers you'd like to include. We start with the US Counties table in this demo, but you could just as easily start with the Tornados table. Once you've created your visualization from one table, you can add another layer from the column of icons on the right. At the top of the pull-out tray, select the "+" icon. There, you can chose to "Add an existing table," and select the table you'd like to add. In our case, it was the tornado layer.
 
-##Editing Legends
-- Add own description
+![Adding a layer.](/img/course1/lesson5/addlayer.png)
+
+###Styling with Multiple Layers
+
+Styling your map visualizations when you have multiple layers of data functions the same as if you had only one layer. Each layer can be styled independently of the others. It is important to remember, however, that the order of the layers reflects the order in which they rendered or displayed. So if you have one fully opaque layer over another one, you may be unable to see the data under the opaque layer. 
+
+You can continue to play around with the visualization settings on both layers, and use the things you've learned in the previous lessons to create a good-looking visualization to share with the world!
 
 
 
