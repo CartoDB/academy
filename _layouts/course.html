@@ -130,7 +130,7 @@
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
           <div id="mc_embed_signup">
-          <form action="http://cartodb.us8.list-manage.com/subscribe/post?u=36faffcf7a252a84c96af0236&amp;id=9609b13357" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="crs-sbs-form validate" target="_blank" novalidate>
+          <form action="http://cartodb.us8.list-manage.com/subscribe/post?u=36faffcf7a252a84c96af0236&amp;id={{page.mailchimp_id}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="crs-sbs-form validate" target="_blank" novalidate>
 
           <div class="mc-field-group">
             <label for="mce-EMAIL" class="h-pa size-sbl">Email Address</label>
@@ -140,7 +140,7 @@
               <div class="response" id="mce-error-response" style="display:none"></div>
               <div class="response" id="mce-success-response" style="display:none"></div>
             </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;"><input type="text" name="b_36faffcf7a252a84c96af0236_9609b13357" value=""></div>
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_36faffcf7a252a84c96af0236_{{page.mailchimp_id}}" value=""></div>
               <button id="mc-embedded-subscribe" class="h-right crs-sbs-submit">
                 <span class="size-bm h-txt-white">SEND</span>
               </button>
@@ -212,7 +212,7 @@
                 var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
                 var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
                 $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
-                options = { url: 'http://cartodb.us8.list-manage.com/subscribe/post-json?u=36faffcf7a252a84c96af0236&id=9609b13357&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                options = { url: 'http://cartodb.us8.list-manage.com/subscribe/post-json?u=36faffcf7a252a84c96af0236&id={{page.mailchimp_id}}&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
                               beforeSubmit: function(){
                                   $('#mce_tmp_error_msg').remove();
                                   $('.datefield','#mc_embed_signup').each(
