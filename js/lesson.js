@@ -29,6 +29,7 @@ academy.Views.Lesson = cdb.core.View.extend({
 
     this._initBindings();
     this._initViews();
+    this._onScroll();
   },
 
   _initBindings: function() {
@@ -43,10 +44,15 @@ academy.Views.Lesson = cdb.core.View.extend({
       zoomControl: false,
       cartodb_logo: false
     }
+    cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
+    .done(function(vis){
+      map = vis.getNativeMap();
+      map.dragging.disable();
+      map.touchZoom.disable();
+      map.doubleClickZoom.disable();
+    });
 
-    cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions);
-
-    this._onScroll();
+    this.dropdown = new academy.ui.Views.Dropdown();
   },
 
   _showProgress: function() {

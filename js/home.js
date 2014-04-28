@@ -2,7 +2,8 @@ academy.Views.Home = cdb.core.View.extend({
   el: document.body,
 
   events: {
-    'click .more': '_goto'
+    'click .more': '_goto',
+    'submit .subscribe': '_onSubmitForm'
   },
 
   initialize: function() {
@@ -27,5 +28,9 @@ academy.Views.Home = cdb.core.View.extend({
     this.$el.animate({
       scrollTop: $(el).offset().top
     });
+  },
+
+  _onSubmitForm: function(e) {
+    e.preventDefault();
   }
 });

@@ -2,5 +2,10 @@ window.academy = {
   Models: {},
   Collections: {},
   Views: {},
-  Routers: {}
+  Routers: {},
+  ui: {
+    Models: {},
+    Collections: {},
+    Views: {}
+  }
 };

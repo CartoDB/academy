@@ -77,6 +77,7 @@
 
 .crs-nav {
   width: 218px;
+  padding-top: 2px;
 
   .crs-home  & { padding-top: 41px; }
 
@@ -139,7 +140,6 @@
 
 .crs-info-pre > li {
   margin-top: 22px;
-
   &:first-child { margin-top: 0; }
 }
 
@@ -148,6 +148,7 @@
   width: 48px;
   height: 48px;
   background: #fff;
+  @include border-radius(2px);
 }
 
 .crs-subscribe {
@@ -271,24 +272,66 @@
 }
 
 .lss-inner {
+
+  margin: 0 0 50px 0;
+
   p {
     font: 18px/28px 'Proxima Nova Rg';
-    margin-bottom: 38px;
+    margin-bottom: 26px;
   }
 
   h2 {
     font: 24px/26px 'Proxima Nova Th';
     margin-bottom: 18px;
   }
+
+  h3 {
+    font: 20px/23px 'Proxima Nova Th';
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  img{
+    max-width: 700px;
+  }
+
+  .lss-end {
+    padding: 40px 0 20px 0;
+    margin: 0 0 40px 0;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    @include pie-clearfix;
+
+    h2{margin: 0;}
+    p{margin: 0 0 24px 0; font-size: 16px; color: #999;}
+    .h-right{margin: 15px 0 0 0;}
+
+    span{
+      padding: 5px 7px 5px 7px;
+      margin: 0 3px 0 3px;
+      background-color: red;
+      border-radius: 3px;
+      &.twitter{background-color: #4DD2FF;}
+      &.facebook{background-color: #006DD9;}
+      
+      a{
+        font-family: 'Proxima Nova Lt';
+        font-weight:  700;
+        color: white;
+      }
+    }
+
+  }
+
 }
 
 .highlight {
   overflow: auto;
   background-color: #F8F8F8;
   margin-bottom: 38px;
-  padding: 6px 10px;
+  padding: 20px;
   border: 1px solid #DDD;
-  font: 13px/19px Consolas, "Liberation Mono", Courier, monospace;
+  font: 16px/22px Consolas, "Liberation Mono", Courier, monospace;
   @include border-radius(3px);
 }
 
@@ -315,12 +358,12 @@
 
 .lss-course {
   position: relative;
-    box-shadow: inset 0 1px 0 rgba(0, 0, 0, .2), inset 0 -1px 0 rgba(0, 0, 0, .2);
-    margin-bottom: 40px;
-    height: 105px;
-    background: #eee;
-
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, .2), inset 0 -1px 0 rgba(0, 0, 0, .2);
+  margin-bottom: 40px;
+  height: 105px;
+  background: #eee;
 }
+
 .lss-container {
   padding-top: 169px;
 }
