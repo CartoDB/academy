@@ -82,10 +82,25 @@
   .crs-home  & { padding-top: 41px; }
 
   li { margin-bottom: 32px;  }
-  h2 { margin-bottom: 4px; }
+  h3 {
+    margin-bottom: 10px;
+
+    &.current {
+      margin-left: -13px;
+      padding-left: 10px;
+      border-left: 3px solid #397DBA;
+    }
+  }
 }
 
-.crs-nav-info { color: #666; }
+.crs-nav-info {
+  margin-bottom: 10px;
+  color: #666;
+
+  a {
+    color: #666;
+  }
+}
 
 .crs-inner { width: 700px; }
 
@@ -313,7 +328,7 @@
       border-radius: 3px;
       &.twitter{background-color: #4DD2FF;}
       &.facebook{background-color: #006DD9;}
-      
+
       a{
         font-family: 'Proxima Nova Lt';
         font-weight:  700;
