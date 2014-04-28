@@ -277,12 +277,22 @@
 
   p {
     font: 18px/28px 'Proxima Nova Rg';
-    margin-bottom: 38px;
+    margin-bottom: 26px;
   }
 
   h2 {
     font: 24px/26px 'Proxima Nova Th';
     margin-bottom: 18px;
+  }
+
+  h3 {
+    font: 20px/23px 'Proxima Nova Th';
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  img{
+    max-width: 700px;
   }
 
   .lss-end {

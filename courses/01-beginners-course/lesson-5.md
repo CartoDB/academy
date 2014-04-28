@@ -5,14 +5,15 @@ title:  "Lesson 5"
 subtitle: "Multilayer Visualizations"
 course: "Beginners course"
 course_slug: "01-beginners-course"
+tweet_text: "Step by step is the way to go. I've finished the fifth lesson of the map academy. Check it out"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
-#Lesson 5: Multilayer Visualizations
+## Multilayer Visualizations
 
 In this final lesson of Course 1, we will be talking about creating a two-layer map. We'll be using both data sets - the one on US Counties and on Tornados in the US - so make sure you have both in the Tables section of your dashboard.
 
-##Creating a Two-Layer Map
+### Creating a Two-Layer Map
 
 In order to create a multi-layer visualization, start by creating a visualization from one of the layers you'd like to include. We start with the US Counties table in this demo, but you could just as easily start with the Tornados table. Once you've created your visualization from one table, you can add another layer from the column of icons on the right. At the top of the pull-out tray, select the "+" icon. There, you can chose to "Add an existing table," and select the table you'd like to add. In our case, it was the tornado layer.
 
