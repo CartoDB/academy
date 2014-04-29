@@ -7,11 +7,11 @@ tag: "pin"
 
 ## What is this?
 
-The Map Academy is an open source project which aims to become a good resource for people that is doing maps on the web. Being Open Source means that the content that is here, will be free for everyone forever.
+The Map Academy is an open source project, which serves as a resource for people creating maps on the web. Being open source means that the content that is here, will be free for everyone to access and build upon.
 
-Although is an initiative of [CartoDB](http://cartodb.com), it is not a guide to this specific software. We do think that CartoDB is an ideal tool to start learning online mapping, you can make maps in seconds and then learn about the wizard behind the curtains as your mapping skills grow. So it is our hope, that as the program expands, you will find more and more content that is not related directly with the product. This means that at the Map Academy we will start to teach you skills you can use in other technologies such as ESRI, Google Maps, or Mapbox. 
+Although is an initiative of [CartoDB](http://cartodb.com), it is not only a guide to this specific software. While we do think that CartoDB is a great tool to start learning online mapping, it is only one part of a growing network of mapping tools. It is our hope that as the program expands, you will find more and more content that is not related directly with CartoDB, and that will allow you to build your skills as a mapper. This means that at the Map Academy we will start to teach you skills you can use in other technologies such as ESRI, Google Maps, or Mapbox. 
 
-The Map Academy is designed for self-learners although the content is also being used in other traditional teaching experiences. Being an open source project means that re-publication, adaptations into product manuals, and any other creative usage is permitted. When you can, we really appreaciate attribution to the Map Academy.
+The Map Academy is designed for self-learners, but can also be used in traditional teaching environments. Since it's open source, re-publication, adaptations into product manuals, and any other creative usage of the Map Academy is permitted. When possible, we appreciate attribution to the Map Academy.
 
 ## How can I contribute?
 
@@ -23,8 +23,4 @@ We highly recommend to use any of the existing courses as a template when prepar
 
 ## Why should I contribute?
 
-Maps are a very horizontal thing and a very powerful tool for changing the world. From big corporations to individuals, passing by International organizations or research institutions use maps as a powerful tool in their daily day. Each day, more and more people seats in front of the computer with the objective of creating a web map, and we believe that helping them on the process is key for a better and a more informed world.
-
-As all the technology we use in our daily day, we should also open our knowledge and give more and better access to it through tools like the Map Academy.
-
-We are sure that you have plenty of ideas and tricks than you can share with the community, so don't be shy and spread the world.
+Maps are a very powerful tool for understanding and changing the world. Map users and creators include everyone from big corporations to individuals, international organizations and research institutions. Each day, more and more people sit in front of their computer with  great ideas and the objective of creating a web map. We believe that helping them in the process of learning is key for a better and a more informed world. Through your contributions to the Map Academy, you can help build a body of knowledge to empower mappers - from beginners to experts - around the world. We are sure that you have plenty of ideas and tricks than you can share with the community, so don't be shy. Spread the word!
