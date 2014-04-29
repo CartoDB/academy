@@ -16,6 +16,7 @@
   <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
   <![endif]-->
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="{{ site.baseurl }}/css/lesson.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
   <!-- start Mixpanel -->
@@ -25,7 +26,7 @@
   <!-- end Mixpanel -->
 </head>
 <body>
-  <div class="fixed lss-hdr-inner" id="lss-scroll-recieve">
+  <div class="lss-hdr-inner" id="lss-scroll-recieve">
     {% include header.html %}
     {% include navigation.html %}
   </div>
@@ -37,15 +38,22 @@
       <div class="inner">
         <nav class="crs-nav h-left">
           <ul>
-            {% for page in site.pages %}
-              {% if page.layout == 'course' %}
+            {% for pag in site.pages %}
+              {% if pag.layout == 'course' %}
                 {% assign sorted_pages = site.pages | sort:"path" %}
                 {% for lesson in sorted_pages %}
-                  {% if page.id == lesson.course_slug %}
-                    <li>
-                      <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h2>
-                      <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
-                    </li>
+                  {% if pag.id == lesson.course_slug %}
+                    {% if lesson.path == page.path %}
+                      <li>
+                        <h3 class="size-bm current">{{ lesson.title }}</h3>
+                        <div class="nav-toc"></div>
+                      </li>
+                    {% else %}
+                      <li>
+                        <h3 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h3>
+                        <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
+                      </li>
+                    {% endif %}
                   {% endif %}
                 {% endfor %}
               {% endif %}
@@ -54,22 +62,26 @@
         </nav>
 
         <div class="crs-inner h-right lss-inner">
-                  {{ content }}
+          <div class="crs-content">
+            {{ content }}
+          </div>
 
-          {% if page.tweet_text %}
-          <div class="lss-end">
-            <div class="h-left">
-              <h2>Awesome, this is the end of this lesson</h2>
-              <p>Just a few more steps and you will become a basic mapper</p>
-              <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.tweet_text }}&url={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
-            </div>
-            {% if page.continue_link %}
-            <div class="h-right">
-              <a class="btn-round blue size-bm" href="{{ site.baseurl }}/courses/{{ page.course_slug }}/{{ page.continue_link }}.html">CONTINUE</a>
+          <div class="crs-share">
+            {% if page.tweet_text %}
+            <div class="lss-end">
+              <div class="h-left">
+                <h2>Awesome, this is the end of this lesson</h2>
+                <p>Just a few more steps and you will become a basic mapper</p>
+                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.tweet_text }}&url={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+              </div>
+              {% if page.continue_link %}
+              <div class="h-right">
+                <a class="btn-round blue size-bm" href="{{ site.baseurl }}/courses/{{ page.course_slug }}/{{ page.continue_link }}.html">CONTINUE</a>
+              </div>
+              {% endif %}
             </div>
             {% endif %}
           </div>
-          {% endif %}
 
           <div class="comments">
             <div id="disqus_thread"></div>

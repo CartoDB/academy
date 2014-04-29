@@ -16,6 +16,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body{
+  color: #333;
+}
+
 .inner {
   @include pie-clearfix;
   width: $max-width;
@@ -43,19 +47,19 @@ a {
   }
 }
 
-.title-l { font: 24px 'Proxima Nova Th';  letter-spacing: -1px; }
-.size-l { font: 18px 'Proxima Nova Rg'; }
-.size-bl { font: 18px 'Proxima Nova Th'; }
-.size-sbl { font: 18px 'Proxima Nova Lt'; }
-.size-m { font: 16px 'Proxima Nova Rg'; }
-.size-bm { font: 16px 'Proxima Nova Th'; }
-.size-sbm { font: 16px 'Proxima Nova Lt'; }
-.size-s { font: 14px 'Proxima Nova Rg'; }
-.size-bs { font: 14px 'Proxima Nova Th'; }
-.size-sbs { font: 14px 'Proxima Nova Lt'; }
-.size-xs { font: 12px 'Proxima Nova Rg'; }
-.size-bxs { font: 12px 'Proxima Nova Th'; }
-.size-sbxs { font: 12px 'Proxima Nova Lt'; }
+.title-l { font: 24px 'Proxima Nova Extrabold';  letter-spacing: -1px; }
+.size-l { font: 18px 'Proxima Nova Regular'; }
+.size-bl { font: 18px 'Proxima Nova Extrabold'; }
+.size-sbl { font: 18px 'Proxima Nova Light'; }
+.size-m { font: 16px 'Proxima Nova Regular'; }
+.size-bm { font: 16px 'Proxima Nova Extrabold'; }
+.size-sbm { font: 16px 'Proxima Nova Light'; }
+.size-s { font: 14px 'Proxima Nova Regular'; }
+.size-bs { font: 14px 'Proxima Nova Extrabold'; }
+.size-sbs { font: 14px 'Proxima Nova Light'; }
+.size-xs { font: 12px 'Proxima Nova Regular'; }
+.size-bxs { font: 12px 'Proxima Nova Extrabold'; }
+.size-sbxs { font: 12px 'Proxima Nova Light'; }
 
 
 /* =Layout
@@ -74,6 +78,7 @@ a {
 
 #cartodb-map {
   position: absolute;
+  z-index: 1;
   top: 0; bottom: 0; left: 0;
   width: 100%;
 }
@@ -83,7 +88,7 @@ a {
 .footer {
   position: relative;
   z-index: 1000002;
-  font: 14px "Proxima Nova Rg";
+  font: 14px "Proxima Nova Regular";
   background: #252A2F;
   color: #fff;
 
@@ -103,7 +108,7 @@ a {
 
   p {
     @include inline-block;
-    font: 700 14px 'Proxima Nova Lt';
+    font: normal 700 14px 'Proxima Nova Semibold';
   }
 }
 
