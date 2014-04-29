@@ -22,13 +22,13 @@ To create the table, copy this link, navigate to your dashboard, click on the "+
 
 ### Know your Data
 
-This time, let's take a minute to look at the data that we have in our table. It's important that we know what we have to that we can visualize it well and accurately. 
+This time, let's take a minute to look at the data that we have in our table. It's important that we know what we have to that we can visualize it well and accurately.
 
 If you want, you can open the CSV file from the link provided with Excel or another spreadsheet software to take a look. If you open it up, you'll see that we have four columns: damage, date, latitude and longitude.
 
 In our Table View on CartoDB, we have all of those columns in addition to a few created by CartoDB. One that is created by CartoDB is a column called "the_geom", which we have mentioned before. This time, "the_geom" was filled by the two columns in our CSV labeled "latitude" and "longitude." CartoDB knows to take these columns and turn them in to points.
 
-CartoDB will not, however, automatically convert the _types_ of data in each column. For example, we see that "`"damage" is a number, not a string type of data. (We know this because it has numerical data, not text.) We can also see that `date` was not imported as a date type of data. 
+CartoDB will not, however, automatically convert the _types_ of data in each column. For example, we see that `damage` is a number, not a string type of data. (We know this because it has numerical data, not text.) We can also see that `date` was not imported as a date type of data.
 
 It's easy - and important - for us to change the data types, because they affect what kinds of visualizations we can create. So right under the column name, we can pull down a dropdown allowing us to change the data type. Below you can see that we're changing the "date" column to a date data type.
 
@@ -38,11 +38,11 @@ Now, convert to "number" type the "damage" column too.
 
 ### Making a Thematic Map
 
-As we did in lessons 1 and 2, we are going to start by creating a Simple visualization. To do that, go ahead and navigate to the Map View. There, select the Simple type from the Visualization wizard in the right-hand pull-out tray. There you can change the basemap and modify the markers. In our demo, we went with CartoDB Flat Blue as our basemap. We also changed the markers to be smaller (2.5), made them white, and got rid of the marker stroke. As always, you can play with the parameters to create your own design. 
+As we did in lessons 1 and 2, we are going to start by creating a Simple visualization. To do that, go ahead and navigate to the Map View. There, select the Simple type from the Visualization wizard in the right-hand pull-out tray. There you can change the basemap and modify the markers. In our demo, we went with CartoDB Flat Blue as our basemap. We also changed the markers to be smaller (2.5), made them white, and got rid of the marker stroke. As always, you can play with the parameters to create your own design.
 
 ### Bubble Map
 
-While the Simple visualization can be useful in some situations, CartoDB offers many different wizards. Let's start by looking at the Bubble visualization. 
+While the Simple visualization can be useful in some situations, CartoDB offers many different wizards. Let's start by looking at the Bubble visualization.
 
 ![Changing data type]({{site.baseurl}}/img/course1/lesson3/bubble.png)
 
@@ -60,7 +60,7 @@ There are fewer parameters to play with in this visualization, but if you play w
 
 ### Density Map
 
-The final CartoDB visualization which we'll take a look at is the Density visualization. This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives the cell a color based on the number of points inside of the cell. 
+The final CartoDB visualization which we'll take a look at is the Density visualization. This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives the cell a color based on the number of points inside of the cell.
 
 ![Changing data type]({{site.baseurl}}/img/course1/lesson3/density.png)
 
@@ -70,7 +70,7 @@ In the Density visualization you can also change the number of buckets, which is
 
 ###Adding Labels
 
-Thought his dataset isn't ideal for adding labels, let's take a look at how we would do it just in case you have a dataset that would benefit from labeling. 
+Thought his dataset isn't ideal for adding labels, let's take a look at how we would do it just in case you have a dataset that would benefit from labeling.
 
 To add labels, you'll need to select the Simple visualization. From there, scroll down to "Label Text" and from there, select the column that contains the text that will be the label. With our tornado dataset, we chose the "damage" column.
 

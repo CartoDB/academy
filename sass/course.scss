@@ -37,16 +37,23 @@
 }
 
 .hdr-info {
-  margin-top: 32px;
-  @include opacity(.6);
+  margin-top: 39px;
+  color: rgba(#fff, .6);
 
-  a { text-decoration: underline; }
+  a {
+    text-decoration: underline;
+    color: rgba(#fff, .6);
+
+    &:hover {
+      color: #fff;
+    }
+  }
 }
 
 .hdr-title {
   display: inline-block;
   margin-bottom: 4px;
-  font: 22px/24px 'Proxima Nova Th';
+  font: 22px/24px 'Proxima Nova Bold';
   letter-spacing: -1px;
 }
 
@@ -54,12 +61,13 @@
 
 .hdr-crs-title {
   margin-bottom: 8px;
-  font: 48px/52px 'Proxima Nova Th';
+  font: 48px/52px 'Proxima Nova Bold';
   letter-spacing: -2px;
+  color: #111;
 }
 
 .hdr-crs-subtitle {
-  font: 26px/30px 'Proxima Nova Lt';
+  font: 26px/30px 'Proxima Nova Light';
   letter-spacing: -2px;
 }
 
@@ -73,19 +81,36 @@
   @include border-radius(50%);
 }
 
-.hdr-nav { padding: 25px 10px; }
+.hdr-nav {
+  padding: 25px 10px;
+}
 
 .crs-nav {
   width: 218px;
-  padding-top: 2px;
+  padding-top: 7px;
 
   .crs-home  & { padding-top: 41px; }
 
   li { margin-bottom: 32px;  }
-  h2 { margin-bottom: 4px; }
+  h3 {
+    margin-bottom: 10px;
+
+    &.current {
+      margin-left: -13px;
+      padding-left: 10px;
+      border-left: 3px solid #397DBA;
+    }
+  }
 }
 
-.crs-nav-info { color: #666; }
+.crs-nav-info {
+  margin-bottom: 10px;
+  color: #666;
+
+  a {
+    color: #666;
+  }
+}
 
 .crs-inner { width: 700px; }
 
@@ -131,15 +156,15 @@
   dd:first-letter { text-transform: uppercase; }
 }
 
-.crs-info-title { margin-bottom: 16px;  }
+.crs-info-title { margin-bottom: 20px;  }
 
 .crs-info-txt {
   margin-bottom: 40px;
-  font: 18px/1.3 'Proxima Nova Rg';
+  font: 18px/1.3 'Proxima Nova Regular';
 }
 
 .crs-info-pre > li {
-  margin-top: 22px;
+  margin-top: 18px;
   &:first-child { margin-top: 0; }
 }
 
@@ -162,6 +187,10 @@
 .crs-sbs-title { margin-bottom: 6px; }
 .crs-sbs-header { margin-bottom: 24px; }
 .crs-disclaimer { @include opacity(.5); }
+
+.crs-share{
+  margin: 45px 0 0 0;
+}
 
 .crs-sbs-form {
   margin-bottom: 20px;
@@ -214,10 +243,10 @@
   }
 
   > li {
-    font: 16px 'Proxima Nova Lt';
+    font: 16px 'Proxima Nova Light';
 
     &:last-child {
-      font-family: 'Proxima Nova Rg';
+      font-family: 'Proxima Nova Bold';
       font-weight: 700;
 
       &:after {
@@ -276,23 +305,26 @@
   margin: 0 0 50px 0;
 
   p {
-    font: 18px/28px 'Proxima Nova Rg';
-    margin-bottom: 26px;
+    font: 18px/28px 'Proxima Nova Regular';
+    margin-bottom: 20px;
   }
 
   h2 {
-    font: 24px/26px 'Proxima Nova Th';
+    color: #111;
+    font: 24px/26px 'Proxima Nova Extrabold';
     margin-bottom: 18px;
   }
 
   h3 {
-    font: 20px/23px 'Proxima Nova Th';
+    color: #111;
+    font: 20px/23px 'Proxima Nova Extrabold';
     margin-bottom: 16px;
     margin-top: 40px;
   }
 
   img{
     max-width: 700px;
+    margin: 14px 0 6px 0;
   }
 
   .lss-end {
@@ -313,9 +345,9 @@
       border-radius: 3px;
       &.twitter{background-color: #4DD2FF;}
       &.facebook{background-color: #006DD9;}
-      
-      a{
-        font-family: 'Proxima Nova Lt';
+
+      a {
+        font-family: 'Proxima Nova Semibold';
         font-weight:  700;
         color: white;
       }
@@ -325,20 +357,36 @@
 
 }
 
-.highlight {
+pre, code {
   overflow: auto;
   background-color: #F8F8F8;
   margin-bottom: 38px;
-  padding: 20px;
+  padding: 0 20px 20px;
   border: 1px solid #DDD;
   font: 16px/22px Consolas, "Liberation Mono", Courier, monospace;
   @include border-radius(3px);
+}
+
+code {
+  padding: 2px;
+}
+
+pre > code {
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
 .lss-hdr-inner {
   border-bottom: 1px solid #CCC;
   width: 100%;
   background: #fff;
+
+  &.fixed {
+    position: fixed;
+    z-index: 1001;
+    top: -103px;
+  }
 
   &.border {
     border-bottom: 1px solid #ccc;
@@ -356,16 +404,16 @@
   }
 }
 
+.lss-container.scrolled {
+  padding-top: 170px;
+}
+
 .lss-course {
   position: relative;
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, .2), inset 0 -1px 0 rgba(0, 0, 0, .2);
   margin-bottom: 40px;
   height: 105px;
   background: #eee;
-}
-
-.lss-container {
-  padding-top: 169px;
 }
 
 .progress-bar {
@@ -379,7 +427,7 @@
   position: absolute;
   top: 17px; right: -50px;
   width: 100px;
-  font: bold 14px/40px "Proxima Nova Rg";
+  font: bold 14px/40px "Proxima Nova Bold";
   background: rgba(#424A50, .9);
   color: rgba(#fff, .8);
   @include border-radius(5px);

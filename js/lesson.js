@@ -21,21 +21,29 @@ academy.Views.Lesson = cdb.core.View.extend({
 
     this.$header = this.$('.header');
     this.$scrollInner = this.$('#lss-scroll-recieve');
+    this.$lssContainer = this.$('.lss-container');
     this.$progressBar = this.$('.progress-bar');
     this.$progressNum = this.$('.progress-num');
-    this.elHeight = this.$el.outerHeight();
+    this.$content = this.$('.crs-content');
+    this.contentPos = this.$('.crs-content').offset().top;
     this.mapHeight = this.$('.lss-course').outerHeight();
     this.footerHeight = this.$('.footer').outerHeight();
 
-    this._initBindings();
     this._initViews();
     this._onScroll();
+    this._initBindings();
   },
 
   _initBindings: function() {
+    var that = this;
+
     $(window)
       .on('scroll', this._onScroll)
       .on('resize', this._onScroll);
+
+    $('.nav-toc a').on('click', function(e) {
+      that._goto(e);
+    });
   },
 
   _initViews: function() {
@@ -44,6 +52,7 @@ academy.Views.Lesson = cdb.core.View.extend({
       zoomControl: false,
       cartodb_logo: false
     }
+
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
     .done(function(vis){
       map = vis.getNativeMap();
@@ -53,6 +62,51 @@ academy.Views.Lesson = cdb.core.View.extend({
     });
 
     this.dropdown = new academy.ui.Views.Dropdown();
+
+    this._buildToc();
+  },
+
+  _goto: function(e) {
+    e.preventDefault();
+
+    var el = $(e.target).attr('href');
+
+    this.$el.animate({
+      scrollTop: $(el).offset().top-106
+    });
+  },
+
+  _buildToc: function() {
+    var $item = $('<ul>'),
+      $el,
+      title,
+      link;
+
+    this.$content.find('h2').each(function() {
+      $el = $(this);
+      title = $el.text();
+      link = "#" + $el.attr("id");
+      $item.append('<p class="size-s crs-nav-info"><a href="'+link+'">'+title+'</a></p>');
+
+      var $subItem = $('<ul>'),
+        $subEl,
+        subTitle,
+        subLink;
+
+      $(this).nextAll('h4,h3,h2').each(function(j) {
+        if ($(this).is('h2')) return false;
+
+        $subEl = $(this);
+        subTitle = $subEl.text();
+        subLink = "#" + $subEl.attr("id");
+
+        $subItem.append('<p class="size-s crs-nav-info"><a href="'+subLink+'">'+subTitle+'</a></p>');
+      });
+
+      $item.append($subItem);
+    });
+
+    this.$(".nav-toc").append($item);
   },
 
   _showProgress: function() {
@@ -97,6 +151,10 @@ academy.Views.Lesson = cdb.core.View.extend({
     }
 
     if (pos <= this.mapHeight) {
+      if (this.$scrollInner.hasClass('fixed')) {
+        this.$scrollInner.removeClass('fixed');
+      }
+
       if (this.scrollFinished) {
         this.$progressNum.hide();
         this.$progressBar.animate({
@@ -120,8 +178,12 @@ academy.Views.Lesson = cdb.core.View.extend({
       if (this.$scrollInner.hasClass('scroll')) {
         this.$scrollInner.removeClass('scroll');
       }
+
+      if (this.$lssContainer.hasClass('scrolled')) {
+        this.$lssContainer.removeClass('scrolled');
+      }
     } else {
-      var scrollPercent = (100 * (pos+$(window).height())) / (this.elHeight-this.footerHeight);
+      var scrollPercent = (100 * (pos+$(window).height()-this.contentPos)) / this.$('.crs-content').outerHeight();
 
       if (!this.$scrollInner.hasClass('scroll')) {
         var scrollPercent_ = (scrollPercent < 100) ? scrollPercent : 100;
@@ -157,6 +219,14 @@ academy.Views.Lesson = cdb.core.View.extend({
 
       if (this.$progressBar.hasClass('hide')) {
         this.$progressBar.removeClass('hide');
+      }
+
+      if (!this.$scrollInner.hasClass('fixed')) {
+        this.$scrollInner.addClass('fixed');
+      }
+
+      if (!this.$lssContainer.hasClass('scrolled')) {
+        this.$lssContainer.addClass('scrolled');
       }
     }
   }

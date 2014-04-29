@@ -2,33 +2,33 @@
 layout: default
 description: 'Learn to create maps on the web<br />and visualize geospatial data'
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
---- 
+---
 <section class="info-course">
   <div id="cartodb-map"></div>
 
   <div class="section-inner inner">
     <ul class="inf-inner">
       <li>
-        <h2 class="inf-title">What will you learn</h2>
+        <h2 class="inf-title">What will you learn...</h2>
         <ul class="inf-list">
-          <li>Create interactive data visualizations in maps</li>
-          <li>Import and manage your data</li>
-          <li>Visualize data from different sources</li>
-          <li>Visualize data from different sources</li>
-          <li>Reuse open datasets</li>
-          <li>Share maps with your organization</li>
+          <li>Create interactive map data visualizations.</li>
+          <li>Import and manage your data.</li>
+          <li>Visualize data from different sources.</li>
+          <li>Improve the way you tell stories with maps.</li>
+          <li>Reuse open datasets.</li>
+          <li>Share maps with your organization.</li>
         </ul>
       </li>
 
       <li>
-        <h2 class="inf-title">Who is this for</h2>
+        <h2 class="inf-title">Who is this for...</h2>
         <ul class="inf-list">
-          <li>Journalists</li>
-          <li>Business Analysts</li>
-          <li>Marketing Managers</li>
-          <li>Journalists</li>
-          <li>Business Analysts</li>
-          <li>Marketing Managers</li>
+          <li>Journalists.</li>
+          <li>Business Analysts.</li>
+          <li>Marketing Managers.</li>
+          <li>Map enthusiastics.</li>
+          <li>Web cartographers.</li>
+          <li>Scientists.</li>
         </ul>
       </li>
     </ul>
@@ -40,26 +40,27 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
     <h2 class="section-title"><span>Our courses</span></h2>
 
     <ul class="blocks">
-      {% for page in site.pages %}
-      {% if page.layout == 'course' %}
+      {% assign sorted_pages = site.pages | sort:"path" %}
+      {% for pag in sorted_pages %}
+      {% if pag.layout == 'course' %}
         <li class="block {% cycle '', '', 'last' %}">
-          {% if page.published %}
-            <a href="{{ site.baseurl }}{{ page.url }}" class="block-inner {% if page.published == false %}disabled{% endif %}">
+          {% if pag.published %}
+            <a href="{{ site.baseurl }}{{ pag.url }}" class="block-inner {% if pag.published == false %}disabled{% endif %}">
               <div class="block-header">
-                <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
-                <span class="level">{{ page.categories }}</span>
+                <i class="course-category icon i-light icons-{{ pag.tag }}-medium-white"></i>
+                <span class="level">{{ pag.categories }}</span>
               </div>
 
-              <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
+              <span class="block-title"><strong>{{ pag.title }}</strong>{{ pag.description_short }}</span>
             </a>
           {% else %}
             <div class="block-inner disabled">
               <div class="block-header">
-                <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
-                <span class="level">{{ page.categories }}</span>
+                <i class="course-category icon i-light icons-{{ pag.tag }}-medium-white"></i>
+                <span class="level">{{ pag.categories }}</span>
               </div>
 
-              <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
+              <span class="block-title"><strong>{{ pag.title }}</strong>{{ pag.description_short }}</span>
             </a>
           {% endif %}
         </li>
