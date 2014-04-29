@@ -2,7 +2,7 @@
 layout: default
 description: 'Learn to create maps on the web<br />and visualize geospatial data'
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
---- 
+---
 <section class="info-course">
   <div id="cartodb-map"></div>
 
@@ -40,26 +40,27 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
     <h2 class="section-title"><span>Our courses</span></h2>
 
     <ul class="blocks">
-      {% for page in site.pages %}
-      {% if page.layout == 'course' %}
+      {% assign sorted_pages = site.pages | sort:"path" %}
+      {% for pag in sorted_pages %}
+      {% if pag.layout == 'course' %}
         <li class="block {% cycle '', '', 'last' %}">
-          {% if page.published %}
-            <a href="{{ site.baseurl }}{{ page.url }}" class="block-inner {% if page.published == false %}disabled{% endif %}">
+          {% if pag.published %}
+            <a href="{{ site.baseurl }}{{ pag.url }}" class="block-inner {% if pag.published == false %}disabled{% endif %}">
               <div class="block-header">
-                <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
-                <span class="level">{{ page.categories }}</span>
+                <i class="course-category icon i-light icons-{{ pag.tag }}-medium-white"></i>
+                <span class="level">{{ pag.categories }}</span>
               </div>
 
-              <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
+              <span class="block-title"><strong>{{ pag.title }}</strong>{{ pag.description_short }}</span>
             </a>
           {% else %}
             <div class="block-inner disabled">
               <div class="block-header">
-                <i class="course-category icon i-light icons-{{ page.tag }}-medium-white"></i>
-                <span class="level">{{ page.categories }}</span>
+                <i class="course-category icon i-light icons-{{ pag.tag }}-medium-white"></i>
+                <span class="level">{{ pag.categories }}</span>
               </div>
 
-              <span class="block-title"><strong>{{ page.title }}</strong>{{ page.description }}</span>
+              <span class="block-title"><strong>{{ pag.title }}</strong>{{ pag.description_short }}</span>
             </a>
           {% endif %}
         </li>
