@@ -14,9 +14,9 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 To make your first choropleth map, we will be using data on the populations of US counties. Go ahead and copy this link:
 
-{% highlight javascript %}
+```javascript
 http://acdmy.org/d/counties.zip
-{% endhighlight %}
+```
 
 Navigate to your CartoDB dashboard, and create a new table. If it's your first table, you can scroll down to the bottom of your dashboard and click on the green button reading "Create your First Table." Otherwise, click the "New table" button to the right of your existing tables. In the dialogue box that appears, just paste the link we provided above in the available field and click "Create table."
 

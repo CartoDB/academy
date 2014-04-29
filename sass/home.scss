@@ -68,8 +68,10 @@ a {
 }
 
 .section-inner {
+  position: relative;
+  z-index: 2;
   @extend .inner;
-  margin: 0 auto 110px;
+  margin: 0 auto;
 
   &:last-child {
     margin-bottom: 0;
@@ -120,6 +122,10 @@ a {
       .block-title {
         color: #ccc;
       }
+
+      .level {
+        background: #F3F3F3;
+      }
     }
 
     &:hover {
@@ -139,6 +145,7 @@ a {
     font: 14px "Proxima Nova Rg";
     color: rgba(#000, .5);
     text-transform: uppercase;
+    background: #C2E3BE;
     background: rgba(#fff, .5);
     @include border-radius(4px);
   }
@@ -203,15 +210,17 @@ a {
 }
 
 .info-course {
+  @include pie-clearfix;
   position: relative;
+  // height: 600px;
   background: #e5e5e5;
-  padding: 100px 0;
   text-align: center;
 }
 
 .inf-inner {
   position: relative;
   display: inline-block;
+  margin-top: 100px;
   text-align: left;
 
   > li {
@@ -249,3 +258,4 @@ a {
     }
   }
 }
+
