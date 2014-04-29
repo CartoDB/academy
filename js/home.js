@@ -23,7 +23,7 @@ academy.Views.Home = cdb.core.View.extend({
   _goto: function(e) {
     e.preventDefault();
 
-    var el = $(e.target).attr('data-href');
+    var el = $(e.target).attr('href');
 
     this.$el.animate({
       scrollTop: $(el).offset().top

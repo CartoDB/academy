@@ -37,10 +37,17 @@
 }
 
 .hdr-info {
-  margin-top: 32px;
-  @include opacity(.6);
+  margin-top: 39px;
+  color: rgba(#fff, .6);
 
-  a { text-decoration: underline; }
+  a {
+    text-decoration: underline;
+    color: rgba(#fff, .6);
+
+    &:hover {
+      color: #fff;
+    }
+  }
 }
 
 .hdr-title {
@@ -56,6 +63,7 @@
   margin-bottom: 8px;
   font: 48px/52px 'Proxima Nova Th';
   letter-spacing: -2px;
+  color: #111;
 }
 
 .hdr-crs-subtitle {
@@ -73,7 +81,9 @@
   @include border-radius(50%);
 }
 
-.hdr-nav { padding: 25px 10px; }
+.hdr-nav {
+  padding: 25px 10px;
+}
 
 .crs-nav {
   width: 218px;
@@ -296,11 +306,13 @@
   }
 
   h2 {
+    color: #111;
     font: 24px/26px 'Proxima Nova Th';
     margin-bottom: 18px;
   }
 
   h3 {
+    color: #111;
     font: 20px/23px 'Proxima Nova Th';
     margin-bottom: 16px;
     margin-top: 40px;
@@ -356,6 +368,12 @@
   width: 100%;
   background: #fff;
 
+  &.fixed {
+    position: fixed;
+    z-index: 1001;
+    top: -103px;
+  }
+
   &.border {
     border-bottom: 1px solid #ccc;
     border-bottom-color: rgba(#ccc, .2);
@@ -372,16 +390,16 @@
   }
 }
 
+.lss-container.scrolled {
+  padding-top: 170px;
+}
+
 .lss-course {
   position: relative;
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, .2), inset 0 -1px 0 rgba(0, 0, 0, .2);
   margin-bottom: 40px;
   height: 105px;
   background: #eee;
-}
-
-.lss-container {
-  padding-top: 169px;
 }
 
 .progress-bar {

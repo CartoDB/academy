@@ -21,6 +21,7 @@ academy.Views.Lesson = cdb.core.View.extend({
 
     this.$header = this.$('.header');
     this.$scrollInner = this.$('#lss-scroll-recieve');
+    this.$lssContainer = this.$('.lss-container');
     this.$progressBar = this.$('.progress-bar');
     this.$progressNum = this.$('.progress-num');
     this.$content = this.$('.crs-content');
@@ -28,15 +29,21 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.mapHeight = this.$('.lss-course').outerHeight();
     this.footerHeight = this.$('.footer').outerHeight();
 
-    this._initBindings();
     this._initViews();
     this._onScroll();
+    this._initBindings();
   },
 
   _initBindings: function() {
+    var that = this;
+
     $(window)
       .on('scroll', this._onScroll)
       .on('resize', this._onScroll);
+
+    $('.nav-toc a').on('click', function(e) {
+      that._goto(e);
+    });
   },
 
   _initViews: function() {
@@ -57,6 +64,16 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.dropdown = new academy.ui.Views.Dropdown();
 
     this._buildToc();
+  },
+
+  _goto: function(e) {
+    e.preventDefault();
+
+    var el = $(e.target).attr('href');
+
+    this.$el.animate({
+      scrollTop: $(el).offset().top-106
+    });
   },
 
   _buildToc: function() {
@@ -134,6 +151,10 @@ academy.Views.Lesson = cdb.core.View.extend({
     }
 
     if (pos <= this.mapHeight) {
+      if (this.$scrollInner.hasClass('fixed')) {
+        this.$scrollInner.removeClass('fixed');
+      }
+
       if (this.scrollFinished) {
         this.$progressNum.hide();
         this.$progressBar.animate({
@@ -156,6 +177,10 @@ academy.Views.Lesson = cdb.core.View.extend({
 
       if (this.$scrollInner.hasClass('scroll')) {
         this.$scrollInner.removeClass('scroll');
+      }
+
+      if (this.$lssContainer.hasClass('scrolled')) {
+        this.$lssContainer.removeClass('scrolled');
       }
     } else {
       var scrollPercent = (100 * (pos+$(window).height()-this.contentPos)) / this.$('.crs-content').outerHeight();
@@ -194,6 +219,14 @@ academy.Views.Lesson = cdb.core.View.extend({
 
       if (this.$progressBar.hasClass('hide')) {
         this.$progressBar.removeClass('hide');
+      }
+
+      if (!this.$scrollInner.hasClass('fixed')) {
+        this.$scrollInner.addClass('fixed');
+      }
+
+      if (!this.$lssContainer.hasClass('scrolled')) {
+        this.$lssContainer.addClass('scrolled');
       }
     }
   }

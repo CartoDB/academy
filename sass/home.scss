@@ -41,11 +41,15 @@ a {
   margin-top: 95px;
   font-size: 15px;
   font-family: 'Proxima Nova Rg';
-  color: #ececec;
-  @include opacity(.75);
+  color: rgba(#fff, .6);
 
   a {
-    color: #fff;
+    color: rgba(#fff, .6);
+    text-decoration: underline;
+
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
@@ -79,6 +83,7 @@ a {
   font-family: 'Proxima Nova Th';
   background: image-url('section_title-bg.png') repeat-x center;
   text-align: center;
+  color: #111;
 
   span {
     padding: 0 30px;
