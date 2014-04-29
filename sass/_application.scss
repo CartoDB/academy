@@ -78,8 +78,10 @@ a {
 
 #cartodb-map {
   position: absolute;
+  z-index: 1;
   top: 0; bottom: 0; left: 0;
   width: 100%;
+  // height: 600px;
 }
 
 /* Footer */
@@ -87,7 +89,7 @@ a {
 .footer {
   position: relative;
   z-index: 1000002;
-  font: 14px "Proxima Nova Rg";
+  font: 14px "Proxima Nova Regular";
   background: #252A2F;
   color: #fff;
 
@@ -107,7 +109,7 @@ a {
 
   p {
     @include inline-block;
-    font: 700 14px 'Proxima Nova Lt';
+    font: normal 700 14px 'Proxima Nova Semibold';
   }
 }
 
