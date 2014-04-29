@@ -305,19 +305,19 @@
   margin: 0 0 50px 0;
 
   p {
-    font: 18px/28px 'Proxima Nova Rg';
+    font: 18px/28px 'Proxima Nova Regular';
     margin-bottom: 20px;
   }
 
   h2 {
     color: #111;
-    font: 24px/26px 'Proxima Nova Th';
+    font: 24px/26px 'Proxima Nova Extrabold';
     margin-bottom: 18px;
   }
 
   h3 {
     color: #111;
-    font: 20px/23px 'Proxima Nova Th';
+    font: 20px/23px 'Proxima Nova Extrabold';
     margin-bottom: 16px;
     margin-top: 40px;
   }
@@ -346,8 +346,8 @@
       &.twitter{background-color: #4DD2FF;}
       &.facebook{background-color: #006DD9;}
 
-      a{
-        font-family: 'Proxima Nova Lt';
+      a {
+        font-family: 'Proxima Nova Semibold';
         font-weight:  700;
         color: white;
       }
@@ -427,7 +427,7 @@ pre > code {
   position: absolute;
   top: 17px; right: -50px;
   width: 100px;
-  font: bold 14px/40px "Proxima Nova Rg";
+  font: bold 14px/40px "Proxima Nova Bold";
   background: rgba(#424A50, .9);
   color: rgba(#fff, .8);
   @include border-radius(5px);
