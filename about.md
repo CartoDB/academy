@@ -9,9 +9,9 @@ tag: "pin"
 
 The Map Academy is an open source project which aims to become a good resource for people that is doing maps on the web. Being Open Source means that the content that is here, will be free for everyone forever.
 
-Although is an initiative of [CartoDB](http://cartodb.com), it is not a guide to this specific software. Here you can find or create content that is not related directly with the product. This means that at the Map Academy you can find resources related with other technologies such as ESRI, Google Maps, Mapbox or OpenStreetMap among others.
+Although is an initiative of [CartoDB](http://cartodb.com), it is not a guide to this specific software. We do think that CartoDB is an ideal tool to start learning online mapping, you can make maps in seconds and then learn about the wizard behind the curtains as your mapping skills grow. So it is our hope, that as the program expands, you will find more and more content that is not related directly with the product. This means that at the Map Academy we will start to teach you skills you can use in other technologies such as ESRI, Google Maps, or Mapbox. 
 
-The Map Academy is designed for self-learners although the content is also being used in other traditional teaching experiences. Being an Open Source project means that re-publication, adaptations into product manuals, and any other creative usage is permitted, as long as attribution to the Map Academy is given.
+The Map Academy is designed for self-learners although the content is also being used in other traditional teaching experiences. Being an open source project means that re-publication, adaptations into product manuals, and any other creative usage is permitted. When you can, we really appreaciate attribution to the Map Academy.
 
 ## How can I contribute?
 
