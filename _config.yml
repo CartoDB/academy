@@ -1,6 +1,7 @@
 name: 'The Map Academy'
 description: 'Learn to create maps on the web and visualize geospatial data'
 baseurl: ''
+github-url: 'http://github.com/CartoDB/academy'
 cartodburl: 'http://cartodb.com'
 permalink: /:title.html
 analytics_property_id:
