@@ -16,6 +16,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body{
+  color: #333;
+}
+
 .inner {
   @include pie-clearfix;
   width: $max-width;
