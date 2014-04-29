@@ -87,7 +87,7 @@
 
 .crs-nav {
   width: 218px;
-  padding-top: 2px;
+  padding-top: 7px;
 
   .crs-home  & { padding-top: 41px; }
 
@@ -187,6 +187,10 @@
 .crs-sbs-title { margin-bottom: 6px; }
 .crs-sbs-header { margin-bottom: 24px; }
 .crs-disclaimer { @include opacity(.5); }
+
+.crs-share{
+  margin: 45px 0 0 0;
+}
 
 .crs-sbs-form {
   margin-bottom: 20px;
