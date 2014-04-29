@@ -56,7 +56,7 @@
             {% for lesson in sorted_pages %}
               {% if page.id == lesson.course_slug %}
                 <li>
-                  <h2 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h2>
+                  <h3 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.id }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h3>
                   <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
                 </li>
               {% endif %}

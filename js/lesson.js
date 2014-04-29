@@ -24,7 +24,7 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.$progressBar = this.$('.progress-bar');
     this.$progressNum = this.$('.progress-num');
     this.$content = this.$('.crs-content');
-    this.elHeight = this.$el.outerHeight();
+    this.contentPos = this.$('.crs-content').offset().top;
     this.mapHeight = this.$('.lss-course').outerHeight();
     this.footerHeight = this.$('.footer').outerHeight();
 
@@ -158,7 +158,7 @@ academy.Views.Lesson = cdb.core.View.extend({
         this.$scrollInner.removeClass('scroll');
       }
     } else {
-      var scrollPercent = (100 * (pos+$(window).height())) / (this.elHeight-this.footerHeight);
+      var scrollPercent = (100 * (pos+$(window).height()-this.contentPos)) / this.$('.crs-content').outerHeight();
 
       if (!this.$scrollInner.hasClass('scroll')) {
         var scrollPercent_ = (scrollPercent < 100) ? scrollPercent : 100;
