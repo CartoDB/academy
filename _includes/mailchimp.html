@@ -5,7 +5,7 @@
     display: inline-block;
   }
   #mc_embed_signup form {
-    width: 750px;
+    width: 650px;
   }
 
   #mc_embed_signup label {
@@ -16,29 +16,16 @@
   }
 
   #mc_embed_signup .mc-field-group {
-    width: 600px;
     float: left;
-  }
-
-  #mc_embed_signup .button {
-    position: relative;
-    float: left;
-    clear: none;
-    height: 48px;
-    font: 18px "Proxima Nova Extrabold";
-    text-transform: uppercase;
-    background: #397DBA;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    -webkit-font-smoothing: antialiased;
-
+    width: 500px;
+    padding: 0;
   }
 
   #mc_embed_signup .mc-field-group input {
     margin: 0;
     padding: 15px 25px;
     border: 0;
-    width: 600px;
+    width: 450px;
     font: 18px "Proxima Nova Regular";
     color: #666;
     border-top-left-radius: 3px;
@@ -49,9 +36,59 @@
     -webkit-transition: all .15s;
   }
 
+  #mc_embed_signup .button {
+    position: relative;
+    float: left;
+    clear: none;
+    margin: 0;
+    height: 48px;
+    padding: 0 25px;
+    font: 18px "Proxima Nova Extrabold";
+    text-transform: uppercase;
+    background: #397DBA;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
   #mc_embed_signup .button:hover {
     background: #3370A6;
   }
+
+  #mc_embed_signup div.mce_inline_error {
+    position: absolute;
+    top: 0; right: 0;
+    font: 18px/38px "Proxima Nova Regular";
+    background-color: transparent;
+    color: #D93803;
+  }
+
+  #mc_embed_signup div#mce-responses {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    width: 100%;
+  }
+
+  #mc_embed_signup div.response {
+    width: 600px;
+    padding: 25px;
+    font: 16px/1.4 "Proxima Nova Regular";
+    text-align: center;
+    border-radius: 3px;
+  }
+
+  #mc_embed_signup #mce-success-response {
+    background: #2E3438;
+    color: #fff;
+  }
+
+  #mc_embed_signup #mce-error-response {
+    background: #D9592E;
+    color: #fff;
+  }
+
 </style>
 <div id="mc_embed_signup">
 <form action="http://cartodb.us8.list-manage1.com/subscribe/post?u=36faffcf7a252a84c96af0236&amp;id={{page.mailchimp_id}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
