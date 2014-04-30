@@ -6,4 +6,4 @@ cartodburl: 'http://cartodb.com'
 permalink: /:title.html
 analytics_property_id:
 encoding: utf-8
-markdown: maruku
+markdown: kramdown

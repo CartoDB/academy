@@ -138,7 +138,7 @@ academy.Views.Lesson = cdb.core.View.extend({
   _onScroll: function() {
     var that = this;
 
-    var pos = this.$el.scrollTop();
+    var pos = $('html, body').scrollTop();
 
     if (pos === 0) {
       if (this.$header.hasClass('border')) {
