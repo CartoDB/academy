@@ -17,25 +17,22 @@ Welcome to Course 2 of Map Academy! Here we will start talking about designing y
 We will be talking about designing for the web, and about designing the data that will go on your maps. Remember that this is just the tip of the map design iceberg!
 
 ###Thinking About Design for Maps
-NYPL Maps
-Display geography and data an top of it. Maps color labels and scale
-Cartography isn't simple
-Lots of concepts
 
-Starting with [google maps](http://bit.ly/1r4PW3A)
+Designing maps, and designing the data on them, is not a new endeavor. Just take a look at the [old maps recently released by the New York Public Library](http://www.nypl.org/blog/2014/03/28/open-access-maps). In these thousands of beautiful maps, you can find many examples of great map design where geography and a particular set of data are displayed harmoniously and clearly using colors, labels, and scale.
 
-[Tilemill](http://bit.ly/1mdl4jE) building basemaps really fast 
+That said, though designing maps and data is not new, it also is not simple! There are many concepts to master, competing priorities to consider, and techniques with which to familiarize yourself.
 
-[Stamen](http://bit.ly/1i2aeoG) great digital cartography and basemaps that you can use
+###Designing for Digital
 
-[D3](http://bit.ly/1lgkQnY) - [projections](http://bit.ly/1kLKFMh)newcommer 
+To narrow our focus a bit, we're going to be talking about designing digital, online maps. This is still a vast and changing set of practices, concepts, and design principles. To get an idea of what is out there in terms of design, let's take a look at a few tools and examples that you can play around with before we dive in to the other lessons in Course 2.
 
-Think about projections
+One of the first things people probably think of when considering web maps is Google Maps. Google has developed a wealth of resources that make their online maps easy to use, and customize. One interesting tool is the [Styled Maps Wizard](http://bit.ly/1r4PW3A), which allows you to change the way different features of the map are visualized. You can edit color, stroke, fill of things like administrative divisions, roads, or water. Essentially, you can edit the features of what is called the basemap. The basemap is the map upon wihch you would overlay your data, and is an important part of making a good-looking map. Go ahead and see what you can create. 
 
-Animated maps [wind example](http://hint.fm/wind) and adding a lot to the discussion
+Another example of how you can edit a map's features is [Tilemill](http://bit.ly/1mdl4jE). Using this great tool, you can build basemaps quickly and easily. See what you can make there, too! 
 
+While designing your own basemaps can be fun and rewarding, there are also some great existing basemaps out there. [Stamen](http://bit.ly/1i2aeoG) produces great digital cartography and basemaps that you can use in your maps! In future Courses, we'll take a look at how to add these, but if you want to, you can take a [sneak peak at a quick how-to](http://vimeo.com/79772252) or head over to see what [basemaps are available in CartoDB](http://bit.ly/1ldR1IT).
 
- [basemaps](http://bit.ly/1ldR1IT)
+[D3](http://bit.ly/1lgkQnY) is another tool that's a relative newcomer. It can be used to structure the way your data is visualized, and it offers some really diverse opportunities. With D3, you can also start to explore how [projections](http://bit.ly/1kLKFMh) shape the way your data and geography are visualized.
 
 Bad map -- link
 
