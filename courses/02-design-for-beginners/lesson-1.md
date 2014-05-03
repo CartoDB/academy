@@ -34,6 +34,12 @@ While designing your own basemaps can be fun and rewarding, there are also some 
 
 [D3](http://bit.ly/1lgkQnY) is another tool that's a relative newcomer. It can be used to structure the way your data is visualized, and it offers some really diverse opportunities. With D3, you can also start to explore how [projections](http://bit.ly/1kLKFMh) shape the way your data and geography are visualized.
 
-Bad map -- link
+Finally, animated maps are entering the conversation and are adding a lot to the discussion around desinging maps and data for the web. Check out [this example](http://hint.fm/wind) of an animated map.
 
-We'll look at Colors (on maps), Data (what to use and show), Labels (used often, need to know how they can work)
+###Colors, Data, and Labels 
+
+Take a look at this map [here](http://andrew.cartodb.com/viz/5fabe112-c024-11e3-8f7e-0e230854a1cb/embed_map?).
+ 
+![Bad map.]({{site.baseurl}}/img/course2/lesson1/badmap.png)
+
+It's a pretty ugly map, and also highlights the first three topics we will tackle: colors, data, and labels. By taking a look at each of these - discussing which colors, which subset of data, and what kinds of labels - we will start to get an understanding of good map design and be well on our way to designing beautiful maps!
