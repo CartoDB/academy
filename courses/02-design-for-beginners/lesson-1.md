@@ -4,7 +4,7 @@ layout: lesson
 title:  "Lesson 1"
 subtitle: "Getting Started with Map Design"
 course: "Design for Beginners"
-course_slug: "01-beginners-course"
+course_slug: "02-design-for-beginners"
 continue_link: "lesson-2"
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
@@ -42,4 +42,4 @@ Take a look at this map [here](http://andrew.cartodb.com/viz/5fabe112-c024-11e3-
  
 ![Bad map.]({{site.baseurl}}/img/course2/lesson1/badmap.png)
 
-It's a pretty ugly map, and also highlights the first three topics we will tackle: colors, data, and labels. By taking a look at each of these - discussing which colors, which subset of data, and what kinds of labels - we will start to get an understanding of good map design and be well on our way to designing beautiful maps!
+It's a pretty ugly map, and also highlights the first three topics we will tackle: colors, data, and labels. In this example of a bad map, it's clear that much could be made better by just changing the colors, filtering the data, and changing the labels. By taking a look at each of these - discussing which colors, which subset of data, and what kinds of labels - we will start to get an understanding of good map design and be well on our way to designing beautiful maps!
