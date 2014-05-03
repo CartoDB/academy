@@ -12,11 +12,9 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 ##Getting Started with Map Design
 
-Welcome to course two! Here we will… Not one-stop, but get your feet wet
+Welcome to Course 2 of Map Academy! Here we will start talking about designing your data for maps. This won't be a one-stop guide to all things map design, but will cover a few basic concepts to get you started. 
 
-Getting you used to some of the concepts. Only the tip of the iceberg
-
-Designing for the web, and designing the data that will go on maps (not the maps themselves as much)
+We will be talking about designing for the web, and about designing the data that will go on your maps. Remember that this is just the tip of the map design iceberg!
 
 ###Thinking About Design for Maps
 NYPL Maps
