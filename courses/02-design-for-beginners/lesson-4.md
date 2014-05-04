@@ -35,7 +35,8 @@ Let's fix this by fine-tuning our CartoCSS. You'll notice that there's a section
 
 To fix this, let's go ahead and add rules to _when_ labels appear on the map. Let's say we only want to see the mmio label for large earthquakes. To do so, we would want to use some of the skills we learned in Lesson 3. We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:
 
-``` #cartodb_query_::labels 
+~~~css
+#cartodb_query_::labels 
 [mmio>=10][zoom>6]
 {
   text-name: [mmio];
@@ -49,13 +50,15 @@ To fix this, let's go ahead and add rules to _when_ labels appear on the map. Le
   text-allow-overlap: true;
   text-placement: point;
   text-placement-type: simple;
-}```
+}
+~~~
 
 Here, we're telling CartoDB to only display the labels when the mmio is greater than 10, and zoom is larger than 6. That way, we only see the mmio measurement for the largest earthquakes, and only when we're zoomed in enough for the label to make sense. Notice that we can chain together conditions (like zoom level, or mmio value) by just including them side-by-side, without characters in between them.
 
 We can also describe multiple condition pairs in which we would want the labels to be displayed. For example, we want to see labels when the mmio is above 10 and the zoom is above 6, OR when the mmio is above 8 and the zoom is above 7. To do that, we just separate condition chains with commas. Our code, then, would look like this:
 
-```#cartodb_query_::labels 
+~~~css
+#cartodb_query_::labels 
 [mmio>=10][zoom>6],
 [mmio>=8][zoom>7],
 [mmio>=6][zoom>8],
@@ -72,7 +75,8 @@ We can also describe multiple condition pairs in which we would want the labels 
   text-allow-overlap: true;
   text-placement: point;
   text-placement-type: simple;
-}```
+}
+~~~
 
 You can see that we have four pairs of conditions, which, if met, would mean that a label is displayed. In this case, more and more labels are displayed the more zoomed-in we get. This allows us to preserve readability when we're zoomed out, but include a great deal of data for when we're zoomed in. You can edit other attributes of labels using CartoCSS like this, so feel three to play around! Remember that you can't "break" your map by tinkering with the CSS, and can revert to the standard wizard whenever needed. You can also copy and paste old CartoCSS like we did earlier in this lesson, in order to preserve your work. 
 
