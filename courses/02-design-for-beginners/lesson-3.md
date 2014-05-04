@@ -10,14 +10,14 @@ tweet_text: "Step by step is the way to go. I've finished the first lesson of th
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
-##Data, How Much is Too Much?
+## Data, How Much is Too Much?
 In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we're talking about in this Course, is how to control your data in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data, and still leave your audience with a clear understanding of what you wish to communicate. But a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There's just _too much_.
 
 ![Bad map.]({{site.baseurl}}/img/course2/lesson1/badmap.png)
 
 An important tactic, then, is focusing on the message you wish to convey. Think about what data you need on your map, and which you can go without. Are there other ways you can play with the hierarchy of how data is displayed so that you can communicate a clearer message? Unfortunately, there is no definitive, simple rule for how much data you "need" or "should have." There are, however, some tools in CartoDB that will allow you to work with the data you have, highlight important subsets of it, and create a clear communication. Let's get started looking at these tools!
 
-###Zoom-Based Styling
+### Zoom-Based Styling
 
 The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let's start by looking at Stamen's map tiles, which we've mentioned before. As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you're zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
 
@@ -46,7 +46,7 @@ To start working with zoom-based styling, let's go back to the Simple visualizat
 
 We can see that CartoDB will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is _larger than_ 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. Go ahead and play around with this to see what kinds of visualizations you can make based on zoom.
 
-###Filter, Filter, Filter
+### Filter, Filter, Filter
 
 Another tactic that you can use to control how your data is displayed is filtering. By using filters, you can reduce what data is shown on your map.
 
@@ -60,7 +60,7 @@ Perhaps filtering by "mmio," which is the severity of the earthquake, will be a 
 
 ![Filtered by "mmio."]({{site.baseurl}}/img/course2/lesson3/mmio.png)
 
-###Using Bubbles
+### Using Bubbles
 
 We can also change the sizes of our markers based upon a column we're interested in. For example, if we want markers representing a very intense earthquake (a data point with a high "mmio" value) to be bigger than those of less intense earthquakes, we can use the Bubble Visualization. This creates a size hierarchy based on an attribute of the data. Here, we're interested in the attribute of quake intensity (measured by the column "mmio").
 
@@ -72,7 +72,7 @@ We went with Heads/Tails to emphasize the biggest quakes, and assign the lowest 
 
 ![Our Bubble Visualization]({{site.baseurl}}/img/course2/lesson3/bubbleviz.png)
 
-###All Together, Now!
+### All Together, Now!
 These tools and tactics that we've covered - changing marker size based on zoom, filtering your data, and changing marker size based on a column of data - can also be combined with one other to highlight patterns.
 
 Here, we'll start with the bubble map we left off with. We have a simple visualization which highlights the more intense earthquakes by making their marker bigger. If we change the composite operation (which we started discussing in Lesson 2), we can also visualize the intensity of the quakes by region. Now, when there are multiple markers in the same area, they will darken. This highlights areas with high concentrations of quakes, as you can see below.
