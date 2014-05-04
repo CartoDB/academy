@@ -55,8 +55,6 @@
     <div class="inner">
       <nav class="crs-nav h-left">
         <ul>
-        {% for page in site.pages %}
-          {% if page.layout == 'course' %}
             {% assign sorted_pages = site.pages | sort:"path" %}
             {% for lesson in sorted_pages %}
               {% if page.id == lesson.course_slug %}
@@ -66,8 +64,6 @@
                 </li>
               {% endif %}
             {% endfor %}
-          {% endif %}
-        {% endfor %}
         </ul>
       </nav>
 
