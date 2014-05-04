@@ -1,45 +1,79 @@
 ---
-id: 1
+id: 4
 layout: lesson
-title:  "Lesson 1"
-subtitle: "Getting Started with Map Design"
+title:  "Lesson 4"
+subtitle: "Placing Your Labels"
 course: "Design for Beginners"
-course_slug: "01-beginners-course"
-continue_link: "lesson-2"
+course_slug: "02-design-for-beginners"
+continue_link: ""
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
-##Getting Started with Map Design
+##Thinking About Labels
 
-Welcome to Course 2 of Map Academy! Here we will start talking about designing your data for maps. This won't be a one-stop guide to all things map design, but will cover a few basic concepts to get you started. 
+While they're not always necessary, labels can be an important part of many maps. Ensuring that they are legibile, helpful, and well-designed can be a complex process. We'll start by talking about placement of labels. There are many other topics to consider, like font face, and color, that we won't get in to now.
 
-We will be talking about designing for the web, and about designing the data that will go on your maps. Remember that this is just the tip of the map design iceberg!
+If we take another look at Stamen's maps, we can see again the positive effects of careful design. They have small and large labels, a carefully made font choice, and considerate placement of labels off to the side, or even hidden.
 
-###Thinking About Design for Maps
+![Stamen label placement.]({{site.baseurl}}/img/course2/lesson4/labelsize.png)
 
-Designing maps, and designing the data on them, is not a new endeavor. Just take a look at the [old maps recently released by the New York Public Library](http://www.nypl.org/blog/2014/03/28/open-access-maps). In these thousands of beautiful maps, you can find many examples of great map design where geography and a particular set of data are displayed harmoniously and clearly using colors, labels, and scale.
+If we look back at our ugly map, we can see that one of it's biggest problems is where the labels are placed. There is no logic behind where they're placed, nor is there any filtering. They are just randomly placed, and add nothing to the viewer's understanding of the map.
 
-That said, though designing maps and data is not new, it also is not simple! There are many concepts to master, competing priorities to consider, and techniques with which to familiarize yourself.
-
-###Designing for Digital
-
-To narrow our focus a bit, we're going to be talking about designing digital, online maps. This is still a vast and changing set of practices, concepts, and design principles. To get an idea of what is out there in terms of design, let's take a look at a few tools and examples that you can play around with before we dive in to the other lessons in Course 2.
-
-One of the first things people probably think of when considering web maps is Google Maps. Google has developed a wealth of resources that make their online maps easy to use, and customize. One interesting tool is the [Styled Maps Wizard](http://bit.ly/1r4PW3A), which allows you to change the way different features of the map are visualized. You can edit color, stroke, fill of things like administrative divisions, roads, or water. Essentially, you can edit the features of what is called the basemap. The basemap is the map upon wihch you would overlay your data, and is an important part of making a good-looking map. Go ahead and see what you can create. 
-
-Another example of how you can edit a map's features is [Tilemill](http://bit.ly/1mdl4jE). Using this great tool, you can build basemaps quickly and easily. See what you can make there, too! 
-
-While designing your own basemaps can be fun and rewarding, there are also some great existing basemaps out there. [Stamen](http://bit.ly/1i2aeoG) produces great digital cartography and basemaps that you can use in your maps! In future Courses, we'll take a look at how to add these, but if you want to, you can take a [sneak peak at a quick how-to](http://vimeo.com/79772252) or head over to see what [basemaps are available in CartoDB](http://bit.ly/1ldR1IT).
-
-[D3](http://bit.ly/1lgkQnY) is another tool that's a relative newcomer. It can be used to structure the way your data is visualized, and it offers some really diverse opportunities. With D3, you can also start to explore how [projections](http://bit.ly/1kLKFMh) shape the way your data and geography are visualized.
-
-Finally, animated maps are entering the conversation and are adding a lot to the discussion around desinging maps and data for the web. Check out [this example](http://hint.fm/wind) of an animated map.
-
-###Colors, Data, and Labels 
-
-Take a look at this map [here](http://andrew.cartodb.com/viz/5fabe112-c024-11e3-8f7e-0e230854a1cb/embed_map?).
- 
 ![Bad map.]({{site.baseurl}}/img/course2/lesson1/badmap.png)
 
-It's a pretty ugly map, and also highlights the first three topics we will tackle: colors, data, and labels. By taking a look at each of these - discussing which colors, which subset of data, and what kinds of labels - we will start to get an understanding of good map design and be well on our way to designing beautiful maps!
+Clearly, adding text to a map in the form of labels is a large consideration, so let's get started. 
+
+##Adding our Labels
+Before we add our labels, let's copy the styling that we have done with our markers at the end of the last lesson. Just navigate to the CartoCSS panel, select all of the CartoCSS and use Ctrl+C to copy the text. 
+
+Next, go ahead and use the Simple visualization wizard. Near the bottom, you can see the option to add label text based on a column. In our case, we're interested in mmio. Once you select the "mmio" column, you can see that the labels are pretty pointless, like the labels in our ugly map. There are too many of them, and they don't communicate anything to the viewer.
+
+![Adding labels.]({{site.baseurl}}/img/course2/lesson4/addlabels.png)
+
+Let's fix this by fine-tuning our CartoCSS. You'll notice that there's a section formatting the markers, and one formatting the labels. Let's go ahead and replace the section formatting the markers with our copied CartoCSS by deleting it and pasting in the CartoCSS from where we left off in Lesson 3. If you apply the style, you'll see that not much seems to change. The labels are just to obtrusive to allow us to see any of the underlying markers.
+
+To fix this, let's go ahead and add rules to _when_ labels appear on the map. Let's say we only want to see the mmio label for large earthquakes. To do so, we would want to use some of the skills we learned in Lesson 3. We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:
+
+``` #cartodb_query_::labels 
+[mmio>=10][zoom>6]
+{
+  text-name: [mmio];
+  text-face-name: 'DejaVu Sans Book';
+  text-size: 21;
+  text-label-position-tolerance: 10;
+  text-fill: #000;
+  text-halo-fill: rgba(255,255,255,0.8);
+  text-halo-radius: 2	;
+  text-dy: 0;
+  text-allow-overlap: true;
+  text-placement: point;
+  text-placement-type: simple;
+}```
+
+Here, we're telling CartoDB to only display the labels when the mmio is greater than 10, and zoom is larger than 6. That way, we only see the mmio measurement for the largest earthquakes, and only when we're zoomed in enough for the label to make sense. Notice that we can chain together conditions (like zoom level, or mmio value) by just including them side-by-side, without characters in between them.
+
+We can also describe multiple condition pairs in which we would want the labels to be displayed. For example, we want to see labels when the mmio is above 10 and the zoom is above 6, OR when the mmio is above 8 and the zoom is above 7. To do that, we just separate condition chains with commas. Our code, then, would look like this:
+
+```#cartodb_query_::labels 
+[mmio>=10][zoom>6],
+[mmio>=8][zoom>7],
+[mmio>=6][zoom>8],
+[mmio>=4][zoom>9]
+{
+  text-name: [mmio];
+  text-face-name: 'DejaVu Sans Book';
+  text-size: 21;
+  text-label-position-tolerance: 10;
+  text-fill: #000;
+  text-halo-fill: rgba(255,255,255,0.8);
+  text-halo-radius: 2	;
+  text-dy: 0;
+  text-allow-overlap: true;
+  text-placement: point;
+  text-placement-type: simple;
+}```
+
+You can see that we have four pairs of conditions, which, if met, would mean that a label is displayed. In this case, more and more labels are displayed the more zoomed-in we get. This allows us to preserve readability when we're zoomed out, but include a great deal of data for when we're zoomed in. You can edit other attributes of labels using CartoCSS like this, so feel three to play around! Remember that you can't "break" your map by tinkering with the CSS, and can revert to the standard wizard whenever needed. You can also copy and paste old CartoCSS like we did earlier in this lesson, in order to preserve your work. 
+
+Armed with these tools, go forth and build beautifully designed maps!
