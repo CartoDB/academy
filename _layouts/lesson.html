@@ -38,26 +38,22 @@
       <div class="inner">
         <nav class="crs-nav h-left">
           <ul>
-            {% for pag in site.pages %}
-              {% if pag.layout == 'course' %}
-                {% assign sorted_pages = site.pages | sort:"path" %}
-                {% for lesson in sorted_pages %}
-                  {% if pag.id == lesson.course_slug %}
-                    {% if lesson.path == page.path %}
-                      <li>
-                        <h3 class="size-bm current">{{ lesson.title }}</h3>
-                        <div class="nav-toc"></div>
-                      </li>
-                    {% else %}
-                      <li>
-                        <h3 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h3>
-                        <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
-                      </li>
-                    {% endif %}
+              {% assign sorted_pages = site.pages | sort:"path" %}
+              {% for lesson in sorted_pages %}
+                {% if page.course_slug == lesson.course_slug %}
+                  {% if lesson.path == page.path %}
+                    <li>
+                      <h3 class="size-bm current">{{ lesson.title }}</h3>
+                      <div class="nav-toc"></div>
+                    </li>
+                  {% else %}
+                    <li>
+                      <h3 class="size-bm"><a href="{{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ lesson.id }}.html">{{ lesson.title }}</a></h3>
+                      <p class="size-s crs-nav-info">{{ lesson.subtitle }}</p>
+                    </li>
                   {% endif %}
-                {% endfor %}
-              {% endif %}
-            {% endfor %}
+                {% endif %}
+              {% endfor %}
           </ul>
         </nav>
 
