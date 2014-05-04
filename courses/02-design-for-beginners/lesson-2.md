@@ -1,7 +1,7 @@
 ---
-id: 1
+id: 2
 layout: lesson
-title:  "Lesson 1"
+title:  "Lesson 2"
 subtitle: "Colors: Truth & Insights"
 course: "Design for Beginners"
 course_slug: "02-design-for-beginners""
@@ -46,9 +46,10 @@ Once you have these values copied, you can use them to replace the existing colo
 
 There are many other resources you can use to help in picking colors. Mapbox has a number of resources, which you can [check out here](https://www.mapbox.com/tilemill/docs/guides/tips-for-color/), and Visual.ly has a good [roundup of resources](https://blog.visual.ly/subtleties-of-color-references-and-resources-for-visualization-professionals/) as well.
 
-###Adding Colors, Compositing Operations
-Go play around with composite
-Clearly Screen + ??? highlight some of the differences that your choice can make
-Check out this MapBox documentation to learn more
+###Adding Colors, Composite Operations
 
+In addition to editing the colors of your markers, you can also edit how the colors of overlapping or intersecting markers interact with one another. This function is called "Composite Operations" in your Visualization wizard.
 
+While we won't dive in to this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read [this documentation](https://www.mapbox.com/tilemill/docs/guides/comp-op/) from Map Box to learn more about the options available to you.
+
+![Multiply composite operation.]({{site.baseurl}}/img/course2/lesson2/multiply.png)
