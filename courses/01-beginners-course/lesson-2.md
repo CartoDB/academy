@@ -14,9 +14,9 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and copy this link:
 
-```javascript
+~~~javascript
 http://acdmy.org/d/counties.zip
-```
+~~~
 
 Now you should make sure you're on your CartoDB dashboard.  
 
