@@ -27,7 +27,7 @@ Before we start making changes based on our zoom level, it's important to note t
 
 To start working with zoom-based styling, let's go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we'll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CartoDB that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CartoDB to change marker width at all zoom levels _larger than_ a specified level. Take a look at the last three lines of our code block here.
 
-```/** simple visualization */
+~~~css
 #cartodb_query_{
   marker-fill-opacity: 0.9;
   marker-line-color: #FFF;
@@ -41,7 +41,8 @@ To start working with zoom-based styling, let's go back to the Simple visualizat
   [zoom = 4] {marker-width: 6}
   [zoom = 5] {marker-width: 12}
   [zoom > 5] {marker-width: 16}
-} ```
+} 
+~~~
 
 We can see that CartoDB will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is _larger than_ 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. Go ahead and play around with this to see what kinds of visualizations you can make based on zoom.
 
@@ -79,7 +80,9 @@ Here, we'll start with the bubble map we left off with. We have a simple visuali
  ![Our Bubble Visualization]({{site.baseurl}}/img/course2/lesson3/together1.png)
 
 Once we have this, we can add the zoom-based styling. Remember that your sizing is already based upon the column "mmio" since we're using the Bubble Visualization. This means that when you add the zoom-based styling, you'll need to apply it to each "bin" of data created by your Bubble Visualization. Overall, we will want to make markers larger as we zoom in, especially at the closest levels of zoom. This will help viewers interact with the map at close zooms. Take a look at the code below to see how this is done.
-```#cartodb_query_ [ mmio <= 12] {
+
+~~~css
+#cartodb_query_ [ mmio <= 12] {
    marker-width: 24.0;
   [zoom>5]{marker-width: 48;}
 }
@@ -103,7 +106,8 @@ Once we have this, we can add the zoom-based styling. Remember that your sizing 
   [zoom>5]{marker-width: 1;}
   [zoom>6]{marker-width: 2;}
   [zoom>7]{marker-width: 4;}
-}```
+}
+~~~
 
 When we're zoomed out, then, we are not overwhelmed by feeling as if there is too much data. When we are zoomed in, we are able to see what points are in our area of interest, and they're not to small. Play around with these interactions of size to see what you can come up with.
 
