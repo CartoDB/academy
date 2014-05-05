@@ -22,7 +22,7 @@ a {
 .site-title {
   margin-bottom: 5px;
   font-size: 60px;
-  font-family: "Proxima Nova Th";
+  font-family: "Proxima Nova Extrabold";
 
   a {
     color: #fff;
@@ -32,7 +32,7 @@ a {
 .site-description {
   margin-bottom: 50px;
   font-size: 31px;
-  font-family: 'Proxima Nova Lt';
+  font-family: 'Proxima Nova Light';
   line-height: 1.2;
   color: #fff;
 }
@@ -40,12 +40,16 @@ a {
 .small {
   margin-top: 95px;
   font-size: 15px;
-  font-family: 'Proxima Nova Rg';
-  color: #ececec;
-  @include opacity(.75);
+  font-family: 'Proxima Nova Regular';
+  color: rgba(#fff, .6);
 
   a {
-    color: #fff;
+    color: rgba(#fff, .6);
+    text-decoration: underline;
+
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
@@ -64,8 +68,10 @@ a {
 }
 
 .section-inner {
+  position: relative;
+  z-index: 2;
   @extend .inner;
-  margin: 0 auto 110px;
+  margin: 0 auto;
 
   &:last-child {
     margin-bottom: 0;
@@ -76,9 +82,10 @@ a {
   margin-bottom: 30px;
   font-size: 30px;
   line-height: 1;
-  font-family: 'Proxima Nova Th';
+  font-family: 'Proxima Nova Extrabold';
   background: image-url('section_title-bg.png') repeat-x center;
   text-align: center;
+  color: #111;
 
   span {
     padding: 0 30px;
@@ -115,6 +122,10 @@ a {
       .block-title {
         color: #ccc;
       }
+
+      .level {
+        background: #F3F3F3;
+      }
     }
 
     &:hover {
@@ -131,9 +142,10 @@ a {
     float: right;
     margin: 15px 25px 0 0;
     padding: 10px 15px;
-    font: 14px "Proxima Nova Rg";
+    font: 14px "Proxima Nova Regular";
     color: rgba(#000, .5);
     text-transform: uppercase;
+    background: #C2E3BE;
     background: rgba(#fff, .5);
     @include border-radius(4px);
   }
@@ -149,13 +161,13 @@ a {
   position: absolute;
   right: 20px; bottom: 20px; left: 20px;
   font-size: 18px;
-  font-family: 'Proxima Nova Rg';
+  font-family: 'Proxima Nova Regular';
   color: #fff;
 
   strong {
     margin-bottom: 10px;
     font-size: 25px;
-    font-family: "Proxima Nova Th";
+    font-family: "Proxima Nova Extrabold";
     display: block;
   }
 }
@@ -178,7 +190,7 @@ a {
   width: 645px;
   background: #fff;
   color: #ccc;
-  font: 18px/1.5 'Proxima Nova Rg';
+  font: 18px/1.5 'Proxima Nova Regular';
   border-radius: 5px;
   outline: none;
 
@@ -192,21 +204,18 @@ a {
   }
 }
 
-.disclaimer {
-  font: 16px "Proxima Nova Lt";
-  color: rgba(#fff, .5);
-}
-
 .info-course {
+  @include pie-clearfix;
   position: relative;
+  height: 600px;
   background: #e5e5e5;
-  padding: 100px 0;
   text-align: center;
 }
 
 .inf-inner {
   position: relative;
   display: inline-block;
+  margin-top: 100px;
   text-align: left;
 
   > li {
@@ -224,12 +233,12 @@ a {
   }
 }
 
-.inf-title { margin-bottom: 30px; font: 24px/26px 'Proxima Nova Th'; }
+.inf-title { margin-bottom: 30px; font: 24px/26px 'Proxima Nova Extrabold'; }
 
 .inf-list { color: #777;
   > li {
     margin-bottom: 24px;
-    font: 16px/22px 'Proxima Nova Rg';
+    font: 16px/22px 'Proxima Nova Regular';
     padding-left: 30px;
     position: relative;
 
@@ -244,3 +253,4 @@ a {
     }
   }
 }
+

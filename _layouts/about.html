@@ -16,7 +16,6 @@
   <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
   <![endif]-->
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/lesson.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/css/about.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
   <!-- start Mixpanel -->
@@ -26,7 +25,7 @@
   <!-- end Mixpanel -->
 </head>
 <body>
-  <div class="fixed lss-hdr-inner" id="lss-scroll-recieve">
+  <div class="lss-hdr-inner" id="lss-scroll-recieve">
     {% include header.html %}
   </div>
 
@@ -46,39 +45,21 @@
       </div>
     </header>
 
-      <div class="inner">
-        <nav class="crs-nav h-left">
-          <ul>
-            <li><h2 class="size-bm"><a href="/about.html">Why does this exist?</a></h2></li>
-            <li><h2 class="size-bm"><a href="/about.html">How can I contribute?</a></h2></li>
-            <li><h2 class="size-bm"><a href="/about.html">Why does this exist?</a></h2></li>
-            <li><h2 class="size-bm"><a href="/about.html">Why does this exist?</a></h2></li>
-          </ul>
-        </nav>
+    <div class="inner">
+      <nav class="crs-nav h-left">
+        <ul>
+          <li><h2 class="size-bm"><a href="#what-is-this">What is this?</a></h2></li>
+          <li><h2 class="size-bm"><a href="#how-can-i-contribute">How can I contribute?</a></h2></li>
+          <li><h2 class="size-bm"><a href="#why-should-i-contribute">Why should I contribute?</a></h2></li>
+        </ul>
+      </nav>
 
-        <div class="crs-inner h-right lss-inner">
-          {{ content }}
-
-        </div>
+      <div class="crs-inner h-right lss-inner">
+        {{ content }}
       </div>
-   </div>
+    </div>
   </section>
 
   {% include footer.html %}
-
-  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
-  <script src="{{ site.baseurl }}/js/application.js"></script>
-  <script src="{{ site.baseurl }}/js/lesson.js"></script>
-  <script src="{{ site.baseurl }}/js/ui/dropdown.js"></script>
-
-  <script>
-    $(function() {
-      cdb.init(function() {
-        window.lesson = new academy.Views.Lesson({
-          vizjson: '{{ page.vizjson }}'
-        });
-      });
-    });
-  </script>
 </body>
 </html>

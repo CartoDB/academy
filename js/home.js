@@ -2,8 +2,8 @@ academy.Views.Home = cdb.core.View.extend({
   el: document.body,
 
   events: {
-    'click .more': '_goto',
-    'submit .subscribe': '_onSubmitForm'
+    'submit .subscribe': '_onSubmitForm',
+    'click .more': '_goto'
   },
 
   initialize: function() {
@@ -18,16 +18,16 @@ academy.Views.Home = cdb.core.View.extend({
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions);
+
+    $('input[data-label]').placeholder();
   },
 
   _goto: function(e) {
     e.preventDefault();
 
-    var el = $(e.target).attr('data-href');
+    var el = $(e.target).attr('href');
 
-    this.$el.animate({
-      scrollTop: $(el).offset().top
-    });
+    $('body, html').animate({ scrollTop: $(el).offset().top }, 250);
   },
 
   _onSubmitForm: function(e) {

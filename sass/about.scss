@@ -1,8 +1,5 @@
-@import '_application';
-
-section{
-	padding: 100px 0 0 0;
-}
+@import "_syntax";
+@import 'course';
 
 .lss-about {
   box-shadow: none;
@@ -18,8 +15,12 @@ section{
 .hdr-title {
   display: inline-block;
   margin-bottom: 4px;
-  font: 22px/24px 'Proxima Nova Th';
+  font: 22px/24px 'Proxima Nova Bold';
   letter-spacing: -1px;
 }
 
 .hdr-crs-inner { height: 360px; }
+
+.lss-hdr-inner {
+  border-bottom: 0;
+}
