@@ -107,6 +107,13 @@
     position: fixed;
     top: 106px;
   }
+
+  &.bottom {
+   position: absolute;
+    z-index: 1;
+    top: auto;
+    bottom: 72px;
+  }
 }
 
 .crs-nav-info {
@@ -411,8 +418,12 @@ pre > code {
   }
 }
 
-.lss-container.scrolled {
-  padding-top: 170px;
+.lss-container {
+  position: relative;
+
+  &.scrolled {
+    padding-top: 170px;
+  }
 }
 
 .lss-course {
