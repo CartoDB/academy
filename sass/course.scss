@@ -86,10 +86,11 @@
 }
 
 .crs-nav {
+  position: relative;
   width: 218px;
   padding-top: 7px;
 
-  .crs-home  & { padding-top: 41px; }
+  .crs-home & { padding-top: 41px; }
 
   li { margin-bottom: 32px;  }
   h3 {
@@ -100,6 +101,11 @@
       padding-left: 10px;
       border-left: 3px solid #397DBA;
     }
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 106px;
   }
 }
 
