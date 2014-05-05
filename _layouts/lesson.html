@@ -104,6 +104,10 @@
   <script src="{{ site.baseurl }}/js/lesson.js"></script>
   <script src="{{ site.baseurl }}/js/ui/dropdown.js"></script>
 
+  <script id='anchor-template' type='text/x-underscore-template'>
+    <a class="anchor" href="#<%= url %>"><i class="icon icons-anchor"></i></a>
+  </script>
+
   <script>
     $(function() {
       cdb.init(function() {

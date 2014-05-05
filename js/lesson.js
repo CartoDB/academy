@@ -9,7 +9,10 @@ academy.Views.Lesson = cdb.core.View.extend({
 
   events: {
     'mouseenter .progress-bar': '_showProgress',
-    'mouseout .progress-bar': '_hideProgress'
+    'mouseout .progress-bar': '_hideProgress',
+    'mouseover .crs-content h3': '_showAnchor',
+    'mouseout .crs-content h3': '_hideAnchor',
+    'mouseout .crs-content h3 a': '_hideAnchor'
   },
 
   initialize: function() {
@@ -49,6 +52,10 @@ academy.Views.Lesson = cdb.core.View.extend({
   },
 
   _initViews: function() {
+    this.anchor = new cdb.core.Template({
+      template: $("#anchor-template").html()
+    });
+
     var mapOptions = {
       scrollwheel: false,
       zoomControl: false,
@@ -135,6 +142,23 @@ academy.Views.Lesson = cdb.core.View.extend({
     } else {
       this.$progressNum.fadeOut(150);
     }
+  },
+
+  _showAnchor: function(e) {
+    var $target = $(e.target).closest('h3'),
+        $anchor = $target.find('.anchor');
+
+    if ($anchor.length >= 1) {
+      $anchor.show();
+    } else {
+      var $anchor_ = this.anchor.render({ url: $target.attr('id')})
+
+      $target.append($anchor_);
+    }
+  },
+
+  _hideAnchor: function(e) {
+    $(e.target).find('.anchor').hide();
   },
 
   _onScroll: function() {
