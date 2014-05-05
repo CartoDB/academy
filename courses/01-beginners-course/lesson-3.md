@@ -14,9 +14,9 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 In Lesson 3, we will be exploring some of the other visualization records. To get started, we will create a table using the data available on the link below, on tornados in the United States:
 
-{% highlight javascript %}
+~~~
 http://acdmy.org/d/tornadoes.zip
-{% endhighlight %}
+~~~
 
 To create the table, copy this link, navigate to your dashboard, click on the "+" button to the right of your exiting tables, and past the URL in the field. Click "create table" and you're ready to go.
 
