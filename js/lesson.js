@@ -47,6 +47,8 @@ academy.Views.Lesson = cdb.core.View.extend({
       .on('resize', this._onScroll);
 
     $('.nav-toc a').on('click', function(e) {
+      window.router.navigate($(this).attr('href'), { trigger: true });
+
       that._goto(e);
     });
   },
