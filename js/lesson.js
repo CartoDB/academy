@@ -156,6 +156,16 @@ academy.Views.Lesson = cdb.core.View.extend({
       if (!this.$sidebar.hasClass('fixed')) {
         this.$sidebar.addClass('fixed');
       }
+
+      if (pos >= parseInt(($(document).height()-$(window).height()-this.footerHeight), 10)) {
+        if (!this.$sidebar.hasClass('bottom')) {
+          this.$sidebar.addClass('bottom');
+        }
+      } else {
+        if (this.$sidebar.hasClass('bottom')) {
+          this.$sidebar.removeClass('bottom');
+        }
+      }
     } else {
       if (this.$sidebar.hasClass('fixed')) {
         this.$sidebar.removeClass('fixed');
