@@ -25,9 +25,11 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.$progressBar = this.$('.progress-bar');
     this.$progressNum = this.$('.progress-num');
     this.$content = this.$('.crs-content');
+    this.$sidebar = this.$('.crs-nav');
     this.contentPos = this.$('.crs-content').offset().top;
     this.mapHeight = this.$('.lss-course').outerHeight();
     this.footerHeight = this.$('.footer').outerHeight();
+    this.sidebarPos = this.$('.crs-inner').offset().top-106;
 
     this._initViews();
     this._onScroll();
@@ -147,6 +149,16 @@ academy.Views.Lesson = cdb.core.View.extend({
     } else {
       if (!this.$header.hasClass('border')) {
         this.$header.addClass('border');
+      }
+    }
+
+    if (pos >= this.sidebarPos) {
+      if (!this.$sidebar.hasClass('fixed')) {
+        this.$sidebar.addClass('fixed');
+      }
+    } else {
+      if (this.$sidebar.hasClass('fixed')) {
+        this.$sidebar.removeClass('fixed');
       }
     }
 
