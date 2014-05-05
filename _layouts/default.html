@@ -16,6 +16,9 @@
   <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
   <![endif]-->
+  <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/home-ie.css">
+  <![endif]-->
   <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
   <!-- start Mixpanel -->
@@ -42,6 +45,7 @@
   {% include footer.html %}
 
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="{{ site.baseurl }}/js/vendor/placeholder.js"></script>
   <script src="{{ site.baseurl }}/js/application.js"></script>
   <script src="{{ site.baseurl }}/js/home.js"></script>
 
