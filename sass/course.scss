@@ -62,13 +62,12 @@
 .hdr-crs-title {
   margin-bottom: 8px;
   font: 48px/52px 'Proxima Nova Bold';
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: #111;
 }
 
 .hdr-crs-subtitle {
   font: 26px/30px 'Proxima Nova Light';
-  letter-spacing: -2px;
 }
 
 .hdr-crs-icon {
@@ -296,7 +295,7 @@
 
 
   li {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     line-height: 1;
 
     &:last-child { margin-bottom: 0; }
