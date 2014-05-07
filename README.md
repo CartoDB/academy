@@ -2,6 +2,7 @@
 
 The Map Academy is an online resource to learn all things digital maps and visualizations. We'll go on publishing courses to tackle different challenges in online mapping, from introductory courses to advanced ones. Its an open project in which anyone can contribute. 
 
+[More about the Map Academy](http://0.0.0.0:4000/about.html)
 
 ## How to install
 
