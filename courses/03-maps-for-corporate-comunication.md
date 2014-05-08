@@ -6,7 +6,7 @@ subtitle: Master the basics of designing data for your maps!
 categories: coding
 tag: book
 time: 2 hours
-description_short: "TBD" 
+description_short: "Coming soon..." 
 description_long: "TBD"
 published: false
 prerequisite:
