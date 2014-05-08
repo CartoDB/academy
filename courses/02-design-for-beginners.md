@@ -16,5 +16,5 @@ prerequisite:
   - Completion of Course 1
 published: true
 vizjson: "http://documentation.cartodb.com/api/v2/viz/e667d364-d5ff-11e3-a78a-0edbca4b5057/viz.json"
-mailchimp_id: 95602de951
+mailchimp_id: 9f65372776
 ---
