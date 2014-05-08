@@ -3,9 +3,9 @@ layout: course
 title: "Beginners Course"
 id: "01-beginners-course"
 subtitle: Basic concepts of online mapping
-categories: basic
+categories: Basic
 tag: book
-time: 3 hours
+time: 1 hour
 description_short: Learn how to work with data tables to create interactive map visualizations.
 description_long: In this lesson, you will learn how to work with data tables to create interactive map visualizations. You will explore styling your map, adding multiple data sets, and experimenting with different ways to display your data, including animated maps. You'll learn how to share your new visualizations with friends, family, and the world.
 prerequisite:
