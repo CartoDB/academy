@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Map Academy &rsaquo; Beginners course &rsaquo; Lesson 2</title>
+  <meta name="description" content="Learn to create maps on the web and visualize geospatial data">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/lesson.css">
+  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+  mixpanel.init("");</script>
+  <!-- end Mixpanel -->
+</head>
+<body>
+  <div class="lss-hdr-inner" id="lss-scroll-recieve">
+    <header class="header">
+  <div class="hdr-inner inner">
+    <div class="h-left">
+      <div class="h-iblock">
+        <a href="/"><i class="icon brand-inside icons-logo-inside"></i></a>
+      </div>
+
+      <div class="h-iblock">
+        <a href="/" class="hdr-title">The Map Academy</a>
+        <p class="size-s">Learn to create maps on the web and visualize geospatial data</p>
+      </div>
+    </div>
+
+    <div class="h-right h-tright">
+      <p class="size-s hdr-info">brought to your by <a href="http://cartodb.com">CartoDB</a></p>
+    </div>
+  </div>
+</header>
+
+    <div class="hdr-nav inner h-pr">
+  <nav class="h-left">
+    <ul class="inb-list breadcumbs">
+      <li><a href="/">All courses</a></li>
+      
+        <li><a href="/courses/01-beginners-course.html">Beginners course</a></li>
+        <li class="last"><a href="/courses/01-beginners-course/lesson-2.html">Lesson 2</a></li>
+      
+    </ul>
+  </nav>
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+
+  
+
+  <div class="progress-bar-outer h-pa">
+    <div class="progress-bar hide">
+      <div class="progress-bar-inner"></div>
+      <div class="progress-num"></div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+  <section>
+    <div class="lss-container">
+      <div class="lss-course"><div id="cartodb-map"></div></div>
+
+      <div class="inner">
+        <nav class="crs-nav h-left">
+          <ul>
+            
+            
+              
+            
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-1.html">Lesson 1</a></h3>
+                    <p class="size-s crs-nav-info">Making your First Map</p>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm current">Lesson 2</h3>
+                    <div class="nav-toc"></div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-3.html">Lesson 3</a></h3>
+                    <p class="size-s crs-nav-info">Thematic Maps with Point Data</p>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-4.html">Lesson 4</a></h3>
+                    <p class="size-s crs-nav-info">Animated Maps with Point Data</p>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-5.html">Lesson 5</a></h3>
+                    <p class="size-s crs-nav-info">Multilayer Visualizations</p>
+                  </li>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+        <div class="crs-inner h-right lss-inner">
+          <div class="crs-content">
+            <h2 id="your-first-choropleth-map">Your First Choropleth Map</h2>
+
+<p>To make your first choropleth map, you’ll be using U.S. county population data. First, go ahead and copy this link:</p>
+
+<pre><code class="language-javascript">http://acdmy.org/d/counties.zip
+</code></pre>
+
+<p>Now you should make sure you’re on your CartoDB dashboard.  </p>
+
+<p>If you skipped Beginners’ Course Lesson 1, and therefore haven’t yet created a visualization or tables, you’ll automatically be in the “tables” section of your dashboard, as you’ll see from the upper menu bar. Scroll down past the video to the bottom of the page and click on the green button “Create your first table.” </p>
+
+<p>If you’ve already made a visualization or table and aren’t already in the “tables” section of your dashboard, enter it through the upper menu bar, then click “New table” or the “+” icon to the right of your existing table(s). </p>
+
+<p>In the dialogue box that appears, just paste the link you copied above into the available field, and click “Create table.”</p>
+
+<p><img src="/img/course1/lesson2/newtableURL.png" alt="Add data from a link" /></p>
+
+<p>Your data will open up in “Table” view. There, like we suggested in Beginners’ Course Lesson 1, you can take a look through the data columns. Note that this time the <code>the_geom</code> column indicates “Polygon” values. This means that the geometry that CartoDB will map is in polygon format.</p>
+
+<h3 id="creating-a-simple-visualization">Creating a Simple Visualization</h3>
+
+<p>In Lesson 1 we gave you a quick intro to creating a visualization. You’ll review this here, and then move onto the creation of a more complex visualization.</p>
+
+<p>Go ahead and navigate to “Map view” to begin formatting your map. The first editable parameter is the basemap; like in Lesson 1, we just kept the default Basemap “Nokia day,” but you may select whichever you like.</p>
+
+<p>Next, in the right-hand pull-out tray click on “wizards,” represented by the paintbrush icon. Here you can change the polygon fill and stroke.</p>
+
+<p><img src="/img/course1/lesson2/polygonfill.png" alt="Edit polygon fill." /></p>
+
+<p>The Wizards menu also allows you to select different kinds of visualizations, which we will begin to explore in this lesson.</p>
+
+<h3 id="adding-interactivity">Adding Interactivity</h3>
+<p>Since we have interesting data that we would like map viewers to access, we are going to go over how to add interactivity. In the same right-hand pull-out tray where we have been visiting the visualization wizard, click on “infowindow,” represented by a comment icon. Here you’ll create the pop-ups that will appear whenever a viewer clicks on a county.</p>
+
+<p>Depending on which columns you have in your table, different label options will appear in “infowindow.” Each column can have its own label or display, and you can choose which you’d like to show by clicking the toggle buttons to the right of the listed column names. You can also choose from our pre-set designs or create one of your own. For now, we’ll toggle on a few fields, and select a design from the dropdown menu.</p>
+
+<p><img src="/img/course1/lesson2/infowindow.png" alt="Edit polygon stroke." /></p>
+
+<h3 id="choropleth-mapping">Choropleth Mapping</h3>
+
+<p>If you would like to display your polygon data differently, a frequently-used and very useful type of map is the choropleth map, which takes numerical data in your table and formats your polygons based on this information.</p>
+
+<p>To explore it, return to “wizards” in the right-hand pull-out tray and select “Choropleth” from the available visualizaton wizards. </p>
+
+<p><img src="/img/course1/lesson2/choropleth.png" alt="Edit polygon stroke." /></p>
+
+<p>CartoDB will now automatically choose a table column to display on the map. In our example you can see that it will select the <code>pop</code> column to display the populations of U.S. counties. CartoDB will also automatically add a legend that corresponds with what is displayed.</p>
+
+<p>In the column selector you can change the table column that CartoDB maps onto the choropleth map, but remember that only columns with numerical data can be used in such a map. With this particular table data you can go ahead and change the column to show <code>pop_sqkm</code>, which maps population data per square kilometer. This information represents population density, unlike the <code>pop</code> column, which is just a raw number.</p>
+
+<p>In the “choropleth” visualization you can also change the fill colors, county borders, and color opacity, just like you could in the “simple” visualization. Go ahead and play around with these!</p>
+
+<p>As always, once you click “vizualize” in the upper right to publish your map, you can share it using the “share” button that will appear in this button’s place. Remember that you can only share published visualizations, not the “Map view” of a table.</p>
+
+          </div>
+
+          <div class="crs-share">
+            
+            <div class="lss-end">
+              <div class="h-left">
+                <h2>Awesome, this is the end of this lesson</h2>
+                <p>Just a few more steps and you will become a basic mapper</p>
+                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text=Step by step is the way to go. I've finished the second lesson of the map academy. Check it out&url=/courses/01-beginners-course/lesson-2.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=/courses/01-beginners-course/lesson-2.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+              </div>
+              
+              <div class="h-right">
+                <a class="btn-round blue size-bm" href="/courses/01-beginners-course/lesson-3.html">CONTINUE</a>
+              </div>
+              
+            </div>
+            
+          </div>
+
+          <div class="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'mapacademy';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+      </div>
+   </div>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-inner inner">
+
+    <div class="ftr-left">
+      <p class="ftr-brand">hola</p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/CartoDB/academy">The Map Academy @ GitHub</a></p>
+    </div>
+
+    <div class="ftr-right">
+      <p class="ftr-share"><a href="https://twitter.com/cartodb" class="twitter-follow-button" data-show-count="false">Follow @cartodb</a></p>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+
+  </div>
+</footer>
+
+<!-- analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'cartodb.com', { 'allowLinker': true });
+  ga('send', 'pageview');
+</script>
+
+
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="/js/lesson.js"></script>
+  <script src="/js/ui/dropdown.js"></script>
+
+  <script id='anchor-template' type='text/x-underscore-template'>
+    <a class="anchor" href="#<%= url %>"><i class="icon icons-anchor"></i></a>
+  </script>
+
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.lesson = new academy.Views.Lesson({
+          vizjson: 'http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

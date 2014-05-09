@@ -1,0 +1,506 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Map Academy</title>
+  <meta name="description" content="Learn to create maps on the web and visualize geospatial data">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/css/home-ie.css">
+  <![endif]-->
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+  mixpanel.init("");</script>
+  <!-- end Mixpanel -->
+</head>
+<body>
+  <header class="header site-header">
+    <div class="inner">
+      <i class="logo"></i>
+      <h1 class="site-title"><a href="/">The Map Academy</a></h1>
+      <p class="site-description">Learn to create maps on the web<br />and visualize geospatial data</p>
+      <a href="#courses" class="more btn-round size-bm" data-href="#courses">View courses</a>
+      <p class="small">brought to your by <a href="http://cartodb.com">CartoDB</a></p>
+    </div>
+  </header>
+
+  <div class="content" id="content">
+    <section class="info-course">
+  <div id="cartodb-map"></div>
+
+  <div class="section-inner inner">
+    <ul class="inf-inner">
+      <li>
+        <h2 class="inf-title">What will you learn...</h2>
+        <ul class="inf-list">
+          <li>Create interactive map data visualizations.</li>
+          <li>Import and manage your data.</li>
+          <li>Visualize data from different sources.</li>
+          <li>Improve the way you tell stories with maps.</li>
+          <li>Reuse open datasets.</li>
+          <li>Share maps with your organization.</li>
+        </ul>
+      </li>
+
+      <li>
+        <h2 class="inf-title">Who is this for...</h2>
+        <ul class="inf-list">
+          <li>Journalists.</li>
+          <li>Business Analysts.</li>
+          <li>Marketing Managers.</li>
+          <li>Map enthusiastics.</li>
+          <li>Web cartographers.</li>
+          <li>Scientists.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="courses">
+  <div class="section-inner inner">
+    <h2 class="section-title"><span>Our courses</span></h2>
+
+    <ul class="blocks">
+      
+      
+      
+      
+      
+        <li class="block ">
+          
+            <a href="/courses/01-beginners-course.html" class="block-inner ">
+              <div class="block-header">
+                <i class="course-category icon i-light icons-book-medium-white"></i>
+                <span class="level">Basic</span>
+              </div>
+
+              <span class="block-title"><strong>Beginners Course</strong>Learn how to work with data tables to create interactive map visualizations.</span>
+            </a>
+          
+        </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li class="block ">
+          
+            <a href="/courses/02-design-for-beginners.html" class="block-inner ">
+              <div class="block-header">
+                <i class="course-category icon i-light icons-design-medium-white"></i>
+                <span class="level">basic</span>
+              </div>
+
+              <span class="block-title"><strong>Design for beginners</strong>Start learning the basics of design with data and maps.</span>
+            </a>
+          
+        </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li class="block last">
+          
+            <div class="block-inner disabled">
+              <div class="block-header">
+                <i class="course-category icon i-light icons-book-medium-white"></i>
+                <span class="level">coding</span>
+              </div>
+
+              <span class="block-title"><strong>Rapid Map Prototyping</strong>Coming soon...</span>
+            </a>
+          
+        </li>
+      
+      
+      
+      
+    </ul>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="section-inner inner last subscribe">
+    <h2 class="section-title">Subscribe and recieve info about our courses</h2>
+    <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  #mc_embed_signup {
+    display: inline-block;
+  }
+  #mc_embed_signup form {
+    width: 620px;
+    padding: 0;
+  }
+
+  #mc_embed_signup label {
+    position: absolute;
+    left: 25px;
+    font: 18px "Proxima Nova Regular";
+    color: #999;
+  }
+
+  #mc_embed_signup .mc-field-group {
+    float: left;
+    width: 470px;
+    padding: 0;
+  }
+
+  #mc_embed_signup .mc-field-group input {
+    margin: 0;
+    padding: 15px 25px;
+    border: 0;
+    width: 420px;
+    font: 18px "Proxima Nova Regular";
+    color: #666;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    outline: none;
+    text-indent: 0;
+    transition: all .15s;
+    -webkit-transition: all .15s;
+  }
+
+  #mc_embed_signup .button {
+    position: relative;
+    float: left;
+    clear: none;
+    margin: 0;
+    height: 48px;
+    padding: 0 25px;
+    font: 18px "Proxima Nova Extrabold";
+    text-transform: uppercase;
+    background: #397DBA;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #mc_embed_signup .button:hover {
+    background: #3370A6;
+  }
+
+  #mc_embed_signup div.mce_inline_error {
+    position: absolute;
+    top: 0; right: 0;
+    font: 18px/38px "Proxima Nova Regular";
+    background-color: transparent;
+    color: #D93803;
+  }
+
+  #mc_embed_signup div#mce-responses {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    width: 100%;
+  }
+
+  #mc_embed_signup div.response {
+    width: 570px;
+    padding: 25px;
+    margin-bottom: 0;
+    font: 16px/1.4 "Proxima Nova Regular";
+    text-align: center;
+    border-radius: 3px;
+  }
+
+  #mc_embed_signup #mce-success-response {
+    background: #2E3438;
+    color: #fff;
+  }
+
+  #mc_embed_signup #mce-error-response {
+    background: #D9592E;
+    color: #fff;
+  }
+
+</style>
+<div id="mc_embed_signup">
+<form action="http://cartodb.us8.list-manage1.com/subscribe/post?u=36faffcf7a252a84c96af0236&amp;id=233b952494" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+<div class="mc-field-group">
+  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" data-label="Email Address">
+</div>
+<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+  <div id="mce-responses" class="clear">
+    <div class="response" id="mce-error-response" style="display:none"></div>
+    <div class="response" id="mce-success-response" style="display:none"></div>
+  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_36faffcf7a252a84c96af0236_233b952494" value=""></div>
+</form>
+</div>
+<script type="text/javascript">
+var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
+try {
+    var jqueryLoaded=jQuery;
+    jqueryLoaded=true;
+} catch(err) {
+    var jqueryLoaded=false;
+}
+var head= document.getElementsByTagName('head')[0];
+if (!jqueryLoaded) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+    head.appendChild(script);
+    if (script.readyState && script.onload!==null){
+        script.onreadystatechange= function () {
+              if (this.readyState == 'complete') mce_preload_check();
+        }
+    }
+}
+
+var err_style = '';
+try{
+    err_style = mc_custom_error_style;
+} catch(e){
+    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+}
+var head= document.getElementsByTagName('head')[0];
+var style= document.createElement('style');
+style.type= 'text/css';
+if (style.styleSheet) {
+  style.styleSheet.cssText = err_style;
+} else {
+  style.appendChild(document.createTextNode(err_style));
+}
+head.appendChild(style);
+setTimeout('mce_preload_check();', 250);
+
+var mce_preload_checks = 0;
+function mce_preload_check(){
+    if (mce_preload_checks>40) return;
+    mce_preload_checks++;
+    try {
+        var jqueryLoaded=jQuery;
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+    head.appendChild(script);
+    try {
+        var validatorLoaded=jQuery("#fake-form").validate({});
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    mce_init_form();
+}
+function mce_init_form(){
+    jQuery(document).ready( function($) {
+      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+      options = { url: 'http://cartodb.us8.list-manage.com/subscribe/post-json?u=36faffcf7a252a84c96af0236&id=233b952494&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                    beforeSubmit: function(){
+                        $('#mce_tmp_error_msg').remove();
+                        $('.datefield','#mc_embed_signup').each(
+                            function(){
+                                var txt = 'filled';
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        var bday = false;
+                                        if (fields.length == 2){
+                                            bday = true;
+                                            fields[2] = {'value':1970};//trick birthdays into having years
+                                        }
+                                      if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
+                                        this.value = '';
+                      } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
+                                        this.value = '';
+                      } else {
+                          if (/\[day\]/.test(fields[0].name)){
+                                              this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;
+                          } else {
+                                              this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+                                          }
+                                      }
+                                    });
+                            });
+                        $('.phonefield-us','#mc_embed_signup').each(
+                            function(){
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
+                                        this.value = '';
+                      } else {
+                          this.value = 'filled';
+                                      }
+                                    });
+                            });
+                        return mce_validator.form();
+                    },
+                    success: mce_success_cb
+                };
+      $('#mc-embedded-subscribe-form').ajaxForm(options);
+
+
+    });
+}
+function mce_success_cb(resp){
+    $('#mce-success-response').hide();
+    $('#mce-error-response').hide();
+    if (resp.result=="success"){
+        $('#mce-'+resp.result+'-response').show();
+        $('#mce-'+resp.result+'-response').html(resp.msg);
+        $('#mc-embedded-subscribe-form').each(function(){
+            this.reset();
+      });
+    } else {
+        var index = -1;
+        var msg;
+        try {
+            var parts = resp.msg.split(' - ',2);
+            if (parts[1]==undefined){
+                msg = resp.msg;
+            } else {
+                i = parseInt(parts[0]);
+                if (i.toString() == parts[0]){
+                    index = parts[0];
+                    msg = parts[1];
+                } else {
+                    index = -1;
+                    msg = resp.msg;
+                }
+            }
+        } catch(e){
+            index = -1;
+            msg = resp.msg;
+        }
+        try{
+            if (index== -1){
+                $('#mce-'+resp.result+'-response').show();
+                $('#mce-'+resp.result+'-response').html(msg);
+            } else {
+                err_id = 'mce_tmp_error_msg';
+                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+
+                var input_id = '#mc_embed_signup';
+                var f = $(input_id);
+                if (ftypes[index]=='address'){
+                    input_id = '#mce-'+fnames[index]+'-addr1';
+                    f = $(input_id).parent().parent().get(0);
+                } else if (ftypes[index]=='date'){
+                    input_id = '#mce-'+fnames[index]+'-month';
+                    f = $(input_id).parent().parent().get(0);
+                } else {
+                    input_id = '#mce-'+fnames[index];
+                    f = $().parent(input_id).get(0);
+                }
+                if (f){
+                    $(f).append(html);
+                    $(input_id).focus();
+                } else {
+                    $('#mce-'+resp.result+'-response').show();
+                    $('#mce-'+resp.result+'-response').html(msg);
+                }
+            }
+        } catch(e){
+            $('#mce-'+resp.result+'-response').show();
+            $('#mce-'+resp.result+'-response').html(msg);
+        }
+    }
+}
+
+</script>
+<!--End mc_embed_signup-->
+
+    <p class="disclaimer">We dont use your email for comercial advertisings</p>
+  </div>
+</section>
+
+  </div>
+
+  <footer class="footer">
+  <div class="footer-inner inner">
+
+    <div class="ftr-left">
+      <p class="ftr-brand">hola</p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/CartoDB/academy">The Map Academy @ GitHub</a></p>
+    </div>
+
+    <div class="ftr-right">
+      <p class="ftr-share"><a href="https://twitter.com/cartodb" class="twitter-follow-button" data-show-count="false">Follow @cartodb</a></p>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+
+  </div>
+</footer>
+
+<!-- analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'cartodb.com', { 'allowLinker': true });
+  ga('send', 'pageview');
+</script>
+
+
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="/js/vendor/placeholder.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="/js/home.js"></script>
+
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.course = new academy.Views.Home({
+          vizjson: 'http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
