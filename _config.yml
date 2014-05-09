@@ -2,6 +2,7 @@ name: The Map Academy
 description: Learn to create maps on the web and visualize geospatial data
 baseurl: 'http://academy.cartodb.com'
 cartodburl: 'http://cartodb.com'
+githuburl: 'http://github.com/cartodb/academy'
 permalink: /:title.html
 analytics_property_id: UA-20934186-3
 mixpanel_token: 9b1d8a4fb14fa98d50615108b8b0161a
