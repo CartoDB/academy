@@ -203,7 +203,7 @@ academy.Views.Lesson = cdb.core.View.extend({
         this.$sidebar.addClass('fixed');
       }
 
-      if (pos >= parseInt(($(document).height()-$(window).height()-this.footerHeight), 10)) {
+      if ((pos+106) >= parseInt($(document).height()-this.footerHeight-this.$sidebar.outerHeight(), 10)) {
         if (!this.$sidebar.hasClass('bottom')) {
           this.$sidebar.addClass('bottom');
         }
