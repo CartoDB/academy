@@ -1,3 +1,4 @@
+@import "compass/utilities/sprites";
 @import "compass/css3/opacity";
 
 @import 'icons/*.png';
@@ -22,5 +23,14 @@
     height: 13px;
     margin-right: 12px;
     margin-top: 3px;
+  }
+
+  &.icons-anchor {
+    float: none;
+    display: inline-block;
+    height: 13px;
+    width: 24px;
+    margin-left: 10px;
+    vertical-align: middle;
   }
 }

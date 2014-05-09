@@ -18,6 +18,8 @@ academy.Views.Home = cdb.core.View.extend({
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions);
+
+    $('input[data-label]').placeholder();
   },
 
   _goto: function(e) {
