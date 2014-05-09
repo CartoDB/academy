@@ -2,6 +2,7 @@
 layout: default
 description: 'Learn to create maps on the web<br />and visualize geospatial data'
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
+mailchimp_id: 7ee37359cf
 ---
 <section class="info-course">
   <div id="cartodb-map"></div>
@@ -73,12 +74,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 <section class="section dark">
   <div class="section-inner inner last subscribe">
     <h2 class="section-title">Subscribe and recieve info about our courses</h2>
-    <form>
-      <div class="field">
-        <input type="email" class="input prepend-input" value="" placeholder="your e-mail" />
-        <button class="button append-button">SEND</button>
-      </div>
-    </form>
+    {% include mailchimp.html %}
 
     <p class="disclaimer">We dont use your email for comercial advertisings</p>
   </div>

@@ -25,7 +25,7 @@
   <!-- end Mixpanel -->
 </head>
 <body>
-  <div class="fixed lss-hdr-inner" id="lss-scroll-recieve">
+  <div class="lss-hdr-inner" id="lss-scroll-recieve">
     {% include header.html %}
   </div>
 
@@ -45,20 +45,19 @@
       </div>
     </header>
 
-      <div class="inner">
-        <nav class="crs-nav h-left">
-          <ul>
-            <li><h2 class="size-bm"><a href="#why-does-this-exist">Why does this exist?</a></h2></li>
-            <li><h2 class="size-bm"><a href="#how-can-i-contribute">How can I contribute?</a></h2></li>
-            <li><h2 class="size-bm"><a href="#why-should-i-contribute">Why should I contribute?</a></h2></li>
-          </ul>
-        </nav>
+    <div class="inner">
+      <nav class="crs-nav h-left">
+        <ul>
+          <li><h2 class="size-bm"><a href="#what-is-this">What is this?</a></h2></li>
+          <li><h2 class="size-bm"><a href="#how-can-i-contribute">How can I contribute?</a></h2></li>
+          <li><h2 class="size-bm"><a href="#why-should-i-contribute">Why should I contribute?</a></h2></li>
+        </ul>
+      </nav>
 
-        <div class="crs-inner h-right lss-inner">
-          {{ content }}
-        </div>
+      <div class="crs-inner h-right lss-inner">
+        {{ content }}
       </div>
-   </div>
+    </div>
   </section>
 
   {% include footer.html %}
