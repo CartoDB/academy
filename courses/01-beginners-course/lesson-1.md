@@ -16,7 +16,7 @@ Welcome to CartoDB Academy! In this first lesson in Course 1, we'll walk you thr
 
 As you work through the Academy, you can follow along with the videos we have included, or take it at your own pace by following the written instructions. It's up to you how you want to learn!
 
-<iframe src="//player.vimeo.com/video/81019067?byline=0" width="700" height="438" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe src="//player.vimeo.com/video/81019067?byline=0" width="700" height="438" frameborder="0"> </iframe>
 
 ### Making an Account
 Creating an account with CartoDB is quick and easy; you can head over to [our website,](https://cartodb.com/) and create a free account in just a few minutes.
