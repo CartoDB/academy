@@ -12,6 +12,8 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 ## Your First Choropleth Map
 
+<iframe src="//player.vimeo.com/video/81042811?byline=0" width="700" height="438" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and copy this link:
 
 ~~~javascript
