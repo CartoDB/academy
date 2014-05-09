@@ -10,19 +10,19 @@
   <meta name="description" content="Learn to create maps on the web and visualize geospatial data">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="http://cartodb.github.io/academy/favicon.ico">
 
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
   <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
   <![endif]-->
   <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/lesson.css">
-  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+  <link rel="stylesheet" href="http://cartodb.github.io/academy/css/lesson.css">
+  <script src="http://cartodb.github.io/academy/js/vendor/modernizr-2.6.2.min.js"></script>
   <!-- start Mixpanel -->
   <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
   for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-  mixpanel.init("");</script>
+  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
   <!-- end Mixpanel -->
 </head>
 <body>
@@ -31,11 +31,11 @@
   <div class="hdr-inner inner">
     <div class="h-left">
       <div class="h-iblock">
-        <a href="/"><i class="icon brand-inside icons-logo-inside"></i></a>
+        <a href="http://cartodb.github.io/academy/"><i class="icon brand-inside icons-logo-inside"></i></a>
       </div>
 
       <div class="h-iblock">
-        <a href="/" class="hdr-title">The Map Academy</a>
+        <a href="http://cartodb.github.io/academy/" class="hdr-title">The Map Academy</a>
         <p class="size-s">Learn to create maps on the web and visualize geospatial data</p>
       </div>
     </div>
@@ -49,10 +49,10 @@
     <div class="hdr-nav inner h-pr">
   <nav class="h-left">
     <ul class="inb-list breadcumbs">
-      <li><a href="/">All courses</a></li>
+      <li><a href="http://cartodb.github.io/academy/">All courses</a></li>
       
-        <li><a href="/courses/02-design-for-beginners.html">Design for Beginners</a></li>
-        <li class="last"><a href="/courses/02-design-for-beginners/lesson-4.html">Lesson 4</a></li>
+        <li><a href="http://cartodb.github.io/academy/courses/02-design-for-beginners.html">Design for Beginners</a></li>
+        <li class="last"><a href="http://cartodb.github.io/academy/courses/02-design-for-beginners/lesson-4.html">Lesson 4</a></li>
       
     </ul>
   </nav>
@@ -134,7 +134,7 @@
               
                 
                   <li>
-                    <h3 class="size-bm"><a href="/courses/02-design-for-beginners/lesson-1.html">Lesson 1</a></h3>
+                    <h3 class="size-bm"><a href="http://cartodb.github.io/academy/courses/02-design-for-beginners/lesson-1.html">Lesson 1</a></h3>
                     <p class="size-s crs-nav-info">Getting Started with Map Design</p>
                   </li>
                 
@@ -143,7 +143,7 @@
               
                 
                   <li>
-                    <h3 class="size-bm"><a href="/courses/02-design-for-beginners/lesson-2.html">Lesson 2</a></h3>
+                    <h3 class="size-bm"><a href="http://cartodb.github.io/academy/courses/02-design-for-beginners/lesson-2.html">Lesson 2</a></h3>
                     <p class="size-s crs-nav-info">Colors. Truth & Insights</p>
                   </li>
                 
@@ -152,7 +152,7 @@
               
                 
                   <li>
-                    <h3 class="size-bm"><a href="/courses/02-design-for-beginners/lesson-3.html">Lesson 3</a></h3>
+                    <h3 class="size-bm"><a href="http://cartodb.github.io/academy/courses/02-design-for-beginners/lesson-3.html">Lesson 3</a></h3>
                     <p class="size-s crs-nav-info">Invisible and Visible Data</p>
                   </li>
                 
@@ -176,36 +176,38 @@
 
         <div class="crs-inner h-right lss-inner">
           <div class="crs-content">
-            <h2 id="thinking-about-labels">Thinking About Labels</h2>
+            <h2 id="thinking_about_labels">Thinking About Labels</h2>
 
 <p>While they’re not always necessary, labels can be an important part of many maps. Ensuring that they are legibile, helpful, and well-designed can be a complex process. We’ll start by talking about placement of labels. There are many other topics to consider, like font face, and color, that we won’t get in to now.</p>
 
 <p>If we take another look at Stamen’s maps, we can see again the positive effects of careful design. They have small and large labels, a carefully made font choice, and considerate placement of labels off to the side, or even hidden.</p>
 
-<p><img src="/img/course2/lesson4/labelsize.png" alt="Stamen label placement." /></p>
+<p><img src="http://cartodb.github.io/academy/img/course2/lesson4/labelsize.png" alt="Stamen label placement." /></p>
 
 <p>If we look back at our ugly map, we can see that one of it’s biggest problems is where the labels are placed. There is no logic behind where they’re placed, nor is there any filtering. They are just randomly placed, and add nothing to the viewer’s understanding of the map.</p>
 
-<p><img src="/img/course2/lesson1/badmap.png" alt="Bad map." /></p>
+<p><img src="http://cartodb.github.io/academy/img/course2/lesson1/badmap.png" alt="Bad map." /></p>
 
-<p>Clearly, adding text to a map in the form of labels is a large consideration, so let’s get started. </p>
+<p>Clearly, adding text to a map in the form of labels is a large consideration, so let’s get started.</p>
 
-<h2 id="adding-our-labels">Adding our Labels</h2>
-<p>Before we add our labels, let’s copy the styling that we have done with our markers at the end of the last lesson. Just navigate to the CartoCSS panel, select all of the CartoCSS and use Ctrl+C to copy the text. </p>
+<h2 id="adding_our_labels">Adding our Labels</h2>
+
+<p>Before we add our labels, let’s copy the styling that we have done with our markers at the end of the last lesson. Just navigate to the CartoCSS panel, select all of the CartoCSS and use Ctrl+C to copy the text.</p>
 
 <p>Next, go ahead and use the Simple visualization wizard. Near the bottom, you can see the option to add label text based on a column. In our case, we’re interested in mmio. Once you select the “mmio” column, you can see that the labels are pretty pointless, like the labels in our ugly map. There are too many of them, and they don’t communicate anything to the viewer.</p>
 
-<p><img src="/img/course2/lesson4/addlabels.png" alt="Adding labels." /></p>
+<p><img src="http://cartodb.github.io/academy/img/course2/lesson4/addlabels.png" alt="Adding labels." /></p>
 
 <p>Let’s fix this by fine-tuning our CartoCSS. You’ll notice that there’s a section formatting the markers, and one formatting the labels. Let’s go ahead and replace the section formatting the markers with our copied CartoCSS by deleting it and pasting in the CartoCSS from where we left off in Lesson 3. If you apply the style, you’ll see that not much seems to change. The labels are just to obtrusive to allow us to see any of the underlying markers.</p>
 
 <p>To fix this, let’s go ahead and add rules to <em>when</em> labels appear on the map. Let’s say we only want to see the mmio label for large earthquakes. To do so, we would want to use some of the skills we learned in Lesson 3. We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:</p>
 
-<pre><code class="language-css">#cartodb_query_::labels 
+<pre class="css21"><code class="css21">
+#cartodb_query_::labels 
 [mmio&gt;=10][zoom&gt;6]
 {
   text-name: [mmio];
-  text-face-name: 'DejaVu Sans Book';
+  text-face-name: &#39;DejaVu Sans Book&#39;;
   text-size: 21;
   text-label-position-tolerance: 10;
   text-fill: #000;
@@ -222,14 +224,15 @@
 
 <p>We can also describe multiple condition pairs in which we would want the labels to be displayed. For example, we want to see labels when the mmio is above 10 and the zoom is above 6, OR when the mmio is above 8 and the zoom is above 7. To do that, we just separate condition chains with commas. Our code, then, would look like this:</p>
 
-<pre><code class="language-css">#cartodb_query_::labels 
+<pre class="css21"><code class="css21">
+#cartodb_query_::labels 
 [mmio&gt;=10][zoom&gt;6],
 [mmio&gt;=8][zoom&gt;7],
 [mmio&gt;=6][zoom&gt;8],
 [mmio&gt;=4][zoom&gt;9]
 {
   text-name: [mmio];
-  text-face-name: 'DejaVu Sans Book';
+  text-face-name: &#39;DejaVu Sans Book&#39;;
   text-size: 21;
   text-label-position-tolerance: 10;
   text-fill: #000;
@@ -242,10 +245,9 @@
 }
 </code></pre>
 
-<p>You can see that we have four pairs of conditions, which, if met, would mean that a label is displayed. In this case, more and more labels are displayed the more zoomed-in we get. This allows us to preserve readability when we’re zoomed out, but include a great deal of data for when we’re zoomed in. You can edit other attributes of labels using CartoCSS like this, so feel three to play around! Remember that you can’t “break” your map by tinkering with the CSS, and can revert to the standard wizard whenever needed. You can also copy and paste old CartoCSS like we did earlier in this lesson, in order to preserve your work. </p>
+<p>You can see that we have four pairs of conditions, which, if met, would mean that a label is displayed. In this case, more and more labels are displayed the more zoomed-in we get. This allows us to preserve readability when we’re zoomed out, but include a great deal of data for when we’re zoomed in. You can edit other attributes of labels using CartoCSS like this, so feel three to play around! Remember that you can’t “break” your map by tinkering with the CSS, and can revert to the standard wizard whenever needed. You can also copy and paste old CartoCSS like we did earlier in this lesson, in order to preserve your work.</p>
 
 <p>Armed with these tools, go forth and build beautifully designed maps!</p>
-
           </div>
 
           <div class="crs-share">
@@ -254,7 +256,7 @@
               <div class="h-left">
                 <h2>Awesome, this is the end of this lesson</h2>
                 <p>Just a few more steps and you will become a basic mapper</p>
-                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text=Step by step is the way to go. I've finished the first lesson of the map academy. Check it out&url=/courses/02-design-for-beginners/lesson-4.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=/courses/02-design-for-beginners/lesson-4.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text=Step by step is the way to go. I've finished the first lesson of the map academy. Check it out&url=http://cartodb.github.io/academy/courses/02-design-for-beginners/lesson-4.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http://cartodb.github.io/academy/courses/02-design-for-beginners/lesson-4.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
               </div>
               
             </div>
@@ -284,7 +286,7 @@
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/CartoDB/academy">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">
@@ -303,15 +305,15 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '', 'cartodb.com', { 'allowLinker': true });
+  ga('create', 'UA-20934186-3', 'cartodb.com', { 'allowLinker': true });
   ga('send', 'pageview');
 </script>
 
 
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
-  <script src="/js/application.js"></script>
-  <script src="/js/lesson.js"></script>
-  <script src="/js/ui/dropdown.js"></script>
+  <script src="http://cartodb.github.io/academy/js/application.js"></script>
+  <script src="http://cartodb.github.io/academy/js/lesson.js"></script>
+  <script src="http://cartodb.github.io/academy/js/ui/dropdown.js"></script>
 
   <script id='anchor-template' type='text/x-underscore-template'>
     <a class="anchor" href="#<%= url %>"><i class="icon icons-anchor"></i></a>
