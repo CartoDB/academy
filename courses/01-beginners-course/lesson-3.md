@@ -28,7 +28,7 @@ If you want, you can examine the information by opening the CSV file from the li
 
 In "Table" view on CartoDB, you have all of these columns in addition to a few created by us. One such column is called "the_geom," which we have mentioned in previous lessons. This time, "the_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CartoDB knows how to take these columns and turn them into points.
 
-CartoDB will not, however, automatically convert the _types_ of data in each column. For example, you can see that `damage` is a number, and not a string type of data. (You know this because it has numerical data, not text.) You can also see that `date` was not imported as a date type of data, but as a string. 
+CartoDB will not, however, automatically convert the _types_ of data in each column. For example, you can see that `damage is a number, and not a string type of data. (You know this because it has numerical data, not text.) You can also see that `date` was not imported as a date type of data, but as a string. 
 
 It's easy — and important — for you to change the data types, because they affect what kinds of visualizations you can create. Click on the small downward-facing arrow next to "date" to pull down a menu, click on "Change data type..." and select "date." You'll be asked to "Confirm type change," and should click on "Yes, do it."  Below you can see that we're changing the "date" column from a "string" to a "date" data type.
 
