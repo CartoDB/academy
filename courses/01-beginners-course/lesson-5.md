@@ -11,6 +11,8 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 ## Multilayer Visualizations
 
+<iframe src="//player.vimeo.com/video/81059818?byline=0" width="700" height="438" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 In this final lesson of Course 1, we will be talking about creating a two-layer map. We'll be using both data sets - the one on US Counties and on Tornados in the US - so make sure you have both in the Tables section of your dashboard.
 
 ### Creating a Two-Layer Map
