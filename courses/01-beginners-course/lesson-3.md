@@ -12,7 +12,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 ## Thematic Maps with Point Data
 
-<p><iframe src="//player.vimeo.com/video/81054975?byline=0" width="700" height="438" frameborder="0"></iframe></p>
+<p><iframe src="//player.vimeo.com/video/81054975?byline=0" width="700" height="438" frameborder="0"> </iframe></p>
 
 In this lesson you'll be exploring some other visualization records. To get started, copy the link below, which will allow you to create a map of tornados in the U.S.:
 
