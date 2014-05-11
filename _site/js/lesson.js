@@ -12,7 +12,9 @@ academy.Views.Lesson = cdb.core.View.extend({
     'mouseout .progress-bar': '_hideProgress',
     'mouseover .crs-content h3': '_showAnchor',
     'mouseout .crs-content h3': '_hideAnchor',
-    'mouseout .crs-content h3 a': '_hideAnchor'
+    'mouseout .crs-content h3 a': '_hideAnchor',
+    'click .twitter a': '_onClickTwitter',
+    'click .facebook a': '_onClickFacebook'
   },
 
   initialize: function() {
@@ -75,6 +77,24 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.dropdown = new academy.ui.Views.Dropdown();
 
     this._buildToc();
+  },
+
+  _onClickTwitter: function(e) {
+    var href = $(e.target).attr('href');
+
+    window.open(href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    ga('send', 'event', 'button', 'click', 'twitter');
+
+    return false;
+  },
+
+  _onClickFacebook: function(e) {
+    var href = $(e.target).attr('href');
+
+    javascript:window.open(href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    ga('send', 'event', 'button', 'click', 'facebook');
+
+    return false;
   },
 
   _goto: function(e) {
@@ -183,7 +203,7 @@ academy.Views.Lesson = cdb.core.View.extend({
         this.$sidebar.addClass('fixed');
       }
 
-      if (pos >= parseInt(($(document).height()-$(window).height()-this.footerHeight), 10)) {
+      if ((pos+106) >= parseInt($(document).height()-this.footerHeight-this.$sidebar.outerHeight(), 10)) {
         if (!this.$sidebar.hasClass('bottom')) {
           this.$sidebar.addClass('bottom');
         }
