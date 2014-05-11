@@ -187,6 +187,8 @@
 
 <p>Welcome to CartoDB Academy! In this first lesson in Course 1, we’ll walk you through the steps that will help you make your first map. It is intended to give you a quick overview and familiarize you with some of the basics of CartoDB. In subsequent lessons we’ll dive into specifics.</p>
 
+<p>As you work through the Academy, you can follow along with the videos we have included, or take it at your own pace by following the written instructions. It’s up to you how you want to learn!</p>
+<p><iframe frameborder='0' height='438' src='//player.vimeo.com/video/81019067?byline=0' width='700' /></p>
 <h3 id="making_an_account">Making an Account</h3>
 
 <p>Creating an account with CartoDB is quick and easy; you can head over to <a href="https://cartodb.com/">our website,</a> and create a free account in just a few minutes.</p>
@@ -236,7 +238,7 @@
               <div class="h-left">
                 <h2>Awesome, this is the end of this lesson</h2>
                 <p>Just a few more steps and you will become a basic mapper</p>
-                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text=Step by step is the way to go. I've finished the first lesson of the map academy. Check it out&url=http://academy.cartodb.com/courses/01-beginners-course/lesson-1.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http://academy.cartodb.com/courses/01-beginners-course/lesson-1.html" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text=Step by step is the way to go. I've finished the first lesson of the map academy. Check it out&url=http://academy.cartodb.com/courses/01-beginners-course/lesson-1.html" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http://academy.cartodb.com/courses/01-beginners-course/lesson-1.html" target="_blank" title="Share on Facebook">Facebook</a></span></p>
               </div>
               
               <div class="h-right">
@@ -270,7 +272,7 @@
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">
@@ -282,15 +284,19 @@
   </div>
 </footer>
 
-<!-- analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script type="text/javascript">
 
-  ga('create', 'UA-20934186-3', 'cartodb.com', { 'allowLinker': true });
-  ga('send', 'pageview');
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20934186-3']);
+  _gaq.push(['_setDomainName', 'cartodb.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 
 

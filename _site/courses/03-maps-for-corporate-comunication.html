@@ -600,7 +600,7 @@ function mce_success_cb(resp){
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">
@@ -612,15 +612,19 @@ function mce_success_cb(resp){
   </div>
 </footer>
 
-<!-- analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script type="text/javascript">
 
-  ga('create', 'UA-20934186-3', 'cartodb.com', { 'allowLinker': true });
-  ga('send', 'pageview');
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20934186-3']);
+  _gaq.push(['_setDomainName', 'cartodb.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 
 
