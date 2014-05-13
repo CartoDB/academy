@@ -121,6 +121,10 @@
 
   a {
     color: #666;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -252,7 +256,10 @@
   a {
     color: #333;
 
-    &:hover { color: #000; }
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
   }
 
   > li {
