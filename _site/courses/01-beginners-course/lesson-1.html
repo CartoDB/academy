@@ -22,7 +22,7 @@
   <!-- start Mixpanel -->
   <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
   for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
+  mixpanel.init("");</script>
   <!-- end Mixpanel -->
 </head>
 <body>
@@ -183,27 +183,27 @@
 
         <div class="crs-inner h-right lss-inner">
           <div class="crs-content">
-            <h2 id="making_your_first_map">Making your First Map</h2>
+            <h2 id="making-your-first-map">Making your First Map</h2>
 
-<p>Welcome to CartoDB Academy! In this first lesson in Course 1, we’ll walk you through the steps that will help you make your first map. It is intended to give you a quick overview and familiarize you with some of the basics of CartoDB. In subsequent lessons we’ll dive into specifics.</p>
+<p>Welcome to CartoDB Academy! In this first lesson in Course 1, we’ll walk you through the steps that will help you make your first map. It is intended to give you a quick overview and familiarize you with some of the basics of CartoDB. In subsequent lessons we’ll dive into specifics. </p>
 
 <p>As you work through the Academy, you can follow along with the videos we have included, or take it at your own pace by following the written instructions. It’s up to you how you want to learn!</p>
-<p><iframe frameborder='0' height='438' src='//player.vimeo.com/video/81019067?byline=0' width='700'> </iframe></p>
-<h3 id="making_an_account">Making an Account</h3>
 
+<p><iframe src="//player.vimeo.com/video/81019067?byline=0" width="700" height="438" frameborder="0"> </iframe></p>
+
+<h3 id="making-an-account">Making an Account</h3>
 <p>Creating an account with CartoDB is quick and easy; you can head over to <a href="https://cartodb.com/">our website,</a> and create a free account in just a few minutes.</p>
 
 <p>If you’re interested in a plan with more data storage or other features, please check out a full <a href="http://cartodb.com/pricing/">list of CartoDB plans</a>.</p>
 
-<h3 id="creating_a_table">Creating a Table</h3>
-
-<p>Once you’re logged in and on your dashboard, locate the upper menu bar and click on the link called “common data.” Here you’ll find the table named “Populated places,” and a “+” sign to its right. Click on either to copy the dataset to your tables.</p>
+<h3 id="creating-a-table">Creating a Table</h3>
+<p>Once you’re logged in and on your dashboard, locate the upper menu bar and click on the link called “common data.”  Here you’ll find the table named “Populated places,” and a “+” sign to its right. Click on either to copy the dataset to your tables.</p>
 
 <p><img src="/img/course1/lesson1/commondata.png" alt="Add Common Data" /></p>
 
 <p>After the file processes and inputs, you will be taken straight to the “Table” view of the data. Here you can see the full data in a table. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains.</p>
 
-<p>As you look at the table, take note of the second column from the left called ”<code>the_geom</code>.” It contains information required to display data on a map. Without values in this column — like the coordinates we have in this dataset — you won’t be able to map your data.</p>
+<p>As you look at the table, take note of the second column from the left called “<code>the_geom</code>.” It contains information required to display data on a map. Without values in this column — like the coordinates we have in this dataset — you won’t be able to map your data.</p>
 
 <p><img src="/img/course1/lesson1/the_geom.png" alt="the_geom column" /></p>
 
@@ -211,7 +211,7 @@
 
 <p><img src="/img/course1/lesson1/table_map_view.png" alt="Table and Map View" /></p>
 
-<h3 id="starting_with_your_visualization">Starting with Your Visualization</h3>
+<h3 id="starting-with-your-visualization">Starting with Your Visualization</h3>
 
 <p>In “Map view” you’re still looking at all the same data as in “Table,” but here it has been translated onto a map. You can change the map design and icons representing the data to suit your needs.</p>
 
@@ -221,7 +221,7 @@
 
 <p><img src="/img/course1/lesson1/basemaps.png" alt="Selecting a basemap." /></p>
 
-<p>Once you’ve selected your basemap — in this case we kept the default, “Nokia Day” — go to the toolbar on the right, and click on the paint brush icon to take a look at “Wizards.” Here, select “Category” to visualize the table column ”<code>adm0cap</code>,” which contains data about which cities are capitals (represented by “1” in the map key at the bottom-right corner of the map) and which aren’t (represented by “NULL”).</p>
+<p>Once you’ve selected your basemap — in this case we kept the default, “Nokia Day” — go to the toolbar on the right, and click on the paint brush icon to take a look at “Wizards.” Here, select “Category” to visualize the table column “<code>adm0cap</code>,” which contains data about which cities are capitals (represented by “1” in the map key at the bottom-right corner of the map) and which aren’t (represented by “NULL”).</p>
 
 <p><img src="/img/course1/lesson1/selectimg.png" alt="Selecting markers." /></p>
 
@@ -230,6 +230,7 @@
 <p><img src="/img/course1/lesson1/markeroptions.png" alt="Selecting markers." /></p>
 
 <p>At this point, we are still looking at our data in “Map view” — it isn’t a shareable visualization just yet. To make it one, just click “Visualize” in the upper right-hand corner of the page, name it, and click on “Create visualization.” Now you’re ready to share it via the “Share” link that appears in the top righthand corner of the page.</p>
+
           </div>
 
           <div class="crs-share">
@@ -272,7 +273,7 @@
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">

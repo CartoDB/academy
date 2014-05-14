@@ -22,7 +22,7 @@
   <!-- start Mixpanel -->
   <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
   for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
+  mixpanel.init("");</script>
   <!-- end Mixpanel -->
 </head>
 <body>
@@ -176,15 +176,14 @@
 
         <div class="crs-inner h-right lss-inner">
           <div class="crs-content">
-            <h2 id="data_how_much_is_too_much">Data, How Much is Too Much?</h2>
-
+            <h2 id="data-how-much-is-too-much">Data, How Much is Too Much?</h2>
 <p>In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we’re talking about in this Course, is how to control your data in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data, and still leave your audience with a clear understanding of what you wish to communicate. But a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There’s just <em>too much</em>.</p>
 
 <p><img src="/img/course2/lesson1/badmap.png" alt="Bad map." /></p>
 
 <p>An important tactic, then, is focusing on the message you wish to convey. Think about what data you need on your map, and which you can go without. Are there other ways you can play with the hierarchy of how data is displayed so that you can communicate a clearer message? Unfortunately, there is no definitive, simple rule for how much data you “need” or “should have.” There are, however, some tools in CartoDB that will allow you to work with the data you have, highlight important subsets of it, and create a clear communication. Let’s get started looking at these tools!</p>
 
-<h3 id="zoombased_styling">Zoom-Based Styling</h3>
+<h3 id="zoom-based-styling">Zoom-Based Styling</h3>
 
 <p>The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at <a href="http://maps.stamen.com">Stamen’s map tiles</a>, which we’ve mentioned before. As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.</p>
 
@@ -194,8 +193,7 @@
 
 <p>To start working with zoom-based styling, let’s go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we’ll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CartoDB that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CartoDB to change marker width at all zoom levels <em>larger than</em> a specified level. Take a look at the last three lines of our code block here.</p>
 
-<pre class="css21"><code class="css21">
-#cartodb_query_{
+<pre><code class="language-css">#cartodb_query_{
   marker-fill-opacity: 0.9;
   marker-line-color: #FFF;
   marker-line-width: 0;
@@ -213,7 +211,7 @@
 
 <p>We can see that CartoDB will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is <em>larger than</em> 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. Go ahead and play around with this to see what kinds of visualizations you can make based on zoom.</p>
 
-<h3 id="filter_filter_filter">Filter, Filter, Filter</h3>
+<h3 id="filter-filter-filter">Filter, Filter, Filter</h3>
 
 <p>Another tactic that you can use to control how your data is displayed is filtering. By using filters, you can reduce what data is shown on your map.</p>
 
@@ -221,13 +219,13 @@
 
 <p>Starting with the “quakedate” field, we see that most of the recorded quakes occurred recently. This is kind of interesting, but makes sense, and is not the story we want to tell right now.</p>
 
-<p><img src="/img/course2/lesson3/quakedate.png" alt="Filtered by quakedate." /></p>
+<p><img src="/img/course2/lesson3/quakedate.png" alt="Filtered by &quot;quakedate.&quot;" /></p>
 
-<p>Perhaps filtering by “mmio,” which is the severity of the earthquake, will be a more interesting story. Filtering by mmio, we see that many quakes have a low mmio, and many fewer have an mmio value above 8. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below.</p>
+<p>Perhaps filtering by “mmio,” which is the severity of the earthquake, will be a more interesting story. Filtering by mmio, we see that many quakes have a low mmio, and many fewer have an mmio value above 8. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below. </p>
 
-<p><img src="/img/course2/lesson3/mmio.png" alt="Filtered by mmio." /></p>
+<p><img src="/img/course2/lesson3/mmio.png" alt="Filtered by &quot;mmio.&quot;" /></p>
 
-<h3 id="using_bubbles">Using Bubbles</h3>
+<h3 id="using-bubbles">Using Bubbles</h3>
 
 <p>We can also change the sizes of our markers based upon a column we’re interested in. For example, if we want markers representing a very intense earthquake (a data point with a high “mmio” value) to be bigger than those of less intense earthquakes, we can use the Bubble Visualization. This creates a size hierarchy based on an attribute of the data. Here, we’re interested in the attribute of quake intensity (measured by the column “mmio”).</p>
 
@@ -239,8 +237,7 @@
 
 <p><img src="/img/course2/lesson3/bubbleviz.png" alt="Our Bubble Visualization" /></p>
 
-<h3 id="all_together_now">All Together, Now!</h3>
-
+<h3 id="all-together-now">All Together, Now!</h3>
 <p>These tools and tactics that we’ve covered - changing marker size based on zoom, filtering your data, and changing marker size based on a column of data - can also be combined with one other to highlight patterns.</p>
 
 <p>Here, we’ll start with the bubble map we left off with. We have a simple visualization which highlights the more intense earthquakes by making their marker bigger. If we change the composite operation (which we started discussing in Lesson 2), we can also visualize the intensity of the quakes by region. Now, when there are multiple markers in the same area, they will darken. This highlights areas with high concentrations of quakes, as you can see below.</p>
@@ -249,8 +246,7 @@
 
 <p>Once we have this, we can add the zoom-based styling. Remember that your sizing is already based upon the column “mmio” since we’re using the Bubble Visualization. This means that when you add the zoom-based styling, you’ll need to apply it to each “bin” of data created by your Bubble Visualization. Overall, we will want to make markers larger as we zoom in, especially at the closest levels of zoom. This will help viewers interact with the map at close zooms. Take a look at the code below to see how this is done.</p>
 
-<pre class="css21"><code class="css21">
-#cartodb_query_ [ mmio &lt;= 12] {
+<pre><code class="language-css">#cartodb_query_ [ mmio &lt;= 12] {
    marker-width: 24.0;
   [zoom&gt;5]{marker-width: 48;}
 }
@@ -282,6 +278,7 @@
 <p><img src="/img/course2/lesson3/alltogether.gif" alt="Zoom-based styling in a Stamen map." /></p>
 
 <p>Ultimately, the goal in styling and filtering based on your data is to show a lot of information, but in such a way that viewers are not overwhelmed. These tools will get you started on doing exactly that!</p>
+
           </div>
 
           <div class="crs-share">
@@ -324,7 +321,7 @@
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">

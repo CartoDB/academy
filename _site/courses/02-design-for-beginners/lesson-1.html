@@ -22,7 +22,7 @@
   <!-- start Mixpanel -->
   <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
   for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
+  mixpanel.init("");</script>
   <!-- end Mixpanel -->
 </head>
 <body>
@@ -176,25 +176,25 @@
 
         <div class="crs-inner h-right lss-inner">
           <div class="crs-content">
-            <h2 id="getting_started">Getting Started</h2>
+            <h2 id="getting-started">Getting Started</h2>
 
-<p>Welcome to Course 2 of Map Academy! Here we will start talking about designing your data for maps. This won’t be a one-stop guide to all things map design, but will cover a few basic concepts to get you started.</p>
+<p>Welcome to Course 2 of Map Academy! Here we will start talking about designing your data for maps. This won’t be a one-stop guide to all things map design, but will cover a few basic concepts to get you started. </p>
 
 <p>We will be talking about designing for the web, and about designing the data that will go on your maps. Remember that this is just the tip of the map design iceberg!</p>
 
-<h3 id="thinking_about_map_design">Thinking about Map design</h3>
+<h3 id="thinking-about-map-design">Thinking about Map design</h3>
 
 <p>Designing maps, and designing the data on them, is not a new endeavor. Just take a look at the <a href="http://www.nypl.org/blog/2014/03/28/open-access-maps">old maps recently released</a> by the New York Public Library. In these thousands of beautiful maps, you can find many examples of great map design where geography and a particular set of data are displayed harmoniously and clearly using colors, labels, and scale.</p>
 
 <p>That said, though designing maps and data is not new, it also is not simple! There are many concepts to master, competing priorities to consider, and techniques with which to familiarize yourself.</p>
 
-<h3 id="designing_for_digital">Designing for Digital</h3>
+<h3 id="designing-for-digital">Designing for Digital</h3>
 
 <p>To narrow our focus a bit, we’re going to be talking about designing digital, online maps. This is still a vast and changing set of practices, concepts, and design principles. To get an idea of what is out there in terms of design, let’s take a look at a few tools and examples that you can play around with before we dive in to the other lessons in this course.</p>
 
-<p>One of the first things people probably think of when considering web maps is Google Maps. Google has developed a wealth of resources that make their online maps easy to use, and customize. One interesting tool is the <a href="http://bit.ly/1r4PW3A">Styled Maps Wizard</a>, which allows you to change the way different features of the map are visualized. You can edit color, stroke, fill of things like administrative divisions, roads, or water. Essentially, you can edit the features of what is called the basemap. The basemap is the map upon wihch you would overlay your data, and is an important part of making a good-looking map. Go ahead and see what you can create.</p>
+<p>One of the first things people probably think of when considering web maps is Google Maps. Google has developed a wealth of resources that make their online maps easy to use, and customize. One interesting tool is the <a href="http://bit.ly/1r4PW3A">Styled Maps Wizard</a>, which allows you to change the way different features of the map are visualized. You can edit color, stroke, fill of things like administrative divisions, roads, or water. Essentially, you can edit the features of what is called the basemap. The basemap is the map upon wihch you would overlay your data, and is an important part of making a good-looking map. Go ahead and see what you can create. </p>
 
-<p>Another example of how you can edit a map’s features is <a href="http://bit.ly/1mdl4jE">Tilemill</a>. Using this great tool, you can build basemaps quickly and easily. See what you can make there, too!</p>
+<p>Another example of how you can edit a map’s features is <a href="http://bit.ly/1mdl4jE">Tilemill</a>. Using this great tool, you can build basemaps quickly and easily. See what you can make there, too! </p>
 
 <p>While designing your own basemaps can be fun and rewarding, there are also some great existing basemaps out there. <a href="http://bit.ly/1i2aeoG">Stamen</a> produces great digital cartography and basemaps that you can use in your maps! In future Courses, we’ll take a look at how to add these, but if you want to, you can take a <a href="http://vimeo.com/79772252">sneak peak at a quick how-to</a> or head over to see what <a href="http://bit.ly/1ldR1IT">basemaps are available in CartoDB</a>.</p>
 
@@ -202,11 +202,12 @@
 
 <p>Finally, animated maps are entering the conversation and are adding a lot to the discussion around desinging maps and data for the web. Check out <a href="http://hint.fm/wind">this example</a> of an animated map.</p>
 
-<h3 id="colors_data_and_labels">Colors, Data, and Labels</h3>
+<h3 id="colors-data-and-labels">Colors, Data, and Labels</h3>
 
 <p><img src="/img/course2/lesson1/badmap.png" alt="Bad map." /></p>
 
 <p>Take a look at this map <a href="http://andrew.cartodb.com/viz/5fabe112-c024-11e3-8f7e-0e230854a1cb/embed_map?">here</a>. It’s a pretty ugly map, and also highlights the first three topics we will tackle: colors, data, and labels. In this example of a bad map, it’s clear that much could be made better by just changing the colors, filtering the data, and changing the labels. By taking a look at each of these - discussing which colors, which subset of data, and what kinds of labels - we will start to get an understanding of good map design and be well on our way to designing beautiful maps!</p>
+
           </div>
 
           <div class="crs-share">
@@ -249,7 +250,7 @@
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">
