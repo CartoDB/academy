@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Map Academy &rsaquo; Design for Beginners &rsaquo; Lesson 3</title>
+  <meta name="description" content="Learn to create maps on the web and visualize geospatial data">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/lesson.css">
+  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
+  <!-- end Mixpanel -->
+</head>
+<body>
+  <div class="lss-hdr-inner" id="lss-scroll-recieve">
+    <header class="header">
+  <div class="hdr-inner inner">
+    <div class="h-left">
+      <div class="h-iblock">
+        <a href="/"><i class="icon brand-inside icons-logo-inside"></i></a>
+      </div>
+
+      <div class="h-iblock">
+        <a href="/" class="hdr-title">The Map Academy</a>
+        <p class="size-s">Learn to create maps on the web and visualize geospatial data</p>
+      </div>
+    </div>
+
+    <div class="h-right h-tright">
+      <p class="size-s hdr-info">brought to you by <a href="http://cartodb.com">CartoDB</a></p>
+    </div>
+  </div>
+</header>
+
+    <div class="hdr-nav inner h-pr">
+  <nav class="h-left">
+    <ul class="inb-list breadcumbs">
+      <li><a href="/">All courses</a></li>
+      
+        <li><a href="/courses/02-design-for-beginners.html">Design for Beginners</a></li>
+        <li class="last"><a href="/courses/02-design-for-beginners/lesson-3.html">Lesson 3</a></li>
+      
+    </ul>
+  </nav>
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+
+  
+
+  <div class="progress-bar-outer h-pa">
+    <div class="progress-bar hide">
+      <div class="progress-bar-inner"></div>
+      <div class="progress-num"></div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+  <section>
+    <div class="lss-container">
+      <div class="lss-course"><div id="cartodb-map"></div></div>
+
+      <div class="inner">
+        <nav class="crs-nav h-left">
+          <ul>
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/02-design-for-beginners/lesson-1.html">Lesson 1</a></h3>
+                    <p class="size-s crs-nav-info">Getting Started with Map Design</p>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/02-design-for-beginners/lesson-2.html">Lesson 2</a></h3>
+                    <p class="size-s crs-nav-info">Colors. Truth & Insights</p>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm current">Lesson 3</h3>
+                    <div class="nav-toc"></div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li>
+                    <h3 class="size-bm"><a href="/courses/02-design-for-beginners/lesson-4.html">Lesson 4</a></h3>
+                    <p class="size-s crs-nav-info">Placing Your Labels</p>
+                  </li>
+                
+              
+            
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+        <div class="crs-inner h-right lss-inner">
+          <div class="crs-content">
+            <h2 id="data_how_much_is_too_much">Data, How Much is Too Much?</h2>
+
+<p>In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we’re talking about in this Course, is how to control your data in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data, and still leave your audience with a clear understanding of what you wish to communicate. But a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There’s just <em>too much</em>.</p>
+
+<p><img src="/img/course2/lesson1/badmap.png" alt="Bad map." /></p>
+
+<p>An important tactic, then, is focusing on the message you wish to convey. Think about what data you need on your map, and which you can go without. Are there other ways you can play with the hierarchy of how data is displayed so that you can communicate a clearer message? Unfortunately, there is no definitive, simple rule for how much data you “need” or “should have.” There are, however, some tools in CartoDB that will allow you to work with the data you have, highlight important subsets of it, and create a clear communication. Let’s get started looking at these tools!</p>
+
+<h3 id="zoombased_styling">Zoom-Based Styling</h3>
+
+<p>The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at <a href="http://maps.stamen.com">Stamen’s map tiles</a>, which we’ve mentioned before. As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.</p>
+
+<p><img src="/img/course2/lesson3/stamen.gif" alt="Zoom-based styling in a Stamen map." /></p>
+
+<p>Before we start making changes based on our zoom level, it’s important to note that online maps using <a href="http://mapnik.org/">Mapnik</a> to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CartoDB, OpenStreetMap and MapBox), we’ll be using CartoCSS, which we started learning about in our last lesson.</p>
+
+<p>To start working with zoom-based styling, let’s go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we’ll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CartoDB that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CartoDB to change marker width at all zoom levels <em>larger than</em> a specified level. Take a look at the last three lines of our code block here.</p>
+
+<pre class="css21"><code class="css21">
+#cartodb_query_{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 0;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-type: ellipse;
+  marker-width: 3;
+  marker-fill: #FF6600;
+  marker-allow-overlap: true;
+  [zoom = 4] {marker-width: 6}
+  [zoom = 5] {marker-width: 12}
+  [zoom &gt; 5] {marker-width: 16}
+} 
+</code></pre>
+
+<p>We can see that CartoDB will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is <em>larger than</em> 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. Go ahead and play around with this to see what kinds of visualizations you can make based on zoom.</p>
+
+<h3 id="filter_filter_filter">Filter, Filter, Filter</h3>
+
+<p>Another tactic that you can use to control how your data is displayed is filtering. By using filters, you can reduce what data is shown on your map.</p>
+
+<p>Looking at the map of earthquake data, and pulling out the Filters section of the pull-out tray, we can see that there are two interesting columns by which we could filter: “quakedate” and “mmio”. (The other two, “created_at” and “updated_at” are generated by CartoDB, and not of interest to us right now.) Selecting either one of these will pull up a small graph showing the distribution of the data in accordance to the column selected. You can drag the sliders to restrict which portion of the data is visualized on your map.</p>
+
+<p>Starting with the “quakedate” field, we see that most of the recorded quakes occurred recently. This is kind of interesting, but makes sense, and is not the story we want to tell right now.</p>
+
+<p><img src="/img/course2/lesson3/quakedate.png" alt="Filtered by quakedate." /></p>
+
+<p>Perhaps filtering by “mmio,” which is the severity of the earthquake, will be a more interesting story. Filtering by mmio, we see that many quakes have a low mmio, and many fewer have an mmio value above 8. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below.</p>
+
+<p><img src="/img/course2/lesson3/mmio.png" alt="Filtered by mmio." /></p>
+
+<h3 id="using_bubbles">Using Bubbles</h3>
+
+<p>We can also change the sizes of our markers based upon a column we’re interested in. For example, if we want markers representing a very intense earthquake (a data point with a high “mmio” value) to be bigger than those of less intense earthquakes, we can use the Bubble Visualization. This creates a size hierarchy based on an attribute of the data. Here, we’re interested in the attribute of quake intensity (measured by the column “mmio”).</p>
+
+<p>To do this, just select the Bubble Visualization in your Visualization Wizard. You can play with the largest and smallest sizes to emphasize the variation in sizes. We went ahead and made our marker radius range go from 1 to 50.</p>
+
+<p>You can also change the “Quantification Method” to affect the way that the data is displayed. The Quantification Method basically decides how the data should be cut up in to groups, or bins, and each one is different in how it displays your data. It is great to understand what each of these means in terms of interpreting your data, and you can read <a href="http://blog.cartographica.com/blog/2010/8/16/gis-data-classifications-in-cartographica.html">more</a> <a href="http://individual.utoronto.ca/lackner/ggr272/DataClassificationMethods.pdf">here</a>.</p>
+
+<p>We went with Heads/Tails to emphasize the biggest quakes, and assign the lowest hierarchy to the smallest quakes.</p>
+
+<p><img src="/img/course2/lesson3/bubbleviz.png" alt="Our Bubble Visualization" /></p>
+
+<h3 id="all_together_now">All Together, Now!</h3>
+
+<p>These tools and tactics that we’ve covered - changing marker size based on zoom, filtering your data, and changing marker size based on a column of data - can also be combined with one other to highlight patterns.</p>
+
+<p>Here, we’ll start with the bubble map we left off with. We have a simple visualization which highlights the more intense earthquakes by making their marker bigger. If we change the composite operation (which we started discussing in Lesson 2), we can also visualize the intensity of the quakes by region. Now, when there are multiple markers in the same area, they will darken. This highlights areas with high concentrations of quakes, as you can see below.</p>
+
+<p><img src="/img/course2/lesson3/together1.png" alt="Our Bubble Visualization" /></p>
+
+<p>Once we have this, we can add the zoom-based styling. Remember that your sizing is already based upon the column “mmio” since we’re using the Bubble Visualization. This means that when you add the zoom-based styling, you’ll need to apply it to each “bin” of data created by your Bubble Visualization. Overall, we will want to make markers larger as we zoom in, especially at the closest levels of zoom. This will help viewers interact with the map at close zooms. Take a look at the code below to see how this is done.</p>
+
+<pre class="css21"><code class="css21">
+#cartodb_query_ [ mmio &lt;= 12] {
+   marker-width: 24.0;
+  [zoom&gt;5]{marker-width: 48;}
+}
+#cartodb_query_ [ mmio &lt;= 11] {
+   marker-width: 16.3;
+  [zoom&gt;5]{marker-width: 32;}
+}
+#cartodb_query_ [ mmio &lt;= 9.5] {
+   marker-width: 8.7;
+  [zoom&gt;5]{marker-width: 18;}
+}
+#cartodb_query_ [ mmio &lt;= 6.5] {
+   marker-width: 1.0;
+  [zoom&gt;5]{marker-width: 2;}
+  [zoom&gt;6]{marker-width: 4;}
+  [zoom&gt;7]{marker-width: 8;}
+  marker-line-width: 0;
+}
+#cartodb_query_ [ mmio &lt;= 3] {
+   marker-width: 0.5;
+  [zoom&gt;5]{marker-width: 1;}
+  [zoom&gt;6]{marker-width: 2;}
+  [zoom&gt;7]{marker-width: 4;}
+}
+</code></pre>
+
+<p>When we’re zoomed out, then, we are not overwhelmed by feeling as if there is too much data. When we are zoomed in, we are able to see what points are in our area of interest, and they’re not to small. Play around with these interactions of size to see what you can come up with.</p>
+
+<p><img src="/img/course2/lesson3/alltogether.gif" alt="Zoom-based styling in a Stamen map." /></p>
+
+<p>Ultimately, the goal in styling and filtering based on your data is to show a lot of information, but in such a way that viewers are not overwhelmed. These tools will get you started on doing exactly that!</p>
+          </div>
+
+          <div class="crs-share">
+            
+            <div class="lss-end">
+              <div class="h-left">
+                <h2>Awesome, this is the end of this lesson</h2>
+                <p>Just a few more steps and you will become a basic mapper</p>
+                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text=Step by step is the way to go. I've finished the first lesson of the map academy. Check it out&url=/courses/02-design-for-beginners/lesson-3.html" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=/courses/02-design-for-beginners/lesson-3.html" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+              </div>
+              
+              <div class="h-right">
+                <a class="btn-round blue size-bm" href="/courses/02-design-for-beginners/lesson-4.html">CONTINUE</a>
+              </div>
+              
+            </div>
+            
+          </div>
+
+          <div class="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'mapacademy';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+      </div>
+   </div>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-inner inner">
+
+    <div class="ftr-left">
+      <p class="ftr-brand">hola</p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
+    </div>
+
+    <div class="ftr-right">
+      <p class="ftr-share"><a href="https://twitter.com/cartodb" class="twitter-follow-button" data-show-count="false">Follow @cartodb</a></p>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+
+  </div>
+</footer>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20934186-3']);
+  _gaq.push(['_setDomainName', 'cartodb.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="/js/lesson.js"></script>
+  <script src="/js/ui/dropdown.js"></script>
+
+  <script id='anchor-template' type='text/x-underscore-template'>
+    <a class="anchor" href="#<%= url %>"><i class="icon icons-anchor"></i></a>
+  </script>
+
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.lesson = new academy.Views.Lesson({
+          vizjson: 'http://documentation.cartodb.com/api/v2/viz/e667d364-d5ff-11e3-a78a-0edbca4b5057/viz.json'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

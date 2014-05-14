@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Map Academy &rsaquo; Beginners Course</title>
+  <meta name="description" content="Learn to create maps on the web and visualize geospatial data">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/css/course-ie.css">
+  <![endif]-->
+  <link rel="stylesheet" href="/css/course.css">
+  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
+  <!-- end Mixpanel -->
+</head>
+<body class="crs-home">
+  <div class="lss-hdr-inner">
+    <header class="header">
+  <div class="hdr-inner inner">
+    <div class="h-left">
+      <div class="h-iblock">
+        <a href="/"><i class="icon brand-inside icons-logo-inside"></i></a>
+      </div>
+
+      <div class="h-iblock">
+        <a href="/" class="hdr-title">The Map Academy</a>
+        <p class="size-s">Learn to create maps on the web and visualize geospatial data</p>
+      </div>
+    </div>
+
+    <div class="h-right h-tright">
+      <p class="size-s hdr-info">brought to you by <a href="http://cartodb.com">CartoDB</a></p>
+    </div>
+  </div>
+</header>
+
+    <div class="hdr-nav inner h-pr">
+  <nav class="h-left">
+    <ul class="inb-list breadcumbs">
+      <li><a href="/">All courses</a></li>
+      
+        <li class="last"><a href="/courses/01-beginners-course.html">Beginners Course</a></li>
+      
+    </ul>
+  </nav>
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+
+  
+    <div id="dropdown" class="h-dropdown h-pa">
+      <nav>
+        <a href="#" class="h-drp-actions h-pa">
+          <i class="icon arrow-down icons-arrow-down"></i>
+        </a>
+
+        <ul>
+          <li>
+            <p><a href="#" class="size-s">Beginners Course</a></p>
+          </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li>
+                <p><a class="size-s" href="/courses/02-design-for-beginners.html">Design for beginners</a></p>
+              </li>
+            
+          
+            
+          
+            
+          
+        </ul>
+      </nav>
+    </div>
+  
+
+  <div class="progress-bar-outer h-pa">
+    <div class="progress-bar hide">
+      <div class="progress-bar-inner"></div>
+      <div class="progress-num"></div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+  <section>
+    <header class="hdr-course">
+      <div id="cartodb-map"></div>
+      <div class="hdr-crs-inner inner h-valign h-tcenter">
+        <div class="h-iblock h-malign">
+          <span class="hdr-crs-icon h-valign h-tcenter">
+            <span class="h-iblock h-malign">
+              <i class="course-category icon i-medium icons-book-medium-white"></i>
+            </span>
+          </span>
+
+          <h1 class="hdr-crs-title">Beginners Course</h1>
+          <h2 class="hdr-crs-subtitle">Basic concepts of online mapping</h2>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <div class="inner">
+      <nav class="crs-nav h-left">
+        <ul>
+          
+          
+            
+          
+            
+          
+            
+              <li>
+                <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-1.html">Lesson 1</a></h3>
+                <p class="size-s crs-nav-info">Making your First Map</p>
+              </li>
+            
+          
+            
+              <li>
+                <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-2.html">Lesson 2</a></h3>
+                <p class="size-s crs-nav-info">Your First Choropleth Map</p>
+              </li>
+            
+          
+            
+              <li>
+                <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-3.html">Lesson 3</a></h3>
+                <p class="size-s crs-nav-info">Thematic Maps with Point Data</p>
+              </li>
+            
+          
+            
+              <li>
+                <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-4.html">Lesson 4</a></h3>
+                <p class="size-s crs-nav-info">Animated Maps with Point Data</p>
+              </li>
+            
+          
+            
+              <li>
+                <h3 class="size-bm"><a href="/courses/01-beginners-course/lesson-5.html">Lesson 5</a></h3>
+                <p class="size-s crs-nav-info">Multilayer Visualizations</p>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        </ul>
+      </nav>
+
+      <div class="crs-inner h-right">
+        <article class="crs-info">
+          <div class="crs-info-container">
+            <h2 class="crs-info-title title-l">What you’ll learn</h2>
+            <p class="crs-info-txt">In this lesson, you will learn how to work with data tables to create interactive map visualizations. You will explore styling your map, adding multiple data sets, and experimenting with different ways to display your data, including animated maps. You'll learn how to share your new visualizations with friends, family, and the world.</p>
+
+            <h2 class="crs-info-title title-l">Prerequesites</h2>
+            <ul class="crs-info-pre">
+              
+                <li class="size-l">
+                  <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
+                  <p class="h-iblock h-malign">Reliable internet access</p>
+                </li>
+              
+                <li class="size-l">
+                  <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
+                  <p class="h-iblock h-malign">A modern browser like Chrome, Firefox, or Safari</p>
+                </li>
+              
+                <li class="size-l">
+                  <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
+                  <p class="h-iblock h-malign">Basic computer skills</p>
+                </li>
+              
+                <li class="size-l">
+                  <i class="icon arrow-right icons-arrow-right h-iblock h-malign"></i>
+                  <p class="h-iblock h-malign">A desire to learn!</p>
+                </li>
+              
+            <ul>
+          </div>
+
+          <footer class="crs-footer">
+            <ul class="crs-ftr-option h-iblock h-malign inb-list h-txt-white">
+              <li>
+                <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                  <span class="h-iblock h-malign">
+                    <i class="icon icons-difficulty-medium-black i-light"></i>
+                  </span>
+                </span>
+
+                <dl class="h-iblock h-malign">
+                  <dt class="size-sbxs">DIFFICULTY</dd>
+                  <dd class="size-s">Basic</dd>
+                </dl>
+              </li>
+              <li>
+                <span class="h-iblock h-malign crs-ftr-icon h-tcenter h-valign">
+                  <span class="h-iblock h-malign">
+                    <i class="icon icons-time-medium-black i-light"></i>
+                  </span>
+                </span>
+
+                <dl class="h-iblock h-malign">
+                  <dt class="size-sbxs">TIME</dd>
+                  <dd class="size-s ">1 hour</dd>
+                </dl>
+              </li>
+            </ul>
+
+            <a href="/courses/01-beginners-course/lesson-1.html" class="btn-round size-bm">START COURSE</a>
+          </footer>
+        </article>
+
+        <article class="crs-subscribe">
+          <header class="crs-sbs-header">
+            <div class="h-iblock h-malign  crs-sbs-icon">
+              <i class="icon i-light i-xl icons-calendar-large-white"></i>
+            </div>
+
+            <div class="h-iblock h-malign">
+              <h2 class="title-l h-txt-white crs-sbs-title">Be the first of the class</h2>
+              <p class="h-txt-white size-l">Join the mailing list now and receive new lessons each week.</p>
+            </div>
+          </header>
+
+          <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  #mc_embed_signup {
+    display: inline-block;
+  }
+  #mc_embed_signup form {
+    width: 620px;
+    padding: 0;
+  }
+
+  #mc_embed_signup label {
+    position: absolute;
+    left: 25px;
+    font: 18px "Proxima Nova Regular";
+    color: #999;
+  }
+
+  #mc_embed_signup .mc-field-group {
+    float: left;
+    width: 470px;
+    padding: 0;
+  }
+
+  #mc_embed_signup .mc-field-group input {
+    margin: 0;
+    padding: 15px 25px;
+    border: 0;
+    width: 420px;
+    font: 18px "Proxima Nova Regular";
+    color: #666;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    outline: none;
+    text-indent: 0;
+    transition: all .15s;
+    -webkit-transition: all .15s;
+  }
+
+  #mc_embed_signup .button {
+    position: relative;
+    float: left;
+    clear: none;
+    margin: 0;
+    height: 48px;
+    padding: 0 25px;
+    font: 18px "Proxima Nova Extrabold";
+    text-transform: uppercase;
+    background: #397DBA;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #mc_embed_signup .button:hover {
+    background: #3370A6;
+  }
+
+  #mc_embed_signup div.mce_inline_error {
+    position: absolute;
+    top: 0; right: 0;
+    font: 18px/38px "Proxima Nova Regular";
+    background-color: transparent;
+    color: #D93803;
+  }
+
+  #mc_embed_signup div#mce-responses {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    width: 100%;
+  }
+
+  #mc_embed_signup div.response {
+    width: 570px;
+    padding: 25px;
+    margin-bottom: 0;
+    font: 16px/1.4 "Proxima Nova Regular";
+    text-align: center;
+    border-radius: 3px;
+  }
+
+  #mc_embed_signup #mce-success-response {
+    background: #2E3438;
+    color: #fff;
+  }
+
+  #mc_embed_signup #mce-error-response {
+    background: #D9592E;
+    color: #fff;
+  }
+</style>
+<div id="mc_embed_signup">
+<form action="http://vizzuality.us2.list-manage1.com/subscribe/post?u=177f02bad7857b7358dc1d0fd&amp;id=39c07c0ec2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div class="mc-field-group">
+      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" data-label="Email Address">
+    </div>
+    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+      </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_177f02bad7857b7358dc1d0fd_39c07c0ec2" value=""></div>
+</div>
+<script type="text/javascript">
+var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
+try {
+    var jqueryLoaded=jQuery;
+    jqueryLoaded=true;
+} catch(err) {
+    var jqueryLoaded=false;
+}
+var head= document.getElementsByTagName('head')[0];
+if (!jqueryLoaded) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+    head.appendChild(script);
+    if (script.readyState && script.onload!==null){
+        script.onreadystatechange= function () {
+              if (this.readyState == 'complete') mce_preload_check();
+        }
+    }
+}
+
+var err_style = '';
+try{
+    err_style = mc_custom_error_style;
+} catch(e){
+    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+}
+var head= document.getElementsByTagName('head')[0];
+var style= document.createElement('style');
+style.type= 'text/css';
+if (style.styleSheet) {
+  style.styleSheet.cssText = err_style;
+} else {
+  style.appendChild(document.createTextNode(err_style));
+}
+head.appendChild(style);
+setTimeout('mce_preload_check();', 250);
+
+var mce_preload_checks = 0;
+function mce_preload_check(){
+    if (mce_preload_checks>40) return;
+    mce_preload_checks++;
+    try {
+        var jqueryLoaded=jQuery;
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+    head.appendChild(script);
+    try {
+        var validatorLoaded=jQuery("#fake-form").validate({});
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    mce_init_form();
+}
+function mce_init_form(){
+    jQuery(document).ready( function($) {
+      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+      options = { url: 'http://vizzuality.us2.list-manage.com/subscribe/post-json?u=177f02bad7857b7358dc1d0fd&id=39c07c0ec2&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                    beforeSubmit: function(){
+                        $('#mce_tmp_error_msg').remove();
+                        $('.datefield','#mc_embed_signup').each(
+                            function(){
+                                var txt = 'filled';
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        var bday = false;
+                                        if (fields.length == 2){
+                                            bday = true;
+                                            fields[2] = {'value':1970};//trick birthdays into having years
+                                        }
+                                        if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
+                                            this.value = '';
+                                        } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
+                                            this.value = '';
+                                        } else {
+                                            if (/\[day\]/.test(fields[0].name)){
+                                                this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;
+                                            } else {
+                                                this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+                                            }
+                                        }
+                                    });
+                            });
+                        $('.phonefield-us','#mc_embed_signup').each(
+                            function(){
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
+                                            this.value = '';
+                                        } else {
+                                            this.value = 'filled';
+                                        }
+                                    });
+                            });
+                        return mce_validator.form();
+                    },
+                    success: mce_success_cb
+                };
+      $('#mc-embedded-subscribe-form').ajaxForm(options);
+
+
+    });
+}
+function mce_success_cb(resp){
+    $('#mce-success-response').hide();
+    $('#mce-error-response').hide();
+    if (resp.result=="success"){
+        $('#mce-'+resp.result+'-response').show();
+        $('#mce-'+resp.result+'-response').html(resp.msg);
+        $('#mc-embedded-subscribe-form').each(function(){
+            this.reset();
+        });
+    } else {
+        var index = -1;
+        var msg;
+        try {
+            var parts = resp.msg.split(' - ',2);
+            if (parts[1]==undefined){
+                msg = resp.msg;
+            } else {
+                i = parseInt(parts[0]);
+                if (i.toString() == parts[0]){
+                    index = parts[0];
+                    msg = parts[1];
+                } else {
+                    index = -1;
+                    msg = resp.msg;
+                }
+            }
+        } catch(e){
+            index = -1;
+            msg = resp.msg;
+        }
+        try{
+            if (index== -1){
+                $('#mce-'+resp.result+'-response').show();
+                $('#mce-'+resp.result+'-response').html(msg);
+            } else {
+                err_id = 'mce_tmp_error_msg';
+                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+
+                var input_id = '#mc_embed_signup';
+                var f = $(input_id);
+                if (ftypes[index]=='address'){
+                    input_id = '#mce-'+fnames[index]+'-addr1';
+                    f = $(input_id).parent().parent().get(0);
+                } else if (ftypes[index]=='date'){
+                    input_id = '#mce-'+fnames[index]+'-month';
+                    f = $(input_id).parent().parent().get(0);
+                } else {
+                    input_id = '#mce-'+fnames[index];
+                    f = $().parent(input_id).get(0);
+                }
+                if (f){
+                    $(f).append(html);
+                    $(input_id).focus();
+                } else {
+                    $('#mce-'+resp.result+'-response').show();
+                    $('#mce-'+resp.result+'-response').html(msg);
+                }
+            }
+        } catch(e){
+            $('#mce-'+resp.result+'-response').show();
+            $('#mce-'+resp.result+'-response').html(msg);
+        }
+    }
+}
+
+</script>
+<!--End mc_embed_signup-->
+
+          <p class="disclaimer h-tcenter size-m">
+            We dont use your email for comercial advertisings
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-inner inner">
+
+    <div class="ftr-left">
+      <p class="ftr-brand">hola</p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
+    </div>
+
+    <div class="ftr-right">
+      <p class="ftr-share"><a href="https://twitter.com/cartodb" class="twitter-follow-button" data-show-count="false">Follow @cartodb</a></p>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+
+  </div>
+</footer>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20934186-3']);
+  _gaq.push(['_setDomainName', 'cartodb.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="/js/course.js"></script>
+  <script src="/js/ui/dropdown.js"></script>
+
+  <script>
+    $(function() {
+      cdb.init(function() {
+        window.course = new academy.Views.Course({
+          vizjson: 'http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
