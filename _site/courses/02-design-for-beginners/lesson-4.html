@@ -22,7 +22,7 @@
   <!-- start Mixpanel -->
   <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
   for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-  mixpanel.init("9b1d8a4fb14fa98d50615108b8b0161a");</script>
+  mixpanel.init("");</script>
   <!-- end Mixpanel -->
 </head>
 <body>
@@ -176,7 +176,7 @@
 
         <div class="crs-inner h-right lss-inner">
           <div class="crs-content">
-            <h2 id="thinking_about_labels">Thinking About Labels</h2>
+            <h2 id="thinking-about-labels">Thinking About Labels</h2>
 
 <p>While they’re not always necessary, labels can be an important part of many maps. Ensuring that they are legibile, helpful, and well-designed can be a complex process. We’ll start by talking about placement of labels. There are many other topics to consider, like font face, and color, that we won’t get in to now.</p>
 
@@ -188,11 +188,10 @@
 
 <p><img src="/img/course2/lesson1/badmap.png" alt="Bad map." /></p>
 
-<p>Clearly, adding text to a map in the form of labels is a large consideration, so let’s get started.</p>
+<p>Clearly, adding text to a map in the form of labels is a large consideration, so let’s get started. </p>
 
-<h2 id="adding_our_labels">Adding our Labels</h2>
-
-<p>Before we add our labels, let’s copy the styling that we have done with our markers at the end of the last lesson. Just navigate to the CartoCSS panel, select all of the CartoCSS and use Ctrl+C to copy the text.</p>
+<h2 id="adding-our-labels">Adding our Labels</h2>
+<p>Before we add our labels, let’s copy the styling that we have done with our markers at the end of the last lesson. Just navigate to the CartoCSS panel, select all of the CartoCSS and use Ctrl+C to copy the text. </p>
 
 <p>Next, go ahead and use the Simple visualization wizard. Near the bottom, you can see the option to add label text based on a column. In our case, we’re interested in mmio. Once you select the “mmio” column, you can see that the labels are pretty pointless, like the labels in our ugly map. There are too many of them, and they don’t communicate anything to the viewer.</p>
 
@@ -202,12 +201,11 @@
 
 <p>To fix this, let’s go ahead and add rules to <em>when</em> labels appear on the map. Let’s say we only want to see the mmio label for large earthquakes. To do so, we would want to use some of the skills we learned in Lesson 3. We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:</p>
 
-<pre class="css21"><code class="css21">
-#cartodb_query_::labels 
+<pre><code class="language-css">#cartodb_query_::labels 
 [mmio&gt;=10][zoom&gt;6]
 {
   text-name: [mmio];
-  text-face-name: &#39;DejaVu Sans Book&#39;;
+  text-face-name: 'DejaVu Sans Book';
   text-size: 21;
   text-label-position-tolerance: 10;
   text-fill: #000;
@@ -224,15 +222,14 @@
 
 <p>We can also describe multiple condition pairs in which we would want the labels to be displayed. For example, we want to see labels when the mmio is above 10 and the zoom is above 6, OR when the mmio is above 8 and the zoom is above 7. To do that, we just separate condition chains with commas. Our code, then, would look like this:</p>
 
-<pre class="css21"><code class="css21">
-#cartodb_query_::labels 
+<pre><code class="language-css">#cartodb_query_::labels 
 [mmio&gt;=10][zoom&gt;6],
 [mmio&gt;=8][zoom&gt;7],
 [mmio&gt;=6][zoom&gt;8],
 [mmio&gt;=4][zoom&gt;9]
 {
   text-name: [mmio];
-  text-face-name: &#39;DejaVu Sans Book&#39;;
+  text-face-name: 'DejaVu Sans Book';
   text-size: 21;
   text-label-position-tolerance: 10;
   text-fill: #000;
@@ -245,9 +242,10 @@
 }
 </code></pre>
 
-<p>You can see that we have four pairs of conditions, which, if met, would mean that a label is displayed. In this case, more and more labels are displayed the more zoomed-in we get. This allows us to preserve readability when we’re zoomed out, but include a great deal of data for when we’re zoomed in. You can edit other attributes of labels using CartoCSS like this, so feel three to play around! Remember that you can’t “break” your map by tinkering with the CSS, and can revert to the standard wizard whenever needed. You can also copy and paste old CartoCSS like we did earlier in this lesson, in order to preserve your work.</p>
+<p>You can see that we have four pairs of conditions, which, if met, would mean that a label is displayed. In this case, more and more labels are displayed the more zoomed-in we get. This allows us to preserve readability when we’re zoomed out, but include a great deal of data for when we’re zoomed in. You can edit other attributes of labels using CartoCSS like this, so feel three to play around! Remember that you can’t “break” your map by tinkering with the CSS, and can revert to the standard wizard whenever needed. You can also copy and paste old CartoCSS like we did earlier in this lesson, in order to preserve your work. </p>
 
 <p>Armed with these tools, go forth and build beautifully designed maps!</p>
+
           </div>
 
           <div class="crs-share">
@@ -286,7 +284,7 @@
 
     <div class="ftr-left">
       <p class="ftr-brand">hola</p>
-      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="http://github.com/cartodb/academy">The Map Academy @ GitHub</a></p>
+      <p>2014 <a href="http://cartodb.com">CartoDB</a> — <a href="/about.html">About the Map Academy</a> — <a href="">The Map Academy @ GitHub</a></p>
     </div>
 
     <div class="ftr-right">
