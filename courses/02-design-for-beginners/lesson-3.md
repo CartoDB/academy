@@ -7,7 +7,7 @@ course: "Design for Beginners"
 course_slug: "02-design-for-beginners"
 continue_link: "lesson-4"
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"
-vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
+vizjson: "http://documentation.cartodb.com/api/v2/viz/e667d364-d5ff-11e3-a78a-0edbca4b5057/viz.json"
 ---
 
 ## Data, How Much is Too Much?
@@ -19,7 +19,7 @@ An important tactic, then, is focusing on the message you wish to convey. Think 
 
 ### Zoom-Based Styling
 
-The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let's start by looking at Stamen's map tiles, which we've mentioned before. As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you're zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
+The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let's start by looking at [Stamen's map tiles](http://maps.stamen.com), which we've mentioned before. As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you're zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
 
 ![Zoom-based styling in a Stamen map.]({{site.baseurl}}/img/course2/lesson3/stamen.gif)
 

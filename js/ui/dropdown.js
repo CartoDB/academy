@@ -21,7 +21,6 @@ academy.ui.Views.Dropdown = cdb.core.View.extend({
   },
 
   _onClickDropdown: function(e) {
-    e.preventDefault();
 
     this._open();
   },
