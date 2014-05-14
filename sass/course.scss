@@ -62,13 +62,12 @@
 .hdr-crs-title {
   margin-bottom: 8px;
   font: 48px/52px 'Proxima Nova Bold';
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: #111;
 }
 
 .hdr-crs-subtitle {
   font: 26px/30px 'Proxima Nova Light';
-  letter-spacing: -2px;
 }
 
 .hdr-crs-icon {
@@ -86,10 +85,11 @@
 }
 
 .crs-nav {
+  position: relative;
   width: 218px;
   padding-top: 7px;
 
-  .crs-home  & { padding-top: 41px; }
+  .crs-home & { padding-top: 41px; }
 
   li { margin-bottom: 32px;  }
   h3 {
@@ -101,6 +101,18 @@
       border-left: 3px solid #397DBA;
     }
   }
+
+  &.fixed {
+    position: fixed;
+    top: 106px;
+  }
+
+  &.bottom {
+   position: absolute;
+    z-index: 1;
+    top: auto;
+    bottom: 0;
+  }
 }
 
 .crs-nav-info {
@@ -109,6 +121,11 @@
 
   a {
     color: #666;
+    
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -240,7 +257,10 @@
   a {
     color: #333;
 
-    &:hover { color: #000; }
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
   }
 
   > li {
@@ -283,7 +303,7 @@
 
 
   li {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     line-height: 1;
 
     &:last-child { margin-bottom: 0; }
@@ -323,7 +343,7 @@
     margin-top: 40px;
   }
 
-  img{
+  img, iframe{
     max-width: 700px;
     margin: 14px 0 6px 0;
   }
@@ -405,8 +425,12 @@ pre > code {
   }
 }
 
-.lss-container.scrolled {
-  padding-top: 170px;
+.lss-container {
+  position: relative;
+
+  &.scrolled {
+    padding-top: 170px;
+  }
 }
 
 .lss-course {

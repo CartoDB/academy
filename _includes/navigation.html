@@ -19,7 +19,7 @@
     {% endif %}
   {% endfor %}
 
-  {% if counter contains '-' %}
+  {% if counter contains '-'  and page.layout == 'course'%}
     <div id="dropdown" class="h-dropdown h-pa">
       <nav>
         <a href="#" class="h-drp-actions h-pa">
@@ -27,10 +27,13 @@
         </a>
 
         <ul>
-          {% for page in site.pages %}
-            {% if page.layout == 'course' and page.published %}
+          <li>
+            <p><a href="#" class="size-s">{{ page.title }}</a></p>
+          </li>
+          {% for pg in site.pages %}
+            {% if pg.layout == 'course' and pg.published and pg.title != page.title %}
               <li>
-                <p><a class="size-s" href="{{ site.baseurl }}/courses/{{ page.id }}.html">{{ page.title }}</a></p>
+                <p><a class="size-s" href="{{ site.baseurl }}/courses/{{ pg.id }}.html">{{ pg.title }}</a></p>
               </li>
             {% endif %}
           {% endfor %}
