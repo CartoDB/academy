@@ -5,7 +5,7 @@ title:  "Lección 3"
 subtitle: "Thematic Maps with Point Data"
 course: "Curso para principiantes"
 course_slug: "01-beginners-course-sp"
-continue_link: "lesson-4-sp"
+continue_link: "lesson-4"
 tweet_text: "Step by step is the way to go. I've finished the third lesson of the map academy. Check it out"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---

@@ -5,7 +5,7 @@ title:  "Lección 2"
 subtitle: "Tu primer mapa de coropletas"
 course: "Curso para principiantes"
 course_slug: "01-beginners-course-sp"
-continue_link: "lesson-3-sp"
+continue_link: "lesson-3"
 tweet_text: "Step by step is the way to go. I've finished the second lesson of the map academy. Check it out"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
@@ -30,19 +30,19 @@ En el cuadro de diálogo que aparece, pega el link que copiaste anteriormente en
 
 ![Add data from a link]({{site.baseurl}}/img/course1/lesson2/newtableURL.png)
 
-Your data will open up in "Table" view. There, like we suggested in Beginners' Course Lesson 1, you can take a look through the data columns. Note that this time the `the_geom` column indicates "Polygon" values. This means that the geometry that CartoDB will map is in polygon format.
+Tus datos se mostrarán en la vista de tabla. Aquí, como te recomendamos en la lección 1 del Curso para principiantes, puedes echar un vistazo a las diferentes columnas. Fíjate en que esta vez la columna `the_geom` indica valores "Polygon" (Polígono). Esto significa que la geometría que CartoDB usará en el mapa será un polígono.
 
 ### Creando una visualización simple
 
-In Lesson 1 we gave you a quick intro to creating a visualization. You'll review this here, and then move onto the creation of a more complex visualization.
+En la lección 1 hicimos una breve introducción a cómo crear una visualización. Volveremos a revisar este concepto y después avanzaremos hacia la creación de visualizaciones más complejas.
 
-Go ahead and navigate to "Map view" to begin formatting your map. The first editable parameter is the basemap; like in Lesson 1, we just kept the default Basemap "Nokia day," but you may select whichever you like.
+Navega a través de la vista de mapa "Map view" para empezar a darle formato a tu mapa. El primer parámetro que puedes editar es el mapa base; como en la lección 1, usaremos el mapa base por defecto "Nokia Day", pero puedes seleccionar cualquiera que te guste.
 
-Next, in the right-hand pull-out tray click on "wizards," represented by the paintbrush icon. Here you can change the polygon fill and stroke.
+Ahora, en la barra de edición de la derecha, haz click en "wizards", representado por el icono en forma de pincel. Aquí puedes cambiar el relleno del polígono y el trazo exterior.
 
 ![Edit polygon fill.]({{site.baseurl}}/img/course1/lesson2/polygonfill.png)
 
-The Wizards menu also allows you to select different kinds of visualizations, which we will begin to explore in this lesson.
+El menú de configuración también te permite elegir entre diferentes tipos de visualizaciones, los cuales exploraremos a lo largo de esta lección.
 
 ### Añadiendo interactividad
 Since we have interesting data that we would like map viewers to access, we are going to go over how to add interactivity. In the same right-hand pull-out tray where we have been visiting the visualization wizard, click on "infowindow," represented by a comment icon. Here you'll create the pop-ups that will appear whenever a viewer clicks on a county.
