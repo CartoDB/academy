@@ -31,7 +31,7 @@ Una vez que hayas iniciado sesión y accedas a tu dashboard, haz click en el lin
 Una vez que el archivo se procese e importe, automáticamente serás redirigido a la vista de la tabla. Aquí puedes ver 
 los datos completos que contiene la tabla. Explórala, fíjate en qué columnas hay disponibles y qué tipos de datos contiene la tabla.
 
-Cuando explores la tabla, fíjate en la segunda columna de la izquierda llamada "`the_geom`." Contiene la información necesaria para mostrar los datos en un mapa. Sin valores en esta columna - como las coordenadas que hay en este dataset - no podrás visualizar tus datos en el mapa.
+Cuando explores la tabla, fíjate en la segunda columna de la izquierda llamada "`the_geom`". Contiene la información necesaria para mostrar los datos en un mapa. Sin valores en esta columna - como las coordenadas que hay en este dataset - no podrás visualizar tus datos en el mapa.
 
 ![the_geom column]({{site.baseurl}}/img/course1/lesson1/the_geom.png)
 
@@ -59,3 +59,4 @@ de estos iconos "IMG" para cambiar los marcadores. Puedes usar los marcadores qu
 ![Selecting markers.]({{site.baseurl}}/img/course1/lesson1/markeroptions.png)
 
 En este punto, todavía estamos viendo nuestros datos en la vista de mapa - todavía no tenemos una visualización que se pueda compartir. Para crear una, haz click en "Visualize" (Visualizar) en la esquina superior derecha de la página, ponle un nombre y haz click en "Create visualization" (Crear una visualización). Ahora estás preparado para compartirla a través de la opción "Share" (Compartir) que aparece en la esquina superior derecha de la página.
+
