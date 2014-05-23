@@ -45,25 +45,25 @@ Ahora, en la barra de edición de la derecha, haz click en "wizards", representa
 El menú de configuración también te permite elegir entre diferentes tipos de visualizaciones, los cuales exploraremos a lo largo de esta lección.
 
 ### Añadiendo interactividad
-Since we have interesting data that we would like map viewers to access, we are going to go over how to add interactivity. In the same right-hand pull-out tray where we have been visiting the visualization wizard, click on "infowindow," represented by a comment icon. Here you'll create the pop-ups that will appear whenever a viewer clicks on a county.
+Como tenemos datos interesantes y nos gustaría que quienes vean el mapa puedan acceder a ellos, vamos a aprender cómo añadir interactividad al mapa. En la misma barra de edición en la que hemos configurado nuestra visualización, haz click en "infowindow", representado por un icono de un comentario. Aquí crearás los pop-ups (diálogos emergentes) que aparecerán cuando alguien haga click en un estado.
 
-Depending on which columns you have in your table, different label options will appear in "infowindow." Each column can have its own label or display, and you can choose which you'd like to show by clicking the toggle buttons to the right of the listed column names. You can also choose from our pre-set designs or create one of your own. For now, we'll toggle on a few fields, and select a design from the dropdown menu.
+Dependiendo de las columnas que haya en tu tabla, diferentes opciones de etiquetado aparecerán en "infowindow". Cada columna puede tener su propio título o etiqueta, y puedes elegir cuáles te gustaría mostrar activando los botones que aparecen a la derecha de los nombres de las columnas. Puedes también elegir nuestros diseños predeterminados o crear el tuyo propio. Por ahora, seleccionaremos algunos campos a mostrar y un diseño en el menú desplegable.
 
 ![Edit polygon stroke.]({{site.baseurl}}/img/course1/lesson2/infowindow.png)
 
 
 ### Mapa de coropletas
 
-If you would like to display your polygon data differently, a frequently-used and very useful type of map is the choropleth map, which takes numerical data in your table and formats your polygons based on this information.
+Si quieres mostrar tus polígonos de otra manera, una opción muy usada y un tipo muy útil de mapa es el mapa de coropletas (Choropleth map), el cual usa datos numéricos de tu tabla y da formato a los polígonos basándose en esa información.
 
-To explore it, return to "wizards" in the right-hand pull-out tray and select "Choropleth" from the available visualizaton wizards. 
+Para explorar esta opción, vuelve a "wizards" en la barra de herramientas, y selecciona "Choropleth" de entre las opciones de visualización disponibles.
 
 ![Edit polygon stroke.]({{site.baseurl}}/img/course1/lesson2/choropleth.png)
 
-CartoDB will now automatically choose a table column to display on the map. In our example you can see that it will select the `pop` column to display the populations of U.S. counties. CartoDB will also automatically add a legend that corresponds with what is displayed.
+CartoDB elegirá automáticamente una columna de la tabla para mostrar el mapa. En nuestro ejemplo puedes comprobar que se ha seleccionado la columna `pop` para mostrar la población de los estados de EEUU. CartoDB añadirá también automáticamente una leyenda que se corresponderá con los datos que se muestran en el mapa.
 
-In the column selector you can change the table column that CartoDB maps onto the choropleth map, but remember that only columns with numerical data can be used in such a map. With this particular table data you can go ahead and change the column to show `pop_sqkm`, which maps population data per square kilometer. This information represents population density, unlike the `pop` column, which is just a raw number.
+En el selector de columna puedes cambiar la columna de la tabla que CartoDB utiliza para crear el mapa de coropletas, pero recuerda que sólo puedes usar columnas con datos numéricos en este tipo de mapa. Si estás usando esta tabla en particular, puedes cambiar la columna para mostrar `pop_sqkm`, que representa los datos de población por metro cuadrado. Esta información representa la densidad de población, al contrario que la columna `pop`, que simplemente muestra los valores totales.
 
-In the "choropleth" visualization you can also change the fill colors, county borders, and color opacity, just like you could in the "simple" visualization. Go ahead and play around with these!
+En la visualización de coropletas también puedes cambiar los colores de relleno de los polígonos, los bordes de los estados, y la opacidad de los colores, al igual que vimos previamente con el mapa simple. ¡Modifica la visualización a tu gusto!
 
-As always, once you click "vizualize" in the upper right to publish your map, you can share it using the "share" button that will appear in this button's place. Remember that you can only share published visualizations, not the "Map view" of a table.
+Como siempre, una vez que hagas click en "Visualize" en la esquina superior derecha para publicar el mapa, puedes compartirlo usando la opción "Share" que aparecerá en su lugar. Recuerda que sólo puedes compartir visualizaciones ya publicadas, no la vista de mapa ("Map view") de una tabla.
