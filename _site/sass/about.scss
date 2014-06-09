@@ -1,5 +1,6 @@
 @import "_syntax";
 @import 'course';
+@import "compass/css3/background-size";
 
 .lss-about {
   box-shadow: none;
@@ -9,7 +10,8 @@
   position: relative;
   height: 360px;
   margin-bottom: 40px;
-  background:url('../img/header-about.jpg') 0 0 no-repeat;
+  background:url('../img/header-about.jpg') no-repeat;
+  @include background-size(cover);
 }
 
 .hdr-title {
