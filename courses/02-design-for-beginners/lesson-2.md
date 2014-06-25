@@ -19,7 +19,7 @@ Learning how to pick good colors for your data and basemaps can be challenging, 
 For now, we are going to get our feet wet by looking at color in practice.
 
 ### Why to think about colors?
-To get started, go ahead and [click here](https://saleiva3.cartodb.com/api/v2/sql?format=shp&q=SELECT%20*%20FROM%20earthquakes) to download a dataset on earthquakes. Go ahead and import the data on earthquakes in to your dashboard. If you don't know how to do this, take a look at Course 1.
+To get started, go ahead and [click here](https://saleiva.cartodb.com/api/v2/sql?format=shp&q=SELECT%20*%20FROM%20earthquakes_all_clean) to download a dataset on earthquakes. Go ahead and import the data on earthquakes in to your dashboard. If you don't know how to do this, take a look at Course 1.
 
 When we pull up the data, what we see is a distribution of dots (representing locations of earthquakes) that is hard to interpret. We know that there are many data points - many earthquakes - but it's hard to identify patterns of distribution and intensity.
 
