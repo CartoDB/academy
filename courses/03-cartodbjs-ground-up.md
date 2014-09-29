@@ -9,7 +9,7 @@ time: 1 hour
 description_short: Take advantage of the flexibiltity of cartodb.js to create custom webpages.
 description_long: more info later
 prerequisite:
-    - Experience creating multi-layer visualizations in CartoDB (especially [Lesson 5 from Maps for Beginners]({{site.baseurl}}/courses/course1/lesson5/index.html))
+    - Experience creating multi-layer visualizations in CartoDB
     - Some experience coding in HTML and/or JavaScript
     - Reliable internet access
     - A modern browser like Chrome, Firefox, or Safari
