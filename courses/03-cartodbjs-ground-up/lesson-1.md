@@ -27,17 +27,18 @@ There's a lot of metadata in this file. Browsing through all the possibilities s
 
 ![Screenshot of viz JSON]({{site.baseurl}}/img/course3/lesson1/json-view.png)
 
-If you find the top-most level called `layers`, you see that it's an array of two objects. The first object's `options` have type "Tiled" and a name of "CartoDB Flat Blue." This layer corresponds to the base layer map of our visualization. If you try changing the base map in CartoDB Editor and the reloading it, you'll see the information in this layer change accordingly. Make note of other options included in this options object as they will come up again later.
+If you find the top-most level called `layers`, you see that it's an array of two objects. The first object's `options` have type "Tiled" and a name of "CartoDB Flat Blue." This layer corresponds to the base layer map of our visualization. If you try changing the base map in CartoDB Editor and then reloading the viz JSON, you'll see the information in this layer change accordingly. Make note of other options included in this options object as they will come up again later.
 
-The next object down in the `layers` array contains information about the data that was loaded into the map and visualized. The first entry, `type`, tells you that this is a group of layers. Under options, you see some of the information that's used by the CartoDB.js API to retrieve information from the servers. The majority of this second object in the `layers` array is taken up by `layer_definition`. In our case, we have two layers to our map (there are two objects in the `layers` array that's under `layer_definition`).
+The next object down in the `layers` array contains information about the data that was loaded into the map and visualized. The first entry, `type`, tells you that this is a group of layers. Under options, you see some of the information that's used by the CartoDB.js API to retrieve information from the servers. The majority of this second object in the `layers` array is taken up by `layer_definition`. In our case, we have two layers to our map because there are two objects in the `layers` array that's under `layer_definition`.
 
-The first, buried under options, has a `layer_name` of `us_counties` and comes from our [dataset](http://acdmy.org/d/counties.zip) titled `us_counties`. The dataset consists of a collection of [GeoJSON](http://geojson.org/) MultiPolygon geometry types of every United States county. The second comes from a [dataset](http://acdmy.org/d/tornadoes.zip) that is made up of GeoJson Points on tornados in the United States. Other important info to pick out:
+The first, buried under options, has a `layer_name` of `us_counties` and comes from our [dataset](http://acdmy.org/d/counties.zip) titled `us_counties`. The dataset consists of a collection of [GeoJSON](http://geojson.org/) MultiPolygon geometry types of counties in the United States. The second comes from a [dataset](http://acdmy.org/d/tornadoes.zip) that is made up of GeoJson Points on tornados in the United States. Other important info to pick out:
 
 
-+ `sql: "..."` tells you the SQL statement used with each data set (defaults to `select * from dataset`)
-+ `visible: true` means it'll display by default
-+ `cartocss: "..."` tells you CSS-like the styling of the map
-+ `interactivity: "column1, column2, ..."` tells you the info that is click/hover enabled
+* `sql: "..."` tells you the SQL statement used with each data set (defaults to `select * from dataset`)
+* `visible: true` means it'll display by default
+* `cartocss: "..."` tells you about the styles applied to your map
+* `interactivity: "column1, column2, ..."` tells you the info that is click/hover enabled
+
 
 Now that we've thoroughly met with our viz JSON, let's look at some JavaScript methods that ineract with it.
 
@@ -63,10 +64,9 @@ createVis also accepts options that you can dynamically specifiy. They take the 
 
 {% highlight javascript %}
 var options = {
-    center: [3.6833, 40.4000], // Madrid
-    zoom: 6, 
-    zoomControl: false,  // Don't add the zoom overlay (it is added by default)
-    loaderControl: false // Don't show tiles loader
+    center: [40.4000, -3.6833], // Madrid
+    zoom: 10,
+    
   };
 {% endhighlight %}
 
