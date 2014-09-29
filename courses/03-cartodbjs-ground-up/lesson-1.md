@@ -7,7 +7,7 @@ course: "CartoDB.js from the Ground Up"
 course_slug: "03-cartodbjs-ground-up"
 continue_link: "lesson-2"
 tweet_text: "I just created some vis! Working my way through cartodb.js from the ground up. #CartoDB"
-vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b5057/viz.json"
+vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json"
 ---
 
 ## _Create Visualization_ vs. _Create Layer_
@@ -21,7 +21,7 @@ Up to this point, all of the methods for displaying maps to the world have invol
 
 ![Share panel]({{site.baseurl}}/img/course3/lesson1/share-panel.png)
 
-You can download this a viz JSON from any map you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz JSON for a multi-layer map similiar to the one created at the end of [Course 1]({{site.baseurl}}/courses/01-beginners-course/lesson-5.html). Download the viz JSON [here](http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b5057/viz.json). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information. 
+You can download this a viz JSON from any map you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz JSON for a multi-layer map similiar to the one created at the end of [Course 1]({{site.baseurl}}/courses/01-beginners-course/lesson-5.html). Download the viz JSON [here](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information. 
 
 There's a lot of metadata in this file. Browsing through all the possibilities shows you how much power you have to customize your maps in the CartoDB Editor. Review the documentation for it [here](http://docs.cartodb.com/cartodb-editor.html) to explore what some of these JSON entries allow you to do in your maps.
 
@@ -34,40 +34,46 @@ The next object down in the `layers` array contains information about the data t
 The first, buried under options, has a `layer_name` of `us_counties` and comes from our [dataset](http://acdmy.org/d/counties.zip) titled `us_counties`. The dataset consists of a collection of [GeoJSON](http://geojson.org/) MultiPolygon geometry types of counties in the United States. The second comes from a [dataset](http://acdmy.org/d/tornadoes.zip) that is made up of GeoJson Points on tornados in the United States. Other important info to pick out:
 
 
-* `sql: "..."` tells you the SQL statement used with each data set (defaults to `select * from dataset`)
-* `visible: true` means it'll display by default
-* `cartocss: "..."` tells you about the styles applied to your map
-* `interactivity: "column1, column2, ..."` tells you the info that is click/hover enabled
++ a `sql: "..."` tells you the SQL statement used with each data set (defaults to `select * from dataset`)
++ a `visible: true` means it'll display by default
++ a `cartocss: "..."` tells you about the styles applied to your map
++ a `interactivity: "column1, column2, ..."` tells you the info that is click/hover enabled
 
 
 Now that we've thoroughly met with our viz JSON, let's look at some JavaScript methods that ineract with it.
 
 ### Create Visualization versus Create Layer
  
-In CartoDB, there are two main methods to bring your maps into custom webpages. The first, ```createVis``` is more straight forward and has some customization, consists of two map layers in an array: layer 0 is the base map; layer 1 is the CartoDB data layer. The second method, ```createLayer``` allows for much more customization, including the combining of layers from seprate maps, each with its own levels of customization. For ```createLayer```, one has client-side control over the basemap. Both methods allow custom CartoCSS and SQL commands (?), and overlay options (zoom controls, search box, share button, etc.).
+In CartoDB, there are two main methods to bring your maps into custom webpages. The first, ```createVis``` is more straight forward and has some customization, consists of two map layers in an array: layer 0 is the base map; layer 1 is the CartoDB data layer. The second method, ```createLayer``` allows for much more customization, including the combining of layers from seprate maps, each with its own levels of customization. For ```createLayer```, one has client-side control over the basemap. Both methods allow custom CartoCSS and SQL commands (?), and overlay options (zoom controls, a search box, a share button, etc.).
 
 ### CreateVis
 The most basic way to display your map from CartoDB.js involves a call to 
 
 {% highlight javascript %}
-    cartodb.createVis(div_id, viz_json_url[, options])
+cartodb.createVis(div_id, viz_json_url[, options])
 {% endhighlight %}
 
 Couched between the ```<script> ... </script>``` tags, createVis puts a map and CartoDB data layers into the DOM element you specify. Here we use `map` and have a ```<div id='map'></div>``` placed earlier in the HTML file.
 
 {% highlight javascript %}
-var vizjson = 'link from share panel';
-cartodb.createVis('map', vizjson);
+<script>
+    window.onload = function() {
+        var vizjson = 'link from share panel';
+        cartodb.createVis('map', vizjson);
+    }
+</script>
 {% endhighlight %}
 
 createVis also accepts options that you can dynamically specifiy. They take the form of a dictionary:
 
 {% highlight javascript %}
 var options = {
-    center: [40.4000, -3.6833], // Madrid
-    zoom: 10,
-    
-  };
+    center: [41.8369, -87.6847], // Chicago
+    zoom: 4,
+    scrollwheel: true
+};
+
+cartodb.createVis('map',vizjson,options);
 {% endhighlight %}
 
 To see createVis out in the wild, check out an [awesome example](http://blog.cartodb.com/map-of-the-week-swiss-soccer/) in our Map of the Week series on our blog.
@@ -79,7 +85,7 @@ The documentation for `cartodb.createVis` is found [here](http://docs.cartodb.co
 
 If you want to exercise more control over the layers and base map, `createLayer` may be the best option for you. You specifiy the base map yourself and load the layer from one or multiple viz JSON files. Unlike `createVis`, `createLayer` needs a map object, such as one created by Google Maps for Leaflet. This object is a required argument in a `createLayer` call. This allows more control of the basemap for the JavaScript/HTML you're writing.
 
-A basic [Leaflet map](http://leafletjs.com/reference.html#map-class) can be specified as follows:
+A basic [Leaflet map](http://leafletjs.com/reference.html#map-class) can be created as follows:
 
 {% highlight javascript %}
 var map = new L.Map(dom_id, options);
@@ -95,6 +101,12 @@ If you're just adding a single layer, you can add a layer to the above base map 
 var vizjson = 'link from share panel';
 cartodb.createLayer(map_object, vizjson);
 {% endhighlight %}
+
+### Summing it up. And finally making something!
+
+Phew. That's a lot of stuff. Let's finally dive into making our first map with CartoDB.js.
+
+Use [this template](#) and drop in the URL for the viz JSON linked above or pick one from your own CartoDB maps. Try putting in the `createVis` examples above, both with and without options. Check out stellar examples out and hack away.
 
 
 
