@@ -72,7 +72,7 @@ createVis also accepts options that you specifiy outside of the CartoDB Editor. 
 
 {% highlight javascript %}
 var options = {
-    center: [40.4000, 3.6833], // Madrid
+    center: [40.4000, -3.6833], // Madrid
     zoom: 7,
     scrollwheel: true
 };
@@ -94,10 +94,12 @@ A basic [Leaflet map](http://leafletjs.com/reference.html#map-class) without you
 {% highlight javascript %}
 window.onload = function() {
 
+    // Choose center and zoom level
     options = {
                 center: [41.8369, -87.6847], // Chicago
                 zoom: 7
             }
+    
     // Instantiate map on specified DOM element
     var map_object = new L.Map(dom_id, options);
     
@@ -105,12 +107,15 @@ window.onload = function() {
     L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
         attribution: 'Stamen'
         }).addTo(map_object);
+        
 }
 {% endhighlight %}
 
-Here we pulled the base map tiles from [Stamen](http://maps.stamen.com/). There are many other options basemap options--learn more about it in [this great tutorial](http://docs.cartodb.com/tutorials/custom_basemaps.html).
+Here we pulled the base map tiles from [Stamen](http://maps.stamen.com/). There are many other options basemap options--learn more about your options in [this great tutorial](http://docs.cartodb.com/tutorials/custom_basemaps.html).
 
 The map we just created doesn't have any CartoDB data layers yet. If you're just adding a single layer, you can put your data on top of the basemap from above. If you want to add more, you just repeat the process. We'll be doing much more with this later.
+
+This is the basic snippet to put your data on top of the map you just created. Drop this in below the `L.tileLayer` section.
 
 {% highlight javascript %}
 var vizjson = 'link from share panel';
