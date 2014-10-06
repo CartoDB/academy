@@ -1,9 +1,2 @@
 @import "_syntax";
 @import 'course';
-
-.crs-content>ol, .crs-content>ul {
-    list-style-type: disc;
-    font: inherit;
-    list-style-position: inside;
-    margin-bottom: 15px;
-}
