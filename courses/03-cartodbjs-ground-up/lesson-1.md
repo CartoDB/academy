@@ -134,6 +134,8 @@ The documentation for createLayer is [here](http://docs.cartodb.com/cartodb-plat
 
 Now that we're done with our crash course on the basics, let's finally dive into making our first map with CartoDB.js.
 
+<iframe src="//player.vimeo.com/video/108146837" width="700" height="438" frameborder="0"></iframe>
+
 Use [this template](https://raw.githubusercontent.com/CartoDB/academy/cdbjs_ground_up/t/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CartoDB.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CartoDB.js library
 
 {% highlight HTML %}
