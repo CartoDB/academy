@@ -135,20 +135,23 @@ The documentation for createLayer is [here](http://docs.cartodb.com/cartodb-plat
 Now that we're done with our crash course on the basics, let's finally dive into making our first map with CartoDB.js.
 
 Use [this template](https://raw.githubusercontent.com/CartoDB/academy/cdbjs_ground_up/t/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CartoDB.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CartoDB.js library
+
 {% highlight HTML %}
 <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 {% endhighlight %}
+
 between the `<body>` tags __AND__ the map styling sheet
+
 {% highlight HTML %}
 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 
-After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the examples in the [official CartoDB.js repository](https://github.com/CartoDB/cartodb.js/tree/develop/examples), and hack away!
+After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away!
 
 ![Example of simple map created with CartoDB.js]({{site.baseurl}}/img/course3/lesson1/example-map.png)
 
-FYI: CartoDB.js is open source. Fork it and contribute.
+By the way, CartoDB.js is open source. Fork it and contribute.
 
 
 
