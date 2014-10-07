@@ -45,10 +45,17 @@ sublayer2 = layers[1].getSubLayer(1);
 Looking back at our viz.json, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](http://acdmy.org/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](http://acdmy.org/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
 
 
-+ `sql: "..."` tells you the SQL statement used with each data set (defaults to `select * from dataset`)
-+ `visible: true` means it will display by default
-+ `cartocss: "..."` tells you about the styles applied to your map
-+ `interactivity: "column1, column2, ..."` tells you the info that is click/hover enabled
++ **sql:** tells you the SQL statement used with each data set (defaults to `select * from dataset`)
++ **visible:** means it will display (defaults to `true`)
++ **cartocss:** tells you about the styles applied to your map
++ **interactivity:** tells you the columns that is click/hover enabled
+
+{% highlight javascript %}
+sql: '...'
+visible: true
+cartocss: '...'
+interactivity: 'column1, column2'
+{% endhighlight %}
 
 In summation, the viz.json is CartoDB.js's conduit to the data, queries, basemaps, styles, etc. that you set when you created a visualization with the data you uploaded into your CartoDB account. Now that we've thoroughly met with our viz.json, let's look at the two most important JavaScript methods that ineract with it.
 
@@ -153,7 +160,4 @@ After you get it working, swap out the viz.json we provided with some of the viz
 
 ![Example of simple map created with CartoDB.js]({{site.baseurl}}/img/course3/lesson1/example-map.png)
 
-By the way, CartoDB.js is open source. Fork it and contribute.
-
-
-
+By the way, CartoDB.js is open source. [Fork it and contribute](https://github.com/CartoDB/cartodb.js/).
