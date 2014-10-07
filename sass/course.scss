@@ -322,12 +322,18 @@
 }
 
 .lss-inner {
-
   margin: 0 0 50px 0;
 
-  p {
+  p,
+  ul,
+  ol {
     font: 18px/28px 'Proxima Nova Regular';
     margin-bottom: 20px;
+  }
+
+  ul,
+  ol {
+    list-style: square inside;
   }
 
   h2 {
@@ -343,7 +349,8 @@
     margin-top: 40px;
   }
 
-  img, iframe{
+  img,
+  iframe{
     max-width: 700px;
     margin: 14px 0 6px 0;
   }
@@ -373,9 +380,16 @@
         color: white;
       }
     }
-
   }
 
+  strong {
+    font-weight: 700;
+    font-family: 'Proxima Nova Semibold';
+  }
+
+  em {
+    font-style: italic;
+  }
 }
 
 pre, code {
