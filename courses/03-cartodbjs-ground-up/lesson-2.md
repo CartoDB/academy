@@ -12,79 +12,97 @@ vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b50
 
 ## Creating basic map apps
 
-If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see a lot of methods to boost the power of your maps.
+We saw in the last lesson that we can build custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map.
 
-We saw in the last lesson that we can pull our map from CartoDB by using createVis and createLayer. In this lesson we will take a look at some of the methods we can use to alter the layers of our map.
+If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see a lot of methods to boost the power of your maps.
 
 Download/copy the template for this lesson from [this link***]({{site.baseurl}}/t/). We will also use a new viz.json. Grab it [here](#viz_json_link). 
 
-### Exploring callback functions on createVis and createLayer
+### Exploring callback functions
 
-Callback functions are an important part of the JavaScript language. Combined with `.done` and `.fail`, [jQuery methods](http://api.jquery.com/deferred.done/) that run once the object they act on is resolved, users can interact with your map once it has loaded. Both createVis and createLayer return callback objects. createVis returns `vis` and `layers`, and can be formatted like this:
+Callback functions are an important part of the JavaScript language. Combined with `.done` and `.fail`, [jQuery methods](http://api.jquery.com/deferred.done/) that run once the object they act on is resolved, users can interact with your map once it has loaded. Both createVis and createLayer return callback objects. createVis returns `vis`, `layers`, and `err`, and can be formatted like this:
 
 {% highlight javascript %}
-cartodb.createVis(dom_id, vizjson)
+cartodb.createVis(map_id, vizjson_url)
     .done(function(vis, layers) {
         // do stuff
+        alert("Layers has " + layers.length + " layers.");
     })
-    .fail(function(err) {
+    .error(function(err) {
         // report error
+        console.log("An error occurred: " + err);
     });
 {% endhighlight %}
 
-createLayer only has one callback object, `layer`. It can be called like this:
+The JS alert box will tell us how many layers are in `layers`. As mentioned before, `layer[0]` is the base map. `layer[1]` and up are the data layers added in a visualization in CartoDB's Editor. For this visualization, there was only one data layer added so it has length two.
+
+createLayer has callback objects, `layer` and `err`. It can be called like this:
 
 {% highlight javascript %}
 cartodb.createLayer(map_object, vizjson)
     .addTo(map_object)
     .done(function(layer) {
         // do stuff
+        alert("Layer has " + layer.getSubLayerCount() + " layer(s).");
     })
-    .fail(function(err) {
+    .error(function(err) {
         // report error
+        console.log("An error occurred: " + err);
     });
 {% endhighlight %}
 
-This will be our working template for coding for now on.
+Here we used the layer method `getSubLayerCount()`, which tells us the number of sublayers listed in the viz.json, as we saw in Lesson 1. 
 
-### Multiple Layers
+From now on, the two blocks of code above will be our working examples for using createVis and createLayer.
 
+### Adding multiple layers from different visualizations
 
+We'll start working with createLayer.
 
-We'll start working with createLayer. Our goal is to do stuff after the map has loaded. To do this, we need to listen for when the map has been loaded and applied to our web page. We can use the [jQuery method](http://api.jquery.com/deferred.done/) `.done()` acting on createVis as below. Once createVis has successfully run, the function that's an argument to `.done()` runs. In our case, we're passing `layers` and `vis`, two important objects that allow control of the display of data on your map.
-
-Look at the following snippet of code and predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-on-done.html`. 
+Look at the following snippet of code and predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. 
 
 {% highlight javascript %}
-
 window.onload = function () {
-    
+
+    // Instantiate new map object, place it in 'map' element
     var map = new L.Map('map', {
-        zoomControl: false,
         center: [43,0], // Southern France
         zoom: 3
     });
 
-    L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-        attribution: 'Stamen'
-        }).addTo(map);
+    // Pull tiles from OpenStreetMap
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'OpenStreetMap'
+    }).addTo(map);
     
-    var layers = [
+    // Put viz.json URLs into an array
+    var vizjsons = [
         'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json',
         'http://documentation.cartodb.com/api/v2/viz/236085de-ea08-11e2-958c-5404a6a683d5/viz.json'
     ]
-    
-    layers.forEach(function(vizjson) {
+
+    // use forEach method to iteratively create layers from vizjson files
+    vizjsons.forEach(function(vizjson, index) {
         cartodb.createLayer(map, vizjson)
+            .addTo(map)
+            .done(function(layer, index) {
+                alert("Congrats, you added vizjson #" + (index+1));
+            })
+            .error(function(err) {
+                console.log("error: " + err + " for layer " + index);
+            });
         });
-
 }
-
 {% endhighlight %}
 
-As you hopefully saw, after the map was loaded successfully, the function in `.done` was called, which made an alert go off. 
 
-The methods for `cartodb.Vis` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbvis). And the methods for `cartodb.Layer` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer).
+### Layer controls
+
+Now that we've added our layers to our map, let's look at different ways to interact with them. Perhaps the simplest example would be selectively hiding or showing layers. 
+
+The methods for `cartodb.Layer` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer).
+
+The methods for `cartodb.Vis` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbvis).
 
 The function inside of `.done()` can extract `vis` and `layers` from the createVis object. As a reminder, `layers` will be an array of two layers: the zeroth element will be the base map, while the first element will be the data layers from CartoDB. Let's use `layers` and explore some of its methods. One of the first things you can control easily is custom interactivity.
 
