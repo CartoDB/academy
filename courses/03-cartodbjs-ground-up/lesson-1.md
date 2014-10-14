@@ -18,19 +18,21 @@ In CartoDB, there are two main methods to bring your maps into custom webpages. 
 
 Before showing these methods, we need to be introduced to these methods' main sources of information.
 
-### Viz JSON, nice to meet you.
+### viz.json, nice to meet you.
 
 Up to this point, all of the methods for displaying maps to the world have involved the first two sharing options you've seen in the sharing panel (see below). The first, "Get the link," creates a shortened URL that points to a map in your account on CartoDB's website. The second, "Embed it," gives you an `iframe` that you can drop into your custom web page. The third option, "CartoDB.js," will be our jumping off point for this course because you'll easily be able to see how the API's methods line up with the data hierarchy of your map's metadata.
 
 ![Share panel]({{site.baseurl}}/img/course3/lesson1/share-panel.png)
 
-Download the viz JSON used in this lesson [here](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). You can download a viz JSON from any visualization you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz JSON for a multi-layer map similiar to the one created at the end of [Course 1]({{site.baseurl}}/courses/01-beginners-course/lesson-5.html). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information. 
+A viz.json is a file that contains all the data needed to reproduce the visualization you created in CartoDB. An analogy one can make is that CartoDB.js is like a DVD player, the viz.json is like the DVD disc, and CartoDB represents all the parts needed to create a film (cameras, actors, director, producers, etc.).
+
+Download the viz.json used in this lesson [here](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). You can download a viz.json from any visualization you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz.json for a multi-layer map similiar to the one created at the end of [Course 1]({{site.baseurl}}/courses/01-beginners-course/lesson-5.html). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information. 
 
 There's a lot of metadata in this file. Browsing through all the possibilities shows you how much power you have to customize your maps in the CartoDB Editor. Review the [documentation for CartoDB Editor](http://docs.cartodb.com/cartodb-editor.html) to explore what some of these JSON entries allow you to do in your maps.
 
-![Screenshot of viz JSON]({{site.baseurl}}/img/course3/lesson1/json-view.png)
+![Screenshot of viz.json]({{site.baseurl}}/img/course3/lesson1/json-view.png)
 
-Looking at your viz JSON, find the top-most level called `layers`. You can see that it's an array of two objects. The first object's `options` have type "Tiled" and a name of "CartoDB Flat Blue." This layer, `layers[0]`, corresponds to the base layer map of our visualization. If you try changing the base map in CartoDB Editor and reload the viz JSON, you will see the information in this layer change accordingly. Make note of other properties included in this `options` object as they will come up again later.
+Looking at your viz.json, find the top-most level called `layers`. You can see that it's an array of two objects. The first object's `options` have type "Tiled" and a name of "CartoDB Flat Blue." This layer, `layers[0]`, corresponds to the base layer map of our visualization. If you try changing the base map in CartoDB Editor and reload the viz.json, you will see the information in this layer change accordingly. Make note of other properties included in this `options` object as they will come up again later.
 
 The next object down, `layers[1]`, contains information about the data that was loaded into the map and visualized. The first entry, `type`, tells you that this is a group of layers. Under options, you can see some of the information that's used by the CartoDB.js API to retrieve information from the servers. In contrast to `layers[0]`, the majority of this second object in the `layers` array is taken up by `layer_definition`. In our case, we have two sublayers in `layers[1]` because there are two objects in the `layers` array that's under `layer_definition`. In future lessons, we will retrieve these layers by calling
 
@@ -40,15 +42,24 @@ sublayer2 = layers[1].getSubLayer(1);
 ...
 {% endhighlight %}
 
-Looking back at our viz JSON, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](http://acdmy.org/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](http://acdmy.org/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
+Looking back at our viz.json, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](http://acdmy.org/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](http://acdmy.org/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
 
 
-+ `sql: "..."` tells you the SQL statement used with each data set (defaults to `select * from dataset`)
-+ `visible: true` means it'll display by default
-+ `cartocss: "..."` tells you about the styles applied to your map
-+ `interactivity: "column1, column2, ..."` tells you the info that is click/hover enabled
++ **sql:** tells you the SQL statement used with each data set (defaults to `select * from dataset`)
++ **visible:** means it will display (defaults to `true`)
++ **cartocss:** tells you about the styles applied to your map
++ **interactivity:** tells you the columns that is click/hover enabled
 
-In summation, the viz JSON is CartoDB.js's conduit to the data, queries, basemaps, styles, etc. that you set when you created a visualization with the data you uploaded into your CartoDB account. Now that we've thoroughly met with our viz JSON, let's look at the two most important JavaScript methods that ineract with it.
+{% highlight javascript %}
+sql: '...'
+visible: true
+cartocss: '...'
+interactivity: 'column1, column2'
+{% endhighlight %}
+
+In summation, the viz.json is CartoDB.js's conduit to the data, queries, basemaps, styles, etc. that you set when you created a visualization with the data you uploaded into your CartoDB account. Now that we've thoroughly met with our viz.json, let's look at the two most important JavaScript methods that ineract with it.
+
+Check out the documentation for viz.json [here](https://github.com/CartoDB/cartodb.js/blob/develop/doc/vizjson_format.md).
 
 ### CreateVis
 The most basic way to display your map from CartoDB.js involves a call to 
@@ -87,7 +98,7 @@ The documentation for `cartodb.createVis` is found [here](http://docs.cartodb.co
 
 ### CreateLayer
 
-If you want to exercise more control over the layers and base map, createLayer may be the best option for you. You specifiy the base map yourself and load the layer from one or multiple viz JSON files. Unlike createVis, createLayer needs a map object, such as one created by Google Maps or Leaflet. This difference allows for more control of the basemap for the JavaScript/HTML you're writing.
+If you want to exercise more control over the layers and base map, createLayer may be the best option for you. You specifiy the base map yourself and load the layer from one or multiple viz.json files. Unlike createVis, createLayer needs a map object, such as one created by Google Maps or Leaflet. This difference allows for more control of the basemap for the JavaScript/HTML you're writing.
 
 A basic [Leaflet map](http://leafletjs.com/reference.html#map-class) without your data can be created as follows:
 
@@ -130,21 +141,23 @@ The documentation for createLayer is [here](http://docs.cartodb.com/cartodb-plat
 
 Now that we're done with our crash course on the basics, let's finally dive into making our first map with CartoDB.js.
 
-Use [this template](https://raw.githubusercontent.com/CartoDB/academy/cdbjs_ground_up/t/CartoDB-js-lesson1-template.html), the URL for the viz JSON linked above, and the code snippets for createVis or createLayer to make your first map using CartoDB.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CartoDB.js library
+<iframe src="//player.vimeo.com/video/108146837" width="700" height="438" frameborder="0"></iframe>
+
+Use [this template](https://raw.githubusercontent.com/CartoDB/academy/cdbjs_ground_up/t/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CartoDB.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CartoDB.js library
+
 {% highlight HTML %}
 <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 {% endhighlight %}
+
 between the `<body>` tags __AND__ the map styling sheet
+
 {% highlight HTML %}
 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 
-After you get it working, swap out the viz JSON we provided with some of the viz JSONs from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the examples in the [official CartoDB.js repository](https://github.com/CartoDB/cartodb.js/tree/develop/examples), and hack away!
+After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away!
 
 ![Example of simple map created with CartoDB.js]({{site.baseurl}}/img/course3/lesson1/example-map.png)
 
-FYI: CartoDB.js is open source. Fork it and contribute.
-
-
-
+By the way, CartoDB.js is open source. [Fork it and contribute](https://github.com/CartoDB/cartodb.js/).
