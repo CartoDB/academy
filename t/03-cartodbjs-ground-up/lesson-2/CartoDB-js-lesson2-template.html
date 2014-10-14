@@ -37,45 +37,14 @@
   <body>
     <div id="map"></div>
     <div id="dashboard">
-        <h3>CartoDB.js from the ground up, Lesson 2</h3>
-        <p>jQuery version: <span id="jq_version"></span></p>
-        <p>Interaction information:</p>
-        <div id="inter"></div>
-        <div id="buttons">
-            <p id="zoom_state"></p>
-            <button id="toggle_zoom">Toggle the zoom button</button>
-        </div>
-        
+        <h3>CartoDB.js from the ground up, Lesson 2</h3>        
     </div>
 
     <!-- include cartodb.js library -->
     <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 
+    <!-- Place your code in the script tags below -->
     <script>
-        window.onload =  function() {
-            
-            // Create map object with Leaflet
-            var map = new L.Map('map', {
-                zoomControl: false,
-                center: [43,0], // Southern France
-                zoom: 5
-            });
-            
-            // Add OpenStreetMap tiles
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: 'OpenStreetMap'
-                }).addTo(map);
-
-            var layers = [
-            'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json',
-            'http://documentation.cartodb.com/api/v2/viz/236085de-ea08-11e2-958c-5404a6a683d5/viz.json'
-            ]
-
-            layers.forEach(function(vizjson) {
-                cartodb.createLayer(map, vizjson).addTo(map);
-            });
-
-        }
 
     </script>
   </body>
