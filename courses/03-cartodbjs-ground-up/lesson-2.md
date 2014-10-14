@@ -23,7 +23,9 @@ The data for this visualization comes from CartoDB's [***Common Data***](), a st
 
 ### Exploring callback functions
 
-Callback functions are an important part of the JavaScript language. Combined with `.done`, a [jQuery method](http://api.jquery.com/deferred.done/) that runs once the object it is acting on is resolved, users can interact with your map once it has loaded. Testing for when your map calls an error is important as well. Chaining on `.error` ([jQuery docs](http://api.jquery.com/error/)) helps you debug and mitigate errors. Both createVis and createLayer return callback objects. createVis returns `vis`, `layers`, and `err`, and can be formatted like this:
+Callback functions are an important part of the JavaScript language. Combined with `.done`, a [jQuery method](http://api.jquery.com/deferred.done/) that runs once the object it is acting on is resolved, you can perform specific actions on the different layers of your map. Testing for when your map calls an error is important as well. Chaining on `.error` ([jQuery docs](http://api.jquery.com/error/)) helps you debug and mitigate errors.
+
+Both createVis and createLayer return callback objects. createVis returns `vis`, `layers`, and `err`, and can be formatted like this:
 
 {% highlight javascript %}
 cartodb.createVis(map_id, vizjson_url)
@@ -37,7 +39,7 @@ cartodb.createVis(map_id, vizjson_url)
     });
 {% endhighlight %}
 
-The JS alert box will tell us how many layers are in `layers`. As mentioned before, `layer[0]` is the base map. `layer[1]` and up are the data layers added in a visualization in CartoDB's Editor. For this visualization, there was only one data layer added so it has length two.
+The JS alert box tells us the number of layers array by returning `layers.length`. As mentioned before, `layer[0]` is the base map. `layer[1]` contains all the data sublayers of a visualization in CartoDB's Editor. As you should see, the alert box tells you that there are two layers to that visualization.
 
 createLayer has callback objects, `layer` and `err`. It can be called like this:
 
@@ -54,15 +56,17 @@ cartodb.createLayer(map_object, vizjson)
     });
 {% endhighlight %}
 
-Here we used the layer method `getSubLayerCount()`, which tells us the number of sublayers listed in the viz.json, as we saw in Lesson 1. 
+Here we used the layer method `getSubLayerCount()`, which tells us the number of sublayers listed in the viz.json, as we saw in Lesson 1.
 
-From now on, the two blocks of code above will be our working examples for using createVis and createLayer.
+From now on, the two blocks of code above will be our working examples for extending our CartoDB.js adventures.
 
 ### Adding multiple layers from different visualizations
 
-We'll start working with createLayer.
+We'll start working with createLayer to create a multilayer visualization in CartoDB.js.
 
-Look at the following snippet of code and predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you'd prefer JS Fiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/cartodb/cartodb.js/t/03-cartodb.js-ground-up/lesson-2/jsfiddle/tree/master/js_demo2).
+There isn't a restriction on how many createLayers you call in CartoDB.js. You could just list them one after another, each with a different viz.json. But this could be tedious if you have several layers to apply. A concise alternative is to place all your viz.jsons into an array and then use the `forEach` method to the array and pass each element to createLayer. Check out the docs page on this method [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
+
+The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/ohasselblad/misc/tree/master/js_demo2).
 
 {% highlight javascript %}
 window.onload = function () {
@@ -73,29 +77,33 @@ window.onload = function () {
         zoom: 3
     });
 
-    // Pull tiles from OpenStreetMap
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'OpenStreetMap'
-    }).addTo(map);
-    
     // Put viz.json URLs into an array
     var vizjsons = [
         'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json',
         'http://documentation.cartodb.com/api/v2/viz/236085de-ea08-11e2-958c-5404a6a683d5/viz.json'
     ]
 
-    // use forEach method to iteratively create layers from vizjson files
+    // For storing the layer objects
+    var layers = [];
+
+    // Pull tiles from OpenStreetMap
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'OpenStreetMap'
+    }).addTo(map);
+
+    // iteratively create layers from vizjson files
     vizjsons.forEach(function(vizjson, index) {
         cartodb.createLayer(map, vizjson)
             .addTo(map)
             .done(function(layer) {
-                alert("Congrats, you added vizjson #" + (index+1));
+                layers[index] = layer;
+                alert("Congrats, you added vizjson #" + (index+1) + "Layers has length " + layers.length);
             })
             .error(function(err) {
                 console.log("error: " + err + " for layer " + index);
             });
         });
-}
+    }
 {% endhighlight %}
 
 ** Change this link **
@@ -103,7 +111,33 @@ window.onload = function () {
 
 ### Layer controls
 
-Now that we've added our layers to our map, let's look at different ways to interact with them. Perhaps the simplest example would be selectively hiding or showing layers. 
+Now that we've added layers to our map, let's look at different ways to interact with them. Selectively hiding or showing layers just takes a few more lines of code, so let's start there.
+
+We can use [layer methods](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer) to hide or show our layers. Let's make some buttons to add to our template. Save your file with the above code as `lesson-2-layercontrols.html`. Make sure you include the previous code block.
+
+{% highlight html %}
+<h4>Layer controls</h4>
+<div id="buttons">
+    <button id="layer0">Toggle layer 0</button>
+    <button id="layer1">Toggle layer 1</button>
+</div>
+{% endhighlight %}
+
+We need these buttons to trigger events. We want them to hide or show our layers, so we need to attach events to the buttons. We can do this with jQuery.
+
+{% highlight javascript %}
+var layer0_shown = true;
+$("#layer0").on('click', function() {
+    if (layer0_shown) {
+        layers[0].hide();
+    } else {
+        layers[0].show();
+    }
+    layer0_shown = !layer0_shown; 
+});
+{% endhighlight %}
+
+The same can be done for `layer[1]` if you change all the 0s into 1s. Check out a JS Fiddle example.
 
 The methods for `cartodb.Layer` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer).
 
