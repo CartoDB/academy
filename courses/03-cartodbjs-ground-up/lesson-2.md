@@ -12,7 +12,7 @@ vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b50
 
 ## Creating basic map apps
 
-We saw in the last lesson that we can build custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see that there are many methods to boost the power of your maps.
+In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see that there are many methods to boost the power of your maps.
 
 Download/copy the template for this lesson from [***this link***]({{site.baseurl}}/t/), or use [***this***]() JS Fiddle to follow along and explore. We will also use the following two viz.json files:
 
@@ -44,7 +44,7 @@ The JS alert box tells us the number of layers by returning `layers.length`. As 
 createLayer has callback objects `layer` and `err`. It can be called like this:
 
 {% highlight javascript %}
-cartodb.createLayer(map_object, vizjson)
+cartodb.createLayer(map_object, layerSource)
     .addTo(map_object)
     .done(function(layer) {
         // do stuff
@@ -56,7 +56,22 @@ cartodb.createLayer(map_object, vizjson)
     });
 {% endhighlight %}
 
-Here we used the layer method `getSubLayerCount()` to get the number of sublayers listed in the viz.json, as we saw in Lesson 1. Here we are using maps that have only a single layer.
+Here we used the layer method `getSubLayerCount()` to get the number of sublayers listed in the viz.json, as we saw in Lesson 1. Here we are using maps that have only a single layer. Also note that a generic `layerSource` is specified instead of `vizjson_url`, as in createVis. For createLayer, data can be passed directly as an object in the following form:
+
+{% highlight javascript %}
+var layerSource = {
+    user_name: 'your CartoDB username',
+    type: 'cartodb',
+    sublayers: [{
+            sql: "SELECT * FROM table_name_1",
+            cartocss: '#table_name_1 {polygon-fill: #333;}'
+        }, 
+        {
+            sql: "SELECT * FROM table_name_2",
+            cartocss: '#table_name_2 {polygon-fill: #ccc;}'
+        }]
+}
+{% endhighlight %}
 
 From now on, the two blocks of code above will be our working examples for extending our CartoDB.js adventures. Try them out first to make sure you can get them going. Save your file as `lesson-2-ondone.html`.
 
@@ -85,11 +100,16 @@ window.onload = function () {
         zoom: 3
     });
 
-    // Put viz.json URLs into an array
-    var vizjsons = [
-        'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json',
-        'http://documentation.cartodb.com/api/v2/viz/236085de-ea08-11e2-958c-5404a6a683d5/viz.json'
-    ]
+    // Put layer data into a JS object
+    var vizjsons = {
+        user_name: '',
+        type: 'cartodb',
+        sublayers: [
+            { sql: "SELECT * FROM table_1" },
+            { sql: "SELECT * FROM table_2" },
+            { sql: "SELECT * FROM table_3" }
+        ]
+    }
 
     // For storing the layer objects
     var layers = [];
@@ -201,7 +221,7 @@ Now we have built a basic app with your map! Congrats on making is this far.
 
 If you want to explore more, check out the following links for other methods in the library:
 
-+ `cartodb.Layer` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer).
-+ `cartodb.Vis` are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbvis).
++ cartodb.Layer are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer).
++ cartodb.Vis are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbvis).
 
 That's the end of Lesson 2. The next lesson goes into customizing the interactivity of the different layers of your map.
