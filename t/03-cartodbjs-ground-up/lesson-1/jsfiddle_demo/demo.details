@@ -1,11 +1,11 @@
 ---
  name: CartoDB.js Lesson 1 
- description: First maps
+ description: First map using createLayer
  authors:
    - Andy Eschbacher
  resources:
    - http://libs.cartocdn.com/cartodb.js/v3/cartodb.js
    - http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css
  normalize_css: no
- wrap: b
+ wrap: l
  ...
