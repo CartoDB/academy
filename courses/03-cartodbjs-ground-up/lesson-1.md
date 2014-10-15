@@ -156,7 +156,7 @@ between the `<body>` tags __AND__ the map styling sheet
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 
-After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-1/jsfiddle_demo)
+After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-1/jsfiddle_demo).
 
 ![Example of simple map created with CartoDB.js]({{site.baseurl}}/img/course3/lesson1/example-map.png)
 
