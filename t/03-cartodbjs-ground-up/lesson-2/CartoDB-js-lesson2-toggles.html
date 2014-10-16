@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 2 | CartoDB.js | CartoDB</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+
+    <style>
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+     #map {
+         height: 67%;
+         padding: 0;
+         margin: 0;
+     }
+     #dashboard {
+         height: 33%;
+         padding: 25px;
+         margin: 0;
+         border-top: 2px solid #333;
+     }
+     .tooltip {
+         padding: 5px;
+         background: rgba(255,255,255,0.8);
+         border: 1px solid #333;
+         border-radius: 3px;
+         text-align: left;
+     }
+     #dash {
+       padding: 25px;
+       margin: 0;
+       height: 33%;
+       width: 400px;
+    }
+    </style>
+
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="dashboard">
+        <h3>CartoDB.js from the ground up, Lesson 2</h3>       
+        <h4>Layer controls</h4>
+        <div id="buttons">
+            <button id="sublayer0">Toggle sublayer 0</button>
+            <button id="sublayer1">Toggle sublayer 1</button>
+        </div> 
+        <div id="dash">
+            <p>
+                <label for="amount">Opacity:</label>
+                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            </p>
+            <div id="header"></div>
+            <div id="slider-range-min"></div>
+        </div>
+    </div>
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+    <!-- Place your code in the script tags below -->
+    <script>
+    window.onload = function() {
+
+        var layerSource = {
+                user_name: 'documentation',
+                type: 'cartodb',
+                sublayers: [{
+                    sql: "SELECT * FROM africa_adm0", // African countries
+                    cartocss: '#africa_adm0{polygon-fill:#FF6600;polygon-opacity:0.7;line-color:#FFF;line-width:1;line-opacity:1;}'
+                },
+                {
+                    sql: "SELECT * FROM ne_50m_lakes", // Natural and artificial lakes
+                    cartocss: '#table_name_2 {polygon-fill: #0000FF;}'
+                }]
+        }
+
+        // Instantiate new map object, place it in 'map' element
+        var map_object = new L.Map('map', {
+            center: [43,0], // Southern France
+            zoom: 3
+        });
+
+        // Pull tiles from OpenStreetMap
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'OpenStreetMap'
+        }).addTo(map_object);
+        
+        var sublayers;
+
+        // Add data layer to your map
+        cartodb.createLayer(map_object,layerSource)
+            .addTo(map_object)
+            .done(function(layer) {
+                sublayers = layer;
+               for (var i = 0; i < layer.getSubLayerCount(); i++) {
+                   sublayers[i] = layer.getSubLayer(i);
+                   alert("Congrats, you added layer #" + i + "!");
+               }
+            })
+            .error(function(err) {
+                console.log("error: " + err);
+            });
+
+        var sublayer0Shown = true;
+        $("#sublayer0").on('click', function() {
+            if (sublayer0Shown) {
+                sublayers.getSubLayer(0).hide();
+            } else {
+                sublayers.getSubLayer(0).show();
+            }
+            sublayer0Shown = !sublayer0Shown; 
+        });
+        
+        var sublayer1Shown = true;
+        $("#sublayer1").on('click', function() {
+            if (sublayer1Shown) {
+                sublayers.getSubLayer(1).hide();
+            } else {
+                sublayers.getSubLayer(1).show();
+            }
+            sublayer1Shown = !sublayer1Shown; 
+        });
+    }
+    </script>
+  </body>
+</html>
