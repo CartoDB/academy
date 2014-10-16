@@ -14,16 +14,14 @@ vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b50
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [***this link***]({{site.baseurl}}/t/), or use [***this***]() JS Fiddle to follow along and explore. We will also use the following two viz.json files:
+Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [***this***](#) JS Fiddle to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. We will also be using the following two tables from CartoDB's [***Common Data***](), an expanding storehouse of great open data:
 
-+ World Lakes: [viz.json file 1](http://#)
-+ African Countries: [viz.json file 2](http://#)
-
-The data for these visualizations comes from CartoDB's [***Common Data***](), an expanding storehouse of great open data.
++ World Lakes has a table name `ne_50m_lakes`
++ African Countries has a table name `africa_admin0`
 
 ### Exploring callback functions
 
-[Callback functions](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/) are an important part of the JavaScript language. Combined with `.done`, a [jQuery method](http://api.jquery.com/deferred.done/) that runs once the object it is acting on is resolved, you can perform specific actions on the different layers of your map after they've loaded. Testing for when your map returns an error is important as well. Chaining on `.error` ([jQuery docs](http://api.jquery.com/error/)) helps you debug and mitigate problems in your code.
+[Callback functions](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/) are an important part of the JavaScript language. Combined with `.done`, a [jQuery method](http://api.jquery.com/deferred.done/) that runs once the object it is acting on is resolved, you can perform specific actions on the different layers of your map after they have loaded. Testing for when your map returns an error is important as well. Chaining on `.error` ([jQuery docs](http://api.jquery.com/error/)) helps you debug and mitigate problems in your code.
 
 Both createVis and createLayer return callback objects. createVis returns `vis`, `layers`, and `err`, and can be formatted like this:
 
@@ -39,7 +37,19 @@ cartodb.createVis(map_id, vizjson_url)
     });
 {% endhighlight %}
 
-The JS alert box tells us the number of layers by returning `layers.length`. As mentioned before, `layers[0]` is the base map. `layers[1]` contains all the data sublayers of a visualization in CartoDB's Editor. As you should see, the alert box tells you that there are two layers to that visualization.
+The JS alert box tells us the number of layers by returning `layers.length`. As mentioned before, `layers` is an array where `layers[0]` is the base map, and `layers[1]` contains all the data sublayers of a visualization created in the CartoDB Editor. 
+
+Grab the [template]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), copy and paste the code for createVis, and save your file as `lesson-2-ondone.html`. If you prefer JS Fiddle, check out the demo [here](#jsfiddle_demo).
+
+*Tip:* Don't forget that the code blocks we're working with should be within the following construct so your map will once your window has loaded.
+
+{% highlight javascript %}
+window.onload = function() {
+    ...
+}
+{% endhighlight %}
+
+As you should see, the alert box tells you that there are two layers to that visualization. Compare yours to a [complete one]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-ondone.html).
 
 createLayer has callback objects `layer` and `err`. It can be called like this:
 
@@ -56,40 +66,51 @@ cartodb.createLayer(map_object, layerSource)
     });
 {% endhighlight %}
 
-Here we used the layer method `getSubLayerCount()` to get the number of sublayers listed in the viz.json, as we saw in Lesson 1. Here we are using maps that have only a single layer. Also note that a generic `layerSource` is specified instead of `vizjson_url`, as in createVis. For createLayer, data can be passed directly as an object in the following form:
+Here we used the layer method `getSubLayerCount()` to get the number of sublayers passed to createLayer, which should look familiar to what you saw in Lesson 1. Notice that a generic `layerSource` is specified instead of `vizjson_url`, as is required in createVis. For createLayer, data can be passed directly as an object in the following form:
 
 {% highlight javascript %}
 var layerSource = {
-    user_name: 'your CartoDB username',
+    user_name: 'a CartoDB username',
     type: 'cartodb',
     sublayers: [{
             sql: "SELECT * FROM table_name_1",
-            cartocss: '#table_name_1 {polygon-fill: #333;}'
+            cartocss: '#table_name_1 {...CartoCSS styles...}'
         }, 
         {
             sql: "SELECT * FROM table_name_2",
-            cartocss: '#table_name_2 {polygon-fill: #ccc;}'
+            cartocss: '#table_name_2 {...CartoCSS styles...}'
         }]
 }
 {% endhighlight %}
 
-From now on, the two blocks of code above will be our working examples for extending our CartoDB.js adventures. Try them out first to make sure you can get them going. Save your file as `lesson-2-ondone.html`.
-
-And don't forget that they should be within the following construct so your map will only load once your window has loaded.
-
-{% highlight javascript %}
-window.onload = function() {
-    ...
-}
-{% endhighlight %}
+From now on, the blocks of code for createVis and createLayer above will be our working examples for extending our CartoDB.js adventures.
 
 ### Adding multiple layers from different Visualizations
 
 We'll start working with createLayer to create a multilayer visualization in CartoDB.js.
 
-The createLayers method allows you to create maps with many layers using CartoDB.js. You could just list them one after another, each with a different viz.json. But this could be tedious if you have several layers to add to your map. A concise alternative is to place all your viz.json URLs into an array, apply the `forEach` method to it, and then pass each element to createLayer. Check out the docs page on this method [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
+The createLayer method allows you to create maps with many layers. You could just call createLayer over and over again for each _layerSource_, but this could be tedious if you have several layers to add to your map and want to customize interactivity.
 
-The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/ohasselblad/misc/tree/master/js_demo2). 
+As we saw above, a concise alternative is to create a JS object similiar to a viz.json. The format we'll use is:
+
+{% highlight javascript %}
+var layerSource = {
+        user_name: 'documentation',
+        type: 'cartodb',
+        sublayers: [{
+            sql: "SELECT * FROM africa_adm0", // African countries
+            cartocss: '#africa_adm0{polygon-fill:#FF6600;polygon-opacity:0.7;line-color:#FFF;line-width:1;line-opacity:1;}'
+        },
+        {
+            sql: "SELECT * FROM ne_50m_lakes", // Natural and artificial lakes
+            cartocss: '#table_name_2 {polygon-fill: #0000FF;}'
+        }]
+}
+{% endhighlight %}
+
+If you look back at the [viz.json](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified.
+
+The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/ohasselblad/misc/tree/master/js_demo2). Compare your code to the one [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html)
 
 {% highlight javascript %}
 window.onload = function () {
@@ -101,7 +122,7 @@ window.onload = function () {
     });
 
     // Put layer data into a JS object
-    var vizjsons = {
+    var layerSource = {
         user_name: '',
         type: 'cartodb',
         sublayers: [
@@ -111,35 +132,32 @@ window.onload = function () {
         ]
     }
 
-    // For storing the layer objects
-    var layers = [];
+    // For storing the sublayers
+    var sublayers = [];
 
     // Pull tiles from OpenStreetMap
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'OpenStreetMap'
     }).addTo(map);
 
-    // Iteratively create layers from viz.json files
-    vizjsons.forEach(function(vizjson, index) {
-        cartodb.createLayer(map, vizjson)
-            .addTo(map)
-            .done(function(layer) {
-                layers[index] = layer;
-                alert("Congrats, you added vizjson #" + (index+1) + "Layers has length " + layers.length);
-            })
-            .error(function(err) {
-                console.log("error: " + err + " for layer " + index);
-            });
+    // Add data layer to your map
+    cartodb.createLayer(map,layerSource)
+        .addTo(map)
+        .done(function(layer) {
+           for (var i = 0; i < layer.getSubLayerCount(); i++) {
+               sublayers[i] = layer.getSubLayer(i);
+               alert("Congrats, you added vizjson #" + (i+1) + "!");
+           } 
+        })
+        .error(function(err) {
+            console.log("error: " + err);
         });
     }
 {% endhighlight %}
 
-_**NB**: If you use Google Maps as your base map, the `.addTo` method needs to take a second argument, an integer that defines the layer order. In we changed this to use Google Maps instead, we would just use `index` like so: `.addTo(map,index)`._
-
 All of these techniques can be used for createVis with minor modifications. One difference is the procedure for accessing layers. Since `layers[1]` contains all the sublayers, one can access them by calling `getSubLayer(i)`, where `i` is the sublayer order, starting from `0` up to `layers.getSubLayerCount() - 1`. They can be conveniently stored in an array as we did above with createLayer, or they can be accessed by calling `layers.getSubLayer(n)`.
 
-
-**Tip**: If you want to access `layers` or `layer` outside of `.done`, make sure that you declare an array outside of the scope of the createLayer statement as we did above.
+**Tip:** If you want to access sublayers outside of `.done`, make sure that you declare an array outside of the scope of the createLayer statement as we did above.
 
 ### Layer controls
 
