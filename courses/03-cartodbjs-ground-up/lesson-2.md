@@ -75,7 +75,7 @@ var layerSource = {
 
 From now on, the two blocks of code above will be our working examples for extending our CartoDB.js adventures. Try them out first to make sure you can get them going. Save your file as `lesson-2-ondone.html`.
 
-And don't forget that they should be within the following construct so your map will only load once your window as loaded.
+And don't forget that they should be within the following construct so your map will only load once your window has loaded.
 
 {% highlight javascript %}
 window.onload = function() {
@@ -83,11 +83,11 @@ window.onload = function() {
 }
 {% endhighlight %}
 
-### Adding multiple layers from different visualizations
+### Adding multiple layers from different Visualizations
 
 We'll start working with createLayer to create a multilayer visualization in CartoDB.js.
 
-There isn't a restriction on how many createLayers you call in CartoDB.js. You could just list them one after another, each with a different viz.json. But this could be tedious if you have several layers to add to your map. A concise alternative is to place all your viz.jsons into an array, apply the `forEach` method to it, and then pass each element to createLayer. Check out the docs page on this method [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
+The createLayers method allows you to create maps with many layers using CartoDB.js. You could just list them one after another, each with a different viz.json. But this could be tedious if you have several layers to add to your map. A concise alternative is to place all your viz.json URLs into an array, apply the `forEach` method to it, and then pass each element to createLayer. Check out the docs page on this method [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
 
 The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/ohasselblad/misc/tree/master/js_demo2). 
 
