@@ -205,7 +205,7 @@ First place the following stags into the `<head>` tags:
 <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 {% endhighlight %}
 
-Next place the following DIV tags below the `<div>` that contains the buttons:
+Next place the following HTML tags below the `<div>` that contains the buttons:
 {% highlight javascript %}
 <div id="dash">
     <p>
@@ -217,7 +217,7 @@ Next place the following DIV tags below the `<div>` that contains the buttons:
 </div>
 {% endhighlight %}
 
-And finally, put the following JavaScript in the `.done` method underneath the `for` loop.
+And finally, put the following JavaScript within the `.done` method, underneath the `for` loop.
 
 {% highlight javascript %}
 var op = 0.5;
@@ -242,11 +242,11 @@ $(function() {
 
 Check yours with [this one]({{site.baseurl}}{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html).
 
-Now we have built a basic app with your map! Congrats on making is this far.
+Now we have built a basic app with your map! Congrats on making it this far.
 
 If you want to explore more, check out the following links for other methods in the library:
 
 + cartodb.Layer are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcartodblayer).
 + cartodb.Vis are [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbvis).
 
-That's the end of Lesson 2. The next lesson goes into customizing the interactivity of the different layers of your map.
+That's the end of Lesson 2. You saw a little bit of SQL and CartoCSS in this lesson. The next lesson we will explore them more with the goal of customizing the display of data on your maps.
