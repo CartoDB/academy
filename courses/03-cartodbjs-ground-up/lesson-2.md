@@ -116,14 +116,14 @@ The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/
 window.onload = function () {
 
     // Instantiate new map object, place it in 'map' element
-    var map = new L.Map('map', {
+    var map_object = new L.Map('map', {
         center: [43,0], // Southern France
         zoom: 3
     });
 
     // Put layer data into a JS object
     var layerSource = {
-        user_name: '',
+        user_name: 'your CartoDB username',
         type: 'cartodb',
         sublayers: [
             { sql: "SELECT * FROM table_1" },
@@ -138,15 +138,15 @@ window.onload = function () {
     // Pull tiles from OpenStreetMap
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'OpenStreetMap'
-    }).addTo(map);
+    }).addTo(map_object);
 
     // Add data layer to your map
-    cartodb.createLayer(map,layerSource)
-        .addTo(map)
+    cartodb.createLayer(map_object,layerSource)
+        .addTo(map_object)
         .done(function(layer) {
            for (var i = 0; i < layer.getSubLayerCount(); i++) {
                sublayers[i] = layer.getSubLayer(i);
-               alert("Congrats, you added vizjson #" + (i+1) + "!");
+               alert("Congrats, you added sublayer #" + i + "!");
            } 
         })
         .error(function(err) {
@@ -170,33 +170,32 @@ First we need to add a way for the user to interact with the map from a browser 
 {% highlight html %}
 <h4>Layer controls</h4>
 <div id="buttons">
-    <button id="layer0">Toggle layer 0</button>
-    <button id="layer1">Toggle layer 1</button>
+    <button id="sublayer0">Toggle sublayer 0</button>
+    <button id="sublayer1">Toggle sublayer 1</button>
 </div>
 {% endhighlight %}
 
-Next, we need these buttons to trigger the events. We want them to hide or show our layers, so we need associate them with the `layer.hide()` or `layer.show()` methods. We can do this with a little jQuery and an if/else statements. Put the following code block below the `forEach` statement, making sure you paste it between the curly braces on the callback function that's called when the window loads.
+Next, we need these buttons to trigger the events. We want them to hide or show our layers, so we need associate them with the `sublayer.hide()` or `sublayer.show()` methods. We can do this with a little jQuery and an if/else statements. Put the following code block below the createLayer construct, making sure you paste it between the curly braces on the callback function that's called when the window loads.
 
 {% highlight javascript %}
-var layer0Shown = true;
-$("#layer0").on('click', function() {
-    if (layer0Shown) {
-        layers[0].hide();
+var sublayer0Shown = true;
+$("#sublayer0").on('click', function() {
+    if (sublayer0Shown) {
+        sublayers[0].hide();
     } else {
-        layers[0].show();
+        sublayers[0].show();
     }
-    layer0Shown = !layer0Shown; 
+    sublayer0Shown = !sublayer0Shown; 
 });
 {% endhighlight %}
 
-This bit of script does the following: If a user clicks the DOM element with an `id` of `layer0`, CartoDB.js will hide or show `layers[0]` depending on its state (`layer0Shown` being true or false). Although not concise, you can control `layer[1]` by copying the block of code above and changing all the 0s into 1s.
-
+This bit of script does the following: If a user clicks the DOM element with an `id` of `sublayer0`, CartoDB.js will hide or show `sublayers[0]` depending on its state (`sublayer0Shown` being true or false). Although not concise, you can control `sublayer[1]` by copying the block of code above and changing all the 0s into 1s.
 
 Check out a JS Fiddle example.
 
 ### Layer opacity
 
-To wrap up our brief introduction to the layer methods, let's further control the display of our map by changing the opacity. Again appealing to jQuery, we simply copy the example code from the [UI slider widget](http://jqueryui.com/slider/#rangemin) and make small modifications. 
+To wrap up our brief introduction to the layer and sublayer methods, let's further control the display of our map by changing the opacity. Again appealing to jQuery, we can simply copy the example code from the [UI slider widget](http://jqueryui.com/slider/#rangemin) and make small modifications. 
 
 First place the following stags into the `<head>` tags:
 {% highlight javascript %}
@@ -206,16 +205,23 @@ First place the following stags into the `<head>` tags:
 <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 {% endhighlight %}
 
-Next place the following DIV tags below the `<h3>` tags:
+Next place the following DIV tags below the `<div>` that contains the buttons:
 {% highlight javascript %}
-<div id="slider-range-min"></div>
+<div id="dash">
+    <p>
+        <label for="amount">Opacity:</label>
+        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="header"></div>
+    <div id="slider-range-min"></div>
+</div>
 {% endhighlight %}
 
-And finally, put the following JavaScript below the `forEach` structure.
+And finally, put the following JavaScript in the `.done` method underneath the `for` loop.
 
 {% highlight javascript %}
 var op = 0.5;
-layers[1].setOpacity(op);
+layer.setOpacity(op);
 
 $(function() {
     $( "#slider-range-min" ).slider({
@@ -227,13 +233,14 @@ $(function() {
         $( "#amount" ).val(ui.value + "%" );
         // scale to [0,1] from [0,100]
         op = $( "#slider-range-min" ).slider( "value" ) / 100;
-        layers[1].setOpacity(op);
+        layer.setOpacity(op);
       }
     });
     $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) + "%");
   });
 {% endhighlight %}
 
+Check yours with [this one]({{site.baseurl}}{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html).
 
 Now we have built a basic app with your map! Congrats on making is this far.
 
