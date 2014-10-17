@@ -14,7 +14,7 @@ vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b50
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [***this***](#) JS Fiddle to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. We will also be using the following two tables from CartoDB's [***Common Data***](), an expanding storehouse of great open data:
+Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [***this***](#) JS Fiddle to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two tables from CartoDB's [***Common Data***](), an expanding storehouse of great open data:
 
 + World Lakes has a table name `ne_50m_lakes`
 + African Countries has a table name `africa_admin0`
@@ -110,7 +110,7 @@ var layerSource = {
 
 If you look back at the [viz.json](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified.
 
-The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/ohasselblad/misc/tree/master/js_demo2). Compare your code to the one [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html)
+The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](#jsfiddle). Compare your code to the one [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html)
 
 {% highlight javascript %}
 window.onload = function () {
@@ -123,13 +123,7 @@ window.onload = function () {
 
     // Put layer data into a JS object
     var layerSource = {
-        user_name: 'your CartoDB username',
-        type: 'cartodb',
-        sublayers: [
-            { sql: "SELECT * FROM table_1" },
-            { sql: "SELECT * FROM table_2" },
-            { sql: "SELECT * FROM table_3" }
-        ]
+        // Use what was given above
     }
 
     // For storing the sublayers
@@ -155,7 +149,7 @@ window.onload = function () {
     }
 {% endhighlight %}
 
-All of these techniques can be used for createVis with minor modifications. One difference is the procedure for accessing layers. Since `layers[1]` contains all the sublayers, one can access them by calling `getSubLayer(i)`, where `i` is the sublayer order, starting from `0` up to `layers.getSubLayerCount() - 1`. They can be conveniently stored in an array as we did above with createLayer, or they can be accessed by calling `layers.getSubLayer(n)`.
+All of these techniques can be used for createVis with minor modifications. One difference is the procedure for accessing layers. Since `layers[1]` contains all the sublayers, one can access them by calling `getSubLayer(i)`, where `i` is the sublayer order, starting from `0` up to `layers[1].getSubLayerCount() - 1`. They can be conveniently stored in an array as we did above with createLayer, or they can be accessed by calling `layers[0].getSubLayer(n)`.
 
 **Tip:** If you want to access sublayers outside of `.done`, make sure that you declare an array outside of the scope of the createLayer statement as we did above.
 
@@ -191,13 +185,13 @@ $("#sublayer0").on('click', function() {
 
 This bit of script does the following: If a user clicks the DOM element with an `id` of `sublayer0`, CartoDB.js will hide or show `sublayers[0]` depending on its state (`sublayer0Shown` being true or false). Although not concise, you can control `sublayer[1]` by copying the block of code above and changing all the 0s into 1s.
 
-Check out a JS Fiddle example.
+Check yours with [this working example]({{site.baseurl/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles.html}}), or look at a JS Fiddle [demo](#jsfiddledemo).
 
 ### Layer opacity
 
 To wrap up our brief introduction to the layer and sublayer methods, let's further control the display of our map by changing the opacity. Again appealing to jQuery, we can simply copy the example code from the [UI slider widget](http://jqueryui.com/slider/#rangemin) and make small modifications. 
 
-First place the following stags into the `<head>` tags:
+First place the following tags into the `<head>` tags:
 {% highlight javascript %}
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
