@@ -6,7 +6,7 @@ subtitle: "Creating basic map apps"
 course: "CartoDB.js from the Ground Up"
 course_slug: "03-cartodbjs-ground-up"
 continue_link: "lesson-3"
-tweet_text: "Lesson 2 from CartoDB.js from the ground up is coming soon!"
+tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
 vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b5057/viz.json"
 ---
 
@@ -41,7 +41,7 @@ The JS alert box tells us the number of layers by returning `layers.length`. As 
 
 Grab the [template]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), copy and paste the code for createVis, and save your file as `lesson-2-ondone.html`. If you prefer JS Fiddle, check out the demo [here](#jsfiddle_demo).
 
-*Tip:* Don't forget that the code blocks we're working with should be within the following construct so your map will once your window has loaded.
+**Tip:** Don't forget that the code blocks we're working with should be within the following construct so your map code will run once your window has loaded.
 
 {% highlight javascript %}
 window.onload = function() {
@@ -83,7 +83,9 @@ var layerSource = {
 }
 {% endhighlight %}
 
-From now on, the blocks of code for createVis and createLayer above will be our working examples for extending our CartoDB.js adventures.
+If you are not familiar with SQL or CartoCSS, don't worry! Their use in CartoDB.js is covered in Lesson 3. 
+
+From now on, the blocks of code for createVis and createLayer above will be our working examples for extending our CartoDB.js adventures. 
 
 ### Adding multiple layers from different Visualizations
 
@@ -108,9 +110,9 @@ var layerSource = {
 }
 {% endhighlight %}
 
-If you look back at the [viz.json](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified.
+If you look back at the [viz.json](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified. Therefore, `layer` in createLayer is equivalent to `layers[1]` in createVis.
 
-The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](#jsfiddle). Compare your code to the one [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html)
+The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-1.html) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer JS Fiddle, check out the demo [here](#jsfiddle). Compare your code to the one [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html).
 
 {% highlight javascript %}
 window.onload = function () {
@@ -149,7 +151,7 @@ window.onload = function () {
     }
 {% endhighlight %}
 
-All of these techniques can be used for createVis with minor modifications. One difference is the procedure for accessing layers. Since `layers[1]` contains all the sublayers, one can access them by calling `getSubLayer(i)`, where `i` is the sublayer order, starting from `0` up to `layers[1].getSubLayerCount() - 1`. They can be conveniently stored in an array as we did above with createLayer, or they can be accessed by calling `layers[0].getSubLayer(n)`.
+All of these techniques can be used for createVis with minor modifications. One difference is the procedure for accessing layers. Since `layers[1]` contains all the sublayers, one can access them by calling `getSubLayer(i)`, where `i` is the sublayer order, starting from `0` up to `layers[1].getSubLayerCount() - 1`. They can be conveniently stored in an array as we did above with createLayer, or they can be accessed by calling `layers[1].getSubLayer(n)`. Another modification is the replacement of the `layerSource` object with a viz.json.
 
 **Tip:** If you want to access sublayers outside of `.done`, make sure that you declare an array outside of the scope of the createLayer statement as we did above.
 
