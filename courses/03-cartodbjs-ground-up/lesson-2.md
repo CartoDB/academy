@@ -200,12 +200,11 @@ First place the following tags into the `<head>` tags:
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 {% endhighlight %}
 
 Next place the following HTML tags below the `<div>` that contains the buttons:
 {% highlight javascript %}
-<div id="dash">
+<div id="dash" style="width: 500px;">
     <p>
         <label for="amount">Opacity:</label>
         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
@@ -218,13 +217,13 @@ Next place the following HTML tags below the `<div>` that contains the buttons:
 And finally, put the following JavaScript within the `.done` method, underneath the `for` loop.
 
 {% highlight javascript %}
-var op = 0.5;
+var op = 0.7;
 layer.setOpacity(op);
 
 $(function() {
     $( "#slider-range-min" ).slider({
       range: "min",
-      value: 50,
+      value: 70,
       min: 0,
       max: 100,
       slide: function( event, ui ) {
