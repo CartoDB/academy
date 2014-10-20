@@ -6,46 +6,58 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+    <link rel="stylesheet" href="/css/cdbui.css">
+
     <style>
       html, body {
         height: 100%;
         padding: 0;
         margin: 0;
       }
-     #map {
-         height: 67%;
-         padding: 0;
-         margin: 0;
-     }
-     #dashboard {
-         height: 33%;
-         padding: 25px;
-         margin: 0;
-         border-top: 2px solid #333;
-     }
-     #dash {
-       padding: 25px;
-       margin: 0;
-       height: 33%;
-       width: 400px;
-    }
+      #map {
+        height: 67%;
+        padding: 0;
+        margin: 0;
+      }
+      #dashboard {
+        height: 33%;
+        padding: 25px;
+        margin: 0;
+        border-top: 2px solid #333;
+      }
+      #dash {
+        margin: 25px 0;
+        width: 400px;
+      }
+      button {
+        margin-right: 10px;
+        font-family: "Proxima Nova W01", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: transparent;
+      }
+      p {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
     </style>
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/b6470a43-5105-49d3-95ae-75217a436bf8.js"></script>
 
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
   </head>
   <body>
     <div id="map"></div>
     <div id="dashboard">
-        <h3>CartoDB.js from the ground up, Lesson 2</h3>       
-        <h4>Layer controls</h4>
+        <h3 class="Title Title--xs">CartoDB.js from the ground up, Lesson 2</h3>
+        <p>Layer controls</p>
         <div id="buttons">
-            <button id="sublayer0">Toggle sublayer 0</button>
-            <button id="sublayer1">Toggle sublayer 1</button>
+            <button id="sublayer0" class="Btn Btn--l Btn--blue"><span>Toggle sublayer 0</span></button>
+            <button id="sublayer1" class="Btn Btn--l Btn--blue"><span>Toggle sublayer 1</span></button>
         </div> 
+
         <div id="dash">
             <p>
                 <label for="amount">Opacity:</label>
