@@ -99,13 +99,13 @@
                    sublayers[i] = layer.getSubLayer(i);
                    alert("Congrats, you added sublayer #" + i + "!");
                }
-               var op = 0.5;
+               var op = 0.7;
                layer.setOpacity(op);
  
                $(function() {
                    $( "#slider-range-min" ).slider({
                      range: "min",
-                     value: 50,
+                     value: 70,
                      min: 0,
                      max: 100,
                      slide: function( event, ui ) {
