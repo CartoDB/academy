@@ -105,7 +105,7 @@ var layerSource = {
         },
         {
             sql: "SELECT * FROM ne_50m_lakes", // Natural and artificial lakes
-            cartocss: '#table_name_2 {polygon-fill: #0000FF;}'
+            cartocss: '#ne_50m_lakes {polygon-fill: #0000FF;}'
         }]
 }
 {% endhighlight %}
