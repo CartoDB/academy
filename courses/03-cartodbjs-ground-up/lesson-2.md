@@ -164,10 +164,10 @@ We can use [layer methods](http://docs.cartodb.com/cartodb-platform/cartodb-js.h
 First we need to add a way for the user to interact with the map from a browser window. An easy way to do so is to create buttons to trigger events. The following lines of code are our starting point.
 
 {% highlight html %}
-<h4>Layer controls</h4>
+<p>Layer controls</p>
 <div id="buttons">
-    <button id="sublayer0">Toggle sublayer 0</button>
-    <button id="sublayer1">Toggle sublayer 1</button>
+    <button id="sublayer0" class="Btn Btn--l Btn--blue"><span>Toggle Countries</span></button>
+    <button id="sublayer1" class="Btn Btn--l Btn--blue"><span>Toggle Lakes</span></button>
 </div>
 {% endhighlight %}
 
