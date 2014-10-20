@@ -189,6 +189,8 @@ This bit of script does the following: If a user clicks the DOM element with an 
 
 Check yours with [this working example]({{site.baseurl/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles.html}}), or look at a JS Fiddle [demo](#jsfiddledemo).
 
+**Pro Tip:** If you want to add ten layers but only modify one of them, put the nine that remain static into one layer source object and the non-static one in it's own layer source object. Then call createLayer twice, once on each object. In this way, you can play with the layer you want to play with without having to re-render the other nine.
+
 ### Layer opacity
 
 To wrap up our brief introduction to the layer and sublayer methods, let's further control the display of our map by changing the opacity. Again appealing to jQuery, we can simply copy the example code from the [UI slider widget](http://jqueryui.com/slider/#rangemin) and make small modifications. 
@@ -237,6 +239,8 @@ $(function() {
 {% endhighlight %}
 
 Check yours with [this one]({{site.baseurl}}{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html).
+
+**Pro Tip:** If you want to control the opacity of the layers separately, you need to do two createLayer calls, one for each layer source.
 
 Now we have built a basic app with your map! Congrats on making it this far.
 
