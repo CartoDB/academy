@@ -25,7 +25,7 @@ Torque is a visualization that allows you to visualize geographic data over time
 
 ![Torque.]({{site.baseurl}}/img/course1/lesson4/torque.png)
 
-Once you select Torque, you'll notice that the column that CartoDB picked to visualize is the `cartodbid` column. This column is just an arbitrarily assigned ID number that CartoDB uses and assigns based on the order of the data in your spreadsheet. In terms of mapping, it's usually fairly meaning-less, so you will want to change it to which is pretty meaning-less. It's just the order that the data is in in the table. We should go ahead and select the column labeled `date` since that makes the most sense here.
+Once you select Torque, you'll notice that the column that CartoDB picked to visualize is the `cartodbid` column. This column is just an arbitrarily assigned ID number that CartoDB uses and assigns based on the order of the data in your spreadsheet. In terms of mapping, it's usually fairly meaningless, so you will want to change it to something more meaningful, as it's just the order that the data is in in the table. We should go ahead and select the column labeled `date` since that makes the most sense here.
 
 As with the other visualizations, you can change the stroke and fill of the markers. In our demo, we brought the opacity down, and played with the color until we were happy with it. We also removed the marker stroke, but you can change things as you see fit.  
 
