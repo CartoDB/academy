@@ -1,0 +1,14 @@
+---
+ name: CartoDB.js Lesson 2 
+ description: Opacity Slider and Layer Toggles
+ authors:
+   - Andy Eschbacher
+ resources:
+   - http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css
+   - http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css
+   - http://libs.cartocdn.com/cartodb.js/v3/cartodb.js
+   - http://code.jquery.com/jquery-1.10.2.js
+   - http://code.jquery.com/ui/1.11.1/jquery-ui.js
+ normalize_css: no
+ wrap: l
+ ...
