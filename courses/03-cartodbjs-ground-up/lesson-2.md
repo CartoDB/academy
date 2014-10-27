@@ -23,7 +23,7 @@ Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/0
 
 ### Exploring callback functions
 
-[Callback functions](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/) are an important part of the JavaScript language. Combined with `.done`, a [jQuery method](http://api.jquery.com/deferred.done/) that runs once the object it is acting on is resolved, you can perform specific actions on the different layers of your map after they have loaded. Testing for when your map returns an error is important as well. Chaining on `.error` ([jQuery docs](http://api.jquery.com/error/)) helps you debug and mitigate problems in your code.
+[Callback functions](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/) are an important part of the JavaScript language. Combined with `.done`, a deferred method that runs once the object it is acting on is resolved, you can perform specific actions on the different layers of your map after they have loaded. Testing for when your map returns an error is important as well. Chaining on `.error` helps you debug and mitigate problems in your code.
 
 Both createVis and createLayer return callback objects. createVis returns `vis`, `layers`, and `err`, and can be formatted like this:
 
