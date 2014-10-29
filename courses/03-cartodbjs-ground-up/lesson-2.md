@@ -16,7 +16,7 @@ vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b50
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two tables from CartoDB's Common Data, an expanding storehouse of great open data:
+Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two tables from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
 
 + World Lakes has a table name `ne_50m_lakes`
 + African Countries has a table name `africa_admin0`
