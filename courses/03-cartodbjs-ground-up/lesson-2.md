@@ -10,7 +10,7 @@ tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
 vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b5057/viz.json"
 ---
 
-<iframe src="https://vimeo.com/110427306" width="700" height="393" frameborder="0"></iframe>
+<iframe src="//player.vimeo.com/video/110427306" width="700" height="393" frameborder="0"></iframe>
 
 ## Creating basic map apps
 
