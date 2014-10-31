@@ -1,5 +1,4 @@
-window.onload = function() {
-
+window.addEvent('domready', function() {
     var vizjson = 'http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json';
 
     // Choose center and zoom level
@@ -19,4 +18,4 @@ window.onload = function() {
     // Add CartoDB data layers
     cartodb.createLayer(map_object,vizjson)
         .addTo(map_object);
-}
+})
