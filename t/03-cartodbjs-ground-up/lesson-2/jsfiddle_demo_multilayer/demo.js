@@ -1,4 +1,4 @@
-window.onload = function() {
+cdb.init(function() {
     // Instantiate new map object, place it in 'map' element
     var map_object = new L.Map('map', {
         center: [43,0], // Southern France
@@ -39,4 +39,4 @@ window.onload = function() {
         .error(function(err) {
             console.log("error: " + err);
         });
-}
+});
