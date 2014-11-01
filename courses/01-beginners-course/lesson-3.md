@@ -58,7 +58,7 @@ While the "simple" visualization can be useful in some situations, CartoDB offer
 
 When you click on it, CartoDB selects the first column with the needed data type. In this case bubble maps require numerical data, and so CartoDB selects the `damage` column. The map then shows markers with different sizes based on the amount of damage caused by the tornado.
 
-Now you'll change the parameters you are already familiar width (marker radius, fill, and stroke) to clean up the visualization. In our example above we just bumped down the bubble stroke from 1.5 to 1 on top of the "Nokia Day" basemap. You can play with this and the other parameters — like fill and stroke — until you get a visualization you are happy with.
+Now you'll change the parameters you are already familiar with (marker radius, fill, and stroke) to clean up the visualization. In our example above we just bumped down the bubble stroke from 1.5 to 1 on top of the "Nokia Day" basemap. You can play with this and the other parameters — like fill and stroke — until you get a visualization you are happy with.
 
 ### Intensity Map
 
