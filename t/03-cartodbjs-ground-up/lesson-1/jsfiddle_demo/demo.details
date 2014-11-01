@@ -7,5 +7,5 @@
    - http://libs.cartocdn.com/cartodb.js/v3/cartodb.js
    - http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css
  normalize_css: no
- wrap: h
+ wrap: d
  ...
