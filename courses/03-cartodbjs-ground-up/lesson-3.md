@@ -11,7 +11,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e
 
 ## Basic Interactivity
 
-In the last lesson, we got a small peak into the power of CartoCSS and SQL when we created the layer source to get information to createLayer. CartoDB is built on top of a database called PostgreSQL, one in a family of databases that uses SQL, or _structured querying language_. Maps are styled with a CSS-like language called CartoCSS. And finally, we can add another entry to the sublayer object to allow users to get click/hover event on their maps.
+In the last lesson, we got a small peek into the power of CartoCSS and SQL when we created a layer source object to get information to createLayer. CartoDB is built on top of a database called PostgreSQL, one in a family of databases that uses SQL, or _structured querying language_. Maps are styled with a CSS-like language called CartoCSS. And finally, we can add another entry to the sublayer object to allow users to get click/hover event on their maps.
 
 Our goal with this lesson is to add even more interactivity to our maps by appealing to the powerful options we have at our disposal.
 
