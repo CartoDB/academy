@@ -11,9 +11,34 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e
 
 ## Basic Interactivity
 
-In the last lesson, we got a small peek into the power of CartoCSS and SQL when we created a layer source object to get information to createLayer. CartoDB is built on top of a database called PostgreSQL, one in a family of databases that uses SQL, or _structured querying language_. Maps are styled with a CSS-like language called CartoCSS. And finally, we can add another entry to the sublayer object to allow users to get click/hover event on their maps.
+In the last lesson, we got a small peek at CartoCSS and SQL when we created a layer source object to get information to createLayer:
 
-Our goal with this lesson is to add even more interactivity to our maps by appealing to the powerful options we have at our disposal.
+{% highlight javascript %}
+var layerSource = {
+        user_name: 'documentation',
+        type: 'cartodb',
+        sublayers: [{
+            sql: "SELECT * FROM africa_adm0", // African countries
+            cartocss: '#africa_adm0{polygon-fill:#FF6600;polygon-opacity:0.7;line-color:#FFF;line-width:1;line-opacity:1;}'
+        },
+        {
+            sql: "SELECT * FROM ne_50m_lakes", // Natural and artificial lakes
+            cartocss: '#ne_50m_lakes {polygon-fill:#0000FF;}'
+        }]
+}
+{% endhighlight %}
+
+SQL is a language for asking specific questions of your data and getting answers. For instance, if you have a database of home prices in different postal codes, one can easily find all homes at a certain price in a certain postal code. CartoDB uses a specific SQL database called PostgreSQL. SQL is an acronym for _structured querying language_. If you want to learn more, check out the following resources:
+
++ A more traditional approach to learning SQL by [W3Schools](http://www.w3schools.com/sql/)
++ Other resources? 
+
+CartoCSS is a language to change the appearance of the data in your map. Look up at the layer source code above, you can see some of the simpler ways of styling data.
+
+And finally, we can add another entry to the sublayer object to allow users to get click/hover event on their maps.
+
+**Our goal with this lesson:**
+Add more interactivity to our maps by appealing to SQL and CartoCSS.
 
 We will be using the real-time earthquake data available through CartoDB's Common Data. It pulls data automatically from the [United States Geological Services' archive](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php), which is updated every five minutes. As you will be doing this lesson at a different time, your data will appear different than what appears in this lesson. If you don't see enough natural disaster data to make your map complete, import another data set from [USGS' website](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) that has a longer span of time.
 
@@ -42,12 +67,12 @@ var layerSource = {
     }
 {% endhighlight %}
 
-The main method to change these definitions after they have been declared is `sublayer.set(layerDefinition)`.
+The main method to change these definitions after they have been declared is `sublayer.set(layerDefinition)`, but if you only need to change CartoCSS or SQL, there are more conventient functions `setCartoCSS({...})` and `setSQL({...})`.
 
 ### CartoCSS
-CartoCSS is a styling language that works with the data you import into CartoDB. It helps you make your maps beautiful. It was created by MapBox and is open source.
+CartoCSS is a styling language that works with the data you import into CartoDB. It helps you make your maps beautiful. It was created by [MapBox](https://www.mapbox.com) and is [open source](https://github.com/mapbox/carto).
 
-In CartoDB.js we can initialize our layer with a pre-defined CartoCSS, or we can update it on the fly with the `sublayer.set(...)` method. A more convenient method is `sublayer.setCartoCSS({'cartocss': '#layer {...}'})`
+In CartoDB.js we can initialize our layer with pre-defined CartoCSS like we saw above, or we can update it on the fly with `sublayer.setCartoCSS({'cartocss': '#layer_name {...}'})`.
 
 [Fun example](http://bl.ocks.org/xavijam/57f1c141bff4990b598f) by [Javier Medina](https://github.com/xavijam).
 
