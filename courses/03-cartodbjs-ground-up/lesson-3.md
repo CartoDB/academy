@@ -74,8 +74,6 @@ CartoCSS is a styling language that works with the data you import into CartoDB.
 
 In CartoDB.js we can initialize our layer with pre-defined CartoCSS like we saw above, or we can update it on the fly with `sublayer.setCartoCSS({'cartocss': '#layer_name {...}'})`.
 
-[Fun example](http://bl.ocks.org/xavijam/57f1c141bff4990b598f) by [Javier Medina](https://github.com/xavijam).
-
 There are several types of elements to look at with CartoCSS, all based on an underlying map server layer called Mapnik. The elements that we will focus on now are: point, line, and polygon.
 
 Conditions in CartoCSS
@@ -94,6 +92,8 @@ etc.
 {% endhighlight %}
 
 Doing this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, or bubble map, just as you would see in the Visualization wizard in CartoDB Editor. In our case, we are working with data that is continuous.
+
+[Fun example](http://bl.ocks.org/xavijam/57f1c141bff4990b598f) by [Javier Medina](https://github.com/xavijam).
 
 ### Basic SQL queries
 Let's do a few simple queries in the CartoDB Editor, and then work in JavaScript to build an application with some of the more interesting queries. Since we're working with earthquake data, let's find 
