@@ -10,6 +10,9 @@ tweet_text: "I just created some vis! Working my way through cartodb.js from the
 vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json"
 ---
 
+## JavaScript Background
+_Since this course explains CartoDB.js, it relies heavily on the JavaScript programming language. If you are not familiar with the language, check out some of the great free resources available on the web by looking at [this StackExchange](http://stackoverflow.com/questions/11246/best-resources-to-learn-javascript) post. We also recommend [Codecademy](http://www.codecademy.com/) and [Eloquent JavaScript](http://eloquentjavascript.net/) to get started._
+
 ## _Create Visualization_ vs. _Create Layer_
 
 The CartoDB.js API provides powerful tools to build dynamic web apps. Along with CartoCSS, other JS libraries, and our SQL API, the sky's the limit. This course, CartoDB.js from the ground up, will show you how to build amazing apps in a small amount of time.
