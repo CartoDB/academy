@@ -79,3 +79,4 @@ window.onload = function() {
             sublayer1Shown = !sublayer1Shown; 
         });
     });
+}
