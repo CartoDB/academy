@@ -1,0 +1,38 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    border: 1px solid black;
+    height: 480px;
+    margin: 25px auto;
+    width: 600px;
+}
+
+#layer_selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+}
+#layer_selector ul {
+  padding: 0; margin: 0;
+  list-style-type: none;
+}
+#layer_selector li {
+  border-bottom: 1px solid #999;
+  padding: 15px 30px;
+  font-family: "Helvetica", Arial;
+  font-size: 13px;
+  color: #444;
+  cursor: auto;
+}
+#layer_selector li:hover {
+  background-color: #F0F0F0;
+  cursor: pointer;
+}
+#layer_selector li.selected {
+  background-color: #EEE;
+}

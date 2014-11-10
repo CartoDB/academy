@@ -1,0 +1,11 @@
+---
+ name: CartoDB.js Lesson 2 | CartoCSS Demo
+ description: Changing CartoCSS in CartoDB.js
+ authors:
+   - Andy Eschbacher
+ resources:
+   - http://libs.cartocdn.com/cartodb.js/v3/cartodb.js
+   - http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css
+ normalize_css: no
+ wrap: b
+ ...
