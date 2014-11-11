@@ -26,7 +26,7 @@ window.onload = function() {
 
         // Pull tiles from OpenStreetMap
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'OpenStreetMap'
+            attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map_object);
 
         // Add data layer to your map
