@@ -90,7 +90,7 @@
                 } else if (selected === "sizeMagColorDepth"){
                     cartocss = '#all_day_cdb_gu_l3{marker-fill-opacity:.9;marker-line-color:#FFF;marker-line-width:.5;marker-line-opacity:1;marker-placement:point;marker-multi-policy:largest;marker-type:ellipse;marker-fill:#FFFFB2;marker-allow-overlap:true;marker-clip:false;[mag <= 5.7]{marker-width:15.0;}[mag <= 3.54]{marker-width:13.4;}[mag <= 2.63]{marker-width:11.9;}[mag <= 2.1]{marker-width:10.3;}[mag <= 1.81]{marker-width:8.8;}[mag <= 1.5]{marker-width:7.2;}[mag <= 1.21]{marker-width:5.7;}[mag <= 1.02]{marker-width:4.1;}[mag <= .83]{marker-width:2.6;}[mag <= .51]{marker-width:1.0;}}#all_day_cdb_gu_l3 [depth <= 592.9]{marker-fill:#b10026;}#all_day_cdb_gu_l3 [depth <= 508.20000000000005]{marker-fill:#e31a1c;}#all_day_cdb_gu_l3 [depth <= 423.5]{marker-fill:#fc4e2a;}#all_day_cdb_gu_l3 [depth <= 338.8]{marker-fill:#fd8d3c;}#all_day_cdb_gu_l3 [depth <= 254.10000000000002]{marker-fill:#feb24c;}#all_day_cdb_gu_l3 [depth <= 169.4]{marker-fill:#fed976;}#all_day_cdb_gu_l3 [depth <= 84.7]{marker-fill:#ffffb2;}';
                 } else {
-                    cartocss = '#all_day_cdb_gu_l3{marker-fill:#f60;marker-width:10;}';
+                    cartocss = '#all_day_cdb_gu_l3{marker-fill:#f60;marker-width:10;marker-allow-overlap:true;}';
                 }
                 
                 layer.setCartoCSS(cartocss);
@@ -103,7 +103,7 @@
                 type: 'cartodb',
                 sublayers: [{
                     sql: "SELECT * FROM " + layerName, // Earthquake data
-                    cartocss: "#all_day_cdb_gu_l3{marker-fill:#f60;marker-width:10;}" // Simple visualization
+                    cartocss: "#all_day_cdb_gu_l3{marker-fill:#f60;marker-width:10;marker-allow-overlap:true;}" // Simple visualization
                 }]
         }
 
