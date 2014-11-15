@@ -1,12 +1,12 @@
 ---
 layout: course
-title: "SQL and PostGIS"
+title: "SQL and PostGIS in CartoDB"
 id: "04-sql-postgis"
-subtitle: From the ground up
-categories: Easy/Medium
-tag: design
+subtitle: Queries to visualizations
+categories: Basic
+tag: book
 time: 1 hour
-description_short: CartoDB is built on a database system called PostgreSQL which allows for powerful data manipulation. The SQL part stands for `structured querying language`.
+description_short: Discover the power of SQL and PostGIS by exploring CartoDB.
 prerequisite:
     - Intermediate experience using CartoDB
     - A modern browser like Chrome, Firefox, or Safari
