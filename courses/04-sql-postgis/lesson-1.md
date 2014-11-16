@@ -176,9 +176,32 @@ FROM all_day
 
 As you can see, the values range from around -20 million to +20 million in both the N/S and E/W directions. This projection takes the furthest North and South to be &plusmn; 85.0511&deg;, which allows the earth to be projected as a large square, very convenient for using square tiles with on the web. It excludes the poles, so other projections will have to be used if your data requires them.
 
-Also note a new type of object appearing in the SQL statement above: `ST_AsText`. This is a [PostGIS function](http://www.postgis.org/docs/ST_AsText.html) that takes a geometry and returns it in a more readable form.
+Also note a new type of object appearing in the SQL statement above: `ST_AsText()`. This is a [PostGIS function](http://www.postgis.org/docs/ST_AsText.html) that takes a geometry and returns it in a more readable form.
+
+Projections have specific designation numbers referred to as [SRID](http://en.wikipedia.org/wiki/SRID) to help you with unambiguous projections as there are many variants out there. The two of interest to us are: 
+
++ **4326** for WGS84, which defines `the_geom`; 
++ **3857** for Web Mercator, which defines `the_geom_webmercator`. 
+
+We will find out how to use these in the section below and in future lessons.
 
 ## Basic PostGIS
+
+In this section, we are going to just get our feet wet with PostGIS. Just like we did with the data we've encountered so far, spatial data can be manipulated in a database. We can still manipulate, filter, order, measure, and much more based on the geometries in the `the_geom` column.
+
+The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with "ST\_AsText()" above. CartoDB also introduces some helper functions that reduce the amount of typing on the user end. These begin with "CDB\_". For example, we use "CDB_LatLng(lat,long)" to get a coordinate in the 4326 projection (WGS84).
+
+We'll keep working with the earthquake data, but trying to generate some new useful information from it. Say you are interested in knowing the distance you are from all of the earthquakes in the data table. 
+
+
+{% highlight sql %}
+SELECT
+  *,
+  ST_Distance(the_geom::geography, CDB_LatLng(37.7833,-122.4167)::geography) / 1000 AS dist
+FROM
+  all_day_4
+{% endhighlight %}
+
 Show some basic functions
 
 + ST_Distance
@@ -197,3 +220,9 @@ Import this dataset into your account. Just copy the link and import it without 
 
 Our goal is to create a new data table that has the as-the-crow-flies paths from place to place. We can then make a multilayer map that has the lunch locations and the paths from lunch locations.
 
+Want more? Check out some tutorials:
+
++ [Projections, the_geom and the_geom_webmercator](http://docs.cartodb.com/tutorials/projections.html)
++ [Query by distance](http://docs.cartodb.com/tutorials/query_by_distance.html)
++ [Counting points in polygons](http://docs.cartodb.com/tutorials/counting_points.html)
++ [CartoDB Tips and Tricks](http://docs.cartodb.com/tips-and-tricks.html)
