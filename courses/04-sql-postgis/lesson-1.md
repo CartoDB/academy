@@ -12,7 +12,9 @@ vizjson: ""
 
 ## Learning SQL through the CartoDB Editor
 
-CartoDB is built on a database called PostgreSQL. The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra which has a solid foundation. 
+CartoDB is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra which has a solid foundation.
+
+SQL queries work on data arranged in tables, similar to an Excel spreadsheet. Table names are lower case, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lower case with no spaces. Column names cannot be the same as some of the keywords in SQL.
 
 In this lesson, we will be using CartoDB to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
@@ -37,7 +39,7 @@ Once you have finished inspecting your data, click on the tab on the right label
 Notice the words in the text editor:
 
 + SELECT -- choose the columns specified after SELECT
-+ *** -- a wildcard that means all columns in table
++ _*_ -- a wildcard that means all columns in a table
 + FROM -- this is needed to specify from which table the data is pulled
 
 Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM all_day`, reads: "Select all columns from the table all_day." If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
@@ -48,6 +50,8 @@ FROM all_day
 {% endhighlight %}
 
 When you run this query by clicking the button "Apply query", or typing CMD+S (Mac)/CTRL+S (PC), you are presented with the option "create table from query" that allows you to create a new table from your SQL statement. If you choose this, you create a new data table that can be used independently of the current one. If you instead want to revert to having all the columns that you previously imported, clicking "clear view" returns your SQL statement to `SELECT * FROM all_day` and you see all of your data in the table again.
+
+_Tip:_ You may have noticed that if you run the above query, the data disappears from your map. You'll soon find out the reason for this in the section below on `the_geom_webmercator`.
 
 Our basic format for a SQL statement is:
 
@@ -77,7 +81,7 @@ Things to notice:
 
 Behind the scenes, these filters are setting up SQL statements that are run against our data. Change the sliders, enter search terms, etc., to see how the data table changes in response to your filtering.
 
-Once you've finished exploring your data with filters, remove all of the filters by clicking the grey circle with a **&times;** in the top right of each window's pane. Then re-add the filter for `type`, deselect all entries except _earthquake_ and _quarry_, and switch to the SQL tab to see what your filtering produces for a SQL statement. As you will see, filters show us the WHERE clause that allows you to select rows based on criteria you set. In this case, the WHERE clause chooses all columns that have either "earthquake" or "quarry" in the `type` column. That is, a row is only chosen if `type` matches "earthquake" or "quarry". We could easily flip this condition around by placing the NOT keyword before IN.
+Once you've finished exploring your data with filters, remove all of the filters by clicking the grey circle with a **&times;** in the top right of each window's pane. Then re-add the filter for `type`, deselect all entries except _earthquake_ and _quarry_, and switch to the SQL tab to see what your filtering produces for a SQL statement. As you will see, filters show us the WHERE clause that allows you to select rows based on criteria you set. In this case, the WHERE clause chooses all rows that have either "earthquake" or "quarry" in the `type` column. That is, a row is only chosen if `type` matches "earthquake" or "quarry". We could easily flip this condition around by placing the NOT keyword before IN.
 
 Delete all of the text _after_ WHERE, and type `cartodb_id = 4`. Once you finish typing, apply the query and inspect the results. As you will see, all records that do not have a `cartodb_id` of 4 disappear from view. You can apply other conditions, such as `cartodb_id > 2` or even on-the-fly calculations such as `cartodb_id * 2 > 4`.
 
@@ -91,11 +95,15 @@ Switch back to the Filters tab and add an additional filter. This time choose `d
 
 We also discover that we can chain conditions together using the AND keyword. In the case of our `depth` filter, you have the following format: 
 
-    (depth <= val1 AND depth >= val2)
+    depth <= value1 AND depth >= value2
     
-If you add another filter you can see that they are all chained together to give a very nuanced selection of your data. The OR keyword is another option for having multiple conditions.
+If you add another filter you can see that they are all chained together to give a more nuanced selection of your data. The OR keyword is another option for having multiple conditions.
 
-The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic regular expression matching that is _case-insensitive_. LIKE is case-sensitive. The wildcard in this case is the percent symbol (%). Placed at the front of the string, '%California' matches all strings that end in "California". Placed at the end, 'California%' matches all strings that begin with "California". Placed on both ends as produced by the filter, it matches all strings that contain "California".
+The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic [regular expression](http://www.postgresql.org/docs/9.0/static/functions-matching.html) matching that is _case-insensitive_. LIKE is case-sensitive. The wildcard in this case is the percent symbol: %. Placed at the front of the string, '%california' matches all strings that end in "california", regardless of case. Placed at the end, 'california%' matches all strings that begin with "California". Placed on both ends as produced by the filter, it matches all strings that contain "California".
+
+While % matches a sequence of characters, the underscore (_) matches any single character. The following will match "California": `'_a_i_o_n_a'`.
+
+_Tip:_ Make sure to use single quotes (') to enclose strings in the WHERE clause.
 
 ![Multiple conditions in the WHERE clause]({{site.baseurl}}/img/course4/lesson1/filters-sql.png)
 
@@ -104,30 +112,88 @@ Now we have a larger view of what a query can look like:
 {% highlight sql %}
 SELECT columns
 FROM table_name
-WHERE column_name operator value
+WHERE conditions
 {% endhighlight %}
 
-### Outline
 
-- Which data?
-- Using filters to explore some of the SQL commands CartoDB uses
-    - Discover common operators (=, <, >, <> or !=, ILIKE, IN, NOT IN) by looking at different data types
-    - Multiple conditions using OR or AND
-- SELECT/PROJECT 
+## ORDER BY and LIMIT
 
-## Structure of a query
+Another way to inspect your data is by ordering the columns of the table differently. CartoDB has automatic ordering built in--just click on a column name and select ASC or DESC to get the data ordered how you want. ASC orders your data by lowest number or highest in the alphabet (closest to A) first, while DESC does the opposite.
+
+You can perform the same operations using the SQL keywords ORDER BY. Try it out by first clearing your view and then, after your table name, typing
+
+{% highlight sql %}
+ORDER BY depth ASC
+{% endhighlight %}
+    
+This will arrange your data in your table to be ordered by this column. The result has no effect on how the data is displayed in CartoDB unless you apply other keywords to your overall SQL statement.
+
+_Pro Tip:_ You can add multiple columns after the ORDER BY keywords like this:
+
+{% highlight sql %}
+SELECT *
+FROM table_name
+ORDER BY column1 ASC, column2 DESC
+{% endhighlight %}
+
+The first column is sorted first, then within that ordering the second column is ordered, etc.
+
+One keyword that changes the display of data on your map depending on the ordering is LIMIT, which gives you the number of rows requested if there are that many to display. This is added to the end of your SQL statement:
 
 {% highlight sql %}
 SELECT columns
 FROM table_name
 WHERE conditions
+ORDER BY column_name
+LIMIT N
 {% endhighlight %}
+
+where N is an integer from 0 to however many rows your table contains. If you want ten rows to display, you will type LIMIT 10. This is useful if you want to display a simplified version of the data on your map.
+
+Also note that while our SQL block keeps growing, only the most basic one introduced above has all of the required text.
 
 ## the_geom, the_geom_webmercator
 
-We'll focus on two special columns in CartoDB. The first is `the_geom`, which is where your geospatial data is stored. This is a required column for your maps to work. If your data does not have latitude and longitude, or other complicated geospatial objects such as lines, polygons, etc., then you could try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html). 
+Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial objects such as lines, polygons, etc., then you could try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
 
-## ORDER BY, LIMIT
+Start by double-clicking on a cell in the `the_geom` column. You will notice that data is structured like the following:
+
+{% highlight javascript %}
+{
+    "type": "Point",
+    "coordinates": [-120.5188, 49.4037]
+}
+{% endhighlight %}
+
+This data is formatted in [GeoJSON](http://www.geojson.org/). In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. And just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or **projections**. `the_geom` is stored in a system called WGS84. Hear more about all of it's intricacies from this [great video](http://youtu.be/q65O3qA0-n4).
+
+The other geospatial column is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected using Web Mercator, a version of the Mercator projection that is optimized for the web. `the_geom_webmercator` is required by CartoDB to display information on your map. It is normally hidden from view because CartoDB updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
+
+{% highlight sql %}
+SELECT cartodb_id, ST_AsText(the_geom_webmercator) AS the_geom_webmercator
+FROM all_day
+{% endhighlight %}
+
+As you can see, the values range from around -20 million to +20 million in both the N/S and E/W directions. This projection takes the furthest North and South to be &plusmn; 85.0511&deg;, which allows the earth to be projected as a large square, very convenient for using square tiles with on the web. It excludes the poles, so other projections will have to be used if your data requires them.
+
+Also note a new type of object appearing in the SQL statement above: `ST_AsText`. This is a [PostGIS function](http://www.postgis.org/docs/ST_AsText.html) that takes a geometry and returns it in a more readable form.
 
 ## Basic PostGIS
+Show some basic functions
+
++ ST_Distance
++ ST_MakeLine
+
+## End of the lesson project
 Table of nodes to table of edges?
+
+Nodes are places that CartoDB NYC goes for lunch, edges are the paths from place to place.
+
+Here at CartoDB NYC, we oftentimes have long discussions about where we want to get lunch, and being in Brooklyn we have a lot of choices.
+
+Import this dataset into your account. Just copy the link and import it without downloading:
+
+    http://link/to/data/on/places/to/eat
+
+Our goal is to create a new data table that has the as-the-crow-flies paths from place to place. We can then make a multilayer map that has the lunch locations and the paths from lunch locations.
+
