@@ -44,7 +44,7 @@ Notice the words in the text editor:
 + _*_ -- a wildcard that means all columns in a table
 + FROM -- this is needed to specify from which table the data is pulled
 
-Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM earthquake_sql`, reads: "Select all columns from the table earthquake_sql." If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
+Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM earthquake_sql`, reads: "Select all columns from the table earthquake_sql." The order of your SQL query matters. For example, the FROM statment needs to come after your column list. If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
 
 {% highlight sql %}
 SELECT the_geom, mag, place
@@ -107,7 +107,7 @@ If you add another filter you can see that they are all chained together to give
 
 The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic [regular expression](http://www.postgresql.org/docs/9.0/static/functions-matching.html) matching that is _case-insensitive_. If you want case-sensitive matching instead, you need to use LIKE.
 
-To avoid confusion with the _*_ in the SELECT statement, the wildcard that is used for pattern matching with LIKE and ILIKE is the percent symbol: %. Placed at the front of the string, `place ILIKE '%california'`, matches all strings that end in "California", regardless of case. Placed at the end, `'california%'`, matches all strings that begin with "California". Placed on both ends as produced by the filter, it matches all strings that contain "California".
+To avoid confusion with the _*_ in the SELECT statement, the wildcard that is used for pattern matching with LIKE and ILIKE is the percent symbol: %. Placed at the front of the string, `place ILIKE '%california'`, matches all strings that end in "California", regardless of case. Placed at the end, `'california%'`, matches all strings that begin with "California". Placed on both ends, `'%california%'`,  as produced by the filter, it matches all strings that contain "California".
 
 While % matches a sequence of zero or more characters, the underscore (_) matches any single character. The following will match "California": `'_a_i_o_n_a'`.
 
@@ -157,6 +157,8 @@ LIMIT N
 where N is an integer from 0 to however many rows your table contains. If you want ten rows to display, you will type LIMIT 10. This is useful if you want to display a simplified version of the data on your map.
 
 Also note that while our SQL block keeps growing, WHERE, ORDER BY, and LIMIT are optional.
+
+If you haved any SQL applied, you will see an option to `Clear view`, do it now.
 
 ## the_geom, the_geom_webmercator
 
