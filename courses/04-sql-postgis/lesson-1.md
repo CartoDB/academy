@@ -158,6 +158,8 @@ where N is an integer from 0 to however many rows your table contains. If you wa
 
 Also note that while our SQL block keeps growing, WHERE, ORDER BY, and LIMIT are optional.
 
+If you haved any SQL applied, you will see an option to `Clear view`, do it now.
+
 ## the_geom, the_geom_webmercator
 
 Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
