@@ -44,7 +44,7 @@ Notice the words in the text editor:
 + _*_ -- a wildcard that means all columns in a table
 + FROM -- this is needed to specify from which table the data is pulled
 
-Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM earthquake_sql`, reads: "Select all columns from the table earthquake_sql." If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
+Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM earthquake_sql`, reads: "Select all columns from the table earthquake_sql." The order of your SQL query matters. For example, the FROM statment needs to come after your column list. If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
 
 {% highlight sql %}
 SELECT the_geom, mag, place
@@ -62,7 +62,7 @@ SELECT columns
 FROM table_name
 {% endhighlight %}
 
-_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias. Also not that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
+_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias. Also note that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
 
 ## Filters show us WHERE...
 
