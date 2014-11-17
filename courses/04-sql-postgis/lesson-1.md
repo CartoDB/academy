@@ -7,14 +7,14 @@ course: "SQL and PostGIS in CartoDB"
 course_slug: "04-sql-postgis"
 continue_link: "lesson-2"
 tweet_text: ""
-vizjson: ""
+vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
 ---
 
 ## Learning SQL through the CartoDB Editor
 
 CartoDB is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra which has a solid foundation.
 
-SQL queries work on data arranged in tables, similar to an Excel spreadsheet. Table names are lower case, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lower case with no spaces. Column names cannot be the same as some of the keywords in SQL.
+SQL queries work on data arranged in tables which look visually similar to an Excel spreadsheet. Table names are lowercase, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
 
 In this lesson, we will be using CartoDB to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
@@ -25,10 +25,10 @@ Let's get started exploring SQL by working with our familiar dataset on earthqua
 After your data is successfully imported, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types: 
 
 + number -- 1, 3.1415, -179.3, etc. using [double precision floats](http://www.postgresql.org/docs/9.1/static/datatype-numeric.html)
-+ string -- a string of characters, e.g., "Socotra archipelago"
++ [string](http://en.wikipedia.org/wiki/String_(computer_science)) -- a string of characters, e.g., "Socotra archipelago"
 + [boolean](http://en.wikipedia.org/wiki/Boolean_data_type) -- true or false
-+ [date](http://www.postgresql.org/docs/8.2/static/functions-formatting.html) -- 
-+ geometry -- associates your data with geographical coordinates
++ [date](http://www.postgresql.org/docs/8.2/static/functions-formatting.html) -- date and time
++ [geometry](http://en.wikibooks.org/wiki/Geospatial_Data_in_SQL_Server) -- associates your data with geographical coordinates
 
 In addition, a cell without data entered will be shown as `null`. Notice also that rows represent unique entries defined by their `cartodb_id`.
 
