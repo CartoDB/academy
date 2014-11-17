@@ -211,18 +211,21 @@ Notice that we cannot mix the projection types and that it returns a [float poin
 
 Since we are looking for distance in kilometers instead of angular separation, we can exclude the first version of the function. Working in WGS84 is preferred in CartoDB, so we will not use the third choice. That leaves us with the middle option.
 
-Before moving forward, we need to project `the_geom` and our point to PostGIS geography type. We an do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. Also note that we are adding another column to our data table by using the alias `dist`.
+Before moving forward, we need to project `the_geom` and our point to PostGIS geography type. We an do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. Also note that we are adding another column to our data table by using the alias `dist`. The spaces and new lines are added to make it more readable. SQL is very forgiving about white space, so it will run as printed.
 
 
 {% highlight sql %}
 SELECT
   *,
-  ST_Distance(the_geom::geography, CDB_LatLng(37.7833,-122.4167)::geography) / 1000 AS dist
+  ST_Distance(
+      the_geom::geography, 
+      CDB_LatLng(37.7833,-122.4167)::geography
+      ) / 1000 AS dist
 FROM
   all_day_4
 {% endhighlight %}
 
-Once you successfully run your query, save the result as a new data table. It is now easy to make a choropleth map by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
+Once you successfully run your query, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
 ![Choropleth map of earthquake proximity]({{site.baseurl}}/img/course4/lesson1/choropleth.png)
 
