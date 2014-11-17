@@ -60,32 +60,36 @@ SELECT columns
 FROM table_name
 {% endhighlight %}
 
-_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias.
+_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias. Also not that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
 
 ## Filters show us WHERE...
 
 Still in the Data View, check out the tab below the SQL tab, the one that has a bar graph. This is our Filters tab.
 
-Filters in CartoDB are an excellent way to explore your data because they help you analyze the contents of columns by showing, depending on the characteristics of the data in the column, the unique entries, a histogram of the data distribution, or the range in values of another column. For instance, it may not be obvious to expect that _quarry_ and _quarry-blast_ are entries alongside _earthquakes_ in the `type` column.
+Filters in CartoDB are an excellent way to explore your data because they help you analyze the contents of columns by showing, depending on the characteristics of the data in the column, the unique entries, a histogram of the data distribution, or the range in values of another column. For instance, it may not be obvious to expect that _quarry_, _quarry_blast_, or _sonic_boom_ are entries that can exist alongside of _earthquakes_ in the `type` column.
 
-Start by exploring the options available when you apply the filters to your data. Look specifically at different collections of data and how you are presented with varying methods for filtering them.
+Start by exploring the options available when you apply the filters to your data. Look specifically at different columns of data and how you are presented with distinct methods for filtering.
 
 ![Filters]({{site.baseurl}}/img/course4/lesson1/filters.png)
 
 Things to notice:
 
-+ Filtering by `place` only lets you search for strings because of the large number of unique entries
++ Filtering by `place` only lets you search for strings because of the large number of unique, non-numerical entries
 + Filtering by `type` gives you a list of a few values because there are only a few unique entries
 + Filtering by `time` allows you to select a range in time
 + Filtering by `gap` gives you a histogram of the values in that column
 
-Behind the scenes, these filters are setting up SQL statements that are run against our data. Change the sliders, enter search terms, etc., to see how the data table changes in response to your filtering.
+Behind the scenes, these filters are setting up SQL statements that are run against our data. To see how the data table changes in response to your filtering, change the sliders, enter search terms, etc.
 
-Once you've finished exploring your data with filters, remove all of the filters by clicking the grey circle with a **&times;** in the top right of each window's pane. Then re-add the filter for `type`, deselect all entries except _earthquake_ and _quarry_, and switch to the SQL tab to see what your filtering produces for a SQL statement. As you will see, filters show us the WHERE clause that allows you to select rows based on criteria you set. In this case, the WHERE clause chooses all rows that have either "earthquake" or "quarry" in the `type` column. That is, a row is only chosen if `type` matches "earthquake" or "quarry". We could easily flip this condition around by placing the NOT keyword before IN.
+Once you've finished exploring your data with filters, remove all of the filters by clicking the grey circle with an **&times;** in the top right of each window's pane. Then re-add the filter for `type`, deselect all entries except _earthquake_ and _quarry_, and switch to the SQL tab to see what your filtering produces for a SQL statement.
+
+As you will see, filters show us the WHERE clause that allows you to select rows based on criteria you set. In this case, the WHERE clause chooses all rows that have either "earthquake" or "quarry" in the `type` column. That is, a row is only chosen if `type` matches "earthquake" or "quarry".
+
+We could easily flip this condition around by placing the NOT keyword before IN, and we would only get all rows that do not have "earthquake" or "quarry" in the `type` column.
 
 Delete all of the text _after_ WHERE, and type `cartodb_id = 4`. Once you finish typing, apply the query and inspect the results. As you will see, all records that do not have a `cartodb_id` of 4 disappear from view. You can apply other conditions, such as `cartodb_id > 2` or even on-the-fly calculations such as `cartodb_id * 2 > 4`.
 
-Switch back to the Filters tab and add an additional filter. This time choose `depth`, then select a range and switch back to the SQL tab. We can discover that we can use the following inequalities:  
+Switch back to the Filters tab, hit "Clear view" to clear the last SQL command, and add an additional filter. This time choose `depth`, then select a range and switch back to the SQL tab. We can discover that we can use the following inequalities:  
 
 + `>` for greater than
 + `<` for less than
@@ -99,9 +103,11 @@ We also discover that we can chain conditions together using the AND keyword. In
     
 If you add another filter you can see that they are all chained together to give a more nuanced selection of your data. The OR keyword is another option for having multiple conditions.
 
-The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic [regular expression](http://www.postgresql.org/docs/9.0/static/functions-matching.html) matching that is _case-insensitive_. LIKE is case-sensitive. The wildcard in this case is the percent symbol: %. Placed at the front of the string, '%california' matches all strings that end in "california", regardless of case. Placed at the end, 'california%' matches all strings that begin with "California". Placed on both ends as produced by the filter, it matches all strings that contain "California".
+The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic [regular expression](http://www.postgresql.org/docs/9.0/static/functions-matching.html) matching that is _case-insensitive_. If you want case-sensitive matching instead, you need to use LIKE.
 
-While % matches a sequence of characters, the underscore (_) matches any single character. The following will match "California": `'_a_i_o_n_a'`.
+To avoid confusion with the _*_ in the SELECT statement, the wildcard that is used for pattern matching with LIKE and ILIKE is the percent symbol: %. Placed at the front of the string, `place ILIKE '%california'`, matches all strings that end in "California", regardless of case. Placed at the end, `'california%'`, matches all strings that begin with "California". Placed on both ends as produced by the filter, it matches all strings that contain "California".
+
+While % matches a sequence of zero or more characters, the underscore (_) matches any single character. The following will match "California": `'_a_i_o_n_a'`.
 
 _Tip:_ Make sure to use single quotes (') to enclose strings in the WHERE clause.
 
