@@ -158,7 +158,7 @@ Also note that while our SQL block keeps growing, WHERE, ORDER BY, and LIMIT are
 
 ## the_geom, the_geom_webmercator
 
-Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial objects such as lines, polygons, etc., then you could try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
+Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
 
 Start by double-clicking on a cell in the `the_geom` column. You will notice that data is structured like the following:
 
@@ -169,7 +169,7 @@ Start by double-clicking on a cell in the `the_geom` column. You will notice tha
 }
 {% endhighlight %}
 
-This data is formatted in [GeoJSON](http://www.geojson.org/). In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. And just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or **projections**. `the_geom` is stored in a system called WGS84. Hear more about all of it's intricacies from this [great video](http://youtu.be/q65O3qA0-n4).
+This data is formatted in [GeoJSON](http://www.geojson.org/). In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. And just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or **projections**. `the_geom` is stored in a system called WGS84. Hear more about all of it's beautiful intricacies from this [great video](http://youtu.be/q65O3qA0-n4).
 
 The other geospatial column is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected using Web Mercator, a version of the Mercator projection that is optimized for the web. `the_geom_webmercator` is required by CartoDB to display information on your map. It is normally hidden from view because CartoDB updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
 
@@ -215,7 +215,7 @@ Notice that we cannot mix the projection types and that it returns a [float poin
 
 Since we are looking for distance in kilometers instead of angular separation, we can exclude the first version of the function. Working in WGS84 is preferred in CartoDB, so we will not use the third choice. That leaves us with the middle option.
 
-Before moving forward, we need to project `the_geom` and our point to PostGIS geography type. We an do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. Also note that we are adding another column to our data table by using the alias `dist`. The spaces and new lines are added to make it more readable. SQL is very forgiving about white space, so it will run as printed.
+Before moving forward, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. Also note that we are adding another column to our data table by using the alias `dist`. The spaces and new lines are added to make it more readable. SQL is very forgiving about white space, so it will run as printed.
 
 
 {% highlight sql %}
@@ -231,7 +231,7 @@ FROM
 
 Once you successfully run your query, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
-<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
 
 Want more? Check out some tutorials:
 
