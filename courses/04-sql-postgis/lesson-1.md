@@ -14,15 +14,17 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e
 
 CartoDB is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra which has a solid foundation.
 
-SQL queries work on data arranged in tables which look visually similar to an Excel spreadsheet. Table names are lowercase, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
+SQL queries work on data arranged in tables which are visually similar to an Excel spreadsheet, but have very different underlying mechanics. Table names are lowercase, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
 
 In this lesson, we will be using CartoDB to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
-Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it into your account by clicking on *Common Data*, then *Physical datasets*, and finally *Realtime earthquakes*.
+Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data):
 
-![Common Data]({{site.baseurl}}/img/course4/lesson1/commondata.png)
+    http://academy.cartodb.com/d/1.0_month.geojson.zip
 
-After your data is successfully imported, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types: 
+If you prefer to have up-to-date data, go to the [USGS site](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) and grab data for the past 30 days.
+
+After your data is successfully imported, rename the table by clicking on the table name in the upper left and typing in `earthquake_sql`. After you have done this, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types: 
 
 + number -- 1, 3.1415, -179.3, etc. using [double precision floats](http://www.postgresql.org/docs/9.1/static/datatype-numeric.html)
 + [string](http://en.wikipedia.org/wiki/String_(computer_science)) -- a string of characters, e.g., "Socotra archipelago"
@@ -42,14 +44,14 @@ Notice the words in the text editor:
 + _*_ -- a wildcard that means all columns in a table
 + FROM -- this is needed to specify from which table the data is pulled
 
-Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM all_day`, reads: "Select all columns from the table all_day." If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
+Using the above list as a guide, the statement in the SQL tab, `SELECT * FROM earthquake_sql`, reads: "Select all columns from the table earthquake_sql." If you were not interested in having all of the data in your table, you could write a comma separated list of the columns you are interested in instead. For instance, if you only care about the location (`the_geom`), the magnitude (`mag`), and where the earthquake occurred (`place`), then your SQL statement would read as:
 
 {% highlight sql %}
 SELECT the_geom, mag, place
-FROM all_day
+FROM earthquake_sql
 {% endhighlight %}
 
-When you run this query by clicking the button "Apply query", or typing CMD+S (Mac)/CTRL+S (PC), you are presented with the option "create table from query" that allows you to create a new table from your SQL statement. If you choose this, you create a new data table that can be used independently of the current one. If you instead want to revert to having all the columns that you previously imported, clicking "clear view" returns your SQL statement to `SELECT * FROM all_day` and you see all of your data in the table again.
+When you run this query by clicking the button "Apply query", or typing CMD+S (Mac)/CTRL+S (PC), you are presented with the option "create table from query" that allows you to create a new table from your SQL statement. If you choose this, you create a new data table that can be used independently of the current one. If you instead want to revert to having all the columns that you previously imported, clicking "clear view" returns your SQL statement to `SELECT * FROM earthquake_sql` and you see all of your data in the table again.
 
 _Tip:_ You may have noticed that if you run the above query, the data disappears from your map. You'll soon find out the reason for this in the section below on `the_geom_webmercator`.
 
@@ -66,7 +68,7 @@ _Pro Tip:_ If you want to rename a column when you create a new table from query
 
 Still in the Data View, check out the tab below the SQL tab, the one that has a bar graph. This is our Filters tab.
 
-Filters in CartoDB are an excellent way to explore your data because they help you analyze the contents of columns by showing, depending on the characteristics of the data in the column, the unique entries, a histogram of the data distribution, or the range in values of another column. For instance, it may not be obvious to expect that _quarry_, _quarry_blast_, or _sonic_boom_ are entries that can exist alongside of _earthquakes_ in the `type` column.
+Filters in CartoDB are an excellent way to explore your data because they help you analyze the contents of columns by showing, depending on the characteristics of the data in the column, the unique entries, a histogram of the data distribution, or the range in values of another column. For instance, it may not be obvious to expect that _quarry_, _quarry_blast_, _explosion_, or _sonic_boom_ are possible entries that can exist alongside of _earthquakes_ in the `type` column.
 
 Start by exploring the options available when you apply the filters to your data. Look specifically at different columns of data and how you are presented with distinct methods for filtering.
 
@@ -113,7 +115,7 @@ _Tip:_ Make sure to use single quotes (') to enclose strings in the WHERE clause
 
 ![Multiple conditions in the WHERE clause]({{site.baseurl}}/img/course4/lesson1/filters-sql.png)
 
-Now we have a larger view of what a query can look like:
+We now have a larger view of what a query can look like:
 
 {% highlight sql %}
 SELECT columns
@@ -175,7 +177,7 @@ The other geospatial column is `the_geom_webmercator`. This column contains all 
 
 {% highlight sql %}
 SELECT cartodb_id, ST_AsText(the_geom_webmercator) AS the_geom_webmercator
-FROM all_day
+FROM earthquake_sql
 {% endhighlight %}
 
 As you can see, the values range from around -20 million to +20 million in both the N/S and E/W directions. This projection takes the furthest North and South to be &plusmn; 85.0511&deg;, which allows the earth to be projected as a large square, very convenient for using square tiles with on the web. It excludes the poles, so other projections will have to be used if your data requires them.
@@ -191,25 +193,25 @@ We will find out how to use these in the section below and in future lessons.
 
 ## Basic PostGIS usage
 
-In this section, we are going to just get our feet wet with PostGIS. Just like we did with the data we've encountered so far, spatial data can be manipulated, filtered, ordered, and measured in a database by appealing to the geometry in `the_geom` or `the_geom_webmercator`.
+In this section, we are going to just get our feet wet with PostGIS. Just like we did with the data we've encountered so far, spatial data can be manipulated, filtered, ordered, and measured in a database by using the geometry in `the_geom` or `the_geom_webmercator`.
 
-The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with "ST\_AsText()" above. CartoDB also introduces some [helper functions](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) that reduce the amount of typing on the user's end. These begin with "CDB\_". For example, we use "CDB_LatLng(lat,long)" to get a coordinate in the 4326 projection (WGS84).
+The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with "ST\_AsText()" above. CartoDB also introduces some [helper functions](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) that reduce the amount of typing on the user's end. These begin with "CDB\_". For example, we will use "CDB_LatLng(lat,long)" to get a coordinate in the 4326 projection (WGS84).
 
 We'll keep working with the earthquake data, but trying to generate some new useful information from it. Say you are interested in knowing the distance in kilometers your office is from all of the earthquakes in the data table. How would you go about doing this?
 
-First you would need to know your location. Here at CartoDB's New York office, 143 Roebling Street we are at (40.714249, -73.957407), so we can just use the `CDB_LatLng()` function to generate the proper geometry.
+First you would need to know your location. Let's say you're in downtown San Francisco, which is near (37.7833&deg; N,-122.4167&deg; W), so we can just use the `CDB_LatLng()` function to generate the proper geometry.
 
 Next we need to find a PostGIS function that allows us to find the distance we are from another lat/long location. Looking through the [PostGIS documentation](http://postgis.net/docs/reference.html#Spatial_Relationships_Measurements), you will find a function called `ST_Distance()` that has the following definition:
 
-    float ST_Distance(geometry g1, geometry g2);
-    float ST_Distance(geography gg1, geography gg2);
-    float ST_Distance(geography gg1, geography gg2, boolean use_spheroid);
+    float ST_Distance(geometry g1, geometry g2)
+    float ST_Distance(geography gg1, geography gg2)
+    float ST_Distance(geography gg1, geography gg2, boolean use_spheroid)
 
 This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), so we have multiple options for the variables we pass to it. Before using it, though, we should look at what the arguments mean:
 
-+ `geometry`: measure the distance in degrees (lat/long) 
-+ `geography`: measure the distance in meters
-+ `use_spheroid`: use WGS84's [oblate spheroid earth](http://en.wikipedia.org/wiki/World_Geodetic_System#Main_parameters) (pass `true`) or assume the earth is perfectly spherical (pass `false`)
++ `geometry` arguments: allows you to measure the distance in degrees (lat/long) 
++ `geography` arguments: allows you to measure the distance in meters
++ `use_spheroid` argument: use WGS84's [oblate spheroid earth](http://en.wikipedia.org/wiki/World_Geodetic_System#Main_parameters) (pass `true`) or assume the earth is perfectly spherical (pass `false`)
 
 Notice that we cannot mix the projection types and that it returns a [float point](http://en.wikipedia.org/wiki/Floating_point) data type.
 
@@ -226,12 +228,14 @@ SELECT
       CDB_LatLng(37.7833,-122.4167)::geography
       ) / 1000 AS dist
 FROM
-  all_day_4
+  earthquake_sql
 {% endhighlight %}
 
 Once you successfully run your query, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
 <iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
+
+That's it for Lesson One of SQL and PostGIS in CartoDB. Lesson Two is coming soon.
 
 Want more? Check out some tutorials:
 

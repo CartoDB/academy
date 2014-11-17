@@ -13,6 +13,6 @@ prerequisite:
     - Reliable Internet access
     - A desire to learn!
 published: true
-vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json"
+vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
 mailchimp_id: ???
 ---
