@@ -126,23 +126,21 @@ WHERE conditions
 
 Another way to inspect your data is by ordering the columns of the table differently. CartoDB has automatic ordering built in--just click on a column name and select ASC or DESC to get the data ordered how you want. ASC orders your data by lowest number or highest in the alphabet (closest to A) first, while DESC does the opposite.
 
-You can perform the same operations using the SQL keywords ORDER BY. Try it out by first clearing your view and then, after your table name, typing
+You can perform the same operations using the SQL keywords ORDER BY. Try it out by first clearing your view and then, after your table name, typing:
 
 {% highlight sql %}
 ORDER BY depth ASC
 {% endhighlight %}
     
-This will arrange your data in your table to be ordered by this column. The result has no effect on how the data is displayed in CartoDB unless you apply other keywords to your overall SQL statement.
+This will arrange your data in your table to be ordered by the `depth` column. The result has no effect on how the data is displayed in CartoDB unless you apply other keywords to your overall SQL statement.
 
-_Pro Tip:_ You can add multiple columns after the ORDER BY keywords like this:
+_Pro Tip:_ You can add multiple columns after the ORDER BY keywords. The first column is sorted first, then within that ordering the second column is ordered, etc. It goes like this:
 
 {% highlight sql %}
 SELECT *
 FROM table_name
 ORDER BY column1 ASC, column2 DESC
 {% endhighlight %}
-
-The first column is sorted first, then within that ordering the second column is ordered, etc.
 
 One keyword that changes the display of data on your map depending on the ordering is LIMIT, which gives you the number of rows requested if there are that many to display. This is added to the end of your SQL statement:
 
@@ -156,7 +154,7 @@ LIMIT N
 
 where N is an integer from 0 to however many rows your table contains. If you want ten rows to display, you will type LIMIT 10. This is useful if you want to display a simplified version of the data on your map.
 
-Also note that while our SQL block keeps growing, only the most basic one introduced above has all of the required text.
+Also note that while our SQL block keeps growing, WHERE, ORDER BY, and LIMIT are optional.
 
 ## the_geom, the_geom_webmercator
 
@@ -209,9 +207,9 @@ Next we need to find a PostGIS function that allows us to find the distance we a
 
 This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), so we have multiple options for the variables we pass to it. Before using it, though, we should look at what the arguments mean:
 
-+ `geometry`: measure the distance in angles 
++ `geometry`: measure the distance in degrees (lat/long) 
 + `geography`: measure the distance in meters
-+ `use_spheroid`: use WGS84's spheroid earth (pass True) or assume the earth is perfectly spherical (pass False)
++ `use_spheroid`: use WGS84's [oblate spheroid earth](http://en.wikipedia.org/wiki/World_Geodetic_System#Main_parameters) (pass `true`) or assume the earth is perfectly spherical (pass `false`)
 
 Notice that we cannot mix the projection types and that it returns a [float point](http://en.wikipedia.org/wiki/Floating_point) data type.
 
@@ -233,20 +231,7 @@ FROM
 
 Once you successfully run your query, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
-![Choropleth map of earthquake proximity]({{site.baseurl}}/img/course4/lesson1/choropleth.png)
-
-## End of the lesson project
-Table of nodes to table of edges?
-
-Nodes are places that CartoDB NYC goes for lunch, edges are the paths from place to place.
-
-Here at CartoDB NYC, we oftentimes have long discussions about where we want to get lunch, and being in Brooklyn we have a lot of choices.
-
-Import this dataset into your account. Just copy the link and import it without downloading:
-
-    http://link/to/data/on/places/to/eat
-
-Our goal is to create a new data table that has the as-the-crow-flies paths from place to place. We can then make a multilayer map that has the lunch locations and the paths from lunch locations.
+<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 Want more? Check out some tutorials:
 
