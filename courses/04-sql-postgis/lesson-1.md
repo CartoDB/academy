@@ -160,11 +160,11 @@ Also note that while our SQL block keeps growing, WHERE, ORDER BY, and LIMIT are
 
 If you haved any SQL applied, you will see an option to `Clear view`, do it now.
 
-## the_geom, the_geom_webmercator
+## the_geom
 
 Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
 
-Start by double-clicking on a cell in the `the_geom` column. You will notice that data is structured like the following:
+Start by double-clicking on a cell in the `the_geom` column. In the resulting menu, click the toggle next to `Geometry`. You will notice that data is structured like the following:
 
 {% highlight javascript %}
 {
@@ -174,6 +174,8 @@ Start by double-clicking on a cell in the `the_geom` column. You will notice tha
 {% endhighlight %}
 
 This data is formatted in [GeoJSON](http://www.geojson.org/). In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. And just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or **projections**. `the_geom` is stored in a system called WGS84. Hear more about all of it's beautiful intricacies from this [great video](http://youtu.be/q65O3qA0-n4).
+
+## the_geom_webmercator
 
 The other geospatial column is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected using Web Mercator, a version of the Mercator projection that is optimized for the web. `the_geom_webmercator` is required by CartoDB to display information on your map. It is normally hidden from view because CartoDB updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
 
@@ -203,24 +205,40 @@ We'll keep working with the earthquake data, but trying to generate some new use
 
 First you would need to know your location. Let's say you're in downtown San Francisco, which is near (37.7833&deg; N,-122.4167&deg; W), so we can just use the `CDB_LatLng()` function to generate the proper geometry.
 
+## Introduction to measurements 
+
 Next we need to find a PostGIS function that allows us to find the distance we are from another lat/long location. Looking through the [PostGIS documentation](http://postgis.net/docs/reference.html#Spatial_Relationships_Measurements), you will find a function called `ST_Distance()` that has the following definition:
 
     float ST_Distance(geometry g1, geometry g2)
     float ST_Distance(geography gg1, geography gg2)
     float ST_Distance(geography gg1, geography gg2, boolean use_spheroid)
 
-This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), so we have multiple options for the variables we pass to it. Before using it, though, we should look at what the arguments mean:
+This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), meaning that we have multiple options for the input variables we can pass to it. Before using it, though, we should look at what the arguments mean:
 
 + `geometry` arguments: allows you to measure the distance in degrees (lat/long) 
 + `geography` arguments: allows you to measure the distance in meters
 + `use_spheroid` argument: use WGS84's [oblate spheroid earth](http://en.wikipedia.org/wiki/World_Geodetic_System#Main_parameters) (pass `true`) or assume the earth is perfectly spherical (pass `false`)
 
-Notice that we cannot mix the projection types and that it returns a [float point](http://en.wikipedia.org/wiki/Floating_point) data type.
+Two things to notice about this function. First, we cannot mix projection types. For example, you cannot measure the distance between a value in `the_geom` and a value in `the_geom_webmercator`. Second, the function returns a [float point](http://en.wikipedia.org/wiki/Floating_point) data type that is actually a measurement in the same units as the input projection.
 
-Since we are looking for distance in kilometers instead of angular separation, we can exclude the first version of the function. Working in WGS84 is preferred in CartoDB, so we will not use the third choice. That leaves us with the middle option.
+### Measurement units
 
-Before moving forward, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. Also note that we are adding another column to our data table by using the alias `dist`. The spaces and new lines are added to make it more readable. SQL is very forgiving about white space, so it will run as printed.
+What does that mean, _measurement in the same units as the input projection_? Well, it is a funny thing. But let's say you want to measure the distance between two points stored in `the_geom`, the_geom_a and the_geom_b here. If you input them both into `ST_Distance(the_geom_a, the_geom_b)` the result would come back in units of WGS84. That doesn't make much sense. Instead, we want to measure distance in meters. 
 
+You can measure distances (and make many other measurements in PostGIS) using meter units if you run the measurements with data on a spherical globe. So, we can exclude the first version of the overloaded function. Instead, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()`. 
+
+{% highlight sql %}
+SELECT
+  *,
+  ST_Distance(
+      the_geom::geography, 
+      CDB_LatLng(37.7833,-122.4167)::geography
+      ) AS dist
+FROM
+  earthquake_sql
+{% endhighlight %}
+
+Notice that we make the measurement with `ST_Distance()` and then return the result as a new column by using the alias `dist`. Next, let's calculate the distance in kilometers by dividing by 1000. 
 
 {% highlight sql %}
 SELECT
@@ -232,6 +250,12 @@ SELECT
 FROM
   earthquake_sql
 {% endhighlight %}
+
+The spaces and new lines are added to make it more readable. SQL is very forgiving about white space, so it will run as printed.
+
+_Pro Tip:_ In spatial functions, if an option is available that includes the `boolean use_spheroid` option, it will achieve the same result as casting your results using the `::geography` method. So we could have done, `ST_Distance(the_geom, CDB_LatLng(37.7833,-122.4167), true) for the same result. 
+
+## Mapping with SQL results
 
 Once you successfully run your query, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
