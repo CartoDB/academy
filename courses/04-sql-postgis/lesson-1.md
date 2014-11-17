@@ -107,7 +107,7 @@ If you add another filter you can see that they are all chained together to give
 
 The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic [regular expression](http://www.postgresql.org/docs/9.0/static/functions-matching.html) matching that is _case-insensitive_. If you want case-sensitive matching instead, you need to use LIKE.
 
-To avoid confusion with the _*_ in the SELECT statement, the wildcard that is used for pattern matching with LIKE and ILIKE is the percent symbol: %. Placed at the front of the string, `place ILIKE '%california'`, matches all strings that end in "California", regardless of case. Placed at the end, `'california%'`, matches all strings that begin with "California". Placed on both ends as produced by the filter, it matches all strings that contain "California".
+To avoid confusion with the _*_ in the SELECT statement, the wildcard that is used for pattern matching with LIKE and ILIKE is the percent symbol: %. Placed at the front of the string, `place ILIKE '%california'`, matches all strings that end in "California", regardless of case. Placed at the end, `'california%'`, matches all strings that begin with "California". Placed on both ends, `'%california%'`,  as produced by the filter, it matches all strings that contain "California".
 
 While % matches a sequence of zero or more characters, the underscore (_) matches any single character. The following will match "California": `'_a_i_o_n_a'`.
 
