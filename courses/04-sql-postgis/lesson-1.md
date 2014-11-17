@@ -158,7 +158,7 @@ where N is an integer from 0 to however many rows your table contains. If you wa
 
 Also note that while our SQL block keeps growing, WHERE, ORDER BY, and LIMIT are optional.
 
-If you haved any SQL applied, you will see an option to `Clear view`, do it now.
+If you have any SQL applied, you will see an option to `Clear view`, do it now.
 
 ## the_geom, the_geom_webmercator
 
