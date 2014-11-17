@@ -178,20 +178,40 @@ As you can see, the values range from around -20 million to +20 million in both 
 
 Also note a new type of object appearing in the SQL statement above: `ST_AsText()`. This is a [PostGIS function](http://www.postgis.org/docs/ST_AsText.html) that takes a geometry and returns it in a more readable form.
 
-Projections have specific designation numbers referred to as [SRID](http://en.wikipedia.org/wiki/SRID) to help you with unambiguous projections as there are many variants out there. The two of interest to us are: 
+There are many variants to the common projections, so groups of scientists and engineers got together to create unambiguous designations for projections known as [SRID](http://en.wikipedia.org/wiki/SRID). The two of interest to us are: 
 
-+ **4326** for WGS84, which defines `the_geom`; 
-+ **3857** for Web Mercator, which defines `the_geom_webmercator`. 
++ **4326** for [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System), which defines `the_geom`; 
++ **3857** for [Web Mercator](http://en.wikipedia.org/wiki/Web_Mercator), which defines `the_geom_webmercator`. 
 
 We will find out how to use these in the section below and in future lessons.
 
-## Basic PostGIS
+## Basic PostGIS usage
 
-In this section, we are going to just get our feet wet with PostGIS. Just like we did with the data we've encountered so far, spatial data can be manipulated in a database. We can still manipulate, filter, order, measure, and much more based on the geometries in the `the_geom` column.
+In this section, we are going to just get our feet wet with PostGIS. Just like we did with the data we've encountered so far, spatial data can be manipulated, filtered, ordered, and measured in a database by appealing to the geometry in `the_geom` or `the_geom_webmercator`.
 
-The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with "ST\_AsText()" above. CartoDB also introduces some helper functions that reduce the amount of typing on the user end. These begin with "CDB\_". For example, we use "CDB_LatLng(lat,long)" to get a coordinate in the 4326 projection (WGS84).
+The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with "ST\_AsText()" above. CartoDB also introduces some [helper functions](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) that reduce the amount of typing on the user's end. These begin with "CDB\_". For example, we use "CDB_LatLng(lat,long)" to get a coordinate in the 4326 projection (WGS84).
 
-We'll keep working with the earthquake data, but trying to generate some new useful information from it. Say you are interested in knowing the distance you are from all of the earthquakes in the data table. 
+We'll keep working with the earthquake data, but trying to generate some new useful information from it. Say you are interested in knowing the distance in kilometers your office is from all of the earthquakes in the data table. How would you go about doing this?
+
+First you would need to know your location. Here at CartoDB's New York office, 143 Roebling Street we are at (40.714249, -73.957407), so we can just use the `CDB_LatLng()` function to generate the proper geometry.
+
+Next we need to find a PostGIS function that allows us to find the distance we are from another lat/long location. Looking through the [PostGIS documentation](http://postgis.net/docs/reference.html#Spatial_Relationships_Measurements), you will find a function called `ST_Distance()` that has the following definition:
+
+    float ST_Distance(geometry g1, geometry g2);
+    float ST_Distance(geography gg1, geography gg2);
+    float ST_Distance(geography gg1, geography gg2, boolean use_spheroid);
+
+This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), so we have multiple options for the variables we pass to it. Before using it, though, we should look at what the arguments mean:
+
++ `geometry`: measure the distance in angles 
++ `geography`: measure the distance in meters
++ `use_spheroid`: use WGS84's spheroid earth (pass True) or assume the earth is perfectly spherical (pass False)
+
+Notice that we cannot mix the projection types and that it returns a [float point](http://en.wikipedia.org/wiki/Floating_point) data type.
+
+Since we are looking for distance in kilometers instead of angular separation, we can exclude the first version of the function. Working in WGS84 is preferred in CartoDB, so we will not use the third choice. That leaves us with the middle option.
+
+Before moving forward, we need to project `the_geom` and our point to PostGIS geography type. We an do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. Also note that we are adding another column to our data table by using the alias `dist`.
 
 
 {% highlight sql %}
@@ -202,10 +222,9 @@ FROM
   all_day_4
 {% endhighlight %}
 
-Show some basic functions
+Once you successfully run your query, save the result as a new data table. It is now easy to make a choropleth map by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
-+ ST_Distance
-+ ST_MakeLine
+![Choropleth map of earthquake proximity]({{site.baseurl}}/img/course4/lesson1/choropleth.png)
 
 ## End of the lesson project
 Table of nodes to table of edges?
