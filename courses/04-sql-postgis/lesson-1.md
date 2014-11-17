@@ -62,7 +62,7 @@ SELECT columns
 FROM table_name
 {% endhighlight %}
 
-_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias. Also not that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
+_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias. Also note that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
 
 ## Filters show us WHERE...
 
