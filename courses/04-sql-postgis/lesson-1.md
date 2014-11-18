@@ -211,9 +211,11 @@ First you would need to know your location. Let's say you're in downtown San Fra
 
 Next we need to find a PostGIS function that allows us to find the distance we are from another lat/long location. Looking through the [PostGIS documentation](http://postgis.net/docs/reference.html#Spatial_Relationships_Measurements), you will find a function called `ST_Distance()` that has the following function prototypes:
 
-    float ST_Distance(geometry g1, geometry g2)
-    float ST_Distance(geography gg1, geography gg2)
-    float ST_Distance(geography gg1, geography gg2, boolean use_spheroid)
+{% highlight js %}
+float ST_Distance(geometry g1, geometry g2)
+float ST_Distance(geography gg1, geography gg2)
+float ST_Distance(geography gg1, geography gg2, boolean use_spheroid)
+{% endhighlight %}
 
 This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), meaning that we have multiple options for the input variables we can pass to it. Before using it, though, we should look at what the arguments mean:
 
@@ -244,8 +246,20 @@ The spaces and new lines are added to make it more readable. SQL is very forgivi
 
 _Pro Tip:_ In spatial functions, if an option is available that includes the `boolean use_spheroid` option, it will achieve the same result as casting your results using the `::geography` method. You could use it as follows:
 
-    ST_Distance(the_geom, CDB_LatLng(37.7833,-122.4167), true)
+{% highlight sql %}
+ST_Distance(the_geom, CDB_LatLng(37.7833,-122.4167), true)
+{% endhighlight %}
 
+To test it out, run the following SQL to look at the average and standard deviation of the difference between the two calculations--both should be zero. The code block scrolls to the right.
+
+{% highlight sql %}
+SELECT
+  AVG(ST_Distance(the_geom::geography,CDB_LatLng(43,-122)::geography) - ST_Distance(the_geom,CDB_LatLng(43,-122),true)) as average,
+  STDDEV(ST_Distance(the_geom::geography,CDB_LatLng(43,-122)::geography) - ST_Distance(the_geom,CDB_LatLng(43,-122),true)) as std_deviation
+FROM earthquake_sql
+{% endhighlight %}
+
+_Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that use multiple rows to make a calculation. You can find their documentation at the [PostgreSQL website](http://www.postgresql.org/docs/9.1/static/functions-aggregate.html).
 
 ## Mapping with SQL results
 
