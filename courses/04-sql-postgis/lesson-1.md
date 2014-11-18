@@ -6,7 +6,7 @@ subtitle: "Intro to SQL and PostGIS"
 course: "SQL and PostGIS in CartoDB"
 course_slug: "04-sql-postgis"
 continue_link: "lesson-2"
-tweet_text: ""
+tweet_text: "CartoDB Academy taught me all about SQL and PostGIS"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
 ---
 
@@ -242,7 +242,7 @@ FROM
 
 The spaces and new lines are added to make it more readable. SQL is very forgiving about whitespace, so it will run as printed.
 
-_Pro Tip:_ In spatial functions, if an option is available that includes the `boolean use_spheroid` option, it will achieve the same result as casting your results using the `::geography` method. You could use the following code to achieve the same result:
+_Pro Tip:_ In spatial functions, if an option is available that includes the `boolean use_spheroid` option, it will achieve the same result as casting your results using the `::geography` method. You could use it as follows:
 
     ST_Distance(the_geom, CDB_LatLng(37.7833,-122.4167), true)
 
