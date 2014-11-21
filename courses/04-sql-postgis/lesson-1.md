@@ -22,7 +22,7 @@ In this lesson, we will be using CartoDB to discover some of the basic features 
 
 Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data):
 
-    http://academy.cartodb.com/d/1.0_month.geojson.zip
+    http://academy.cartodb.com/d/all_month.csv.zip
 
 If you prefer to have up-to-date earthquake data, go to the [USGS site](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) and grab the "all earthquakes" data for the past 30 days.
 
