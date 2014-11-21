@@ -109,7 +109,7 @@ Once we have this, we can add the zoom-based styling. Remember that your sizing 
 }
 ~~~
 
-When we're zoomed out, then, we are not overwhelmed by feeling as if there is too much data. When we are zoomed in, we are able to see what points are in our area of interest, and they're not to small. Play around with these interactions of size to see what you can come up with.
+When we're zoomed out, then, we are not overwhelmed by feeling as if there is too much data. When we are zoomed in, we are able to see what points are in our area of interest, and they're not too small. Play around with these interactions of size to see what you can come up with.
 
 ![Zoom-based styling in a Stamen map.]({{site.baseurl}}/img/course2/lesson3/alltogether.gif)
 
