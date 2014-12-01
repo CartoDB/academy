@@ -189,7 +189,7 @@ $("#sublayer0").on('click', function() {
 
 This bit of script does the following: If a user clicks the DOM element with an `id` of `sublayer0`, CartoDB.js will hide or show `sublayers[0]` depending on its state (`sublayer0Shown` being true or false). Although not concise, you can control `sublayer[1]` by copying the block of code above and changing all the 0s into 1s.
 
-Check yours with [this working example]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html}}), or look at a jsFiddle [demo](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_layercontrols).
+Check yours with [this working example]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html), or look at a jsFiddle [demo](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_layercontrols).
 
 **Pro Tip:** If you want to add ten layers but only modify one of them, put the nine that remain static into one layer source object and the non-static one in it's own layer source object. Then call createLayer twice, once on each object. In this way, you can play with the layer you want to play with without having to re-render the other nine.
 
