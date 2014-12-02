@@ -30,28 +30,34 @@ var layerSource = {
 
 In this lesson, we will be using these two powerful languages to boost the expressiveness of our maps.
 
-_SQL_ is a language for asking specific questions of your data and getting answers. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_. If you want to learn more, check out the following resources:
+_SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_. If you want to learn more about SQL, check out our course [SQL and PostGIS in CartoDB]({{site.baseurl}}/course/04-sql-postgis.html). In this lesson, we will only be using basic SQL so don't worry if you're unfamiliar with this language.
 
-+ A more traditional approach to learning SQL by [W3Schools](http://www.w3schools.com/sql/)
-+ Other resources? 
+_CartoCSS_ is a language to change the appearance of the data layer on your map. Look up at the layer source code above, you can see some of the simpler ways of styling data. CartoCSS is a styling language that works with the data you import into CartoDB. It helps you make your maps beautiful. It was created by [MapBox](https://www.mapbox.com) and is [open source](https://github.com/mapbox/carto). 
 
-_CartoCSS_ is a language to change the appearance of the data in your map. Look up at the layer source code above, you can see some of the simpler ways of styling data. There three basic types of 
+Using the CartoDB.js API, the main methods to change the SQL and CartoCSS after they have been declared is `sublayer.set(layerDefinition)`, but if you only need to change one of CartoCSS or SQL, there are some convenient functions:
+
+* `setCartoCSS("...")`
+* `setSQL("...")`
 
 **Our goal with this lesson:**
-Add more interactivity to our maps by using SQL and CartoCSS.
+Add more interactivity to our maps by using CartoDB.js methods for altering SQL and CartoCSS.
 
-We will be using the real-time earthquake data available through CartoDB's Common Data. It pulls data automatically from the [United States Geological Services' archive](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php), which is updated every hour. As you will be doing this lesson at a different time, your data will appear different than what appears in this lesson. If you don't see enough natural disaster data to make your map complete, import another data set from [USGS' website](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) that has a longer span of time.
+### The Data
+
+We will be using the real-time earthquake data available through CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/). It pulls data automatically from the [United States Geological Services' archive](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php), which is updated every hour. As you will be doing this lesson at a different time than when this lesson was written, your data will appear different than what appears below. If you don't see enough natural disaster data to make your map complete, import another data set from [USGS' website](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) that has a longer span of time.
+
+To get started, go to your account and select Common Data. Once there, select "Physical Datasets" and then "Realtime earthquakes." This will import the earthquake data into your account. Inspect the columns, play with the [filters](http://docs.cartodb.com/cartodb-editor.html#filters), [alter the SQL](http://docs.cartodb.com/cartodb-editor.html#custom-sql) to figure out the type of information that's contained in the data table.
 
 Before working with any data, it is important to inspect the data types and their values.
 
-The table has about a dozen columns, all of which are [explained here](http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php#time). The ones of interest to us are:
+The table has about a dozen columns, all of which are [explained here](http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php). The ones of interest to us are:
 
 + time (date format)
 + latitude (number)
 + longitude (number)
-+ depth (number) -- depth in kilometers below surface
++ depth (number) -- depth of the event in kilometers
 + mag (number) -- [magnitude of event](http://earthquake.usgs.gov/learn/glossary/?term=magnitude)
-+ place (string) -- where the event occurred
++ place (string) -- description of where the event occurred
 
 We will start out with the following layer source. We will be able to update the layer by calling some of the listed methods of the CartoDB.js API.
 
@@ -67,23 +73,21 @@ var layerSource = {
     }
 {% endhighlight %}
 
-The main method to change these definitions after they have been declared is `sublayer.set(layerDefinition)`, but if you only need to change CartoCSS or SQL, there are more convenient functions `setCartoCSS("...")` and `setSQL("...")`.
-
 ### CartoCSS
-CartoCSS is a styling language that works with the data you import into CartoDB. It helps you make your maps beautiful. It was created by [MapBox](https://www.mapbox.com) and is [open source](https://github.com/mapbox/carto).
-
 Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the documentation it is only one of several object types that can be styled directly on your map.
 
-An easy way to get used to the basics of CartoCSS is by using the CartoDB Editor. You can pick different visualizations and style them differently in the wizard.
+An easy way to get used to the basics of CartoCSS is by using the [Vizualization wizard](http://docs.cartodb.com/cartodb-editor.html#wizards) in CartoDB Editor. It allows you to pick different visualizations and style them differently in the wizard.
 
-To get started, go to your account and select Common Data. Once there, select "Physical Datasets" and then "Realtime earthquakes". This will import the earthquake data into your account. Inspect the columns, play with the filters, alter the SQL to figure out the type of information that's contained in the data table. Now switch to "MAP VIEW" to see your data visualized with as _Simple_. Check out [Vizualization wizard](http://docs.cartodb.com/cartodb-editor.html#wizards) to start changing the visualization of your map. Sticking with _Simple_, click on the [CartoCSS Editor tab](http://docs.cartodb.com/cartodb-editor.html#cartocss) (the one with `CSS`) two below the Wizards tab to see how your data is styled.
+Make sure you're in "MAP VIEW" to see your data visualized with as _Simple_.  Sticking with _Simple_, click on the [CartoCSS Editor tab](http://docs.cartodb.com/cartodb-editor.html#cartocss) (the one with `CSS`) two below the Wizards tab to see how your data is styled.
+
+![Simple CartoCSS Visualization]({{baseurl.site}}/img/course3/lesson3/cartocss-simple.png)
 
 You should see that the marker fill has an opacity option (`marker-fill-opacity`), the border to the marker (`marker-line-color`) is colored to be white (#FFF is short for #FFFFFF, which is white in hexadecimal), the marker width is set to 10, the fill is orange (#FF6600), and so on. Check out the [CartoCSS docs](https://github.com/mapbox/carto/blob/master/docs/latest.md) for more info about the other options.
 
-Now switch to _Choropleth_, select `mag` as Column and _Equal Interval_ as Quantification. Now switch to the CartoCSS tab again. You can see that in addition to the first data structure, there are additional ones with conditional statements on the `mag` column. If you switch to select Bubble from the Visualization wizard, you will see your marker sizes given conditional styles like 
+Now switch to _Choropleth_, select the `mag` column and _Equal Interval_ as Quantification. Now switch to the CartoCSS tab again. You can see that in addition to the first data structure, there are additional ones with conditional statements on the `mag` column. If you switch to select _Bubble_ from the Visualization Wizard, you will see your marker sizes given conditional styles like 
 
 The format is as follows:
-{% highlight javascript %}
+{% highlight css linenos %}
     #table_name [mag < val1] {
         marker-width: 10;
     }
