@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lesson 2 | CartoDB.js | CartoDB</title>
+    <title>Lesson 3 | CartoDB.js | CartoDB</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
@@ -114,11 +114,12 @@
         });
 
         // Pull tiles from OpenStreetMap
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
             attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map_object);
         
-        var sublayers = [];
+        // Create empty array for storing sublayers
+        var sublayers = new Array;
 
         // Add data layer to your map
         cartodb.createLayer(map_object,layerSource)
