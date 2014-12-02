@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 3 | CartoDB.js | CartoDB</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css">
+
+    <style>
+        html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        }
+        #layer_selector {
+          background: rgba(255,255,255,0.9);
+          border-radius: 5px;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          padding: 0;
+          border: 1px solid #999;
+          width: 250px;
+        }
+        #layer_selector ul {
+          padding: 0; margin: 0;
+          list-style-type: none;
+        }
+        #layer_selector li {
+          padding: 15px 30px;
+          font-family: "Helvetica", Arial;
+          font-size: 13px;
+          color: #444;
+          cursor: pointer;
+        }
+        #layer_selector li:not(:last-child) {
+          border-bottom: 1px solid #999;
+        }
+        #layer_selector li:hover {
+          background-color: #F0F0F0;
+          cursor: pointer;
+        }
+        #layer_selector li.selected {
+          background-color: #EEE;
+        }
+    </style>
+    
+    <script type="cartocss/html" id="simple">
+        /** simple visualization */
+
+        #all_day_cdb_gu_l3{
+          marker-fill-opacity: 0.9;
+          marker-line-color: #FFF;
+          marker-line-width: 1.5;
+          marker-line-opacity: 1;
+          marker-placement: point;
+          marker-type: ellipse;
+          marker-width: 10;
+          marker-fill: #FF6600;
+          marker-allow-overlap: true;
+        }
+    </script>
+    
+    <script type="cartocss/html" id="categ-report-sta">
+        /** category visualization */
+
+        #all_day_cdb_gu_l3 {
+           marker-fill-opacity: 0.9;
+           marker-line-color: #FFF;
+           marker-line-width: 0;
+           marker-line-opacity: 1;
+           marker-placement: point;
+           marker-type: ellipse;
+           marker-width: 10;
+           marker-allow-overlap: true;
+        }
+
+        #all_day_cdb_gu_l3[net="nc"] {
+           marker-fill: #A6CEE3;
+        }
+        #all_day_cdb_gu_l3[net="ak"] {
+           marker-fill: #1F78B4;
+        }
+        #all_day_cdb_gu_l3[net="us"] {
+           marker-fill: #B2DF8A;
+        }
+        #all_day_cdb_gu_l3[net="ci"] {
+           marker-fill: #33A02C;
+        }
+        #all_day_cdb_gu_l3[net="nn"] {
+           marker-fill: #FB9A99;
+        }
+        #all_day_cdb_gu_l3[net="hv"] {
+           marker-fill: #E31A1C;
+        }
+        #all_day_cdb_gu_l3[net="uw"] {
+           marker-fill: #FDBF6F;
+        }
+        #all_day_cdb_gu_l3[net="pr"] {
+           marker-fill: #FF7F00;
+        }
+    </script>
+    
+    <script type="cartocss/html" id="choropleth-magnitude">
+        /** choropleth visualization */
+
+        #all_day_cdb_gu_l3{
+          marker-fill-opacity: 0.8;
+          marker-line-color: #FFF;
+          marker-line-width: 0;
+          marker-line-opacity: 1;
+          marker-width: 10;
+          marker-fill: #FFFFB2;
+          marker-allow-overlap: true;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 592.9] {
+           marker-fill: #B10026;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 42.8] {
+           marker-fill: #E31A1C;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 17.79] {
+           marker-fill: #FC4E2A;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 8.42] {
+           marker-fill: #FD8D3C;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 7.49] {
+           marker-fill: #FEB24C;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 5.4] {
+           marker-fill: #FED976;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 2.63] {
+           marker-fill: #FFFFB2;
+        }
+    </script>
+    
+    <script type="cartocss/html" id="bubble-magnitude">
+        /** bubble visualization */
+
+        #all_day_cdb_gu_l3{
+          marker-fill-opacity: 0.9;
+          marker-line-color: #FFF;
+          marker-line-width: 0.5;
+          marker-line-opacity: 1;
+          marker-placement: point;
+          marker-multi-policy: largest;
+          marker-type: ellipse;
+          marker-fill: #FF5C00;
+          marker-allow-overlap: true;
+          marker-clip: false;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 592.9] {
+           marker-width: 15.0;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 52.9] {
+           marker-width: 13.7;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 26.2] {
+           marker-width: 12.3;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 16.7] {
+           marker-width: 11.0;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 9.2] {
+           marker-width: 9.7;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 7.95] {
+           marker-width: 8.3;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 7.15] {
+           marker-width: 7.0;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 6.14] {
+           marker-width: 5.7;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 3.95] {
+           marker-width: 4.3;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 1.92] {
+           marker-width: 3.0;
+        }
+    </script>
+    
+    <script type="cartocss/html" id="bubble-choropleth">
+        /** choropleth visualization */
+
+        #all_day_cdb_gu_l3{
+          marker-fill-opacity: 0.8;
+          marker-line-color: #FFF;
+          marker-line-width: 0;
+          marker-line-opacity: 1;
+          marker-width: 10;
+          marker-fill: #FFFFB2;
+          marker-allow-overlap: true;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 592.9] {
+           marker-fill: #B10026;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 42.8] {
+           marker-fill: #E31A1C;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 17.79] {
+           marker-fill: #FC4E2A;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 8.42] {
+           marker-fill: #FD8D3C;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 7.49] {
+           marker-fill: #FEB24C;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 5.4] {
+           marker-fill: #FED976;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 2.63] {
+           marker-fill: #FFFFB2;
+        }
+
+        /** bubble visualization */
+        #all_day_cdb_gu_l3 [ depth <= 592.9] {
+           marker-width: 15.0;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 52.9] {
+           marker-width: 13.7;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 26.2] {
+           marker-width: 12.3;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 16.7] {
+           marker-width: 11.0;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 9.2] {
+           marker-width: 9.7;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 7.95] {
+           marker-width: 8.3;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 7.15] {
+           marker-width: 7.0;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 6.14] {
+           marker-width: 5.7;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 3.95] {
+           marker-width: 4.3;
+        }
+        #all_day_cdb_gu_l3 [ depth <= 1.92] {
+           marker-width: 3.0;
+        }
+    </script>
+
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="layer_selector">
+        <ul>
+            <li data="categ-report-sta">Categorize earthquakes by reporting station</li>
+            <li data="choropleth-magnitude">Color earthquakes by magnitude</li>
+            <li data="bubble-magnitude">Size earthquakes by magnitude</li>
+            <li data="bubble-choropleth">Size earthquakes by magnitude, color by depth</li>
+            <li data="simple">Reset map</li>
+        </ul>
+    </div>
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+    <!-- Place your code in the script tags below -->
+    <script>
+    window.onload = function() {
+
+        // Create layer selector
+        function createSelector(layer) {
+            var cartocss = "";
+            var debug = false;
+            var $options = $("#layer_selector").find("li");
+            $options.click(function(e) {
+                var $li = $(e.target);
+                var selected = $li.attr('data');
+
+                $options.removeClass('selected');
+                $li.addClass('selected');
+
+                cartocss = $('#'+selected).html();
+
+                layer.setCartoCSS(cartocss);
+            });
+        }
+        var layerName = "all_day_cdb_gu_l3";
+
+        var layerSource = {
+                user_name: 'documentation',
+                type: 'cartodb',
+                sublayers: [{
+                    sql: "SELECT * FROM " + layerName, // Earthquake data
+                    cartocss: $("#simple").html() // Simple visualization
+                }]
+        }
+
+        // Instantiate new map object, place it in 'map' element
+        var map_object = new L.Map('map', {
+            center: [37.7741154,-122.4437914], // San Francisco
+            zoom: 4
+        });
+
+        // Pull tiles from OpenStreetMap
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+            attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map_object);
+        
+        // Create empty array for storing sublayers
+        var sublayers = new Array;
+
+        // Add data layer to your map
+        cartodb.createLayer(map_object,layerSource)
+            .addTo(map_object)
+            .done(function(layer) {
+                sublayers = layer;
+               for (var i = 0; i < layer.getSubLayerCount(); i++) {
+                   sublayers[i] = layer.getSubLayer(i);
+               }
+               createSelector(layer);
+            })
+            .error(function(err) {
+                console.log("error: " + err);
+            });
+    }
+    </script>
+  </body>
+</html>
