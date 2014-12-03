@@ -5,14 +5,13 @@
             Lesson 3 | CartoDB.js | CartoDB
         </title>
 
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-        <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico">
+        <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
 
-        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css">
-        <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css" type="text/css">
-
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css" />
+        <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css" type="text/css" />
 
         <style type="text/css">
             html, body, #map {
@@ -36,7 +35,7 @@
             }
             #layer_selector li {
                 padding: 15px 30px;
-                font-family: "Helvetica", Arial;
+                font-family: Helvetica, Arial;
                 font-size: 13px;
                 color: #444;
                 cursor: pointer;
@@ -51,22 +50,23 @@
             #layer_selector li.selected {
                 background-color: #EEE;
             }
-        </style>
-        <style type="cartocss/html" id="simple">
-        /** simple visualization */
+            </style>
+           
+            <style type="cartocss/html" id="simple">
+                /** simple visualization */
 
-        #all_day_cdb_gu_l3 {
-            marker-fill-opacity: 0.9;
-            marker-line-color: #FFF;
-            marker-line-width: 1.5;
-            marker-line-opacity: 1;
-            marker-placement: point;
-            marker-type: ellipse;
-            marker-width: 10;
-            marker-fill: #FF6600;
-            marker-allow-overlap: true;
-        }
-        </style>
+                #all_day_cdb_gu_l3 {
+                    marker-fill-opacity: 0.9;
+                    marker-line-color: #FFF;
+                    marker-line-width: 1.5;
+                    marker-line-opacity: 1;
+                    marker-placement: point;
+                    marker-type: ellipse;
+                    marker-width: 10;
+                    marker-fill: #FF6600;
+                    marker-allow-overlap: true;
+                }
+            </style>
         <style type="cartocss/html" id="categ-report-sta">
         /** category visualization */
 
@@ -278,7 +278,6 @@ window.onload = function() {
         // Create layer selector
         function createSelector(layer) {
             var cartocss = "";
-            var debug = false;
             var $options = $("#layer_selector").find("li");
             $options.click(function(e) {
                 var $li = $(e.target);
