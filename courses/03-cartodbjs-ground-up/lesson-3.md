@@ -43,7 +43,7 @@ Using the CartoDB.js API, the main method to change the SQL and CartoCSS after t
 * `sublayer.setCartoCSS("new CartoCSS styles")`
 * `sublayer.setSQL("new SQL")`
 
-If you want to retrieve previously created sublayers, you have:
+If you want to retrieve entries from previously created sublayers, you have the following `get...` methods:
 
 * `sublayer.getCartoCSS("new CartoCSS styles")`
 * `sublayer.getSQL("new SQL")`
@@ -53,11 +53,9 @@ Add more interactivity to our maps by using CartoDB.js sublayer methods for alte
 
 ### The Data
 
-We will be using the real-time earthquake data available through CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/). It pulls data automatically from the [United States Geological Services' archive](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php), which is updated every hour. As you will be doing this lesson at a different time than when this lesson was written, your data will appear different than what appears below. If you don't see enough natural disaster data to make your map complete, import another data set from [USGS' website](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) that has a longer span of time.
+We will be using the real-time earthquake data available through USGS' [up-to-date datasets](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php). To get a large amount of data, grab the "all earthquakes" under Past 30 Days. As you will be doing this lesson at a different time than when this lesson was written, your data will appear differently than what appears below.
 
-Before working with any data, it is important to inspect the data types and their values.
-
-To get started, go to your account and select Common Data. Once there, select "Physical Datasets" and then "Realtime earthquakes." This will import the earthquake data into your account. Inspect the columns, play with the [filters](http://docs.cartodb.com/cartodb-editor.html#filters), or [alter the SQL](http://docs.cartodb.com/cartodb-editor.html#custom-sql) to learn about the type of information that's contained in the data table.
+Before working with any data, rename it to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor.html#filters) in the right pane is a great way to get to know your data.
 
 The table has about a dozen columns, all of which are [explained here](http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php). The ones of interest to us are:
 
@@ -83,7 +81,7 @@ var layerSource = {
 {% endhighlight %}
 
 ### CartoCSS
-Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the documentation it is only one of several object types that can be styled directly on your map.
+Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the [documentation](https://github.com/mapbox/carto/blob/master/docs/latest.md) it is only one of several elements that can be styled directly on your map.
 
 An easy way to get used to the basics of CartoCSS is by using the [Vizualization wizard](http://docs.cartodb.com/cartodb-editor.html#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
 
@@ -114,7 +112,7 @@ var simpleStyle =
     '}';
 {% endhighlight %}
 
-Another option is to [minify](http://cssminifier.com/) the string--that is, to get rid of all the white space and newlines. This makes your styles much less readable, but your JavaScript file will be smaller and load a tiny bit faster. 
+Another option is to [minify](http://cssminifier.com/) the string--that is, to get rid of all the white space and newlines. This makes your styles much less readable, but your JavaScript file will be smaller and load a tiny bit faster. This method can be problematic as there are currently no minifiers for CartoCSS, so you have to rely on tools for CSS, which is obviously parsed differently.
 
 {% highlight js %}
 var simpleStyle = '#all_day_cdb_gu_l3{marker-fill-opacity:0.9;marker-line-color:#FFF;marker-line-width:1.5;marker-line-opacity:1;marker-placement:point;marker-type:ellipse;marker-width:10;marker-fill:#FF6600;marker-allow-overlap:true;}';
@@ -186,11 +184,11 @@ You can see that in addition to the first data structure, there are additional o
 ...
 {% endhighlight %}
 
-Doing this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, or bubble map, just as you would see in the Visualization Wizard in the CartoDB Editor.
+By doing this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, or bubble map, just as you would with the Visualization Wizard in the CartoDB Editor.
 
 ### Maps styled by end user
 
-CartoDB was created with the goal to help people from all walks of life tell stories with data and maps. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. If you have one of our paid accounts, you will have access to data syncing, making this goal even easier.
+CartoDB was created with the goal to help people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. If you have one of our paid accounts, you will have access to data syncing, making this goal even easier.
 
 First, we'll initialize a map like we have done in Lesson 2 and define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text'>...</style>` element between the `<head>` tags, below the CSS and JavaScript inclusions.
     
@@ -249,13 +247,19 @@ All of these CartoCSS styles go in their own `<style>` structure between the `<h
 Now that we have our styles, we need to interact with them. Our first step is to create some buttons with the following HTML that is placed immediately after the `<div id='map'></div>` element:
 
 {% highlight html %}
-<div id="layer_selector">
+<div id="cartocss" class="layer_selector">
+    <p>CartoCSS Selectors</p>
     <ul>
-        <li data="categ-report-sta">Categorize earthquakes by reporting station</li>
-        <li data="choropleth-magnitude">Color earthquakes by magnitude</li>
-        <li data="bubble-magnitude">Size earthquakes by magnitude</li>
-        <li data="bubble-choropleth">Size earthquakes by magnitude, color by depth</li>
-        <li data="simple">Reset map</li>
+        <li data="categ-report-sta" data-type="cartocss">Categorize earthquakes by reporting station
+        </li>
+        <li data="choropleth-magnitude" data-type="cartocss">Color earthquakes by magnitude
+        </li>
+        <li data="bubble-magnitude" data-type="cartocss">Size earthquakes by magnitude
+        </li>
+        <li data="bubble-choropleth" data-type="cartocss">Size earthquakes by magnitude, color by depth
+        </li>
+        <li data="simple" data-type="cartocss">Reset CartoCSS
+        </li>
     </ul>
 </div>
 {% endhighlight %}
@@ -266,13 +270,13 @@ And finally, we need to connect click events with these buttons. The following c
 // Create layer selector
 function createSelector(layer) {
     var cartocss = "";
-    var $options = $("#layer_selector").find("li");
+    var $options = $(".layer_selector").find("li");
     $options.click(function(e) {
         var $li = $(e.target);
         var selected = $li.attr('data');
 
-        $options.removeClass('selected');
-        $li.addClass('selected');
+        $options.removeClass('cartocss_selected');
+        $li.addClass('cartocss_selected');
 
         cartocss = $('#'+selected).text();
 
@@ -282,31 +286,74 @@ function createSelector(layer) {
 {% endhighlight %}
 
 This code finds all the `li` elements and stores their reference in the variable `$options`. Once one of the `li` elements is clicked, its reference is stored in `$li`, and it's `data` is extracted and placed in the variable `selected`. The style of the buttons is altered, and then the CartoCSS text is retrieved from the `<style>` structures you previously created. Finally, the layer is told to change is appearance once the `setCartoCSS()` method is applied to it.
-    
+
 Check out a working copy [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](link/to/jsfiddle) for a jsFiddle.
 
-[Fun example](http://bl.ocks.org/xavijam/57f1c141bff4990b598f) by [Javier Medina](https://github.com/xavijam).
-
 ### Basic SQL queries
-Let's do a few simple queries in the CartoDB Editor, and then work in JavaScript to build an application with some of the more interesting queries. Since we're working with earthquake data, let's find 
+Let's do a few simple queries in the CartoDB Editor, and then work in JavaScript to build an application with some of the more interesting queries.
 
-If you want to go a lot further with SQL and know (or want to learn) a little PostGIS, check out the tutorial [Query by Distance](http://docs.cartodb.com/tutorials/query_by_distance.html).
+Going back to the CartoDB Editor in your browser and try out the following SQL statements in the SQL editor in the right pane. Note that `SELECT * FROM earthquakes_cdbjs_lesson3` just gives you all the rows and columns of your data.
 
-### Interactivity, the third option
-And finally, we can add another entry to the sublayer object to allow users to get click/hover event on their maps.
+We will be passing the following SQL statements to our method `sublayer.setSQL(...)`:
 
-Besides using SQL and CartoCSS, you can set the interactivity of your map by passing a third key to your layer source:
++ Earthquakes of magnitude greater than or equal to 5.0: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE mag > 5.0`
++ Events that are not an earthquake: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE type != 'earthquake'`
++ Earthquakes that has a place referencing Papua New Guinea: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE place ilike '%papua new guinea%'`
 
-{% highlight javascript %}
-layerSource = {
-    sql: 'SELECT * FROM table_name',
-    cartocss: '#table_name{...}',
-    interactivity: 'column1, column2, ...'
+We can code these into some HTML, grab them with a little JavaScript, and pass them to `setSQL()` to change the display of our map.
+
+First we need to write the HTML. Put this statement below the CartoCSS structure:
+{% highlight html %}
+<div id="sql" class="layer_selector">
+    <p>SQL Selectors</p>
+    <ul>
+        <li data=" WHERE mag > 5.0" data-type="sql">Show magnitude > 5.0
+        </li>
+        <li data=" WHERE type != 'earthquake'" data-type="sql">Show non-earthquakes
+        </li>
+        <li data=" WHERE place ILIKE '%papua new guinea%'" data-type="sql">Show earthquakes near Papua New Guinea
+        </li>
+        <li data="" data-type="sql">Reset SQL</li>
+    </ul>
+</div>
+{% endhighlight %}
+
+Once a `li` is clicked on, the respective WHERE clause stored in `data` will be appended to a `SELECT * FROM earthquakes_cdbjs_lesson3` to produce the query we want. Note that the last `li` will just reproduce the default select all rows and columns statement once clicked on.
+
+Next we need to change our `createSelector` function so that it interacts with the new SQL portion.
+
+{% highlight js %}
+function createSelector(layer) {
+    var condition = ""; // SQL or CartoCSS string
+    var $options = $(".layer_selector").find("li");
+    $options.click(function(e) {
+        var $li = $(e.target);
+        var selected = $li.attr('data');
+        var type = $li.data('type');
+
+        // if a CartoCSS selector is chosen, set the style
+        if (type === "cartocss") {
+            $options.removeClass('cartocss_selected');
+            if (selected !== "simple") {
+                $li.addClass('cartocss_selected');                            
+            }
+            condition = $('#'+selected).text();
+            layer.setCartoCSS(condition);
+        } else {
+            // if a SQL selector is chosen, re-query the data
+            $options.removeClass('sql_selected');
+            if (selected !== "") {
+                $li.addClass('sql_selected');
+            }
+            layer.setSQL("SELECT * FROM " + tableName + selected);
+        }
+    });
 }
 {% endhighlight %}
 
-As this is a 
-
-You can also enable interactivity afterwards by using `setInteractivity(true)` and then `setInteraction('column1, column2, ...')`.
+That's it! If you're having trouble getting yours to work, check out a working copy [here](link/to/github/repo), or a live version [here](link/to/live/version)
 
 
+### Moving forward
+
+If you want to go a lot further with SQL and know (or want to learn) a little PostGIS, check out the tutorial [Query by Distance](http://docs.cartodb.com/tutorials/query_by_distance.html).
