@@ -361,6 +361,7 @@ if (selected.indexOf('guinea') !== -1) {
 }
 {% endhighlight %}
 
+the `string.indexOf('substring')` method returns the index of the string where the substring occurs. If no substring is found, negative one is returned.
 
 ### Moving forward
 
