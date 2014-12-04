@@ -348,6 +348,8 @@
                         }
                         if (selected.indexOf('guinea') !== -1) {
                             map_object.setView(L.latLng([-9.5, 147.116667]),7);
+                        } else {
+                            map_object.setView(L.latLng([37.7741154,-122.4437914]),2);
                         }
                         layer.setSQL("SELECT * FROM " + tableName + selected);
                     }
