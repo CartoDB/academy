@@ -9,9 +9,9 @@ tweet_text: "I'm learning how to use SQL and CartoCSS in CartoDB's JavaScript AP
 vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b5057/viz.json"
 ---
 
-## The basics 
+## Modifying SQL and CartoCSS
 
-This is the third lesson in the course _CartoDB.js from the ground up_. While covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty basic here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the great documentation and use cases for CartoCSS. For SQL, you can teach yourself using the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB]({{site.baseurl}}/course/04-sql-postgis.html) series. 
+This is the third lesson in the course _CartoDB.js from the ground up_. While covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty basic here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://www.mapbox.com/tilemill/docs/manual/carto/) and [use cases](https://www.mapbox.com/tilemill/docs/guides/advanced-map-design/) for CartoCSS. For SQL, you can teach yourself using the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB]({{site.baseurl}}/course/04-sql-postgis.html) series. 
 
 ## Basic Interactivity
 
@@ -36,7 +36,7 @@ In this lesson, we will be using these powerful languages to boost the expressiv
 
 _SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_.
 
-_CartoCSS_ is a language for altering the appearance of the data layer on your map. Look up at the layer source code above, you can see some of the simpler ways of styling data. CartoCSS is a styling language that works with the data you import into CartoDB. It helps you make your maps beautiful. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](link/to/fun/example/of/cartocss). 
+_CartoCSS_ is a language for altering the appearance of the data layer on your map. Look up at the layer source code above, you can see some of the simpler ways of styling data. CartoCSS is a styling language that works with the data you import into CartoDB. It helps you make your maps beautiful. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](link/to/fun/example/of/cartocss)***. 
 
 Using the CartoDB.js API, the main method to change the SQL and CartoCSS after they have been declared is `sublayer.set(sublayerDefinition)`, where `sublayerDefinition` is equivalent to one of the object in the `sublayers` array declared in `layerSource` above. If you only need to change one of CartoCSS or SQL for a previously created layer, there are some convenient methods:
 
@@ -114,19 +114,19 @@ var simpleStyle =
     '}';
 {% endhighlight %}
 
-Another option is to [minify](link/to/minify/site/or/description) the string--that is, to get rid of all the white space and newlines. This makes your styles much less readable, but your JavaScript file will be smaller and load a tiny bit faster.
+Another option is to [minify](http://cssminifier.com/) the string--that is, to get rid of all the white space and newlines. This makes your styles much less readable, but your JavaScript file will be smaller and load a tiny bit faster. 
 
 {% highlight js %}
 var simpleStyle = '#all_day_cdb_gu_l3{marker-fill-opacity:0.9;marker-line-color:#FFF;marker-line-width:1.5;marker-line-opacity:1;marker-placement:point;marker-type:ellipse;marker-width:10;marker-fill:#FF6600;marker-allow-overlap:true;}';
 {% endhighlight %}
 
-Because single or double quotes often appear in CartoCSS statements, you should be cautious to make sure that every character is part of the string. For instance, the following would produce a parse error:
+Because single or double quotes often appear in CartoCSS statements, you should be cautious that every character is part of the string. For instance, the following would produce a parse error:
 
 {% highlight js %}
 var cartocss = '#table_name{text-face-name:'DejaVu Sans Book';}'
 {% endhighlight %}
 
-The syntax highlighting we use in Academy helps us tell the story: the _DejaVu Sans Book_ portion of the CartoCSS statement is interpreted as a series of variables (grey), not part of the string (green). You could fix it by writing it the following ways instead:
+The syntax highlighting we use in Academy helps us tell the story: the _DejaVu Sans Book_ portion of the CartoCSS statement is interpreted as a series of variables (grey), not part of the string (green). You could fix it by writing it in either of the following ways instead:
 
 {% highlight js %}
 var cartocss = '#table_name{text-face-name:"DejaVu Sans Book";}';
@@ -136,7 +136,7 @@ var font = '"DejaVu Sans Book"';
 var cartocss = '#table_name{text-face-name:' + font + ';}';
 {% endhighlight %}
 
-A third option is to create a custom `<style>` type with a DOM `id` that allows you to extract the text. For instance, one could use the following:
+A third option is to create a custom `<style>` type with an `id` that allows you to extract the text. For instance, one could use the following:
 
 {% highlight css %}
 <style type="cartocss/text" id="simple">
@@ -168,7 +168,7 @@ A third option is to create a custom `<style>` type with a DOM `id` that allows 
 </script>
 {% endhighlight %}
 
-This option allows you to directly copy and paste the code from the CartoDB Editor without worrying about errors in reformatting. Because of it's ease of use and readability, this is the format we will use for this lesson.
+This option allows you to directly copy and paste the code from the CartoDB Editor without worrying about the errors that can occur from reformatting. Because of it's ease of use and readability, this is the format we will use for this lesson.
 
 ### Conditions in CartoCSS
 
