@@ -318,6 +318,12 @@
                         cartocss: $("#simple").html() // Simple visualization
                     }]
             }
+            
+            // Instantiate new map object, place it in 'map' element
+            var map_object = new L.Map('map', {
+                center: [37.7741154,-122.4437914], // San Francisco
+                zoom: 2
+            });
 
             // Create layer selector
             function createSelector(layer) {
@@ -331,7 +337,7 @@
                     if (type === "cartocss") {
                         $options.removeClass('cartocss_selected');
                         if (selected !== "simple") {
-                            $li.addClass('cartocss_selected');                            
+                            $li.addClass('cartocss_selected');                      
                         }
                         condition = $('#'+selected).text();
                         layer.setCartoCSS(condition);
@@ -340,16 +346,13 @@
                         if (selected !== "") {
                             $li.addClass('sql_selected');
                         }
+                        if (selected.indexOf('guinea') !== -1) {
+                            map_object.setView(L.latLng([-9.5, 147.116667]),7);
+                        }
                         layer.setSQL("SELECT * FROM " + tableName + selected);
                     }
                 });
             }
-
-            // Instantiate new map object, place it in 'map' element
-            var map_object = new L.Map('map', {
-                center: [37.7741154,-122.4437914], // San Francisco
-                zoom: 2
-            });
 
             // Pull tiles from CartoDB's basemaps
             L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
