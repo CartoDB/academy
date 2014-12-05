@@ -291,7 +291,7 @@
         <div id="sql" class="layer_selector">
             <p>SQL Selectors</p>
             <ul>
-                <li data=" WHERE mag > 5.0" data-type="sql">Show magnitude > 5.0
+                <li data=" WHERE mag >= 5.0" data-type="sql">Show magnitude >= 5.0
                 </li>
                 <li data=" WHERE type != 'earthquake'" data-type="sql">Show non-earthquakes
                 </li>
@@ -347,7 +347,7 @@
                             $li.addClass('sql_selected');
                         }
                         if (selected.indexOf('guinea') !== -1) {
-                            map_object.setView(L.latLng([-9.5, 147.116667]),7);
+                            map_object.setView(L.latLng([-9.5, 147.116667]),6);
                         } else {
                             map_object.setView(L.latLng([37.7741154,-122.4437914]),2);
                         }
