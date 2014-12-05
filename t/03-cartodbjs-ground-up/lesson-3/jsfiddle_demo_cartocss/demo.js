@@ -19,32 +19,18 @@ window.onload = function() {
 
     // Create layer selector
     function createSelector(layer) {
-        var condition = "";
+        var cartocss = "";
         var $options = $(".layer_selector").find("li");
         $options.click(function(e) {
             var $li = $(e.target);
             var selected = $li.attr('data');
-            var type = $li.data('type');
 
-            if (type === "cartocss") {
-                $options.removeClass('cartocss_selected');
-                if (selected !== "simple") {
-                    $li.addClass('cartocss_selected');                      
-                }
-                condition = $('#'+selected).text();
-                layer.setCartoCSS(condition);
-            } else {
-                $options.removeClass('sql_selected');
-                if (selected !== "") {
-                    $li.addClass('sql_selected');
-                }
-                if (selected.indexOf('guinea') !== -1) {
-                    map_object.setView(L.latLng([-9.5, 147.116667]),6);
-                } else {
-                    map_object.setView(L.latLng([37.7741154,-122.4437914]),2);
-                }
-                layer.setSQL("SELECT * FROM " + tableName + selected);
-            }
+            $options.removeClass('cartocss_selected');
+            $li.addClass('cartocss_selected');
+
+            cartocss = $('#'+selected).text();
+
+            layer.setCartoCSS(cartocss);
         });
     }
 
