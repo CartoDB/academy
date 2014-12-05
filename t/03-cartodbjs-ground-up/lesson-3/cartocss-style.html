@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Lesson 3 | CartoDB.js | CartoDB
+        </title>
+
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css" />
+        <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css" type="text/css" />
+
+        <style type="text/css">
+            html, body, #map {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            #cartocss {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            #sql {
+                position: absolute;
+                top: 20px;
+                right: 292px;
+            }
+            .layer_selector {
+                background: rgba(255,255,255,0.9);
+                border-radius: 5px;
+                padding: 0;
+                border: 1px solid #999;
+                width: 250px;
+            }
+            
+            .layer_selector > p {
+                padding: 15px 30px;
+                border-bottom: 1px solid #999;
+            }
+            
+            .layer_selector ul {
+                padding: 0; margin: 0;
+                list-style-type: none;
+            }
+            .layer_selector li {
+                padding: 15px 30px;
+                font-family: Helvetica, Arial;
+                font-size: 13px;
+                color: #444;
+                cursor: pointer;
+            }
+            .layer_selector li:not(:last-child) {
+                border-bottom: 1px solid #999;
+            }
+            .layer_selector li:hover {
+                background-color: #F0F0F0;
+                cursor: pointer;
+            }
+            .layer_selector li.sql_selected,
+            .layer_selector li.cartocss_selected {
+                background-color: #A6CEE3;
+            }
+            </style>
+           
+            <style type="cartocss/html" id="simple">
+                /** simple visualization */
+
+                #all_day_cdb_gu_l3 {
+                    marker-fill-opacity: 0.9;
+                    marker-line-color: #FFF;
+                    marker-line-width: 1.5;
+                    marker-line-opacity: 1;
+                    marker-placement: point;
+                    marker-type: ellipse;
+                    marker-width: 10;
+                    marker-fill: #FF6600;
+                    marker-allow-overlap: true;
+                }
+        </style>
+        <style type="cartocss/html" id="categ-report-sta">
+            /** category visualization */
+
+            #all_day_cdb_gu_l3 {
+                marker-fill-opacity: 0.9;
+                marker-line-color: #FFF;
+                marker-line-width: 0;
+                marker-line-opacity: 1;
+                marker-placement: point;
+                marker-type: ellipse;
+                marker-width: 10;
+                marker-allow-overlap: true;
+            }
+
+            #all_day_cdb_gu_l3[net="nc"] {
+                marker-fill: #A6CEE3;
+            }
+            #all_day_cdb_gu_l3[net="ak"] {
+                marker-fill: #1F78B4;
+            }
+            #all_day_cdb_gu_l3[net="us"] {
+                marker-fill: #B2DF8A;
+            }
+            #all_day_cdb_gu_l3[net="ci"] {
+                marker-fill: #33A02C;
+            }
+            #all_day_cdb_gu_l3[net="nn"] {
+                marker-fill: #FB9A99;
+            }
+            #all_day_cdb_gu_l3[net="hv"] {
+                marker-fill: #E31A1C;
+            }
+            #all_day_cdb_gu_l3[net="uw"] {
+                marker-fill: #FDBF6F;
+            }
+            #all_day_cdb_gu_l3[net="pr"] {
+                marker-fill: #FF7F00;
+            }
+        </style>
+
+        <style type="cartocss/html" id="choropleth-magnitude">
+            /** choropleth visualization */
+
+            #all_day_cdb_gu_l3{
+              marker-fill-opacity: 0.8;
+              marker-line-color: #FFF;
+              marker-line-width: 0;
+              marker-line-opacity: 1;
+              marker-width: 10;
+              marker-fill: #FFFFB2;
+              marker-allow-overlap: true;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 592.9] {
+               marker-fill: #B10026;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 42.8] {
+               marker-fill: #E31A1C;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 17.79] {
+               marker-fill: #FC4E2A;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 8.42] {
+               marker-fill: #FD8D3C;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 7.49] {
+               marker-fill: #FEB24C;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 5.4] {
+               marker-fill: #FED976;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 2.63] {
+               marker-fill: #FFFFB2;
+            }
+        </style>
+
+        <style type="cartocss/html" id="bubble-magnitude">
+            /** bubble visualization */
+
+            #all_day_cdb_gu_l3{
+              marker-fill-opacity: 0.9;
+              marker-line-color: #FFF;
+              marker-line-width: 0.5;
+              marker-line-opacity: 1;
+              marker-placement: point;
+              marker-multi-policy: largest;
+              marker-type: ellipse;
+              marker-fill: #FF5C00;
+              marker-allow-overlap: true;
+              marker-clip: false;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 592.9] {
+               marker-width: 15.0;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 52.9] {
+               marker-width: 13.7;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 26.2] {
+               marker-width: 12.3;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 16.7] {
+               marker-width: 11.0;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 9.2] {
+               marker-width: 9.7;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 7.95] {
+               marker-width: 8.3;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 7.15] {
+               marker-width: 7.0;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 6.14] {
+               marker-width: 5.7;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 3.95] {
+               marker-width: 4.3;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 1.92] {
+               marker-width: 3.0;
+            }
+            </style>
+
+            <style type="cartocss/html" id="bubble-choropleth">
+            /** choropleth visualization */
+
+            #all_day_cdb_gu_l3{
+              marker-fill-opacity: 0.8;
+              marker-line-color: #FFF;
+              marker-line-width: 0;
+              marker-line-opacity: 1;
+              marker-width: 10;
+              marker-fill: #FFFFB2;
+              marker-allow-overlap: true;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 592.9] {
+               marker-fill: #B10026;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 42.8] {
+               marker-fill: #E31A1C;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 17.79] {
+               marker-fill: #FC4E2A;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 8.42] {
+               marker-fill: #FD8D3C;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 7.49] {
+               marker-fill: #FEB24C;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 5.4] {
+               marker-fill: #FED976;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 2.63] {
+               marker-fill: #FFFFB2;
+            }
+
+            /** bubble visualization */
+            #all_day_cdb_gu_l3 [ depth <= 592.9] {
+               marker-width: 15.0;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 52.9] {
+               marker-width: 13.7;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 26.2] {
+               marker-width: 12.3;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 16.7] {
+               marker-width: 11.0;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 9.2] {
+               marker-width: 9.7;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 7.95] {
+               marker-width: 8.3;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 7.15] {
+               marker-width: 7.0;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 6.14] {
+               marker-width: 5.7;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 3.95] {
+               marker-width: 4.3;
+            }
+            #all_day_cdb_gu_l3 [ depth <= 1.92] {
+               marker-width: 3.0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <div id="cartocss" class="layer_selector">
+            <p>CartoCSS Selectors</p>
+            <ul>
+                <li data="categ-report-sta" data-type="cartocss">Categorize earthquakes by reporting station
+                </li>
+                <li data="choropleth-magnitude" data-type="cartocss">Color earthquakes by magnitude
+                </li>
+                <li data="bubble-magnitude" data-type="cartocss">Size earthquakes by magnitude
+                </li>
+                <li data="bubble-choropleth" data-type="cartocss">Size earthquakes by magnitude, color by depth
+                </li>
+                <li data="simple" data-type="cartocss">Reset CartoCSS
+                </li>
+            </ul>
+        </div>
+
+        <div id="sql" class="layer_selector">
+            <p>SQL Selectors</p>
+            <ul>
+                <li data=" WHERE mag > 5.0" data-type="sql">Show magnitude > 5.0
+                </li>
+                <li data=" WHERE type != 'earthquake'" data-type="sql">Show non-earthquakes
+                </li>
+                <li data=" WHERE place ILIKE '%papua new guinea%'" data-type="sql">Show earthquakes near Papua New Guinea
+                </li>
+                <li data="" data-type="sql">Reset SQL</li>
+            </ul>
+        </div>
+
+        <!-- include cartodb.js library -->
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script>
+        <!-- Place your code in the script tags below -->
+        <script type="text/javascript">
+        window.onload = function() {
+
+            // var tableName = "all_day_cdb_gu_l3";
+            var tableName = "earthquakes_cdbjs_lesson3";
+
+            var layerSource = {
+                    user_name: 'documentation',
+                    type: 'cartodb',
+                    sublayers: [{
+                        sql: "SELECT * FROM " + tableName, // Earthquake data
+                        cartocss: $("#simple").html() // Simple visualization
+                    }]
+            }
+
+            // Create layer selector
+            function createSelector(layer) {
+                var condition = "";
+                var $options = $(".layer_selector").find("li");
+                $options.click(function(e) {
+                    var $li = $(e.target);
+                    var selected = $li.attr('data');
+                    var type = $li.data('type');
+
+                    if (type === "cartocss") {
+                        $options.removeClass('cartocss_selected');
+                        if (selected !== "simple") {
+                            $li.addClass('cartocss_selected');                            
+                        }
+                        condition = $('#'+selected).text();
+                        layer.setCartoCSS(condition);
+                    } else {
+                        $options.removeClass('sql_selected');
+                        if (selected !== "") {
+                            $li.addClass('sql_selected');
+                        }
+                        layer.setSQL("SELECT * FROM " + tableName + selected);
+                    }
+                });
+            }
+
+            // Instantiate new map object, place it in 'map' element
+            var map_object = new L.Map('map', {
+                center: [37.7741154,-122.4437914], // San Francisco
+                zoom: 2
+            });
+
+            // Pull tiles from CartoDB's basemaps
+            L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+                attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap<\/a> contributors'
+            }).addTo(map_object);
+
+            // for storing sublayer outside of createlayer
+            var sublayers;
+
+            // Add data layer to your map
+            cartodb.createLayer(map_object,layerSource)
+                .addTo(map_object)
+                .done(function(layer) {
+                    sublayer = layer.getSubLayer(0);
+                    createSelector(sublayer);
+                })
+                .error(function(err) {
+                    console.log("error: " + err);
+                });
+            }
+        </script>
+    </body>
+</html>
