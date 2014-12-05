@@ -288,19 +288,6 @@
             </ul>
         </div>
 
-        <div id="sql" class="layer_selector">
-            <p>SQL Selectors</p>
-            <ul>
-                <li data=" WHERE mag > 5.0" data-type="sql">Show magnitude > 5.0
-                </li>
-                <li data=" WHERE type != 'earthquake'" data-type="sql">Show non-earthquakes
-                </li>
-                <li data=" WHERE place ILIKE '%papua new guinea%'" data-type="sql">Show earthquakes near Papua New Guinea
-                </li>
-                <li data="" data-type="sql">Reset SQL</li>
-            </ul>
-        </div>
-
         <!-- include cartodb.js library -->
         <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script>
         <!-- Place your code in the script tags below -->
@@ -321,27 +308,18 @@
 
             // Create layer selector
             function createSelector(layer) {
-                var condition = "";
+                var cartocss = "";
                 var $options = $(".layer_selector").find("li");
                 $options.click(function(e) {
                     var $li = $(e.target);
                     var selected = $li.attr('data');
-                    var type = $li.data('type');
 
-                    if (type === "cartocss") {
-                        $options.removeClass('cartocss_selected');
-                        if (selected !== "simple") {
-                            $li.addClass('cartocss_selected');                            
-                        }
-                        condition = $('#'+selected).text();
-                        layer.setCartoCSS(condition);
-                    } else {
-                        $options.removeClass('sql_selected');
-                        if (selected !== "") {
-                            $li.addClass('sql_selected');
-                        }
-                        layer.setSQL("SELECT * FROM " + tableName + selected);
-                    }
+                    $options.removeClass('cartocss_selected');
+                    $li.addClass('cartocss_selected');
+
+                    cartocss = $('#'+selected).text();
+
+                    layer.setCartoCSS(cartocss);
                 });
             }
 
