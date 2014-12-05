@@ -1,99 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lesson 3 | CartoDB.js -- CartoCSS and SQL | CartoDB</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <head>
+        <title>
+            Lesson 3 | CartoDB.js | CartoDB
+        </title>
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
-    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-    <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <style>
-      html, body, #map {
-        height: 100%;
-        padding: 0;
-        margin: 0;
-      }
-      button {
-        margin-right: 10px;
-        font-family: "Proxima Nova W01", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background: transparent;
-      }
-      p {
-        font-size: 17px;
-        margin-bottom: 10px;
-      }
-    </style>
+        <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
 
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="http://fast.fonts.net/jsapi/b6470a43-5105-49d3-95ae-75217a436bf8.js"></script>
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css" />
+        <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css" type="text/css" />
 
-  </head>
-  <body>
-    <div id="map"></div>
-    <div id="dashboard">
-        <h3 class="Title Title--xs">CartoDB.js from the ground up, Lesson 3</h3>
-        <ul>
-            <li id="blue">Blue</li>
-            <li id="green">Green</li>
-            <li id="red">Red</li>
-        </ul>
-    </div>
+        <style type="text/css">
+            html, body, #map {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            #cartocss {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            #sql {
+                position: absolute;
+                top: 20px;
+                right: 292px;
+            }
+            .layer_selector {
+                background: rgba(255,255,255,0.9);
+                border-radius: 5px;
+                padding: 0;
+                border: 1px solid #999;
+                width: 250px;
+            }
+            
+            .layer_selector > p {
+                padding: 15px 30px;
+                border-bottom: 1px solid #999;
+            }
+            
+            .layer_selector ul {
+                padding: 0; margin: 0;
+                list-style-type: none;
+            }
+            .layer_selector li {
+                padding: 15px 30px;
+                font-family: Helvetica, Arial;
+                font-size: 13px;
+                color: #444;
+                cursor: pointer;
+            }
+            .layer_selector li:not(:last-child) {
+                border-bottom: 1px solid #999;
+            }
+            .layer_selector li:hover {
+                background-color: #F0F0F0;
+                cursor: pointer;
+            }
+            .layer_selector li.sql_selected,
+            .layer_selector li.cartocss_selected {
+                background-color: #A6CEE3;
+            }
+            </style>
+           
+            <style type="cartocss/html" id="simple">
+                /* Place simple style here */
+            </style>
+    </head>
+    <body>
+        <div id="map"></div>
 
-    <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+        <!-- include cartodb.js library -->
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script>
 
-    <!-- Place your code in the script tags below -->
-    <script>
+        <!-- Place your code in the script tags below -->
+        <script type="text/javascript">
         window.onload = function() {
-            // Instantiate new map object, place it in 'map' element
-            var map_object = new L.Map('map', {
-                center: [43,0], // Southern France
-                zoom: 3
-            });
 
-            // Put layer data into a JS object
-            var layerSource = {
-                user_name: 'documentation',
-                type: 'cartodb',
-                sublayers: [
-                    {
-                        sql: "SELECT * FROM africa_adm0", // African countries
-                        cartocss:'#africa_adm0{polygon-fill:#FF6600;polygon-opacity:0.7;line-color:#FFF;line-width:1;line-opacity:1;}'
-                    },
-                    { 
-                        sql: "SELECT * FROM ne_50m_lakes", // Natural and artificial lakes
-                        cartocss: '#ne_50m_lakes {polygon-fill: #0000FF;}'
-                    }] 
             }
-
-            // For storing the sublayers
-            var sublayers = [];
-
-            // Pull tiles from OpenStreetMap
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: 'OpenStreetMap'
-            }).addTo(map_object);
-
-            // Add data layer to your map
-            cartodb.createLayer(map_object,layerSource)
-                .addTo(map_object)
-                .done(function(layer) {
-                   for (var i = 0; i < layer.getSubLayerCount(); i++) {
-                       sublayers[i] = layer.getSubLayer(i);
-                       alert("Congrats, you added sublayer #" + i + "!");
-                   } 
-                })
-                .error(function(err) {
-                    console.log("error: " + err);
-                });
-            }
-        
-        }
-    </script>
-  </body>
+        </script>
+    </body>
 </html>
