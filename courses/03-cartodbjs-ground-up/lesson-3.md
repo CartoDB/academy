@@ -11,7 +11,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/f5f2e48c-7c07-11e4-949c-0e
 
 ## Modifying SQL and CartoCSS
 
-This is the third lesson in the course _CartoDB.js from the ground up_. While covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty basic here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://www.mapbox.com/tilemill/docs/manual/carto/) and [use cases](https://www.mapbox.com/tilemill/docs/guides/advanced-map-design/) for CartoCSS. For SQL, you can teach yourself using the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB]({{site.baseurl}}/courses/04-sql-postgis.html) series.
+This is the third lesson in the course _CartoDB.js from the ground up_. While covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://www.mapbox.com/tilemill/docs/manual/carto/) and [use cases](https://www.mapbox.com/tilemill/docs/guides/advanced-map-design/) for CartoCSS. For SQL, you can teach yourself using the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB]({{site.baseurl}}/courses/04-sql-postgis.html) series.
 
 ## Basic Interactivity
 
@@ -43,7 +43,7 @@ Using the CartoDB.js API, the main method to change the SQL and CartoCSS after t
 * `sublayer.setCartoCSS("new CartoCSS styles")`
 * `sublayer.setSQL("new SQL")`
 
-If you want to retrieve entries from previously created sublayers, you have the following `get...` methods:
+If you instead want to retrieve entries from previously created sublayers, you have the following `get...` methods:
 
 * `sublayer.getCartoCSS("new CartoCSS styles")`
 * `sublayer.getSQL("new SQL")`
@@ -53,9 +53,9 @@ Add more interactivity to our maps by using CartoDB.js sublayer methods for alte
 
 ### The Data
 
-We will be using the real-time earthquake data available through USGS' [up-to-date datasets](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php). To get a large amount of data, grab the "all earthquakes" under "Past 30 Days." As you will be doing this lesson at a different time than when this lesson was written, your data will appear differently than what appears below.
+We will be using the real-time earthquake data available through USGS' [up-to-date datasets](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php). To get a large amount of data, grab the "all earthquakes" link under "Past 30 Days" and import it into your account. As you will be doing this lesson at a different time than when this lesson was written, your data will appear differently than what appears below.
 
-Before working with any data, rename it to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor.html#filters) in the right pane is a great way to get to know your data.
+Before working with any data, rename the data table to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor.html#filters) in the right pane is a great way to get to know your data.
 
 The table has about a dozen columns, all of which are [explained here](http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php). The ones of interest to us are:
 
@@ -65,6 +65,7 @@ The table has about a dozen columns, all of which are [explained here](http://ea
 + depth (number) -- depth of the event in kilometers
 + mag (number) -- [magnitude of event](http://earthquake.usgs.gov/learn/glossary/?term=magnitude)
 + place (string) -- description of where the event occurred
++ net (string) -- reporting station whose measurement made it into the data
 
 We will start out with the following layer source. We will be able to update the layer by calling some of the listed methods of the CartoDB.js API.
 
@@ -83,13 +84,13 @@ var layerSource = {
 ### CartoCSS
 Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the [documentation](https://github.com/mapbox/carto/blob/master/docs/latest.md) it is only one of several elements that can be styled directly on your map.
 
-An easy way to get used to the basics of CartoCSS is by using the [Vizualization wizard](http://docs.cartodb.com/cartodb-editor.html#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
+An easy way to get used to the basics of CartoCSS is by using the [Vizualization Wizard](http://docs.cartodb.com/cartodb-editor.html#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
 
 Make sure you're in "MAP VIEW" to see your data visualized with _Simple_.  Sticking with _Simple_, click on the [CartoCSS Editor tab](http://docs.cartodb.com/cartodb-editor.html#cartocss) (the one with `CSS`) two below the Wizards tab to see how your data is styled.
 
 ![Simple CartoCSS Visualization]({{baseurl.site}}/img/course3/lesson3/cartocss-simple.png)
 
-You should see that the marker fill has an opacity option (`marker-fill-opacity`), the border to the marker (`marker-line-color`) is colored to be white (#FFF is short for #FFFFFF, which is white in [hexadecimal](http://www.web-colors-explained.com/hex.php)), the marker width is set to 10 pixels, the fill is orange (#FF6600), and so on. Check out the [CartoCSS docs](https://github.com/mapbox/carto/blob/master/docs/latest.md) for more info about the other options.
+You should see that the marker fill has an opacity option (`marker-fill-opacity`), the border to the marker (`marker-line-color`) is colored to be white (#FFF is short for #FFFFFF, which is white in [hexadecimal](http://www.web-colors-explained.com/hex.php)), the marker width is set to 10 pixels, the fill is orange (#FF6600), and so on. If you're interested, check out the [CartoCSS docs](https://github.com/mapbox/carto/blob/master/docs/latest.md) for more info about the other options.
 
 ### CartoCSS strings in JavaScript
 
@@ -112,7 +113,7 @@ var simpleStyle =
     '}';
 {% endhighlight %}
 
-Another option is to [minify](http://cssminifier.com/) the string--that is, to get rid of all the white space and newlines. This makes your styles much less readable, but your JavaScript file will be smaller and load a tiny bit faster. This method can be problematic as there are currently no minifiers for CartoCSS, so you have to rely on tools for CSS, which is obviously parsed differently.
+Another option is to [minify](http://cssminifier.com/) the string--that is, to get rid of all the white space and newlines. This makes your styles much less readable, but your JavaScript file will be smaller and load a tiny bit faster. This method can be problematic as there are currently no minifiers for CartoCSS, so you have to rely on tools for CSS, which is parsed differently.
 
 {% highlight js %}
 var simpleStyle = '#all_day_cdb_gu_l3{marker-fill-opacity:0.9;marker-line-color:#FFF;marker-line-width:1.5;marker-line-opacity:1;marker-placement:point;marker-type:ellipse;marker-width:10;marker-fill:#FF6600;marker-allow-overlap:true;}';
@@ -124,14 +125,10 @@ Because single or double quotes often appear in CartoCSS statements, you should 
 var cartocss = '#table_name{text-face-name:'DejaVu Sans Book';}'
 {% endhighlight %}
 
-The syntax highlighting we use in Academy helps us tell the story: the _DejaVu Sans Book_ portion of the CartoCSS statement is interpreted as a series of variables (grey), not part of the string (green). You could fix it by writing it in either of the following ways instead:
+The syntax highlighting we use in Academy helps us tell the story: the _DejaVu Sans Book_ portion of the CartoCSS statement is interpreted as a series of variables (grey), not part of the string (green). You could fix it by writing it the following way instead:
 
 {% highlight js %}
-var cartocss = '#table_name{text-face-name:"DejaVu Sans Book";}';
-
-// programmatically change the font
-var font = '"DejaVu Sans Book"';
-var cartocss = '#table_name{text-face-name:' + font + ';}';
+var cartocss = "#table_name{text-face-name:'DejaVu Sans Book';}";
 {% endhighlight %}
 
 A third option is to create a custom `<style>` type with an `id` that allows you to extract the text. For instance, one could use the following:
@@ -166,13 +163,13 @@ A third option is to create a custom `<style>` type with an `id` that allows you
 </script>
 {% endhighlight %}
 
-This option allows you to directly copy and paste the code from the CartoDB Editor without worrying about the errors that can occur from reformatting. Because of it's ease of use and readability, this is the format we will use for this lesson.
+The `<script>` portion of the code pulls the text between the specified script tags (`#simple` in this case) and sets `simpleStyle` equal to it. This option allows you to directly copy and paste the code from the CartoDB Editor without worrying about the errors that can occur from reformatting. Because of it's ease of use and readability, this is the format we will use for this lesson.
 
 ### Conditions in CartoCSS
 
-Now that we know what the _Simple_ visualization looks like in CartoCSS, let's look at other visualizations. Switch to _Choropleth_, select the `mag` column for ???, and choose _Equal Interval_ for Quantification. Now switch to the CartoCSS tab again. 
+Now that we know what the _Simple_ visualization looks like in CartoCSS, let's look at other visualizations. Switch to _Choropleth_, select the `mag` column, and choose _Equal Interval_ for Quantification. Now switch to the CartoCSS tab again. 
 
-You can see that in addition to the first data structure, there are additional ones with conditional statements on the `mag` column. If you switch to select _Bubble_ from the Visualization Wizard, you will see your markers are given conditional styles similar to the following:
+You can see that in addition to the first data structure, there are additional ones with conditional statements on the `mag` column. The statements style your data based on the conditions in the square brackets. If you switch to select _Bubble_ from the Visualization Wizard, you will see your markers are given conditional sizes similar to the following:
 
 {% highlight css %}
 #table_name [mag < 2.0] {
@@ -188,9 +185,9 @@ By doing this, your styles are more dynamic and responsive to your data. It allo
 
 ### Maps styled by end user
 
-CartoDB was created with the goal to help people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. If you have one of our paid accounts, you will have access to data syncing, making this goal even easier.
+CartoDB was created with the goal to help people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data.
 
-First, we'll initialize a map like we have done in Lesson 2 and define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text'>...</style>` element between the `<head>` tags, below the CSS and JavaScript inclusions.
+First, we'll initialize a map like we have done in [Lesson 2]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-2.html#exploring-callback-functions) and define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text'>...</style>` element between the `<head>` tags, below the CSS and JavaScript inclusions.
     
 Next, initialize a map like we did in the last lesson:
 
