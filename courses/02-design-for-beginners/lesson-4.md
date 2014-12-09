@@ -17,7 +17,7 @@ If we take another look at Stamen's maps, we can see again the positive effects 
 
 ![Stamen label placement.]({{site.baseurl}}/img/course2/lesson4/labelsize.png)
 
-If we look back at our ugly map, we can see that one of it's biggest problems is where the labels are placed. There is no logic behind where they're placed, nor is there any filtering. They are just randomly placed, and add nothing to the viewer's understanding of the map.
+If we look back at our ugly map, we can see that one of its biggest problems is where the labels are placed. There is no logic behind where they're placed, nor is there any filtering. They are just randomly placed, and add nothing to the viewer's understanding of the map.
 
 ![Bad map.]({{site.baseurl}}/img/course2/lesson1/badmap.png)
 
@@ -30,7 +30,7 @@ Next, go ahead and use the Simple visualization wizard. Near the bottom, you can
 
 ![Adding labels.]({{site.baseurl}}/img/course2/lesson4/addlabels.png)
 
-Let's fix this by fine-tuning our CartoCSS. You'll notice that there's a section formatting the markers, and one formatting the labels. Let's go ahead and replace the section formatting the markers with our copied CartoCSS by deleting it and pasting in the CartoCSS from where we left off in Lesson 3. If you apply the style, you'll see that not much seems to change. The labels are just to obtrusive to allow us to see any of the underlying markers.
+Let's fix this by fine-tuning our CartoCSS. You'll notice that there's a section formatting the markers, and one formatting the labels. Let's go ahead and replace the section formatting the markers with our copied CartoCSS by deleting it and pasting in the CartoCSS from where we left off in Lesson 3. If you apply the style, you'll see that not much seems to change. The labels are just too obtrusive to allow us to see any of the underlying markers.
 
 To fix this, let's go ahead and add rules to _when_ labels appear on the map. Let's say we only want to see the mmio label for large earthquakes. To do so, we would want to use some of the skills we learned in Lesson 3. We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:
 
