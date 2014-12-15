@@ -36,7 +36,7 @@ In this lesson, we will be using these powerful languages to boost the expressiv
 
 _SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_.
 
-_CartoCSS_ is a language for altering the appearance of the CartoDB data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](link/to/fun/example/of/cartocss)***. 
+_CartoCSS_ is a language for altering the appearance of the CartoDB data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](http://cartodb.github.io/torque/). 
 
 Using the [CartoDB.js API](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), the main method to change the SQL and CartoCSS after they have been declared is `sublayer.set(sublayerDefinition)`, where `sublayerDefinition` is equivalent to one of the objects in the `sublayers` array declared in `layerSource` above. If you only need to change one of CartoCSS or SQL for a previously created layer, there are some convenient methods:
 
@@ -180,21 +180,21 @@ You can see that in addition to the first data structure, there are additional s
 ...
 {% endhighlight %}
 
-By writing CartoCSS like this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, or bubble map, just as you would with the Visualization Wizard in the CartoDB Editor.
+By writing CartoCSS like this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, bubble map, or intensity vizualization just as you would with the Visualization Wizard in the CartoDB Editor.
 
 ### Maps styled by end user
 
-CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html). Rename it to `cartocss-style.html`
+CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
 
 First, we'll define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text' id='...'>CartoCSS Styles</style>` element between the `<head>` tags, below the CSS and JavaScript library inclusions.
     
 Next we need to add more styles from the CartoDB Editor. The visualizations that I am recreating are: 
 
 + Simple with an `id` of `simple`
-+ Category visualization with an `id` of `categ-report-sta`
-+ Choropleth of earthquakes by magnitude with an `id` of `choropleth-magnitude`
-+ Size (Bubble vizualization) earthquakes by magnitude with an `id` of `bubble-magnitude`
-+ Size (Bubble) earthquakes by magnitude, choropleth by depth with an `id` of `choropleth-magnitude`
++ Category by reporting station (`net` column), `id` is `categ-report-sta`
++ Choropleth of earthquakes by magnitude (`mag` column), `id` is `choropleth-magnitude`
++ Size (Bubble vizualization) earthquakes by magnitude (`mag` column), `id` is `bubble-magnitude`
++ Size (Bubble) earthquakes by magnitude (`mag` column), choropleth by depth (`depth` column), `id` of `bubble-choropleth`
 
 All of these CartoCSS styles go in their own `<style type='cartocss/text' id='...'>` structure between the `<head>` tags. The only one that requires some direct editing is the last one. This pulls the conditional styles from two different visualizations.
 
@@ -204,14 +204,14 @@ Next, we'll initialize a map like we have done already in [Lesson 2]({{site.base
 {% highlight js %}
 window.onload = function () {
 
-    var layerName = "earthquakes_cdbjs_lesson3";
+    var tableName = "earthquakes_cdbjs_lesson3";
 
     // Put layer data into a JS object
     var layerSource = {
             user_name: 'documentation', 
             type: 'cartodb',
             sublayers: [{ 
-                sql: "SELECT * FROM " + layerName, // All recorded earthquakes past 30 days
+                sql: "SELECT * FROM " + tableName, // All recorded earthquakes past 30 days
                 cartocss: $("#simple").text() // Simple visualization
             }]
         }
@@ -226,7 +226,7 @@ window.onload = function () {
     });
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-        attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_object);
 
     // Add data layer to your map
