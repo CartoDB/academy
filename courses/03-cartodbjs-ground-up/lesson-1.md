@@ -11,6 +11,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e
 ---
 
 ## JavaScript Background
+
 _Since this course explains CartoDB.js, it relies heavily on the JavaScript programming language. If you are not familiar with the language, check out some of the great free resources available on the web by looking at [this StackExchange](http://stackoverflow.com/questions/11246/best-resources-to-learn-javascript) post. We also recommend [Codecademy](http://www.codecademy.com/) and [Eloquent JavaScript](http://eloquentjavascript.net/) to get started._
 
 ## _Create Visualization_ vs. _Create Layer_

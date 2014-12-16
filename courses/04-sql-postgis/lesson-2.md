@@ -11,4 +11,3 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e
 ---
 
 ## Editing Tables, more advanced PostGIS -- Coming Soon
-
