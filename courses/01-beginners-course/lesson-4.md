@@ -50,4 +50,3 @@ Before you publish your map, you may want to add a description to your visualiza
 Once you've included that, you can also include it in your shared visualization. To get there, as you know, you can click "Share" in the top right corner of your visualization. In this window you can also change other parameters about your shared map. You can show or hide your title, description, search box and legend (when you have one). You can also enable sharing, and change privacy options depending on your plan. Finally, you can set the zoom level and bounding box that will be the first display when visitors check out your map.
 
 ![Share window.]({{site.baseurl}}/img/course1/lesson4/sharewindow.png)
-
