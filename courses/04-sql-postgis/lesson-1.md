@@ -10,7 +10,7 @@ tweet_text: "CartoDB Academy taught me all about SQL and PostGIS"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
 ---
 
-<iframe src="//player.vimeo.com/video/112283723" width="700" height="466" frameborder="0"></iframe>
+<p><iframe src="//player.vimeo.com/video/112283723" width="700" height="466" frameborder="0"> </iframe></p>
 
 ## Learning SQL through the CartoDB Editor
 

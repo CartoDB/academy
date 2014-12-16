@@ -9,7 +9,7 @@ tweet_text: "I'm learning how to use SQL and CartoCSS in @cartoDB's JavaScript A
 vizjson: "http://documentation.cartodb.com/api/v2/viz/f5f2e48c-7c07-11e4-949c-0e4fddd5de28/viz.json"
 ---
 
-<iframe src="//player.vimeo.com/video/114620642" width="700" height="393" frameborder="0"></iframe>
+<p><iframe src="//player.vimeo.com/video/114620642" width="700" height="393" frameborder="0"> </iframe></p>
 
 ## Modifying SQL and CartoCSS
 
