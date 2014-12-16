@@ -5,7 +5,7 @@ title:  "Lesson 3"
 subtitle: "Basic interactivity"
 course: "CartoDB.js from the Ground Up"
 course_slug: "03-cartodbjs-ground-up"
-tweet_text: "I'm learning how to use SQL and CartoCSS in @cartoDB's JavaScript "
+tweet_text: "I'm learning how to use SQL and CartoCSS in @cartoDB's JavaScript API"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/f5f2e48c-7c07-11e4-949c-0e4fddd5de28/viz.json"
 ---
 
@@ -288,7 +288,7 @@ Place this function after createLayer. This code finds all the `li` elements and
     
 The last piece is putting a call to `createSelector(sublayer);` right after `sublayer` is set equal to `layer.getSubLayer(0);` within `.done()`.
 
-Check out a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](link/to/jsfiddle) for a jsFiddle.
+Check out a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
 
 ### Basic SQL queries
 Let's do a few simple queries in the CartoDB Editor, and then work in JavaScript to extend our application with some of the more interesting queries. Copy your previous file to a new one called `cartocss-and-sql.html`.
@@ -365,3 +365,5 @@ The `string.indexOf('substring')` method returns the index of the string where t
 ### Moving forward
 
 If you want to go a lot further with SQL and know (or want to learn) a little PostGIS, check out the tutorial [Query by Distance](http://docs.cartodb.com/tutorials/query_by_distance.html).
+
+What else do you want to learn in Academy? Drop us a line at [contact@cartodb.com](mailto:contact@cartodb.com).
