@@ -1,0 +1,50 @@
+html, body, #map {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#cartocss {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+#sql {
+    position: absolute;
+    top: 20px;
+    right: 292px;
+}
+.layer_selector {
+    background: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    padding: 0;
+    border: 1px solid #999;
+    width: 250px;
+}
+
+.layer_selector > p {
+    padding: 15px 30px;
+    border-bottom: 1px solid #999;
+}
+
+.layer_selector ul {
+    padding: 0; margin: 0;
+    list-style-type: none;
+}
+.layer_selector li {
+    padding: 15px 30px;
+    font-family: Helvetica, Arial;
+    font-size: 13px;
+    color: #444;
+    cursor: pointer;
+}
+.layer_selector li:not(:last-child) {
+    border-bottom: 1px solid #999;
+}
+.layer_selector li:hover {
+    background-color: #F0F0F0;
+    cursor: pointer;
+}
+.layer_selector li.sql_selected,
+.layer_selector li.cartocss_selected {
+    background-color: #A6CEE3;
+}
