@@ -61,7 +61,7 @@ cartocss: '...'
 interactivity: 'column1, column2'
 {% endhighlight %}
 
-In summation, the viz.json is CartoDB.js's conduit to the data, queries, basemaps, styles, etc. that you set when you created a visualization with the data you uploaded into your CartoDB account. Now that we've thoroughly met with our viz.json, let's look at the two most important JavaScript methods that ineract with it.
+In summation, the viz.json is CartoDB.js's conduit to the data, queries, basemaps, styles, etc. that you set when you created a visualization with the data you uploaded into your CartoDB account. Now that we've thoroughly met with our viz.json, let's look at the two most important JavaScript methods that interact with it.
 
 Check out the documentation for viz.json [here](https://github.com/CartoDB/cartodb.js/blob/develop/doc/vizjson_format.md).
 
