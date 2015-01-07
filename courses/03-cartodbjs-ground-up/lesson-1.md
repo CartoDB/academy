@@ -16,9 +16,11 @@ _Since this course explains CartoDB.js, it relies heavily on the JavaScript prog
 
 ## _Create Visualization_ vs. _Create Layer_
 
-The CartoDB.js API provides powerful tools to build dynamic web apps. Along with CartoCSS, other JS libraries, and our SQL API, the sky's the limit. This course, CartoDB.js from the ground up, will show you how to build amazing apps in a small amount of time.
+The CartoDB.js API provides powerful tools to build dynamic web apps. Along with CartoCSS, other JS libraries, and our SQL API, the sky's the limit. This course, _CartoDB.js from the Ground Up_, will show you how to build amazing apps in a small amount of time.
 
-In CartoDB, there are two main methods to bring your maps into custom webpages. The first, createVis allows for quick and easy maps with a large degree of customization. It gives two map layers in an array: layer 0 is the base map; layer 1 is the CartoDB data layer. The second method, createLayer, allows for much more customization, including the combining of layers from seprate maps, each with its own levels of customization. createLayer also allows client-side control over basemaps. Both methods allow custom CartoCSS styling, SQL queries, and overlay options (zoom controls, a search box, a share button, etc.).
+In CartoDB, there are two main methods to bring your maps into custom webpages, [createVis](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#visualization) and [createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcreatelayermap-layersource--options--callback). The first, createVis allows for quick and easy maps with a large degree of customization. It gives two map layers in an array: layer 0 is the base map; layer 1 is the CartoDB data layer. 
+
+The second method, [createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcreatelayermap-layersource--options--callback), allows for much more customization, including the combining of layers from separate maps, each with its own levels of customization. createLayer also allows client-side control over basemaps. Both methods allow custom CartoCSS styling, SQL queries, and overlay options (zoom controls, a search box, a share button, etc.).
 
 Before showing these methods, we need to be introduced to these methods' main sources of information.
 
