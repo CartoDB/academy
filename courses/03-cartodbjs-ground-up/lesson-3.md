@@ -182,7 +182,7 @@ You can see that in addition to the first data structure, there are additional s
 ...
 {% endhighlight %}
 
-By writing CartoCSS like this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, bubble map, or intensity vizualization just as you would with the Visualization Wizard in the CartoDB Editor.
+By writing CartoCSS like this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, bubble map, or intensity visualization just as you would with the Visualization Wizard in the CartoDB Editor.
 
 ### Maps styled by end user
 
@@ -195,7 +195,7 @@ Next we need to add more styles from the CartoDB Editor. The visualizations that
 + Simple with an `id` of `simple`
 + Category by reporting station (`net` column), `id` is `categ-report-sta`
 + Choropleth of earthquakes by magnitude (`mag` column), `id` is `choropleth-magnitude`
-+ Size (Bubble vizualization) earthquakes by magnitude (`mag` column), `id` is `bubble-magnitude`
++ Size (Bubble visualization) earthquakes by magnitude (`mag` column), `id` is `bubble-magnitude`
 + Size (Bubble) earthquakes by magnitude (`mag` column), choropleth by depth (`depth` column), `id` of `bubble-choropleth`
 
 All of these CartoCSS styles go in their own `<style type='cartocss/text' id='...'>` structure between the `<head>` tags. The only one that requires some direct editing is the last one. This pulls the conditional styles from two different visualizations.
@@ -284,7 +284,7 @@ function createSelector(layer) {
 }
 {% endhighlight %}
 
-Place this function after createLayer. This code finds all the `li` elements and stores their reference in the variable `$options`. Once one of the `li` elements is clicked, its reference is stored in `$li`, and it's `data` is extracted and placed in the variable `selected`. The style of the buttons is altered, and then the CartoCSS text is retrieved from the `<style>` structures you previously created. Finally, the layer is told to change is appearance once the `setCartoCSS()` method is applied to it.
+Place this function after createLayer. This code finds all the `li` elements and stores their reference in the variable `$options`. Once one of the `li` elements is clicked, its reference is stored in `$li`, and its `data` is extracted and placed in the variable `selected`. The style of the buttons is altered, and then the CartoCSS text is retrieved from the `<style>` structures you previously created. Finally, the layer is told to change is appearance once the `setCartoCSS()` method is applied to it.
     
 The last piece is putting a call to `createSelector(sublayer);` right after `sublayer` is set equal to `layer.getSubLayer(0);` within `.done()`.
 
@@ -299,7 +299,7 @@ We will be passing the following SQL statements to our method `sublayer.setSQL("
 
 + Events of magnitude greater than or equal to 5.0: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE mag >= 5.0`
 + Events that are not earthquakes: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE type != 'earthquake'`
-+ Events that have a place referencing Papua New Guinea: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE place ilike '%papua new guinea%'`
++ Events that have a place referencing Papua New Guinea: <br />`SELECT * FROM earthquakes_cdbjs_lesson3 WHERE place ILIKE '%papua new guinea%'`
 
 We can code these into some HTML, grab them with a little JavaScript, and pass them to `setSQL()` to change the display of our map.
 
