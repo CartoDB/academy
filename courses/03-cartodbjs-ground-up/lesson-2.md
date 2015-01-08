@@ -239,7 +239,7 @@ $(function() {
   });
 {% endhighlight %}
 
-Check yours with [this one]({{site.baseurl}}{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html). Or check out this [jsFiddle](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_toggles_and_slider).
+Check yours with [this one]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html). Or check out this [jsFiddle](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_toggles_and_slider).
 
 **Pro Tip:** If you want to control the opacity of the layers separately, you need to do two createLayer calls, one for each layer source.
 
