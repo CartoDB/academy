@@ -233,6 +233,7 @@ What does that mean, _measurement in the same units as the input projection_? We
 
 You can measure distances (and make many other measurements in PostGIS) using meter units if you run the measurements with data on a spherical globe. That means we can exclude the first version of `ST_Distance()`. Instead, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. 
 
+<a name="sql_to_use"></a>
 {% highlight sql %}
 SELECT
   *,
@@ -244,7 +245,7 @@ FROM
   earthquake_sql
 {% endhighlight %}
 
-The spaces and new lines are added to make it more readable. SQL is very forgiving about whitespace, so it will run as printed.
+The spaces and new lines are added to make it more readable. SQL is very forgiving about whitespace, so it will run as printed. This query produces the table you will be needing for the next section.
 
 _Pro Tip:_ In spatial functions, if an option is available that includes the `boolean use_spheroid` option, it will achieve the same result as casting your results using the `::geography` method. You could use it as follows:
 
@@ -265,7 +266,7 @@ _Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that
 
 ## Mapping with SQL results
 
-Once you successfully run your query, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
+Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new data table. It is now easy to make a [choropleth map]({{site.baseurl}}/courses/01-beginners-course/lesson-2.html) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
 <iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
 
