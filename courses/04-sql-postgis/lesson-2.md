@@ -6,7 +6,7 @@ subtitle: "PostGIS in CartoDB"
 course: "SQL and PostGIS in CartoDB"
 course_slug: "04-sql-postgis"
 continue_link: "lesson-3"
-tweet_text: ""
+tweet_text: "I just (geosptially) revisited Highway 61 @cartoDB"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
 ---
 
@@ -17,7 +17,9 @@ CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [P
 In this lesson, we will introduce several commonly used functions in PostGIS with the goal of extending your geospatial analysis of data within CartoDB. We will be using some of the most commonly used PostGIS functions to give you a flavor for some of the analysis you can do with your geospatial data.
 
 **Our goal with this lesson:**
-Geospatially revisit blues musician birthplaces along Highway 61.
+Geospatially revisit blues musician birthplaces along Highway 61 by using important functions in PostGIS and SQL.
+
+_If you haven't gotten your feet with with SQL in CartoDB, check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) first._
 
 ### Data
 
@@ -29,7 +31,7 @@ We're going to be using data derived from the [Federal Highway Administration](h
 http://academy.cartodb.com/d/highway_61_revisited.geojson
 {% endhighlight %}
 
-Don't worry about downloading and then uploading the data--just directly import into your CartoDB account.
+Don't worry about downloading and then uploading the data--just directly import it into your CartoDB account.
 
 **Birthplaces of Mississippi Blues Musicians**
 
@@ -40,7 +42,7 @@ http://academy.cartodb.com/d/mississippi_blues_musicians.geojson
 {% endhighlight %}
 
 
-### Show buffers
+### Show Buffers
 
 As the name suggests, `ST_Buffer` takes a geometry as an argument and returns that geometry but with a buffer around it. It always returns a polygon. In its simplest usage, you can create a polygon centered on a point. The same applies to lines and polygons, but you always get out a polygon.
 
@@ -84,7 +86,7 @@ To extend this to see which musicians are in the buffer, [create a multilayered 
 There we go! We have a visual of what's going on to aid in our spatial analysis of the data.
 
 
-### Find musicians within the buffer
+### Find Musicians within the Buffer
 
 Now that we've visualized our buffer, let's find which blues musicians were born within that buffer. While it might seem like doing the following statement would work well in the `WHERE` clause, it turns out to be _very inefficient_.
 
@@ -138,7 +140,7 @@ The embedded map below has the bottom layer as the buffered highway, but the top
 
 <iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/6c1f86e4-ab04-11e4-9c80-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-### Finding distance from road
+### Finding Distance from Road
 
 We can take a different tact now and calculate the distance each musician is from the highway. In [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) of this course, we found the distance between a point for each row of the table. Now we have points and a line. Luckily, PostGIS is flexible enough to still work. In this case, it finds the distance to the closest point on the line.
 
@@ -166,7 +168,7 @@ You could visualize the data in this newly created table by making a choropleth 
 
 ![ST_Distance]({{site.baseurl}}/img/course4/lesson2/stdistance.png)
 
-### Visualizing lines from musicians to the road
+### Visualizing Lines from Musicians to the Road
 
 `ST_MakeLine()` returns a line geometry given two or more points. When working on a collection of points, it returns the path that an object follows if you specify the order the object visited the points. Check out the documentation for more on this. 
 
@@ -193,7 +195,7 @@ Below is a screenshot of the result of this query.
 
 ![ST_MakeLine example]({{site.baseurl}}/img/course4/lesson2/makeline.png)
 
-### Bringing it all together
+### Bringing It All Together
 
 We can bring together all the SQL statements we've run into one and create a chroropleth on the lines based on how long the birth places are from the highway. We're basically just making a new column in the `SELECT` for each of the commands that we've run before.
 
@@ -287,20 +289,20 @@ Functions mentioned in this lesson:
 + [ST_Distance](http://postgis.org/docs/ST_Distance.html)
 + [ST_ClosestPoint](http://postgis.org/docs/ST_ClosetPoint.html)
 + [ST_DWithin](http://postgis.net/docs/ST_DWithin.html)
-+ [ceil]()
++ [ceil](http://www.postgresql.org/docs/9.3/static/functions-math.html)
 
 Here are some of the most commonly used PostGIS functions in CartoDB:
 
-1. ST_Transform
-2. ST_Area
-3. ST_Union
-4. ST_Centroid
-5. ST_SetSRID
-6. ST_Collect
-7. ST_Y
-8. ST_X
-9. ST_Intersection
-10. ST_Contains
+1. [ST_Transform](http://postgis.org/docs/ST_Transform.html)
+2. [ST_Area](http://postgis.org/docs/ST_Area.html)
+3. [ST_Union](http://postgis.org/docs/ST_Union.html)
+4. [ST_Centroid](http://postgis.org/docs/ST_Centroid.html)
+5. [ST_SetSRID](http://postgis.org/docs/ST_SetSRID.html)
+6. [ST_Collect](http://postgis.org/docs/ST_Collect.html)
+7. [ST_Y](http://postgis.org/docs/ST_Y.html)
+8. [ST_X](http://postgis.org/docs/ST_X.html)
+9. [ST_Intersection](http://postgis.org/docs/ST_Intersection.html)
+10. [ST_Contains](http://postgis.org/docs/ST_Contains.html)
 
 **See also**
 
