@@ -32,10 +32,10 @@ Next, go ahead and use the Simple visualization wizard. Near the bottom, you can
 
 Let's fix this by fine-tuning our CartoCSS. You'll notice that there's a section formatting the markers, and one formatting the labels. Let's go ahead and replace the section formatting the markers with our copied CartoCSS by deleting it and pasting in the CartoCSS from where we left off in Lesson 3. If you apply the style, you'll see that not much seems to change. The labels are just too obtrusive to allow us to see any of the underlying markers.
 
-To fix this, let's go ahead and add rules to _when_ labels appear on the map. Let's say we only want to see the `mag` label for large earthquakes. To do so, we would want to use some of the skills we learned in Lesson 3. We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:
+To fix this, let's go ahead and add rules to _when_ labels appear on the map. Let's say we only want to see the `mag` label for large earthquakes. To do so, we would want to use some of the skills we learned in [Lesson 3](). We would go ahead and add conditions to the CartoCSS formatting that tell CartoDB to only sometimes display the labels. See if you can decipher the block of code below:
 
 {% highlight css %}
-#cartodb_query_::labels 
+#table_1_0_month::labels 
 [mag>=5][zoom>6]
 {
   text-name: [mag];
@@ -57,7 +57,7 @@ Here, we're telling CartoDB to only display the labels when the `mag` is greater
 We can also describe multiple condition pairs in which we would want the labels to be displayed. For example, we want to see labels when the `mag` is at or above 6 and the zoom is above 6, OR when the `mag` is above 5 and the zoom is above 7. To do that, we just separate condition chains with commas. Our code, then, would look like this:
 
 {% highlight css %}
-#cartodb_query_::labels 
+#table_1_0_month::labels 
 [mag>=6][zoom>6],
 [mag>=5][zoom>7],
 [mag>=4][zoom>8],
