@@ -7,7 +7,7 @@ course: "CartoDB.js from the Ground Up"
 course_slug: "03-cartodbjs-ground-up"
 continue_link: "lesson-3"
 tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
-vizjson: "http://andye.cartodb.com/api/v2/viz/19de0ce2-3deb-11e4-b07b-0edbca4b5057/viz.json"
+vizjson: "http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json"
 ---
 
 <p><iframe src="//player.vimeo.com/video/110427306" width="700" height="393" frameborder="0"></iframe> </iframe></p>
