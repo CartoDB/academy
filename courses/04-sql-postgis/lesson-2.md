@@ -19,7 +19,7 @@ In this lesson, we will introduce several commonly used functions in PostGIS wit
 **Our goal with this lesson:**
 Geospatially revisit blues musician birthplaces along Highway 61 by using important functions in PostGIS and SQL.
 
-_If you haven't gotten your feet with with SQL in CartoDB, check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) first._
+_If you haven't gotten your feet wet with SQL in CartoDB, check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) first._
 
 ### Data
 
@@ -172,7 +172,7 @@ You could visualize the data in this newly created table by making a choropleth 
 
 `ST_MakeLine()` returns a line geometry given two or more points. When working on a collection of points, it returns the path that an object follows if you specify the order the object visited the points. Check out the documentation for more on this. 
 
-In our case, we're interested in drawing [as the crow flies](http://en.wikipedia.org/wiki/As_the_crow_flies) lines of any one musician to the highway's nearest respective point. Because the highway is a line and the musician birthplaces are points, we need to find a way to get the nearest point to the musician birthplaces.
+In our case, we're interested in drawing [as-the-crow-flies](http://en.wikipedia.org/wiki/As_the_crow_flies) lines of any one musician to the highway's nearest respective point. Because the highway is a line and the musician birthplaces are points, we need to find a way to get the nearest point to the musician birthplaces.
 
 Looking through the PostGIS docs, you'll find `ST_ClosestPoint()`, which fits the bill.
 
@@ -234,7 +234,7 @@ SELECT
   the_geom_webmercator,
   'US Route 61' AS name,
   '' AS city,
-  0 AS d
+  null AS d
 FROM
   highway_61
 {% endhighlight %}
