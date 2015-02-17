@@ -251,7 +251,7 @@ If you're interested in copying the CartoCSS I used to make this map, paste the 
 #highway_61{
   polygon-opacity: 0;
   line-color: #FFFFCC;
-  line-width: 1.5;
+  line-width: 2.5;
   line-opacity: 0.8;
 }
 #highway_61 [ d <= 141] {
