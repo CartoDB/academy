@@ -17,9 +17,13 @@ CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [P
 In this lesson, we will introduce several commonly used functions in PostGIS with the goal of extending your geospatial analysis of data within CartoDB and show you some of the analysis you can do with your geospatial data.
 
 **Our goal with this lesson:**
-Geospatially visit blues musician birthplaces along Highway 61 by using important functions in PostGIS and SQL.
+Geospatially _revisit_ blues musician birthplaces along Highway 61 by using important functions in PostGIS and SQL. Yep, this is a reference to the Bob Dylan album [_Highway 61 Revisited_](http://en.wikipedia.org/wiki/Highway_61_Revisited).
 
-_If you haven't gotten your feet wet with SQL in CartoDB, check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) first._
+By the end of this lesson, you will be able to make this map:
+
+<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+_If you haven't gotten your feet wet with SQL in CartoDB, please check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) first. This lesson relies exclusively on the CartoDB Editor. If you're not familiar with CartoDB Editor, first get started with [Online Mapping for Beginners](http://academy.cartodb.com/courses/01-beginners-course.html)._
 
 ### Data
 
@@ -44,9 +48,9 @@ http://academy.cartodb.com/d/mississippi_blues_musicians.geojson
 
 ### Show Buffers
 
-As the name suggests, `ST_Buffer` takes a geometry as an argument and returns that geometry but with a buffer around it. It always returns a polygon. In its simplest usage, you can create a polygon centered on a point. The same applies to lines and polygons, but you always get out a polygon.
+As the name suggests, `ST_Buffer` takes a geometry as an argument and returns that [geometry but with a buffer around it](http://en.wikipedia.org/wiki/Buffer_%28GIS%29). It always returns a polygon. In its simplest usage, you can create a polygon centered on a point. The same applies to lines and polygons, but you always get out a polygon.
 
-Like other PostGIS functions, it preserves the projection units. That is, if you put in a point in WGS 84, you'll get out a polygon in WGS 84.
+Like other PostGIS functions, it preserves the projection units. That is, if you put in a point in WGS 84, you'll get out a polygon in WGS 84. For more about WGS 84, check out the last lesson's section on [measurement units]({{site.baseurl}}/courses/04-sql-postgis/lesson-1.html#measurement-units).
 
 The two examples below show how a point or line geometry can be transformed to a polygon geometry using `ST_Buffer`.
 
@@ -58,11 +62,11 @@ geometry ST_Buffer(geometry g1, float radius_of_buffer)
 geography ST_Buffer(geography g1, float radius_of_buffer_in_meters)
 {% endhighlight %}
 
-The function 'ST_Buffer' takes a geometry such as a point as the first argument, and the radius for the buffer as the second argument. For more inforation, see the PostGIS [documentation page](http://www.postgis.org/docs/ST_Buffer.html).
+The function 'ST_Buffer' takes a geometry such as a point as the first argument, and the radius for the buffer as the second argument. For more information, see the PostGIS [documentation page](http://www.postgis.org/docs/ST_Buffer.html).
 
 There is a hidden column in CartoDB called `the_geom_webmercator,` which is responsible for making the data appear on your map in the correct location. Its units are meters and we will be using it exclusively. It is in the projection [WebMercator](http://en.wikipedia.org/wiki/Web_Mercator), or [ESPG 3857](http://spatialreference.org/ref/sr-org/7483/). `the_geom_webmercator` is updated in the background every time you update `the_geom`. It is _not_ updated, though, when you only select `the_geom` in a `SELECT` statement.
 
-To visualize a 25 mile corridor around U.S. Route 61, put the following command into the cartoDB [SQL editor](http://docs.cartodb.com/cartodb-editor.html#custom-sql).
+To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CartoDB [SQL editor](http://docs.cartodb.com/cartodb-editor.html#custom-sql). Go to MAP VIEW to see the result of the query.
 
 {% highlight sql %}
 SELECT
@@ -170,7 +174,7 @@ You could visualize the data in this newly created table by making a choropleth 
 
 ### Visualizing Lines from Musicians to the Road
 
-`ST_MakeLine()` returns a line geometry given two or more points. When working on a collection of points, it returns the path that an object follows if you specify the order the object visited the points. Check out the documentation for more on this. 
+`ST_MakeLine()` returns a line geometry given two or more points. When working on a collection of points, it returns the path of connect-the-dot points ordered by cartodb_id. Check out the [documentation](http://postgis.net/) for more on this. 
 
 In our case, we're interested in drawing [as-the-crow-flies](http://en.wikipedia.org/wiki/As_the_crow_flies) lines of any one musician to the highway's nearest respective point. Because the highway is a line and the musician birthplaces are points, we need to find a way to get the nearest point to the musician birthplaces.
 
@@ -237,7 +241,7 @@ FROM
   highway_61
 {% endhighlight %}
 
-<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+The final map is at the top of this page.
 
 If you're interested in copying the CartoCSS I used to make this map, paste the following into the [CartoCSS panel](http://docs.cartodb.com/cartodb-editor.html#cartocss) in the sidebar:
 
@@ -281,26 +285,26 @@ If you're interested in copying the CartoCSS I used to make this map, paste the 
 
 Functions mentioned in this lesson:
 
-+ [ST_Intersects](http://postgis.org/docs/ST_Intersects.html)
-+ [ST_MakeLine](http://postgis.org/docs/ST_MakeLine.html)
-+ [ST_Buffer](http://postgis.org/docs/ST_Buffer.html)
-+ [ST_Distance](http://postgis.org/docs/ST_Distance.html)
-+ [ST_ClosestPoint](http://postgis.org/docs/ST_ClosestPoint.html)
++ [ST_Intersects](http://postgis.net/docs/ST_Intersects.html)
++ [ST_MakeLine](http://postgis.net/docs/ST_MakeLine.html)
++ [ST_Buffer](http://postgis.net/docs/ST_Buffer.html)
++ [ST_Distance](http://postgis.net/docs/ST_Distance.html)
++ [ST_ClosestPoint](http://postgis.net/docs/ST_ClosestPoint.html)
 + [ST_DWithin](http://postgis.net/docs/ST_DWithin.html)
 + [ceil](http://www.postgresql.org/docs/9.3/static/functions-math.html)
 
 Here are some of the most commonly used PostGIS functions in CartoDB:
 
-1. [ST_Transform](http://postgis.org/docs/ST_Transform.html)
-2. [ST_Area](http://postgis.org/docs/ST_Area.html)
-3. [ST_Union](http://postgis.org/docs/ST_Union.html)
-4. [ST_Centroid](http://postgis.org/docs/ST_Centroid.html)
-5. [ST_SetSRID](http://postgis.org/docs/ST_SetSRID.html)
-6. [ST_Collect](http://postgis.org/docs/ST_Collect.html)
-7. [ST_Y](http://postgis.org/docs/ST_Y.html)
-8. [ST_X](http://postgis.org/docs/ST_X.html)
-9. [ST_Intersection](http://postgis.org/docs/ST_Intersection.html)
-10. [ST_Contains](http://postgis.org/docs/ST_Contains.html)
+1. [ST_Transform](http://postgis.net/docs/ST_Transform.html)
+2. [ST_Area](http://postgis.net/docs/ST_Area.html)
+3. [ST_Union](http://postgis.net/docs/ST_Union.html)
+4. [ST_Centroid](http://postgis.net/docs/ST_Centroid.html)
+5. [ST_SetSRID](http://postgis.net/docs/ST_SetSRID.html)
+6. [ST_Collect](http://postgis.net/docs/ST_Collect.html)
+7. [ST_Y](http://postgis.net/docs/ST_Y.html)
+8. [ST_X](http://postgis.net/docs/ST_X.html)
+9. [ST_Intersection](http://postgis.net/docs/ST_Intersection.html)
+10. [ST_Contains](http://postgis.net/docs/ST_Contains.html)
 
 **See also**
 
