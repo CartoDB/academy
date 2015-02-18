@@ -23,16 +23,16 @@ By the end of this lesson, you will be able to make this map:
 
 <iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-_If you haven't gotten your feet wet with SQL in CartoDB, please check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) first. This lesson relies exclusively on the CartoDB Editor. If you're not familiar with CartoDB Editor, first get started with [Online Mapping for Beginners](http://academy.cartodb.com/courses/01-beginners-course.html)._
+_If you haven't gotten your feet wet with SQL in CartoDB, first check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html). This lesson relies exclusively on the CartoDB Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](http://academy.cartodb.com/courses/01-beginners-course.html)._
 
 ### Data
 
 **Mississippi portion of US Route 61**
 
-We're going to use data derived from the [Federal Highway Administration](http://www.fhwa.dot.gov/policyinformation/hpms/shapefiles.cfm). Copy and paste the following URL into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data).
+We're going to use data derived from the [Federal Highway Administration](http://www.fhwa.dot.gov/policyinformation/hpms/shapefiles.cfm). Copy and paste the following URL into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data):
 
 {% highlight text %}
-http://academy.cartodb.com/d/highway_61_revisited.geojson
+http://academy.cartodb.com/d/highway_61.geojson
 {% endhighlight %}
 
 Don't worry about downloading and then uploading the data--just directly import it into your CartoDB account using the above link.
@@ -92,7 +92,7 @@ There we go! We have a visual of what's going on to aid in our spatial analysis 
 
 ### Find Musicians within the Buffer
 
-Now that we've visualized our buffer, let's find which blues musicians were born within that buffer. While it might seem like the following statement would work well in the `WHERE` clause, it is _very inefficient_.
+Now that we've visualized our buffer, let's find which blues musicians were born within that buffer. While it might seem like the following statement would work well in a `WHERE` clause, it is _very inefficient_.
 
 {% highlight sql %}
 ST_Intersects(
@@ -146,7 +146,7 @@ The embedded map below has the bottom layer as the buffered highway, and the top
 
 ### Finding Distance from Road
 
-Let's take a different tact now and calculate the distance each musician is from the highway. In [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) of this course, we found the distance between a point for each row of our table. Now we have points and a line. Luckily, PostGIS is flexible and can calculate the distance to the closest point on a line.
+Let's take a different tack now and calculate the distance each musician is from the highway. In [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) of this course, we found the distance between a point for each row of our table. Now we have points and a line. Luckily, PostGIS is flexible and can calculate the distance to the closest point on a line.
 
 Notice that we're rounding up with the `ceil()` function, and dividing the distance by 1609 meters/mile to convert to miles.
 
@@ -308,5 +308,6 @@ Here are some of the most commonly used PostGIS functions in CartoDB:
 
 **See also**
 
-Basic `ST_Buffer` usage in the CartoDB tutorial [_Drawing a circle from a point and radius_](http://docs.cartodb.com/tutorials/circle_point_radius.html).
+* Basic `ST_Buffer` usage in the CartoDB tutorial [_Drawing a circle from a point and radius_](http://docs.cartodb.com/tutorials/circle_point_radius.html)
+* Maptime NYC [blog post about PostGIS and SQL](http://blog.cartodb.com/maptime-entry/)
 
