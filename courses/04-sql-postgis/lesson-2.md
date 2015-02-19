@@ -12,7 +12,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e
 
 ## PostGIS in CartoDB
 
-CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [PostGIS](http://www.postgresql.org/) extension. This means that you have all the power of relational databases combined with hundreds of geospatial functions. 
+CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [PostGIS](http://www.postgis.net/) extension. This means that you have all the power of relational databases combined with hundreds of geospatial functions. 
 
 In this lesson, we will introduce several commonly used functions in PostGIS with the goal of extending your geospatial analysis of data within CartoDB and show you some of the analysis you can do with your geospatial data.
 
@@ -104,7 +104,7 @@ ST_Intersects(
 )
 {% endhighlight %}
 
-`ST_Intersects()` returns true/false depending on whether or not two entries have an overlap.
+`ST_Intersects()` returns true/false depending on whether or not two entries have an overlap, which is why it is good for a `WHERE` condition.
 
 The **better** choice is to use `ST_DWithin()`. 
 
@@ -115,9 +115,9 @@ boolean ST_DWithin(geography gg1, geography gg2, double precision distance_meter
 boolean ST_DWithin(geography gg1, geography gg2, double precision distance_meters, boolean use_spheroid);
 {% endhighlight %}
 
-Given two columns of geospatial data, you can use `ST_DWithin` to find out which points are within a given distance of each other. Notice that the return value is a boolean, so it is a good function for the `WHERE` or `JOIN ON` parts of SQL statements.
+Given two columns of geospatial data, you can use `ST_DWithin` to find out which points are within a given distance of each other. Notice that the return value is a boolean, so it is a good function for the `ON` part of `JOIN` or a `WHERE` or of SQL statements. If you're not familiar with `JOIN`s, check out a great discussion at [Coding Horror](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/).
 
-We'll continue our usage of `the_geom_webmercator`, so we will use the middle definition.
+We'll continue our usage of `the_geom_webmercator`, so we will use the middle definition for `ST_DWithin` above.
 
 The SQL query we'll run is the following:
 
@@ -133,8 +133,8 @@ FROM
 WHERE
   ST_DWithin(
     mbm.the_geom_webmercator,
-	hwy.the_geom_webmercator,
-	25*1609
+    hwy.the_geom_webmercator,
+    25*1609
   )
 {% endhighlight %}
 
