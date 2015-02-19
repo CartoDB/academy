@@ -168,7 +168,7 @@ ORDER BY
   d ASC
 {% endhighlight %}
 
-You could visualize the data in this newly created table by making a choropleth on the column `d`. Since we already did something very similar to that in [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html), we'll move on to new functionality.
+You can visualize the data in this newly created table by making a choropleth on the column `d`. Since we already did something very similar to that in [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html), we'll move on to a new functionality.
 
 ![ST_Distance]({{site.baseurl}}/img/course4/lesson2/stdistance.png)
 
