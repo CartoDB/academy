@@ -62,13 +62,17 @@
             {{ content }}
           </div>
 
+          <div class="contributing" style="border-top: 1px solid #ddd; padding-top: 2em;">
+              <p style="font-style: oblique;">Have suggestions on how to improve this lesson? Find typos or broken links?  Open an <a href="https://github.com/CartoDB/academy/issues">issue</a> in the <a href="https://github.com/CartoDB/docs">academy repository</a> or fork the repo and submit a pull request. Not familiar with GitHub? Check out <a href="http://stackoverflow.com/questions/3748272/introduction-to-git-and-practical-usage-patterns">this StackExchange thread</a> for resources on how to get going.</p>
+          </div>
+
           <div class="crs-share">
             {% if page.tweet_text %}
             <div class="lss-end">
               <div class="h-left">
-                <h2>Awesome, this is the end of this lesson</h2>
+                <h2>Awesome, this is the end of this lesson.</h2>
                 <p>Just a few more steps and you will become a basic mapper</p>
-                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.tweet_text }}&url={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" target="_blank" title="Share on Twitter">twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" target="_blank" title="Share on Facebook">Facebook</a></span></p>
+                <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.tweet_text }}&url={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" target="_blank" title="Share on Twitter">Twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" target="_blank" title="Share on Facebook">Facebook</a></span></p>
               </div>
               {% if page.continue_link %}
               <div class="h-right">
