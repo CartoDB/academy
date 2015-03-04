@@ -237,7 +237,7 @@ UNION ALL
 SELECT
   the_geom_webmercator,
   'US Route 61' AS name,
-  '' AS city,
+  null AS city,
   null AS d
 FROM
   highway_61
@@ -281,6 +281,23 @@ If you're interested in copying the CartoCSS I used to make this map, paste the 
    line-color: #F84F40;
 }
 
+{% endhighlight %}
+
+To get your hover window to customize so that US Route 61's `null` value distance and name don't appear, you can update the HTML template to this instead:
+
+{% highlight html %}
+<div class="cartodb-tooltip-content-wrapper">
+  <div class="cartodb-tooltip-content">
+    <h4>Name</h4>
+    <p>{{name}}</p>
+    {{#city}}
+    <h4>City</h4>
+    <p>{{city}}</p>
+    <h4>Distance</h4>
+    <p>{{d}} miles</p>
+    {{/city}}
+  </div>
+</div>
 {% endhighlight %}
 
 ### Reference
