@@ -71,7 +71,7 @@
             <div class="lss-end">
               <div class="h-left">
                 <h2>Awesome, this is the end of this lesson.</h2>
-                <p>Just a few more steps and you will become a basic mapper</p>
+                <p>{% if page.lesson_message %}{{page.lesson_message}}{% else %}Just a few more steps and you will become a basic mapper{% endif %}</p>
                 <p>Share your progress with your friends on <span class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.tweet_text }}&url={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" target="_blank" title="Share on Twitter">Twitter</a></span> or <span class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u={{ site.baseurl }}/courses/{{ page.course_slug }}/lesson-{{ page.id }}.html" target="_blank" title="Share on Facebook">Facebook</a></span></p>
               </div>
               {% if page.continue_link %}
