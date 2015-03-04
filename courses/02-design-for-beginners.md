@@ -1,6 +1,6 @@
 ---
 layout: course
-title: "Introduction to map design"
+title: "Introduction to Map Design"
 id: "02-design-for-beginners"
 subtitle: Master the basics of designing data for your maps!
 categories: basic
