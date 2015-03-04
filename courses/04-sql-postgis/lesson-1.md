@@ -14,9 +14,9 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e
 
 ## Learning SQL through the CartoDB Editor
 
-CartoDB is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra which has a solid foundation.
+CartoDB is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra, which has a solid foundation.
 
-SQL queries work on data arranged in tables which are visually similar to an Excel spreadsheet, but have very different underlying mechanics. Table names are lowercase, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
+SQL queries work on data arranged in tables that are visually similar to an Excel spreadsheet, but have very different underlying mechanics. Table names are lowercase, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
 
 In this lesson, we will be using CartoDB to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
@@ -66,7 +66,7 @@ SELECT columns
 FROM table_name
 {% endhighlight %}
 
-_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The AS keyword gives the old column name a new alias. Also note that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
+_Pro Tip:_ If you want to rename a column when you create a new table from query, you would write: `column_name AS new_name`. If you wanted to change `mag`, you would put `mag AS magnitude` into your SELECT statement. The 'AS' keyword gives the old column name a new alias. Also note that this does not actually change anything in the original table--it just creates a new temporary table with the new information that you selected. We will explore methods for updating tables in the coming lessons.
 
 ## Filters show us WHERE...
 
@@ -91,7 +91,7 @@ Once you've finished exploring your data with filters, remove all of the filters
 
 As you will see, filters show us the WHERE clause that allows you to select rows based on criteria you set. In this case, the WHERE clause chooses all rows that have either "earthquake" or "quarry" in the `type` column. That is, a row is only chosen if `type` matches "earthquake" or "quarry".
 
-We could easily flip this condition around by placing the NOT keyword before IN, and we would only get all rows that do not have "earthquake" or "quarry" in the `type` column.
+We could easily flip this condition around by placing the 'NOT' keyword before 'IN', and we would only get all rows that do not have "earthquake" or "quarry" in the `type` column.
 
 Delete all of the text _after_ WHERE, and type `cartodb_id = 4`. Once you finish typing, apply the query and inspect the results. As you will see, all records that do not have a `cartodb_id` of 4 disappear from view. You can apply other conditions, such as `cartodb_id > 2` or even on-the-fly calculations such as `cartodb_id * 2 > 4`.
 
@@ -103,11 +103,11 @@ Switch back to the Filters tab, hit "Clear view" to clear the last SQL command, 
 + `<=` for less than or equal to
 + `<>` or `!=` for not equal to
 
-We also discover that we can chain conditions together using the AND keyword. In the case of our `depth` filter, you have the following format: 
+We also discover that we can chain conditions together using the 'AND' keyword. In the case of our `depth` filter, you have the following format: 
 
     depth <= value1 AND depth >= value2
     
-If you add another filter you can see that they are all chained together to give a more nuanced selection of your data. The OR keyword is another option for having multiple conditions.
+If you add another filter you can see that they are all chained together to give a more nuanced selection of your data. The 'OR' keyword is another option for having multiple conditions.
 
 The final condition we will discover through our filters can be found by filtering `place`. Clear all filters except for `place`. Type in "California" and then switch to the SQL tab. You will see a new keyword ILIKE that does basic [regular expression](http://www.postgresql.org/docs/9.0/static/functions-matching.html) matching that is _case-insensitive_. If you want case-sensitive matching instead, you need to use LIKE.
 
@@ -177,11 +177,11 @@ Start by double-clicking on a cell in the `the_geom` column. In the resulting me
 }
 {% endhighlight %}
 
-While the underlying geometry is in a different format, this data has been translated to [GeoJSON](http://www.geojson.org/). In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. And just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or **projections**. `the_geom` is stored in a system called WGS84. Hear more about all of it's beautiful intricacies from this [great video](http://youtu.be/q65O3qA0-n4).
+While the underlying geometry is in a different format, this data has been translated to [GeoJSON](http://www.geojson.org/). In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. Just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or **projections**. `The_geom` is stored in a system called WGS84. Hear more about all of it's beautiful intricacies from this [great video](http://youtu.be/q65O3qA0-n4).
 
 ## the_geom_webmercator
 
-The other geospatial column that CartoDB uses is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected to Web Mercator, a web-optimized version of the historical Mercator projection. `the_geom_webmercator` is required by CartoDB to display information on your map. It is normally hidden from view because CartoDB updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
+The other geospatial column that CartoDB uses is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected to Web Mercator, a web-optimized version of the historical Mercator projection. `The_geom_webmercator` is required by CartoDB to display information on your map. It is normally hidden from view because CartoDB updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
 
 {% highlight sql %}
 SELECT cartodb_id, ST_AsText(the_geom_webmercator) AS the_geom_webmercator
@@ -209,7 +209,7 @@ We'll keep working with the earthquake data, but trying to generate some new use
 
 First you would need to know your location. Let's say you're in downtown San Francisco, which is near (37.7833&deg; N,-122.4167&deg; W), so we can just use the `CDB_LatLng()` function to generate the proper geometry.
 
-## Introduction to measurements 
+## Introduction to Measurements 
 
 Next we need to find a PostGIS function that allows us to find the distance we are from another lat/long location. Looking through the [PostGIS documentation](http://postgis.net/docs/reference.html#Spatial_Relationships_Measurements), you will find a function called `ST_Distance()` that has the following function prototypes:
 
@@ -227,9 +227,9 @@ This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading)
 
 Two things to notice about this function. First, we cannot mix projection types. For example, you cannot measure the distance between a value in `the_geom` and a value in `the_geom_webmercator`. Second, the function returns a [float point](http://en.wikipedia.org/wiki/Floating_point) data type that is a measurement in the same units as the input projection.
 
-### Measurement units
+### Measurement Units
 
-What does that mean, _measurement in the same units as the input projection_? Well, it is a funny thing. But let's say you want to measure the distance between two points stored in `the_geom` that we can call `the_geom_a` and `the_geom_b`. If you input them both into `ST_Distance(the_geom_a, the_geom_b)` the result would come back in units of WGS84. This is not very useful because the answer is in degrees. Instead, we want to measure distance in meters (or kilometers). 
+What does that mean, _measurement in the same units as the input projection_? Well, it is a funny thing. Let's say you want to measure the distance between two points stored in `the_geom` that we can call `the_geom_a` and `the_geom_b`. If you input them both into `ST_Distance(the_geom_a, the_geom_b)` the result would come back in units of WGS84. This is not very useful because the answer is in degrees. Instead, we want to measure distance in meters (or kilometers). 
 
 You can measure distances (and make many other measurements in PostGIS) using meter units if you run the measurements with data on a spherical globe. That means we can exclude the first version of `ST_Distance()`. Instead, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. 
 
