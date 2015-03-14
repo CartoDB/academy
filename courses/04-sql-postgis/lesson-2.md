@@ -6,7 +6,8 @@ subtitle: "PostGIS in CartoDB"
 course: "SQL and PostGIS in CartoDB"
 course_slug: "04-sql-postgis"
 continue_link: "lesson-3"
-tweet_text: "I just (geosptially) revisited Highway 61 @cartoDB"
+tweet_text: "I just (geospatially) revisited Highway 61 @cartoDB"
+lesson_message: "Nice work geospatial explorer! More SQL &amp; PostGIS is coming up next!"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
 ---
 
@@ -331,9 +332,4 @@ Here are some of the most commonly used PostGIS functions in CartoDB:
 
 * Basic `ST_Buffer` usage in the CartoDB tutorial [_Drawing a circle from a point and radius_](http://docs.cartodb.com/tutorials/circle_point_radius.html)
 * Maptime NYC [blog post about PostGIS and SQL](http://blog.cartodb.com/maptime-entry/)
-
-
-#### Improving our resources
-
-Have suggestions on how to improve this lesson? Find typos or broken links?  Open an [issue](https://github.com/CartoDB/academy/issues) in the [academy repository](https://github.com/CartoDB/academy) or fork the repo and submit a pull request. Not familiar with GitHub? Check out [this StackExchange thread](http://stackoverflow.com/questions/3748272/introduction-to-git-and-practical-usage-patterns) for resources on how to get going.
 
