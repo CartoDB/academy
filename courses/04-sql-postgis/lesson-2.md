@@ -286,6 +286,7 @@ If you're interested in copying the CartoCSS I used to make this map, paste the 
 To get your hover window to customize so that US Route 61's `null` value distance and name don't appear, you can update the HTML template to this instead:
 
 {% highlight html %}
+{% raw %}
 <div class="cartodb-tooltip-content-wrapper">
   <div class="cartodb-tooltip-content">
     <h4>Name</h4>
@@ -298,6 +299,7 @@ To get your hover window to customize so that US Route 61's `null` value distanc
     {{/city}}
   </div>
 </div>
+{% endraw %}
 {% endhighlight %}
 
 ### Reference
