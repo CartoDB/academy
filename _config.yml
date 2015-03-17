@@ -7,5 +7,5 @@ permalink: /:title.html
 encoding: utf-8
 markdown: kramdown
 analytics_property_id:
-mixpanel_token:
+hubspot_id:
 highlighter: 'pygments'
