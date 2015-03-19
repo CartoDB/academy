@@ -24,36 +24,36 @@ Creating an account with CartoDB is quick and easy; you can head over to [our we
 If you're interested in a plan with more data storage or other features, please check out a full [list of CartoDB plans](http://cartodb.com/pricing/).
 
 ### Creating a Table
-Once you're logged in and on your dashboard, locate the upper menu bar and click on the link called "common data."  Here you'll find the table named "Populated places," and a "+" sign to its right. Click on either to copy the dataset to your tables.
+Once you're logged in and on your dashboard, locate the upper menu bar and click on the link "Common Data."  Once here, click on "Cultural Datasets," and scroll down to find a table named "Populated places." Click on table's name to import it into your account.
 
-![Add Common Data]({{site.baseurl}}/img/course1/lesson1/commondata.png)
+![Add Common Data]({{site.baseurl}}/img/course1/lesson1/commondata.gif)
 
-After the file processes and inputs, you will be taken straight to the "Table" view of the data. Here you can see the full data in a table. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains.
+After the file processes and inputs, you will be taken straight to the "Data View" of this dataset. Here you can see the full data in a table. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains.
 
-As you look at the table, take note of the second column from the left called "`the_geom`." It contains information required to display data on a map. Without values in this column — like the coordinates we have in this dataset — you won't be able to map your data.
+As you look at the table, take note of the second column from the left called `the_geom`. It contains information required to display data on a map. Without values in this column — like the coordinates we have in this dataset — you won't be able to map your data.
 
 ![the_geom column]({{site.baseurl}}/img/course1/lesson1/the_geom.png)
 
-To the right of "Table" at the top left of the chart, select "Map View" to begin designing your visualization.
+To the right of "Data View" at the top left of the chart, select "Map View" to begin designing your visualization.
 
-![Table and Map View]({{site.baseurl}}/img/course1/lesson1/table_map_view.png)
+![Data and Map View]({{site.baseurl}}/img/course1/lesson1/table_map_view.png)
 
 ### Starting with Your Visualization
 
-In "Map view" you're still looking at all the same data as in "Table," but here it has been translated onto a map. You can change the map design and icons representing the data to suit your needs.
+In Map View you're still looking at all the same data as in Data View, but here it has been translated onto a map. You can change the map design and icons representing the data to suit your needs.
 
 ![Table and Map View]({{site.baseurl}}/img/course1/lesson1/mapview.png)
 
-First, you can take a look at the available basemaps by clicking the basemap icon below "Map view". We have provided many for you to choose from, including Google Maps basemaps and some of our own. In later courses we'll cover how to add your own custom maps to this list.
+First, you can take a look at the available basemaps by clicking the basemap icon below Map View. We have provided many for you to choose from, including our own Positron and Black Matter basemaps made for us with Open Street Map data by Stamen. In later courses, we'll cover how to add your own custom basemaps to this list.
 
-![Selecting a basemap.]({{site.baseurl}}/img/course1/lesson1/basemaps.png)
+![Selecting a basemap]({{site.baseurl}}/img/course1/lesson1/basemaps.png)
 
-Once you've selected your basemap — in this case we kept the default, "Nokia Day" — go to the toolbar on the right, and click on the paint brush icon to take a look at "Wizards." Here, select "Category" to visualize the table column "`adm0cap`," which contains data about which cities are capitals (represented by "1" in the map key at the bottom-right corner of the map) and which aren't (represented by "NULL").
+Once you've selected your basemap — in this case we selected "Nokia Day" — go to the toolbar on the right, and click on the paintbrush icon to take a look at the Visualization Wizard. Once here, select "Category" to visualize the table column `adm0cap`, which contains data about which cities are capitals (represented by 1 in the legend at the bottom-right corner of the map) and which aren't (represented by 0).
 
 ![Selecting markers.]({{site.baseurl}}/img/course1/lesson1/selectimg.png)
 
-You can also choose your own marker images. To do so, stay in the "Visualization wizard" and locate the "IMG" icons beside the "0" (again, non-capital cities) and "1" (capital cities). Click on either of these "IMG" icons to change the city markers to any one of those that have been pre-loaded, or upload one of your own.
+You can also choose your own marker images. To do so, stay in the "Visualization Wizard" and locate the "IMG" icons beside the "0" (again, non-capital cities) and "1" (capital cities). Click on either of these "IMG" icons to change the city markers to any one of those that have been preloaded, or upload one of your own.
 
 ![Selecting markers.]({{site.baseurl}}/img/course1/lesson1/markeroptions.png)
 
-At this point, we are still looking at our data in "Map view" — it isn't a shareable visualization just yet. To make it one, just click "Visualize" in the upper right-hand corner of the page, name it, and click on "Create visualization." Now you're ready to share it via the "Share" link that appears in the top righthand corner of the page.
+At this point, we are still looking at our data in Map View — it isn't a shareable visualization just yet. To make it one, just click "Visualize" in the upper right-hand corner of the page, name it, and click on "Create Visualization." Now you're ready to share it via the "Share" link that appears in the top right-hand corner of the page.

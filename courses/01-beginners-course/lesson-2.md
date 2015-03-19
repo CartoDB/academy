@@ -6,7 +6,7 @@ subtitle: "Your First Choropleth Map"
 course: "Beginners course"
 course_slug: "01-beginners-course"
 continue_link: "lesson-3"
-tweet_text: "Step by step is the way to go. I've finished the second lesson of the map academy. Check it out"
+tweet_text: "Step by step is the way to go. I've finished the 2nd lesson of the map academy. Check it out"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 ---
 
@@ -16,13 +16,13 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and copy this link:
 
-~~~javascript
+{% highlight javascript %}
 http://acdmy.org/d/counties.zip
-~~~
+{% endhighlight %}
 
 Now you should make sure you're on your CartoDB dashboard.  
 
-If you skipped Beginners' Course Lesson 1, and therefore haven't yet created a visualization or tables, you'll automatically be in the "tables" section of your dashboard, as you'll see from the upper menu bar. Scroll down past the video to the bottom of the page and click on the green button "Create your first table." 
+If you skipped Beginners' Course Lesson 1, and therefore haven't yet created a visualization or tables, you'll automatically be in the "as" section of your dashboard, as you'll see from the upper menu bar. Scroll down past the video to the bottom of the page and click on the green button "Create your first table." 
 
 If you've already made a visualization or table and aren't already in the "tables" section of your dashboard, enter it through the upper menu bar, then click "New table" or the "+" icon to the right of your existing table(s). 
 
@@ -30,7 +30,7 @@ In the dialogue box that appears, just paste the link you copied above into the 
 
 ![Add data from a link]({{site.baseurl}}/img/course1/lesson2/newtableURL.png)
 
-Your data will open up in "Table" view. There, like we suggested in Beginners' Course Lesson 1, you can take a look through the data columns. Note that this time the `the_geom` column indicates "Polygon" values. This means that the geometry that CartoDB will map is in polygon format.
+Your data will open up in Data View. There, like we suggested in Beginners' Course Lesson 1, you can take a look through the data columns. Note that this time the `the_geom` column indicates "Polygon" values. This means that the geometry that CartoDB will map is in polygon format.
 
 ### Creating a Simple Visualization
 
@@ -66,4 +66,4 @@ In the column selector you can change the table column that CartoDB maps onto th
 
 In the "choropleth" visualization you can also change the fill colors, county borders, and color opacity, just like you could in the "simple" visualization. Go ahead and play around with these!
 
-As always, once you click "vizualize" in the upper right to publish your map, you can share it using the "share" button that will appear in this button's place. Remember that you can only share published visualizations, not the "Map view" of a table.
+As always, once you click "vizualize" in the upper right to publish your map, you can share it using the "share" button that will appear in this button's place. Remember that you can only share published visualizations, not the "Map View" of a table.
