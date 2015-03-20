@@ -271,7 +271,7 @@ Once you successfully run your <a href="#sql_to_run">query from above</a>, save 
 
 <iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
 
-That's it for Lesson One of SQL and PostGIS in CartoDB. Lesson Two is coming soon.
+That's it for Lesson One of SQL and PostGIS in CartoDB.
 
 Want more? Check out some tutorials:
 
