@@ -67,7 +67,7 @@ We can also change the sizes of our markers based upon a column we're interested
 
 To do this, just select the Bubble Visualization in your Visualization Wizard. You can play with the largest and smallest sizes to emphasize the variation in sizes. We went ahead and made our marker radius range go from 1 to 50.
 
-You can also change the "Quantification Method" to affect the way that the data is displayed. The Quantification Method basically decides how the data should be cut up in to groups, or bins, and each one is different in how it displays your data. It is great to understand what each of these means in terms of interpreting your data, and you can read [more](http://blog.cartographica.com/blog/2010/8/16/gis-data-classifications-in-cartographica.html) [here](http://individual.utoronto.ca/lackner/ggr272/DataClassificationMethods.pdf).
+You can also change the "Quantification Method" to affect the way that the data is displayed. The Quantification Method basically decides how the data should be cut up in to groups, or bins, and each one is different in how it displays your data. It is great to understand what each of these means in terms of interpreting your data, and you can read more [here](http://blog.cartographica.com/blog/2010/8/16/gis-data-classifications-in-cartographica.html) and [here](http://individual.utoronto.ca/lackner/ggr272/DataClassificationMethods.pdf).
 
 We went with Heads/Tails to emphasize the biggest quakes, and assign the lowest hierarchy to the smallest quakes.
 
