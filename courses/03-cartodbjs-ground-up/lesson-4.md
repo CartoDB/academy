@@ -5,9 +5,9 @@ title:  "Lesson 4"
 subtitle: "Torque.js"
 course: "CartoDB.js from the ground up"
 course_slug: "03-cartodbjs-ground-up"
-tweet_text: "Animating maps with JavaScript and Torque"
-vizjson: "http://documentation.cartodb.com/api/v2/viz/07a3e3bc-6df7-11e4-b5a6-0e9d821ea90d/viz.json"
-lesson_message: "I'm more animated because of Torque.js"
+tweet_text: "I'm more animated because of Torque.js"
+vizjson: "http://team.cartodb.com/api/v2/viz/fbf9322a-d8ad-11e4-a572-0e018d66dc29/viz.json"
+lesson_message: "Congrats on finishing, animated JavaScript mapper!"
 ---
 
 Torque is close to our heart at CartoDB.
@@ -17,6 +17,9 @@ Torque is close to our heart at CartoDB.
 
 1. Expose the rich methods and events in the Torque.js library
 2. Make temporal mapping more accessible and hackable
+3. Make this map using JavaScript:
+
+<iframe src="/t/03-cartodbjs-ground-up/lesson-4/final_product.html" width="100%" height="520"></iframe>
 
 ## Getting started
 
@@ -39,7 +42,7 @@ var layerSource = {
 This JSON object is passed as the second argument to createLayer:
 
 {% highlight javascript %}
-cartodb.createLayer(dom_id,layerSource)
+cartodb.createLayer(dom_id, layerSource)
     .done(function(layer) {
         // do stuff
     })
@@ -62,13 +65,69 @@ This is handled in one line of the Torque flavor of CartoCSS:
 
 By default it counts the number of events happening by counting how many `cartodb_id`s are within the area. But you can have it operate on any other number column instead. For instance, if you want to find the max magnitude of a specific column, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another.
 
-What's a bin, though? Torque automatically calculates two-dimensional bins that depend on the zoom level of your map and the resolution you define in:
+The output of this calculation within a bin is stored in a special variable accessible to the CartoCSS conditional structures. It's called `value`, and you'll see its usage below.
+
+What is a bin, though? Torque automatically calculates two-dimensional bins that depend on the zoom level of your map and the resolution you define in the Torque-flavor of CartoCSS:
 
 {% highlight css %}
 -torque-resolution:2;
 {% endhighlight %}
 
-Points are snapped to a grid that is defined by the resolution you set. This has the effect of creating a two-dimensional histogram if you aggregate by `count`.
+Points are snapped to a grid that is defined by the resolution you set (smaller resolution means grid spacing is smaller). This has the effect of creating a two-dimensional histogram if you aggregate by `count`.
+
+### Our stork
+
+For our stork, we have a column in our data set called `ground_speed` that we are going to use to visualize the average speed of the bird within any of the bins. We can use `value` and some conditions in our CartoCSS to style the marker on the map.
+
+The following style works:
+
+{% highlight css %}
+/** torque visualization */
+
+Map {
+-torque-frame-count:512;
+-torque-animation-duration:30;
+-torque-time-attribute:"timestamp";
+-torque-aggregation-function:"avg(ground_speed)";
+-torque-resolution:0.125;
+-torque-data-aggregation:linear;
+}
+
+#academy_torque_stork{
+  marker-fill-opacity: 0.7;
+  marker-line-color: #FFF;
+  marker-line-width: 0;
+  marker-line-opacity: 1;
+  marker-type: ellipse;
+  marker-width: 4;
+  marker-fill: #5CA2D1;
+  [value < 12] {
+  	marker-fill: red;
+  }
+  [value < 6 ] {
+    marker-fill: purple;
+  }
+  [value < 3 ] {
+    marker-fill: #5CA2D1;
+  }
+}
+#academy_torque_stork[frame-offset=1] {
+ marker-width:2.75;
+ marker-fill-opacity:0.5; 
+}
+#academy_torque_stork[frame-offset=2] {
+ marker-width:1.75;
+ marker-fill-opacity:0.25; 
+}
+#academy_torque_stork[frame-offset=3] {
+ marker-width:1;
+ marker-fill-opacity:0.125; 
+}
+#academy_torque_stork[frame-offset=4] {
+ marker-width:0.5;
+ marker-fill-opacity:0.0625; 
+}
+{% endhighlight %}
 
 ## Pulling it all together
 
@@ -106,8 +165,8 @@ We need to convert it to:
 <style type="text/sql" id="sql">
 SELECT 
   s.* 
-FROM 
-  white_stork_movebank_non_null s, 
+FROM
+  academy_torque_stork s,
   (
     SELECT 
       the_geom 
