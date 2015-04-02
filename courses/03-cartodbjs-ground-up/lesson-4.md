@@ -19,13 +19,19 @@ Torque is close to our heart at CartoDB.
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
-<iframe src="/t/03-cartodbjs-ground-up/lesson-4/final_product.html" width="100%" height="520"></iframe>
+<iframe src="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/final_product.html" width="100%" height="480"></iframe>
+
+Template: [link to raw html in github repo](...)
+
+### Import your data
+
+Import your data into your account, making sure the table name is `academy_torque_stork`.
 
 ## Getting started
 
-The basic piece for creating a Torque layer on the fly in CartoDB.js, is only a difference in the layer source passed to createLayer.
+The basic piece for creating a Torque layer on the fly in CartoDB.js is the type of layer source object passed to createLayer.
 
-The generic format is:
+The generic format for Torque is:
 
 {% highlight javascript %}
 var layerSource = {
@@ -51,7 +57,48 @@ cartodb.createLayer(dom_id, layerSource)
     });
 {% endhighlight %}
 
-Below the comment `// do stuff` is where we will be adding all the fun that comes in doing Torque.js and will be the focus of this lesson.
+All we have to do now is to create a map as we've done in the previous three lessons:
+
+{% highlight javascript %}
+window.onload = function () {
+
+    // Instantiate new map object, place it in 'map' element
+    var map = new L.Map('map', {
+        center: [25,25], // Western Egypt
+        zoom: 4,
+        scrollWheelZoom: false
+    });
+
+    // setup layer
+    var layerSource = {
+        type: 'torque',
+        options: {
+            user_name: 'documentation',
+            table_name: 'academy_torque_stork',
+            cartocss: $("#cartocss")
+        }
+    }
+
+    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    });
+
+    map.addLayer(layer);
+
+    // put Torque layer on top of basemap
+    cartodb.createLayer('map', layerSource)
+        .done(function(layer) {
+            // do stuff
+        })
+        .error(function(err) {
+            console.log("Error: " + err);
+        });
+}
+
+window.onload = main;
+{% endhighlight %}
+
+Below the comment `// do stuff` is where we will be adding some of the fun that comes in doing Torque.js and will be the focus of this lesson. But first we need to take advantage some special Torque styling options.
 
 ## Aggregate functions
 
@@ -63,17 +110,23 @@ This is handled in one line of the Torque flavor of CartoCSS:
 -torque-aggregation-function:"count(cartodb_id)";
 {% endhighlight %}
 
-By default it counts the number of events happening by counting how many `cartodb_id`s are within the area. But you can have it operate on any other number column instead. For instance, if you want to find the max magnitude of a specific column, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another.
+By default it counts the number of events happening by counting how many `cartodb_id`s (that is, points) are within the area. But you can have it operate on any other number column instead. For instance, if you want to find the max magnitude of a specific column, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another.
 
 The output of this calculation within a bin is stored in a special variable accessible to the CartoCSS conditional structures. It's called `value`, and you'll see its usage below.
 
-What is a bin, though? Torque automatically calculates two-dimensional bins that depend on the zoom level of your map and the resolution you define in the Torque-flavor of CartoCSS:
+{% highlight css %}
+Map {
+  -
+}
+{% endhighlight %}
+
+What is a bin, though? Torque automatically calculates two-dimensional bins that depend on the zoom level of your map and the resolution you define in the Torque flavor of CartoCSS:
 
 {% highlight css %}
 -torque-resolution:2;
 {% endhighlight %}
 
-Points are snapped to a grid that is defined by the resolution you set (smaller resolution means grid spacing is smaller). This has the effect of creating a two-dimensional histogram if you aggregate by `count`.
+Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity.
 
 ### Our stork
 
@@ -82,15 +135,13 @@ For our stork, we have a column in our data set called `ground_speed` that we ar
 The following style works:
 
 {% highlight css %}
-/** torque visualization */
-
 Map {
--torque-frame-count:512;
--torque-animation-duration:30;
--torque-time-attribute:"timestamp";
--torque-aggregation-function:"avg(ground_speed)";
--torque-resolution:0.125;
--torque-data-aggregation:linear;
+    -torque-frame-count:512;
+    -torque-animation-duration:30;
+    -torque-time-attribute:"timestamp";
+    -torque-aggregation-function:"avg(ground_speed)";
+    -torque-resolution:0.125;
+    -torque-data-aggregation:linear;
 }
 
 #academy_torque_stork{
@@ -173,17 +224,17 @@ FROM
     FROM 
       africa_adm0 
     WHERE 
-      name = '{{country}}'
+      name = '{% raw %}{{country}}{% endraw %}'
   ) a
 WHERE 
   ST_Intersects(
     s.the_geom,
     a.the_geom
   )
-  </style>
+</style>
 {% endhighlight %}
 
-Besides relying on [jQuery](), CartoDB.js relies on [mustache.js](https://github.com/janl/mustache.js/), where you can easily template text strings. That's what's in `{{country}}` above.
+Besides relying on [jQuery](https://jquery.com/), CartoDB.js relies on [mustache.js](https://github.com/janl/mustache.js/), where you can easily template text strings. That's what's in `{% raw %}{{country}}{% endraw %}` above.
 
 We wire this into the JavaScript as below.
 
