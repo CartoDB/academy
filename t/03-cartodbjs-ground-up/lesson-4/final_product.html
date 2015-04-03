@@ -63,6 +63,48 @@
      marker-fill-opacity:0.0625; 
     }  
     </script>
+    
+    <script type="cartocss/text" id="static">
+    /** static torque visualization */
+
+    Map {
+    -torque-frame-count:1;
+    -torque-animation-duration:30;
+    -torque-time-attribute:"timestamp";
+    -torque-aggregation-function:"max(ground_speed)";
+    -torque-resolution:0.125;
+    -torque-data-aggregation:linear;
+    }
+
+    #white_stork_movebank{
+      marker-fill-opacity: 0.7;
+      marker-line-color: #FFF;
+      marker-line-width: 0;
+      marker-line-opacity: 1;
+      marker-type: ellipse;
+      marker-width: 4;
+      marker-fill: #5CA2D1;
+      [value > 12] {
+      	marker-fill: red;
+      }
+    }
+    #white_stork_movebank[frame-offset=1] {
+     marker-width:2.75;
+     marker-fill-opacity:0.5; 
+    }
+    #white_stork_movebank[frame-offset=2] {
+     marker-width:1.75;
+     marker-fill-opacity:0.25; 
+    }
+    #white_stork_movebank[frame-offset=3] {
+     marker-width:1;
+     marker-fill-opacity:0.125; 
+    }
+    #white_stork_movebank[frame-offset=4] {
+     marker-width:0.5;
+     marker-fill-opacity:0.0625; 
+    }  
+    </script>
 
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
   </head>
@@ -73,7 +115,7 @@
 
     <script>
       function main() {
-          var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png', {
+          var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
           });
 
@@ -91,9 +133,10 @@
           var layerSource = {
               type: 'torque',
               options: {
-                  table_name: tableName,
+                  query: "SELECT * FROM " + tableName,
                   user_name: userName,
-                  tile_style: $("#cartocss").html()
+                  cartocss: $("#cartocss").html(),
+                  loop: false
               }
           }
           
@@ -101,6 +144,11 @@
             .addTo(map)
             .done(function(layer) {
                 var torqueLayer = layer;
+                torqueLayer.on('change:time', function(changes) {
+                    if (changes.step === torqueLayer.provider.getSteps() - 1) {
+                        torqueLayer.pause();
+                    }
+                });
             })
             .error(function(err) {
                 console.log("Error: " + err);
