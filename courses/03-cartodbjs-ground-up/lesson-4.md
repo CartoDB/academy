@@ -26,9 +26,9 @@ This lesson strongly relies on techniques developed in the past three lessons on
 
 ### Import your data
 
-The data for this lesson comes from [MoveBank](https://www.moveban.org), an amazing repository of tracking data for animals all over the world. The dataset we'll be working with is from a white stork's trip over 303 days from Greece, through the Middle East, to Sub-Saharan Africa, and back.
+The data for this lesson comes from [MoveBank](https://www.movebank.org), an amazing repository of tracking data for animals all over the world. The dataset we'll be working with is from a white stork's trip over 303 days from Greece, through the Middle East, to Sub-Saharan Africa, and back.
 
-Copy the following link and import it into your account. Make sure the table name is `academy_torque_stork`. The file will take up about 8 MB in your account.
+Copy the following link to import the data into your account. Make sure the table name is `academy_torque_stork`. The file will take up about 8 MB in your account.
 
 {% highlight html %}
 http://academy.cartodb.com/d/academy_torque_stork.zip
@@ -38,11 +38,11 @@ http://academy.cartodb.com/d/academy_torque_stork.zip
 
 The HTML template we will be using for this lesson is available in the repository where all Map Academy lessons are stored.
 
-[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the skeleton HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/t/03-cartodbjs-ground-up/lesson-4/template.html).
+[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/t/03-cartodbjs-ground-up/lesson-4/template.html).
 
 ## Getting started
 
-The basic piece for creating a Torque layer on the fly in CartoDB.js is the type of layer source object passed to createLayer.
+The basic piece required to create a Torque layer on the fly in CartoDB.js is the type of layer source object passed to createLayer.
 
 The generic format for Torque is:
 
@@ -79,7 +79,7 @@ var vizjsonUrl = 'link to viz.json file';
 cartodb.createVis(dom_id, vizjsonURL);
 {% endhighlight %}
 
-In this lesson, though, we'll stick with createLayer as it exposes more to customize using JavaScript. All we have to do now is to create a map as we've done in the previous three lessons:
+In this lesson, though, we'll stick with createLayer as it exposes more to customize using JavaScript. All we have to do now is to create a map as we've done in the previous three lessons. The following goes between the `<script>` tags towards the end of the template HTML file.
 
 {% highlight javascript %}
 window.onload = function() {
@@ -120,9 +120,9 @@ window.onload = function() {
 window.onload = main;
 {% endhighlight %}
 
-Below the comment `// do stuff` is where we will be adding some of the fun that comes in doing Torque.js and will be the focus of this lesson. Pasting that into your HTML template and customizing `layerSource` to reflect your credentials will _almost_ produce a basic Torque map as you would see it in the CartoDB Editor. First we need to take advantage some special Torque styling options with CartoCSS.
+Below the comment `// do stuff` is where we will be adding some of the fun that comes in doing Torque.js and will be the focus of this lesson. Paste that into your HTML template and customizing `layerSource` to reflect your credentials will _almost_ produce a basic Torque map as you would see it in the CartoDB Editor. First we need to take advantage of some special Torque styling options with CartoCSS.
 
-It's often easiest to use CartoDB's Editor to start the styling for your map and then work from there to customize it. Using the [techniques from the last lesson]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-3.html#cartocss-strings-in-javascript), we can grab the styles from a DOM element using [jQuery](https://jquery.com/) by placing the following between the `<head>` tags:
+It's often easiest to use CartoDB's Editor to start the styling for your map and then work from there to customize it further with CartoCSS. Using the [techniques from the last lesson]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-3.html#cartocss-strings-in-javascript), we can grab the styles from a DOM element using [jQuery](https://jquery.com/) by placing the following between the `<head>` tags:
 
 {% highlight html %}
 <style type="cartocss/text" id="basic">
@@ -158,13 +158,13 @@ Map {
 </style>
 {% endhighlight %}
 
-Notice that this block's `id` is "basic", so the 
+Notice that this block's `id` is "cartocss", so the 
 
 {% highlight js %}
 cartocss: $("#cartocss").html()
 {% endhighlight %}
 
-statement in the `layerSource` object means that this text is passed as the CartoCSS for this map. 
+statement in the `layerSource` object means that this text is applied as the CartoCSS for this map. 
 
 ## Aggregate functions
 
@@ -176,7 +176,7 @@ This is handled in one line in the Torque CartoCSS:
 -torque-aggregation-function:"count(cartodb_id)";
 {% endhighlight %}
 
-By default it counts the number of events happening by counting how many points (by using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time (timestamp) -- so counting `cartodb_id`s means you are counting events. 
+By default it counts the number of events happening by counting how many points (by using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time or sequence (date or number column) -- so counting `cartodb_id`s means you are counting events. 
 
 The aggregate functions can operate on any other number column instead of `cartodb_id`, though. For instance, if you want to find the max magnitude of all of the events in a bin, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another. Remember that everything happens at the bin level, and that bins are recalculated at new zoom levels.
 
@@ -218,13 +218,27 @@ What is a bin, though? Torque automatically calculates two-dimensional bins that
 -torque-resolution:2;
 {% endhighlight %}
 
-Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity. Play around with different resolutions -- especially large ones -- to see the effect. Because of the nature of quadtrees and tiles based on 256 pixel edges, resolutions will produce more reliable results if they are in powers of 2. Resolutions such as 0.125 (2<sup>-3</sup>), 16 (2<sup>4</sup>), and 128 (2<sup>7</sup>) are all acceptable.
+Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity. Play around with different resolutions -- especially large ones -- to see the effect. Because of the nature of quadtrees and tiles based on 256 or 512 pixel edges, resolutions will produce more reliable results if they are in powers of 2. Resolutions such as 0.125 (2<sup>-3</sup>), 16 (2<sup>4</sup>), and 128 (2<sup>7</sup>) are all acceptable.
 
 ### Our stork
 
 For our stork, we have a column in our data set called `ground_speed` that we are going to use to visualize the average speed of the bird within any of the bins. We can use `value` and some conditions in our CartoCSS to style the marker on the map.
 
-The following style works:
+PostgreSQL has many [aggregate functions](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) that give back the various statistical measures you could be interested in calculating.
+
+The following style works to show the different average velocities of the stork within any two dimensional bin for which we have data to aggregate. The values 12, 6, and 3 were chosen from applying the following query and getting intuition about how it would be grouped or clustered.
+
+{% highlight sql %}
+SELECT 
+  date_part('days',timestamp), 
+  avg(ground_speed) 
+FROM 
+  academy_torque_stork
+GROUP BY
+  date_part('days',timestamp)
+{% endhighlight %}
+
+The CartoCSS used to produce the map is here:
 
 {% highlight css %}
 Map {
@@ -272,7 +286,7 @@ Map {
 }
 {% endhighlight %}
 
-Besides the styling based on the average speed, there is also styling in the trailing frames. The offsets give the effect of a breadcrumb trail where the markers get smaller and less opaque as time passes.
+Besides the styling based on the average speed, there is also styling in the trailing frames. The offsets give the effect of a breadcrumb trail where the markers get smaller and less opaque as time passes, like ants eating the crumbs.
 
 Besides `frame-offset` and `value`, you can also use `zoom` in the CartoCSS to style your map.
 
@@ -291,7 +305,7 @@ torqueLayer.on('change:time', function(changes) {
 });
 {% endhighlight %}
 
-And to ensure that the map does not play without all of the tiles loading, this 
+And to ensure that the map does not play without all of the tiles loading, use this piece of code:
 
 {% highlight javascript %}
 // once animation is loaded, automatically play
