@@ -6,7 +6,7 @@ subtitle: "Torque.js"
 course: "CartoDB.js from the ground up"
 course_slug: "03-cartodbjs-ground-up"
 tweet_text: "I'm more animated because of Torque.js @cartoDB"
-vizjson: "http://team.cartodb.com/api/v2/viz/fbf9322a-d8ad-11e4-a572-0e018d66dc29/viz.json"
+vizjson: "http://documentation.cartodb.com/api/v2/viz/47a9b8f8-da51-11e4-b561-0e0c41326911/viz.json"
 lesson_message: "Congrats on finishing, animated JavaScript mapper!"
 ---
 
@@ -64,6 +64,7 @@ This JSON object is passed as the second argument to createLayer:
 cartodb.createLayer(map_object, layerSource)
     .done(function(layer) {
         // do stuff
+        var torqueLayer = layer;
     })
     .error(function(err) {
         console.log("Error: " + err);
@@ -279,11 +280,31 @@ Besides `frame-offset` and `value`, you can also use `zoom` in the CartoCSS to s
 
 To pull in that new styling all you have to do is replace the previous styling with the one above.
 
-## Bonus Section
+To add some control to your maps, there are several [event handlers](https://github.com/CartoDB/torque/blob/master/doc/API.md#events). For instance, you can add the following piece of code the line below `var torqueLayer = ...` to have the map stop playing at the final step:
 
-We can wire up some query events to our SQL to investigate the behavior or our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. Warning: this requires some more advanced uses of SQL and JavaScript.
+{% highlight javascript %}
+// pause animation at last frame
+torqueLayer.on('change:time', function(changes) {
+    if (changes.step === torqueLayer.provider.getSteps() - 1) {
+        torqueLayer.pause();
+    }
+});
+{% endhighlight %}
 
-To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the `africa_adm0` table from Common Data, CartoDB's data library, and applied the following query (which we'll update to make it more responsive in JavaScript):
+And to ensure that the map does not play without all of the tiles loading, this 
+
+{% highlight javascript %}
+// once animation is loaded, automatically play
+torqueLayer.on('load', function() {
+    torqueLayer.play();
+});
+{% endhighlight %}
+
+## Taking it further
+
+We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript.
+
+To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript):
 
 {% highlight sql %}
 SELECT 
@@ -331,16 +352,69 @@ WHERE
 
 Besides relying on [jQuery](https://jquery.com/), CartoDB.js relies on [mustache.js](https://github.com/janl/mustache.js/), where you can easily template text strings. That's what's in `{% raw %}{{country}}{% endraw %}` above.
 
-We wire this into the JavaScript as below.
+We wire this into the JavaScript as below. It's similar to what was done in the previous lesson but since the time component changes, the slider automatically changes to reflect the total span of time the stork visited the country selected.
 
 {% highlight javascript %}
-var newSQL = Mustache.render($("#sql").html(),{country: countrySelected}); // replaces country template with country selected
-torqueLayer.setSQL(newSQL); // changes SQL to reflect user interaction
-$("#desc").html("<p>The Torque stork's journey in " + countrySelected + "</p>"); // updates the header
+// generate SQL to reflect user interaction
+var newSQL = Mustache.render($("#sql").html(),{country: countrySelected}); 
+
+// apply SQL to torque layer
+torqueLayer.setSQL(newSQL); 
 {% endhighlight %}
 
-Next we need to add buttons that will trigger the query to be applied based on user interaction. We can do this with the following:
+We need to put these pieces of code into some `if` statements so it's easy to reset the map, place the selector function in the proper place, and add buttons.
+
+Here's the selector function:
+
+{% highlight javascript %}
+// Create data selector
+function createSelector(layer) {
+    var condition = "";
+    var $options = $(".layer_selector").find("li");
+    $options.click(function(e) {
+      layer.stop();
+      var $li = $(e.target);
+      var selected = $li.attr('data');
+      if (selected === 'XXXXX') {
+          var newSQL = "SELECT * FROM " + tableName;
+          $("#location").text("");
+      } else {
+          var newSQL = Mustache.render($("#sql").html(),{country: selected});
+          $("#location").text("to " + selected);
+      }
+      console.log("SQL applied:",newSQL);
+      layer
+        .setSQL(newSQL)
+        .on('load', function() {
+            layer.play();
+        });
+    });
+}
+{% endhighlight %}
+
+Next we need to add `createSelector(torqueLayer)` within `.done(...)` after `var torqueLayer = layer;`.
+
+And finally, we need to add buttons that will trigger the query to be applied based on user interaction. We can do this with the following:
 
 {% highlight html %}
-
+<div id="sql-buttons" class="layer_selector">
+    <p>Select a country to see the stork's movements there </p>
+    <ul>
+        <li data="Chad">Chad</li>
+        <li data="Egypt">Egypt</li>
+        <li data="S. Sudan">South Sudan</li>
+        <li data="Sudan">Sudan</li>
+        <li data="XXXXX">Reset to All</li>
+    </ul>
+</div>
 {% endhighlight %}
+
+Checkout a <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/bonus.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html" target="_blank">view the source code</a>.
+
+### Resources
+
+* Torque.js documentation
+* CartoDB.js documentation
+
+
+**Happy Mapping!**
