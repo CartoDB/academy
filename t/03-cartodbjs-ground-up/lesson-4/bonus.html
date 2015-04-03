@@ -4,7 +4,7 @@
     <title>Map Academy | CartoDB.js &amp; Torque.js</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <!-- <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" /> -->
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
     <style>
       html, body, #map {
         height: 100%;
@@ -169,7 +169,7 @@
     <div id="desc"><h3>A white stork's journey <span id="location"></span></h3></div>
     
     <div id="sql-buttons" class="layer_selector">
-        <p>SQL Selectors</p>
+        <p>Select a country to see the stork's movements there </p>
         <ul>
             <li data="Chad">Chad</li>
             <li data="Egypt">Egypt</li>
@@ -221,7 +221,6 @@
                   } else {
                       var newSQL = Mustache.render($("#sql").html(),{country: selected});
                       $("#location").text("to " + selected);
-                      // $("#desc").html("<p>The Torque stork's journey in " + selected + "</p>");
                   }
 
                   console.log(newSQL);
@@ -236,6 +235,7 @@
             .done(function(layer) {
                 var torqueLayer = layer;
                 torqueLayer.pause();
+
                 torqueLayer.on('load', function() {
                     torqueLayer.play();
                 });

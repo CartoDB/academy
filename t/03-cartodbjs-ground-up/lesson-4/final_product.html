@@ -135,8 +135,7 @@
               options: {
                   query: "SELECT * FROM " + tableName,
                   user_name: userName,
-                  cartocss: $("#cartocss").html(),
-                  loop: false
+                  cartocss: $("#cartocss").html()
               }
           }
           
@@ -144,6 +143,13 @@
             .addTo(map)
             .done(function(layer) {
                 var torqueLayer = layer;
+
+                // once animation is loaded, automatically play
+                torqueLayer.on('load', function() {
+                    torqueLayer.play();
+                });
+
+                // pause animation at last frame
                 torqueLayer.on('change:time', function(changes) {
                     if (changes.step === torqueLayer.provider.getSteps() - 1) {
                         torqueLayer.pause();
