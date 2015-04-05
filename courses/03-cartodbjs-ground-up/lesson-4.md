@@ -149,26 +149,26 @@ Map {
 }
 #academy_torque_stork[frame-offset=1] {
  marker-width:8;
- marker-fill-opacity:0.45; 
+ marker-fill-opacity:0.45;
 }
 #academy_torque_stork[frame-offset=2] {
  marker-width:10;
- marker-fill-opacity:0.225; 
+ marker-fill-opacity:0.225;
 }
 </style>
 {% endhighlight %}
 
-Notice that this block's `id` is "cartocss", so the 
+Notice that this block's `id` is "cartocss", so the
 
 {% highlight js %}
 cartocss: $("#cartocss").html()
 {% endhighlight %}
 
-statement in the `layerSource` object means that this text is applied as the CartoCSS for this map. 
+statement in the `layerSource` object means that this text is applied as the CartoCSS for this map.
 
 ## Aggregate functions
 
-An extremely useful feature of Torque is the automatic aggregation of data by bin. Using common aggregate functions from SQL you can have values calculated to highlight what's happening in any cell of your map. 
+An extremely useful feature of Torque is the automatic aggregation of data by bin. Using common aggregate functions from SQL you can have values calculated to highlight what's happening in any cell of your map.
 
 This is handled in one line in the Torque CartoCSS:
 
@@ -176,7 +176,7 @@ This is handled in one line in the Torque CartoCSS:
 -torque-aggregation-function:"count(cartodb_id)";
 {% endhighlight %}
 
-By default it counts the number of events happening by counting how many points (by using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time or sequence (date or number column) -- so counting `cartodb_id`s means you are counting events. 
+By default it counts the number of events happening by counting how many points (using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time or sequence (date or number column) -- so counting `cartodb_id`s means you are counting events.
 
 The aggregate functions can operate on any other number column instead of `cartodb_id`, though. For instance, if you want to find the max magnitude of all of the events in a bin, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another. Remember that everything happens at the bin level, and that bins are recalculated at new zoom levels.
 
@@ -218,7 +218,7 @@ What is a bin, though? Torque automatically calculates two-dimensional bins that
 -torque-resolution:2;
 {% endhighlight %}
 
-Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity. Play around with different resolutions -- especially large ones -- to see the effect. Because of the nature of quadtrees and tiles based on 256 or 512 pixel edges, resolutions will produce more reliable results if they are in powers of 2. Resolutions such as 0.125 (2<sup>-3</sup>), 16 (2<sup>4</sup>), and 128 (2<sup>7</sup>) are all acceptable.
+Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity. Play around with different resolutions -- especially large ones -- to see the effect. Because of the nature of [quadtrees](http://en.wikipedia.org/wiki/Quadtree) and tiles based on 256 or 512 pixel edges, resolutions will produce more reliable results if they are in powers of 2. Resolutions such as 0.125 (2<sup>-3</sup>), 16 (2<sup>4</sup>), and 128 (2<sup>7</sup>) are all acceptable.
 
 ### Our stork
 
@@ -229,10 +229,10 @@ PostgreSQL has many [aggregate functions](http://www.postgresql.org/docs/9.3/sta
 The following style works to show the different average velocities of the stork within any two dimensional bin for which we have data to aggregate. The values 12, 6, and 3 were chosen from applying the following query and getting intuition about how it would be grouped or clustered.
 
 {% highlight sql %}
-SELECT 
-  date_part('days',timestamp), 
-  avg(ground_speed) 
-FROM 
+SELECT
+  date_part('days',timestamp),
+  avg(ground_speed)
+FROM
   academy_torque_stork
 GROUP BY
   date_part('days',timestamp)
@@ -270,19 +270,19 @@ Map {
 }
 #academy_torque_stork[frame-offset=1] {
  marker-width:2.75;
- marker-fill-opacity:0.5; 
+ marker-fill-opacity:0.5;
 }
 #academy_torque_stork[frame-offset=2] {
  marker-width:1.75;
- marker-fill-opacity:0.25; 
+ marker-fill-opacity:0.25;
 }
 #academy_torque_stork[frame-offset=3] {
  marker-width:1;
- marker-fill-opacity:0.125; 
+ marker-fill-opacity:0.125;
 }
 #academy_torque_stork[frame-offset=4] {
  marker-width:0.5;
- marker-fill-opacity:0.0625; 
+ marker-fill-opacity:0.0625;
 }
 {% endhighlight %}
 
@@ -321,19 +321,19 @@ We can wire up some query events to our SQL to investigate the behavior of our s
 To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript):
 
 {% highlight sql %}
-SELECT 
-  s.* 
-FROM 
-  academy_torque_stork s, 
+SELECT
+  s.*
+FROM
+  academy_torque_stork s,
   (
-    SELECT 
-      the_geom 
-    FROM 
-      africa_adm0 
-    WHERE 
+    SELECT
+      the_geom
+    FROM
+      africa_adm0
+    WHERE
       name = 'Chad'
   ) a
-WHERE 
+WHERE
   ST_Intersects(
     s.the_geom,
     a.the_geom
@@ -344,19 +344,19 @@ To make it interactive, we need to convert it to:
 
 {% highlight html %}
 <style type="text/sql" id="sql">
-SELECT 
-  s.* 
+SELECT
+  s.*
 FROM
   academy_torque_stork s,
   (
-    SELECT 
-      the_geom 
-    FROM 
-      africa_adm0 
-    WHERE 
+    SELECT
+      the_geom
+    FROM
+      africa_adm0
+    WHERE
       name = '{% raw %}{{country}}{% endraw %}'
   ) a
-WHERE 
+WHERE
   ST_Intersects(
     s.the_geom,
     a.the_geom
@@ -370,10 +370,10 @@ We wire this into the JavaScript as below. It's similar to what was done in the 
 
 {% highlight javascript %}
 // generate SQL to reflect user interaction
-var newSQL = Mustache.render($("#sql").html(),{country: countrySelected}); 
+var newSQL = Mustache.render($("#sql").html(),{country: countrySelected});
 
 // apply SQL to torque layer
-torqueLayer.setSQL(newSQL); 
+torqueLayer.setSQL(newSQL);
 {% endhighlight %}
 
 We need to put these pieces of code into some `if` statements so it's easy to reset the map, place the selector function in the proper place, and add buttons.
