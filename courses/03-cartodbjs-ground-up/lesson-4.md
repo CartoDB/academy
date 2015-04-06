@@ -22,7 +22,7 @@ This lesson strongly relies on techniques developed in the past three lessons on
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
-<iframe src="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/final_product.html" width="100%" height="480"></iframe>
+<iframe src="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" width="100%" height="480"></iframe>
 
 ### Import your data
 
@@ -158,7 +158,7 @@ Map {
 </style>
 {% endhighlight %}
 
-Notice that this block's `id` is "cartocss", so the
+Notice that this block's DOM `id` is "cartocss", so the
 
 {% highlight js %}
 cartocss: $("#cartocss").html()
@@ -178,7 +178,7 @@ This is handled in one line in the Torque CartoCSS:
 
 By default it counts the number of events happening by counting how many points (using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time or sequence (date or number column) -- so counting `cartodb_id`s means you are counting events.
 
-The aggregate functions can operate on any other number column instead of `cartodb_id`, though. For instance, if you want to find the max magnitude of all of the events in a bin, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another. Remember that everything happens at the bin level, and that bins are recalculated at new zoom levels.
+The aggregate functions can operate on any other number column instead of `cartodb_id`, though. For instance, if you want to find the max magnitude of all of the events in a bin, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another. Remember that everything happens at the bin level, and that values in bins are recalculated at new zoom levels.
 
 The output of the aggregate calculation within a bin is stored in a special variable accessible to the CartoCSS conditional structures. It's called `value`, and you'll see its usage below.
 
@@ -188,7 +188,7 @@ Map {
     -torque-animation-duration:30;
     -torque-time-attribute:"timestamp";
     -torque-aggregation-function:"avg(ground_speed)";
-    -torque-resolution:0.125;
+    -torque-resolution:1;
     -torque-data-aggregation:linear;
 }
 
@@ -314,11 +314,16 @@ torqueLayer.on('load', function() {
 });
 {% endhighlight %}
 
+As a checkpoint, check yours against a working version:
+
++ <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Source code</a>
++ <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Live version</a>
+
 ## Taking it further
 
-We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript.
+We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/cartocss-string.html" target="_blank">the source code</a> for the <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead.
 
-To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript):
+To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript). This grabs all the data for the stork that intersects with the country Chad.
 
 {% highlight sql %}
 SELECT
@@ -340,7 +345,7 @@ WHERE
   )
 {% endhighlight %}
 
-To make it interactive, we need to convert it to:
+To make it responsive to user interaction, we can remove the example of Chad, and convert it to use [mustache templates](https://github.com/janl/mustache.js/) on the variable country:
 
 {% highlight html %}
 <style type="text/sql" id="sql">
@@ -366,11 +371,14 @@ WHERE
 
 Besides relying on [jQuery](https://jquery.com/), CartoDB.js relies on [mustache.js](https://github.com/janl/mustache.js/), where you can easily template text strings. That's what's in `{% raw %}{{country}}{% endraw %}` above.
 
-We wire this into the JavaScript as below. It's similar to what was done in the previous lesson but since the time component changes, the slider automatically changes to reflect the total span of time the stork visited the country selected.
+We wire this into the JavaScript similar to what is below. It's close to what was done in the previous lesson but since the time component changes, the slider automatically changes to reflect the total span of time the stork visited the country selected.
 
 {% highlight javascript %}
 // generate SQL to reflect user interaction
-var newSQL = Mustache.render($("#sql").html(),{country: countrySelected});
+var newSQL = Mustache.render($("#sql").html(), {country: countrySelected});
+
+// print to console for debugging purposes
+console.log("SQL applied:",newSQL);
 
 // apply SQL to torque layer
 torqueLayer.setSQL(newSQL);
@@ -423,12 +431,13 @@ And finally, we need to add buttons that will trigger the query to be applied ba
 </div>
 {% endhighlight %}
 
-Checkout a <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/bonus.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html" target="_blank">view the source code</a>.
+Checkout a <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">view the source code</a>.
 
-### Resources
+### Resources and other examples
 
-* Torque.js documentation
-* CartoDB.js documentation
+* [Torque.js documentation](https://github.com/CartoDB/torque/blob/master/doc/API.md)
+* [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
+* An [EcoHack](http://blog.cartodb.com/ecohack/) on animal tracks (map [here](http://robbykraft.github.io/AnimalTrack/))
 
 
 **Happy Mapping!**
