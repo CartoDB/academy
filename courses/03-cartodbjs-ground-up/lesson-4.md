@@ -7,12 +7,12 @@ course: "CartoDB.js from the ground up"
 course_slug: "03-cartodbjs-ground-up"
 tweet_text: "I'm more animated because of Torque.js @cartoDB"
 vizjson: "http://documentation.cartodb.com/api/v2/viz/47a9b8f8-da51-11e4-b561-0e0c41326911/viz.json"
-lesson_message: "Congrats on finishing, animated JavaScript mapper!"
+lesson_message: "Congrats on finishing animated JavaScript mapper!"
 ---
 
 ## Torque.js
 
-Torque was developed by CartoDB to show geospatial information that changes in time. The uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt on a bike ride.
+Torque was developed by CartoDB to show geospatial information that changes in time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt along on a bike ride.
 
 This lesson strongly relies on techniques developed in the past three lessons on CartoDB.js, as well as general JavaScript skills. As usual, there will be some CartoCSS and SQL used in this lesson.
 
@@ -53,7 +53,7 @@ var layerSource = {
             query: 'SQL statement', 	// Required if `table_name` is not given
             table_name: 'table_name', 	// Required if `query` is not given
             user_name: 'your_user_name',
-            cartocss: 'CartoCSS styles',
+            cartocss: 'CartoCSS styles'
         }
     }
 {% endhighlight %}
@@ -168,7 +168,7 @@ statement in the `layerSource` object means that this text is applied as the Car
 
 ## Aggregate functions
 
-An extremely useful feature of Torque is the automatic aggregation of data by bin. Using common aggregate functions from SQL you can have values calculated to highlight what's happening in any cell of your map.
+An extremely useful feature of Torque is the automatic aggregation of data by bin. Using [common aggregate functions](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) from PostgreSQL you can have values calculated to highlight what's happening in any cell of your map.
 
 This is handled in one line in the Torque CartoCSS:
 
@@ -416,7 +416,7 @@ function createSelector(layer) {
 
 Next we need to add `createSelector(torqueLayer)` within `.done(...)` after `var torqueLayer = layer;`.
 
-And finally, we need to add buttons that will trigger the query to be applied based on user interaction. We can do this with the following:
+And finally, we need to add buttons that will trigger the query to be applied based on user interaction. The CSS to style the buttons is already in the template. We can do this with the following:
 
 {% highlight html %}
 <div id="sql-buttons" class="layer_selector">
@@ -438,6 +438,3 @@ Checkout a <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sq
 * [Torque.js documentation](https://github.com/CartoDB/torque/blob/master/doc/API.md)
 * [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
 * An [EcoHack](http://blog.cartodb.com/ecohack/) on animal tracks (map [here](http://robbykraft.github.io/AnimalTrack/))
-
-
-**Happy Mapping!**
