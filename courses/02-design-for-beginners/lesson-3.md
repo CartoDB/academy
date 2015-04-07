@@ -76,7 +76,7 @@ We went with Heads/Tails to emphasize the biggest quakes, and assign the lowest 
 ### All Together, Now!
 These tools and tactics that we've covered - changing marker size based on zoom, filtering your data, and changing marker size based on a column of data - can also be combined with one another to highlight patterns.
 
-Here, we'll start with the bubble map we left off with. We have a simple visualization which highlights the more intense earthquakes by making their marker bigger. If we change the composite operation (which we started discussing in Lesson 2), we can also visualize the intensity of the quakes by region. Now, when there are multiple markers in the same area, they will darken. This highlights areas with high concentrations of quakes, as you can see below.
+Here, we'll start with the bubble map we left off with. We have a simple visualization which highlights the more intense earthquakes by making their marker bigger. If we change the composite operation to multiply (which we started discussing in Lesson 2), we can also visualize the intensity of the quakes by region. Now, when there are multiple markers in the same area, they will darken. This highlights areas with high concentrations of quakes, as you can see below.
 
 ![Our Bubble Visualization]({{site.baseurl}}/img/course2/lesson3/together1.png)
 
