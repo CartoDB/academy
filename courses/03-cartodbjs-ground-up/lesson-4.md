@@ -22,7 +22,7 @@ This lesson strongly relies on techniques developed in the past three lessons on
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
-<iframe src="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" width="100%" height="480"></iframe>
+<iframe src="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/bonus.html" width="100%" height="480"></iframe>
 
 ### Import your data
 
@@ -432,6 +432,26 @@ And finally, we need to add buttons that will trigger the query to be applied ba
 {% endhighlight %}
 
 Checkout a <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">view the source code</a>.
+
+## Bonus: Adding another layer
+
+Unlike static layers, Torque layers cannot have sublayers. If you want to slap on an underlying static layer to show the overall movement of our stork, we can add another createLayer with a layer source object that defines the underlying style.
+
+The following will produce a dashed white line underneath the animated layer:
+
+{% highlight javascript %}
+var staticLayerSource = {
+    type: 'cartodb',
+    sublayers: [{
+        sql: "SELECT ST_MakeLine(the_geom_webmercator ORDER BY timestamp) the_geom_webmercator FROM academy_torque_stork",
+        cartocss: "#academy_torque_stork{line-color: #FFFFFF; line-width: 1; line-opacity: 0.7; line-dasharray: 3,2,1;}"
+    }]
+}
+
+cartodb.createLayer(map,staticLayerSource).addTo(map);
+{% endhighlight %}
+
+The query makes a long line ordered by the column `timestamp`, and the CartoCSS `line-dasharray` makes it dashed. Learn more about SQL in our [Map Academy lessons on PostGIS](http://academy.cartodb.com/courses/04-sql-postgis/lesson-2.html).
 
 ### Resources and other examples
 
