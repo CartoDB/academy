@@ -12,9 +12,11 @@ lesson_message: "Congrats on finishing animated JavaScript mapper!"
 
 ## Torque.js
 
-Torque was developed by CartoDB to show geospatial information that changes in time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt along on a bike ride.
+Torque was developed by CartoDB to show geospatial information that changes over time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt along a bike ride. 
 
-This lesson strongly relies on techniques developed in the past three lessons on CartoDB.js, as well as general JavaScript skills. As usual, there will be some CartoCSS and SQL used in this lesson.
+Torque animated maps are great for [time series data](http://en.wikipedia.org/wiki/Time_series), that is, data that records measurements over a time interval. In order to use Torque, your data must inclue a timestamp or date. To learn more about the date formats CartoDB accepts, check out the [Postgre SQL documentation on date/time types](http://www.postgresql.org/docs/9.1/static/datatype-datetime.html), and [Postgre SQL functions for formatting dates](http://www.postgresql.org/docs/9.1/static/functions-formatting.html).
+
+This lesson strongly relies on techniques developed in the past three lessons on CartoDB.js, as well as general JavaScript skills. As usual, there will be some CartoCSS and SQL covered in this lesson. 
 
 **Goals**
 
@@ -26,19 +28,21 @@ This lesson strongly relies on techniques developed in the past three lessons on
 
 ### Import your data
 
-The data for this lesson comes from [MoveBank](https://www.movebank.org), an amazing repository of tracking data for animals all over the world. The dataset we'll be working with is from a white stork's trip over 303 days from Greece, through the Middle East, to Sub-Saharan Africa, and back.
+The data for this lesson comes from [Movebank](https://www.movebank.org), an amazing repository of tracking data for animals all over the world. The dataset we'll be working with is from a white stork's trip over 303 days from Greece through the Middle East to Sub-Saharan Africa and back.
 
-Copy the following link to import the data into your account. Make sure the table name is `academy_torque_stork`. The file will take up about 8 MB in your account.
+Copy the link below to import the data into your account. Make sure the dataset name is `academy_torque_stork`. The file will take up approximately 8MB in your CartoDB account.
 
 {% highlight html %}
 http://academy.cartodb.com/d/academy_torque_stork.zip
 {% endhighlight %}
 
+Lastly, update the privacy settings once the dataset is uploaded by clicking on the padlock icon in the upper left corner in the Data View and setting the privacy to 'Public.'
+
 ### Template
 
 The HTML template we will be using for this lesson is available in the repository where all Map Academy lessons are stored.
 
-[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/t/03-cartodbjs-ground-up/lesson-4/template.html).
+[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/t/03-cartodbjs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
 
 ## Getting started
 
@@ -71,7 +75,7 @@ cartodb.createLayer(map_object, layerSource)
     });
 {% endhighlight %}
 
-Alternatively, you can create a Torque visualization in the CartoDB Editor, copy the viz.json file, and place it in createVis:
+Alternatively, you can create a Torque visualization in the CartoDB Editor by copying the viz.json file and placing it in createVis:
 
 {% highlight javascript %}
 var vizjsonUrl = 'link to viz.json file';
@@ -79,7 +83,7 @@ var vizjsonUrl = 'link to viz.json file';
 cartodb.createVis(dom_id, vizjsonURL);
 {% endhighlight %}
 
-In this lesson, though, we'll stick with createLayer as it exposes more to customize using JavaScript. All we have to do now is to create a map as we've done in the previous three lessons. The following goes between the `<script>` tags towards the end of the template HTML file.
+In this lesson, though, we'll stick with createLayer as it allows for greater customization using JavaScript. All we have to do now is to create a map as we've done in the previous three lessons. The following code goes between the `<script>` tags towards the end of the template HTML file.
 
 {% highlight javascript %}
 window.onload = function() {
@@ -97,7 +101,7 @@ window.onload = function() {
         options: {
             user_name: 'documentation', // replace with your user name
             table_name: 'academy_torque_stork',
-            cartocss: $("cartocss")
+            cartocss: $("#cartocss").html()
         }
     }
 
@@ -120,9 +124,25 @@ window.onload = function() {
 window.onload = main;
 {% endhighlight %}
 
-Below the comment `// do stuff` is where we will be adding some of the fun that comes in doing Torque.js and will be the focus of this lesson. Paste that into your HTML template and customizing `layerSource` to reflect your credentials will _almost_ produce a basic Torque map as you would see it in the CartoDB Editor. First we need to take advantage of some special Torque styling options with CartoCSS.
+Below the comment `// do stuff` within createLayer is where we will add the fun customization possible with Torque.js, the focus of this lesson. 
 
-It's often easiest to use CartoDB's Editor to start the styling for your map and then work from there to customize it further with CartoCSS. Using the [techniques from the last lesson]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-3.html#cartocss-strings-in-javascript), we can grab the styles from a DOM element using [jQuery](https://jquery.com/) by placing the following between the `<head>` tags:
+Within the HTML template, replace the 'documentation' user_name stored in the layerSource object with your own username in order to pull in the dataset from your CartoDB account. 
+
+{% highlight javascript %}
+// setup layer
+    var layerSource = {
+        type: 'torque',
+        options: {
+            user_name: 'documentation', // replace with your user name
+            table_name: 'academy_torque_stork',
+            cartocss: $("cartocss")
+        }
+    }
+{% endhighlight %}
+
+This basic HTML template and `layerSource` will _almost_ produce a basic Torque map as you would see it in the CartoDB Editor. First though, we need to take advantage of some special Torque styling options using [CartoCSS](http://docs.cartodb.com/cartodb-editor.html#cartocss), the syntax language that allows for greater control over how data is styled visually in CartoDB.
+
+It's often easiest to use CartoDB's Editor to start the styling for your map and then work from there to customize it further. First, place the following CartoCSS between the `<head>` tags: 
 
 {% highlight html %}
 <style type="cartocss/text" id="basic">
@@ -158,6 +178,8 @@ Map {
 </style>
 {% endhighlight %}
 
+Using the [techniques from the last lesson]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-3.html#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
+
 Notice that this block's DOM `id` is "cartocss", so the
 
 {% highlight js %}
@@ -176,9 +198,9 @@ This is handled in one line in the Torque CartoCSS:
 -torque-aggregation-function:"count(cartodb_id)";
 {% endhighlight %}
 
-By default it counts the number of events happening by counting how many points (using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time or sequence (date or number column) -- so counting `cartodb_id`s means you are counting events.
+By default it counts the number of events happening by counting how many points (using each point's `cartodb_id`) are within the area. Each row represents an event -- something that happens in a specific place (lat, long) at a specific time or sequence (date or number column) -- so counting the `cartodb_id` means you are counting events.
 
-The aggregate functions can operate on any other number column instead of `cartodb_id`, though. For instance, if you want to find the max magnitude of all of the events in a bin, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another. Remember that everything happens at the bin level, and that values in bins are recalculated at new zoom levels.
+The aggregate functions can operate on any other number column instead of `cartodb_id`, though. For instance, if you want to find the max magnitude of all of the events in a bin, you'd just replace the value above with `max(magnitude)`. You can do more advanced things like dividing by a constant or even dividing the `min` of one column by the `max` of another. Remember that everything happens at the bin level, and the values in bins are recalculated at new zoom levels.
 
 The output of the aggregate calculation within a bin is stored in a special variable accessible to the CartoCSS conditional structures. It's called `value`, and you'll see its usage below.
 
@@ -212,7 +234,7 @@ Map {
 }
 {% endhighlight %}
 
-What is a bin, though? Torque automatically calculates two-dimensional bins that depend on the zoom level of your map and the resolution you define in the Torque flavor of CartoCSS using the resolution setting:
+What is a bin, though? Torque automatically calculates two-dimensional bins that depend on the zoom level of your map and the resolution, which is set within CartoCSS:
 
 {% highlight css %}
 -torque-resolution:2;
@@ -222,11 +244,11 @@ Points are snapped to a grid that is defined by the resolution you set (a smalle
 
 ### Our stork
 
-For our stork, we have a column in our data set called `ground_speed` that we are going to use to visualize the average speed of the bird within any of the bins. We can use `value` and some conditions in our CartoCSS to style the marker on the map.
+For our stork, we have a column in our dataset called `ground_speed` that we are going to use to visualize the average speed of the bird within any of the bins. We can use `value` and some conditions in our CartoCSS to style the marker on the map.
 
-PostgreSQL has many [aggregate functions](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) that give back the various statistical measures you could be interested in calculating.
+PostgreSQL has many [aggregate functions](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) that return various statistical measures you might be interested in calculating.
 
-The following style works to show the different average velocities of the stork within any two dimensional bin for which we have data to aggregate. The values 12, 6, and 3 were chosen from applying the following query and getting intuition about how it would be grouped or clustered.
+The following style works to show the different average velocities of the stork within any two dimensional bin for which we have data to aggregate. The values 12, 6, and 3 were chosen from applying the following query and seeing how it would be grouped or clustered.
 
 {% highlight sql %}
 SELECT
@@ -294,7 +316,7 @@ Besides `frame-offset` and `value`, you can also use `zoom` in the CartoCSS to s
 
 To pull in that new styling all you have to do is replace the previous styling with the one above.
 
-To add some control to your maps, there are several [event handlers](https://github.com/CartoDB/torque/blob/master/doc/API.md#events). For instance, you can add the following piece of code the line below `var torqueLayer = ...` to have the map stop playing at the final step:
+To add some control to your maps, there are several [event handlers](https://github.com/CartoDB/torque/blob/master/doc/API.md#events). For instance, you can add the following piece of code below the line `var torqueLayer = ...` to have the map stop playing at the final step:
 
 {% highlight javascript %}
 // pause animation at last frame
