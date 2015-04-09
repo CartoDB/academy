@@ -54,8 +54,8 @@ The generic format for Torque is:
 var layerSource = {
         type: 'torque',
         options: {
-            query: 'SQL statement', 	// Required if `table_name` is not given
-            table_name: 'table_name', 	// Required if `query` is not given
+            query: 'SQL statement', 	// Optional, but required if `table_name` is not given
+            table_name: 'table_name', 	// Optional, but required if `query` is not given
             user_name: 'your_user_name',
             cartocss: 'CartoCSS styles'
         }
@@ -86,7 +86,7 @@ cartodb.createVis(dom_id, vizjsonURL);
 In this lesson, though, we'll stick with createLayer as it allows for greater customization using JavaScript. All we have to do now is to create a map as we've done in the previous three lessons. The following code goes between the `<script>` tags towards the end of the template HTML file.
 
 {% highlight javascript %}
-window.onload = function() {
+function main() {
 
     // Instantiate new map object, place it in 'map' element
     var map = new L.Map('map', {
@@ -99,7 +99,7 @@ window.onload = function() {
     var layerSource = {
         type: 'torque',
         options: {
-            user_name: 'documentation', // replace with your user name
+            user_name: 'your_user_name', // replace with your user name
             table_name: 'academy_torque_stork',
             cartocss: $("#cartocss").html()
         }
@@ -126,14 +126,14 @@ window.onload = main;
 
 Below the comment `// do stuff` within createLayer is where we will add the fun customization possible with Torque.js, the focus of this lesson. 
 
-Within the HTML template, replace the 'documentation' user_name stored in the layerSource object with your own username in order to pull in the dataset from your CartoDB account. 
+Within the HTML template, put your CartoDB user name in the quotes after `user_name` in the layerSource object in order to pull in the dataset from your CartoDB account.
 
 {% highlight javascript %}
 // setup layer
     var layerSource = {
         type: 'torque',
         options: {
-            user_name: 'documentation', // replace with your user name
+            user_name: 'your_user_name', // replace with your user name
             table_name: 'academy_torque_stork',
             cartocss: $("cartocss")
         }
@@ -145,7 +145,7 @@ This basic HTML template and `layerSource` will _almost_ produce a basic Torque 
 It's often easiest to use CartoDB's Editor to start the styling for your map and then work from there to customize it further. First, place the following CartoCSS between the `<head>` tags: 
 
 {% highlight html %}
-<style type="cartocss/text" id="basic">
+<style type="cartocss/text" id="cartocss">
 /** torque visualization */
 
 Map {
@@ -240,7 +240,7 @@ What is a bin, though? Torque automatically calculates two-dimensional bins that
 -torque-resolution:2;
 {% endhighlight %}
 
-Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity. Play around with different resolutions -- especially large ones -- to see the effect. Because of the nature of [quadtrees](http://en.wikipedia.org/wiki/Quadtree) and tiles based on 256 or 512 pixel edges, resolutions will produce more reliable results if they are in powers of 2. Resolutions such as 0.125 (2<sup>-3</sup>), 16 (2<sup>4</sup>), and 128 (2<sup>7</sup>) are all acceptable.
+Points are snapped to a grid that is defined by the resolution you set (a smaller resolution produces a smaller grid spacing). This has the effect of creating a two-dimensional histogram if you aggregate by `count`, which you can then visualize by changing the opacity. Play around with different resolutions -- especially large ones -- to see the effect. Because of the nature of [quadtrees](http://en.wikipedia.org/wiki/Quadtree) and tiles based on 256 or 512 pixel edges, resolutions will produce more reliable results if they are in powers of 2. Resolutions such as 0.125 (2^(-3)), 16 (2^4), and 128 (2^7) are all acceptable.
 
 ### Our stork
 
@@ -248,7 +248,7 @@ For our stork, we have a column in our dataset called `ground_speed` that we are
 
 PostgreSQL has many [aggregate functions](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) that return various statistical measures you might be interested in calculating.
 
-The following style works to show the different average velocities of the stork within any two dimensional bin for which we have data to aggregate. The values 12, 6, and 3 were chosen from applying the following query and seeing how it would be grouped or clustered.
+The following style works to show the different average velocities of the stork within any two-dimensional bin for which we have data to aggregate. The values 12, 6, and 3 were chosen from applying the following query and seeing how it would be grouped or clustered.
 
 {% highlight sql %}
 SELECT
@@ -260,7 +260,9 @@ GROUP BY
   date_part('days',timestamp)
 {% endhighlight %}
 
-The CartoCSS used to produce the map is here:
+Once you get a sense of what the values are to be used later in the CartoCSS, clear this query.
+
+The CartoCSS used to produce the map is below. Replace the CartoCSS that was previously used and use the updated styling instead.
 
 {% highlight css %}
 Map {
@@ -316,7 +318,7 @@ Besides `frame-offset` and `value`, you can also use `zoom` in the CartoCSS to s
 
 To pull in that new styling all you have to do is replace the previous styling with the one above.
 
-To add some control to your maps, there are several [event handlers](https://github.com/CartoDB/torque/blob/master/doc/API.md#events). For instance, you can add the following piece of code below the line `var torqueLayer = ...` to have the map stop playing at the final step:
+To add some control to your maps, there are several [event handlers](https://github.com/CartoDB/torque/blob/master/doc/API.md#events) specific to Torque. For instance, you can add the following piece of code below the line `var torqueLayer = layer;` to have the map stop playing at the final step:
 
 {% highlight javascript %}
 // pause animation at last frame
@@ -339,11 +341,11 @@ torqueLayer.on('load', function() {
 As a checkpoint, check yours against a working version:
 
 + <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Source code</a>
-+ <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Live version</a>
++ <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/checkpoint.html" target="_blank">Live version</a>
 
 ## Taking it further
 
-We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/cartocss-string.html" target="_blank">the source code</a> for the <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead.
+We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. _Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/cartocss-string.html" target="_blank">the source code</a> for the <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead._
 
 To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript). This grabs all the data for the stork that intersects with the country Chad.
 
