@@ -12,6 +12,8 @@ lesson_message: "Congrats on finishing animated JavaScript mapper!"
 
 ## Torque.js
 
+<iframe src="https://player.vimeo.com/video/124642434" width="700" height="393" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 Torque was developed by CartoDB to show geospatial information that changes over time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt along a bike ride. 
 
 Torque animated maps are great for [time series data](http://en.wikipedia.org/wiki/Time_series), that is, data that records measurements over a time interval. In order to use Torque, your data must inclue a timestamp or date. To learn more about the date formats CartoDB accepts, check out the [Postgre SQL documentation on date/time types](http://www.postgresql.org/docs/9.1/static/datatype-datetime.html), and [Postgre SQL functions for formatting dates](http://www.postgresql.org/docs/9.1/static/functions-formatting.html).
@@ -66,6 +68,7 @@ This JSON object is passed as the second argument to createLayer:
 
 {% highlight javascript %}
 cartodb.createLayer(map_object, layerSource)
+    .addTo(map)
     .done(function(layer) {
         // do stuff
         var torqueLayer = layer;
@@ -105,14 +108,15 @@ function main() {
         }
     }
 
-    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
     map.addLayer(layer);
 
     // put torque layer on top of basemap
-    cartodb.createLayer('map', layerSource)
+    cartodb.createLayer(map, layerSource)
+        .addTo(map)
         .done(function(layer) {
             // do stuff
         })
@@ -135,7 +139,7 @@ Within the HTML template, put your CartoDB user name in the quotes after `user_n
         options: {
             user_name: 'your_user_name', // replace with your user name
             table_name: 'academy_torque_stork',
-            cartocss: $("cartocss")
+            cartocss: $("#cartocss").html()
         }
     }
 {% endhighlight %}
@@ -149,7 +153,7 @@ It's often easiest to use CartoDB's Editor to start the styling for your map and
 /** torque visualization */
 
 Map {
--torque-frame-count:512;
+-torque-frame-count:303;
 -torque-animation-duration:30;
 -torque-time-attribute:"timestamp";
 -torque-aggregation-function:"count(cartodb_id)";
@@ -206,10 +210,10 @@ The output of the aggregate calculation within a bin is stored in a special vari
 
 {% highlight css %}
 Map {
-    -torque-frame-count:512;
+    -torque-frame-count:303;
     -torque-animation-duration:30;
     -torque-time-attribute:"timestamp";
-    -torque-aggregation-function:"avg(ground_speed)";
+    -torque-aggregation-function:"avg(ground_spe)";
     -torque-resolution:1;
     -torque-data-aggregation:linear;
 }
@@ -244,7 +248,7 @@ Points are snapped to a grid that is defined by the resolution you set (a smalle
 
 ### Our stork
 
-For our stork, we have a column in our dataset called `ground_speed` that we are going to use to visualize the average speed of the bird within any of the bins. We can use `value` and some conditions in our CartoCSS to style the marker on the map.
+For our stork, we have a column in our dataset called `ground_spe` that we are going to use to visualize the average speed of the bird within any of the bins. We can use `value` and some conditions in our CartoCSS to style the marker on the map.
 
 PostgreSQL has many [aggregate functions](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) that return various statistical measures you might be interested in calculating.
 
@@ -253,7 +257,7 @@ The following style works to show the different average velocities of the stork 
 {% highlight sql %}
 SELECT
   date_part('days',timestamp),
-  avg(ground_speed)
+  avg(ground_spe)
 FROM
   academy_torque_stork
 GROUP BY
@@ -266,10 +270,10 @@ The CartoCSS used to produce the map is below. Replace the CartoCSS that was pre
 
 {% highlight css %}
 Map {
-    -torque-frame-count:512;
+    -torque-frame-count:303;
     -torque-animation-duration:30;
     -torque-time-attribute:"timestamp";
-    -torque-aggregation-function:"avg(ground_speed)"; /* calculate avg speed within a bin */
+    -torque-aggregation-function:"avg(ground_spe)"; /* calculate avg speed within a bin */
     -torque-resolution:1;
     -torque-data-aggregation:linear;
 }
