@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map Academy | CartoDB.js &amp; Torque.js</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #desc {
+          position: absolute;
+          top: 10px;
+          left: 45px;
+          border: 1px solid #999;
+          border-radius: 5px;
+          width: 275px;
+          background: rgba(255,255,255,0.9);
+          padding: 0 10px;
+      }
+      #sql-buttons {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+      }
+      .layer_selector {
+          background: rgba(255,255,255,0.9);
+          border-radius: 5px;
+          padding: 0;
+          border: 1px solid #999;
+          width: 250px;
+      }
+      .layer_selector > p {
+          padding: 15px 30px;
+          border-bottom: 1px solid #999;
+          margin-bottom: 0;
+      }
+      .layer_selector ul {
+          padding: 0; 
+          margin: 0;
+          list-style-type: none;
+      }
+      .layer_selector li {
+          padding: 15px 30px;
+          font-family: Helvetica, Arial;
+          font-size: 13px;
+          color: #444;
+          cursor: pointer;
+      }
+      .layer_selector li:not(:last-child) {
+          border-bottom: 1px solid #999;
+      }
+      .layer_selector li:hover {
+          background-color: #F0F0F0;
+          cursor: pointer;
+      }
+    </style>
+    <script type="cartocss/text" id="cartocss">
+    /** torque visualization */
+
+    Map {
+    -torque-frame-count:512;
+    -torque-animation-duration:30;
+    -torque-time-attribute:"timestamp";
+    -torque-aggregation-function:"max(ground_spe)";
+    -torque-resolution:1;
+    -torque-data-aggregation:linear;
+    }
+
+    #white_stork_movebank{
+      marker-fill-opacity: 0.7;
+      marker-line-color: #FFF;
+      marker-line-width: 0;
+      marker-line-opacity: 1;
+      marker-type: ellipse;
+      marker-width: 4;
+      marker-fill: #5CA2D1;
+      [value > 12] {
+      	marker-fill: red;
+      }
+    }
+    #white_stork_movebank[frame-offset=1] {
+     marker-width:2.75;
+     marker-fill-opacity:0.5; 
+    }
+    #white_stork_movebank[frame-offset=2] {
+     marker-width:1.75;
+     marker-fill-opacity:0.25; 
+    }
+    #white_stork_movebank[frame-offset=3] {
+     marker-width:1;
+     marker-fill-opacity:0.125; 
+    }
+    #white_stork_movebank[frame-offset=4] {
+     marker-width:0.5;
+     marker-fill-opacity:0.0625; 
+    }  
+    </script>
+    
+    <script type="cartocss/text" id="static">
+    /** static torque visualization */
+
+    Map {
+    -torque-frame-count:1;
+    -torque-animation-duration:30;
+    -torque-time-attribute:"timestamp";
+    -torque-aggregation-function:"max(ground_spe)";
+    -torque-resolution:1;
+    -torque-data-aggregation:linear;
+    }
+
+    #white_stork_movebank{
+      marker-fill-opacity: 0.7;
+      marker-line-color: #FFF;
+      marker-line-width: 0;
+      marker-line-opacity: 1;
+      marker-type: ellipse;
+      marker-width: 4;
+      marker-fill: #5CA2D1;
+      [value > 12] {
+      	marker-fill: red;
+      }
+    }
+    #white_stork_movebank[frame-offset=1] {
+     marker-width:2.75;
+     marker-fill-opacity:0.5; 
+    }
+    #white_stork_movebank[frame-offset=2] {
+     marker-width:1.75;
+     marker-fill-opacity:0.25; 
+    }
+    #white_stork_movebank[frame-offset=3] {
+     marker-width:1;
+     marker-fill-opacity:0.125; 
+    }
+    #white_stork_movebank[frame-offset=4] {
+     marker-width:0.5;
+     marker-fill-opacity:0.0625; 
+    }  
+    </script>
+
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.13/themes/css/cartodb.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.13/cartodb.js"></script>
+
+    <script>
+      function main() {
+          var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+          });
+
+          var map = new L.map('map', {
+              scrollWheelZoom: false,
+              center: [25,25], // Western Egypt
+              zoom: 4
+          });
+
+          map.addLayer(layer);
+          
+          var tableName = "academy_torque_stork";
+          var userName = "documentation";
+
+          var layerSource = {
+              type: 'torque',
+              options: {
+                  query: "SELECT * FROM " + tableName,
+                  user_name: userName,
+                  cartocss: $("#cartocss").html()
+              }
+          }
+          
+          cartodb.createLayer(map, layerSource)
+            .addTo(map)
+            .done(function(layer) {
+                var torqueLayer = layer;
+
+                // once animation is loaded, automatically play
+                torqueLayer.on('load', function() {
+                    torqueLayer.play();
+                });
+
+                // pause animation at last frame
+                torqueLayer.on('change:time', function(changes) {
+                    if (changes.step === torqueLayer.provider.getSteps() - 1) {
+                        torqueLayer.pause();
+                    }
+                });
+            })
+            .error(function(err) {
+                console.log("Error: " + err);
+            });
+      }
+
+      window.onload = main;
+    </script>
+  </body>
+</html>
