@@ -26,7 +26,7 @@ Clearly, adding text to a map in the form of labels is a large consideration, so
 ##Adding our Labels
 Before we add our labels, let's copy the styling that we have done with our markers at the end of the last lesson. Just navigate to the CartoCSS panel, select all of the CartoCSS and use Ctrl+C/CMD+C to copy the text. 
 
-Next, go ahead and use the Simple visualization wizard. Near the bottom, you can see the option to add label text based on a column. In our case, we're interested in `mag`. Once you select the `mag` column, you can see that the labels are pretty pointless, like the labels in our ugly map. There are too many of them, and they don't communicate anything to the viewer.
+Next, go ahead and use the map layer wizard. Near the bottom, you can see the option to add label text based on a column. In our case, we're interested in `mag`. Once you select the `mag` column, you can see that the labels are pretty pointless, like the labels in our ugly map. There are too many of them, and they don't communicate anything to the viewer.
 
 ![Adding labels.]({{site.baseurl}}/img/course2/lesson4/addlabels.png)
 
