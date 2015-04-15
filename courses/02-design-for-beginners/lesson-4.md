@@ -11,7 +11,7 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/e667d364-d5ff-11e3-a78a-0e
 
 ##Thinking About Labels
 
-While they're not always necessary, labels can be an important part of many maps. Ensuring that they are legible, helpful, and well-designed can be a complex process. We'll start by talking about placement of labels. There are many other topics to consider, like font face, and color, that we won't get in to now.
+While they’re not always necessary, labels can be an important part of many maps. Ensuring that they are legible, helpful, and well-designed can be a complex process. Spending some time learning about [typography](http://www.smashingmagazine.com/2010/05/06/50-helpful-typography-tools-and-resources/) in general will help you. We’ll start by talking about placement of labels. There are many other topics to consider, like font face, and color, that we won’t get in to now. If you want to know more, you can start by exploring tools like [TypeBrewer](http://www.typebrewer.org/), or joining some of the [conversations](http://www.cartotalk.com/index.php?showforum=15) the cartographic community is having about map typography.
 
 If we take another look at Stamen's maps, we can see again the positive effects of careful design. They have small and large labels, a carefully made font choice, and considerate placement of labels off to the side, or even hidden.
 
