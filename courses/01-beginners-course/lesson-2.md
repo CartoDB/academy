@@ -40,7 +40,7 @@ Go ahead and navigate to "Map view" to begin formatting your map. The first edit
 
 Next, in the right-hand pull-out tray click on "wizards," represented by the paintbrush icon. Here you can change the polygon fill and stroke.
 
-![Edit polygon fill.]({{site.baseurl}}/img/course1/lesson2/polygonfill2.png)
+![Edit polygon fill.]({{site.baseurl}}/img/course1/lesson2/polygonfill.png)
 
 The Wizards menu also allows you to select different kinds of visualizations, which we will begin to explore in this lesson.
 
