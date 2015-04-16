@@ -24,11 +24,11 @@ Creating an account with CartoDB is quick and easy; you can head over to [our we
 If you're interested in a plan with more data storage or other features, please check out a full [list of CartoDB plans](http://cartodb.com/pricing/).
 
 ### Creating a Table
-Once you're logged in and on your dashboard, locate the upper menu bar and click on the link "Common Data."  Once here, click on "Cultural Datasets," and scroll down to find a table named "Populated places." Click on table's name to import it into your account.
+Once you’re logged in and on your dashboard, click "New Map" in the upper right-hand corner. Next, click "Create New Map", and then select "Data Library." This is CartoDB’s public library of open data that is a good starting place for many maps you will create. The dataset we will be using is called "Populated Places". Find it by searching for "populated" in the search box on the left. You may see multiple datasets here, but make sure to select the one with a little green book on the top right corner. Clicking on the table’s name and then clicking "Create Map" will import it into your account.
 
 ![Add Common Data]({{site.baseurl}}/img/course1/lesson1/commondata.gif)
 
-After the file processes and inputs, you will be taken straight to the "Data View" of this dataset. Here you can see the full data in a table. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains.
+After the file processes and inputs, you will be taken straight to the "Map View" of this dataset. Click on "Data View" to see the full data in this table. Here you can see the full data in a table. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains.
 
 As you look at the table, take note of the second column from the left called `the_geom`. It contains information required to display data on a map. Without values in this column — like the coordinates we have in this dataset — you won't be able to map your data.
 
@@ -44,7 +44,7 @@ In Map View you're still looking at all the same data as in Data View, but here 
 
 ![Table and Map View]({{site.baseurl}}/img/course1/lesson1/mapview.png)
 
-First, you can take a look at the available basemaps by clicking the basemap icon below Map View. We have provided many for you to choose from, including our own Positron and Black Matter basemaps made for us with Open Street Map data by Stamen. In later courses, we'll cover how to add your own custom basemaps to this list.
+First, you can take a look at the available basemaps by clicking the "Change basemap" button at the bottom left of your map. We have provided many for you to choose from, including our own Positron and Black Matter basemaps made for us with Open Street Map data by Stamen. In later courses, we'll cover how to add your own custom basemaps to this list.
 
 ![Selecting a basemap]({{site.baseurl}}/img/course1/lesson1/basemaps.png)
 
@@ -56,4 +56,4 @@ You can also choose your own marker images. To do so, stay in the "Visualization
 
 ![Selecting markers.]({{site.baseurl}}/img/course1/lesson1/markeroptions.png)
 
-At this point, we are still looking at our data in Map View — it isn't a shareable visualization just yet. To make it one, just click "Visualize" in the upper right-hand corner of the page, name it, and click on "Create Visualization." Now you're ready to share it via the "Share" link that appears in the top right-hand corner of the page.
+Now you're ready to share it via the "Share" link that appears in the top right-hand corner of the page.
