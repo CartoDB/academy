@@ -4,8 +4,8 @@
  authors:
    - Andy Eschbacher
  resources:
-   - http://libs.cartocdn.com/cartodb.js/v3/cartodb.js
-   - http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css
+   - http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js
+   - http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css
  normalize_css: no
  wrap: b
  ...
