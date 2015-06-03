@@ -118,10 +118,16 @@ layers[0].getSubLayer(0).setInteraction(true);
 
 ### Medium
 
-You can also programmatically create infowindows and hovers by 
+You can also programmatically create infowindows and hovers by using the following two methods which access visualization elements in the CartoDB.js library.
 
 {% highlight javascript %}
 cdb.vis.Vis.addInfowindow(map_object, sublayer, array_of_columns, options);
+{% endhighlight %}
+
+The hover window, called a Tooltip under the hood, can be accessed through:
+
+{% highlight javascript %}
+cdb.vis.Vis.addTooltip(map_object, sublayer, arr_of_cols, options);
 {% endhighlight %}
 
 Where `map_object` is the Leaflet or Google Maps map object, `sublayer` is the sublayer you want to be associated with the click or hover event, `array_of_columns` is a JavaScript array of column names (as strings). `options` is a JSON object with the following structure:
@@ -135,15 +141,10 @@ Where `map_object` is the Leaflet or Google Maps map object, `sublayer` is the s
 }
 {% endhighlight %}
 
-The hover window, called a Tooltip under the hood, can be accessed through:
-
-{% highlight javascript %}
-cdb.vis.Vis.addTooltip(map_object, sublayer, arr_of_cols, options);
-{% endhighlight %}
 
 https://github.com/CartoDB/training/blob/gh-pages/workshops_map.html#L107
 
-All can be used with named maps as well (link to tutorial or webinar) as long as the interaction columns are defined in the configuration when the map is created.
+All can be used with [named maps](http://bl.ocks.org/ohasselblad/515a8af1f99d5e690484) as well as long as the interaction columns are defined in the configuration when the map is created. Check out our [tutorial](http://docs.cartodb.com/tutorials/named_maps.html) and [webinar writeup](http://bl.ocks.org/ohasselblad/515a8af1f99d5e690484) on named maps. 
 
 ### Hard
 
