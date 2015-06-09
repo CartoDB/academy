@@ -119,6 +119,8 @@ CartoCSS properties mentioned in this lesson:
 + [polygon-pattern-file](https://github.com/mapbox/carto/blob/master/docs/latest.md#polygon-pattern-file-uri)
 + [polygon-pattern-opacity](https://github.com/mapbox/carto/blob/master/docs/latest.md#polygon-pattern-opacity-float)
 
+Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
+
 **See also**
 
 * Create an [intensity map](http://docs.cartodb.com/tutorials/intensity_map.html) from point data with CartoCSS. 
