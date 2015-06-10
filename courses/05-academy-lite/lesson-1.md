@@ -12,7 +12,7 @@ vizjson: "https://documentation.cartodb.com/api/v2_1/viz/800cd86a-0ec2-11e5-88c1
 
 ## Learn to Style Your Maps with CartoCSS
 
-<p><iframe src="//player.vimeo.com/video/120176143" width="700" height="393" frameborder="0"> </iframe></p>
+<p><iframe src="//player.vimeo.com/video/130347084" width="700" height="393" frameborder="0"> </iframe></p>
 
 In this lesson, we will give you a five minute overview of CartoCSS basics, which you can use to style your maps.
 
