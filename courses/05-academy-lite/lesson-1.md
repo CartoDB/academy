@@ -44,7 +44,7 @@ In this lesson we’re targeting a map layer created from our “Null Island Ele
 
 **Where does CartoCSS code go?**
 
-In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](http://docs.cartodb.com/cartodb-editor.html#cartocss).
+In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](http://docs.cartodb.com/cartodb-editor.html#cartocss). If you're using HTML and CartoDB.js to build your map, you can also write CartoCSS into your code using [these methods](http://academy.cartodb.com/courses/03-cartodbjs-ground-up/lesson-3.html#cartocss-strings-in-javascript).
 
 ### CartoCSS Properties and Values
 
