@@ -125,3 +125,4 @@ Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
 
 * Create an [intensity map](http://docs.cartodb.com/tutorials/intensity_map.html) from point data with CartoCSS. 
 * Create a [choropleth map](http://docs.cartodb.com/tutorials/electoral_map.html) of election results.
+* Take a conditional styling [tutorial](http://docs.cartodb.com/tutorials/conditional_styling.html).
