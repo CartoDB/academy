@@ -86,6 +86,46 @@ You can have your CartoCSS style rules apply to only a subset of your data. To d
 }
 {% endhighlight %}
 
+We also used the CartoCSS below for labels.
+
+{% highlight css %}
+#null_island_el_dist::labels {
+  text-name: [district];
+  text-face-name:'Open Sans Semibold';
+  text-size: 17;
+  text-label-position-tolerance: 10;
+  text-fill: #a43b08;
+  text-dy: 0;
+  text-allow-overlap: true;
+  text-placement: point;
+  text-placement-type: simple;
+  text-character-spacing: 2;
+  text-halo-radius: 6;
+}
+
+#null_island_el_dist::labels [zoom <= 12]{
+  text-size: 10;
+  text-halo-radius: 3;
+}
+
+#null_island_el_dist::labels [winning_party = 'Nix'] {
+  text-halo-fill: #ee8c8d;
+}
+
+#null_island_el_dist::labels [winning_party = 'Nada'] {
+  text-halo-fill: #f5d089;
+}
+
+#null_island_el_dist::labels [district = 'District 1'] {
+  text-dy: -10;
+}
+
+#null_island_el_dist::labels [district = 'District 6'] {
+  text-dy: -5;
+}
+{% endhighlight %}
+
+
 ### Using images with CartoCSS
 Another CartoCSS property example is polygon-pattern-file. This property takes an image url for its value, because it is used to fill your polygon with a tiled picture. You can change the image fill opacity using the polygon-pattern-opacity property. If less than maximum opacity is used in addition to a polygon-fill color, the color will show up beneath the image fill layer. 
 
@@ -125,3 +165,4 @@ Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
 
 * Create an [intensity map](http://docs.cartodb.com/tutorials/intensity_map.html) from point data with CartoCSS. 
 * Create a [choropleth map](http://docs.cartodb.com/tutorials/electoral_map.html) of election results.
+* Take a conditional styling [tutorial](http://docs.cartodb.com/tutorials/conditional_styling.html).
