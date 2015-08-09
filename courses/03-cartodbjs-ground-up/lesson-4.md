@@ -16,7 +16,7 @@ lesson_message: "Congrats on finishing animated JavaScript mapper!"
 
 Torque was developed by CartoDB to show geospatial information that changes over time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt along a bike ride. 
 
-Torque animated maps are great for [time series data](http://en.wikipedia.org/wiki/Time_series), that is, data that records measurements over a time interval. In order to use Torque, your data must inclue a timestamp or date. To learn more about the date formats CartoDB accepts, check out the [Postgre SQL documentation on date/time types](http://www.postgresql.org/docs/9.1/static/datatype-datetime.html), and [Postgre SQL functions for formatting dates](http://www.postgresql.org/docs/9.1/static/functions-formatting.html).
+Torque animated maps are great for [time series data](http://en.wikipedia.org/wiki/Time_series), that is, data that records measurements over a time interval. In order to use Torque, your data must include a timestamp or date. To learn more about the date formats CartoDB accepts, check out the [PostgreSQL documentation on date/time types](http://www.postgresql.org/docs/9.1/static/datatype-datetime.html), and [PostgreSQL functions for formatting dates](http://www.postgresql.org/docs/9.1/static/functions-formatting.html).
 
 This lesson strongly relies on techniques developed in the past three lessons on CartoDB.js, as well as general JavaScript skills. As usual, there will be some CartoCSS and SQL covered in this lesson. 
 
