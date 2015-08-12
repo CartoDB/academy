@@ -38,11 +38,11 @@ Is it important for your data to be ranked (quantitative) or categorized without
 
 **Does your data need to be normalized?**
 
-Do you want to show your data using a total count or a rate? For example, showing which state has the largest number of people is different than showing which state has the highest number of people per square mile. Using raw number totals when comparing polygons of varying size can be misleading. Read [this explanation of normalization](http://www.gsd.harvard.edu/gis/manual/normalize/) for more.
+Do you want to show your data using a total count or a rate? For example, showing which state has the largest number of people is different than showing which state has the highest number of people per square mile. Using raw number totals when comparing polygons of varying size can be misleading. Read [this explanation of normalization](https://books.google.com/books?id=FrUQHIzXK6EC&pg=PT347&lpg=PT347&dq=choropleth+normalization&source=bl&ots=muDZhsb2jT&sig=DbomJnKedQjaKvcQgm_sVqHBt-8&hl=en&sa=X&ved=0CCYQ6AEwAjgKahUKEwje0ee8qaTHAhUCZj4KHRF5CjM#v=onepage&q=choropleth%20normalization&f=false) for more.
 
 **How many attributes should you map?**
 
-There is no one accepted answer for this, but users should be able to see a clear hierarchy between your map's visual elements. This topic was discussed in the [third lesson](](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much)) of the beginner design course.
+There is no one accepted answer for this, but users should be able to see a clear hierarchy between your map's visual elements. This topic was discussed in the [third lesson](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html) of the beginner design course.
 
 **Do you want to map changes in your data over time?**
 
@@ -60,17 +60,17 @@ When you connect a dataset to your CartoDB account, you'll see it's Map View is 
 
 You can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally. In this earthquake map, how can you tell which ones were strongest? You can't since there are no differences in marker size or color to indicate magnitude. The Simple wizard option works well for maps that show location only, and you can extend it by applying composite operations on the markers. But if you also want to show other attributes from the dataset, other wizards are a better choice. If you find that your location points are too close together to be readable, consider using a cluster or density map instead.
 
-![earthquakes]({{site.baseurl}}/img/course6/lesson1/earthquakes.png)
+![earthquake_map]({{site.baseurl}}/img/course6/lesson1/earthquakes.png)
 
-### Category Wizard
+## Category Wizard
 
 Use the Category wizard when you want to show location and one other qualitative attribute, or category. In the map below we can identify each of Australia's states because of color differences between the polygons.
 
 ![australia_cat]({{site.baseurl}}/img/course6/lesson1/australia_cat.png)
 
-We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead.
+We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson](http://academy.cartodb.com/courses/05-academy-lite.html).
 
-### Cluster Wizard
+## Cluster Wizard
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
 
@@ -84,11 +84,11 @@ You can choose the size of the grid cell by choosing how many buckets your data 
 
 ![cluster_zoom]({{site.baseurl}}/img/course6/lesson1/cluster_zoom.gif)
 
-### Choropleth Wizard
+## Choropleth Wizard
 
 A choropleth map depicts ranges of number data by color. The choropleth wizard orders your dataset according to a number column's values, then groups the data into buckets. Each bucket gets assigned a color.
 
-## Quantification
+**Quantification**
 
 How your data is grouped into buckets depends on how it's classified. Changing this via the Quantification pulldown can dramatically change your map. To decide which to use, it's helpful to look at how your dataset's number column is distributed in the Filters tab. Take a look at this example of the percent of employees working over 50 hours per week, by country:
 
@@ -98,7 +98,7 @@ Most of the dataset's number column values are clustered towards the left end of
 
 If we use the Quantile method here, it's going to put an equal number of values in each bucket. That means the far right outlying value of 43% is going to fall in the same bucket as the next value to it's left, 29%. Other buckets would have values that aren't as different: for example the first bucket would include values 1% and 5%. If our dataset's values were more evenly distributed on the graph Quantile could be a good choice because it's easy to understand, and each bucket's data would be equally represented on the map. In this case though it's coloring countries with 43% people working over 50 hours per week exactly the same as countries where only 27% of people are. It's making very different areas on your map look similar.
 
-The Heads/Tails method is good to use when your dataset has many more low values that appear clustered towards the left edge of the graph (Tails) than high values (Heads). Without it, all of the low-end values would dominate in the range of buckets you're using to create the choropleth. Heads/Tails classes most of the low-range values together in one bucket, which makes hierarchy of information between all of the buckets easier to see.
+The Heads/Tails method is good to use when your dataset has many more low values that appear clustered towards the left edge of the graph (Tails) than high values (Heads). Without it, all of the low-end values would dominate the map. Heads/Tails divides the low values into a few buckets that have smaller ranges than buckets at the other end of the graph, which makes hierarchy of information between all of the buckets easier to see.
 
 Equal Interval classification means the data values are bucketed according to same-size ranges of values, for example 0 - 10, 10 - 20, 20 - 30. In our Work Life Balance map, take a look at the CartoCSS used to group the data, when the map is simplified to only show 3 buckets:
 
@@ -110,7 +110,7 @@ An advantage of Equal Interval is that the ranges are easily understandable sinc
 
 Jenks classification finds natural breaks in your data. It groups together similar values, and emphasizes difference between buckets. A disadvantage of this is that the breaks can be hard to understand. An advantage is that outliers get their own categories, so they aren't grouped with dissimilar values. For instance, in the filter example above the value at the graph's right edge would be in it's own group, instead of being bucketed with the value to it's left that's very different.
 
-## Color
+**Color**
 
 Each bucket is assigned a color according to a scheme. Sequential color schemes show rank by changing the lightness and/or saturation or hue of a color. They are good to use when you want to represent one range of low to high values, like in our Work Life Balance map:
 
@@ -124,7 +124,7 @@ If your dataset has a midpoint and you want to emphasize values above or below t
 
 When you're making a choropleth map, be aware of these issues:
 
-## Normalization
+**Normalization**
 
 Choropleths show your audience how much of an attribute each polygon or point has. Which subway stop has more crime? It's a tricky question: technically Station A has twice as many muggings as Station B, but if what you're really trying to show is how safe Station A is compared to Station B then the map below is misleading.
 
@@ -136,17 +136,17 @@ This map uses raw numbers, so it's showing magnitude rather than concentration. 
 
 Rates should also be used for polygon choropleths. For example, Russia has millions more people than Japan, but if you divide each country's population by it's land area in square kilometers, you find that even though Japan is geographically smaller it has a higher number of people per square kilometer. Larger polygons tend to visually dominate a map, so it's important to factor out the difference in polygon sizes by using a rate.
 
-Standardizing your data like this so it can be compared on equal terms is called normalization. Read more about it [here](http://www.gsd.harvard.edu/gis/manual/normalize/). If you want to visualize raw counts, the bubble wizard does a better job of representing your data.
+Standardizing your data like this so it can be compared on equal terms is called normalization. Read more about it [here](https://books.google.com/books?id=FrUQHIzXK6EC&pg=PT347&lpg=PT347&dq=choropleth+normalization&source=bl&ots=muDZhsb2jT&sig=DbomJnKedQjaKvcQgm_sVqHBt-8&hl=en&sa=X&ved=0CCYQ6AEwAjgKahUKEwje0ee8qaTHAhUCZj4KHRF5CjM#v=onepage&q=choropleth%20normalization&f=false). If you want to visualize raw counts, the bubble wizard does a better job of representing your data.
 
-## Arbitrary borders
+**Arbitrary borders**
 
-Polygon choropleths depict exact borders even when in reality what you're mapping doesn't end so abruptly. For example, tax rates do change abruptly at state lines, but flu rates don't. Also, enumeration units like counties or census blocks are arbitrary boundaries. When choosing which enumeration units to use, keep in mind that the same data for the same location can have dramatically different values depending on which boundaries you [pick](http://www.gsd.harvard.edu/gis/manual/normalize/union_square_region.pdf). If your data doesn't depend on enumeration unit borders, you might want to use an intensity, density or heatmap instead.
+Polygon choropleths depict exact borders even when in reality what you're mapping doesn't end so abruptly. For example, tax rates do change abruptly at state lines, but flu rates don't. Also, enumeration units like counties or census blocks are arbitrary boundaries. When choosing which enumeration units to use, keep in mind that the same data for the same location can have dramatically different values depending on which boundaries you [pick](https://www.e-education.psu.edu/geog486/node/1864). If your data doesn't depend on enumeration unit borders, you might want to use an intensity, density or heatmap instead.
 
-## Uniform density
+**Uniform density**
 
 Polygon choropleths make the distribution of data look uniform, when in fact it could be more or less concentrated in different areas of your polygon. For instance, 90% of a county's population could be living in it's main city, but you wouldn't be able to tell that from a county polygon that's been assigned one population density rate. Even areas without residents, like lakes or parks, are represented as having the same population density value as the main city. Consider using a density map instead if you need to show a more granular distribution of your data.
 
-### Bubble Wizard
+## Bubble Wizard
 
 Like choropleth maps, bubble maps let your audience compare places by how much of an attribute they have. The Bubble wizard creates a proportional symbol map based on a numbers column in your dataset. Locations with higher numbers have larger circle markers. The circles can represent areas or exact locations, so this wizard is flexible enough to use whether your dataset includes points or polygons. You can also choose a Quantification method, see more about that above.
 
@@ -154,7 +154,7 @@ An advantage bubble maps have is that they can represent either raw or normalize
 
 ![bubble]({{site.baseurl}}/img/course6/lesson1/bubble.gif)
 
-One disadvantage to keep in mind is that we humans do not generally estimate symbol size well! For example, is the big dot below 4.5 or 5 times larger than the small one?
+One disadvantage to keep in mind is that we humans do not generally estimate symbol size well! For example, is the big dot below 12 or 18 times larger than the small one?
 
 ![larger_dot]({{site.baseurl}}/img/course6/lesson1/larger.png)
 
@@ -162,9 +162,11 @@ Which center dot is larger?
 
 ![larger_center]({{site.baseurl}}/img/course6/lesson1/larger_center.png)
 
+Both center dots are actually the same size.
+
 People are able to judge shapes more accurately when there are less sizes to compare, but enough need to be included to express data differences. Our wizard uses 5 bubble sizes. You can make their range bigger or smaller, but keep in mind that a greater difference in size between bubbles means it's easier to recognize which size category a marker belongs to. You can also enable infowindows to tell your audience exactly which value a bubble marker represents.
 
-### Density Wizard
+## Density Wizard
 
 If your map's illegible because it has too many overlapping points, the Density wizard can help communicate it's data more clearly. Use it if you want to show relative location data, for example if more earthquakes occurred in Alaska than Japan. Compared to the first storm map in this lesson, it's much easier to see where the most storms were concentrated in the map below. If you want to visualize other attributes like where the strongest earthquakes occurred, then a choropleth, bubble or category map is a better choice. 
 
@@ -178,7 +180,7 @@ There's a drawback to this format though. Map readers generally recognize a geog
 
 ![density_labels]({{site.baseurl}}/img/course6/lesson1/density_labels.gif)
 
-### Intensity Wizard
+## Intensity Wizard
 
 The intensity wizard works with point data. It makes a clutter of points more legible by creating darker, more saturated color areas to show users where points overlap.  Like the Density and Cluster wizards it's good for showing relative location data. For example an intensity map of crime incidents can show users if more crime occurred in Madrid than New York, although they wouldn't be able to see other attributes like the type of crime. In the simple wizard map below, it's hard to see where more storms occurred because it's hard to tell if you're looking at an individual point or closely overlapping ones. Switching to the intensity wizard makes it easier to see that more storms occurred just south of Omaha.
 
@@ -186,7 +188,7 @@ The intensity wizard works with point data. It makes a clutter of points more le
 
 The Intensity wizard is a better choice than the Density and Cluster wizards if you need to show your dataset's exact locations, because it doesn't aggregate points. Zooming won't change how your points relate to each other since they're not being aggregated into one grid cell or another. 
 
-### Torque, Torque Category, and Heatmap Wizards
+## Torque, Torque Category, and Heatmap Wizards
 
 Use the torque wizards when you want to show how your point data changes over time. These wizards are only available when your dataset includes a date column. Like the cluster wizard, torque is a spatial aggregator. That means instead of drawing one marker for each point in your dataset, torque draws one marker representing a few points. Read more about how it works [here.](https://github.com/CartoDB/torque/wiki/How-spatial-aggregation-works)
 
@@ -194,7 +196,9 @@ Torque also aggregates by time. It calculates the whole time period from the fir
 
 ![torque]({{site.baseurl}}/img/course6/lesson1/torque.gif)
 
-In the torque wizard you have the option to make torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas. Like the category wizard, torque category colors your points based on a qualitative attribute in your dataset. There's no cumulative option for torque category. While it's possible to do this with CartoCSS, it's not recommended: the category rendered last in an animation looks like it represents the category that occurred there most over time, but that's not necessarily true. For example, one location can have blue markers for most of the animation, but if at it's last date a red category was dominant, a red marker replaces the blue ones. Users won't be able to tell that area was anything but red, even though blue was the most dominant category for most of the time.
+In the torque wizard you have the option to make torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas. 
+
+Like the category wizard, torque category colors your points based on a qualitative attribute in your dataset. There's no cumulative option for torque category. While it's possible to do this with CartoCSS, it's not recommended: the category rendered last in an animation looks like it represents the category that occurred there most over time, but that's not necessarily true. For example, one location can have blue markers for most of the animation, but if at it's last date a red category was dominant, a red marker replaces the blue ones. Users won't be able to tell that area was anything but red, even though blue was the most dominant category for most of the time.
 
 ![torque_cat]({{site.baseurl}}/img/course6/lesson1/torque_cat.gif)
 
@@ -214,7 +218,7 @@ Another criticism is that it can be hard to see which color value a location has
 
 ![green_or_cyan]({{site.baseurl}}/img/course6/lesson1/green_cyan.png)
 
-Also, the way colors are rendered in an area can cause banding, which visually can look like a boundary that [doesn't really exist.](http://www.mathworks.com/tagteam/81137_92238v00_RainbowColorMap_57312.pdf)
+Also, the way colors are rendered in an area can cause banding, which visually can look like a boundary that [doesn't really exist.](http://www.mathworks.com/tagteam/81137_92238v00_RainbowColorMap_57312.pdf) For more discussion about designing rainbow maps, check out [this webpage.](https://eagereyes.org/basics/rainbow-color-map).
 
 
 

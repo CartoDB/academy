@@ -1,15 +1,15 @@
 ---
 layout: course
-title: "Intermediate Design"
+title: "Intermediate Map Design"
 id: "06-intermediate-design"
-subtitle: Intermediate Design
-categories: Intermediate
+subtitle: Make informed choices about map type, color, and typography!
+categories: intermediate
 tag: design
 time: 45 minutes
-description_short: Steph, fill this infomration in.
-description_long: How about making the title something other than Intermediate Design? Something along those lines but zingier. Oooh, and I'm just testing how much text we can add here without overflowing. It looks like quite a bit. I'm almost at paragraph-length now. 
+description_short: "Learn more about cartography and the pros and cons of thematic map types." 
+description_long: "In this lesson you'll learn how to choose the type of thematic map that communicates your dataset's information best. You'll also learn how to use color and typography to make it beautiful! When you have finished this course, you will have built upon the skills you gained in Introduction to Map Design."
 prerequisite:
-    - Basic experience using CartoDB
+    - Introduction to Map Design
     - A modern browser like Chrome, Firefox, or Safari
     - Reliable Internet access
     - A desire to learn!
