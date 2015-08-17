@@ -12,12 +12,15 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/e667d364-d5ff-11e3-a78a-0e
 
 ## Which kind of map should I make?
 
-Congratulations if you completed our [first design course](http://academy.cartodb.com/courses/02-design-for-beginners.html)! From those lessons, you've learned the basics of how to design digital maps using filtered data, color, and labels! You saw an [example](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-2.html#why-to-think-about-colors) of how design choices can [obscure](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much) or [clearly communicate](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#all-together-now) your dataset's information.
+Congratulations if you completed our [first design course](http://academy.cartodb.com/courses/02-design-for-beginners.html)! Otherwise, congrats for finding your way to our second course in map-based data visualization! 
 
-Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor.html#map-wizards) make it easy for you to filter and style your data, but with so many types of data, which wizard and settings should you use?
-The answer depends on what information you are trying highlight in your data. 
+Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-2.html#why-to-think-about-colors) of how design choices can [completely obscure](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much) or [clearly communicate](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#all-together-now) the information in your dataset.
 
-This lesson will help you pick a wizard by outlining when to use each. We use some ideas found in the book _[Thematic Cartography and Geovisualization](https://books.google.com/books/about/Thematic_Cartography_and_Geovisualizatio.html?id=P_URAQAAIAAJ)_. Check it out for more information.
+Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor.html#map-wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use?
+
+The answer to that question depends on what information you are trying highlight in your data.
+
+This lesson will help you pick a wizard by outlining when to use each of the diffent map types. We use some ideas found in the book _[Thematic Cartography and Geovisualization](https://books.google.com/books/about/Thematic_Cartography_and_Geovisualizatio.html?id=P_URAQAAIAAJ)_. Check it out for more information.
 
 ### A good starting point
 
@@ -34,7 +37,7 @@ Also consider scale: for instance, if you're planning a small-scale map, will so
 
 **How is your data measured?**
 
-Is it important for your data to be ranked (quantitative) or categorized without an order (qualitative)? Find out more about how your data can be measured on [this webpage](http://wiki.gis.com/wiki/index.php/Scale_of_measurement).
+Is it important for your data to be ranked (quantitative) or categorized without an order (qualitative)? Find out more about how your data can be measured on [the GIS Wiki](http://wiki.gis.com/wiki/index.php/Scale_of_measurement).
 
 **Does your data need to be normalized?**
 
@@ -42,15 +45,15 @@ Do you want to show your data using a total count or a rate? For example, showin
 
 **How many attributes should you map?**
 
-There is no one accepted answer for this, but users should be able to see a clear hierarchy between your map's visual elements. This topic was discussed in the [third lesson](](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much)) of the beginner design course.
+There is no one accepted answer for this, but users should be able to see a clear hierarchy between your map's visual elements. This topic was discussed in the [third lesson](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much) of the beginner design course.
 
 **Do you want to map changes in your data over time?**
 
-Animated maps are possible with CartoDB's [Torque](http://docs.cartodb.com/cartodb-editor.html#map-wizards).
+Animated maps are possible with CartoDB's [Torque](http://docs.cartodb.com/cartodb-editor.html#map-wizards). With Torque you have the ability to show changes of geographical data over time with data aggregated as you specify.
 
 ## Simple Wizard
 
-When you connect a dataset to your CartoDB account, you'll see it's Map View is automatically styled according to our simple wizard.
+When you connect a dataset to your CartoDB account, you'll see it's Map View is automatically styled according to our simple wizard. You may notice a pop-up in the lower left that has suggestions for other types of maps. The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
 
 ![line_layer]({{site.baseurl}}/img/course6/lesson1/line_layer.png)
 
@@ -58,45 +61,53 @@ When you connect a dataset to your CartoDB account, you'll see it's Map View is 
 
 ![polygon_layer]({{site.baseurl}}/img/course6/lesson1/polygon_layer.png)
 
-You can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally. In this earthquake map, how can you tell which ones were strongest? You can't since there are no differences in marker size or color to indicate magnitude. The Simple wizard option works well for maps that show location only, and you can extend it by applying composite operations on the markers. But if you also want to show other attributes from the datatable, other wizards are a better choice. If you find that your location points are too close together to be readable, consider using a cluster or density map instead.
+You can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally across a dataset. In this earthquake map below, how can you tell which ones were strongest?
 
 ![earthquakes]({{site.baseurl}}/img/course6/lesson1/earthquakes.png)
 
+You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the data table, other wizards are a better choice. 
+
+If you find that your location points are too close together to be readable, consider using a cluster or density map instead. Within the Simple wizard, you also have the ability to do color and alpha composite operations, but those will be covered in a later lesson on color.
+
 ### Category Wizard
 
-Use the Category wizard when you want to show location and one other qualitative attribute, or category. In the map below we can identify each of Australia's states because of color differences between the polygons.
+Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons.
 
-![australia_cat]({{site.baseurl}}/img/course6/lesson1/australia_cat.png)
+![Australia Categorized by State]({{site.baseurl}}/img/course6/lesson1/australia_cat.png)
 
 We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead.
+
+A good rule-of-thumb for category maps is to keep the number of categories at or below ten. 
 
 ### Cluster Wizard
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
 
-![storms_usa_2014]({{site.baseurl}}/img/course6/lesson1/storms_usa_2014.png)
+![Storms in the USA in 2014]({{site.baseurl}}/img/course6/lesson1/storms_usa_2014.png)
 
-Did the Northeast have more storms than the Midwest? How many storms occurred around Washington, DC? Because of the amount of overlapping points, it's nearly impossible to tell. Our audience can't easily pick out general or specific information from this map.
+Did the Northeast have more storms than the Midwest? How many storms occurred around Washington, DC? Because of the large number of overlapping points, it's nearly impossible to tell. Our audience can't easily pick out general or specific information from this map.
 
-The cluster wizard solves this by reducing the number of points. It lays an invisible grid over our map, then creates one marker to symbolize all of the points that fall into each grid cell. Larger markers represent more points, and a marker's number shows how many points it's aggregating. 
+The Cluster wizard solves this by reducing the number of points. It lays an invisible grid over our map, then creates one marker to symbolize all of the points that fall into each grid cell. Larger markers represent more points, and a marker's number shows how many points it has aggregated. 
 
-You can choose the size of the grid cell by choosing how many buckets your data is divided into in the wizard's pulldown menu. A smaller bucket number means a larger aggregation area, so more points will potentially be included in each grid cell. The grid's pixel size stays the same on zoom. Zooming in means a smaller area of your map is included in each grid cell; zooming out means a larger area is. Notice how points fall into different aggregation grid cells depending on zoom level below.
+You can choose the size of the grid cell by choosing how many buckets your data is divided into in the wizard's pulldown menu. A smaller bucket number means a larger aggregation area, so more points will potentially be included in each grid cell. The grid's pixel size stays the same on zoom. 
+
+Zooming in means a smaller area of your map is included in each grid cell; zooming out means a larger area is included. Notice how points fall into different aggregation grid cells depending on zoom level below.
 
 ![cluster_zoom]({{site.baseurl}}/img/course6/lesson1/cluster_zoom.gif)
 
 ### Choropleth Wizard
 
-A choropleth map depicts ranges of number data by color. The choropleth wizard orders your dataset according to a number column's values, then groups the data into buckets. Each bucket gets assigned a color.
+A choropleth map depicts ranges of number data by color. The choropleth wizard orders your dataset according to a number column's values, then groups the data into buckets (i.e., a histogram). Each bucket gets assigned a color according to the color ramp chosen.
 
 ## Quantification
 
-How your data is grouped into buckets depends on how it's classified. Changing this via the Quantification pulldown can dramatically change your map. To decide which to use, it's helpful to look at how your dataset's number column is distributed in the Filters tab. Take a look at this example of the percent of employees working over 50 hours per week, by country:
+How your data is grouped into buckets depends on how the bucket widths are chosen. Changing this via the Quantification pulldown can dramatically change your map. To decide which to use, it's helpful to look at how your dataset's number column is distributed in the Filters tab. Take a look at this example of the percent of employees working over 50 hours per week, by country:
 
 ![filter_1]({{site.baseurl}}/img/course6/lesson1/filter.png)
 
 Most of the dataset's number column values are clustered towards the left end of the graph, but notice there is also an outlying value at the far right end. The objective of grouping data into buckets is to put similar values together. 
 
-If we use the Quantile method here, it's going to put an equal number of values in each bucket. That means the far right outlying value of 43% is going to fall in the same bucket as the next value to it's left, 29%. Other buckets would have values that aren't as different: for example the first bucket would include values 1% and 5%. If our dataset's values were more evenly distributed on the graph Quantile could be a good choice because it's easy to understand, and each bucket's data would be equally represented on the map. In this case though it's coloring countries with 43% people working over 50 hours per week exactly the same as countries where only 27% of people are. It's making very different areas on your map look similar.
+If we use the Quantile method here, it's going to put an equal number of values in each bucket. That means the far right outlying value of 43% is going to fall in the same bucket as the next value to it's left, 29%. Other buckets would have values that aren't as different: for example the first bucket would include values 1% and 5%. If our dataset's values were more evenly distributed on the graph, Quantile could be a good choice because it's easy to understand, and each bucket's data would be equally represented on the map. In this case though it's coloring countries with 43% people working over 50 hours per week exactly the same as countries where only 27% of people are. It's making very different areas on your map look similar.
 
 The Heads/Tails method is good to use when your dataset has many more low values that appear clustered towards the left edge of the graph (Tails) than high values (Heads). Without it, all of the low-end values would dominate in the range of buckets you're using to create the choropleth. Heads/Tails classes most of the low-range values together in one bucket, which makes hierarchy of information between all of the buckets easier to see.
 
