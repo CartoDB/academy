@@ -60,7 +60,7 @@ When you connect a dataset to your CartoDB account, you'll see it's Map View is 
 
 You can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally. In this earthquake map, how can you tell which ones were strongest? You can't since there are no differences in marker size or color to indicate magnitude. The Simple wizard option works well for maps that show location only, and you can extend it by applying composite operations on the markers. But if you also want to show other attributes from the dataset, other wizards are a better choice. If you find that your location points are too close together to be readable, consider using a cluster or density map instead.
 
-![earthquake_map]({{site.baseurl}}/img/course6/lesson1/earthquakes.png)
+![earthquake_map]({{site.baseurl}}/img/course6/lesson1/earthquakes_1.png)
 
 ## Category Wizard
 
