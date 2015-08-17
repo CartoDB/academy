@@ -485,4 +485,6 @@ The query makes a long line ordered by the column `timestamp`, and the CartoCSS 
 
 * [Torque.js documentation](https://github.com/CartoDB/torque/blob/master/doc/API.md)
 * [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
+* [Visualize Bird Flight](http://lifewatch.inbo.be/blog/posts/forward-trajectory-visualizations.html) in a single night
+* [Bird Tracking](http://smithsonianscience.si.edu/2015/05/satellite-tracking-helps-with-curlew-conservation/) on Smithsonian Science
 * An [EcoHack](http://blog.cartodb.com/ecohack/) on animal tracks (map [here](http://robbykraft.github.io/AnimalTrack/))
