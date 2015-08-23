@@ -61,10 +61,6 @@ When you connect a dataset to your CartoDB account, you'll see it's Map View is 
 
 ![line_layer]({{site.baseurl}}/img/course6/lesson1/line_layer.png)
 
-![point_layer]({{site.baseurl}}/img/course6/lesson1/point_layer.png)
-
-![polygon_layer]({{site.baseurl}}/img/course6/lesson1/polygon_layer.png)
-
 You may notice a pop-up in the lower left that has suggestions for other types of maps. This is part of our [One-Click Mapping feature.](http://blog.cartodb.com/one-click-mapping/) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
 
 ![one_click_popup]({{site.baseurl}}/img/course6/lesson1/popup.png)
@@ -119,7 +115,7 @@ If we use the Quantile method here, it's going to put an equal number of values 
 
 The Heads/Tails method is good to use when your dataset has many more low values that appear clustered towards the left edge of the graph (Tails) than high values (Heads). Without it, all of the low-end values would dominate the map. Heads/Tails divides the low values into a few buckets that have smaller ranges than buckets at the other end of the graph, which makes hierarchy of information between all of the buckets easier to see.
 
-Equal Interval classification means the data values are bucketed according to same-size ranges of values, for example 0 - 10, 10 - 20, 20 - 30. In our Work Life Balance map, take a look at the CartoCSS used to group the data, when the map is simplified to only show 3 buckets:
+Equal Interval classification means the data values are bucketed according to same-size ranges of values, for example 0 - 10, 11 - 21, 22 - 32. In our Work Life Balance map, take a look at the CartoCSS used to group the data, when the map is simplified to only show 3 buckets:
 
 ![equal_interval]({{site.baseurl}}/img/course6/lesson1/equal_int.png)
 
