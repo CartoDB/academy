@@ -97,7 +97,7 @@ Zooming in means a smaller area of your map is included in each grid cell; zoomi
 
 ## Choropleth Wizard
 
-A choropleth map depicts ranges of number data by color. The choropleth wizard orders your dataset according to a number column's values, then groups the data into buckets (i.e., a histogram). Each bucket gets assigned a color according to the color ramp chosen.
+A choropleth map depicts ranges of number data by color. The choropleth wizard orders your dataset according to a number column's values, then groups the data into buckets (á la histogram). Each bucket gets assigned a color according to the color ramp chosen.
 
 **Quantification**
 
@@ -107,11 +107,11 @@ How your data is grouped into buckets depends on how the bucket widths are chose
 
 Most of the dataset's number column values are clustered towards the left end of the graph, but notice there is also an outlying value at the far right end. The objective of grouping data into buckets is to put similar values together. 
 
-If we use the Quantile method here, it's going to put an equal number of values in each bucket. That means the far right outlying value of 43% is going to fall in the same bucket as the next value to it's left, 29%. Other buckets would have values that aren't as different: for example the first bucket would include values 1% and 5%. If our dataset's values were more evenly distributed on the graph, Quantile could be a good choice because it's easy to understand, and each bucket's data would be equally represented on the map. In this case though it's coloring countries with 43% people working over 50 hours per week exactly the same as countries where only 27% of people are. It's making very different areas on your map look similar.
+If we use the **Quantile method** here, it's going to put an equal number of values in each bucket. That means the far right outlying value of 43% is going to fall in the same bucket as the next value to it's left, 29%. Other buckets would have values that aren't as different: for example the first bucket would include values 1% and 5%. If our dataset's values were more evenly distributed on the graph, Quantile could be a good choice because it's easy to understand, and each bucket's data would be equally represented on the map. In this case though it's coloring countries with 43% people working over 50 hours per week exactly the same as countries where only 27% of people are. It's making very different areas on your map look similar.
 
-The Heads/Tails method is good to use when your dataset has many more low values that appear clustered towards the left edge of the graph (Tails) than high values (Heads). Without it, all of the low-end values would dominate the map. Heads/Tails divides the low values into a few buckets that have smaller ranges than buckets at the other end of the graph, which makes hierarchy of information between all of the buckets easier to see.
+The **[Heads/Tails method](https://en.wikipedia.org/wiki/Head/tail_Breaks)** is good to use when your dataset has many more low values that appear clustered towards the left edge of the graph (Tails) than high values (Heads). Without it, all of the low-end values would dominate the map. Heads/Tails creates buckets by recursively dividing the range of your data in half. The result is that the values to the left are in narrower buckets, and the values to the right are in increasingly wider buckets.
 
-Equal Interval classification means the data values are bucketed according to same-size ranges of values, for example 0 - 10, 10 - 20, 20 - 30. In our Work Life Balance map, take a look at the CartoCSS used to group the data, when the map is simplified to only show 3 buckets:
+**Equal Interval classification** means the data values are bucketed according to ranges of equal width. For example 0 - 10, 10 - 20, 20 - 30. In our Work Life Balance map, take a look at the CartoCSS used to group the data, when the map is simplified to only show 3 buckets:
 
 ![equal_interval]({{site.baseurl}}/img/course6/lesson1/equal_int.png)
 
@@ -119,7 +119,7 @@ For this example we rounded the percent of employees working over 50 hours per w
 
 An advantage of Equal Interval is that the ranges are easily understandable since they are the same size. A disadvantage is that it doesn't take into account how data's distributed across the graph. A lot of data values clustered together can fall in one bucket, while another bucket can contain no values. For example, if our dataset only had countries with less than 14% and more than 30% of employees working over 50 hours per week, the middle bucket would still be visible in the legend even though it contained no values.
 
-Jenks classification finds natural breaks in your data. It groups together similar values, and emphasizes difference between buckets. A disadvantage of this is that the breaks can be hard to understand. An advantage is that outliers get their own categories, so they aren't grouped with dissimilar values. For instance, in the filter example above the value at the graph's right edge would be in it's own group, instead of being bucketed with the value to it's left that's very different.
+**Jenks classification** finds natural breaks in your data. That is, it minimizes the variance within a bucket and maximizes the variance between different buckets. A disadvantage of this method is that the breaks can be hard to understand. An advantage is that outliers get their own categories, so they aren't grouped with dissimilar values. For instance, in the filter example above the value at the graph's right edge would be in it's own group, instead of being bucketed with the "nearest" value to its left.
 
 **Color**
 
@@ -127,7 +127,7 @@ Each bucket is assigned a color according to a scheme. Sequential color schemes 
 
 ![sequential_color]({{site.baseurl}}/img/course6/lesson1/seq_color.png)
 
-Generally light colors are understood to mean lower values, and darker, more highly saturated colors represent the highest values. We give you the option to reverse that scale though.
+Generally light colors are understood to mean lower values, and darker, more highly saturated colors represent the highest values. We give you the option to reverse that scale if have other design needs.
 
 If your dataset has a midpoint and you want to emphasize values above or below that point, you should use a diverging color scheme. The map below is colored according to a number column showing the per capita growth rate for each country, compared to the previous year. If the country has a negative value in that column, meaning it's growth decreased, then it's polygon is colored blue. If a country's growth increased it's colored red, and if there was no change in the growth rate from the previous year, it's colored neutral beige. How much of an increase or decrease is indicated by how saturated the reds or blues are.
 
@@ -137,7 +137,7 @@ When you're making a choropleth map, be aware of these issues:
 
 **Normalization**
 
-Choropleths show your audience how much of an attribute each polygon or point has. Which subway stop has more crime? It's a tricky question: technically Station A has twice as many muggings as Station B, but if what you're really trying to show is how safe Station A is compared to Station B then the map below is misleading.
+Choropleths show your audience how much of an attribute each polygon or point's color represents. Which subway stop has more crime? It's a tricky question: technically Station A has twice as many muggings as Station B, but if what you're really trying to show is how safe Station A is compared to Station B then the map below is misleading.
 
 ![non_normalized]({{site.baseurl}}/img/course6/lesson1/crime_incidents.png)
 
@@ -159,13 +159,13 @@ Polygon choropleths make the distribution of data look uniform, when in fact it 
 
 ## Bubble Wizard
 
-Like choropleth maps, bubble maps let your audience compare places by how much of an attribute they have. The Bubble wizard creates a proportional symbol map based on a numbers column in your dataset. Locations with higher numbers have larger circle markers. The circles can represent areas or exact locations, so this wizard is flexible enough to use whether your dataset includes points or polygons. You can also choose a Quantification method, see more about that above.
+Like choropleth maps, bubble maps let your audience compare places by how much of an attribute they have. The Bubble wizard creates proportionately-sized symbol map based on a numbers column in your dataset. Locations with higher numbers have larger circle markers. The circles can represent areas or exact locations, so this wizard is flexible enough to use whether your dataset includes points or polygons. You can also choose a Quantification method, see more about that above.
 
-An advantage bubble maps have is that they can represent either raw or normalized numbers. Also, showing magnitude by circle size instead of polygon color means that your information will be communicated clearly even for easily-overlooked small polygons. In the choropleth below, Russia is more noticeable than Japan because of it's much larger polygon size. Notice how that dominance disappears when we switch to a bubble map.
+An advantage of bubble maps have is that they can represent either raw or normalized numbers. Also, showing magnitude by circle size instead of polygon color means that your information will be communicated clearly even for easily-overlooked small polygons and for people with color blindness. In the choropleth below, Russia is more noticeable than Japan because of it's much larger polygon size. Notice how that dominance disappears when we switch to a bubble map.
 
 ![bubble]({{site.baseurl}}/img/course6/lesson1/bubble.gif)
 
-One disadvantage to keep in mind is that we humans do not generally estimate symbol size well! For example, is the big dot below 12 or 18 times larger than the small one?
+One disadvantage to keep in mind is that humans do not generally estimate symbol size very well. For example, is the big dot below 12 or 18 times larger than the small one? How do the areas compare?
 
 ![larger_dot]({{site.baseurl}}/img/course6/lesson1/larger.png)
 
@@ -175,15 +175,17 @@ Which center dot is larger?
 
 Both center dots are actually the same size.
 
-People are able to judge shapes more accurately when there are less sizes to compare, but enough need to be included to express data differences. Our wizard uses 5 bubble sizes. You can make their range bigger or smaller, but keep in mind that a greater difference in size between bubbles means it's easier to recognize which size category a marker belongs to. You can also enable infowindows to tell your audience exactly which value a bubble marker represents.
+People are able to judge shapes more accurately when there are fewer sizes to compare, but enough need to be included to express data differences. Our wizard uses five bubble sizes by default. You can make their range bigger or smaller, but keep in mind that a greater difference in size between bubbles means it's easier to recognize which size category a marker belongs. You can also enable infowindows to tell your audience exactly which value a bubble marker represents.
 
 ## Density Wizard
 
-If your map's illegible because it has too many overlapping points, the Density wizard can help communicate it's data more clearly. Use it if you want to show relative location data, for example if more earthquakes occurred in Alaska than Japan. Compared to the first storm map in this lesson, it's much easier to see where the most storms were concentrated in the map below. If you want to visualize other attributes like where the strongest earthquakes occurred, then a choropleth, bubble or category map is a better choice. 
+If your map is illegible because it has too many overlapping points, the Density wizard can help communicate it's data more clearly. Use it if you want to show relative location data, for example if more earthquakes occurred in Alaska than Japan. Compared to the first storm map in this lesson, it's much easier to see where the most storms were concentrated in the map below. If you want to visualize other attributes like where the strongest earthquakes occurred, then a choropleth, bubble or category map is a better choice. 
 
 ![density]({{site.baseurl}}/img/course6/lesson1/storm_density.png)
 
-The Density wizard is an aggregator that works similarly to the cluster wizard: a grid is laid over your map, and one marker is created to represent all of the points that are located in each grid cell. In the Density wizard, these markers are the grid cells. They can be hexagons or rectangles, but their size does not change. Instead, their color does: the more points in a cell, the darker the color (or lighter the color, depending on which color ramp you choose). Like cluster wizard maps, you can change the size of your aggregation grid by choosing how many buckets your data is binned into. The aggregation grid's pixel dimensions don't change on zoom. That means the map area included in each grid cell will change as you zoom in and out, which means a point could fall into a different aggregation cell. If it's important for your dataset's points to keep the same spatial relationship to each other no matter the zoom level, then consider using the Intensity wizard instead.
+The Density wizard is an aggregator that works similarly to the cluster wizard: a grid is laid over your map, and one marker is created to represent all of the points that are located in each grid cell. In the Density wizard, these markers are the grid cells. They can be hexagons or rectangles, but their size does not change. Instead, their color does: the more points in a cell, the darker the color (or lighter the color, depending on which color ramp you choose). 
+
+Like cluster wizard maps, you can change the size of your aggregation grid by choosing how many buckets your data is binned into. The aggregation grid's pixel dimensions don't change on zoom. That means the map area included in each grid cell will change as you zoom in and out, which means a point could fall into a different aggregation cell. If it's important for your dataset's points to keep the same spatial relationship to each other no matter the zoom level, then consider using the Intensity wizard instead.
 
 This “hexbin” or grid map has an advantage over polygon maps. Normally in choropleths, a large polygon's data looks more emphasized just because of size. In this density map, easily overlooked tiny polygons have their data represented equally to large polygons. 
 
@@ -201,19 +203,19 @@ The Intensity wizard is a better choice than the Density and Cluster wizards if 
 
 ## Torque, Torque Category, and Heatmap Wizards
 
-Use the torque wizards when you want to show how your point data changes over time. These wizards are only available when your dataset includes a date column. Like the cluster wizard, torque is a spatial aggregator. That means instead of drawing one marker for each point in your dataset, torque draws one marker representing a few points. Read more about how it works [here.](https://github.com/CartoDB/torque/wiki/How-spatial-aggregation-works)
+Use the Torque wizards when you want to show how your point data changes over time. These wizards are only available when your dataset includes a date column. Like the cluster wizard, Torque is a spatial aggregator. That means instead of drawing one marker for each point in your dataset, Torque draws one marker representing a few points. Read more about how [spatial aggregation works in Torque](https://github.com/CartoDB/torque/wiki/How-spatial-aggregation-works). You can control the aggregation region size by changing the Resolution option in the Torque wizard. A smaller resolution means that the aggregation happens over a smaller region.
 
-Torque also aggregates by time. It calculates the whole time period from the first to last date/time in your column, and splits that time up into buckets. The number of buckets is the same as the number of steps you choose in the Editor; one bucket is one animation frame.
+Torque also aggregates by time. It calculates the whole time period from the first to last date/time in your column, and splits that time up into buckets. The number of buckets is the same as the number of steps you choose in the Editor, where one bucket is one animation frame.
 
 ![torque]({{site.baseurl}}/img/course6/lesson1/torque.gif)
 
-In the torque wizard you have the option to make torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas. 
+In the Torque wizard you have the option to make Torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas. 
 
-Like the category wizard, torque category colors your points based on a qualitative attribute in your dataset. There's no cumulative option for torque category. While it's possible to do this with CartoCSS, it's not recommended: the category rendered last in an animation looks like it represents the category that occurred there most over time, but that's not necessarily true. For example, one location can have blue markers for most of the animation, but if at it's last date a red category was dominant, a red marker replaces the blue ones. Users won't be able to tell that area was anything but red, even though blue was the most dominant category for most of the time.
+Like the category wizard, Torque category colors your points based on a qualitative attribute in your dataset. There's no cumulative option for Torque category. While it's possible to do this with CartoCSS, it's not recommended: the category rendered last in an animation looks like it represents the category that occurred there most over time, but that's not necessarily true. For example, one location can have blue markers for most of the animation, but if at it's last date a red category was dominant, a red marker replaces the blue ones. Users won't be able to tell that area was anything but red, even though blue was the most dominant category for most of the time. You can control this behavior better by changing the composite operation.
 
-![torque_cat]({{site.baseurl}}/img/course6/lesson1/torque_cat.gif)
+![Torque_cat]({{site.baseurl}}/img/course6/lesson1/torque_cat.gif)
 
-Heatmaps can be cumulative; use them when you want to show intensity over time. A cumulative torque map will show points filling a grid cell over time, but like in the map below it becomes hard to tell how density compares from area to area since the markers don't change color or size the more points are located there. 
+Heatmaps can be cumulative; use them when you want to show intensity over time. A cumulative Torque map will show points filling a grid cell over time, but like in the map below it becomes hard to tell how density compares from area to area since the markers don't change color or size the more points are located there. 
 
 ![cumulative_torque]({{site.baseurl}}/img/course6/lesson1/torque_cu.gif)
 
@@ -221,7 +223,7 @@ Heatmaps show that in a better way by using a color gradient instead of a number
 
 ![heatmap]({{site.baseurl}}/img/course6/lesson1/heatmap.gif)
 
-A criticism of rainbow color gradients is that there's no natural perceived order to their colors. In the top color ramp below, it's easier to see that swatch 5 should come after swatch 2, because we're only slightly changing hue while ordering the colors according to brightness and saturation. Compare that to the variety of hues in a rainbow color scheme. The brightest color (yellow) falls near the middle of the ramp, and less-saturated colors like orange fall between more saturated colors like red and yellow. It takes slightly more time for your users to understand what the color values mean relative to each other in a rainbow color ramp. Generally though, when rainbow heatmaps are used the standard is that blue or purple means a low value and red means a high value.
+A criticism of rainbow color gradients is that there's no natural perceived order to their colors. In the top color ramp below, it's easier to see that the fifth swatch should come after the second swatch, because we're only slightly changing hue while ordering the colors according to brightness and saturation. Compare that to the variety of hues in a rainbow color scheme. The brightest color (yellow) falls near the middle of the ramp, and less-saturated colors like orange fall between more saturated colors like red and yellow. It takes slightly more time for your users to understand what the color values mean relative to each other in a rainbow color ramp. Generally though, when rainbow heatmaps are used the standard is that blue or purple means a low value and red means a high value.
 
 ![rainbow]({{site.baseurl}}/img/course6/lesson1/rainbow.png)
 
