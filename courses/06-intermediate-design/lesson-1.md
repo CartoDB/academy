@@ -7,7 +7,7 @@ course: "Intermediate Map Design"
 course_slug: "06-intermediate-design"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
-vizjson: "http://documentation.cartodb.com/api/v2/viz/e667d364-d5ff-11e3-a78a-0edbca4b5057/viz.json"
+vizjson: "https://documentation.cartodb.com/api/v2/viz/ea5e3532-4753-11e5-90e9-0e9d821ea90d/viz.json"
 ---
 
 ## Which kind of map should I make?
@@ -16,9 +16,13 @@ Congratulations if you completed our [first design course](http://academy.cartod
 
 Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-2.html#why-to-think-about-colors) of how design choices can [completely obscure](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much) or [clearly communicate](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#all-together-now) the information in your dataset.
 
-Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor.html#map-wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use?
+Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor.html#map-wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use? 
 
 The answer to that question depends on what information you are trying highlight in your data.
+
+Our [One-Click Mapping feature](http://blog.cartodb.com/one-click-mapping/) can help you decide. It analyzes your uploaded datasets and makes suggestions of columns to visualize, then gives you a variety of sample maps to choose from. But how should you choose between them, and what if you want to make changes or create a map yourself?
+
+![one-click]({{site.baseurl}}/img/course6/lesson1/oneclick.png)
 
 This lesson will help you pick a wizard by outlining when to use each of the diffent map types. We use some ideas found in the book _[Thematic Cartography and Geovisualization](https://books.google.com/books/about/Thematic_Cartography_and_Geovisualizatio.html?id=P_URAQAAIAAJ)_. Check it out for more information.
 
@@ -53,17 +57,17 @@ Animated maps are possible with CartoDB's [Torque](http://docs.cartodb.com/carto
 
 ## Simple Wizard
 
-When you connect a dataset to your CartoDB account, you'll see it's Map View is automatically styled according to our simple wizard. You may notice a pop-up in the lower left that has suggestions for other types of maps. The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
+When you connect a dataset to your CartoDB account, you'll see it's Map View is automatically styled according to our simple wizard. 
 
 ![line_layer]({{site.baseurl}}/img/course6/lesson1/line_layer.png)
 
-![point_layer]({{site.baseurl}}/img/course6/lesson1/point_layer.png)
+You may notice a pop-up in the lower left that has suggestions for other types of maps. This is part of our [One-Click Mapping feature.](http://blog.cartodb.com/one-click-mapping/) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
 
-![polygon_layer]({{site.baseurl}}/img/course6/lesson1/polygon_layer.png)
+![one_click_popup]({{site.baseurl}}/img/course6/lesson1/popup.png)
 
-You can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally across a dataset. In this earthquake map below, how can you tell which ones were strongest?
+In the simple wizard you can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally across a dataset. In this earthquake map below, how can you tell which ones were strongest?
 
-![earthquake_map]({{site.baseurl}}/img/course6/lesson1/earthquakes_1.png)
+![earthquake_map]({{site.baseurl}}/img/course6/lesson1/earthquakes_2.png)
 
 You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the data table, other wizards are a better choice. 
 
@@ -77,13 +81,13 @@ Use the Category wizard when you want to show location and one other qualitative
 
 We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson](http://academy.cartodb.com/courses/05-academy-lite.html).
 
-A good rule-of-thumb for category maps is to keep the number of categories at or below ten. 
+A good rule-of-thumb for category maps is to keep the number of categories at or below ten. You're able to change category colors if you wish. [This palette](http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=8) for Australia was taken from [Color Brewer](http://colorbrewer2.org/), a great tool for selecting color schemes specifically designed for maps.
 
 ### Cluster Wizard
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
 
-![Storms in the USA in 2014]({{site.baseurl}}/img/course6/lesson1/storms_usa_2014.png)
+![Storms in the USA in 2014]({{site.baseurl}}/img/course6/lesson1/storms_usa_2014_2.png)
 
 Did the Northeast have more storms than the Midwest? How many storms occurred around Washington, DC? Because of the large number of overlapping points, it's nearly impossible to tell. Our audience can't easily pick out general or specific information from this map.
 
@@ -93,7 +97,7 @@ You can choose the size of the grid cell by choosing how many buckets your data 
 
 Zooming in means a smaller area of your map is included in each grid cell; zooming out means a larger area is included. Notice how points fall into different aggregation grid cells depending on zoom level below.
 
-![cluster_zoom]({{site.baseurl}}/img/course6/lesson1/cluster_zoom.gif)
+![cluster_zoom]({{site.baseurl}}/img/course6/lesson1/cluster_zoom_2.gif)
 
 ## Choropleth Wizard
 
