@@ -500,3 +500,7 @@ pre > code {
   background: darken(#85C77C, 5%);
   @include box-shadow(0 0 3px rgba(#85C77C, .3));
 }
+
+.nav-toc ul > ul {
+  margin-left: 10px;
+}
