@@ -67,7 +67,9 @@ academy.Views.Lesson = cdb.core.View.extend({
       time_slider: false,
       shareable: false,
       search: false,
-      legends: false
+      legends: false,
+      title: false,
+      description: false
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
@@ -128,14 +130,14 @@ academy.Views.Lesson = cdb.core.View.extend({
         subTitle,
         subLink;
 
-      $(this).nextAll('h4,h3,h2').each(function(j) {
+      $(this).nextAll('h3,h2').each(function(j) {
         if ($(this).is('h2')) return false;
 
         $subEl = $(this);
         subTitle = $subEl.text();
         subLink = "#" + $subEl.attr("id");
 
-        $subItem.append('<p class="size-s crs-nav-info"><a href="'+subLink+'">'+subTitle+'</a></p>');
+        $subItem.append('<p class="size-s crs-nav-info">'+'<a href="'+subLink+'">'+subTitle+'</a>'+'</p>');
       });
 
       $item.append($subItem);
