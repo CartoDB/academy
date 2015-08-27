@@ -14,7 +14,7 @@ vizjson: "https://gkudos.cartodb.com/u/kudosg/api/v2/viz/b42f3f50-d8aa-11e4-967d
 
 Congratulations if you completed our [first design course](http://academy.cartodb.com/courses/02-design-for-beginners.html)! Otherwise, congrats for finding your way to our second course in map-based data visualization! 
 
-Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-2.html#why-to-think-about-colors) of how design choices can [completely obscure](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much) or [clearly communicate](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#all-together-now) the information in your dataset.
+Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-2.html#why-to-think-about-colors) of how design choices can [completely obscure](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#data-how-much-is-too-much) or [clearly communicate](http://academy.cartodb.com/courses/02-design-for-beginners/lesson-3.html#all-together-now) the information in your dataset. We hope this course inspires you to make beautiful maps, like the one above designed by CartoDB users [Kudos Ltda.](https://gkudos.cartodb.com/maps)
 
 Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor.html#map-wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use? 
 
