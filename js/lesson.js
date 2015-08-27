@@ -67,7 +67,9 @@ academy.Views.Lesson = cdb.core.View.extend({
       time_slider: false,
       shareable: false,
       search: false,
-      legends: false
+      legends: false,
+      title: false,
+      description: false
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
