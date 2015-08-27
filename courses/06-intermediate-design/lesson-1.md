@@ -7,7 +7,7 @@ course: "Intermediate Map Design"
 course_slug: "06-intermediate-design"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
-vizjson: "https://documentation.cartodb.com/api/v2/viz/ea5e3532-4753-11e5-90e9-0e9d821ea90d/viz.json"
+vizjson: "https://gkudos.cartodb.com/u/kudosg/api/v2/viz/b42f3f50-d8aa-11e4-967d-0e4fddd5de28/viz.json"
 ---
 
 ## Which kind of map should I make?
@@ -97,7 +97,7 @@ You can choose the size of the grid cell by choosing how many buckets your data 
 
 Zooming in means a smaller area of your map is included in each grid cell; zooming out means a larger area is included. Notice how points fall into different aggregation grid cells depending on zoom level below.
 
-![cluster_zoom]({{site.baseurl}}/img/course6/lesson1/cluster_zoom_2.gif)
+![cluster_zoom]({{site.baseurl}}/img/course6/lesson1/cluster_zoom_3.gif)
 
 ## Choropleth Wizard
 
