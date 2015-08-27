@@ -3,7 +3,7 @@ layout: course
 title: "Intermediate Map Design"
 id: "06-intermediate-design"
 subtitle: Make informed choices about map type, color, and typography!
-categories: intermediate
+categories: medium
 tag: design
 time: 45 minutes
 description_short: "Learn more about cartography and the pros and cons of thematic map types." 
