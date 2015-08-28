@@ -7,7 +7,7 @@ course: "Intermediate Map Design"
 course_slug: "06-intermediate-design"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
-vizjson: "https://gkudos.cartodb.com/u/kudosg/api/v2/viz/b42f3f50-d8aa-11e4-967d-0e4fddd5de28/viz.json"
+vizjson: "https://documentation.cartodb.com/api/v2/viz/4e76d67c-4d31-11e5-9963-0e853d047bba/viz.json"
 ---
 
 ## Which kind of map should I make?
@@ -73,7 +73,7 @@ You can't since there are no differences in marker size or color to indicate mag
 
 If you find that your location points are too close together to be readable, consider using a cluster or density map instead. Within the Simple wizard, you also have the ability to do color and alpha composite operations, but those will be covered in a later lesson on color.
 
-### Category Wizard
+## Category Wizard
 
 Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons.
 
@@ -83,7 +83,7 @@ We can't see any quantitative data though, like which state had the highest numb
 
 A good rule-of-thumb for category maps is to keep the number of categories at or below ten. You're able to change category colors if you wish. [This palette](http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=8) for Australia was taken from [Color Brewer](http://colorbrewer2.org/), a great tool for selecting color schemes specifically designed for maps.
 
-### Cluster Wizard
+## Cluster Wizard
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
 
@@ -103,7 +103,7 @@ Zooming in means a smaller area of your map is included in each grid cell; zoomi
 
 A choropleth map depicts ranges of number data by color. The choropleth wizard orders your dataset according to a number column's values, then groups the data into buckets (á la histogram). Each bucket gets assigned a color according to the color ramp chosen.
 
-**Quantification**
+### Quantification
 
 How your data is grouped into buckets depends on how the bucket widths are chosen. Changing this via the Quantification pulldown can dramatically change your map. To decide which to use, it's helpful to look at how your dataset's number column is distributed in the Filters tab. Take a look at this example of the percent of employees working over 50 hours per week, by country:
 
@@ -125,7 +125,7 @@ An advantage of Equal Interval is that the ranges are easily understandable sinc
 
 **Jenks classification** finds natural breaks in your data. That is, it minimizes the variance within a bucket and maximizes the variance between different buckets. A disadvantage of this method is that the breaks can be hard to understand. An advantage is that outliers get their own categories, so they aren't grouped with dissimilar values. For instance, in the filter example above the value at the graph's right edge would be in it's own group, instead of being bucketed with the "nearest" value to its left.
 
-**Color**
+### Color
 
 Each bucket is assigned a color according to a scheme. Sequential color schemes show rank by changing the lightness and/or saturation or hue of a color. They are good to use when you want to represent one range of low to high values, like in our Work Life Balance map:
 
@@ -139,7 +139,7 @@ If your dataset has a midpoint and you want to emphasize values above or below t
 
 When you're making a choropleth map, be aware of these issues:
 
-**Normalization**
+### Normalization
 
 Choropleths show your audience how much of an attribute each polygon or point's color represents. Which subway stop has more crime? It's a tricky question: technically Station A has twice as many muggings as Station B, but if what you're really trying to show is how safe Station A is compared to Station B then the map below is misleading.
 
@@ -153,11 +153,11 @@ Rates should also be used for polygon choropleths. For example, Russia has milli
 
 Standardizing your data like this so it can be compared on equal terms is called normalization. Read more about it [here](https://books.google.com/books?id=FrUQHIzXK6EC&pg=PT347&lpg=PT347&dq=choropleth+normalization&source=bl&ots=muDZhsb2jT&sig=DbomJnKedQjaKvcQgm_sVqHBt-8&hl=en&sa=X&ved=0CCYQ6AEwAjgKahUKEwje0ee8qaTHAhUCZj4KHRF5CjM#v=onepage&q=choropleth%20normalization&f=false). If you want to visualize raw counts, the bubble wizard does a better job of representing your data.
 
-**Arbitrary borders**
+### Arbitrary borders
 
 Polygon choropleths depict exact borders even when in reality what you're mapping doesn't end so abruptly. For example, tax rates do change abruptly at state lines, but flu rates don't. Also, enumeration units like counties or census blocks are arbitrary boundaries. When choosing which enumeration units to use, keep in mind that the same data for the same location can have dramatically different values depending on which boundaries you [pick](https://www.e-education.psu.edu/geog486/node/1864). If your data doesn't depend on enumeration unit borders, you might want to use an intensity, density or heatmap instead.
 
-**Uniform density**
+### Uniform density
 
 Polygon choropleths make the distribution of data look uniform, when in fact it could be more or less concentrated in different areas of your polygon. For instance, 90% of a county's population could be living in it's main city, but you wouldn't be able to tell that from a county polygon that's been assigned one population density rate. Even areas without residents, like lakes or parks, are represented as having the same population density value as the main city. Consider using a density map instead if you need to show a more granular distribution of your data.
 
