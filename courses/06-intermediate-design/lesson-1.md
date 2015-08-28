@@ -7,7 +7,7 @@ course: "Intermediate Map Design"
 course_slug: "06-intermediate-design"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
-vizjson: "https://gkudos.cartodb.com/u/kudosg/api/v2/viz/b42f3f50-d8aa-11e4-967d-0e4fddd5de28/viz.json"
+vizjson: "https://documentation.cartodb.com/api/v2/viz/4e76d67c-4d31-11e5-9963-0e853d047bba/viz.json"
 ---
 
 ## Which kind of map should I make?
@@ -73,7 +73,7 @@ You can't since there are no differences in marker size or color to indicate mag
 
 If you find that your location points are too close together to be readable, consider using a cluster or density map instead. Within the Simple wizard, you also have the ability to do color and alpha composite operations, but those will be covered in a later lesson on color.
 
-### Category Wizard
+## Category Wizard
 
 Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons.
 
@@ -83,7 +83,7 @@ We can't see any quantitative data though, like which state had the highest numb
 
 A good rule-of-thumb for category maps is to keep the number of categories at or below ten. You're able to change category colors if you wish. [This palette](http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=8) for Australia was taken from [Color Brewer](http://colorbrewer2.org/), a great tool for selecting color schemes specifically designed for maps.
 
-### Cluster Wizard
+## Cluster Wizard
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
 
