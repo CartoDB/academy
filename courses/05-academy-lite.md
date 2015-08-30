@@ -15,5 +15,5 @@ prerequisite:
     - A desire to learn!
 published: true
 vizjson: "https://documentation.cartodb.com/api/v2_1/viz/9333ec12-84bb-11e4-b367-0e9d821ea90d/viz.json"
-mailchimp_id: eb9ddf4108
+mailchimp_id: 6ae533ab3c
 ---
