@@ -3,12 +3,16 @@ id: 1
 layout: lesson
 title:  "Lesson 1"
 subtitle: "Odyssey.js"
-course: "Intermediate Map Design"
-course_slug: "06-intermediate-design"
+course: "Community Contributions"
+course_slug: "07-community"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
 vizjson: "https://documentation.cartodb.com/api/v2/viz/4e76d67c-4d31-11e5-9963-0e853d047bba/viz.json"
 ---
+
+## Lesson Information
+
+__This lesson was written by Stace Maples of Stanford University's Geospatial Center. More of projects are hosted in his [center's GitHub account](https://github.com/StanfordGeospatialCenter) or through the [Geospatial Center's website](https://lib.stanford.edu/gis).__
 
 ## Using CartoDB and Odyssey.js for Making Story Maps
 
@@ -49,8 +53,8 @@ I'll be matching up information from various sources ([Wikipedia](http://www.wik
    * [Introduction to Map Design](http://academy.cartodb.com/courses/02-design-for-beginners.html) - Master the basics of designing data for your maps!
 * Learn more about [MarkDown](http://daringfireball.net/projects/markdown/), which is the text /ing 'language' you will use to create the content in your Odyssey.js Story Map (It's also what this tutorial is written in!).
 * Take a look at these pages from the w3schools.com:
-   * [HTML img Tag](http://www.w3schools.com/tags/tag_img.asp) - We'll use this to turn our image URL into the image in our pop-ups
-   * [HTML a Tag](http://www.w3schools.com/tags/tag_a.asp) - We'll use this to turn our Link URLs into actual links in our pop-ups
+   * [HTML `img` Tag](http://www.w3schools.com/tags/tag_img.asp) - We'll use this to turn our image URL into the image in our pop-ups
+   * [HTML `a` Tag](http://www.w3schools.com/tags/tag_a.asp) - We'll use this to turn our Link URLs into actual links in our pop-ups
 
 ## Getting Started with CartoDB
 
