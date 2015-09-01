@@ -156,6 +156,7 @@ The blog platform can display code examples with nicely highlighted code if you 
 {% highlight html %}
 SELECT * FROM bigfoot LIMIT 10
 {% endhighlight %}
+```
 
 Code blocks are enclosed like this:
 ```
