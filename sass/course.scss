@@ -86,8 +86,12 @@
 
 .crs-nav {
   position: relative;
-  width: 218px;
+  width: 200px;
   padding-top: 7px;
+  margin-left: -13px;
+  padding-left: 13px;
+  overflow-y: scroll;
+  padding-right: 20px;
 
   .crs-home & { padding-top: 41px; }
 
