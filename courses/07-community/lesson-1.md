@@ -1,8 +1,8 @@
 ---
 id: 1
 layout: lesson
-title:  "Lesson 1"
-subtitle: "Odyssey.js"
+title:  "Odyssey.js"
+subtitle: "An in-depth introduction to maps with narratives"
 course: "Community Contributions"
 course_slug: "07-community"
 continue_link:
@@ -12,7 +12,7 @@ vizjson: "https://documentation.cartodb.com/api/v2/viz/4e76d67c-4d31-11e5-9963-0
 
 ## Lesson Information
 
-__This lesson was written by Stace Maples of Stanford University's Geospatial Center. More of projects are hosted in his [center's GitHub account](https://github.com/StanfordGeospatialCenter) or through the [Geospatial Center's website](https://lib.stanford.edu/gis).__
+_This lesson was written by Stace Maples of Stanford University's Geospatial Center. More of projects are hosted in his [center's GitHub account](https://github.com/StanfordGeospatialCenter) or through the [Geospatial Center's website](https://lib.stanford.edu/gis)._
 
 ## Using CartoDB and Odyssey.js for Making Story Maps
 
