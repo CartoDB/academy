@@ -340,6 +340,9 @@
   ul,
   ol {
     list-style: square inside;
+    ul, ol {
+      margin-left: 20px;
+    }
   }
 
   h1 {
