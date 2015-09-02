@@ -10,9 +10,11 @@ tweet_text: "Step by step is the way to go. I've finished the second map academy
 vizjson: "https://documentation.cartodb.com/api/v2/viz/4e76d67c-4d31-11e5-9963-0e853d047bba/viz.json"
 ---
 
-## Lesson Information
+# Lesson Information
 
-_This lesson was written by Stace Maples of Stanford University's Geospatial Center. More of projects are hosted in his [center's GitHub account](https://github.com/StanfordGeospatialCenter) or through the [Geospatial Center's website](https://lib.stanford.edu/gis)._
+<div class="Lesson-info">
+  <p>This lesson was written by Stace Maples of Stanford University's Geospatial Center. More of his projects are hosted in his <a href="https://github.com/StanfordGeospatialCenter">center's GitHub account</a> or through the <a href="https://lib.stanford.edu/gis">Geospatial Center's website</a>.</p>
+</div>
 
 ## Using CartoDB and Odyssey.js for Making Story Maps
 
