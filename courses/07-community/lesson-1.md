@@ -7,18 +7,17 @@ course: "Community Contributions"
 course_slug: "07-community"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
-vizjson: "https://documentation.cartodb.com/api/v2/viz/4e76d67c-4d31-11e5-9963-0e853d047bba/viz.json"
+vizjson: "https://documentation.cartodb.com/api/v2/viz/a136b49a-524a-11e5-a2eb-0e853d047bba/viz.json"
 ---
 
 # Lesson Information
 
 <div class="Lesson-info">
-  <p>This lesson was written by Stace Maples of Stanford University's Geospatial Center. More of his projects are hosted in his <a href="https://github.com/StanfordGeospatialCenter">center's GitHub account</a> or through the <a href="https://lib.stanford.edu/gis">Geospatial Center's website</a>.</p>
+  <p>Stace Maples is the Geospatial Manager at <a href="http://gis.stanford.edu/">The Stanford Geospatial Center</a>, Stanford University and the former GIS Specialist &amp; Instruction Coordinator for Yale University. He provides support and collaboration to the Stanford research community in capturing and making sense of the "where" of their work. His work mapping the research interests of scholars has taken him from the beaches of Martha's Vineyard, to Kurdish Northeastern Syria, to the most remote areas of the Mongolian/Chinese border.</p>
+  <p>An archaeologist by training and a technologist by temperament, he is interested in all aspects of mapping, from the aerial imaging of archaeological sites using kites and balloons, to the development of platforms for the gathering of volunteer geographic information. He has over 18 years of experience using Geographic Information Systems and Geotechnology for research and teaching.</p>
 </div>
 
 ## Using CartoDB and Odyssey.js for Making Story Maps
-
-Contact me at stacemaples@stanford.edu
 
 This tutorial has been written so that it is generic enough for anyone to easily create a story map using a free CartoDB account and Odyssey.js. The tutorial is written specifically to support a course at Stanford University, but is being made publicly available for the benefit of all. We like the [FOSS4G](https://2015.foss4g-na.org/) ethos, here, and try to live it. 
 
