@@ -47,19 +47,19 @@ a {
   }
 }
 
-.title-l { font: 24px 'Proxima Nova Extrabold';  letter-spacing: -1px; }
-.size-l { font: 18px 'Proxima Nova Regular'; }
-.size-bl { font: 18px 'Proxima Nova Extrabold'; }
-.size-sbl { font: 18px 'Proxima Nova Light'; }
-.size-m { font: 16px 'Proxima Nova Regular'; }
-.size-bm { font: 16px 'Proxima Nova Extrabold'; }
-.size-sbm { font: 16px 'Proxima Nova Light'; }
-.size-s { font: 14px 'Proxima Nova Regular'; }
-.size-bs { font: 14px 'Proxima Nova Extrabold'; }
-.size-sbs { font: 14px 'Proxima Nova Light'; }
-.size-xs { font: 12px 'Proxima Nova Regular'; }
-.size-bxs { font: 12px 'Proxima Nova Extrabold'; }
-.size-sbxs { font: 12px 'Proxima Nova Light'; }
+.title-l { font: 600 24px 'Proxima Nova W01';  letter-spacing: -1px; }
+.size-l { font: 300 18px 'Proxima Nova W01'; }
+.size-bl { font: 600 18px 'Proxima Nova W01'; }
+.size-sbl { font: 200 18px 'Proxima Nova W01'; }
+.size-m { font: 300 16px 'Proxima Nova W01'; }
+.size-bm { font: 600 16px 'Proxima Nova W01'; }
+.size-sbm { font: 200 16px 'Proxima Nova W01'; }
+.size-s { font: 300 14px 'Proxima Nova W01'; }
+.size-bs { font: 600 14px 'Proxima Nova W01'; }
+.size-sbs { font: 200 14px 'Proxima Nova W01'; }
+.size-xs { font: 300 12px 'Proxima Nova W01'; }
+.size-bxs { font: 600 12px 'Proxima Nova W01'; }
+.size-sbxs { font: 200 12px 'Proxima Nova W01'; }
 
 
 /* =Layout
@@ -88,7 +88,7 @@ a {
 .footer {
   position: relative;
   z-index: 1000002;
-  font: 14px "Proxima Nova Regular";
+  font: 300 14px "Proxima Nova W01";
   background: #252A2F;
   color: #fff;
 
@@ -108,7 +108,7 @@ a {
 
   p {
     @include inline-block;
-    font: normal 700 14px 'Proxima Nova Semibold';
+    font: normal 400 14px 'Proxima Nova W01';
   }
 }
 
@@ -136,6 +136,6 @@ a {
 
 .disclaimer {
   margin-top: 20px;
-  font: 16px "Proxima Nova Light";
+  font: 200 16px "Proxima Nova W01";
   color: rgba(#fff, .5);
 }
