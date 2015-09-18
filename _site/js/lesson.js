@@ -18,7 +18,7 @@ academy.Views.Lesson = cdb.core.View.extend({
   },
 
   initialize: function() {
-    _.bindAll(this, '_initBindings', '_onScroll');
+    _.bindAll(this, '_initBindings', '_onScroll', '_onResize');
 
     this.model = new academy.Models.Lesson();
 
@@ -35,9 +35,11 @@ academy.Views.Lesson = cdb.core.View.extend({
     this.mapHeight = this.$('.lss-course').outerHeight();
     this.footerHeight = this.$('.footer').outerHeight();
     this.sidebarPos = this.$('.crs-inner').offset().top-106;
+    this.menuHeight = 400;
 
     this._initViews();
-    this._onScroll();
+    this._updateMenuHeight();
+    this._recalculateCanvas();
     this._initBindings();
   },
 
@@ -46,7 +48,7 @@ academy.Views.Lesson = cdb.core.View.extend({
 
     $(window)
       .on('scroll', this._onScroll)
-      .on('resize', this._onScroll);
+      .on('resize', this._onResize);
 
     $('.nav-toc a').on('click', function(e) {
       window.router.navigate($(this).attr('href'), { trigger: true });
@@ -63,7 +65,13 @@ academy.Views.Lesson = cdb.core.View.extend({
     var mapOptions = {
       scrollwheel: false,
       zoomControl: false,
-      cartodb_logo: false
+      cartodb_logo: false,
+      time_slider: false,
+      shareable: false,
+      search: false,
+      legends: false,
+      title: false,
+      description: false
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
@@ -87,6 +95,7 @@ academy.Views.Lesson = cdb.core.View.extend({
 
     return false;
   },
+
 
   _onClickFacebook: function(e) {
     var href = $(e.target).attr('href');
@@ -124,14 +133,14 @@ academy.Views.Lesson = cdb.core.View.extend({
         subTitle,
         subLink;
 
-      $(this).nextAll('h4,h3,h2').each(function(j) {
+      $(this).nextAll('h3,h2').each(function(j) {
         if ($(this).is('h2')) return false;
 
         $subEl = $(this);
         subTitle = $subEl.text();
         subLink = "#" + $subEl.attr("id");
 
-        $subItem.append('<p class="size-s crs-nav-info"><a href="'+subLink+'">'+subTitle+'</a></p>');
+        $subItem.append('<p class="size-s crs-nav-info">'+'<a href="'+subLink+'">'+subTitle+'</a>'+'</p>');
       });
 
       $item.append($subItem);
@@ -183,10 +192,25 @@ academy.Views.Lesson = cdb.core.View.extend({
     $(e.target).find('.anchor').hide();
   },
 
+  _onResize: function() {
+    this._recalculateCanvas();
+    this._updateMenuHeight();
+  },
+
   _onScroll: function() {
+    this._recalculateCanvas();
+    this._updateMenuHeight();
+  },
+
+  _updateMenuHeight: function(e) {
+    $('.crs-nav').css('max-height', $(window).innerHeight()-this.menuHeight);
+  },
+
+  _recalculateCanvas: function() {
     var that = this;
 
     var pos = $(window).scrollTop();
+
 
     if (pos === 0) {
       if (this.$header.hasClass('border')) {
@@ -201,6 +225,7 @@ academy.Views.Lesson = cdb.core.View.extend({
     if (pos >= this.sidebarPos) {
       if (!this.$sidebar.hasClass('fixed')) {
         this.$sidebar.addClass('fixed');
+        this.menuHeight = 150;
       }
 
       if ((pos+106) >= parseInt($(document).height()-this.footerHeight-this.$sidebar.outerHeight(), 10)) {
@@ -215,6 +240,7 @@ academy.Views.Lesson = cdb.core.View.extend({
     } else {
       if (this.$sidebar.hasClass('fixed')) {
         this.$sidebar.removeClass('fixed');
+        this.menuHeight = 400;
       }
     }
 
