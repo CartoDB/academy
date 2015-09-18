@@ -13,10 +13,7 @@ academy.Views.Course = cdb.core.View.extend({
     var mapOptions = {
       scrollwheel: false,
       zoomControl: false,
-      cartodb_logo: false,
-      time_slider: false,
-      shareable: false,
-      search: false
+      cartodb_logo: false
     }
 
     cartodb.createVis('cartodb-map', this.options.vizjson, mapOptions)
