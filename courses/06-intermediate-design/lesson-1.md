@@ -65,7 +65,23 @@ You may notice a pop-up in the lower left that has suggestions for other types o
 
 ![one_click_popup]({{site.baseurl}}/img/course6/lesson1/popup.png)
 
-In the simple wizard you can change color and other properties of your markers, lines, or polygons, but notice that the changes apply universally across a dataset. In this earthquake map below, how can you tell which ones were strongest?
+In the simple wizard you can change color and other properties of your markers, lines, or polygons. The wizard writes CartoCSS code for you, which is visible if you click on the CSS menu button:
+
+{% highlight css %}
+#your_dataset_name{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 1;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-type: ellipse;
+  marker-width: 10;
+  marker-fill: #FF6600;
+  marker-allow-overlap: true;
+}
+{% endhighlight %}
+
+Notice that the changes apply universally across a dataset. In this earthquake map below, how can you tell which ones were strongest?
 
 ![earthquake_map]({{site.baseurl}}/img/course6/lesson1/earthquakes_2.png)
 
@@ -75,13 +91,49 @@ If you find that your location points are too close together to be readable, con
 
 ## Category Wizard
 
-Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons.
+Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons. 
 
 ![Australia Categorized by State]({{site.baseurl}}/img/course6/lesson1/australia_cat.png)
 
-We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson](http://academy.cartodb.com/courses/05-academy-lite.html).
+We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson](http://academy.cartodb.com/courses/05-academy-lite.html). The CartoCSS used here is:
 
-A good rule-of-thumb for category maps is to keep the number of categories at or below ten. You're able to change category colors if you wish. [This palette](http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=8) for Australia was taken from [Color Brewer](http://colorbrewer2.org/), a great tool for selecting color schemes specifically designed for maps.
+{% highlight css %}
+#australia_adm1 {
+   polygon-opacity: 0.9;
+   line-color: #FFF;
+   line-width: 0;
+   line-opacity: 1;
+}
+#australia_adm1[subdivisio="Australian Capital Territory"] {
+   polygon-fill: #e7298a;
+}
+#australia_adm1[subdivisio="New South Wales"] {
+   polygon-fill: #e6ab02;
+}
+#australia_adm1[subdivisio="Northern Territory"] {
+   polygon-fill: #66a61e;
+}
+#australia_adm1[subdivisio="Other Territories"] {
+   polygon-fill: #33A02C;
+}
+#australia_adm1[subdivisio="Queensland"] {
+   polygon-fill: #d95f02;
+}
+#australia_adm1[subdivisio="South Australia"] {
+   polygon-fill: #1b9e77;
+}
+#australia_adm1[subdivisio="Tasmania"] {
+   polygon-fill: #7570b3;
+}
+#australia_adm1[subdivisio="Victoria"] {
+   polygon-fill: #666666;
+}
+#australia_adm1[subdivisio="Western Australia"] {
+   polygon-fill: #a6761d;
+}
+{% endhighlight %}
+
+A good rule-of-thumb for category maps is to keep the number of categories at or below ten. [This palette](http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=8) for Australia was taken from [Color Brewer](http://colorbrewer2.org/), a great tool for selecting color schemes specifically designed for maps.
 
 ## Cluster Wizard
 
@@ -163,7 +215,9 @@ Polygon choropleths make the distribution of data look uniform, when in fact it 
 
 ## Bubble Wizard
 
-Like choropleth maps, bubble maps let your audience compare places by how much of an attribute they have. The Bubble wizard creates proportionately-sized symbol map based on a numbers column in your dataset. Locations with higher numbers have larger circle markers. The circles can represent areas or exact locations, so this wizard is flexible enough to use whether your dataset includes points or polygons. You can also choose a Quantification method, see more about that above.
+Like choropleth maps, bubble maps let your audience compare places by how much of an attribute they have. The Bubble wizard creates proportionately-sized symbol map based on a numbers column in your dataset. Locations with higher numbers have larger circle markers. Switch over to the CartoCSS editor, and notice how the conditional statements are similar to the choropleth wizard's. The bubble wizard changes marker-width instead of polygon-fill though.
+
+These circles can represent areas or exact locations, so this wizard is flexible enough to use whether your dataset includes points or polygons. You can also choose a Quantification method, see more about that above.
 
 An advantage of bubble maps have is that they can represent either raw or normalized numbers. Also, showing magnitude by circle size instead of polygon color means that your information will be communicated clearly even for easily-overlooked small polygons and for people with color blindness. In the choropleth below, Russia is more noticeable than Japan because of it's much larger polygon size. Notice how that dominance disappears when we switch to a bubble map.
 
@@ -187,7 +241,13 @@ If your map is illegible because it has too many overlapping points, the Density
 
 ![density]({{site.baseurl}}/img/course6/lesson1/storm_density.png)
 
-The Density wizard is an aggregator that works similarly to the cluster wizard: a grid is laid over your map, and one marker is created to represent all of the points that are located in each grid cell. In the Density wizard, these markers are the grid cells. They can be hexagons or rectangles, but their size does not change. Instead, their color does: the more points in a cell, the darker the color (or lighter the color, depending on which color ramp you choose). 
+The Density wizard is an aggregator that works similarly to the cluster wizard: a grid is laid over your map, and one marker is created to represent all of the points that are located in each grid cell. In the Density wizard, these markers are the grid cells. They can be hexagons or rectangles, but their size does not change. Instead, their color does: the more points in a cell, the darker the color (or lighter the color, depending on which color ramp you choose). You can see this defined in the conditional CartoCSS with parameters like this:
+
+{% highlight css %}
+[points_density <= 0.0000045641629054725] { polygon-fill: #BD0026;  }
+{% endhighlight %}
+
+The wizard calculates points_density values for you, based on how many buckets you choose.
 
 Like cluster wizard maps, you can change the size of your aggregation grid by choosing how many buckets your data is binned into. The aggregation grid's pixel dimensions don't change on zoom. That means the map area included in each grid cell will change as you zoom in and out, which means a point could fall into a different aggregation cell. If it's important for your dataset's points to keep the same spatial relationship to each other no matter the zoom level, then consider using the Intensity wizard instead.
 
@@ -199,7 +259,15 @@ There's a drawback to this format though. Map readers generally recognize a geog
 
 ## Intensity Wizard
 
-The intensity wizard works with point data. It makes a clutter of points more legible by creating darker, more saturated color areas to show users where points overlap.  Like the Density and Cluster wizards it's good for showing relative location data. For example an intensity map of crime incidents can show users if more crime occurred in Madrid than New York, although they wouldn't be able to see other attributes like the type of crime. In the simple wizard map below, it's hard to see where more storms occurred because it's hard to tell if you're looking at an individual point or closely overlapping ones. Switching to the intensity wizard makes it easier to see that more storms occurred just south of Omaha.
+The intensity wizard works with point data. It makes a clutter of points more legible by creating darker, more saturated color areas to show users where points overlap. It does this by using 
+
+{% highlight css %}
+marker-comp-op: multiply;
+{% endhighlight %}
+
+inside the layer's CartoCSS. Composite operations are explained in more detail in Lesson 2 of this course!
+
+Like the Density and Cluster wizards it's good for showing relative location data. For example an intensity map of crime incidents can show users if more crime occurred in Madrid than New York, although they wouldn't be able to see other attributes like the type of crime. In the simple wizard map below, it's hard to see where more storms occurred because it's hard to tell if you're looking at an individual point or closely overlapping ones. Switching to the intensity wizard makes it easier to see that more storms occurred just south of Omaha.
 
 ![intensity]({{site.baseurl}}/img/course6/lesson1/intensity.gif)
 
@@ -223,7 +291,18 @@ Heatmaps can be cumulative; use them when you want to show intensity over time. 
 
 ![cumulative_torque]({{site.baseurl}}/img/course6/lesson1/torque_cu.gif)
 
-Heatmaps show that in a better way by using a color gradient instead of a number of points. Red indicates that your dataset's points are more densely clustered in that area. They are static by default, but can show how your data changes over time with the "Animated" toggle on. These maps show the same tweets as the map above: 
+Heatmaps show that in a better way by using a color gradient instead of a number of points. To get this effect we're using image filters to colorize a semi-transparent gradient image with CartoCSS like this:
+
+{% highlight css %}
+#heatmap_dataset{
+  image-filters: colorize-alpha(blue, cyan, lightgreen, yellow , orange, red);
+  marker-file: url(http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png);
+  marker-fill-opacity: 0.4*[value];
+  marker-width: 35;
+}
+{% endhighlight %}
+
+Red indicates that your dataset's points are more densely clustered in that area. They are static by default, but can show how your data changes over time with the "Animated" toggle on. These maps show the same tweets as the map above: 
 
 ![heatmap]({{site.baseurl}}/img/course6/lesson1/heatmap.gif)
 
@@ -235,4 +314,4 @@ Another criticism is that it can be hard to see which color value a location has
 
 ![green_or_cyan]({{site.baseurl}}/img/course6/lesson1/green_cyan.png)
 
-Also, the way colors are rendered in an area can cause banding, which visually can look like a boundary that [doesn't really exist.](http://www.mathworks.com/tagteam/81137_92238v00_RainbowColorMap_57312.pdf) For more discussion about designing rainbow maps, check out [this webpage.](https://eagereyes.org/basics/rainbow-color-map).
+Also, the way colors are rendered in an area can cause banding, which visually can look like a boundary that [doesn't really exist.](http://www.mathworks.com/tagteam/81137_92238v00_RainbowColorMap_57312.pdf) For more discussion about designing rainbow maps, check out [this webpage.](https://eagereyes.org/basics/rainbow-color-map)

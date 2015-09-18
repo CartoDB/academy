@@ -1,6 +1,6 @@
 ---
 layout: course
-title: "Beginners Course"
+title: "Online Mapping for Beginners"
 id: "01-beginners-course"
 subtitle: Basic concepts of online mapping
 categories: Basic

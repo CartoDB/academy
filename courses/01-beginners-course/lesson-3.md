@@ -30,7 +30,7 @@ If you want, you can examine the information by opening the CSV file from the li
 
 In "Table" view on CartoDB, you have all of these columns in addition to a few created by us. One such column is called "the_geom," which we have mentioned in previous lessons. This time, "the_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CartoDB knows how to take these columns and turn them into points.
 
-CartoDB will not, however, automatically convert the _types_ of data in each column. For example, you can see that "`"damage" is a number, and not a string type of data. (You know this because it has numerical data, not text.) You can also see that `date` was not imported as a date type of data, but as a string. 
+CartoDB will not, however, automatically convert the _types_ of data in each column. For example, you can see that `damage` is a number, and not a string type of data. (You know this because it has numerical data, not text.) You can also see that `date` was not imported as a date type of data, but as a string. 
 
 It's easy — and important — for you to change the data types, because they affect what kinds of visualizations you can create. Click on the small downward-facing arrow next to "date" to pull down a menu, click on "Change data type..." and select "date." You'll be asked to "Confirm type change," and should click on "Yes, do it."  Below you can see that we're changing the "date" column from a "string" to a "date" data type.
 
@@ -54,7 +54,7 @@ To provide you with an example, here is a map where we changed our "Marker Fill"
 
 While the "simple" visualization can be useful in some situations, CartoDB offers many different wizards. Let's start by looking at the Bubble visualization. 
 
-![Changing data type]({{site.baseurl}}/img/course1/lesson3/bubble.png)
+![Bubble map]({{site.baseurl}}/img/course1/lesson3/bubble.png)
 
 When you click on it, CartoDB selects the first column with the needed data type. In this case bubble maps require numerical data, and so CartoDB selects the `damage` column. The map then shows markers with different sizes based on the amount of damage caused by the tornado.
 
@@ -64,7 +64,7 @@ Now you'll change the parameters you are already familiar with (marker radius, f
 
 Another CartoDB visualization is "intensity," which combines the points on your map to make colorful areas. Those with higher concentrations of points have a darker color than those with a lower concentration. The visualization is based purely on the number of points close to one another, and not on any of the columns in your data.
 
-![Changing data type]({{site.baseurl}}/img/course1/lesson3/intensity.png)
+![Intensity map]({{site.baseurl}}/img/course1/lesson3/intensity.png)
 
 There are fewer parameters to adjust in the "intensity" visualization than in others, but if you play with the sizes of the points you can fine-tune the visualization in a way that works with your dataset.
 
@@ -72,7 +72,7 @@ There are fewer parameters to adjust in the "intensity" visualization than in ot
 
 The final CartoDB visualization we'll take a look at is "density." This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives each cell a color based on the number of points inside the cell. 
 
-![Changing data type]({{site.baseurl}}/img/course1/lesson3/density.png)
+![Density map]({{site.baseurl}}/img/course1/lesson3/density.png)
 
 Unlike other visualizations, here you have the option to change the cell size and method (hexagons or rectangles). In our example, we found that the data is best displayed with smaller cells.
 
@@ -84,7 +84,7 @@ Thought this dataset isn't ideal for adding labels, let's take a look at how you
 
 First, select the "simple" visualization. Go to "Label Text" and from there, select the column that contains the text that will be the label. With our tornado dataset, we chose the "damage" column.
 
-![Changing data type]({{site.baseurl}}/img/course1/lesson3/textlabel.png)
+![Text labeling]({{site.baseurl}}/img/course1/lesson3/textlabel.png)
 
 There are many parameters that affect how text is displayed — font, halo, offset, overlap, and placement. You can play with the font and halo to see the visual effects these have. The "label overlap" parameter changes whether the labels are allowed to overlap one another or not, and can be set to "true" or "false."
 
@@ -94,7 +94,7 @@ You can turn off the labels by changing "Label Text" to "None."
 
 The final thing to start looking at is data filtering. To get started, click the bar graph icon on the right-hand pull-out tray. This will pull up a screen that allows you to select the column whose data you'd like to filter. Once you choose a column, a small graph will appear showing the distribution of the data. There are two sliders on either side that you can move to exclude/include areas of the dataset. The map visualization will change to reflect which range of data you have filtered out, and you can create visualizations with the filters applied.
 
-![Changing data type]({{site.baseurl}}/img/course1/lesson3/filtering.png)
+![Filtering your data]({{site.baseurl}}/img/course1/lesson3/filtering.png)
 
 By looking at the "damage" column of the tornado data you can see that there are many tornados causing only small damage and only a few very damaging tornados.
 
