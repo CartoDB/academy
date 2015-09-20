@@ -7,7 +7,7 @@ course: "Community Contributions"
 course_slug: "07-community"
 continue_link:
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
-vizjson: "https://documentation.cartodb.com/api/v2/viz/a136b49a-524a-11e5-a2eb-0e853d047bba/viz.json"
+vizjson: "https://documentation.cartodb.com/api/v2/viz/36706c96-5fe2-11e5-a2a1-0e0c41326911/viz.json"
 ---
 
 # Lesson Information
