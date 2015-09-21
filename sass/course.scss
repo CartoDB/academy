@@ -86,8 +86,12 @@
 
 .crs-nav {
   position: relative;
-  width: 218px;
+  width: 200px;
   padding-top: 7px;
+  margin-left: -13px;
+  padding-left: 13px;
+  overflow-y: scroll;
+  padding-right: 20px;
 
   .crs-home & { padding-top: 41px; }
 
@@ -336,6 +340,15 @@
   ul,
   ol {
     list-style: square inside;
+    ul, ol {
+      margin-left: 20px;
+    }
+  }
+
+  h1 {
+    color: #111;
+    font: 600 26px/28px 'Proxima Nova W01';
+    margin-bottom: 20px;
   }
 
   h2 {
@@ -348,6 +361,13 @@
     color: #111;
     font: 600 20px/23px 'Proxima Nova W01';
     margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  h4 {
+    color: #111;
+    font: 600 18px/21px 'Proxima Nova W01';
+    margin-bottom: 12px;
     margin-top: 40px;
   }
 
@@ -503,4 +523,20 @@ pre > code {
 
 .nav-toc ul > ul {
   margin-left: 10px;
+}
+
+.Lesson-info {
+  background: #f5f5f5;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  margin-bottom: 40px;
+  border-radius: 4px; 
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
