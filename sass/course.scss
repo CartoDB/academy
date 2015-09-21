@@ -534,6 +534,9 @@ pre > code {
   p {
     font-size: 16px;
     line-height: 26px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
