@@ -6,7 +6,7 @@ subtitle: Lessons and tutorials created by the CartoDB community
 categories: Mixed
 tag: book
 time: 45 minutes
-description_short: "Learn from the best: CartoDB's community of expert web mapping experts." 
+description_short: "Learn from the best: CartoDB's community of web mapping experts." 
 description_long: "This series of lessons is curated from lessons made by the CartoDB community."
 prerequisite:
     - Introduction to Map Design

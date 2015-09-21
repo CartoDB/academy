@@ -10,7 +10,7 @@ tweet_text: "Step by step is the way to go. I've finished the second map academy
 vizjson: "https://inbo.cartodb.com/u/lifewatch/api/v2/viz/775ba7bc-b1fe-11e4-97bd-0e853d047bba/viz.json"
 ---
 
-## About this Tutorial
+## Lesson information
 
 <div class="Lesson-info">
     <p>This tutorial was written by Peter Desmet for <a href="http://lifewatch.inbo.be/">LifeWatch INBO</a> and is being released under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license. It <a href="http://lifewatch.inbo.be/blog/posts/cartodb-tracking-data-tutorial.html">originally appeared</a> on the <a href="http://lifewatch.inbo.be/blog/">LifeWatch INBO blog</a> on September 1, 2015.</p>
@@ -19,7 +19,7 @@ vizjson: "https://inbo.cartodb.com/u/lifewatch/api/v2/viz/775ba7bc-b1fe-11e4-97b
 </div>
 
 
-## Tutorial
+## An introduction to using CartoDB for tracking data
 
 We have been using [CartoDB for bird tracking data](http://lifewatch.inbo.be/blog/tag/cartodb.html) for a while now and are very happy to see that we have inspired others to do the [same](http://birdmapsuk.blogspot.com/2015/06/gulls-part-two.html), including for [other species](http://blog.cartodb.com/fisher/). To introduce even more people to this great tool for animal tracking data, I was invited to give a hands-on course at two workshops[^1]. Rather than handing the course material to the participants of these workshops only, I decided to publish it here on this blog, so anyone can use it.
 
