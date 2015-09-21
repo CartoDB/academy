@@ -135,7 +135,6 @@ We can't see any quantitative data though, like which state had the highest numb
 
 A good rule-of-thumb for category maps is to keep the number of categories at or below ten. [This palette](http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=8) for Australia was taken from [Color Brewer](http://colorbrewer2.org/), a great tool for selecting color schemes specifically designed for maps.
 
-
 ## Cluster Wizard
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
@@ -304,6 +303,7 @@ Heatmaps show that in a better way by using a color gradient instead of a number
 {% endhighlight %}
 
 Red indicates that your dataset's points are more densely clustered in that area. They are static by default, but can show how your data changes over time with the "Animated" toggle on. These maps show the same tweets as the map above: 
+
 ![heatmap]({{site.baseurl}}/img/course6/lesson1/heatmap.gif)
 
 A criticism of rainbow color gradients is that there's no natural perceived order to their colors. In the top color ramp below, it's easier to see that the fifth swatch should come after the second swatch, because we're only slightly changing hue while ordering the colors according to brightness and saturation. Compare that to the variety of hues in a rainbow color scheme. The brightest color (yellow) falls near the middle of the ramp, and less-saturated colors like orange fall between more saturated colors like red and yellow. It takes slightly more time for your users to understand what the color values mean relative to each other in a rainbow color ramp. Generally though, when rainbow heatmaps are used the standard is that blue or purple means a low value and red means a high value.

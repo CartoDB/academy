@@ -22,8 +22,7 @@ a {
 .site-title {
   margin-bottom: 5px;
   font-size: 60px;
-  font-family: "Proxima Nova W01";
-  font-weight: 600;
+  font-family: "Proxima Nova Extrabold";
 
   a {
     color: #fff;
@@ -33,17 +32,15 @@ a {
 .site-description {
   margin-bottom: 50px;
   font-size: 31px;
-  font-family: 'Proxima Nova W01';
+  font-family: 'Proxima Nova Light';
   line-height: 1.2;
-  font-weight: 200;
   color: #fff;
 }
 
 .small {
   margin-top: 95px;
   font-size: 15px;
-  font-family: 'Proxima Nova W01';
-  font-weight: 300;
+  font-family: 'Proxima Nova Regular';
   color: rgba(#fff, .6);
 
   a {
@@ -85,8 +82,7 @@ a {
   margin-bottom: 30px;
   font-size: 30px;
   line-height: 1;
-  font-family: 'Proxima Nova W01';
-  font-weight: 600;
+  font-family: 'Proxima Nova Extrabold';
   background: image-url('section_title-bg.png') repeat-x center;
   text-align: center;
   color: #111;
@@ -146,7 +142,7 @@ a {
     float: right;
     margin: 15px 25px 0 0;
     padding: 10px 15px;
-    font: 300 14px "Proxima Nova W01";
+    font: 14px "Proxima Nova Regular";
     color: rgba(#000, .5);
     text-transform: uppercase;
     background: #C2E3BE;
@@ -165,15 +161,13 @@ a {
   position: absolute;
   right: 20px; bottom: 20px; left: 20px;
   font-size: 18px;
-  font-family: 'Proxima Nova W01';
-  font-weight: 300;
+  font-family: 'Proxima Nova Regular';
   color: #fff;
 
   strong {
     margin-bottom: 10px;
     font-size: 25px;
-    font-family: "Proxima Nova W01";
-    font-weight: 600;
+    font-family: "Proxima Nova Extrabold";
     display: block;
   }
 }
@@ -196,7 +190,7 @@ a {
   width: 645px;
   background: #fff;
   color: #ccc;
-  font: 300 18px/1.5 'Proxima Nova W01';
+  font: 18px/1.5 'Proxima Nova Regular';
   border-radius: 5px;
   outline: none;
 
@@ -239,12 +233,12 @@ a {
   }
 }
 
-.inf-title { margin-bottom: 30px; font: 600 24px/26px 'Proxima Nova W01'; }
+.inf-title { margin-bottom: 30px; font: 24px/26px 'Proxima Nova Extrabold'; }
 
 .inf-list { color: #777;
   > li {
     margin-bottom: 24px;
-    font: 300 16px/22px 'Proxima Nova W01';
+    font: 16px/22px 'Proxima Nova Regular';
     padding-left: 30px;
     position: relative;
 
