@@ -216,5 +216,3 @@ Lessons are in the directory of the same name in the folder where all of these p
     
 ### Submitting issues
 * Submit issues [on GitHub](https://github.com/CartoDB/academy/issues), tag the author by @'ing him/her for verification.
-
-    
