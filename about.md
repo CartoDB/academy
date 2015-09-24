@@ -19,7 +19,7 @@ Contributing on the Map Academy is easy. The content on the Map Academy is writt
 
 The structure of the website is defined by folders on the "courses" folder. For each course there is a .md file (named with a number and the short name of the course), and a folder which contains the different lessons of the course. The structure of the lessons is defined by headings, which are h2 or h3. 
 
-We highly recommend to use any of the existing courses as a template when preparing a new course and reading the [contributing guide](http://github.com/CartoDB/academy/blob/master/CONTRIBUTING.md) before starting to work on the content.
+We highly recommend to use any of the existing courses as a template when preparing a new course and reading the [contributing guide](http://github.com/CartoDB/academy/blob/gh-pages/CONTRIBUTING.md) before starting to work on the content.
 
 ## Why should I contribute?
 
