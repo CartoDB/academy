@@ -187,7 +187,7 @@ By writing CartoCSS like this, your styles are more dynamic and responsive to yo
 
 ### Maps styled by end user
 
-CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
+CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/gh-pages/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
 
 First, we'll define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text' id='...'>CartoCSS Styles</style>` element between the `<head>` tags, below the CSS and JavaScript library inclusions.
     
@@ -289,7 +289,7 @@ Place this function after createLayer. This code finds all the `li` elements and
     
 The last piece is putting a call to `createSelector(sublayer);` right after `sublayer` is set equal to `layer.getSubLayer(0);` within `.done()`.
 
-Check out a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
+Check out a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/gh-pages/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
 
 ### Basic SQL queries
 Let's do a few simple queries in the CartoDB Editor, and then work in JavaScript to extend our application with some of the more interesting queries. Copy your previous file to a new one called `cartocss-and-sql.html`.
