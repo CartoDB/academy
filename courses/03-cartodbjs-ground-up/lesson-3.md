@@ -351,7 +351,7 @@ function createSelector(layer) {
 }
 {% endhighlight %}
 
-That's it! If you're having trouble getting yours to work, check out the source code [here](https://github.com/CartoDB/academy/blob/master/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html), or a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html)
+That's it! If you're having trouble getting yours to work, check out the source code [here](https://github.com/CartoDB/academy/blob/gh-pages/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html), or a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html)
 
 _Pro tip:_ If you want to take your map to a different location based on coordinates and zoom, you can call `map_object.setView([lat,lon],zoom)` method from the [Leaflet.js library](http://leafletjs.com/). In our case, if you want the map to go to Papua New Guinea after a user clicks on that option, you could grab the latitude and longitude from [here](http://tools.wmflabs.org/geohack/geohack.php?pagename=Papua_New_Guinea&params=9_30_S_147_07_E_type:country), and then add an `if` statement like this:
 
