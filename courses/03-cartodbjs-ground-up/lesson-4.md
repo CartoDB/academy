@@ -44,7 +44,7 @@ Lastly, update the privacy settings once the dataset is uploaded by clicking on 
 
 The HTML template we will be using for this lesson is available in the repository where all Map Academy lessons are stored.
 
-[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/t/03-cartodbjs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
+[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/gh-pages/t/03-cartodbjs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
 
 ## Getting started
 
