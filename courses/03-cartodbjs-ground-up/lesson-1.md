@@ -154,13 +154,13 @@ Now that we're done with our crash course on the basics, let's finally dive into
 Use [this template](https://raw.githubusercontent.com/CartoDB/academy/gh-pages/t/03-cartodbjs-ground-up/lesson-1/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CartoDB.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CartoDB.js library
 
 {% highlight HTML %}
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
+<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 {% endhighlight %}
 
 between the `<body>` tags __AND__ the map styling sheet
 
 {% highlight HTML %}
-<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
+<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 
