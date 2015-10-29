@@ -59,24 +59,29 @@ The two examples below show how a point or line geometry can be transformed to a
 
 ![images comparing geometry before/after ST_Buffer()]({{site.baseurl}}/img/course4/lesson2/buffer-demo.png)
 
-**Function definition**
+**Function definitions**
 {% highlight c++ %}
 geometry ST_Buffer(geometry g1, float radius_of_buffer)
 geography ST_Buffer(geography g1, float radius_of_buffer_in_meters)
 {% endhighlight %}
 
-The function 'ST_Buffer' takes a geometry such as a point as the first argument, and the radius for the buffer as the second argument. For more information, see the PostGIS [documentation page](http://www.postgis.org/docs/ST_Buffer.html).
+The function `ST_Buffer` takes a geometry such as a point as the first argument, and the radius for the buffer as the second argument. For more information, see the PostGIS [documentation page](http://www.postgis.org/docs/ST_Buffer.html) for additional information and function definitions.
 
-There is a hidden column in CartoDB called `the_geom_webmercator,` which is responsible for making the data appear on your map in the correct location. Its units are meters and we will be using it exclusively. It is in the projection [WebMercator](http://en.wikipedia.org/wiki/Web_Mercator), or [ESPG 3857](http://spatialreference.org/ref/sr-org/7483/). `the_geom_webmercator` is updated in the background every time you update `the_geom`. It is _not_ updated, though, when you only select `the_geom` in a `SELECT` statement.
+As was mentioned in the [previous lesson](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html), there is a hidden column in CartoDB called `the_geom_webmercator` which is responsible for making the data appear on your map in the correct location. It is usually in the projection [Web Mercator](), but it doesn't have to be. To use it with other projections, just project the data and alias the column as `the_geom_webmercator`.
+
+For our work here, we will be needing to work in distances on the earth's surface such as meters. Therefore, we need to cast our geometry in `the_geom` to [geography](http://postgis.net/docs/manual-1.5/ch04.html#PostGIS_Geography), buffer off of that in meters, and then transform to Mercator to display along with our Web Mercator-projected basemap.
 
 To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CartoDB [SQL editor](http://docs.cartodb.com/cartodb-editor.html#custom-sql). Go to MAP VIEW to see the result of the query.
 
 {% highlight sql %}
 SELECT
-  ST_Buffer(
-    the_geom_webmercator,
-    25*1609
-    ) AS the_geom_webmercator,
+  ST_Transform(
+    ST_Buffer(
+      the_geom::geography,
+      25*1609
+    )::geometry,
+    3857
+  ) As the_geom_webmercator,
   cartodb_id
 FROM
   highway_61
