@@ -12,8 +12,6 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 ## Your First Choropleth Map
 
-<p><iframe src="//player.vimeo.com/video/81042811?byline=0" width="700" height="438" frameborder="0"> </iframe></p>
-
 To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and copy this link:
 
 {% highlight javascript %}
@@ -22,7 +20,7 @@ http://acdmy.org/d/counties.zip
 
 Now you should make sure you're on your CartoDB dashboard.  
 
-If you skipped Beginners' Course Lesson 1, and therefore haven't yet created a visualization or tables, you'll automatically be in the "as" section of your dashboard, as you'll see from the upper menu bar. Scroll down past the video to the bottom of the page and click on the green button "Create your first table." 
+If you skipped Beginners' Course Lesson 1, and therefore haven't yet created a visualization or tables, you'll automatically be in the "as" section of your dashboard, as you'll see from the upper menu bar. Scroll to the bottom of the page and click on the green button "Create your first table." 
 
 If you've already made a visualization or table and aren't already in the "tables" section of your dashboard, enter it through the upper menu bar, then click "New table" or the "+" icon to the right of your existing table(s). 
 

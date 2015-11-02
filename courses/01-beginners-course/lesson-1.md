@@ -14,10 +14,6 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 Welcome to CartoDB Academy! In this first lesson in Course 1, we'll walk you through the steps that will help you make your first map. It is intended to give you a quick overview and familiarize you with some of the basics of CartoDB. In subsequent lessons we'll dive into specifics.
 
-As you work through the Academy, you can follow along with the videos we have included, or take it at your own pace by following the written instructions. It's up to you how you want to learn!
-
-<p><iframe src="//player.vimeo.com/video/81019067?byline=0" width="700" height="438" frameborder="0"> </iframe></p>
-
 ### Making an Account
 Creating an account with CartoDB is quick and easy; you can head over to [our website,](https://cartodb.com/) and create a free account in just a few minutes.
 

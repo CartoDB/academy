@@ -12,8 +12,6 @@ vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0e
 
 ## Animated Maps with Point Data
 
-<p><iframe src="//player.vimeo.com/video/81056720?byline=0" width="700" height="438" frameborder="0"> </iframe></p>
-
 Lesson 4 will introduce you to Torque, which allows you to visualize data over time. This lesson follows straight from Lesson 3, so make sure you have a visualization with your tornado data to get started. We called our new visualization "Tornados over Time."
 
 Remember to now overwrite any of the visualizations you made in Lesson 3. You can create a new visualization from the Table View of your tornado data. In CartoDB, you can create as many visualizations as you want from one table, and they'll all exist independently.
