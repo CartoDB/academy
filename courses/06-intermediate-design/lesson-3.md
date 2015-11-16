@@ -2,7 +2,7 @@
 id: 3
 layout: lesson
 title:  "Lesson 3"
-subtitle: "placeholder"
+subtitle: "Placeholder"
 course: "Intermediate Map Design"
 course_slug: "06-intermediate-design"
 continue_link:

@@ -24,7 +24,7 @@ We can use color in an even better way to fix this though. Look what happens whe
 
 The areas of greatest density stand out easily because they've become red. In the first map above overlapping colors were kept separate, like laying one piece of opaque colored paper on top of another. In the second map the overlapping parts effect each other. Hue, saturation and brightness change in the denser areas based on a blend of color information from each overlapping layer. 
 
-Composite operations are blending modes for your map layers. They fall into two main categories: color and [alpha](https://msdn.microsoft.com/en-us/library/windows/desktop/dd183352(v=vs.85).aspx), and can be applied to all non-basemap elements in your map by adding a line like this to your CartoCSS code:
+Composite operations are blending modes for your map layers. They fall into two main categories: color and [alpha](https://msdn.microsoft.com/en-us/library/windows/desktop/dd183352(v=vs.85).aspx), and can be applied to all non-basemap elements in your CartoDB map by adding a line like this to your CartoCSS code:
 
 {% highlight css %}
 comp-op: multiply;
@@ -38,17 +38,57 @@ polygon-comp-op: color-burn;
 text-comp-op: screen;
 {% endhighlight %}
 
-The layer (or text) that you choose the composite operation in is called the source. It's composite operation is applied to each layer beneath, which are called destination layers. In CartoDB the source layer itself needs to have a color fill, but it's composite operations apply to destination layers with color or texture fills, even raster ones. In this lesson we will be applying composite operations to a marker source layer, that's on top of one destination layer containing lines and another destination layer containing a polygon with raster fill.
+The layer (or text) that you choose the composite operation in is called the source. It's composite operation is applied to each layer beneath, which are called destination layers. In CartoDB the source layer itself needs to have a color fill, but it's composite operations apply to destination layers with color or texture fills, even raster ones. In this lesson we will apply composite operations to a marker source layer, that's on top of one destination layer containing lines and another destination layer containing a polygon with raster fill.
 
-[Mapnik](https://github.com/mapnik/mapnik/wiki/Compositing) gives us over 30 composite operations to choose from. You can use any of these in your map's custom CartoCSS panel, but many of our wizards also give you menu options for the most popular ones. This lesson explains what they do.
+CartoDB gets these composite operations from [Mapnik.](https://github.com/mapnik/mapnik/wiki/Compositing) There are over 30 to choose from. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) Mapnik bases these on:
+
+* multiply
+* darken
+* color-burn
+* lighten
+* screen
+* color-dodge
+* overlay
+* hard-light
+* soft-light
+* difference
+* exclusion
+* clear
+* src
+* dst
+* src-over
+* dst-over
+* src-in
+* dst-in
+* src-out
+* dst-out
+* src-atop
+* dst-atop
+* xor
+* plus
+
+You can find more info about these in documentation for [GIMP,](http://docs.gimp.org/en/gimp-concepts-layer-modes.html) open-source image manipulation freeware: 
+
+* minus (as 'subtract')
+* value
+* grain-merge
+* grain-extract
+
+Many CartoCSS comp-ops have [Photoshop blend mode](https://helpx.adobe.com/photoshop/using/blending-modes.html) equivalents. For easier comparison, we used Adobe's categories as a starting point to group them below by visual effect. The best way to learn about how comp-ops work is to try them out! You can use any of these in your map's custom CartoCSS panel, but some of our wizards also give you menu options for the most popular ones.
+
+The main reason to use composite operations is to fine-tune how much some features in your map stand out compared to others. They're a great way to control your map's legibility.  
 
 ## Color Composite Operations
+
+### DARKEN
 
 ### Multiply
 
 Multiply literally multiplies the color of the top layer by the color of each layer beneath, which usually means overlapping areas become darker. 
 
-A layer's color is made of a mix of red, green and blue color channels. Each channel is assigned a percentage decimal value from 0 to 1. If all channels had a 0 value the color would be completely black; if they all had a value of 1 the color would be completely white. Multiply takes these channel numbers for one layer and multiplies them with the channel numbers of another. Your colors will often get darker because multiplying two decimal numbers together gives you a smaller decimal, which is therefore closer to 0 (black). Multiplying 1 (white) by another value will give you that other value, so the area where white mixes with another color will become that other color. Multiplying any color by 0 (black) will always render black. You can picture it like layering colored sheets of cellophane over one another; white disappears, black stays black. Use this when you want to darken overlapping areas in your map.
+A layer's color is made of a mix of red, green and blue color channels. Each channel is assigned a percentage decimal value from 0 to 1. If all channels had a 0 value the color would be completely black; if they all had a value of 1 the color would be completely white. Multiply takes these channel numbers for one layer and multiplies them with the channel numbers of another. Your colors will often get darker because multiplying two decimal numbers together gives you a smaller decimal, which is therefore closer to 0 (black). Multiplying 1 (white) by another value will give you that other value, so the area where white mixes with another color will become that other color. Multiplying any color by 0 (black) will always render black. 
+
+You can picture it like layering colored sheets of cellophane over one another; white disappears, black stays black. Use this when you want to darken overlapping areas in your map.
 
 ![multiply]({{site.baseurl}}/img/course6/lesson4/multiply.png)
 
@@ -57,26 +97,6 @@ Choosing multiply from the Simple Wizard's composite operation menu, like in the
 {% highlight css %}
 marker-comp-op: multiply;
 {% endhighlight %}
-
-### Screen
-
-Like multiply, screen multiplies the overlapping areas. Unlike multiply, it subtracts the color channel numbers from 1 to invert them. This makes the overlapping areas brighter. If white is used, it won't change appearance. Black areas will disappear. Use this when you want to lighten overlapping areas in your map.
-
-{% highlight css %}
-marker-comp-op: screen;
-{% endhighlight %}
-
-![screen]({{site.baseurl}}/img/course6/lesson4/screen.png)
-
-### Overlay
-
-Overlay is a color blend mode that combines multiply and screen composite operations. Black appears as dark as it originally is in it's layer; white appears as bright as it originally is in it's layer. How purely other colors are rendered depends on how close they are to white or black. The closer a color is in value to a midtone gray, the less it will appear. Use this when you want to show both light and dark in your overlapping layers, for example if you're using a textured polygon fill and want the highlights and shadows to appear through another layer. Notice in the example below how the gray areas take on the color of the source layer.
-
-{% highlight css %}
-marker-comp-op: overlay;
-{% endhighlight %}
-
-![overlay]({{site.baseurl}}/img/course6/lesson4/overlay.png)
 
 ### Darken
 
@@ -87,6 +107,32 @@ marker-comp-op: darken;
 {% endhighlight %}
 
 ![darken]({{site.baseurl}}/img/course6/lesson4/darken.png)
+
+### Color-Burn
+
+Color-burn works similarly to color-dodge, but has a darkening effect. It increases the contrast between source and destination layers, with lighter pixels in your overlapping area tinted towards the source color. Use this when you want a darkening effect with more contrast than multiply or darken.
+
+{% highlight css %}
+marker-comp-op: color-burn;
+{% endhighlight %}
+
+![color-burn]({{site.baseurl}}/img/course6/lesson4/color-burn.png)
+
+For a good reason to use darkening effects, check out [this election map](https://team.cartodb.com/u/stuartlynn/viz/ab4541a4-767b-11e5-b637-0ea31932ec1d/public_map). Its lower layer shows population density with gray scale colors, and its upper layer shows U.S. political parties in red and blue. When you use a darkening composite operation, the polygons show voting results by political party, modulated by the population density.
+
+![darken-use-case]({{site.baseurl}}/img/course6/lesson4/darken-use-case.png)
+
+### LIGHTEN
+
+### Screen
+
+Like multiply, screen multiplies the overlapping areas. Unlike multiply, it subtracts the color channel numbers from 1 to invert them. This makes the overlapping areas brighter. If white is used, it won't change appearance. Black areas will disappear. Use this when you want to lighten overlapping areas in your map.
+
+{% highlight css %}
+marker-comp-op: screen;
+{% endhighlight %}
+
+![screen]({{site.baseurl}}/img/course6/lesson4/screen.png)
 
 ### Lighten
 
@@ -108,15 +154,21 @@ marker-comp-op: color-dodge;
 
 ![color-dodge]({{site.baseurl}}/img/course6/lesson4/color-dodge.png)
 
-### Color-Burn
+A good reason to lighten a map element is to reduce how much it visually competes with more important map features. For example, check out what graticules look like over polygons in [this map,](http://bit.ly/1Y75upF) when Screen is applied:
 
-Color-burn works similarly to color-dodge, but has a darkening effect. It increases the contrast between source and destination layers, with lighter pixels in your overlapping area tinted towards the source color. Use this when you want a darkening effect with more contrast than multiply or darken.
+![screen-use-case]({{site.baseurl}}/img/course6/lesson4/screen-use-case.png)
+
+### CONTRAST
+
+### Overlay
+
+Overlay is a color blend mode that combines multiply and screen composite operations. Black appears as dark as it originally is in it's layer; white appears as bright as it originally is in it's layer. How purely other colors are rendered depends on how close they are to white or black. The closer a color is in value to pure midtone gray, the less it will appear. Use this when you want to show both light and dark in your overlapping layers, for example if you're using a textured polygon fill and want the highlights and shadows to appear through another layer. Notice in the example below how the gray areas take on the color of the source layer.
 
 {% highlight css %}
-marker-comp-op: color-burn;
+marker-comp-op: overlay;
 {% endhighlight %}
 
-![color-burn]({{site.baseurl}}/img/course6/lesson4/color-burn.png)
+![overlay]({{site.baseurl}}/img/course6/lesson4/overlay.png)
 
 ### Soft Light
 
@@ -128,7 +180,7 @@ marker-comp-op: soft-light;
 
 ![soft-light]({{site.baseurl}}/img/course6/lesson4/soft-light.png)
 
-Soft Light will either screen or multiply the destination layer colors, depending on the color of the source layer. If the source color is darker than 50% gray, the multiply effect will be used. If it's lighter than 50%, then screen will be used. Hard-light's effects are not applied as strongly as multiply's or screen's though, so the resulting colors are less extremely tinted. Usually darks won't be pure black and highlights won't be pure white.
+Soft Light will either screen or multiply the destination layer colors, depending on the color of the source layer. If the source color is darker than 50% gray, the multiply effect will be used. If it's lighter than 50%, then screen will be used. Soft-light's effects are not applied as strongly as multiply's or screen's though, so the resulting colors are less extremely tinted. Usually darks won't be pure black and highlights won't be pure white.
 
 ### Hard Light
 
@@ -142,25 +194,25 @@ It works similarly to soft light, but is more extreme. Instead of using screen a
 
 ![hard-light]({{site.baseurl}}/img/course6/lesson4/hard-light.png)
 
-### Plus
+### Contrast
 
-The plus composite operation adds the color channel values of the source with the destination's. Visually it adds the source's color to the darkest parts of the destination, and brightens the lighter parts, but tinted towards the source color. If you add a source color where red is the dominant color channel to the destination's red green and blue color channels, the dominant color in the result will be red. The overall effect is brighter than color-dodge. Lighter source colors effect the destination layer more than dark ones. A black source layer will have no effect; a white one will paint the whole destination layer white in the area of overlap. 
-
-{% highlight css %}
-marker-comp-op: plus;
-{% endhighlight %}
-
-![plus]({{site.baseurl}}/img/course6/lesson4/plus.png)
-
-### Minus
-
-Minus works the same way as plus, but instead of adding the color channel values it subracts them. For example, if your source layer is mostly red, it will subract this from the destination layers so the overall color is mostly blue and green. This darkens the destination layer more extremely than color-burn, and is also more tinted towards the source color.
+Contrast magnifies the difference between the dark and light areas of your overlapping layers. If the source layer color is lighter than 50% gray, the destination layers will show through the source layer with decreased contrast. If the source is darker than 50% gray, the destination layers will show through the source layer with increased contrast. Besides making lighter areas brighter and darker areas darker, this has the visual effect of erasing fine detail.
 
 {% highlight css %}
-marker-comp-op: minus;
+marker-comp-op: contrast;
 {% endhighlight %}
 
-![minus]({{site.baseurl}}/img/course6/lesson4/minus.png)
+![contrast]({{site.baseurl}}/img/course6/lesson4/contrast.png)
+
+Use contrast effects when you're trying to control how both dark and light elements in your map stand out from the other elements, or blend in with them better. For example, notice how the gray county outlines don't stand out as well in the darker red and blue areas in [the map](http://bit.ly/1M4v9tW) below. 
+
+![overlay-use-case-1]({{site.baseurl}}/img/course6/lesson4/overlay-use-case-1.png)
+
+Now look how much more evenly they blend with background colors in [this map](http://bit.ly/1M4v9tW). We've also kept the white state outlines, blended slightly.
+
+![overlay-use-case-2]({{site.baseurl}}/img/course6/lesson4/overlay-use-case-2.png)
+
+### INVERSION
 
 ### Difference
 
@@ -181,6 +233,31 @@ marker-comp-op: exclusion;
 {% endhighlight %}
 
 ![exclusion]({{site.baseurl}}/img/course6/lesson4/exclusion.png)
+
+### Invert
+
+Invert turns each RGB channel color into its opposite. Areas that look black originally will turn white, areas that look red will turn green, blues will turn orange, yellows will turn purple. Unlike invert-rgb though, this also inverts saturation and brightness values.
+
+Subtracts color channel value from 255 for destination layers.
+
+{% highlight css %}
+marker-comp-op: invert;
+{% endhighlight %}
+
+![invert]({{site.baseurl}}/img/course6/lesson4/invert.png)
+
+### Invert-RGB
+
+Invert-rgb also inverts color channel colors, but then tints them towards the source color.
+
+{% highlight css %}
+marker-comp-op: invert-rgb;
+{% endhighlight %}
+
+![invert-rgb]({{site.baseurl}}/img/course6/lesson4/invert-rgb.png)
+
+### COMPONENT
+These focus on blending different components that make up a color, like hue, saturation, and brightness levels. We've expanded this to include plus and minus.
 
 ### Hue
 
@@ -222,6 +299,28 @@ marker-comp-op: value;
 
 ![value]({{site.baseurl}}/img/course6/lesson4/value.png)
 
+### Plus
+
+The plus composite operation adds the color channel values of the source with the destination's. Visually it adds the source's color to the darkest parts of the destination, and brightens the lighter parts, but tinted towards the source color. If you add a source color where red is the dominant color channel to the destination's red green and blue color channels, the dominant color in the result will be red. The overall effect is brighter than color-dodge. Lighter source colors effect the destination layer more than dark ones. A black source layer will have no effect; a white one will paint the whole destination layer white in the area of overlap. 
+
+{% highlight css %}
+marker-comp-op: plus;
+{% endhighlight %}
+
+![plus]({{site.baseurl}}/img/course6/lesson4/plus.png)
+
+### Minus
+
+Minus works the same way as plus, but instead of adding the color channel values it subracts them. For example, if your source layer is mostly red, it will subract this from the destination layers so the overall color is mostly blue and green. This darkens the destination layer more extremely than color-burn, and is also more tinted towards the source color.
+
+{% highlight css %}
+marker-comp-op: minus;
+{% endhighlight %}
+
+![minus]({{site.baseurl}}/img/course6/lesson4/minus.png)
+
+### OTHER COLOR COMPOSITE OPERATIONS
+
 ### Grain-Extract
 
 Grain-extract subtracts destination layer color channel values from the source layer, and then adds 128. When used with textured destination layers, the overall visual effect shows the destination layers texture in the source layer overlap area, but with a brightened film-negative effect.
@@ -241,38 +340,6 @@ marker-comp-op: grain-merge;
 {% endhighlight %}
 
 ![grain-merge]({{site.baseurl}}/img/course6/lesson4/grain-merge.png)
-
-### Invert
-
-Invert turns each RGB channel color into its opposite. Areas that look black originally will turn white, areas that look red will turn green, blues will turn orange, yellows will turn purple. Unlike invert-rgb though, this also inverts saturation and brightness values.
-
-Subtracts color channel value from 255 for destination layers.
-
-{% highlight css %}
-marker-comp-op: invert;
-{% endhighlight %}
-
-![invert]({{site.baseurl}}/img/course6/lesson4/invert.png)
-
-### Invert-RGB
-
-Invert-rgb also inverts color channel colors, but then tints them towards the source color.
-
-{% highlight css %}
-marker-comp-op: invert-rgb;
-{% endhighlight %}
-
-![invert-rgb]({{site.baseurl}}/img/course6/lesson4/invert-rgb.png)
-
-### Contrast
-
-Contrast magnifies the difference between the dark and light areas of your overlapping layers. If the source layer color is lighter than 50% gray, the destination layers will show through the source layer with decreased contrast. If the source is darker than 50% gray, the destination layers will show through the source layer with increased contrast. Besides making lighter areas brighter and darker areas darker, this has the visual effect of erasing fine detail.
-
-{% highlight css %}
-marker-comp-op: contrast;
-{% endhighlight %}
-
-![contrast]({{site.baseurl}}/img/course6/lesson4/contrast.png)
 
 ## Alpha Composite Operations
 
@@ -320,7 +387,7 @@ marker-comp-op: src-in;
 
 ### Src-out
 
-Src-out only shows the part of the source layer that does not with the destination layer.
+Src-out only shows the part of the source layer that does not intersect with the destination layer. The destination layers are also not drawn within the area of overlap. 
 
 {% highlight css %}
 marker-comp-op: src-out;
@@ -330,7 +397,7 @@ marker-comp-op: src-out;
 
 ### Src-atop
 
-Src-atop only shows the part of the source layer that intersect with the destination.
+Src-atop makes sure that the source layer is shown at the top of all layers involved in the composite operation, within the area of overlap.
 
 {% highlight css %}
 marker-comp-op: src-atop;
@@ -350,7 +417,7 @@ marker-comp-op: dst-over;
 
 ### Dst-in
 
-Dst-in only shows the part of the destination layer that overlap with the source layer. 
+Inside the overlap area, dst-in only shows the destination layer. 
 
 {% highlight css %}
 marker-comp-op: dst-in;
@@ -360,7 +427,7 @@ marker-comp-op: dst-in;
 
 ### Dst-out
 
-Dst-out only shows the part of the destination layer that does not overlap with the source layer.
+Dst-out only shows the part of the destination layer that does not overlap with the source layer. It also removes the source layer's color.
 
 {% highlight css %}
 marker-comp-op: dst-out;
