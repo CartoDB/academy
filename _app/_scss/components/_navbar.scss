@@ -1,0 +1,128 @@
+// Navbar
+// --------------------------------------------------
+.Navbar,
+.Breadcrumbs {
+  @include clearfix;
+  position: relative;
+  padding: $spacing-unit 0;
+  font-size: 12px;
+  line-height: 14px;
+}
+.Navbar-header {
+  float: left;
+
+  @include media-query($layout-m) {
+    width: 100%;
+  }
+}
+.Navbar-button {
+  display: none;
+  float: right;
+  margin-top: 8px;
+
+  @include media-query($layout-m) {
+    display: block;
+  }
+}
+.Navbar-item,
+.Breadcrumbs-item {
+  position: relative;
+  display: inline-block;
+  margin-left: $spacing-unit * 2;
+  font-size: 12px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  @include media-query($layout-l) {
+    margin-left: $spacing-unit;
+  }
+}
+.Breadcrumbs-item {
+  margin-left: $spacing-unit;
+
+  @include media-query($layout-m) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.Navbar-link,
+.Breadcrumbs-link {
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgba(#fff, 1);
+  transition: all .2s;
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(#fff, .6);
+  }
+
+  span {
+    display: inline-block;
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+}
+.Breadcrumbs-link {
+  color: $grey9;
+
+  &:hover,
+  &.is-active {
+    color: $grey2;
+  }
+}
+.Navbar-inner--left,
+.Breadcrumbs-inner--left {
+  float: left;
+}
+.Navbar-inner--right,
+.Breadcrumbs-inner--right {
+  float: right;
+}
+@media (max-width: $layout-m) {
+  .Navbar-collapse {
+    position: absolute;
+    top: 0;
+    right: -80%;
+    width: 80%;
+    padding: 0 $spacing-unit;
+  }
+  .Navbar-inner {
+    display: none;
+  }
+  .Navbar-button {
+    display: block;
+  }
+  .Navbar-header {
+    float: none;
+  }
+  .Navbar-inner.Navbar-inner--button {
+    border-bottom: 1px solid rgba(#fff, .1);
+    margin-bottom: 10px;
+    padding-bottom: 18px;
+  }
+  .Navbar-item.Navbar-item--menu {
+    display: block;
+    margin: 0 0 $spacing-unit;
+  }
+  .Navbar-item.Navbar-item--button {
+    float: left;
+    width: 50%;
+    margin-left: 0;
+  }
+  .Navbar-link.Navbar-link--button {
+    display: block;
+    text-align: center;
+  }
+  .Dropdown-item {
+    &.is-active {
+      .Dropdown-link {
+        color: lighten($grey9, 5%);
+      }
+    }
+  }
+}

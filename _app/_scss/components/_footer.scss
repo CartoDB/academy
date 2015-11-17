@@ -1,0 +1,64 @@
+// Footer
+// --------------------------------------------------
+
+.Footer {
+  // padding: 0;
+  // font-size: 14px;
+  background: $background-color;
+}
+
+.Footer-inner {
+  // position: relative;
+  // z-index: 20;
+}
+.Footer-columns {
+  border-top: 1px solid #EEE;
+  padding-bottom: 60px;
+}
+.Footer-column {
+  padding-top: 60px;
+}
+.Footer-columnTitle {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: $grey2;
+  letter-spacing: 1px;
+}
+.Footer-link {
+  line-height: 28px;
+  color: $grey9;
+  transition: color .2s ease;
+
+  &:hover {
+    color: $grey2;
+    text-decoration: none;
+  }
+}
+.Footer-logo,
+.Footer-credits {
+  display: inline-block;
+  vertical-align: middle;
+}
+.Footer-credits {
+  line-height: 18px;
+  text-align: left;
+  color: $grey9;
+}
+.Footer-title {
+  font-weight: 600;
+  color: $grey2;
+}
+.Colophon {
+  padding-top: 13px;
+  text-align: right;
+
+  @include media-query($layout-m) {
+    padding-top: 0;
+    text-align: left;
+  }
+}
+.Colophon-item {
+  display: inline-block;
+}

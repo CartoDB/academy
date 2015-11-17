@@ -1,0 +1,44 @@
+// Features
+// --------------------------------------------------
+
+.Feature-item {
+  display: block;
+  padding: $spacing-unit;
+  width: 100%;
+  border: 1px solid #DDD;
+  margin-bottom: $spacing-unit;
+  color: $grey9;
+  border-radius: 4px;
+}
+.Feature-item.Feature-item--with-link {
+  transition: all .2s;
+
+  &:hover {
+    border: 1px solid #CCC;
+    text-decoration: none;
+    color: $grey6;
+  }
+}
+.Feature-media {
+  width: 48px;
+  height: 48px;
+  margin-bottom: $spacing-unit * 2;
+}
+.Feature-title {
+  font-size: 16px;
+  margin-bottom: $spacing-unit / 2;
+  color: $grey2;
+}
+@include media-query($layout-m) {
+  .Feature-media,
+  .Feature-content {
+    float: left;
+  }
+  .Feature-media {
+    margin-bottom: 0;
+    margin-right: $spacing-unit;
+  }
+  .Feature-content {
+    width: calc(100% - 68px);
+  }
+}

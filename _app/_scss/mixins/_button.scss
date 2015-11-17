@@ -1,0 +1,21 @@
+// Button
+// --------------------------------------------------
+
+@mixin button($color1, $color2) {
+  color: $color1;
+  border-color: rgba($color1, .3);
+
+  &:hover {
+    background: $color1;
+    color: $color2;
+  }
+
+  &.is-highlight {
+    background: $color1;
+    color: $color2;
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+}

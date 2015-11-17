@@ -1,0 +1,151 @@
+// Content
+// --------------------------------------------------
+.Content {
+  background: $background-color;
+  padding-bottom: $spacing-unit * 3;
+}
+.Content.Content--withpadding {
+  padding-top: $spacing-unit * 3;
+}
+.Content-inner {
+  margin-top: $spacing-unit * 3;
+
+  h1, h2, h3,
+  p, blockquote, pre,
+  ul, ol, dl, figure {
+    @include vertical-rhythm;
+  }
+  p, blockquote, pre,
+  ul, ol, dl, figure {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  // .Title
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: $spacing-unit / 2;
+    font-weight: 600;
+    color: $grey2;
+
+    &:hover {
+      .Title-link {
+        opacity: 1;
+      }
+    }
+  }
+  h1, h2, h3 {
+    margin-top: $spacing-unit * 2;
+  }
+  // .Title--h1
+  h1 {
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 30px;
+  }
+  // .Title--h2
+  h2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  // .Title--h3
+  h3 {
+    font-size: 14px;
+    line-height: 22px;
+
+    em {
+      color: $grey9;
+    }
+  }
+  // .Title--h4
+  h4 {
+    margin-top: $spacing-unit;
+  }
+  h2 + h3 {
+    margin-top: 0;
+  }
+  img {
+    border-radius: 3px;
+  }
+  p + .highlight {
+    margin-top: $spacing-unit;
+  }
+  ul, ol {
+    margin-left: $spacing-unit;
+  }
+  li {
+    margin-bottom: $spacing-unit / 2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    > p, > ul, > ol, table {
+      margin-top: $spacing-unit / 2;
+      margin-bottom: 0;
+
+      + p {
+        margin-top: $spacing-unit / 2;
+      }
+    }
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  table {
+    width: 100%;
+    margin-bottom: $spacing-unit;
+
+    + table {
+      margin-top: -$spacing-unit - 1;
+
+      thead {
+        background: #fcfcfc;
+      }
+
+      th {
+        font-weight: 400;
+      }
+    }
+    thead {
+      background: #f9f9f9;
+    }
+    th {
+      font-weight: 600;
+      font-family: $font-family-base;
+      text-align: left;
+    }
+    th, td {
+      padding: 13px 20px;
+      border: 1px solid #ddd;
+    }
+    th, td:first-child {
+      vertical-align: top;
+      color: #333;
+    }
+    td {
+      &:first-child {
+        width: 30%;
+      }
+
+      code {
+        word-break: break-word;
+      }
+    }
+  }
+}
+.Content-inner.Content-inner--withlist {
+  margin-bottom: $spacing-unit * 2;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+.Content-meta {
+  color: $grey9;
+}
+.Section-text {
+  font-size: 14px;
+  line-heigh: 28px;
+}

@@ -1,0 +1,91 @@
+---
+layout: default
+---
+{% comment %}https://github.com/jekyll/jekyll/issues/4047{% endcomment %}
+{% assign collection = false %}
+
+{% for collection_item in site.collections %}
+  {% if collection_item.label == page.collection %}
+    {% assign collection = collection_item %}
+  {% endif %}
+{% endfor %}
+
+<div class="Subheader">
+  <nav class="Breadcrumbs">
+    <div class="u-inner u-inner--10">
+      <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
+        <li class="Breadcrumbs-item">
+          <a href="/" class="Breadcrumbs-link">
+            <span>The Map Academy</span>
+          </a>
+          <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+        </li>
+
+        <li class="Breadcrumbs-item">
+          <a href="{{ collection.url }}" class="Breadcrumbs-link is-active">
+            <span>{{ collection.title }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="Breadcrumbs-inner Breadcrumbs-inner--right">
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="Content">
+  <div class="u-inner u-inner--10">
+    <div class="Grid">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <div class="Sidebar">
+            <h2 class="Title Title--h2">Easy tutorials</h2>
+
+            <ul class="Sidebar-list">
+              {% for collection_item in site.collections %}
+                {% if collection_item.difficulty == "easy" %}
+                  <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
+                    <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+            <h2 class="Title Title--h2">Medium tutorials</h2>
+
+            <ul class="Sidebar-list">
+              {% for collection_item in site.collections %}
+                {% if collection_item.difficulty == "medium" %}
+                  <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
+                    <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <div class="Content-inner Content-inner--withlist">
+
+            {{ content }}
+
+          </div>
+
+          <ul class="List">
+            {% for collection_item in collection.docs %}
+              <li class="List-item">
+                <a href="{{ collection_item.url }}" class="List-link"><i class="Icon Icon--doc Icon--s22 List-icon"></i>{{ collection_item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+{% include mailchimp.html %}
+{% endcomment %}

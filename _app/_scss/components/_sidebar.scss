@@ -1,0 +1,52 @@
+// Sidebar
+// --------------------------------------------------
+
+.Sidebar {
+  padding-top: $spacing-unit * 3;
+}
+.Sidebar-title {
+  margin-top: $spacing-unit;
+
+  @include media-query($layout-m) {
+    margin-top: 0;
+  }
+}
+.Sidebar-content {
+  margin-bottom: $spacing-unit * 2;
+}
+.Sidebar-media {
+  margin-bottom: $spacing-unit;
+}
+.Sidebar-icon {
+  margin-right: $spacing-unit / 2;
+}
+.Sidebar-item {
+  &.is-active {
+    .Sidebar-link {
+      color: $grey2;
+    }
+  }
+}
+.Sidebar-link {
+  @include ellipsis;
+  display: block;
+  transition: all .2s;
+
+  &:hover {
+    text-decoration: none;
+    color: $grey2;
+  }
+}
+.Sidebar-list {
+  margin-bottom: $spacing-unit * 2;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+// https://github.com/wilddeer/stickyfill
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}

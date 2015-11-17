@@ -1,0 +1,116 @@
+product:
+  - title: Editor
+    url: /editor/
+  - title: Data
+    url: /data/
+  - title: Platform
+    url: /platform/
+  - title: Extras
+    url: /extras/
+  - title: Enterprise
+    url: /enterprise/
+  - title: On-premises
+    url: /on-premises/
+  - title: Open in CartoDB
+    url: /open-in-cartodb/
+  - title: Basemaps
+    url: /basemaps/
+  - title: Torque
+    url: /torque/
+solutions:
+  - title: Banking and Finance
+    url: '/solutions/banking-and-finance/'
+  - title: BI and Analytics
+    url: '/solutions/business-intelligence-and-analytics/'
+  - title: Earth Observation and Space
+    title_short: Earth Observation
+    url: '/solutions/earth-observation/'
+  - title: Education and Research
+    title_short: Education
+    url: '/solutions/education-and-research/'
+  - title: Government
+    url: '/solutions/government/'
+  - title: Journalism and New Media
+    title_short: Journalism
+    url: '/solutions/journalism/'
+  - title: Natural resources
+    url: '/solutions/natural-resources/'
+  - title: Non-Profits
+    url: '/solutions/natural-resources/'
+  - title: Real Estate
+    url: '/solutions/natural-resources/'
+  - title: Web and mobile development
+    title_short: Web Development
+    url: '/solutions/web-mobile/'
+discover:
+  - title: Explore
+    url: '/explore'
+  - title: Gallery
+    url: '/gallery/'
+  - title: Data Library
+    url: '/data-library'
+  - title: Ambassadors
+    url: '/ambassadors/'
+cartodbfor:
+  - title: Google Platform
+    url: '/cartodb-for/google-platform/'
+  - title: Twitter Maps
+    url: '/cartodb-for/twitter-maps/'
+  - title: Excel Data
+    url: '/cartodb-for/excel-data/'
+  - title: Data Dashboards
+    url: '/cartodb-for/data-dashboard/'
+  - title: Election Maps
+    url: '/cartodb-for/election-maps/'
+  - title: Store Locator
+    url: '/cartodb-for/store-locator/'
+  - title: Online GIS Maps
+    url: '/cartodb-for/gis-online-software/'
+  - title: Satellite Imagery
+    url: '/cartodb-for/satellite-aerial-image/'
+  - title: Dropbox
+    url: '/cartodb-for/dropbox/'
+  - title: MailChimp
+    url: '/cartodb-for/mailchimp/'
+  - title: Google Drive
+    url: '/cartodb-for/google-drive/'
+  - title: ArcGIS&trade;
+    url: '/cartodb-for/arcgis/'
+  - title: Qlik
+    url: '/cartodb-for/qlik/'
+  - title: Splunk
+    url: '/cartodb-for/splunk/'
+learn:
+  - title: Documentation
+    url: 'http://docs.cartodb.com/'
+  - title: The Map Academy
+    url: '/'
+  - title: Resources Center
+    url: 'https://cartodb.com/resources/'
+  - title: Webinars
+    url: 'https://cartodb.com/webinars/'
+  - title: Source Code
+    url: 'https://github.com/CartoDB/cartodb'
+  - title: Contributions
+    url: 'https://cartodb.com/contributing/'
+  - title: Blog
+    url: 'http://blog.cartodb.com/'
+about:
+  - title: Team
+    url: 'https://cartodb.com/team/'
+  - title: Jobs
+    url: 'https://cartodb.com/jobs/'
+  - title: Media
+    url: 'https://cartodb.com/media/'
+  - title: Press
+    url: 'https://cartodb.com/press/'
+  - title: Partners
+    url: 'https://cartodb.com/partners/'
+  - title: Attributions
+    url: 'https://cartodb.com/attributions/'
+  - title: Bug Bounty
+    url: 'https://cartodb.com/bug-bounty/'
+  - title: Contact Sales
+    url: 'mailto:sales@cartodb.com'
+  - title: Request a Demo
+    url: 'https://cartodb.com/request-live-demo/'

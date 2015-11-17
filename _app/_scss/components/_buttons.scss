@@ -1,0 +1,31 @@
+// Buttons
+// --------------------------------------------------
+
+.Button {
+  display: inline-block;
+  border-width: 2px;
+  border-style: solid;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 50px;
+  transition: all .3s;
+  outline: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  span {
+    display: inline-block;
+    padding: 10px $spacing-unit;
+  }
+}
+.Button--white {
+  @include button(#fff, $blue1);
+}
+.Button--blue {
+  @include button($blue1, #fff);
+}

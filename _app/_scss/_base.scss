@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: $background-color;
+  text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  /* -webkit-font-smoothing: antialiased; */
+  color: $text-color;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+}
+a {
+  color: $blue1;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+strong {
+  font-weight: 600;
+}
+em {
+  font-style: italic;
+}
+abbr {
+  border-bottom: 1px dotted #ddd;
+}
+button {
+  margin: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-family: $font-family-base;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+pre,
+code {
+  font-family: 'PT Mono', monospace;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+}
+code {
+  padding: 1px 5px;
+
+  &.language-bash {
+    background-color: #292C34;
+  }
+}
+pre {
+  padding: 8px 12px;
+  overflow-x: scroll;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.Console {
+  background: #292C34;
+  color: #999;
+}
