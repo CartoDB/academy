@@ -78,12 +78,24 @@ layout: default
           </div>
 
           <ul class="List">
+            {% assign start_course = "#" %}
+
             {% for collection_item in collection.docs %}
+              {% if forloop.first %}
+                {% assign start_course = collection_item.url %}
+              {% endif %}
+
               <li class="List-item">
-                <a href="{{ collection_item.url }}" class="List-link"><i class="Icon Icon--doc Icon--s22 List-icon"></i>{{ collection_item.title }}</a>
+                <a href="{{ start_course }}" class="List-link"><i class="Icon Icon--doc Icon--s22 List-icon"></i>{{ collection_item.title }}</a>
               </li>
             {% endfor %}
           </ul>
+
+          <p>
+            <a href="{{ start_course }}" class="Button Button--sLarge Button--cGreen is-highlight">
+              <span class="u-tupper">Start course</span>
+            </a>
+          </p>
         </div>
       </div>
     </div>

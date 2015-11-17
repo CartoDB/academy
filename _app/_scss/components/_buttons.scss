@@ -18,14 +18,34 @@
     text-decoration: none;
   }
 
-  span {
+  > span {
     display: inline-block;
     padding: 10px $spacing-unit;
   }
 }
-.Button--white {
+/* sizes */
+.Button.Button--sSmall {
+  > span {
+    padding: 8px $spacing-unit;
+  }
+}
+.Button.Button--sMedium {
+  > span {
+    padding: $spacing-unit / 2 $spacing-unit;
+  }
+}
+.Button.Button--sLarge {
+  > span {
+    padding: 12px $spacing-unit;
+  }
+}
+/* colors */
+.Button.Button--cWhite {
   @include button(#fff, $blue1);
 }
-.Button--blue {
+.Button.Button--cBlue {
   @include button($blue1, #fff);
+}
+.Button.Button--cGreen {
+  @include button($green1, #fff);
 }
