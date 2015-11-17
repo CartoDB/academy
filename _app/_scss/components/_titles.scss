@@ -11,9 +11,15 @@
   line-height: 30px;
 }
 .Title.Title--h2 {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit / 2;
   font-size: 18px;
   line-height: 24px;
+}
+.Title.Title--h3 {
+  margin-bottom: 12px;
+}
+.Title.Title--h4 {
+  margin-bottom: 8px;
 }
 .Title-link {
   position: relative;
@@ -22,4 +28,3 @@
   font-size: 15px;
   transition: opacity .2s ease-in-out .1s;
 }
-

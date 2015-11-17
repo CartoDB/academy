@@ -14,43 +14,43 @@ layout: default
   {% include navigation.html %}
 </header>
 
-<div class="Subheader">
-  <nav class="Breadcrumbs">
-    <div class="u-inner u-inner--10">
-      <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
-        <li class="Breadcrumbs-item">
-          <a href="/" class="Breadcrumbs-link">
-            <span>The Map Academy</span>
-          </a>
-          <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
-        </li>
-
-        <li class="Breadcrumbs-item">
-          <a href="{{ collection.url }}" class="Breadcrumbs-link">
-            <span>{{ collection.title }}</span>
-          </a>
-          <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
-        </li>
-
-        <li class="Breadcrumbs-item">
-          <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
-            <span>{{ page.title }}</span>
-          </a>
-        </li>
-      </ul>
-
-      <div class="Breadcrumbs-inner Breadcrumbs-inner--right">
-      </div>
-    </div>
-  </nav>
-</div>
-
 <div class="Content">
+  <div class="Subheader js-Subheader Subheader--fixed">
+    <nav class="Breadcrumbs">
+      <div class="u-inner u-inner--10">
+        <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
+          <li class="Breadcrumbs-item">
+            <a href="/" class="Breadcrumbs-link">
+              <span>The Map Academy</span>
+            </a>
+            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+          </li>
+
+          <li class="Breadcrumbs-item">
+            <a href="{{ collection.url }}" class="Breadcrumbs-link">
+              <span>{{ collection.title }}</span>
+            </a>
+            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+          </li>
+
+          <li class="Breadcrumbs-item">
+            <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
+              <span>{{ page.title }}</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="Breadcrumbs-inner Breadcrumbs-inner--right">
+        </div>
+      </div>
+    </nav>
+  </div>
+
   <div class="u-inner u-inner--10">
     <div class="Grid">
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
-          <div class="Sidebar">
+          <div class="Sidebar Sidebar--withsubheader sticky">
             <h2 class="Title Title--h2">{{ collection.title }}</h2>
 
             <ul class="Sidebar-list">
@@ -70,7 +70,7 @@ layout: default
         </div>
 
         <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
-          <article class="Content-inner js-Content-inner">
+          <article class="Content-inner js-Content-inner Content-inner--withsubheader">
 
             {{ content }}
 

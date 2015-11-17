@@ -1,6 +1,9 @@
 // Dropdown
 // --------------------------------------------------
 
+.Dropdown {
+  position: relative;
+}
 .Dropdown-arrow {
   position: relative;
   top: -3px;
@@ -9,15 +12,28 @@
   display: none;
   position: absolute;
   z-index: 10;
-  top: 40px;
-  right: -133px;
-  min-width: 260px;
+  top: 32px;
+  right: -113px;
+  min-width: 220px;
   background: #fff;
   box-shadow: 0 0 4px rgba(#000, .2);
   border-radius: 4px;
   transition: all .3s;
+  z-index: 30;
 
   &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    margin-left: -14px;
+    top: -16px;
+    border: 8px solid transparent;
+    border-bottom: 8px solid rgba(#000, .1);
+  }
+
+  &:after {
     content: "";
     position: absolute;
     width: 0;
@@ -26,7 +42,7 @@
     margin-left: -12px;
     top: -12px;
     border: 6px solid transparent;
-    border-bottom: 6px solid  #fff;
+    border-bottom: 6px solid #fff;
   }
 
   &.is-active {

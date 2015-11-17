@@ -1,6 +1,7 @@
 // Content
 // --------------------------------------------------
 .Content {
+  position: relative;
   background: $background-color;
   padding-bottom: $spacing-unit * 3;
 }
@@ -23,7 +24,6 @@
   }
   // .Title
   h1, h2, h3, h4, h5, h6 {
-    margin-bottom: $spacing-unit / 2;
     font-weight: 600;
     color: $grey2;
 
@@ -39,16 +39,19 @@
   // .Title--h1
   h1 {
     margin-top: 0;
+    margin-bottom: $spacing-unit;
     font-size: 22px;
     line-height: 30px;
   }
   // .Title--h2
   h2 {
+    margin-bottom: $spacing-unit / 2;
     font-size: 18px;
     line-height: 24px;
   }
   // .Title--h3
   h3 {
+    margin-bottom: 12px;
     font-size: 14px;
     line-height: 22px;
 
@@ -59,6 +62,7 @@
   // .Title--h4
   h4 {
     margin-top: $spacing-unit;
+    margin-bottom: 8px;
   }
   h2 + h3 {
     margin-top: 0;
@@ -135,7 +139,13 @@
     }
   }
 }
+.Content-inner.Content-inner--withsubheader {
+  @media (min-width: $layout-m) {
+    margin-top: $spacing-unit * 3 + 77px;
+  }
+}
 .Content-inner.Content-inner--withlist {
+  // margin-top: 0;
   margin-bottom: $spacing-unit * 2;
 
   h2 {

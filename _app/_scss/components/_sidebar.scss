@@ -4,10 +4,15 @@
 .Sidebar {
   padding-top: $spacing-unit * 3;
 }
+.Sidebar.Sidebar--withsubheader {
+  @media (min-width: $layout-m) {
+    padding-top: $spacing-unit * 3 + 77px;
+  }
+}
 .Sidebar-title {
   margin-top: $spacing-unit;
 
-  @include media-query($layout-m) {
+  @media (max-width: $layout-m) {
     margin-top: 0;
   }
 }
@@ -43,6 +48,9 @@
   &:last-child {
     margin-bottom: 0;
   }
+}
+.Sidebar-list--notitle {
+  padding-top: 8px;
 }
 // https://github.com/wilddeer/stickyfill
 .sticky {

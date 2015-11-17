@@ -17,68 +17,76 @@
       </ul>
 
       <ul class="Navbar-inner Navbar-inner--left">
-        <li class="Navbar-item Navbar-item--menu js-Dropdown">
-          <a href="{{ site.cartodb-baseurl }}/" class="Navbar-link js-Dropdown-target">
-            <span>Product <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
-          </a>
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="{{ site.cartodb-baseurl }}/" class="Navbar-link js-Dropdown-target">
+              <span>Product <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
 
-          <div class="Dropdown-inner Navbar-item--menu js-Dropdown-inner">
-            <div class="Dropdown-content">
-              <ul>
-                {% for product_item in site.data.menu.product %}
-                  <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ product_item.url }}" class="Dropdown-link js-Dropdown-link">{{ product_item.title }}</a></li>
-                {% endfor %}
-              </ul>
+            <div class="Dropdown-inner Navbar-item--menu js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for product_item in site.data.menu.product %}
+                    <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ product_item.url }}" class="Dropdown-link js-Dropdown-link">{{ product_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
-          </div>
+          </span>
         </li>
 
-        <li class="Navbar-item Navbar-item--menu js-Dropdown">
-          <a href="#/solutions" class="Navbar-link js-Dropdown-target">
-            <span>Solutions <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
-          </a>
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="#/solutions" class="Navbar-link js-Dropdown-target">
+              <span>Solutions <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
 
-          <div class="Dropdown-inner js-Dropdown-inner">
-            <div class="Dropdown-content">
-              <ul>
-                {% for solutions_item in site.data.menu.solutions %}
-                  <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ solutions_item.url }}" class="Dropdown-link js-Dropdown-link">{{ solutions_item.title }}</a></li>
-                {% endfor %}
-              </ul>
+            <div class="Dropdown-inner js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for solutions_item in site.data.menu.solutions %}
+                    <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ solutions_item.url }}" class="Dropdown-link js-Dropdown-link">{{ solutions_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
-          </div>
+          </span>
         </li>
 
-        <li class="Navbar-item Navbar-item--menu js-Dropdown">
-          <a href="#/discover" class="Navbar-link js-Dropdown-target">
-            <span>Discover <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
-          </a>
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="#/discover" class="Navbar-link js-Dropdown-target">
+              <span>Discover <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
 
-          <div class="Dropdown-inner js-Dropdown-inner">
-            <div class="Dropdown-content">
-              <ul>
-                {% for discover_item in site.data.menu.discover %}
-                  <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ discover_item.url }}" class="Dropdown-link js-Dropdown-link">{{ discover_item.title }}</a></li>
-                {% endfor %}
-              </ul>
+            <div class="Dropdown-inner js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for discover_item in site.data.menu.discover %}
+                    <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ discover_item.url }}" class="Dropdown-link js-Dropdown-link">{{ discover_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
-          </div>
+          </span>
         </li>
 
-        <li class="Navbar-item Navbar-item--menu js-Dropdown">
-          <a href="#/learn" class="Navbar-link js-Dropdown-target">
-            <span>Learn <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
-          </a>
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="#/learn" class="Navbar-link js-Dropdown-target">
+              <span>Learn <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
 
-          <div class="Dropdown-inner js-Dropdown-inner">
-            <div class="Dropdown-content">
-              <ul>
-                {% for learn_item in site.data.menu.learn %}
-                  <li class="Dropdown-item"><a href="{{ learn_item.url }}" class="Dropdown-link js-Dropdown-link">{{ learn_item.title }}</a></li>
-                {% endfor %}
-              </ul>
+            <div class="Dropdown-inner js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for learn_item in site.data.menu.learn %}
+                    <li class="Dropdown-item"><a href="{{ learn_item.url }}" class="Dropdown-link js-Dropdown-link">{{ learn_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
-          </div>
+          </span>
         </li>
 
         <li class="Navbar-item Navbar-item--menu">

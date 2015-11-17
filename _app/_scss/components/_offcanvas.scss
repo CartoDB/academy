@@ -33,7 +33,8 @@
         box-shadow: none;
         border-radius: 0;
 
-        &:before {
+        &:before,
+        &:after {
           display: none;
         }
       }

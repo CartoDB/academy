@@ -3,6 +3,9 @@ App.Views.Lesson = Backbone.View.extend({
   el: '.js-Lesson',
 
   initialize: function() {
+    this.$header = this.$('.js-Header');
+    this.$subheader = this.$('.js-Subheader');
+
     this._initViews();
     this._initBindings();
   },
@@ -49,13 +52,38 @@ App.Views.Lesson = Backbone.View.extend({
     $(document)
       .ready(function() {
         $('.sticky').Stickyfill();
+        _this._fixSubheader();
       });
+
+    $(window)
+      .scroll(function() {
+        _this._fixSubheader();
+      })
+      .resize(function() {
+        _this._fixSubheader();
+      });
+  },
+
+  _fixSubheader: function() {
+    var w = $(window).width();
+
+    if (w > 750) {
+      if (document.body.scrollTop >= this.$header.height()) {
+        this.$subheader.addClass('is-fixed');
+      } else {
+        this.$subheader.removeClass('is-fixed');
+      }
+    } else {
+      if (this.$subheader.hasClass('is-fixed')) {
+        this.$subheader.removeClass('is-fixed');
+      }
+    }
   }
 
 });
 
 $(function() {
   if ($('body').hasClass('js-Lesson')) {
-    window.item = new App.Views.Lesson();
+    window.lesson = new App.Views.Lesson();
   }
 });

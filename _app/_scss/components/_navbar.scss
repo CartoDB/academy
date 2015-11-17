@@ -11,7 +11,7 @@
 .Navbar-header {
   float: left;
 
-  @include media-query($layout-m) {
+  @media (max-width: $layout-m) {
     width: 100%;
   }
 }
@@ -20,7 +20,7 @@
   float: right;
   margin-top: 8px;
 
-  @include media-query($layout-m) {
+  @media (max-width: $layout-m) {
     display: block;
   }
 }
@@ -35,14 +35,14 @@
     margin-left: 0;
   }
 
-  @include media-query($layout-l) {
+  @media (max-width: $layout-l) {
     margin-left: $spacing-unit;
   }
 }
 .Breadcrumbs-item {
   margin-left: $spacing-unit;
 
-  @include media-query($layout-m) {
+  @media (max-width: $layout-m) {
     width: 100%;
     margin-left: 0;
   }

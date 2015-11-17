@@ -12,6 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  max-width: calc(100% + $spacing-unit);
   margin-right: -$spacing-unit / 2;
   margin-left: -$spacing-unit / 2;
 }
@@ -103,8 +104,7 @@
   flex: 0 0 100%;
   max-width: 100%;
 }
-
-@include media-query($layout-l) {
+@media (max-width: $layout-l) {
   .Grid-cell--col4--tablet {
     flex: 0 0 33.3334%;
     max-width: 33.3334%;
@@ -115,8 +115,7 @@
     max-width: 50%;
   }
 }
-
-@include media-query($layout-m) {
+@media (max-width: $layout-m) {
   .Grid-cell--col6--mobile {
     flex: 0 0 50%;
     max-width: 50%;

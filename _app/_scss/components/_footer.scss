@@ -54,7 +54,7 @@
   padding-top: 13px;
   text-align: right;
 
-  @include media-query($layout-m) {
+  @media (max-width: $layout-m) {
     padding-top: 0;
     text-align: left;
   }

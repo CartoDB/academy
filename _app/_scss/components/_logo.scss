@@ -31,7 +31,7 @@
 .Logo.Logo--header {
   margin-right: $spacing-unit*2;
 
-  @include media-query($layout-l) {
+  @media (max-width: $layout-l) {
     margin-right: $spacing-unit;
   }
 }

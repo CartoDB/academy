@@ -37,9 +37,7 @@
 .Icon--s48 {
   font-size: 48px;
 }
-.Icon--hcenter {
-  margin-left: -3px;
-}
+
 /* Colors */
 .Icon--cWhite {
   color: #FFF;
@@ -80,4 +78,7 @@
 }
 .Icon--check:before {
   content: "\E008"
+}
+.Icon--hcenter {
+  margin-left: -3px;
 }
