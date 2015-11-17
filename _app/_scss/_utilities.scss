@@ -36,6 +36,9 @@
 .u-txt-center {
   text-align: center;
 }
+.u-right {
+  float: right;
+}
 .u-vspace--12 {
   margin-bottom: 12px;
 }
@@ -50,6 +53,9 @@
 }
 .u-tspace--60 {
   margin-top: $spacing-unit * 3;
+}
+.u-rspace--20 {
+  margin-right: $spacing-unit;
 }
 .u-tupper {
   text-transform: uppercase;

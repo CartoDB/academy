@@ -1,0 +1,20 @@
+// Circles
+// --------------------------------------------------
+
+.Circle {
+  display: inline-block;
+  width: $spacing-unit * 2;
+  height: $spacing-unit * 2;
+  border: 2px solid rgba(#9B9B9B, 0.4);
+  text-align: center;
+  border-radius: 50%;
+}
+.Circle--cGreen {
+  border-color: $green1;
+  color: $green1;
+
+  &.is-highlight {
+    background: $green1;
+    color: #FFF;
+  }
+}

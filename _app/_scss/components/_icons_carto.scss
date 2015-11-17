@@ -37,7 +37,9 @@
 .Icon--s48 {
   font-size: 48px;
 }
-
+.Icon--hcenter {
+  margin-left: -3px;
+}
 /* Colors */
 .Icon--cWhite {
   color: #FFF;
@@ -75,4 +77,7 @@
 }
 .Icon--menu:before {
   content: "\E007"
+}
+.Icon--check:before {
+  content: "\E008"
 }

@@ -54,7 +54,13 @@ layout: default
             <h2 class="Title Title--h2">{{ collection.title }}</h2>
 
             <ul class="Sidebar-list">
+              {% assign lesson_number = 0 %}
+
               {% for collection_item in collection.docs %}
+                {% if collection_item.url == page.url %}
+                  {% assign lesson_number = forloop.index %}
+                {% endif %}
+
                 <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
                   <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
                 </li>
@@ -68,6 +74,17 @@ layout: default
 
             {{ content }}
 
+            <div class="Lesson-footer">
+              <div class="Circle Circle--cGreen u-valign u-rspace--20">
+                <i class="Icon Icon--check Icon--hcenter Icon--s12 u-malign"></i>
+              </div> {% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
+
+              {% if page.permalink_next %}
+                <a href="{{ page.permalink_next }}" class="Button Button--sLarge Button--cGreen is-highlight u-right">
+                  <span class="u-tupper">Continue to lesson {{ lesson_number | plus:1 }}</span>
+                </a>
+              {% endif %}
+            </div>
           </article>
         </div>
       </div>
