@@ -36,6 +36,9 @@
 .u-txt-center {
   text-align: center;
 }
+.u-vspace--12 {
+  margin-bottom: 12px;
+}
 .u-vspace--20 {
   margin-bottom: $spacing-unit;
 }
@@ -51,6 +54,7 @@
 .u-tupper {
   text-transform: uppercase;
 }
+
 /* Helper class taken from Bootstrap.
    Hides an element to all devices except screen readers.
 */

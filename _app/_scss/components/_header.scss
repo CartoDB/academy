@@ -4,8 +4,40 @@
 .Header {
   background: $blue1;
 }
-
+.Header--tall {
+  min-height: 550px;
+}
+.Header--cGreen {
+  background: $green1;
+}
+.Header-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.Header-background--academy {
+  background: url("../img/backgrounds/academy.svg") center 77px no-repeat;
+}
 .Subheader {
   border-bottom: 1px solid #EEE;
   background: #F9F9F9;
+}
+.Header-inner {
+  padding: $spacing-unit * 4 0;
+}
+.Header-title {
+  font-size: 44px;
+  line-height: 56px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.Header-subtitle {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 1px;
+  color: rgba(#fff, .6);
+  text-transform: uppercase
 }
