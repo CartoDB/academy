@@ -40,8 +40,19 @@ layout: default
           </li>
         </ul>
 
-        <div class="Breadcrumbs-inner Breadcrumbs-inner--right">
-        </div>
+        {% assign lesson_number = 0 %}
+
+        {% for collection_item in collection.docs %}
+          {% if collection_item.url == page.url %}
+            {% assign lesson_number = forloop.index %}
+          {% endif %}
+        {% endfor %}
+
+        <ul class="Breadcrumbs-inner Breadcrumbs-inner--right">
+          <li class="Breadcrumbs-item">
+            <div class="Progress"><div class="Progress-inner" style="width: {{ lesson_number | times: 100.0 | divided_by: collection.docs.size }}%;"></div></div> <span class="Breadcrumbs-link"><span>{{ lesson_number }}/{{ collection.docs.size }}</span></span>
+          </li>
+        </ul>
       </div>
     </nav>
   </div>
@@ -54,13 +65,7 @@ layout: default
             <h2 class="Title Title--h2">{{ collection.title }}</h2>
 
             <ul class="Sidebar-list">
-              {% assign lesson_number = 0 %}
-
               {% for collection_item in collection.docs %}
-                {% if collection_item.url == page.url %}
-                  {% assign lesson_number = forloop.index %}
-                {% endif %}
-
                 <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
                   <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
                 </li>
