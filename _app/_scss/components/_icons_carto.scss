@@ -48,8 +48,11 @@
 .Icon--cGreen {
   color: #9CCC65;
 }
-.Icon--cGrey {
+.Icon--cGrey1 {
   color: #979EA1;
+}
+.Icon--cGreyC {
+  color: #CBCED0;
 }
 /* Align */
 .Icon--mAlign {
@@ -78,6 +81,9 @@
 }
 .Icon--check:before {
   content: "\E008"
+}
+.Icon--lessons:before {
+  content: "\E009"
 }
 .Icon--hcenter {
   margin-left: -3px;

@@ -46,7 +46,7 @@ mailchimp_id: 7ee37359cf
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
           <h2 class="Title Title--h2 Sidebar-title">Easy tutorials</h2>
-          <p class="Sidebar-content">TBD</p>
+          <p class="Sidebar-content">Basic concepts of online mapping</p>
         </div>
 
         <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
@@ -62,9 +62,12 @@ mailchimp_id: 7ee37359cf
                           <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
                         </picture>
                       </div>
-                      <div class="Feature-content">
+                      <div class="Feature-content u-vspace--12">
                         <h3 class="Feature-title">{{ collection_item.title }}</h3>
-                        <p>{{ collection_item.description }}</p>
+                        <p class="u-vellipsis" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                      </div>
+                      <div class="Feature-footer">
+                        <p><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
                       </div>
                     </a>
                   </li>
@@ -80,7 +83,7 @@ mailchimp_id: 7ee37359cf
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
           <h2 class="Title Title--h2 Sidebar-title">Medium tutorials</h2>
-          <p class="Sidebar-content">TBD</p>
+          <p class="Sidebar-content">Queries to visualizations, and make informed choices about maps</p>
         </div>
 
         <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
@@ -96,9 +99,12 @@ mailchimp_id: 7ee37359cf
                           <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
                         </picture>
                       </div>
-                      <div class="Feature-content">
+                      <div class="Feature-content u-vspace--12">
                         <h3 class="Feature-title">{{ collection_item.title }}</h3>
-                        <p>{{ collection_item.description }}</p>
+                        <p class="u-vellipsis" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                      </div>
+                      <div class="Feature-footer">
+                        <p><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
                       </div>
                     </a>
                   </li>
