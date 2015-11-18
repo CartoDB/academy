@@ -76,7 +76,7 @@ You can find more info about these in documentation for [GIMP,](http://docs.gimp
 
 Many CartoCSS comp-ops have [Photoshop blend mode](https://helpx.adobe.com/photoshop/using/blending-modes.html) equivalents. For easier comparison, we used Adobe's categories as a starting point to group them below by visual effect. The best way to learn about how comp-ops work is to try them out! You can use any of these in your map's custom CartoCSS panel, but some of our wizards also give you menu options for the most popular ones.
 
-The main reason to use composite operations is to fine-tune how much some features in your map stand out compared to others. They're a great way to control your map's legibility.  
+The main reason to use composite operations is to fine-tune how much some features in your map stand out compared to others. They're a great way to control your map's legibility. We give you some use case examples below, but we'd also love to see the reasons you use them! Share your comp-op maps with us in the comments below.
 
 ## Color Composite Operations
 
@@ -208,7 +208,7 @@ Use contrast effects when you're trying to control how both dark and light eleme
 
 ![overlay-use-case-1]({{site.baseurl}}/img/course6/lesson4/overlay-use-case-1.png)
 
-Now look how much more evenly they blend with background colors in [this map](http://bit.ly/1M4v9tW). We've also kept the white state outlines, blended slightly.
+Now look how much more evenly they blend with background colors in [this map](http://bit.ly/1M4v9tW). We've also kept the white state outlines.
 
 ![overlay-use-case-2]({{site.baseurl}}/img/course6/lesson4/overlay-use-case-2.png)
 
