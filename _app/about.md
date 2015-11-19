@@ -1,7 +1,7 @@
 ---
 layout: page
+redirect_from: /about.html
 title:  "About the Map Academy"
-subtitle: "Our mission and vision"
 ---
 ## What is this?
 
