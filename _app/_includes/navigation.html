@@ -1,0 +1,100 @@
+<nav class="Navbar">
+  <div class="u-inner u-inner--20">
+    <div class="Navbar-header">
+      <a class="Logo Logo--header Logo--light Logo--green" href="{{ site.cartodb-baseurl }}/">
+        <i class="Icon Icon--cartofante Icon--s20 Logo-icon"></i>
+      </a>
+
+      <a href="#/menu" class="Navbar-button js-Navbar-button">
+        <i class="Icon Icon--menu Icon--s20 Icon--cWhite"></i>
+      </a>
+    </div>
+
+    <div class="Navbar-collapse">
+      <ul class="Navbar-inner Navbar-inner--right Navbar-inner--buttons">
+        <li class="Navbar-item Navbar-item--button"><a href="{{ site.cartodb-baseurl }}/login" class="Navbar-link"><span>Login</span></a></li>
+        <li class="Navbar-item Navbar-item--button"><a href="{{ site.cartodb-baseurl }}/signup" class="Navbar-link Button Button--sMedium Button--cWhite"><span>Sign Up</span></a></li>
+      </ul>
+
+      <ul class="Navbar-inner Navbar-inner--left">
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="{{ site.cartodb-baseurl }}/" class="Navbar-link js-Dropdown-target">
+              <span>Product <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
+
+            <div class="Dropdown-inner Navbar-item--menu js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for product_item in site.data.menu.product %}
+                    <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ product_item.url }}" class="Dropdown-link js-Dropdown-link">{{ product_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </span>
+        </li>
+
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="#/solutions" class="Navbar-link js-Dropdown-target">
+              <span>Solutions <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
+
+            <div class="Dropdown-inner js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for solutions_item in site.data.menu.solutions %}
+                    <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ solutions_item.url }}" class="Dropdown-link js-Dropdown-link">{{ solutions_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </span>
+        </li>
+
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="#/discover" class="Navbar-link js-Dropdown-target">
+              <span>Discover <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
+
+            <div class="Dropdown-inner js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for discover_item in site.data.menu.discover %}
+                    <li class="Dropdown-item"><a href="{{ site.cartodb-baseurl }}{{ discover_item.url }}" class="Dropdown-link js-Dropdown-link">{{ discover_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </span>
+        </li>
+
+        <li class="Navbar-item Navbar-item--menu">
+          <span class="Dropdown js-Dropdown">
+            <a href="#/learn" class="Navbar-link js-Dropdown-target">
+              <span>Learn <i class="Icon Icon--arrowDown Icon--s6 Dropdown-arrow"></i></span>
+            </a>
+
+            <div class="Dropdown-inner js-Dropdown-inner">
+              <div class="Dropdown-content">
+                <ul>
+                  {% for learn_item in site.data.menu.learn %}
+                    <li class="Dropdown-item"><a href="{{ learn_item.url }}" class="Dropdown-link js-Dropdown-link">{{ learn_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </span>
+        </li>
+
+        <li class="Navbar-item Navbar-item--menu">
+          <a href="{{ site.cartodb-baseurl }}/pricing/" class="Navbar-link">
+            <span>Pricing</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

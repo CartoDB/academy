@@ -1,0 +1,91 @@
+// Utilities
+// --------------------------------------------------
+
+.u-inner {
+  @include clearfix;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: $layout-l;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+}
+.u-inner--10 {
+  z-index: 10;
+}
+.u-inner--20 {
+  z-index: 20;
+}
+.u-valign:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  height: 100%;
+}
+.u-malign {
+  vertical-align: middle;
+}
+.u-talign {
+  vertical-align: top;
+}
+.u-balign {
+  vertical-align: bottom;
+}
+.u-txt-center {
+  text-align: center;
+}
+.u-right {
+  float: right;
+}
+.u-vspace--12 {
+  margin-bottom: 12px;
+}
+.u-vspace--20 {
+  margin-bottom: $spacing-unit;
+}
+.u-vspace--40 {
+  margin-bottom: $spacing-unit * 2;
+}
+.u-vspace--60 {
+  margin-bottom: $spacing-unit * 3;
+}
+.u-tspace--60 {
+  margin-top: $spacing-unit * 3;
+}
+.u-rspace--20 {
+  margin-right: $spacing-unit;
+}
+.u-tupper {
+  text-transform: uppercase;
+}
+.u-hellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.u-vellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.u-vellipsis--3 {
+  -webkit-line-clamp: 3;
+}
+
+/* Helper class taken from Bootstrap.
+   Hides an element to all devices except screen readers.
+*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

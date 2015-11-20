@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<header class="Header Header--cGreen js-Header">
+  {% include navigation.html %}
+</header>
+
+<div class="Subheader">
+  <nav class="Breadcrumbs">
+    <div class="u-inner u-inner--10">
+      <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
+        <li class="Breadcrumbs-item">
+          <a href="/" class="Breadcrumbs-link">
+            <span>The Map Academy</span>
+          </a>
+          <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+        </li>
+
+        <li class="Breadcrumbs-item">
+          <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
+            <span>{{ page.title }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="Breadcrumbs-inner Breadcrumbs-inner--right">
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="Content">
+  <div class="u-inner u-inner--10">
+    <div class="Grid">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <div class="Sidebar">
+            <h2 class="Title Title--h2">About</h2>
+
+            <ul class="Sidebar-list">
+              <li class="Sidebar-item">
+                <a href="#what-is-this" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>What is this?</a>
+              </li>
+
+              <li class="Sidebar-item">
+                <a href="#how-can-i-contribute" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>How can I contribute?</a>
+              </li>
+
+              <li class="Sidebar-item">
+                <a href="#why-should-i-contribute" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>Why should I contribute?</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <article class="Content-inner js-Content-inner">
+
+            {{ content }}
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+{% include mailchimp.html %}
+{% endcomment %}

@@ -1,0 +1,91 @@
+// Dropdown
+// --------------------------------------------------
+
+.Dropdown {
+  position: relative;
+}
+.Dropdown-arrow {
+  position: relative;
+  top: -3px;
+}
+.Dropdown-inner {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 32px;
+  right: -113px;
+  min-width: 220px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(#000, .2);
+  border-radius: 4px;
+  transition: all .3s;
+  z-index: 30;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    margin-left: -14px;
+    top: -16px;
+    border: 8px solid transparent;
+    border-bottom: 8px solid rgba(#000, .1);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    margin-left: -12px;
+    top: -12px;
+    border: 6px solid transparent;
+    border-bottom: 6px solid #fff;
+  }
+
+  &.is-active {
+    display: block;
+  }
+}
+.Dropdown-content {
+  padding: 12px 20px;
+}
+.Dropdown-item {
+  line-height: 26px;
+  font-size: 13px;
+
+  &.is-active {
+    .Dropdown-link {
+      color: $grey2;
+      border-radius: 3px;
+    }
+  }
+}
+.Dropdown-link {
+  display: inline-block;
+  color: $blue1;
+  transition: color .2s ease;
+
+  &:hover {
+    text-decoration: none;
+    color: $grey2;
+  }
+}
+@media (max-width: $layout-m) {
+  .Dropdown-item {
+    &.is-active {
+      .Dropdown-link {
+        color: lighten($grey9, 5%);
+      }
+    }
+  }
+  .Dropdown-link {
+    color: $grey9;
+
+    &:hover {
+      color: lighten($grey9, 5%);
+    }
+  }
+}

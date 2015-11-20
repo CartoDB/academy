@@ -1,11 +1,121 @@
-name: 'The Map Academy'
-description: 'Learn to create maps on the web and visualize geospatial data'
-baseurl: 'http://academy.cartodb.com'
-cartodburl: 'http://cartodb.com'
-github-url: 'http://github.com/CartoDB/academy'
-permalink: /:title.html
-encoding: utf-8
+# Site settings
+title: The Map Academy
+description: >
+  Learn to create maps on the web and visualize geospatial data
+baseurl: ''
+
+# Build settings
+source: '_app'
 markdown: kramdown
-analytics_property_id: UA-20934186-3
-hubspot_id: 474999
-highlighter: 'pygments'
+permalink: pretty
+gems:
+  - jekyll-redirect-from
+
+# Permalinks
+cartodb-baseurl: 'https://cartodb.com'
+github-baseurl: 'http://github.com/CartoDB/academy'
+
+# analytics_property_id: ''
+# hubspot_id: ''
+
+# Collections
+collections:
+  beginners-course:
+    output: true
+    published: true
+    difficulty: easy
+    title: "Online Mapping for Beginners"
+    url: /courses/beginners-course/
+    description: >
+      Learn how to work with data tables to create interactive map visualizations.
+  design-for-beginners:
+    output: true
+    published: true
+    difficulty: easy
+    title: "Introduction to Map Design"
+    url: /courses/design-for-beginners/
+    description: >
+      Start learning the basics of design with data and maps.
+  cartodbjs-ground-up:
+    output: true
+    published: true
+    difficulty: medium
+    title: "CartoDB.js from the ground up"
+    url: /courses/cartodbjs-ground-up/
+    description: >
+      Take advantage of the flexibiltity of CartoDB.js to create custom webpages.
+  sql-postgis:
+    output: true
+    published: true
+    difficulty: easy
+    title: "SQL and PostGIS in CartoDB"
+    url: /courses/sql-postgis/
+    description: >
+      Discover the power of SQL and PostGIS by exploring CartoDB.
+  academy-lite:
+    output: true
+    published: true
+    difficulty: easy
+    title: "Academy Lite"
+    url: /courses/academy-lite/
+    description: >
+      Five minute lessons on basic skills for map creation.
+  # rapid-map-prototyping:
+  #   output: true
+  #   published: false
+  #   difficulty: TBD
+  #   title: "Rapid Map Prototyping"
+  #   url: /courses/rapid-map-prototyping/
+  #   description: >
+  #     TBD
+  intermediate-design:
+    output: true
+    published: true
+    difficulty: medium
+    title: "Intermediate Map Design"
+    url: /courses/intermediate-design/
+    description: >
+      Learn more about cartography and the pros and cons of thematic map types.
+defaults:
+  - scope:
+      path: ""
+      type: beginners-course
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: design-for-beginners
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: cartodbjs-ground-up
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: sql-postgis
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: academy-lite
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  # - scope:
+  #     path: ""
+  #     type: rapid-map-prototyping
+  #   values:
+  #     layout: lesson
+  #     body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: intermediate-design
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
