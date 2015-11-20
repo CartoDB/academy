@@ -27,7 +27,7 @@
 }
 .Sidebar-item {
   &.is-active {
-    .Sidebar-link {
+    > .Sidebar-link {
       color: $grey2;
     }
   }
@@ -42,6 +42,10 @@
     color: $grey2;
   }
 }
+.Sidebar-link.Sidebar-link--folder {
+  font-weight: 600;
+  margin-bottom: $spacing-unit / 2;
+}
 .Sidebar-list {
   margin-bottom: $spacing-unit * 2;
 
@@ -51,6 +55,21 @@
 }
 .Sidebar-list--notitle {
   padding-top: 8px;
+}
+.Subsidebar {
+  margin-left: $spacing-unit;
+  margin-top: $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 2;
+}
+.Subsidebar-list {
+  display: none;
+  margin-left: $spacing-unit;
+  margin-top: $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 2;
+
+  &.is-active {
+    display: block;
+  }
 }
 // https://github.com/wilddeer/stickyfill
 .sticky {

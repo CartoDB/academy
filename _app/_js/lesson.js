@@ -3,6 +3,9 @@ App.Views.Lesson = Backbone.View.extend({
   el: '.js-Lesson',
 
   initialize: function() {
+    this.$content = this.$('.js-Content-inner');
+    this.$subsidebar = this.$('.js-Subsidebar');
+
     this.$header = this.$('.js-Header');
     this.$subheader = this.$('.js-Subheader');
 
@@ -43,6 +46,7 @@ App.Views.Lesson = Backbone.View.extend({
   },
 
   _initViews: function() {
+    this._buildToc();
     this._initAnchors();
   },
 
@@ -62,6 +66,108 @@ App.Views.Lesson = Backbone.View.extend({
       .resize(function() {
         _this._fixSubheader();
       });
+
+    this.$content.find('h2, h3').waypoint({
+      handler: function(direction) {
+        if (direction == 'down') {
+          _this.$('.js-Sidebar-item').removeClass('is-active');
+          _this.$('.js-Subsidebar-list').removeClass('is-active');
+
+          var $active = _this.$subsidebar.find('a[href="#' + this.element.id + '"]');
+
+          // h3
+          $active
+            .closest('.js-Sidebar-item')
+            .addClass('is-active');
+
+          var $subactive = $active.closest('.js-Subsidebar-list');
+
+          if ($subactive.children().length > 0) {
+            $subactive.addClass('is-active');
+          }
+
+          // h2
+          if (!$('.js-Subsidebar-list.is-active').length) {
+            $subactive = $active.next('.js-Subsidebar-list');
+
+            if ($subactive.children().length > 0) {
+              $subactive.addClass('is-active');
+            }
+
+            $subactive
+              .closest('.js-Sidebar-item')
+              .addClass('is-active');
+          }
+        }
+      },
+      offset: $(window).height()
+    });
+
+    this.$content.find('h2, h3').waypoint({
+      handler: function(direction) {
+        if (direction == 'up') {
+          _this.$('.js-Sidebar-item').removeClass('is-active');
+          _this.$('.js-Subsidebar-list').removeClass('is-active');
+
+          var $active = _this.$subsidebar.find('a[href="#' + this.element.id + '"]');
+
+          // h3
+          $active
+            .closest('.js-Sidebar-item')
+            .addClass('is-active');
+
+          var $subactive = $active.closest('.js-Subsidebar-list');
+
+          if ($subactive.children().length > 0) {
+            $subactive.addClass('is-active');
+          }
+
+          // h2
+          if (!$('.js-Subsidebar-list.is-active').length) {
+            $subactive = $active.next('.js-Subsidebar-list');
+
+            if ($subactive.children().length > 0) {
+              $subactive.addClass('is-active');
+            }
+
+            $subactive
+              .closest('.js-Sidebar-item')
+              .addClass('is-active');
+          }
+        }
+      }
+    });
+  },
+
+  _buildToc: function() {
+    var _this = this;
+
+    this.$content.find('h2').each(function() {
+      var $title = $(this);
+      var title = $title.text();
+      var link = '#' + $title.attr('id');
+
+      var $item = $('<li class="Sidebar-item js-Sidebar-item Subsidebar-item js-Subsidebar-item">');
+
+      $item.append('<a href="'+link+'" class="Sidebar-link">'+title+'</a>');
+
+      var $subitem= $('<ul class="Subsidebar-list js-Subsidebar-list">');
+
+      $item.append($subitem);
+
+      $(this).nextAll('h3, h2').each(function(j) {
+        var $subTitle = $(this);
+
+        if ($subTitle.is('h2')) return false;
+
+        var subTitle = $subTitle.html();
+        var subLink = '#' + $subTitle.attr('id');
+
+        $subitem.append('<li class="Sidebar-item js-Sidebar-item Subsidebar-item"><a href="'+subLink+'" class="Sidebar-link">'+subTitle+'</a></li>');
+      });
+
+      _this.$subsidebar.append($item);
+    });
   },
 
   _fixSubheader: function() {

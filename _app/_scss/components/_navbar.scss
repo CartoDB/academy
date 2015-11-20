@@ -82,6 +82,10 @@
 .Navbar-inner--right,
 .Breadcrumbs-inner--right {
   float: right;
+
+  @media (max-width: $layout-m) {
+    float: left;
+  }
 }
 @media (max-width: $layout-m) {
   .Navbar-collapse {
@@ -93,14 +97,6 @@
   }
   .Navbar-inner {
     display: none;
-  }
-  .Navbar-inner--right,
-  .Breadcrumbs-inner--right {
-    float: right;
-
-    @media (max-width: $layout-m) {
-      float: left;
-    }
   }
   .Navbar-button {
     display: block;

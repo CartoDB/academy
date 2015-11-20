@@ -44,27 +44,13 @@ layout: default
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
           <div class="Sidebar">
-            <h2 class="Title Title--h2">Easy tutorials</h2>
-
-            <ul class="Sidebar-list">
+            <ul class="Sidebar-list Sidebar-list--notitle">
               {% for collection_item in site.collections %}
-                {% if collection_item.difficulty == "easy" %}
+                {% unless collection_item.label == "posts" %}
                   <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
-                    <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                    <a href="{{ collection_item.url }}" class="Sidebar-link Sidebar-link--folder"><i class="Icon Icon--folder Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
                   </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-
-            <h2 class="Title Title--h2">Medium tutorials</h2>
-
-            <ul class="Sidebar-list">
-              {% for collection_item in site.collections %}
-                {% if collection_item.difficulty == "medium" %}
-                  <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
-                    <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
-                  </li>
-                {% endif %}
+                {% endunless %}
               {% endfor %}
             </ul>
           </div>
