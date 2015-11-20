@@ -1,5 +1,5 @@
 ---
-title:  "Editing tables, more advanced PostGIS"
+title:  "JOINs in SQL and PostGIS"
 redirect_from: /courses/04-sql-postgis/lesson-4.html
 permalink: /courses/sql-postgis/joining-data/
 ---
