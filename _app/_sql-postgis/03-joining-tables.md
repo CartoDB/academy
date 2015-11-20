@@ -6,7 +6,7 @@ permalink: /courses/sql-postgis/joining-data/
 
 ## Summary
 
-Joining data in CartoDB is a very common task. Not all joins are equal though, and the one you use is going to depend a lot on your data and what you want to create. Here we are going to walk you through some common `JOIN` methods on CartoDB. In each section we will show you how to join the data using SQL on-the-fly and then show you how to write the result of a join into your table.
+Joining data in CartoDB is a very common task. Not all joins are equal though, and the one you use is going to depend a lot on your data and what you want to create. Here we are going to walk you through some common `JOIN` methods in CartoDB. In each section we will show you how to join the data using SQL on-the-fly and then show you how to write the result of a join into your table.
 
 ## Join two tables by a shared value in each row
 
