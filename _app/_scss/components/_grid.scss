@@ -12,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  max-width: calc(100% + $spacing-unit);
+  max-width: calc(100% + 20px);
   margin-right: -$spacing-unit / 2;
   margin-left: -$spacing-unit / 2;
 }
