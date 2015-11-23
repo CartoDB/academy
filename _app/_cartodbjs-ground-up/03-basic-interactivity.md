@@ -186,7 +186,7 @@ By writing CartoCSS like this, your styles are more dynamic and responsive to yo
 
 ### Maps styled by end user
 
-CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/gh-pages/_app/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
+CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
 
 First, we'll define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text' id='...'>CartoCSS Styles</style>` element between the `<head>` tags, below the CSS and JavaScript library inclusions.
     

@@ -343,7 +343,7 @@ torqueLayer.on('load', function() {
 
 As a checkpoint, check yours against a working version:
 
-+ <a href="https://github.com/CartoDB/academy/raw/master/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Source code</a>
++ <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Source code</a>
 + <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/checkpoint.html" target="_blank">Live version</a>
 
 

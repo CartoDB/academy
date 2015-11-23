@@ -55,7 +55,7 @@ The site normally has a static page, a layout, a js and a css per section (defau
 
 ## Contributing
 
-To contribute just check the instructions in [CONTRIBUTING.md](https://github.com/CartoDB/academy/blob/gh-pages/CONTRIBUTING.md)
+To contribute just check the instructions in [CONTRIBUTING.md](https://github.com/CartoDB/academy/blob/master/CONTRIBUTING.md)
 
 
 ## Deploy
