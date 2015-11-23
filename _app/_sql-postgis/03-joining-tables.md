@@ -1,6 +1,6 @@
 ---
-title:  "JOINs in SQL and PostGIS"
-redirect_from: /courses/04-sql-postgis/lesson-4.html
+title: "JOINs in SQL and PostGIS"
+redirect_from: /courses/04-sql-postgis/lesson-3.html
 permalink: /courses/sql-postgis/joining-data/
 ---
 # JOINs in SQL and PostGIS
