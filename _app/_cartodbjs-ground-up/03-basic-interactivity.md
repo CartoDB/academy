@@ -31,13 +31,13 @@ In this lesson, we will be using these powerful languages to boost the expressiv
 
 ## Modifying SQL and CartoCSS
 
-This is the third lesson in the course _CartoDB.js from the ground up_. While still covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://www.mapbox.com/tilemill/docs/manual/carto/) and [use cases](https://www.mapbox.com/tilemill/docs/guides/advanced-map-design/) for CartoCSS. For SQL, you can teach yourself in the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB]({{site.baseurl}}/courses/04-sql-postgis.html) series.
+This is the third lesson in the course _CartoDB.js from the ground up_. While still covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](http://docs.cartodb.com/cartodb-platform/cartocss/) and [use cases](http://academy.cartodb.com/courses/intermediate-design/) for CartoCSS. For SQL, you can teach yourself in the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB]({{site.baseurl}}/courses/04-sql-postgis.html) series.
 
 _SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_.
 
 _CartoCSS_ is a language for altering the appearance of the CartoDB data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](http://cartodb.github.io/torque/). 
 
-Using the [CartoDB.js API](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), the main method to change the SQL and CartoCSS after they have been declared is `sublayer.set(sublayerDefinition)`, where `sublayerDefinition` is equivalent to one of the objects in the `sublayers` array declared in `layerSource` above. If you only need to change one of CartoCSS or SQL for a previously created layer, there are some convenient methods:
+Using the [CartoDB.js library](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), the main method to change the SQL and CartoCSS after they have been declared is `sublayer.set(sublayerDefinition)`, where `sublayerDefinition` is equivalent to one of the objects in the `sublayers` array declared in `layerSource` above. If you only need to change one of CartoCSS or SQL for a previously created layer, there are some convenient methods:
 
 * `sublayer.setCartoCSS("new CartoCSS styles")`
 * `sublayer.setSQL("new SQL")`
@@ -55,7 +55,7 @@ Add more interactivity to our maps by using CartoDB.js sublayer methods for alte
 
 We will be using the real-time earthquake data available through USGS' [up-to-date datasets](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php). To get a large amount of data, grab the "all earthquakes" link under "Past 30 Days" and import it into your account. As you will be doing this lesson at a different time than when this lesson was written, your data will appear differently than what appears below.
 
-Before working with any data, rename the data table to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor.html#filters) in the right pane is a great way to get to know your data.
+Before working with any data, rename the data table to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor/maps/#filters) in the right pane is a great way to get to know your data.
 
 The table has about a dozen columns, all of which are [explained here](http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php). The ones of interest to us are:
 
@@ -85,9 +85,9 @@ var layerSource = {
 
 Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the [documentation](https://github.com/mapbox/carto/blob/master/docs/latest.md) it is only one of several elements that can be styled directly on your map.
 
-An easy way to get used to the basics of CartoCSS is by using the [Vizualization Wizard](http://docs.cartodb.com/cartodb-editor.html#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
+An easy way to get used to the basics of CartoCSS is by using the [Vizualization Wizard](http://docs.cartodb.com/cartodb-editor/maps/#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
 
-Make sure you're in "MAP VIEW" to see your data visualized with _Simple_.  Sticking with _Simple_, click on the [CartoCSS Editor tab](http://docs.cartodb.com/cartodb-editor.html#cartocss) (the one with `CSS`) two below the Wizards tab to see how your data is styled.
+Make sure you're in "MAP VIEW" to see your data visualized with _Simple_.  Sticking with _Simple_, click on the [CartoCSS Editor tab](http://docs.cartodb.com/cartodb-editor/maps/#cartocss) (the one with `CSS`) two below the Wizards tab to see how your data is styled.
 
 ![Simple CartoCSS Visualization]({{baseurl.site}}/img/course3/lesson3/cartocss-simple.png)
 
@@ -186,7 +186,7 @@ By writing CartoCSS like this, your styles are more dynamic and responsive to yo
 
 ### Maps styled by end user
 
-CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/gh-pages/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
+CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/gh-pages/_app/t/03-cartodbjs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
 
 First, we'll define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text' id='...'>CartoCSS Styles</style>` element between the `<head>` tags, below the CSS and JavaScript library inclusions.
     
@@ -200,7 +200,7 @@ Next we need to add more styles from the CartoDB Editor. The visualizations that
 
 All of these CartoCSS styles go in their own `<style type='cartocss/text' id='...'>` structure between the `<head>` tags. The only one that requires some direct editing is the last one. This pulls the conditional styles from two different visualizations.
 
-Next, we'll initialize a map like we have done already in [Lesson 2]({{site.baseurl}}/courses/03-cartodbjs-ground-up/lesson-2.html#exploring-callback-functions):
+Next, we'll initialize a map like we have done already in [Lesson 2]({{site.baseurl}}/courses/cartodbjs-ground-up/creating-basic-map-apps/#exploring-callback-functions):
 
 {% highlight js %}
 window.onload = function () {
@@ -281,7 +281,7 @@ Place this function after createLayer. This code finds all the `li` elements and
     
 The last piece is putting a call to `createSelector(sublayer);` right after `sublayer` is set equal to `layer.getSubLayer(0);` within `.done()`.
 
-Check out a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/gh-pages/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
+Check out a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
 
 
 ## Basic SQL queries
@@ -344,7 +344,7 @@ function createSelector(layer) {
 }
 {% endhighlight %}
 
-That's it! If you're having trouble getting yours to work, check out the source code [here](https://github.com/CartoDB/academy/blob/gh-pages/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html), or a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html)
+That's it! If you're having trouble getting yours to work, check out the source code [here](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html), or a live version [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html)
 
 _Pro tip:_ If you want to take your map to a different location based on coordinates and zoom, you can call `map_object.setView([lat,lon],zoom)` method from the [Leaflet.js library](http://leafletjs.com/). In our case, if you want the map to go to Papua New Guinea after a user clicks on that option, you could grab the latitude and longitude from [here](http://tools.wmflabs.org/geohack/geohack.php?pagename=Papua_New_Guinea&params=9_30_S_147_07_E_type:country), and then add an `if` statement like this:
 
@@ -359,6 +359,6 @@ The `string.indexOf('substring')` method returns the index of the string where t
 
 ## Moving forward
 
-If you want to go a lot further with SQL and know (or want to learn) a little PostGIS, check out the tutorial [Query by Distance](http://docs.cartodb.com/tutorials/query_by_distance.html).
+If you want to go a lot further with SQL and know (or want to learn) a little PostGIS, check out the tutorial [Query by Distance](http://docs.cartodb.com/tutorials/query_by_distance/).
 
 What else do you want to learn in Academy? Drop us a line at [contact@cartodb.com](mailto:contact@cartodb.com).
