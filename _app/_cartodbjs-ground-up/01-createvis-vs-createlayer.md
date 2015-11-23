@@ -11,7 +11,7 @@ _Since this course explains CartoDB.js, it relies heavily on the JavaScript prog
 
 The CartoDB.js API provides powerful tools to build dynamic web apps. Along with CartoCSS, other JS libraries, and our SQL API, the sky's the limit. This course, _CartoDB.js from the Ground Up_, will show you how to build amazing apps in a small amount of time.
 
-In CartoDB, there are two main methods to bring your maps into custom webpages, [createVis](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#visualization) and [createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcreatelayermap-layersource--options--callback).
+In CartoDB, there are two main methods to bring your maps into custom webpages, [createVis](http://academy.cartodb.com/courses/cartodbjs-ground-up/createvis-vs-createlayer/#createvis) and [createLayer](http://academy.cartodb.com/courses/cartodbjs-ground-up/createvis-vs-createlayer/#createlayer).
 
 The first method, createVis allows for quick and easy maps with a large degree of customization. It gives two map layers in an array: layer 0 is the base map; layer 1 is the CartoDB data layer. 
 
@@ -96,7 +96,7 @@ cartodb.createVis('map',vizjson,options);
 
 To see createVis out in the wild, check out an [awesome example](http://blog.cartodb.com/map-of-the-week-swiss-soccer/) in our Map of the Week series on our blog.
 
-The documentation for `cartodb.createVis` is found [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#visualization).
+[Documentation for `cartodb.createVis`](http://academy.cartodb.com/courses/cartodbjs-ground-up/createvis-vs-createlayer/#createvis).
 
 
 ## _CreateLayer_
@@ -123,7 +123,7 @@ window.onload = function() {
 }
 {% endhighlight %}
 
-Here we pulled the base map tiles from [Stamen](http://maps.stamen.com/). There are many other options basemap options--learn more about your options in [this great tutorial](http://docs.cartodb.com/tutorials/custom_basemaps.html).
+Here we pulled the base map tiles from [Stamen](http://maps.stamen.com/). There are many other options basemap options--learn more about your options in [this great tutorial](http://docs.cartodb.com/tutorials/custom_basemaps/).
 
 The map we just created doesn't have any CartoDB data layers yet. If you're just adding a single layer, you can put your data on top of the basemap from above. If you want to add more, you just repeat the process. We'll be doing much more with this later.
 
@@ -136,7 +136,7 @@ cartodb.createLayer(map_object, vizjson).addTo(map_object);
 
 Check out [this](http://blog.cartodb.com/pollution-map/) Map of the Week entry to see createLayer at work.
 
-The documentation for createLayer is [here](http://docs.cartodb.com/cartodb-platform/cartodb-js.html#cartodbcreatelayermap-layersource--options--callback).
+The [documentation for createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcartodblayer).
 
 
 ## Summing it up. And finally making something!
@@ -158,7 +158,7 @@ between the `<body>` tags **AND** the map styling sheet
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 
-After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/t/03-cartodbjs-ground-up/lesson-1/jsfiddle_demo).
+After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-1/jsfiddle_demo).
 
 ![Example of simple map created with CartoDB.js]({{site.baseurl}}/img/course3/lesson1/example-map.png)
 
