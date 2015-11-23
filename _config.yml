@@ -43,7 +43,7 @@ collections:
     title: "CartoDB.js from the ground up"
     url: /courses/cartodbjs-ground-up/
     description: >
-      Take advantage of the flexibiltity of CartoDB.js to create custom webpages.
+      Take advantage of the flexibility of CartoDB.js to create custom webpages.
   sql-postgis:
     output: true
     published: true
