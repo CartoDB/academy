@@ -21,7 +21,7 @@ If you've already made a visualization or table and aren't already in the "table
 
 In the dialogue box that appears, just paste the link you copied above into the available field, and click "Create table."
 
-![Add data from a link]({{site.baseurl}}/img/course1/lesson2/newtableURL.png)
+![Add data from a link](/img/course1/lesson2/newtableURL.png)
 
 Your data will open up in Data View. There, like we suggested in Beginners' Course Lesson 1, you can take a look through the data columns. Note that this time the `the_geom` column indicates "Polygon" values. This means that the geometry that CartoDB will map is in polygon format.
 
@@ -34,7 +34,7 @@ Go ahead and navigate to "Map view" to begin formatting your map. The first edit
 
 Next, in the right-hand pull-out tray click on "wizards," represented by the paintbrush icon. Here you can change the polygon fill and stroke.
 
-![Edit polygon fill.]({{site.baseurl}}/img/course1/lesson2/polygonfill.png)
+![Edit polygon fill.](/img/course1/lesson2/polygonfill.png)
 
 The Wizards menu also allows you to select different kinds of visualizations, which we will begin to explore in this lesson.
 
@@ -45,7 +45,7 @@ Since we have interesting data that we would like map viewers to access, we are 
 
 Depending on which columns you have in your table, different label options will appear in "infowindow." Each column can have its own label or display, and you can choose which you'd like to show by clicking the toggle buttons to the right of the listed column names. You can also choose from our pre-set designs or create one of your own. For now, we'll toggle on a few fields, and select a design from the dropdown menu.
 
-![Edit polygon stroke.]({{site.baseurl}}/img/course1/lesson2/infowindow.png)
+![Edit polygon stroke.](/img/course1/lesson2/infowindow.png)
 
 
 ## Choropleth Mapping
@@ -54,7 +54,7 @@ If you would like to display your polygon data differently, a frequently-used an
 
 To explore it, return to "wizards" in the right-hand pull-out tray and select "Choropleth" from the available visualizaton wizards. 
 
-![Edit polygon stroke.]({{site.baseurl}}/img/course1/lesson2/choropleth.png)
+![Edit polygon stroke.](/img/course1/lesson2/choropleth.png)
 
 CartoDB will now automatically choose a table column to display on the map. In our example you can see that it will select the `pop` column to display the populations of U.S. counties. CartoDB will also automatically add a legend that corresponds with what is displayed.
 

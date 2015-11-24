@@ -16,7 +16,7 @@ Remember to now overwrite any of the visualizations you made in Lesson 3. You ca
 
 Torque is a visualization that allows you to visualize geographic data over time. You can access it just like you would other Visualization Wizards, from the pull-out tray on the right of your screen, under the Visualization Wizard.
 
-![Torque.]({{site.baseurl}}/img/course1/lesson4/torque.png)
+![Torque.](/img/course1/lesson4/torque.png)
 
 Once you select Torque, you'll notice that the column that CartoDB picked to visualize is the `cartodbid` column. This column is just an arbitrarily assigned ID number that CartoDB uses and assigns based on the order of the data in your spreadsheet. In terms of mapping, it's usually fairly meaningless, so you will want to change it to something more meaningful, as it's just the order that the data is in in the table. We should go ahead and select the column labeled `date` since that makes the most sense here.
 
@@ -33,7 +33,7 @@ Finally, you can change the trails setting for your visualization. These are the
 
 In the standard Torque visualization, data points disappear after they appear on the map. If you switch the "cumulative" toggle on, points will stay on the map, and build upon each other. Often, it's best to bring down the opacity of your markers when you're using the cumulative visualization so that the effect of points layering over one another is noticable.
 
-![Cumulative toggle.]({{site.baseurl}}/img/course1/lesson4/cumulative.png)
+![Cumulative toggle.](/img/course1/lesson4/cumulative.png)
 
 Ultimately, it's up to you when to use the cumulative function, and when to allow your points to disappear. When you are highlighting accumulation or intensity over time, the cumulative function may be very helpful. Other times, it may not make sense with your data.
 
@@ -44,4 +44,4 @@ Before you publish your map, you may want to add a description to your visualiza
 
 Once you've included that, you can also include it in your shared visualization. To get there, as you know, you can click "Share" in the top right corner of your visualization. In this window you can also change other parameters about your shared map. You can show or hide your title, description, search box and legend (when you have one). You can also enable sharing, and change privacy options depending on your plan. Finally, you can set the zoom level and bounding box that will be the first display when visitors check out your map.
 
-![Share window.]({{site.baseurl}}/img/course1/lesson4/sharewindow.png)
+![Share window.](/img/course1/lesson4/sharewindow.png)

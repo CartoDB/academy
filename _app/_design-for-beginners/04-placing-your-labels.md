@@ -10,11 +10,11 @@ While they’re not always necessary, labels can be an important part of many ma
 
 If we take another look at Stamen's maps, we can see again the positive effects of careful design. They have small and large labels, a carefully made font choice, and considerate placement of labels off to the side, or even hidden.
 
-![Stamen label placement.]({{site.baseurl}}/img/course2/lesson4/labelsize.png)
+![Stamen label placement.](/img/course2/lesson4/labelsize.png)
 
 If we look back at our ugly map, we can see that one of its biggest problems is where the labels are placed. There is no logic behind where they're placed, nor is there any filtering. They are just randomly placed, and add nothing to the viewer's understanding of the map.
 
-![Bad map.]({{site.baseurl}}/img/course2/lesson1/badmap.png)
+![Bad map.](/img/course2/lesson1/badmap.png)
 
 Clearly, adding text to a map in the form of labels is a large consideration, so let's get started. 
 
@@ -25,7 +25,7 @@ Before we add our labels, let's copy the styling that we have done with our mark
 
 Next, go ahead and use the map layer wizard. Near the bottom, you can see the option to add label text based on a column. In our case, we're interested in `mag`. Once you select the `mag` column, you can see that the labels are pretty pointless, like the labels in our ugly map. There are too many of them, and they don't communicate anything to the viewer.
 
-![Adding labels.]({{site.baseurl}}/img/course2/lesson4/addlabels.png)
+![Adding labels.](/img/course2/lesson4/addlabels.png)
 
 Let's fix this by fine-tuning our CartoCSS. You'll notice that there's a section formatting the markers, and one formatting the labels. Let's go ahead and replace the section formatting the markers with our copied CartoCSS by deleting it and pasting in the CartoCSS from where we left off in Lesson 3. If you apply the style, you'll see that not much seems to change. The labels are just too obtrusive to allow us to see any of the underlying markers.
 

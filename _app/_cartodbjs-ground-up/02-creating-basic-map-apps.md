@@ -11,7 +11,7 @@ tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js/), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [this link]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two tables from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
+Download/copy the template for this lesson from [this link](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two tables from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
 
 + World Lakes has a table name `ne_50m_lakes`
 + African Countries has a table name `africa_admin0`
@@ -47,7 +47,7 @@ window.onload = function() {
 }
 {% endhighlight %}
 
-As you should see, the alert box tells you that there are two layers to that visualization. Compare yours to a [complete one]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-ondone.html).
+As you should see, the alert box tells you that there are two layers to that visualization. Compare yours to a [complete one](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-ondone.html).
 
 createLayer has callback objects `layer` and `err`. It can be called like this:
 
@@ -110,7 +110,7 @@ var layerSource = {
 
 If you look back at the [viz.json](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified. Therefore, `layer` in createLayer is equivalent to `layers[1]` in createVis.
 
-The following code block rehashes all we've seen in [Lesson 1]({{site.baseurl}}/courses/cartodbjs-ground-up/createvis-vs-createlayer/) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer jsFiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_multilayer). Compare your code to the one [here]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html).
+The following code block rehashes all we've seen in [Lesson 1](/courses/cartodbjs-ground-up/createvis-vs-createlayer/) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer jsFiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_multilayer). Compare your code to the one [here](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html).
 
 {% highlight javascript %}
 window.onload = function () {
@@ -185,7 +185,7 @@ $("#sublayer0").on('click', function() {
 
 This bit of script does the following: If a user clicks the DOM element with an `id` of `sublayer0`, CartoDB.js will hide or show `sublayers[0]` depending on its state (`sublayer0Shown` being true or false). Although not concise, you can control `sublayer[1]` by copying the block of code above and changing all the 0s into 1s.
 
-Check yours with [this working example]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html), or look at a jsFiddle [demo](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_layercontrols).
+Check yours with [this working example](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html), or look at a jsFiddle [demo](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_layercontrols).
 
 **Pro Tip:** If you want to add ten layers but only modify one of them, put the nine that remain static into one layer source object and the non-static one in it's own layer source object. Then call createLayer twice, once on each object. In this way, you can play with the layer you want to play with without having to re-render the other nine.
 
@@ -238,7 +238,7 @@ $(function() {
 });
 {% endhighlight %}
 
-Check yours with [this one]({{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html). Or check out this [jsFiddle](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_toggles_and_slider).
+Check yours with [this one](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-toggles-and-slider.html). Or check out this [jsFiddle](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_toggles_and_slider).
 
 **Pro Tip:** If you want to control the opacity of the layers separately, you need to do two createLayer calls, one for each layer source.
 
