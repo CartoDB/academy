@@ -21,7 +21,7 @@ This lesson strongly relies on techniques developed in the past three lessons on
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
-<iframe src="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/bonus.html" width="100%" height="480"></iframe>
+<iframe src="/t/03-cartodbjs-ground-up/lesson-4/bonus.html" width="100%" height="480"></iframe>
 
 
 ## Import your data
@@ -179,7 +179,7 @@ Map {
 </style>
 {% endhighlight %}
 
-Using the [techniques from the last lesson]({{site.baseurl}}/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
+Using the [techniques from the last lesson](/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
 
 Notice that this block's DOM `id` is "cartocss", so the
 
@@ -344,12 +344,12 @@ torqueLayer.on('load', function() {
 As a checkpoint, check yours against a working version:
 
 + <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Source code</a>
-+ <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/checkpoint.html" target="_blank">Live version</a>
++ <a href="/t/03-cartodbjs-ground-up/lesson-4/checkpoint.html" target="_blank">Live version</a>
 
 
 ## Taking it further
 
-We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. _Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">the source code</a> for the <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead._
+We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. _Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">the source code</a> for the <a href="/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead._
 
 To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript). This grabs all the data for the stork that intersects with the country Chad.
 
@@ -459,7 +459,8 @@ And finally, we need to add buttons that will trigger the query to be applied ba
 </div>
 {% endhighlight %}
 
-Checkout a <a href="{{site.baseurl}}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">view the source code</a>.
+Checkout a <a href="/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">view the source code</a>.
+
 
 ## Bonus: Adding another layer
 
@@ -479,7 +480,7 @@ var staticLayerSource = {
 cartodb.createLayer(map,staticLayerSource).addTo(map);
 {% endhighlight %}
 
-The query makes a long line ordered by the column `timestamp`, and the CartoCSS `line-dasharray` makes it dashed. Learn more about SQL in our [Map Academy lessons on PostGIS](http://academy.cartodb.com/courses/04-sql-postgis/lesson-2.html).
+The query makes a long line ordered by the column `timestamp`, and the CartoCSS `line-dasharray` makes it dashed. Learn more about SQL in our [Map Academy lessons on PostGIS](/courses/sql-postgis/postgis-in-cartodb/).
 
 
 ## Resources and other examples

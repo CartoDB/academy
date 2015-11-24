@@ -40,7 +40,7 @@ In this lesson we’re targeting a map layer created from our “Null Island Ele
 
 **Where does CartoCSS code go?**
 
-In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](http://docs.cartodb.com/cartodb-editor.html#cartocss). If you're using HTML and CartoDB.js to build your map, you can also write CartoCSS into your code using [these methods](http://academy.cartodb.com/courses/03-cartodbjs-ground-up/lesson-3.html#cartocss-strings-in-javascript).
+In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](http://docs.cartodb.com/cartodb-editor/maps/#cartocss). If you're using HTML and CartoDB.js to build your map, you can also write CartoCSS into your code using [these methods](/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript).
 
 
 ## CartoCSS Properties and Values
@@ -61,7 +61,7 @@ When you import a dataset into your CartoDB account and check it's _Map View_, y
 
 **Other CartoCSS properties**
 
-A list of CartoCSS properties can be found [here](https://github.com/mapbox/carto/blob/master/docs/latest.md), including `line-dasharray`. The first number value for the `line-dasharray` property is dash width. The second is the width of the space between dashes. You can use more than one pair of dash width and space width numbers.
+A list of CartoCSS properties can be found [here](http://docs.cartodb.com/cartodb-platform/cartocss/properties/), including `line-dasharray`. The first number value for the `line-dasharray` property is dash width. The second is the width of the space between dashes. You can use more than one pair of dash width and space width numbers.
 
 {% highlight scss %}
 #null_Island_el_dist {
@@ -144,7 +144,7 @@ Another CartoCSS property example is polygon-pattern-file. This property takes a
 
 ## Learn More
 
-Congratulations, you've completed a basic introduction to styling maps with CartoCSS! To learn more, check out our [Introduction to Map Design Map Academy](http://academy.cartodb.com/courses/02-design-for-beginners.html) course, or some of our other [tutorials](http://docs.cartodb.com/tutorials/conditional_styling.html). See some other ways to use CartoCSS by looking at our [courses on CartoDB.js](http://academy.cartodb.com/courses/03-cartodbjs-ground-up/lesson-3.html).
+Congratulations, you've completed a basic introduction to styling maps with CartoCSS! To learn more, check out our [Introduction to Map Design Map Academy](/courses/design-for-beginners/) course, or some of our other [tutorials](http://docs.cartodb.com/tutorials/conditional_styling/). See some other ways to use CartoCSS by looking at our [courses on CartoDB.js](/courses/cartodbjs-ground-up/basic-interactivity/).
 
 
 ## Reference
@@ -165,6 +165,6 @@ Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
 
 **See also**
 
-* Create an [intensity map](http://docs.cartodb.com/tutorials/intensity_map.html) from point data with CartoCSS. 
-* Create a [choropleth map](http://docs.cartodb.com/tutorials/electoral_map.html) of election results.
-* Take a conditional styling [tutorial](http://docs.cartodb.com/tutorials/conditional_styling.html).
+* Create an [intensity map](http://docs.cartodb.com/tutorials/intensity_map/) from point data with CartoCSS. 
+* Create a [choropleth map](http://docs.cartodb.com/tutorials/electoral_map/) of election results.
+* Take a conditional styling [tutorial](http://docs.cartodb.com/tutorials/conditional_styling/).

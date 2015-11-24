@@ -21,7 +21,7 @@ By the end of this lesson, you will be able to make this map:
 
 <iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-_If you haven't gotten your feet wet with SQL in CartoDB, first check out [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html). This lesson relies exclusively on the CartoDB Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](http://academy.cartodb.com/courses/01-beginners-course.html)._
+_If you haven't gotten your feet wet with SQL in CartoDB, first check out [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/). This lesson relies exclusively on the CartoDB Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](/courses/beginners-course/making-your-first-map/)._
 
 
 ## Data
@@ -49,11 +49,11 @@ http://academy.cartodb.com/d/mississippi_blues_musicians.geojson
 
 As the name suggests, `ST_Buffer` takes a geometry as an argument and returns that [geometry but with a buffer around it](http://en.wikipedia.org/wiki/Buffer_%28GIS%29). It always returns a polygon. In its simplest usage, you can create a polygon centered on a point. The same applies to lines and polygons, but you always get out a polygon.
 
-Like other PostGIS functions, it preserves the projection units. That is, if you put in a point in WGS 84, you'll get out a polygon in WGS 84. For more about WGS 84, check out the last lesson's section on [measurement units]({{site.baseurl}}/courses/04-sql-postgis/lesson-1.html#measurement-units).
+Like other PostGIS functions, it preserves the projection units. That is, if you put in a point in WGS 84, you'll get out a polygon in WGS 84. For more about WGS 84, check out the last lesson's section on [measurement units](/courses/sql-postgis/intro-to-sql-and-postgis/#measurement-units).
 
 The two examples below show how a point or line geometry can be transformed to a polygon geometry using `ST_Buffer`.
 
-![images comparing geometry before/after ST_Buffer()]({{site.baseurl}}/img/course4/lesson2/buffer-demo.png)
+![images comparing geometry before/after ST_Buffer()](/img/course4/lesson2/buffer-demo.png)
 
 **Function definitions**
 {% highlight c++ %}
@@ -63,11 +63,11 @@ geography ST_Buffer(geography g1, float radius_of_buffer_in_meters)
 
 The function `ST_Buffer` takes a geometry such as a point as the first argument, and the radius for the buffer as the second argument. For more information, see the PostGIS [documentation page](http://www.postgis.org/docs/ST_Buffer.html) for additional information and function definitions.
 
-As was mentioned in the [previous lesson](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html), there is a hidden column in CartoDB called `the_geom_webmercator` which is responsible for making the data appear on your map in the correct location. It is usually in the projection [Web Mercator](), but it doesn't have to be. To use it with other projections, just project the data and alias the column as `the_geom_webmercator`.
+As was mentioned in the [previous lesson](/courses/sql-postgis/intro-to-sql-and-postgis/), there is a hidden column in CartoDB called `the_geom_webmercator` which is responsible for making the data appear on your map in the correct location. It is usually in the projection [Web Mercator](), but it doesn't have to be. To use it with other projections, just project the data and alias the column as `the_geom_webmercator`.
 
 For our work here, we will be needing to work in distances on the earth's surface such as meters. Therefore, we need to cast our geometry in `the_geom` to [geography](http://postgis.net/docs/manual-1.5/ch04.html#PostGIS_Geography), buffer off of that in meters, and then transform to Mercator to display along with our Web Mercator-projected basemap.
 
-To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CartoDB [SQL editor](http://docs.cartodb.com/cartodb-editor.html#custom-sql). Go to MAP VIEW to see the result of the query.
+To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CartoDB [SQL editor](http://docs.cartodb.com/cartodb-editor/managing-your-data/#running-sql-queries). Go to MAP VIEW to see the result of the query.
 
 {% highlight sql %}
 SELECT
@@ -87,9 +87,9 @@ This statement draws a 25 mile buffer around our road segment, the Mississippi p
 
 Also notice that the `cartodb_id` column was also selected so that interactivity (click events, hovers) can be enabled.
 
-To extend this to see which musicians are in the buffer, [create a multilayered map](http://docs.cartodb.com/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CartoDB Sidebar](http://docs.cartodb.com/cartodb-editor.html#cartodb-sidebar). Select the table `mississippi_blues_musicians`. Finally, style it to your liking.
+To extend this to see which musicians are in the buffer, [create a multilayered map](http://docs.cartodb.com/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CartoDB Sidebar](http://docs.cartodb.com/cartodb-editor/maps/#cartodb-sidebar). Select the table `mississippi_blues_musicians`. Finally, style it to your liking.
 
-![ST_Buffer of U.S. Route 61]({{site.baseurl}}/img/course4/lesson2/buffer-example.png)
+![ST_Buffer of U.S. Route 61](/img/course4/lesson2/buffer-example.png)
 
 There we go! We have a visual of what's going on to aid in our spatial analysis of the data.
 
@@ -141,7 +141,7 @@ WHERE
   )
 {% endhighlight %}
 
-This command grabs all locations, names, cities, and cartodb_ids from rows in the `mississippi_blues_musicians` table that are within a 25 mile distance of the highway. Recall from [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) that the `AS` keyword lets you define table names and column names with a more concise or less confusing alias.
+This command grabs all locations, names, cities, and cartodb_ids from rows in the `mississippi_blues_musicians` table that are within a 25 mile distance of the highway. Recall from [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/) that the `AS` keyword lets you define table names and column names with a more concise or less confusing alias.
 
 The embedded map below has the bottom layer as the buffered highway, and the top layer as the SQL statement applied to the `mississippi_blues_musicians` table to only show the musicians within our buffer.
 
@@ -149,7 +149,7 @@ The embedded map below has the bottom layer as the buffered highway, and the top
 
 ### Finding Distance from Road
 
-Let's take a different tack now and calculate the distance each musician is from the highway. In [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html) of this course, we found the distance between a point for each row of our table. Now we have points and a line. Luckily, PostGIS is flexible and can calculate the distance to the closest point on a line.
+Let's take a different tack now and calculate the distance each musician is from the highway. In [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/) of this course, we found the distance between a point for each row of our table. Now we have points and a line. Luckily, PostGIS is flexible and can calculate the distance to the closest point on a line.
 
 Notice that we're rounding up with the `ceil()` function, and dividing the distance by 1609 meters/mile to convert to miles.
 
@@ -171,9 +171,9 @@ ORDER BY
   d ASC
 {% endhighlight %}
 
-You could visualize the data in this newly created table by making a choropleth on the column `d`. Since we already did something very similar to that in [Lesson 1](http://academy.cartodb.com/courses/04-sql-postgis/lesson-1.html), we'll move on to new functionality.
+You could visualize the data in this newly created table by making a choropleth on the column `d`. Since we already did something very similar to that in [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/), we'll move on to new functionality.
 
-![ST_Distance]({{site.baseurl}}/img/course4/lesson2/stdistance.png)
+![ST_Distance](/img/course4/lesson2/stdistance.png)
 
 ### Visualizing Lines from Musicians to the Road
 
@@ -198,7 +198,7 @@ FROM
 
 Here is a screenshot of the result of this query.
 
-![ST_MakeLine example]({{site.baseurl}}/img/course4/lesson2/makeline.png)
+![ST_MakeLine example](/img/course4/lesson2/makeline.png)
 
 
 ## Bringing It All Together
