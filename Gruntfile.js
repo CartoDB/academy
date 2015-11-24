@@ -45,6 +45,7 @@ module.exports = function (grunt) {
           cwd: '<%= config.dist %>/',
           src: [
             '**/*.html',
+            '{d,t}/**/*',
             '*.{ico,png}'
           ],
           dest: '/'
