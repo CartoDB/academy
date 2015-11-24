@@ -40,7 +40,7 @@ In this lesson we’re targeting a map layer created from our “Null Island Ele
 
 **Where does CartoCSS code go?**
 
-In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](/cartodb-editor/maps/#cartocss). If you're using HTML and CartoDB.js to build your map, you can also write CartoCSS into your code using [these methods](/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript).
+In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](http://docs.cartodb.com/cartodb-editor/maps/#cartocss). If you're using HTML and CartoDB.js to build your map, you can also write CartoCSS into your code using [these methods](/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript).
 
 
 ## CartoCSS Properties and Values
@@ -61,7 +61,7 @@ When you import a dataset into your CartoDB account and check it's _Map View_, y
 
 **Other CartoCSS properties**
 
-A list of CartoCSS properties can be found [here](https://github.com/mapbox/carto/blob/master/docs/latest.md), including `line-dasharray`. The first number value for the `line-dasharray` property is dash width. The second is the width of the space between dashes. You can use more than one pair of dash width and space width numbers.
+A list of CartoCSS properties can be found [here](http://docs.cartodb.com/cartodb-platform/cartocss/properties/), including `line-dasharray`. The first number value for the `line-dasharray` property is dash width. The second is the width of the space between dashes. You can use more than one pair of dash width and space width numbers.
 
 {% highlight scss %}
 #null_Island_el_dist {
