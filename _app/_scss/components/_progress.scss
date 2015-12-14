@@ -1,0 +1,19 @@
+// Progress
+// --------------------------------------------------
+
+.Progress,
+.Progress-inner {
+  height: 4px;
+}
+.Progress {
+  display: inline-block;
+  width: 220px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background: #DDD;
+  border-radius: 4px;
+  overflow:hidden;
+}
+.Progress-inner {
+  background: #85C77C;
+}

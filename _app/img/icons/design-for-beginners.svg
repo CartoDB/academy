@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="76px" height="96px" viewBox="0 0 76 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15857) - http://www.bohemiancoding.com/sketch -->
+    <title>2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="2" sketch:type="MSLayerGroup" transform="translate(2.000000, 2.000000)" stroke="#9CCC65" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M56,48 L60,48 C66.628,48 72,53.372 72,60 C72,66.628 66.628,72 60,72 L56,72" id="Stroke-2392" sketch:type="MSShapeGroup"></path>
+            <path d="M56,84 C56,88.416 52.42,92 48,92 L12,92 C7.58,92 4,88.416 4,84 L4,40 L56,40 L56,84 L56,84 Z" id="Stroke-2393" sketch:type="MSShapeGroup"></path>
+            <path d="M55.5252,0.256 C59.6532,6.552 53.5372,10.004 52.1132,13.384 C50.6052,16.96 52.0732,20.392 55.6532,21.9 C67.2532,26.788 70.7052,3.928 55.5252,0.256 L55.5252,0.256 Z" id="Stroke-2394" sketch:type="MSShapeGroup"></path>
+            <path d="M44,40 L54.436,21.252" id="Stroke-2395" sketch:type="MSShapeGroup"></path>
+            <path d="M58.5624,22.6248 L51.9984,40.0008" id="Stroke-2396" sketch:type="MSShapeGroup"></path>
+            <path d="M20,40 L8,40 L2,28 L0,16 L10,22 L20,40 L20,40 Z" id="Stroke-2397" sketch:type="MSShapeGroup"></path>
+            <path d="M2,28 L10,22" id="Stroke-2398" sketch:type="MSShapeGroup"></path>
+            <path d="M40,0 L24,0 L24,40 L40,40 L40,0 Z" id="Stroke-2399" sketch:type="MSShapeGroup"></path>
+            <path d="M40,8 L32,8" id="Stroke-2400" sketch:type="MSShapeGroup"></path>
+            <path d="M40,16 L36,16" id="Stroke-2401" sketch:type="MSShapeGroup"></path>
+            <path d="M40,24 L32,24" id="Stroke-2402" sketch:type="MSShapeGroup"></path>
+            <path d="M40,32 L36,32" id="Stroke-2403" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

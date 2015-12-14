@@ -1,0 +1,102 @@
+---
+layout: default
+---
+{% comment %}https://github.com/jekyll/jekyll/issues/4047{% endcomment %}
+{% assign collection = false %}
+
+{% for collection_item in site.collections %}
+  {% if collection_item.label == page.collection %}
+    {% assign collection = collection_item %}
+  {% endif %}
+{% endfor %}
+
+<header class="Header Header--cGreen js-Header">
+  {% include navigation.html %}
+</header>
+
+<div class="Content">
+  <div class="Subheader js-Subheader Subheader--fixed">
+    <nav class="Breadcrumbs">
+      <div class="u-inner u-inner--10">
+        <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
+          <li class="Breadcrumbs-item">
+            <a href="/" class="Breadcrumbs-link">
+              <span>The Map Academy</span>
+            </a>
+            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+          </li>
+
+          <li class="Breadcrumbs-item">
+            <a href="{{ collection.url }}" class="Breadcrumbs-link">
+              <span>{{ collection.title }}</span>
+            </a>
+            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+          </li>
+
+          <li class="Breadcrumbs-item">
+            <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
+              <span>{{ page.title }}</span>
+            </a>
+          </li>
+        </ul>
+
+        {% assign lesson_number = 0 %}
+
+        {% for collection_item in collection.docs %}
+          {% if collection_item.url == page.url %}
+            {% assign lesson_number = forloop.index %}
+          {% endif %}
+        {% endfor %}
+
+        <ul class="Breadcrumbs-inner Breadcrumbs-inner--right">
+          <li class="Breadcrumbs-item">
+            <div class="Progress"><div class="Progress-inner" style="width: {{ lesson_number | times: 100.0 | divided_by: collection.docs.size }}%;"></div></div> <span class="Breadcrumbs-link"><span>{{ lesson_number }}/{{ collection.docs.size }}</span></span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="u-inner u-inner--10">
+    <div class="Grid">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <div class="Sidebar Sidebar--withsubheader sticky">
+            <ul class="Sidebar-list Sidebar-list--notitle">
+              {% for collection_item in collection.docs %}
+                <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
+                  <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+
+                  {% if collection_item.url == page.url %}<ul class="Subsidebar js-Subsidebar"></ul>{% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <article class="Content-inner js-Content-inner Content-inner--withsubheader">
+
+            {{ content }}
+
+            <div class="Lesson-footer">
+              <div class="Circle Circle--cGreen u-valign u-rspace--20">
+                <i class="Icon Icon--check Icon--hcenter Icon--s12 u-malign"></i>
+              </div> {% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
+
+              {% if page.permalink_next %}
+                <a href="{{ page.permalink_next }}" class="Button Button--sLarge Button--cGreen is-highlight u-right">
+                  <span class="u-tupper">Continue to lesson {{ lesson_number | plus:1 }}</span>
+                </a>
+              {% endif %}
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+{% include mailchimp.html %}
+{% endcomment %}

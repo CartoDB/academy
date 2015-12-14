@@ -1,0 +1,48 @@
+// Offcanvas
+// --------------------------------------------------
+.Offcanvas {
+  background-color: $grey2;
+}
+@media (max-width: $layout-m) {
+  .Offcanvas-inner {
+    position: relative;
+    right: 0;
+    width: 100%;
+    transition: all .2s ease-out;
+
+    &.is-active {
+      right: 80%;
+
+      .Navbar-inner {
+        display: block;
+        width: 100%;
+      }
+      .Navbar-inner.Navbar-inner--buttons {
+        border-bottom: 1px solid rgba(#fff, .1);
+        margin-bottom: 10px;
+        padding-bottom: 18px;
+      }
+      .Dropdown-inner {
+        display: block;
+        position: relative;
+        top: 0;
+        right: 0;
+        min-width: 0;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+
+        &:before,
+        &:after {
+          display: none;
+        }
+      }
+      .Dropdown-content {
+        padding: 0;
+      }
+      .Dropdown-arrow {
+        display: none;
+      }
+    }
+  }
+}

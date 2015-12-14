@@ -1,0 +1,50 @@
+// Buttons
+// --------------------------------------------------
+
+.Button {
+  display: inline-block;
+  border-width: 2px;
+  border-style: solid;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 50px;
+  transition: all .3s;
+  outline: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  > span {
+    display: inline-block;
+  }
+}
+/* sizes */
+.Button.Button--sSmall {
+  > span {
+    padding: 8px $spacing-unit;
+  }
+}
+.Button.Button--sMedium {
+  > span {
+    padding: $spacing-unit / 2 $spacing-unit;
+  }
+}
+.Button.Button--sLarge {
+  > span {
+    padding: 12px $spacing-unit;
+  }
+}
+/* colors */
+.Button.Button--cWhite {
+  @include button(#fff, $blue1);
+}
+.Button.Button--cBlue {
+  @include button($blue1, #fff);
+}
+.Button.Button--cGreen {
+  @include button($green1, #fff);
+}
