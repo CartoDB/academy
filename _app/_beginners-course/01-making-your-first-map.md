@@ -12,7 +12,7 @@ Welcome to CartoDB Academy! In this first lesson in Course 1, we'll walk you thr
 
 ## Making an Account
 
-Creating an account with CartoDB is quick and easy; you can head over to [our website](http://academy.cartodb.com/), and create a free account in just a few minutes.
+Creating an account with CartoDB is quick and easy; you can head over to [our website](https://cartodb.com/signup), and create a free account in just a few minutes.
 
 If you're interested in a plan with more data storage or other features, please check out a full [list of CartoDB plans]({{ site.github-baseurl }}/pricing/).
 
