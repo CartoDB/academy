@@ -1,6 +1,6 @@
 # Map Academy
 
-The Map Academy is an online resource to learn all things digital maps and visualizations. We'll go on publishing courses to tackle different challenges in online mapping, from introductory courses to advanced ones. Its an open project in which anyone can contribute.
+The Map Academy is an online resource to learn all things digital maps, data visualization, and geospatial analysis. We'll go on publishing courses to tackle different challenges in online mapping, from introductory courses to advanced ones. It's an open project in which anyone can contribute.
 
 The Map Academy website is built on top of Jekyll, a simple content management system for static sites.
 
@@ -9,49 +9,28 @@ The Map Academy website is built on top of Jekyll, a simple content management s
 
 ## How to install
 
-In order to install Jekyll make sure you have Ruby and Compass installed.
+In order to run Academy locally, install [bundler](http://bundler.io/) and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm). Once these are installed run the following:
 
 ```
-gem install jekyll
-gem install compass
+npm install -g grunt-cli
+bundle install
+npm install
+bower install
 ```
-
 
 ## Develop
 
-When working on a new feature, we recommend forking and creating a new branch from `master`. After commiting your changes open a Pull request to initiate discussion.
+When working on a new feature, we recommend forking and creating a new branch from `master`. After committing your changes open a Pull Request to initiate discussion.
 
-We use Compass to organize and work with stylesheets.
-
-To compile the project's sass files into css:
+To run the Map Academy locally, run:
 
 ```
-compass compile
+grunt serve
 ```
 
-To watch the project for changes and compile whenever it does:
+This will generate your site using Jekyll, run a local serve, and open a browser window for you at `localhost:9000`. 
 
-```
-compass watch
-```
-
-This would be solved once we migrate to `2.0` (see [TODO](#TODO))
-
-
-### Working with Jekyll
-
-To start the server type the next command in your shell:
-
-```
-jekyll serve -w
-```
-
-And access normally in your browser to the next address:
-
-http://0.0.0.0:4000
-
-The site normally has a static page, a layout, a js and a css per section (default, course, lesson). Courses are filled dynamically from the child pages, lessons.
-
+You can continue to edit your lesson files and grunt will detect any changes you make and regenerate the site for you.
 
 ## Contributing
 
@@ -65,18 +44,13 @@ Once the Pull Request has been reviewed _and the branch passes the tests_, it ca
 Then, you can type:
 
 ```
-jekyll build --config _config-production.yml
+grunt build
 ```
 
 With the production configuraion to deploy the static files.
-
-## TODO
-
-* Migrate to Jekyll 2.0
 
 
 ## More info
 
 * http://jekyllrb.com/
-* http://compass-style.org/
 * https://guides.github.com/introduction/flow/
