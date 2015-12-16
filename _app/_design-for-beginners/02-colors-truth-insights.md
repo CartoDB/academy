@@ -16,7 +16,7 @@ For now, we are going to get our feet wet by looking at color in practice.
 
 ## Why to think about colors?
 
-To get started, go ahead and import the following data set on earthquakes into your account. The easiest way is to _copy the URL_ and _paste_ it into the [Import box](http://docs.cartodb.com/cartodb-editor.html#importing-data). If you don't know how to do this, take a look at [Course 1](/courses/01-beginners-course.html).
+To get started, go ahead and import the following data set on earthquakes into your account. The easiest way is to _copy the URL_ and _paste_ it into the [Import box](http://docs.cartodb.com/cartodb-editor/datasets/#connect-dataset). If you don't know how to do this, take a look at [Course 1](/courses/beginners-course/).
 
 {% highlight text %}
 http://academy.cartodb.com/d/1.0_month.csv

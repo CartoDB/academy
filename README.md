@@ -4,7 +4,7 @@ The Map Academy is an online resource to learn all things digital maps and visua
 
 The Map Academy website is built on top of Jekyll, a simple content management system for static sites.
 
-[More about the Map Academy](http://academy.cartodb.com/about.html)
+[More about the Map Academy](/about/)
 
 
 ## How to install
