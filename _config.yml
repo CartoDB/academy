@@ -36,14 +36,6 @@ collections:
     url: /courses/design-for-beginners/
     description: >
       Start learning the basics of design with data and maps.
-  cartodbjs-ground-up:
-    output: true
-    published: true
-    difficulty: medium
-    title: "CartoDB.js from the ground up"
-    url: /courses/cartodbjs-ground-up/
-    description: >
-      Take advantage of the flexibility of CartoDB.js to create custom webpages.
   sql-postgis:
     output: true
     published: true
@@ -60,6 +52,14 @@ collections:
     url: /courses/academy-lite/
     description: >
       Five minute lessons on basic skills for map creation.
+  cartodbjs-ground-up:
+    output: true
+    published: true
+    difficulty: medium
+    title: "CartoDB.js from the ground up"
+    url: /courses/cartodbjs-ground-up/
+    description: >
+      Take advantage of the flexibility of CartoDB.js to create custom webpages.
   # rapid-map-prototyping:
   #   output: true
   #   published: false
@@ -91,12 +91,6 @@ defaults:
       body_class: 'js-Lesson'
   - scope:
       path: ""
-      type: cartodbjs-ground-up
-    values:
-      layout: lesson
-      body_class: 'js-Lesson'
-  - scope:
-      path: ""
       type: sql-postgis
     values:
       layout: lesson
@@ -104,6 +98,12 @@ defaults:
   - scope:
       path: ""
       type: academy-lite
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: cartodbjs-ground-up
     values:
       layout: lesson
       body_class: 'js-Lesson'
