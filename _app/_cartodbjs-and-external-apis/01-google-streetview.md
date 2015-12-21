@@ -1,10 +1,8 @@
 ---
-layout: tutorials_item
-title: 'Google Street View Infowindow Map Visualization'
-short_description: 'Create a map with a Google Street View panorama in a CartoDB infowindow'
-level: hard
-time_needed: '30 minutes'
-embed_url: ''
+title: "Google Street View Infowindow Map Visualization"
+permalink: /courses/cartodbjs-and-external-apis/google-streetview/
+tweet_text: "Combine Google Streetview and CartoDB.js @cartoDB"
+lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 ---
 
 ## Summary
