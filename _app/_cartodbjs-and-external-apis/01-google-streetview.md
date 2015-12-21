@@ -143,7 +143,7 @@ Now that we have added our infowindow template, we need to enable the infowindow
 {% highlight javascript %}
 <script>
         .done(function(layer) {
-  		  var sublayer = layer.getSubLayer(0);
+          var sublayer = layer.getSubLayer(0);
           sublayer.setInteraction(true);
 
           cartodb.vis.Vis.addInfowindow(map, sublayer, ['cartodb_id', 'lat', 'lon', 'name'],{
@@ -163,60 +163,58 @@ Now that we have added our infowindow template, we need to enable the infowindow
 Let's break the above code down further. We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition) in order to access the SQL and CSS of our map layer. We then enable interaction for the layer using the [CartoDB.js sublayer method setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add events like mouseover or click events.
 
 
-{% highlight javascript %}
+{% highlight html %}
 <script>
-  	var sublayer = layer.getSubLayer(0);
+    var sublayer = layer.getSubLayer(0);
     sublayer.setInteraction(true);
 </script>
 {% endhighlight %}
 
 We then add a click infowindow to our map using the [CartoDB.js cartodb.vis.Vis.addInfowindow() method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CartoDB layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called 'lat' and 'lon'. We also have a column called 'name', which stores titles for each Street View location. We pass our infowindowTemplate as a parameter, and setup the templateType as a mustache template. The  method returns an [infowindow object](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
 
-{% highlight javascript %}
-<script>  
-  		  cartodb.vis.Vis.addInfowindow(map, sublayer, ['cartodb_id', 'lat', 'lon', 'name'],{
-            infowindowTemplate: $('#infowindow_template').html(),
-            templateType: 'mustache'
-          });
-
+{% highlight html %}
+<script>
+    cartodb.vis.Vis.addInfowindow(map, sublayer, ['cartodb_id', 'lat', 'lon', 'name'],{
+      infowindowTemplate: $('#infowindow_template').html(),
+      templateType: 'mustache'
+    });
 </script>
 {% endhighlight %}
 
 We set up our custom [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex) event so we can access our latitude and longitude data. When the user clicks on a point on our map, we grab the latitude and longitude coordinates for that point from our 'lat' and 'lon' columns in our CartoDB dataset and pass the coordinates to the Google Street View Service to make our request for the location panorama. We use the StreetViewService object to make a StreetViewLocationRequest using our latitude and longitude values. The getPanorama() function needs a callback function (processSVData) to execute upon retrieval of a result from the StreetView Service. If the response from StreetView Service is positive, we will be able to generate our panorama. If the result is negative, an error message will be logged to the console.
 
 
-{% highlight javascript %}
+{% highlight html %}
 <script>  
-         layer.on('featureClick', function(e, latlng, pos, data, layerIndex){     
-            var sv = new google.maps.StreetViewService();
-            var myLatLng = new google.maps.LatLng(data.lat, data.lon);
-            sv.getPanorama({location: myLatLng, radius: 50}, processSVData);
-        });
+layer.on('featureClick', function(e, latlng, pos, data, layerIndex){
+    var sv = new google.maps.StreetViewService();
+    var myLatLng = new google.maps.LatLng(data.lat, data.lon);
+    sv.getPanorama({location: myLatLng, radius: 50}, processSVData);
+});
 </script>
 {% endhighlight %}
 
 We pass our location data and the StreetView Service status to the processSVData() callback function. If the StreetViewStatus is positive, we can create our panorama! We select the #panorama div from our infowindow template to append our panorama to the DOM, use the StreetViewService method setPosition to set the location for the panorama, and specify no close button for the panorama. If the StreetViewStatus is negative and there is no Street View data for the location, we log an error message to the console.  
 
-{% highlight javascript %}
-<script>  
-          function processSVData(data, status) {
+{% highlight html %}
+<script>
+    function processSVData(data, status) {
 
-            if (status === google.maps.StreetViewStatus.OK) {
-                  console.log('creating panorama');
-                  var panorama;
-                  panorama = new google.maps.StreetViewPanorama(document.querySelector("#panorama"));
-                  panorama.setPosition(data.location.latLng);
-                  panorama.setPov(({
-                    heading: 265,
-                    pitch: 0
-                  }));
-                 panorama.setEnableCloseButton(false);
-                panorama.setVisible(true);
-            } else {
-              console.error('Street View data not found for this location.');
-            }
-          }
-
+      if (status === google.maps.StreetViewStatus.OK) {
+        console.log('creating panorama');
+        var panorama;
+        panorama = new google.maps.StreetViewPanorama(document.querySelector("#panorama"));
+        panorama.setPosition(data.location.latLng);
+        panorama.setPov(({
+          heading: 265,
+          pitch: 0
+        }));
+        panorama.setEnableCloseButton(false);
+        panorama.setVisible(true);
+      } else {
+        console.error('Street View data not found for this location.');
+      }
+    }
 </script>
 {% endhighlight %}
 
@@ -237,7 +235,7 @@ Here is the complete code for setting up the infowindow, make sure to add your G
       html, body, #map {
         height: 100%;
         padding: 0;
-        margin: 0;ß
+        margin: 0;
       }
       .cartodb-popup-content-wrapper {
        height: 375px;
