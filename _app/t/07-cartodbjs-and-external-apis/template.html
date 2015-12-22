@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CartoDB.js | Google Street View</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .cartodb-popup-content-wrapper {
+       height: 375px;
+      }
+      .cartodb-popup-content {
+       height: 375px;   
+      }
+      #infowindow_template {
+          width: 550px;
+      }
+      div.cartodb-popup.v2 {
+        width: 550px  !important;
+        height: 375px;
+      }
+      #panorama {
+        width: 100%;
+        height: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <!-- include google maps library -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=APIKEY"></script>
+ 
+    <!-- include cartodb.js library -->
+   <script src="http://libs.cartodb.com/cartodb.js/v3/3.15/cartodb.js"></script>
+ 
+    <script>
+
+    function main() {
+
+    }
+
+    window.onload = main;
+     
+    </script>
+  </body>
+</html>
