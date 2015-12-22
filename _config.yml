@@ -76,6 +76,14 @@ collections:
     url: /courses/intermediate-design/
     description: >
       Learn more about cartography and the pros and cons of thematic map types.
+  community:
+    output: true
+    published: true
+    difficulty: mixed
+    title: "Community Content"
+    url: /courses/community/
+    description: >
+      Tutorials from CartoDB's community
 defaults:
   - scope:
       path: ""
@@ -116,6 +124,12 @@ defaults:
   - scope:
       path: ""
       type: intermediate-design
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: community
     values:
       layout: lesson
       body_class: 'js-Lesson'
