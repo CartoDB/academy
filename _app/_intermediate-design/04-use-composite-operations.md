@@ -50,7 +50,7 @@ CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/
 | dst-atop     | soft-light   | saturation    | 
 | xor          |  contrast    | color   | 
 
-Clear affects both color and alpha.     
+The comp-op `clear` affects both color and alpha.     
 
 Many CartoCSS comp-ops have [Photoshop blend mode](https://helpx.adobe.com/photoshop/using/blending-modes.html) equivalents. For easier comparison, we used Adobe's categories as a starting point to group them below by visual effect. The best way to learn about how comp-ops work is to try them out! You can use any of these in your map's custom CartoCSS panel, but some of our wizards also give you menu options for the most popular ones.
 
