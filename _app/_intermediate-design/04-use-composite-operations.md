@@ -34,7 +34,7 @@ text-comp-op: screen;
 
 The layer (or text) that you choose the composite operation in is called the source. It's composite operation is applied to each layer beneath, which are called destination layers. In CartoDB the source layer itself needs to have a color fill, but it's composite operations apply to destination layers with color or texture fills, even raster ones. In this lesson we will apply composite operations to a marker source layer, that's on top of one destination layer containing lines and another destination layer containing a polygon with raster fill.
 
-CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/mapnik/wiki/Compositing). There are over 30 comp ops. The ones you can use in CartoDB are below. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) for the ones in normal font, and [GNU Image Manipulation P... (GIMP)](http://docs.gimp.org/en/gimp-concepts-layer-modes.html)  for the ones in italics:
+CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/mapnik/wiki/Compositing). There are over 30 comp ops. The ones you can use in CartoDB are below. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) for the ones in normal font, and [GNU Image Manipulation Program (GIMP)](http://docs.gimp.org/en/gimp-concepts-layer-modes.html) for the ones in italics:
 
 | alpha comps  | color comps  | color comps  |
 |--------------|--------------|--------------|
@@ -44,12 +44,12 @@ CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/
 | dst-over     | overlay      | _value_      |
 | src-in       | darken       | _grain-merge_ | 
 | dst-in       | lighten      | _grain-extract_ |
-| src-out      | color-dodge  | **invert-rgb** | 
-| dst-out      | color-burn   | **hue**      | 
-| src-atop     | hard-light   | **saturation**  | 
-| dst-atop     | soft-light   | **color**    | 
-| xor          | **clear?**   | **invert**   | 
-|              |              | **contrast??** |
+| src-out      | color-dodge  | invert | 
+| dst-out      | color-burn   | invert-rgb     | 
+| src-atop     | hard-light   | hue  | 
+| dst-atop     | soft-light   | saturation    | 
+| xor          |              | color   | 
+| clear        |              | contrast |
 
 Many CartoCSS comp-ops have [Photoshop blend mode](https://helpx.adobe.com/photoshop/using/blending-modes.html) equivalents. For easier comparison, we used Adobe's categories as a starting point to group them below by visual effect. The best way to learn about how comp-ops work is to try them out! You can use any of these in your map's custom CartoCSS panel, but some of our wizards also give you menu options for the most popular ones.
 
