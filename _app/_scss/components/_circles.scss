@@ -5,16 +5,68 @@
   display: inline-block;
   width: $spacing-unit * 2;
   height: $spacing-unit * 2;
-  border: 2px solid rgba(#9B9B9B, 0.4);
+  border: 1px solid #DDD;
+  font-size: 18px;
+  line-height: 22px;
   text-align: center;
+  color: #DDD;
   border-radius: 50%;
+  transition: .2s all;
+}
+.Circle--withlink {
+  &:hover {
+    text-decoration: none;
+    border-color: #CCC;
+    color: #CCC;
+  }
+}
+.Circle--sep {
+  position: absolute;
+  z-index: 6;
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+// Sizes
+.Circle--sLarge {
+  width: $spacing-unit * 3;
+  height: $spacing-unit * 3;
+}
+
+// Colors
+.Circle--cBlue {
+  border-color: $blue1;
+  color: $blue1;
+}
+.Circle--cOrange {
+  border-color: $orange1;
+  color: $orange1;
+}
+.Circle--cBlack {
+  border-color: #0B161A;
+  color: #0B161A;
+
+  &.is-highlight {
+    background: #0B161A;
+    color: #fff;
+  }
 }
 .Circle--cGreen {
   border-color: $green1;
   color: $green1;
 
   &.is-highlight {
-    background: $green1;
-    color: #FFF;
+    background: #0B161A;
+    color: #fff;
   }
+}
+
+.Circle-inner--left {
+  margin-left: -4px;
+}
+.Circle-inner--right {
+  margin-right: -4px;
 }

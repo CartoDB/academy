@@ -4,6 +4,7 @@
 .Breadcrumbs {
   @include clearfix;
   position: relative;
+  z-index: 30;
   padding: $spacing-unit 0;
   font-size: 12px;
   line-height: 14px;
@@ -15,25 +16,18 @@
     width: 100%;
   }
 }
-.Navbar-button {
-  display: none;
-  float: right;
-  margin-top: 8px;
-
-  @media (max-width: $layout-m) {
-    display: block;
-  }
-}
 .Navbar-item,
 .Breadcrumbs-item {
   position: relative;
   display: inline-block;
-  margin-left: $spacing-unit * 2;
-  font-size: 12px;
 
   &:first-child {
     margin-left: 0;
   }
+}
+.Navbar-item {
+  margin-left: $spacing-unit * 2;
+  font-size: 12px;
 
   @media (max-width: $layout-l) {
     margin-left: $spacing-unit;
@@ -41,6 +35,7 @@
 }
 .Breadcrumbs-item {
   margin-left: $spacing-unit;
+  font-size: 11px;
 
   @media (max-width: $layout-m) {
     width: 100%;
@@ -53,7 +48,7 @@
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-  color: rgba(#fff, 1);
+  color: #fff;
   transition: all .2s;
 
   &:hover {
@@ -66,6 +61,18 @@
     padding-bottom: 12px;
     padding-top: 12px;
   }
+}
+.Navbar-button,
+.Navbar-signup {
+  display: none;
+  float: right;
+
+  @media (max-width: $layout-m) {
+    display: block;
+  }
+}
+.Navbar-button {
+  margin-top: 8px;
 }
 .Breadcrumbs-link {
   color: $grey9;
@@ -87,6 +94,48 @@
     float: left;
   }
 }
+.Navbar--cWhite {
+  .Logo--header {
+    color: $grey2;
+  }
+  .Navbar-link {
+    color: $grey2;
+
+    &:hover {
+      color: rgba($grey2, .6);
+    }
+
+    &.is-hover--dark {
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Navbar fixed
+.Navbar--fixed {
+  position: fixed;
+  top: -80px;
+  z-index: 30;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  opacity: 0;
+  transition: all .2s;
+
+  &.is-active {
+    top: 0;
+    opacity: 1;
+  }
+
+  @media (max-width: $layout-m) {
+    .Navbar-collapse {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: $layout-m) {
   .Navbar-collapse {
     position: absolute;
@@ -104,21 +153,21 @@
   .Navbar-header {
     float: none;
   }
-  .Navbar-inner.Navbar-inner--button {
+  .Navbar-inner--button {
     border-bottom: 1px solid rgba(#fff, .1);
     margin-bottom: 10px;
     padding-bottom: 18px;
   }
-  .Navbar-item.Navbar-item--menu {
+  .Navbar-item--menu {
     display: block;
     margin: 0 0 $spacing-unit;
   }
-  .Navbar-item.Navbar-item--button {
+  .Navbar-item--button {
     float: left;
     width: 50%;
     margin-left: 0;
   }
-  .Navbar-link.Navbar-link--button {
+  .Navbar-link--button {
     display: block;
     text-align: center;
   }

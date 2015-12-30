@@ -1,0 +1,95 @@
+// TabPanes
+// --------------------------------------------------
+
+.Tabs {
+  margin-right: 100px;
+
+  @media (max-width: $layout-m) {
+    margin-right: 0;
+  }
+}
+.Tab {
+  margin-bottom: 5px;
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.is-active,
+  &:hover {
+    .Tab-link {
+      background: $grey6;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  @media (max-width: $layout-m) {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}
+.Tab-link {
+  display: block;
+  padding: 0 10px;
+  border: 1px solid #666;
+  font: 12px/23px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $grey6;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all .15s;
+}
+.Code-title {
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-bottom: 0;
+  font-family: 'PT Mono', monospace;
+  background-color: $background-color;
+  color: $grey2;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.Code-title + .Code-body pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.Code-tab {
+  position: relative;
+  z-index: 10;
+  margin-left: 165px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.is-active {
+    margin-bottom: -15px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #333;
+  }
+
+  @media (max-width: $layout-m) {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.is-active {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+}
+.Code-link {
+  transition: all .2s;
+
+  &:hover {
+    text-decoration: none;
+    opacity: .9;
+  }
+}

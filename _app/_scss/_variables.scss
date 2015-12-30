@@ -2,12 +2,14 @@
 // --------------------------------------------------
 
 // Layout
-
-$layout-xxl: 1960px;
+$layout-xxxl: 1960px;
+$layout-xxl: 1280px;
 $layout-xl: 1480px;
 $layout-l: 980px;
 $layout-m: 750px;
 $layout-s: 400px;
+$layout-s--landscape: 520px;
+$layout-s--portrait: 360px;
 $spacing-unit: 20px;
 
 // Font
@@ -16,13 +18,27 @@ $font-size-base: 13px;
 $line-height-base: 22px;
 $font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $text-color: #636D72;
-$background-color: #FFF;
+$background-color: #fff;
 
 // Colors
 $blue1: #3AA9E3;
-
+$blue2: #147BBF;
 $grey9: #979EA1;
 $grey6: #636D72;
 $grey2: #2E3C43;
 
+$orange1: #F19243;
+$orange2: #F99C4E;
+
 $green1: #85C77C;
+$green2: #1C9C9A;
+$green3: #397568;
+$green4: #8BBB71;
+
+$purple1: #373E66;
+$purple2: #812F87;
+$purple3: #34658A;
+
+$twitter: #55ACEE;
+$facebook: #3A5999;
+$linkedin: #007BB6;

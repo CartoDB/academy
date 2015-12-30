@@ -1,0 +1,51 @@
+// Cards
+// --------------------------------------------------
+
+.Card {
+  min-height: 244px;
+}
+.Card--tall {
+  min-height: 308px;
+}
+@media (max-width: $layout-m) {
+  .Card {
+    min-height: auto;
+  }
+}
+.Card-inner {
+  @include clearfix;
+  padding: $spacing-unit;
+  background: #fff;
+}
+.Card-picture {
+  display: block;
+  border-bottom: 1px solid rgba(#000, .1);
+  width: 100%;
+  padding: $spacing-unit;
+  text-align: center;
+  background-color: #f9f9f9;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Card-picture--withpicture {
+  height: 140px;
+  background-size: cover;
+}
+.Card-title {
+  font-size: 16px;
+  color: $grey2;
+}
+.Card-title--withlink {
+  a {
+    color: $grey2;
+  }
+}
+.Card-item {
+  display: inline-block;
+  font-size: 13px;
+  color: $grey9;
+
+  @media (max-width: $layout-m) {
+    width: 100%;
+  }
+}

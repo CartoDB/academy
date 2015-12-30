@@ -9,32 +9,19 @@
   text-align: center;
   border-radius: 4px;
 }
-.Logo.Logo--light {
-  background: #FFF;
-
-  .Logo-icon {
-    color: $blue1;
-  }
+.Logo--light {
+  color: #FFF;
 }
-.Logo.Logo--green {
-  .Logo-icon {
-    color: $green1;
-  }
+.Logo--dark {
+  color: $grey2;
 }
-.Logo.Logo--dark {
-  background: $grey2;
-
-  .Logo-icon {
-    color: #FFF;
-  }
-}
-.Logo.Logo--header {
-  margin-right: $spacing-unit*2;
+.Logo--header {
+  margin-right: $spacing-unit * 2;
 
   @media (max-width: $layout-l) {
     margin-right: $spacing-unit;
   }
 }
-.Logo.Logo--footer {
+.Logo--footer {
   margin-right: $spacing-unit;
 }

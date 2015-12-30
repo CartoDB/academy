@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% comment %}https://github.com/jekyll/jekyll/issues/4047{% endcomment %}
 {% assign collection = false %}
 
 {% for collection_item in site.collections %}
@@ -10,7 +9,7 @@ layout: default
   {% endif %}
 {% endfor %}
 
-<header class="Header Header--cGreen js-Header">
+<header class="Header Header--cGreen Header--short js-Header">
   {% include navigation.html %}
 </header>
 
@@ -23,14 +22,14 @@ layout: default
             <a href="/" class="Breadcrumbs-link">
               <span>The Map Academy</span>
             </a>
-            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+            <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
             <a href="{{ collection.url }}" class="Breadcrumbs-link">
               <span>{{ collection.title }}</span>
             </a>
-            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+            <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
@@ -81,7 +80,7 @@ layout: default
 
             <div class="Lesson-footer">
               <div class="Circle Circle--cGreen u-valign u-rspace--20">
-                <i class="Icon Icon--check Icon--hcenter Icon--s12 u-malign"></i>
+                <i class="Icon Icon--checkFill Icon--hcenter Icon--s12 u-malign"></i>
               </div> {% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
 
               {% if page.permalink_next %}

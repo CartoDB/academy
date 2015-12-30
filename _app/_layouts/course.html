@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% comment %}https://github.com/jekyll/jekyll/issues/4047{% endcomment %}
 {% assign collection = false %}
 
 {% for collection_item in site.collections %}
@@ -10,7 +9,7 @@ layout: default
   {% endif %}
 {% endfor %}
 
-<header class="Header Header--cGreen js-Header">
+<header class="Header Header--cGreen Header--short js-Header">
   {% include navigation.html %}
 </header>
 
@@ -22,7 +21,7 @@ layout: default
           <a href="/" class="Breadcrumbs-link">
             <span>The Map Academy</span>
           </a>
-          <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+          <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
         </li>
 
         <li class="Breadcrumbs-item">

@@ -1,0 +1,45 @@
+// Navmenu
+// --------------------------------------------------
+
+.Navmenu {
+  @extend %clearfix;
+  padding: 24px 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #EEE;
+  overflow: visible;
+
+  &.without-border {
+    border: 0;
+  }
+}
+.Navmenu-item {
+  margin-left: 40px;
+  text-transform: uppercase;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  @media (max-width: $layout-l) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.Navmenu-itemLink {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: $grey9;
+  transition: all .2s;
+
+  &:hover {
+    text-decoration: none;
+    color: $grey2;
+  }
+}
+.Navmenu-sep {
+  margin-right: -20px;
+  margin-left: 20px;
+  color: #aaa;
+}

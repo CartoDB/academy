@@ -1,0 +1,24 @@
+// Sidemenu
+// --------------------------------------------------
+
+.Sidemenu-title,
+.Sidemenu-itemLink {
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.Sidemenu-title {
+  color: #333;
+  margin-top: 40px;
+}
+
+.Sidemenu-itemLink { 
+  padding: 10px 0;
+  text-decoration: none;
+
+  &:hover {
+    color: #3992C0;
+    text-decoration: none;
+  }
+}

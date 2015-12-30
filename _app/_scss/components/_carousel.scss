@@ -1,0 +1,107 @@
+// Carousel
+// --------------------------------------------------
+
+.Carousel {
+  position: relative;
+}
+.Carousel--full {
+  @include cover;
+}
+.Carousel-action {
+  pointer-events: auto;
+}
+.Carousel-list {
+  position: relative;
+  z-index: 20;
+}
+.Carousel-list--withoutitems {
+  display: none;
+}
+.Carousel-item {
+  display: none;
+  width: 100%;
+
+  &.is-active {
+    display: inline-block;
+    animation: fadeIn .4s;
+  }
+
+  img {
+    vertical-align: top;
+  }
+}
+.Carousel-nav {
+  pointer-events: none;
+}
+.Carousel-nav--dark {
+  .Carousel-navItem.is-active {
+    .Carousel-navLink {
+      background-color: $grey2;
+    }
+  }
+  .Carousel-navLink {
+    background-color: rgba($grey2, .3);
+  }
+}
+.Carousel-navItem {
+  margin-left: 12px;
+  pointer-events: auto;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.is-active {
+    .Carousel-navLink {
+      background: #fff;
+    }
+    .Carousel-navLink--blue {
+      background: $blue1;
+    }
+  }
+}
+.Carousel-navLink {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(#fff, .3);
+  border-radius: 50%;
+}
+.Carousel-navLink--blue {
+  background: #ddd;
+}
+.Carousel-arrows {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+
+  @media (max-width: $layout-l + 200px) {
+    display: none;
+  }
+}
+.Carousel-arrowLink {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+}
+.Carousel-arrowLink--previous {
+  left: -100px;
+}
+.Carousel-arrowLink--previous--inner {
+  left: 40px;
+}
+.Carousel-arrowLink--next {
+  right: -100px;
+}
+.Carousel-arrowLink--next--inner {
+  right: 40px;
+}
+
+@keyframes fadeIn {
+  0% { display: none; opacity: 0; }
+  100% { display: block; opacity: 1; }
+}
+@keyframes fadeOut {
+  0% { display: block; opacity: 1; }
+  100% { display: none; opacity: 0; }
+}
