@@ -9,6 +9,11 @@
               {% for product_item in site.data.menu.product %}
                 <dd><a class="Footer-link" href="{{ product_item.url | prepend: site.cartodb-baseurl }}">{{ product_item.title }}</a></dd>
               {% endfor %}
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/extras/" title="Extras">Extras</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/enterprise/" title="Enterprise">Enterprise</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/on-premises/" title="On-premises">On-premises</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/open-in-cartodb/" title="Open in CartoDB">Open in CartoDB</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/torque/" title="Torque">Torque</a></dd>
               <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/pricing/" title="Pricing">Pricing</a></dd>
             </dl>
           </li>

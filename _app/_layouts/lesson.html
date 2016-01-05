@@ -64,7 +64,7 @@ layout: default
             <ul class="Sidebar-list Sidebar-list--notitle">
               {% for collection_item in collection.docs %}
                 <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
-                  <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                  <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--docSmall Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
 
                   {% if collection_item.url == page.url %}<ul class="Subsidebar js-Subsidebar"></ul>{% endif %}
                 </li>
