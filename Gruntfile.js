@@ -99,7 +99,7 @@ module.exports = function (grunt) {
 
     shell: {
       development: {
-        command: "bundle exec jekyll build"
+        command: "bundle exec jekyll build --incremental"
       },
       staging: {
         command: "bundle exec jekyll build --config _config.yml,_config-prod.yml,_config-staging.yml"

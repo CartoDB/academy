@@ -7,29 +7,32 @@
 .Grid {
   display: flex;
 }
-
 .Grid-inner {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  max-width: calc(100% + 20px);
-  margin-right: -$spacing-unit / 2;
-  margin-left: -$spacing-unit / 2;
+  max-width: calc(100% + 40px);
+  margin-right: -$spacing-unit;
+  margin-left: -$spacing-unit;
 }
-
 .Grid-inner--hcenter {
   justify-content: center;
 }
-
 .Grid-inner--vcenter {
   align-items: center;
 }
-
-.Grid-cell {
-  padding-right: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
+.Grid-inner--between {
+  align-items: center;
+  justify-content: space-between;
 }
-
+.Grid-cell {
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+}
+.Grid-cell--padding {
+  padding-top: $spacing-unit * 2;
+  padding-bottom: $spacing-unit * 2;
+}
 .Grid-inner--nopadding {
   margin-right: 0;
   margin-left: 0;
@@ -39,80 +42,80 @@
     padding-right: 0;
   }
 }
+.Grid-inner--shortpadding {
+  margin-right: -$spacing-unit / 2;
+  margin-left: -$spacing-unit / 2;
 
+  > .Grid-cell {
+    padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+  }
+}
 .Grid-cell--col1 {
   flex: 0 0 8.3334%;
   max-width: 8.3334%;
 }
-
 .Grid-cell--col2 {
   flex: 0 0 16.6667%;
   max-width: 16.6667%;
 }
-
-.Grid-cell--5cols {
-  flex: 0 0 20%;
-  max-width: 20%;
-}
-
 .Grid-cell--col3 {
   flex: 0 0 25%;
   max-width: 25%;
 }
-
 .Grid-cell--col4 {
   flex: 0 0 33.3334%;
   max-width: 33.3334%;
 }
-
 .Grid-cell--col5 {
   flex: 0 0 41.6665%;
   max-width: 41.6665%;
 }
-
 .Grid-cell--col6 {
   flex: 0 0 50%;
   max-width: 50%;
 }
-
 .Grid-cell--col7 {
   flex: 0 0 58.3331%;
   max-width: 58.331%;
 }
-
 .Grid-cell--col8 {
   flex: 0 0 66.6666%;
   max-width: 66.6666%;
 }
-
 .Grid-cell--col9 {
   flex: 0 0 75%;
   max-width: 75%;
 }
-
 .Grid-cell--col10 {
   flex: 0 0 83.333%;
   max-width: 83.33%;
 }
-
 .Grid-cell--col11 {
   flex: 0 0 91.6666%;
   max-width: 91.6666%;
 }
-
 .Grid-cell--col12 {
   flex: 0 0 100%;
   max-width: 100%;
 }
+
 @media (max-width: $layout-l) {
   .Grid-cell--col4--tablet {
     flex: 0 0 33.3334%;
     max-width: 33.3334%;
   }
-
   .Grid-cell--col6--tablet {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+  .Grid-cell--col8--tablet {
+    flex: 0 0 66.6666%;
+    max-width: 66.6666%;
+  }
+  .Grid-cell--col12--tablet {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 @media (max-width: $layout-m) {
@@ -120,8 +123,13 @@
     flex: 0 0 50%;
     max-width: 50%;
   }
-
   .Grid-cell--col12--mobile {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: $layout-s) {
+  .Grid-cell--col6--mobile {
     flex: 0 0 100%;
     max-width: 100%;
   }

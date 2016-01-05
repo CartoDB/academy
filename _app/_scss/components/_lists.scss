@@ -27,7 +27,8 @@
   }
 }
 .List-icon {
-  float: left;
+  position: relative;
+  top: -2px;
   margin-right: $spacing-unit;
   vertical-align: middle;
 }
