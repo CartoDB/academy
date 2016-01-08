@@ -14,7 +14,6 @@ In order to run Academy locally, install [bundler](http://bundler.io/) and [npm]
 ```
 npm install -g grunt-cli
 bundle install
-npm install
 bower install
 ```
 
