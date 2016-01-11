@@ -380,7 +380,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
     if (env === 'staging' || env === 'production') {
-      return grunt.task.run(['build', 'browserSync:dist'])
+      return grunt.task.run(['deploy', 'browserSync:dist'])
     }
 
     grunt.task.run([
