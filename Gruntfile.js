@@ -72,7 +72,7 @@ module.exports = function (grunt) {
         }]
       },
       robots: {
-        src: '<%= config.dist %>/robots.' + env + '.txt',
+        src: 'robots.' + env + '.txt',
         dest: '/robots.txt'
       }
     },

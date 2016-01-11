@@ -1,0 +1,20 @@
+{% unless page.sitemap == false %}
+<url>
+  <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>
+  {% if page.sitemap.lastmod %}
+    <lastmod>{{ page.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+  {% else %}
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  {% endif %}
+  {% if page.sitemap.changefreq %}
+    <changefreq>{{ page.sitemap.changefreq }}</changefreq>
+  {% else %}
+    <changefreq>monthly</changefreq>
+  {% endif %}
+  {% if page.sitemap.priority %}
+    <priority>{{ page.sitemap.priority }}</priority>
+  {% else %}
+    <priority>0.8</priority>
+  {% endif %}
+</url>
+{% endunless %}
