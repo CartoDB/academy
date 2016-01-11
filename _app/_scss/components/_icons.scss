@@ -1,0 +1,43 @@
+// Icons
+// --------------------------------------------------
+
+// Sizes
+$sizes: (3, 5, 6, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 36, 48, 60);
+
+@each $size in $sizes {
+  .Icon--s#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+// Colors
+.Icon--cWhite {
+  color: #FFF;
+}
+.Icon--cBlue {
+  color: #3AA9E3;
+}
+.Icon--cGreen {
+  color: #9CCC65;
+}
+.Icon--cGrey {
+  color: #ccc;
+}
+.Icon--cGrey2 {
+  color: $grey2;
+}
+.Icon--cGrey9 {
+  color: $grey9;
+}
+
+// Shame
+.Icon--close {
+  position: relative;
+  top: -6px;
+}
+.Icon--twitter,
+.Icon--facebook,
+.Icon--linkedin {
+  position: relative;
+  top: -2px;
+}

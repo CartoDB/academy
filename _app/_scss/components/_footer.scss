@@ -2,18 +2,14 @@
 // --------------------------------------------------
 
 .Footer {
-  // padding: 0;
-  // font-size: 14px;
-  background: $background-color;
-}
-
-.Footer-inner {
-  // position: relative;
-  // z-index: 20;
+  background: #fff;
 }
 .Footer-columns {
   border-top: 1px solid #EEE;
   padding-bottom: 60px;
+}
+.Footer-columns--noborder {
+  border-top: 0;
 }
 .Footer-column {
   padding-top: 60px;

@@ -3,21 +3,28 @@
 
 @import
   "components/grid",
+  "components/sections",
+  "components/buttons",
+  "components/icons_carto",
+  "components/icons",
+  "components/titles",
   "components/header",
   "components/navbar",
+  "components/breadcrumbs",
   "components/dropdown",
   "components/offcanvas",
   "components/logo",
-  "components/breadcrumbs",
-  "components/icons_carto",
-  "components/circles",
-  "components/progress",
-  "components/buttons",
-  "components/titles",
   "components/lists",
   "components/sidebar",
   "components/content",
   "components/features",
   "components/separator",
+  "components/cards",
   "components/footer"
+;
+
+@import
+  "components/circles",
+  "components/subheader",
+  "components/progress"
 ;

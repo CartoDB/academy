@@ -2,13 +2,18 @@
   <div class="Footer-inner">
     <div class="u-inner u-inner--10">
       <div class="Grid Footer-columns">
-        <ul class="Grid-inner">
+        <ul class="Grid-inner Grid-inner--shortpadding">
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet Grid-cell--col6--mobile Footer-column">
             <dl>
               <dt class="Footer-columnTitle">Product</dt>
               {% for product_item in site.data.menu.product %}
                 <dd><a class="Footer-link" href="{{ product_item.url | prepend: site.cartodb-baseurl }}">{{ product_item.title }}</a></dd>
               {% endfor %}
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/extras/" title="Extras">Extras</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/enterprise/" title="Enterprise">Enterprise</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/on-premises/" title="On-premises">On-premises</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/open-in-cartodb/" title="Open in CartoDB">Open in CartoDB</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/torque/" title="Torque">Torque</a></dd>
               <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/pricing/" title="Pricing">Pricing</a></dd>
             </dl>
           </li>
@@ -37,6 +42,7 @@
               {% for discover_item in site.data.menu.discover %}
                 <dd><a class="Footer-link" href="{{ discover_item.url }}">{{ discover_item.title }}</a></dd>
               {% endfor %}
+              <dd><a class="Footer-link" href="/ambassadors/">Ambassadors</a></dd>
             </dl>
           </li>
 
@@ -46,6 +52,8 @@
               {% for learn_item in site.data.menu.learn %}
                 <dd><a class="Footer-link" href="{{ learn_item.url }}">{{ learn_item.title }}</a></dd>
               {% endfor %}
+              <dd><a class="Footer-link" href="https://github.com/CartoDB/cartodb">Source Code</a></dd>
+              <dd><a class="Footer-link" href="/contributing/">Contributions</a></dd>
             </dl>
           </li>
 
@@ -55,8 +63,6 @@
               {% for about_item in site.data.menu.about %}
                 <dd><a class="Footer-link" href="{{ about_item.url }}">{{ about_item.title }}</a></dd>
               {% endfor %}
-              <dd><a class="Footer-link" href="mailto:sales@cartodb.com">Contact Sales</a></dd>
-              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/request-live-demo/">Request a Demo</a></dd>
             </dl>
           </li>
         </ul>
@@ -66,7 +72,7 @@
         <ul class="Grid-inner">
           <li class="Grid-cell Grid-cell--col6 Grid-cell--col12--mobile Footer-column">
             <a class="Logo Logo--footer Logo--dark Footer-logo" href="{{ site.cartodb-baseurl }}/">
-              <i class="Icon Icon--cartofante Icon--s20 Logo-icon"></i>
+              <i class="Icon Icon--logo Icon--s36"></i>
             </a>
 
             <p class="Footer-credits"><strong class="Footer-title">CartoDB</strong><br />Map Your World's Data</p>
