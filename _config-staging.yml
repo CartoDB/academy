@@ -1,0 +1,6 @@
+cartodb-baseurl: 'https://cartodb-staging.com'
+blog-baseurl: 'http://blog.cartodb-staging.com'
+github-baseurl: 'http://github.com/CartoDB/academy'
+
+analytics_property_id: ''
+hubspot_id: ''
