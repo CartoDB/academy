@@ -35,7 +35,7 @@ This is the third lesson in the course _CartoDB.js from the ground up_. While st
 
 _SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_.
 
-_CartoCSS_ is a language for altering the appearance of the CartoDB data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](http://cartodb.github.io/torque/). 
+_CartoCSS_ is a language for altering the appearance of the CartoDB data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](http://cartodb.github.io/torque/). To find out more about it, read [the documentation](http://docs.cartodb.com/cartodb-platform/cartocss/).
 
 Using the [CartoDB.js library](http://docs.cartodb.com/cartodb-platform/cartodb-js.html), the main method to change the SQL and CartoCSS after they have been declared is `sublayer.set(sublayerDefinition)`, where `sublayerDefinition` is equivalent to one of the objects in the `sublayers` array declared in `layerSource` above. If you only need to change one of CartoCSS or SQL for a previously created layer, there are some convenient methods:
 
@@ -83,7 +83,7 @@ var layerSource = {
 
 ## CartoCSS
 
-Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the [documentation](https://github.com/mapbox/carto/blob/master/docs/latest.md) it is only one of several elements that can be styled directly on your map.
+Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the [documentation](http://docs.cartodb.com/cartodb-platform/cartocss/) it is only one of several elements that can be styled directly on your map.
 
 An easy way to get used to the basics of CartoCSS is by using the [Vizualization Wizard](http://docs.cartodb.com/cartodb-editor/maps/#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
 
@@ -91,7 +91,7 @@ Make sure you're in "MAP VIEW" to see your data visualized with _Simple_.  Stick
 
 ![Simple CartoCSS Visualization]({{baseurl.site}}/img/course3/lesson3/cartocss-simple.png)
 
-You should see that the marker fill has an opacity option (`marker-fill-opacity`), the border to the marker (`marker-line-color`) is colored to be white (#FFF is short for #FFFFFF, which is white in [hexadecimal](http://www.web-colors-explained.com/hex.php)), the marker width is set to 10 pixels, the fill is orange (#FF6600), and so on. If you're interested, check out the [CartoCSS docs](https://github.com/mapbox/carto/blob/master/docs/latest.md) for more info about the other options.
+You should see that the marker fill has an opacity option (`marker-fill-opacity`), the border to the marker (`marker-line-color`) is colored to be white (#FFF is short for #FFFFFF, which is white in [hexadecimal](http://www.web-colors-explained.com/hex.php)), the marker width is set to 10 pixels, the fill is orange (#FF6600), and so on. If you're interested, check out the [CartoCSS docs](http://docs.cartodb.com/cartodb-platform/cartocss/) for more info about the other options.
 
 
 ### CartoCSS strings in JavaScript
