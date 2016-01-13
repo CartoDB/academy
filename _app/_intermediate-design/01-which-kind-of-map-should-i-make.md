@@ -14,7 +14,7 @@ Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor/maps/#wizards) mak
 
 The answer to that question depends on what information you are trying highlight in your data.
 
-Our [One-Click Mapping feature](http://blog.cartodb.com/one-click-mapping/) can help you decide. It analyzes your uploaded datasets and makes suggestions of columns to visualize, then gives you a variety of sample maps to choose from. But how should you choose between them, and what if you want to make changes or create a map yourself?
+Our [Analyzing your Dataset feature](http://docs.cartodb.com/cartodb-editor/datasets/#analyzing-your-dataset) can help you decide. It analyzes your uploaded datasets and makes suggestions of columns to visualize, then gives you a variety of sample maps to choose from. But how should you choose between them, and what if you want to make changes or create a map yourself?
 
 ![one-click](/img/course6/lesson1/oneclick.png)
 
@@ -57,7 +57,7 @@ When you connect a dataset to your CartoDB account, you'll see it's Map View is 
 
 ![line_layer](/img/course6/lesson1/line_layer.png)
 
-You may notice a pop-up in the lower left that has suggestions for other types of maps. This is part of our [One-Click Mapping feature.](http://blog.cartodb.com/one-click-mapping/) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
+You may notice a pop-up in the lower left that has suggestions for other types of maps. This is the [Analyzing your Dataset feature.](http://docs.cartodb.com/cartodb-editor/datasets/#analyzing-your-dataset) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
 
 ![one_click_popup](/img/course6/lesson1/popup.png)
 
