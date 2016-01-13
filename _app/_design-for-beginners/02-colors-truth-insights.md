@@ -54,6 +54,6 @@ There are many other resources you can use to help in picking colors. Mapbox has
 
 In addition to editing the colors of your markers, you can also edit how the colors of overlapping or intersecting markers interact with one another. This function is called "Composite Operations" in your Visualization wizard.
 
-While we won't dive into this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read [Comp Op documentation](https://www.mapbox.com/tilemill/docs/guides/comp-op/) from MapBox to learn more about the options available to you.
+While we won't dive into this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read our [Composite Operations lesson](http://academy.cartodb.com/courses/intermediate-design/use-composite-operations/) in the [Intermediate Design course](http://academy.cartodb.com/courses/intermediate-design/) to learn more about the options available to you.
 
 ![Multiply composite operation.](/img/course2/lesson2/multiply.png)
