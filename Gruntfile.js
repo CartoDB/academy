@@ -1,19 +1,19 @@
-'use strict';
+'use strict'
 
 module.exports = function (grunt) {
-  require('time-grunt')(grunt);
+  require('time-grunt')(grunt)
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin'
-  });
+  })
 
-  var env = grunt.option('target') || 'development';
+  var env = grunt.option('target') || 'development'
 
   var config = {
     app: '_app',
     tmp: '.tmp',
     dist: '_site',
-    aws: grunt.file.readJSON('grunt-aws.'+env+'.json')
-  };
+    aws: grunt.file.readJSON('grunt-aws.' + env + '.json')
+  }
 
   grunt.initConfig({
     config: config,
@@ -22,8 +22,10 @@ module.exports = function (grunt) {
     // grunt-aws.development.json to grunt-aws.staging.json and grunt-aws.production.json
     aws_s3: {
       options: {
-        accessKeyId: "<%= config.aws.accessKeyId %>",
-        secretAccessKey: "<%= config.aws.secretAccessKey %>",
+        differential: true,
+        displayChangesOnly: true,
+        accessKeyId: '<%= config.aws.accessKeyId %>',
+        secretAccessKey: '<%= config.aws.secretAccessKey %>',
         bucket: '<%= config.aws.bucket %>',
         uploadConcurrency: 5
       },
@@ -37,9 +39,6 @@ module.exports = function (grunt) {
         ]
       },
       dist: {
-        options: {
-          differential: true
-        },
         files: [{
           expand: true,
           cwd: '<%= config.dist %>/',
@@ -57,7 +56,6 @@ module.exports = function (grunt) {
             'CacheControl': 'max-age=31536000, public',
             'Expires': new Date(Date.now() + 31536000 * 1000)
           },
-          differential: true,
           gzipRename: 'ext'
         },
         gzip: true,
@@ -72,13 +70,24 @@ module.exports = function (grunt) {
           ],
           dest: '/'
         }]
+      },
+      robots: {
+        src: 'robots.' + env + '.txt',
+        dest: '/robots.txt'
       }
     },
 
     watch: {
       babel: {
-        files: ['<%= config.app %>/_js/{,*/}*.js'],
+        files: [
+          '<%= config.app %>/_js/{,*/}*.js',
+          '!<%= config.app %>/_js/vendor/*.js'
+        ],
         tasks: ['babel:dist']
+      },
+      js: {
+        files: ['<%= config.app %>/_js/vendor/*.js'],
+        tasks: ['copy:dist']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -99,16 +108,16 @@ module.exports = function (grunt) {
 
     shell: {
       development: {
-        command: "bundle exec jekyll build --incremental"
+        command: 'bundle exec jekyll build --incremental'
       },
       staging: {
-        command: "bundle exec jekyll build --config _config.yml,_config-prod.yml,_config-staging.yml"
+        command: 'bundle exec jekyll build --config _config.yml,_config-prod.yml,_config-staging.yml'
       },
       production: {
-        command: "bundle exec jekyll build --config _config.yml,_config-prod.yml"
+        command: 'bundle exec jekyll build --config _config.yml,_config-prod.yml'
       },
       htmlproof: {
-        command: "htmlproof ./_site"
+        command: 'htmlproof ./_site'
       }
     },
 
@@ -171,8 +180,11 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/_js',
-          src: '{,*/}*.js',
-          dest: '.tmp/js',
+          src: [
+            '{,*/}*.js',
+            '!vendor/*.js'
+          ],
+          dest: '<%= config.tmp %>/js',
           ext: '.js'
         }]
       }
@@ -247,7 +259,7 @@ module.exports = function (grunt) {
         assetsDirs: [
           '<%= config.dist %>',
           '<%= config.dist %>/css',
-          '<%= config.dist %>/img',
+          '<%= config.dist %>/img'
         ],
         patterns: {
           html: [
@@ -255,7 +267,7 @@ module.exports = function (grunt) {
             [/(css\/.*?\.css)/gm, 'Update the html to reference revved stylesheets'],
             [/(js\/.*?\.js)/gm, 'Update the html to reference revved scripts']
           ]
-        },
+        }
       },
       html: ['<%= config.dist %>/**/*.html'],
       css: ['<%= config.dist %>/css/{,*/}*.css']
@@ -305,6 +317,18 @@ module.exports = function (grunt) {
       }
     },
 
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= config.app %>/_js',
+          dest: '<%= config.tmp %>/js/',
+          src: 'vendor/*.js'
+        }]
+      }
+    },
+
     modernizr: {
       dist: {
         devFile: 'bower_components/modernizr/modernizr.js',
@@ -327,7 +351,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'babel',
-        'sass',
+        'sass'
         // 'imagemin',
         // 'svgmin'
       ]
@@ -352,50 +376,61 @@ module.exports = function (grunt) {
         }]
       }
     }
-  });
-
+  })
 
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
-
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'browserSync:dist']);
+    if (env === 'staging' || env === 'production') {
+      return grunt.task.run(['deploy', 'browserSync:dist'])
     }
 
     grunt.task.run([
       'clean',
       'shell:development',
       'concurrent:server',
-      'postcss',
+      'copy:dist',
+      // 'postcss',
       'browserSync:livereload',
       'watch'
-    ]);
-  });
+    ])
+  })
 
   grunt.registerTask('server', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run([target ? ('serve:' + target) : 'serve']);
-  });
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.')
+    grunt.task.run([target ? ('serve:' + target) : 'serve'])
+  })
 
   grunt.registerTask('build', [
     'clean',
-    'shell:production',
+    'shell:' + env,
     'useminPrepare',
     'concurrent:dist',
+    'copy:dist',
     'postcss',
     'concat',
     'cssmin',
     'uglify',
     'modernizr',
     'filerev',
-    'usemin',
-    'htmlmin',
-    'compress',
-    'aws_s3:dist',
-    'aws_s3:assets'
-  ]);
+    'usemin'
+  ])
+
+  grunt.registerTask('deploy', function () {
+    if (env === 'staging' || env === 'production') {
+      grunt.task.run([
+        'build',
+        'htmlmin',
+        'compress',
+        'aws_s3:dist',
+        'aws_s3:assets',
+        'aws_s3:robots'
+      ])
+    } else {
+      grunt.log.warn('The `deploy` task needs a target option. Use `deploy --target=ENV`')
+    }
+  })
 
   grunt.registerTask('default', [
     'newer:eslint',
     'build'
-  ]);
-};
+  ])
+}

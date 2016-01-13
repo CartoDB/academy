@@ -13,6 +13,7 @@ gems:
 
 # Permalinks
 cartodb-baseurl: 'https://cartodb.com'
+blog-baseurl: 'http://blog.cartodb.com'
 github-baseurl: 'http://github.com/CartoDB/academy'
 
 # analytics_property_id: ''
