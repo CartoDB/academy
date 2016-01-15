@@ -44,7 +44,7 @@ sublayer2 = layers[1].getSubLayer(1);
 ...
 {% endhighlight %}
 
-Looking back at our viz.json, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](http://acdmy.org/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](http://acdmy.org/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
+Looking back at our viz.json, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
 
 + **sql:** tells you the SQL statement used with each data set (defaults to `select * from dataset`)
 + **visible:** means it will display (defaults to `true`)

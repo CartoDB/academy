@@ -10,7 +10,7 @@ tweet_text: "Step by step is the way to go. I've finished the third lesson of th
 In this lesson you'll be exploring some other visualization records. To get started, copy the link below, which will allow you to create a map of tornados in the U.S.:
 
 {% highlight text %}
-http://acdmy.org/d/tornadoes.zip
+http://academy.cartodb.com/d/tornadoes.zip
 {% endhighlight %}
 
 Navigate to your dashboard, click “New table” or the “+” icon to the right of your existing table(s), and past the URL in the field. Click "Create table" and you're ready to go.

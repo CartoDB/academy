@@ -10,7 +10,7 @@ tweet_text: "Step by step is the way to go. I've finished the second lesson of t
 To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and copy this link:
 
 {% highlight text %}
-http://acdmy.org/d/counties.zip
+http://academy.cartodb.com/d/counties.zip
 {% endhighlight %}
 
 Now you should make sure you're on your CartoDB dashboard.  
