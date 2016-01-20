@@ -1,8 +1,7 @@
 ---
 title: "Odyssey.js: An in-depth introduction to maps with narratives"
 permalink: /courses/community/odyssey-introduction/
-permalink_next: /courses/community/torque-peter-desmet/
-display: false
+permalink_next: /courses/community/torque-bird-tracking/
 ---
 
 <div style="font-size: 24px; margin: 25px 0px;"><a href="http://mapninja.github.io/CartoDB_Odyssey_Tutorial_for_Story_Maps/">CartoDB's Odyssey</a> by Stace Maples</div>

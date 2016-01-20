@@ -1,7 +1,6 @@
 ---
 title: "Identify schools at risk from Oklahoma's earthquakes"
 permalink: /courses/community/earthquake-risk/
-visible: false
 ---
 
 <div style="font-size: 18px; margin: 15px 0px;"><a href="http://2015.padjo.org/tutorials/mapping/077-ok-schools-quakes/">Using PostGIS, SQL, and CartoDB to identify schools at risk from Oklahoma's earthquakes</a>, by Dan Nguyen</div>

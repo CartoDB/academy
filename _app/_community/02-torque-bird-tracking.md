@@ -1,6 +1,7 @@
 ---
 title: "Visualizing bird tracking data"
 permalink: /courses/community/torque-bird-tracking/
+permalink_next: /courses/community/earthquake-risk/
 ---
 
 <div style="font-size: 18px; margin: 15px 0px;"><a href="http://lifewatch.inbo.be/blog/posts/cartodb-tracking-data-tutorial.html">Use CartoDB to visualize Bird Tracking Data</a>, by Peter Desmet</div>
