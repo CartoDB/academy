@@ -13,7 +13,7 @@ If you would like to nominate a new lesson for inclusion to our community sectio
 
 ## Want to contribute in another way?
 
-Map Academy is open source. What that means is that all lessons and code to create Map Academy lies in [our code repository](http://github.com/academy).
+Map Academy is open source. What that means is that all lessons and code to create Map Academy lies in [our code repository](http://github.com/CartoDB/academy).
 
 ### Ways to contribute
 
