@@ -2,7 +2,13 @@
 // --------------------------------------------------
 
 .Title {
+  font-weight: 600;
   color: $grey2;
+
+  span {
+    font-weight: 300;
+    color: $grey9;
+  }
 }
 
 // Sizes
