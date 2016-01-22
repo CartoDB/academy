@@ -26,15 +26,15 @@ layout: default
           </li>
 
           <li class="Breadcrumbs-item">
-            <a href="{{ collection.url }}" class="Breadcrumbs-link">
-              <span>{{ collection.title }}</span>
+            <a href="{{ collection.url }}" class="Breadcrumbs-link" title="{{ collection.title }}">
+              <span>{{ collection.title | truncate: 25 }}</span>
             </a>
             <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
-            <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
-              <span>{{ page.title }}</span>
+            <a href="{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title }}">
+              <span>{{ page.title | truncate: 25 }}</span>
             </a>
           </li>
         </ul>

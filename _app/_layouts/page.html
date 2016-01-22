@@ -17,8 +17,8 @@ layout: default
         </li>
 
         <li class="Breadcrumbs-item">
-          <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
-            <span>{{ page.title }}</span>
+          <a href="{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ page.title }}">
+            <span>{{ page.title | truncate: 25 }}</span>
           </a>
         </li>
       </ul>

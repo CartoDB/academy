@@ -60,13 +60,7 @@
 
 // Colors
 .Button--cWhite {
-  @include button(#fff, $blue1);
-
-  &.is-hover--dark {
-    &:hover {
-      color: $grey2;
-    }
-  }
+  @include button(#fff, $green1);
 
   &.is-highlight--dark {
     color: $grey2;
