@@ -33,15 +33,6 @@
     margin-left: $spacing-unit;
   }
 }
-.Breadcrumbs-item {
-  margin-left: $spacing-unit;
-  font-size: 11px;
-
-  @media (max-width: $layout-m) {
-    width: 100%;
-    margin-left: 0;
-  }
-}
 .Navbar-link,
 .Breadcrumbs-link {
   display: inline-block;
@@ -73,14 +64,6 @@
 }
 .Navbar-button {
   margin-top: 8px;
-}
-.Breadcrumbs-link {
-  color: $grey9;
-
-  &:hover,
-  &.is-active {
-    color: $grey2;
-  }
 }
 .Navbar-inner--left,
 .Breadcrumbs-inner--left {
@@ -170,12 +153,5 @@
   .Navbar-link--button {
     display: block;
     text-align: center;
-  }
-  .Dropdown-item {
-    &.is-active {
-      .Dropdown-link {
-        color: lighten($grey9, 5%);
-      }
-    }
   }
 }
