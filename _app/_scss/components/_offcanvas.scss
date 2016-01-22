@@ -13,28 +13,6 @@
     &.is-active {
       right: 80%;
 
-      .Navbar--cWhite {
-        .Button--cGrey {
-          border-color: rgba(#fff, .3);
-
-          &:hover {
-            background: #fff;
-          }
-        }
-        .Navbar-link {
-          color: #fff;
-
-          &:hover {
-            color: rgba(#fff, .6);
-          }
-
-          &.is-hover--dark {
-            &:hover {
-              color: $grey2;
-            }
-          }
-        }
-      }
       .Navbar-inner {
         display: block;
         width: 100%;
@@ -43,6 +21,11 @@
         border-bottom: 1px solid rgba(#fff, .1);
         margin-bottom: 10px;
         padding-bottom: 18px;
+      }
+      .Navbar-link--signup {
+        &:hover {
+          color: $grey2;
+        }
       }
       .Dropdown-inner {
         display: block;
