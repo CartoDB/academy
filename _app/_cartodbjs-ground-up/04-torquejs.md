@@ -1,5 +1,5 @@
 ---
-title: "Torque.js"
+title: "CartoDB.js from the ground up — Torque.js"
 redirect_from: /courses/03-cartodbjs-ground-up/lesson-4.html
 permalink: /courses/cartodbjs-ground-up/torquejs/
 tweet_text: "I'm more animated because of Torque.js @cartoDB"

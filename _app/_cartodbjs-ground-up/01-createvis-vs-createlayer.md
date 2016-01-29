@@ -1,5 +1,5 @@
 ---
-title: "createVis vs. createLayer"
+title: "CartoDB.js from the ground up — createVis vs. createLayer"
 redirect_from: /courses/03-cartodbjs-ground-up/lesson-1.html
 permalink: /courses/cartodbjs-ground-up/createvis-vs-createlayer/
 permalink_next: /courses/cartodbjs-ground-up/creating-basic-map-apps/

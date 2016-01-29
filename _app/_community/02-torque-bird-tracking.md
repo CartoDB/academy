@@ -1,5 +1,5 @@
 ---
-title: "Visualizing bird tracking data"
+title: "Community — Visualizing bird tracking data"
 permalink: /courses/community/torque-bird-tracking/
 permalink_next: /courses/community/earthquake-risk/
 ---

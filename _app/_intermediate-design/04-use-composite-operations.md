@@ -1,5 +1,5 @@
 ---
-title:  "How to Use Composite Operations in CartoCSS"
+title: "Intermediate Map Design — How to Use Composite Operations in CartoCSS"
 permalink: /courses/intermediate-design/use-composite-operations/
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
 ---

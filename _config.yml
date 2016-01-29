@@ -1,7 +1,8 @@
 # Site settings
-title: The Map Academy
+title: The Map Academy — CartoDB
 description: >
   Learn to create maps on the web and visualize geospatial data
+keywords: "data visualization tools, cartodb. location intelligence, big data, learning resources, deep insights"
 baseurl: ''
 
 # Build settings

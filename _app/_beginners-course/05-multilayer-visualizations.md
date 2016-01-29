@@ -1,5 +1,5 @@
 ---
-title: "Multilayer Visualizations"
+title: "Online Mapping for Beginners — Multilayer Visualizations"
 redirect_from: /courses/01-beginners-course/lesson-5.html
 permalink: /courses/beginners-course/multilayer-visualizations/
 tweet_text: "Step by step is the way to go. I've finished the fifth lesson of the map academy. Check it out"

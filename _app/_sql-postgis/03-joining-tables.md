@@ -1,5 +1,5 @@
 ---
-title: "JOINs in SQL and PostGIS"
+title: "SQL and PostGIS in CartoDB — JOINs in SQL and PostGIS"
 redirect_from: /courses/04-sql-postgis/lesson-3.html
 permalink: /courses/sql-postgis/joining-data/
 ---

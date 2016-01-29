@@ -1,5 +1,6 @@
 ---
 layout: course
+title: "Online Mapping for Beginners"
 redirect_from: /courses/01-beginners-course.html
 collection: beginners-course
 mailchimp_id: 39c07c0ec2

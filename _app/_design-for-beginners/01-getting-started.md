@@ -1,5 +1,5 @@
 ---
-title:  "Getting Started with Map Design"
+title: "Introduction to Map Design — Getting Started with Map Design"
 redirect_from: /courses/02-design-for-beginners/lesson-1.html
 permalink: /courses/beginners-course/getting-started/
 permalink_next: /courses/beginners-course/colors-truth-insights/
