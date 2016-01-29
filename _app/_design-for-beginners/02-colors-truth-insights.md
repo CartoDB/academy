@@ -1,5 +1,5 @@
 ---
-title:  "Colors. Truth & Insights"
+title: "Introduction to Map Design — Colors. Truth & Insights"
 redirect_from: /courses/02-design-for-beginners/lesson-2.html
 permalink: /courses/beginners-course/colors-truth-insights/
 permalink_next: /courses/beginners-course/invisible-and-visible-data/

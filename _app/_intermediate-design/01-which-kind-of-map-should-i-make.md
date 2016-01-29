@@ -1,5 +1,5 @@
 ---
-title:  "Which kind of map should I make?"
+title: "Intermediate Map Design — Which kind of map should I make?"
 redirect_from: /courses/06-intermediate-design/lesson-1.html
 permalink: /courses/intermediate-design/which-kind-of-map-should-i-make/
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"

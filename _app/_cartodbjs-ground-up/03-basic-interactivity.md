@@ -1,5 +1,5 @@
 ---
-title: "Basic interactivity"
+title: "CartoDB.js from the ground up — Basic interactivity"
 redirect_from: /courses/03-cartodbjs-ground-up/lesson-3.html
 permalink: /courses/cartodbjs-ground-up/basic-interactivity/
 permalink_next: /courses/cartodbjs-ground-up/torquejs/

@@ -40,7 +40,7 @@
             <dl>
               <dt class="Footer-columnTitle">Discover</dt>
               {% for discover_item in site.data.menu.discover %}
-                <dd><a class="Footer-link" href="{{ discover_item.url }}">{{ discover_item.title }}</a></dd>
+                <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}{{ discover_item.url }}">{{ discover_item.title }}</a></dd>
               {% endfor %}
               <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/ambassadors/">Ambassadors</a></dd>
             </dl>
@@ -53,7 +53,7 @@
                 <dd><a class="Footer-link" href="{{ learn_item.url }}">{{ learn_item.title }}</a></dd>
               {% endfor %}
               <dd><a class="Footer-link" href="https://github.com/CartoDB/cartodb">Source Code</a></dd>
-              <dd><a class="Footer-link" href="/contributing/">Contributions</a></dd>
+              <dd><a class="Footer-link" href="{{ site.cartodb-baseurl }}/contributing/">Contributions</a></dd>
             </dl>
           </li>
 

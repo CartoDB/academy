@@ -1,5 +1,5 @@
 ---
-title: "Odyssey.js: An in-depth introduction to maps with narratives"
+title: "Community — Odyssey.js: An in-depth introduction to maps with narratives"
 permalink: /courses/community/odyssey-introduction/
 permalink_next: /courses/community/torque-bird-tracking/
 ---

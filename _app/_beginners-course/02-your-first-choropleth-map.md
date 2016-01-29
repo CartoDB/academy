@@ -1,5 +1,5 @@
 ---
-title: "Your First Choropleth Map"
+title: "Online Mapping for Beginners — Your First Choropleth Map"
 redirect_from: /courses/01-beginners-course/lesson-2.html
 permalink: /courses/beginners-course/your-first-choropleth-map/
 permalink_next: /courses/beginners-course/thematic-maps-with-point-data/

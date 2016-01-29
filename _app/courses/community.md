@@ -1,5 +1,6 @@
 ---
 layout: community
+title: "Community lessons and tutorials"
 collection: community
 mailchimp_id: eb9ddf4108
 ---
