@@ -81,7 +81,7 @@ Notice that the changes apply universally across a dataset. In this earthquake m
 
 ![earthquake_map](/img/course6/lesson1/earthquakes_2.png)
 
-You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the data table, other wizards are a better choice. 
+You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the dataset, other wizards are a better choice. 
 
 If you find that your location points are too close together to be readable, consider using a cluster or density map instead. Within the Simple wizard, you also have the ability to do color and alpha composite operations, but those will be covered in a later lesson on color.
 

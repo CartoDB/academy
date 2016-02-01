@@ -17,7 +17,7 @@ This lesson strongly relies on techniques developed in the past three lessons on
 
 **Goals**
 
-1. Expose the rich methods and events in the Torque.js library
+1. Expose the rich methods and events in the [Torque.js](http://docs.cartodb.com/cartodb-platform/torque-js/) library
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
