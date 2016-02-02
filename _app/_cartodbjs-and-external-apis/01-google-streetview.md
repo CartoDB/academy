@@ -218,9 +218,7 @@ We pass our location data and the StreetView Service status to the processSVData
 </script>
 {% endhighlight %}
 
-That's it! For more information on Google's Street View Service, check out [Google's detailed documentation](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). 
-
-Here is the complete code for setting up the infowindow, make sure to add your Google API key for it to work:
+That's it! Here is the complete code for setting up the infowindow, make sure to add your Google API key for it to work:
 
 {% highlight html %}
 <!DOCTYPE html>
@@ -336,3 +334,8 @@ Here is the complete code for setting up the infowindow, make sure to add your G
   </body>
 </html>
 {% endhighlight %}
+
+## Resources
+* [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js/)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
+* [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en
