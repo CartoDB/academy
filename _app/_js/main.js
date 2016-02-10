@@ -3,12 +3,22 @@ App.Views.Main = Backbone.View.extend({
   el: 'body',
 
   events: {
+    'click .js-Action--NAVsignup': '_onClickNAVsignup',
+    'click .js-Action--NAVpricing': '_onClickNAVpricing',
     'click': '_closeDropdowns',
     'keydown': '_onKeyDown'
   },
 
   initialize: function() {
     this._initViews();
+  },
+
+  _onClickNAVsignup: function () {
+    ga('send', 'event', 'NAVsignup', 'click', 'academy')
+  },
+
+  _onClickNAVpricing: function () {
+    ga('send', 'event', 'NAVpricing', 'click', 'academy')
   },
 
   _initViews: function() {
