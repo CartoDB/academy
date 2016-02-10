@@ -1,5 +1,6 @@
 ---
 layout: course
+title: "Academy Lite"
 redirect_from: /courses/05-academy-lite.html
 collection: academy-lite
 mailchimp_id: 6ae533ab3c

@@ -1,5 +1,5 @@
 ---
-title:  "Invisible and Visible Data"
+title: "Introduction to Map Design — Invisible and Visible Data"
 redirect_from: /courses/02-design-for-beginners/lesson-3.html
 permalink: /courses/beginners-course/invisible-and-visible-data/
 permalink_next: /courses/beginners-course/placing-your-labels/

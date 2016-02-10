@@ -1,5 +1,5 @@
 ---
-title: "PostGIS in CartoDB"
+title: "SQL and PostGIS in CartoDB — PostGIS in CartoDB"
 redirect_from: /courses/04-sql-postgis/lesson-2.html
 permalink: /courses/sql-postgis/postgis-in-cartodb/
 permalink_next: /courses/sql-postgis/editing-tables-more-advanced-postgis/
@@ -87,7 +87,7 @@ This statement draws a 25 mile buffer around our road segment, the Mississippi p
 
 Also notice that the `cartodb_id` column was also selected so that interactivity (click events, hovers) can be enabled.
 
-To extend this to see which musicians are in the buffer, [create a multilayered map](http://docs.cartodb.com/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CartoDB Sidebar](http://docs.cartodb.com/cartodb-editor/maps/#cartodb-sidebar). Select the table `mississippi_blues_musicians`. Finally, style it to your liking.
+To extend this to see which musicians are in the buffer, [create a multilayered map](http://docs.cartodb.com/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CartoDB Sidebar](http://docs.cartodb.com/cartodb-editor/maps/#cartodb-sidebar). Select the dataset `mississippi_blues_musicians`. Finally, style it to your liking.
 
 ![ST_Buffer of U.S. Route 61](/img/course4/lesson2/buffer-example.png)
 

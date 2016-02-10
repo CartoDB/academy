@@ -1,5 +1,5 @@
 ---
-title:  "CartoCSS"
+title: "Academy Lite — CartoCSS"
 redirect_from: /courses/05-academy-lite/lesson-1.html
 permalink: /courses/academy-lite/cartocss/
 tweet_text: "Have 5 min free to learn map design? Check out our CartoCSS Basics. @cartoDB"

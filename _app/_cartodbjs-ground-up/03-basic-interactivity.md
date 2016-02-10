@@ -1,5 +1,5 @@
 ---
-title: "Basic interactivity"
+title: "CartoDB.js from the ground up — Basic interactivity"
 redirect_from: /courses/03-cartodbjs-ground-up/lesson-3.html
 permalink: /courses/cartodbjs-ground-up/basic-interactivity/
 permalink_next: /courses/cartodbjs-ground-up/torquejs/
@@ -55,7 +55,7 @@ Add more interactivity to our maps by using CartoDB.js sublayer methods for alte
 
 We will be using the real-time earthquake data available through USGS' [up-to-date datasets](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php). To get a large amount of data, grab the "all earthquakes" link under "Past 30 Days" and import it into your account. As you will be doing this lesson at a different time than when this lesson was written, your data will appear differently than what appears below.
 
-Before working with any data, rename the data table to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor/maps/#filters) in the right pane is a great way to get to know your data.
+Before working with any data, rename the dataset to `earthquakes_cdbjs_lesson3`. Also don't forget to spend some time inspecting the data types and their values. Experimenting with the [filters](http://docs.cartodb.com/cartodb-editor/maps/#filters) in the right pane is a great way to get to know your data.
 
 The table has about a dozen columns, all of which are [explained here](http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php). The ones of interest to us are:
 

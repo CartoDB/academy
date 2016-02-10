@@ -1,5 +1,5 @@
 ---
-title: "Creating basic map apps"
+title: "CartoDB.js from the ground up — Creating basic map apps"
 redirect_from: /courses/03-cartodbjs-ground-up/lesson-2.html
 permalink: /courses/cartodbjs-ground-up/creating-basic-map-apps/
 permalink_next: /courses/cartodbjs-ground-up/basic-interactivity/
@@ -11,10 +11,10 @@ tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js/), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [this link](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two tables from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
+Download/copy the template for this lesson from [this link](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two datasets from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
 
-+ World Lakes has a table name `ne_50m_lakes`
-+ African Countries has a table name `africa_admin0`
++ World Lakes has a dataset name `ne_50m_lakes`
++ African Countries has a dataset name `africa_admin0`
 
 
 ## Exploring callback functions

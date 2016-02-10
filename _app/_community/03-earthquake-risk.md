@@ -1,5 +1,5 @@
 ---
-title: "Identify schools at risk from Oklahoma's earthquakes"
+title: "Community — Identify schools at risk from Oklahoma's earthquakes"
 permalink: /courses/community/earthquake-risk/
 ---
 
