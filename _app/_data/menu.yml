@@ -7,8 +7,10 @@ product:
     url: /data/
   - title: Basemaps
     url: /basemaps/
-  # - title: Deep Insights
-  #   url: /deep-insights/
+  - title: Mobile
+    url: /mobile/
+  - title: Deep Insights
+    url: /deep-insights/
 solutions:
   - title: Banking and Finance
     url: '/solutions/banking-and-finance/'
@@ -79,22 +81,3 @@ learn:
     url: 'https://cartodb.com/webinars/'
   - title: Blog
     url: 'http://blog.cartodb.com/'
-about:
-  - title: Team
-    url: 'https://cartodb.com/team/'
-  - title: Board and Investors
-    url: 'https://cartodb.com/team/#board'
-  - title: Jobs
-    url: 'https://cartodb.com/jobs/'
-  - title: Media
-    url: 'https://cartodb.com/media/'
-  - title: Press
-    url: 'https://cartodb.com/press/'
-  - title: Partners
-    url: 'https://cartodb.com/partners/'
-  - title: Attributions
-    url: 'https://cartodb.com/attributions/'
-  - title: Contact Sales
-    url: 'mailto:sales@cartodb.com'
-  - title: Request a Demo
-    url: 'https://cartodb.com/request-live-demo/'
