@@ -19,12 +19,13 @@
   color: $grey2;
 }
 .Footer-item {
-  margin-bottom: 10px;
+  position: relative;
+  margin-bottom: 6px;
 }
 .Footer-item--mobile {
   border-bottom: 1px solid #eee;
   display: block;
-  padding: 10px 0;
+  padding: 13px 0;
   margin-bottom: 0;
 
   .Footer-link {
@@ -101,4 +102,10 @@
     background: darken($blue1, 5%);
     color: #fff;
   }
+}
+.Footer-arrow {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  color: #ddd;
 }
