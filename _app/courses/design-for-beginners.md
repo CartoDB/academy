@@ -1,6 +1,6 @@
 ---
 layout: course
-title:"Introduction to Map Design"
+title: "Introduction to Map Design"
 redirect_from: /courses/02-design-for-beginners.html
 collection: design-for-beginners
 mailchimp_id: 9f65372776
