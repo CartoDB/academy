@@ -29,7 +29,7 @@ When using Google's APIs, you agree to abide by their [Terms of Service](https:/
 
 ## Getting Started
 
-First, copy the HTML starter code stored [here](https://github.com/CartoDB/academy/blob/master/_app/t/07-cartodbjs-and-external-apis/template.html)) to a file in the text editor of your choice. We will be adding code to this file throughout the tutorial.
+First, copy the HTML starter code stored [here](https://github.com/CartoDB/academy/blob/master/_app/t/07-cartodbjs-and-external-apis/lesson-1/template.html) to a file in the text editor of your choice. We will be adding code to this file throughout the tutorial.
 
 In order to use Google’s APIs, you will need a Google account, and to register your project in the [Google Developers Console](https://console.developers.google.com/).
 
