@@ -91,7 +91,7 @@ Within the body of the page, we have an empty div element with an id of â€œmap,â
 <div id="map"></div>
 {% endhighlight %}
 
-Now that we are familiar with our starter code, let's add additional code to create our map. Grab your viz.json link, or use [this link](https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json). Within the script tags in the body of the file, we need to add some additional code to setup a Leaflet map with a center of (0,0) and a zoom level of 2 in the function main(). We also add a basemap using Leaflet and our viz.json layer using the [CartoDB.js createLayer()method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). Here's the full code:
+Now that we are familiar with our starter code, let's add additional code to create our map. Grab your viz.json link, or use [this link](https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json). Within the script tags in the body of the file, we need to add some additional code to setup a Leaflet map with a center of (0,0) and a zoom level of 2 in the function main(). We also add a basemap using Leaflet and our viz.json layer using the [CartoDB.js createLayer() method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). Here's the full code:
 
 {% highlight javascript %}
 <script>
@@ -120,26 +120,26 @@ Check that you have correctly added your map by navigating to a web browser to r
 
 Now that we have created our map, our next step is to create the CartoDB infowindows. This will be a two step process in which we setup interactivity so that infowindows can be enabled in our JavaScript done function, and add an HTML template for our infowindows. Let's start by adding our infowindow HTML template code! Add the following script to your HTML file beneath <div id="map"></div> within the body of the file.
 
-{% highlight javascript %}
+{% highlight html %}
 <script type="infowindow/html" id="infowindow_template">
-      <div class="cartodb-popup v2">
-        <a href="#close" class="cartodb-popup-close-button close">x</a>
-         <div class="cartodb-popup-content-wrapper">
-           <div class="cartodb-popup-header">
-            <div id="panorama"></div>
-           </div>
-           <div class="cartodb-popup-content">
-             <h4>{{content.data.name}}</h4>
-           </div>
-         </div>
-         <div class="cartodb-popup-tip-container"></div>
-      </div>
-      </script>
+  <div class="cartodb-popup v2">
+    <a href="#close" class="cartodb-popup-close-button close">x</a>
+     <div class="cartodb-popup-content-wrapper">
+       <div class="cartodb-popup-header">
+        <div id="panorama"></div>
+       </div>
+       <div class="cartodb-popup-content">
+         <h4>{{content.data.name}}</h4>
+       </div>
+     </div>
+     <div class="cartodb-popup-tip-container"></div>
+  </div>
+</script>
 {% endhighlight %}
 
-Within our infowindow HTMl template is a div with an id of "panorama". This div will be used later to append our Google Street View Panorama to the DOM once the panorama is generated. We also include a h4 element and use [mustache templates](https://mustache.github.io/) to grab data from our table for the name of each Street View location. The infowindow template includes div elements that have CSS styles that correspond to styles setup in our CartoDB stylesheet to style the display of the infowindow.
+Within our infowindow HTMl template is a `div` with an id of "panorama". This div will be used later to append our Google Street View Panorama to the DOM once the panorama is generated. We also include a `h4` element and use [mustache templates](https://mustache.github.io/) to grab data from our table for the name of each Street View location. The infowindow template includes div elements that have CSS styles that correspond to styles setup in our CartoDB stylesheet to style the display of the infowindow.
 
-Now that we have added our infowindow template, we need to enable the infowindow interactivity in our JavaScript. Within the done function() in our JavaScript, add the following code:
+Now that we have added our infowindow template, we need to enable the infowindow interactivity in our JavaScript. Within the `.done` callback function in our JavaScript, add the following code:
 
 {% highlight javascript %}
 <script>
@@ -161,7 +161,10 @@ Now that we have added our infowindow template, we need to enable the infowindow
 </script>
 {% endhighlight %}
 
-Let's break the above code down further. We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition) in order to access the SQL and CSS of our map layer. We then enable interaction for the layer using the [CartoDB.js sublayer method setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add events like mouseover or click events.
+Let's break the above code down further:
+
+1. We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition) in order to access the SQL and CartoCSS of our map layer.
+1. We then enable interaction for the layer using the CartoDB.js sublayer method [setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add events like mouseover or click events.
 
 
 {% highlight html %}
@@ -171,7 +174,7 @@ Let's break the above code down further. We use the [CartoDB.js method getSubLay
 </script>
 {% endhighlight %}
 
-We then add a click infowindow to our map using the [CartoDB.js cartodb.vis.Vis.addInfowindow() method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CartoDB layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called 'lat' and 'lon'. We also have a column called 'name', which stores titles for each Street View location. We pass our infowindowTemplate as a parameter, and setup the templateType as a mustache template. The  method returns an [infowindow object](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
+We then add a click infowindow to our map using the CartoDB.js [`cartodb.vis.Vis.addInfowindow() ` method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CartoDB layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called `lat` and `lon`. We also have a column called `name`, which stores titles for each Street View location. We pass our `infowindowTemplate` as a parameter, and setup the `templateType` as a mustache template. The  method returns an [infowindow object](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
 
 {% highlight html %}
 <script>
@@ -182,7 +185,7 @@ We then add a click infowindow to our map using the [CartoDB.js cartodb.vis.Vis.
 </script>
 {% endhighlight %}
 
-We set up our custom [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex) event so we can access our latitude and longitude data. When the user clicks on a point on our map, we grab the latitude and longitude coordinates for that point from our 'lat' and 'lon' columns in our CartoDB dataset and pass the coordinates to the Google Street View Service to make our request for the location panorama. We use the StreetViewService object to make a StreetViewLocationRequest using our latitude and longitude values. The getPanorama() function needs a callback function (processSVData) to execute upon retrieval of a result from the StreetView Service. If the response from StreetView Service is positive, we will be able to generate our panorama. If the result is negative, an error message will be logged to the console.
+We set up our custom [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex) event so we can access our latitude and longitude data. When the user clicks on a point on our map, we grab the latitude and longitude coordinates for that point from our `lat` and `lon` columns in our CartoDB dataset and pass the coordinates to the Google Street View Service to make our request for the location panorama. We use the `StreetViewService` object to make a `StreetViewLocationRequest` using our latitude and longitude values. The `getPanorama()` function needs a callback function (`processSVData`) to execute upon retrieval of a result from the StreetView Service. If the response from StreetView Service is positive, we will be able to generate our panorama. If the result is negative, an error message will be logged to the console.
 
 
 {% highlight html %}
@@ -195,7 +198,7 @@ layer.on('featureClick', function(e, latlng, pos, data, layerIndex){
 </script>
 {% endhighlight %}
 
-We pass our location data and the StreetView Service status to the processSVData() callback function. If the StreetViewStatus is positive, we can create our panorama! We select the #panorama div from our infowindow template to append our panorama to the DOM, use the StreetViewService method setPosition to set the location for the panorama, and specify no close button for the panorama. If the StreetViewStatus is negative and there is no Street View data for the location, we log an error message to the console.  
+We pass our location data and the StreetView Service status to the `processSVData()` callback function. If the StreetViewStatus is positive, we can create our panorama! We select the `#panorama` div from our infowindow template to append our panorama to the DOM, use the StreetViewService method `setPosition` to set the location for the panorama, and specify no close button for the panorama. If the StreetViewStatus is negative and there is no Street View data for the location, we log an error message to the console.  
 
 {% highlight html %}
 <script>
