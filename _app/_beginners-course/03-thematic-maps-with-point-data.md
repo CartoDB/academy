@@ -1,5 +1,5 @@
 ---
-title: "Thematic Maps with Point Data"
+title: "Online Mapping for Beginners — Thematic Maps with Point Data"
 redirect_from: /courses/01-beginners-course/lesson-3.html
 permalink: /courses/beginners-course/thematic-maps-with-point-data/
 permalink_next: /courses/beginners-course/animated-maps-with-point-data/
@@ -10,19 +10,19 @@ tweet_text: "Step by step is the way to go. I've finished the third lesson of th
 In this lesson you'll be exploring some other visualization records. To get started, copy the link below, which will allow you to create a map of tornados in the U.S.:
 
 {% highlight text %}
-http://acdmy.org/d/tornadoes.zip
+http://academy.cartodb.com/d/tornadoes.zip
 {% endhighlight %}
 
-Navigate to your dashboard, click “New table” or the “+” icon to the right of your existing table(s), and past the URL in the field. Click "Create table" and you're ready to go.
+Navigate to your dashboard, click “New Dataset” and past the URL in the field. Click "Connect Dataset" and you're ready to go.
 
 
 ## Know your Data
 
-Let's take a minute to look at the data in the table; it's important to know what we have to visualize it optimally. 
+Let's take a minute to look at the dataset; it's important to know what we have to visualize it optimally. 
 
 If you want, you can examine the information by opening the CSV file from the link provided with Excel or another spreadsheet software. If you do, you'll see four columns: damage, date, latitude, and longitude.
 
-In "Table" view on CartoDB, you have all of these columns in addition to a few created by us. One such column is called "the_geom," which we have mentioned in previous lessons. This time, "the_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CartoDB knows how to take these columns and turn them into points.
+From the "Data View", you have all of these columns in addition to a few created by us. One such column is called "the_geom," which we have mentioned in previous lessons. This time, "the_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CartoDB knows how to take these columns and turn them into points.
 
 CartoDB will not, however, automatically convert the _types_ of data in each column. For example, you can see that `damage` is a number, and not a string type of data. (You know this because it has numerical data, not text.) You can also see that `date` was not imported as a date type of data, but as a string. 
 

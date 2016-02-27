@@ -1,22 +1,14 @@
 product:
   - title: Editor
     url: /editor/
-  - title: Data
-    url: /data/
   - title: Platform
     url: /platform/
-  - title: Extras
-    url: /extras/
-  - title: Enterprise
-    url: /enterprise/
-  - title: On-premises
-    url: /on-premises/
-  - title: Open in CartoDB
-    url: /open-in-cartodb/
+  - title: Data
+    url: /data/
   - title: Basemaps
     url: /basemaps/
-  - title: Torque
-    url: /torque/
+  # - title: Deep Insights
+  #   url: /deep-insights/
 solutions:
   - title: Banking and Finance
     url: '/solutions/banking-and-finance/'
@@ -24,7 +16,7 @@ solutions:
     url: '/solutions/business-intelligence-and-analytics/'
   - title: Earth Observation and Space
     title_short: Earth Observation
-    url: '/solutions/earth-observation/'
+    url: '/solutions/earth-observation-and-space/'
   - title: Education and Research
     title_short: Education
     url: '/solutions/education-and-research/'
@@ -36,21 +28,17 @@ solutions:
   - title: Natural resources
     url: '/solutions/natural-resources/'
   - title: Non-Profits
-    url: '/solutions/natural-resources/'
+    url: '/solutions/non-profits/'
   - title: Real Estate
-    url: '/solutions/natural-resources/'
+    url: '/solutions/real-estate/'
   - title: Web and mobile development
     title_short: Web Development
     url: '/solutions/web-mobile/'
 discover:
-  - title: Explore
-    url: '/explore'
   - title: Gallery
     url: '/gallery/'
-  - title: Data Library
-    url: '/data-library'
-  - title: Ambassadors
-    url: '/ambassadors/'
+  - title: Explore
+    url: '/explore'
 cartodbfor:
   - title: Google Platform
     url: '/cartodb-for/google-platform/'
@@ -84,20 +72,18 @@ learn:
   - title: Documentation
     url: 'http://docs.cartodb.com/'
   - title: The Map Academy
-    url: '/'
+    url: 'http://academy.cartodb.com/'
   - title: Resources Center
     url: 'https://cartodb.com/resources/'
   - title: Webinars
     url: 'https://cartodb.com/webinars/'
-  - title: Source Code
-    url: 'https://github.com/CartoDB/cartodb'
-  - title: Contributions
-    url: 'https://cartodb.com/contributing/'
   - title: Blog
     url: 'http://blog.cartodb.com/'
 about:
   - title: Team
     url: 'https://cartodb.com/team/'
+  - title: Board and Investors
+    url: 'https://cartodb.com/team/#board'
   - title: Jobs
     url: 'https://cartodb.com/jobs/'
   - title: Media
@@ -108,8 +94,6 @@ about:
     url: 'https://cartodb.com/partners/'
   - title: Attributions
     url: 'https://cartodb.com/attributions/'
-  - title: Bug Bounty
-    url: 'https://cartodb.com/bug-bounty/'
   - title: Contact Sales
     url: 'mailto:sales@cartodb.com'
   - title: Request a Demo

@@ -6,17 +6,13 @@
   "mixins"
 ;
 
-// Vendor, base
+// Layout
 @import
   "vendor",
-  "base"
+  "base",
+  "components",
+  "academy"
 ;
-
-// Components
-@import "components";
-
-// Layout
-@import "academy";
 
 // Utilities
 @import "utilities";

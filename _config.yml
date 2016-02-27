@@ -1,7 +1,8 @@
 # Site settings
-title: The Map Academy
+title: The Map Academy — CartoDB
 description: >
   Learn to create maps on the web and visualize geospatial data
+keywords: "data visualization tools, cartodb. location intelligence, big data, learning resources, deep insights"
 baseurl: ''
 
 # Build settings
@@ -13,6 +14,7 @@ gems:
 
 # Permalinks
 cartodb-baseurl: 'https://cartodb.com'
+blog-baseurl: 'http://blog.cartodb.com'
 github-baseurl: 'http://github.com/CartoDB/academy'
 
 # analytics_property_id: ''
@@ -84,6 +86,14 @@ collections:
     url: /courses/cartodbjs-and-external-apis/
     description: >
       This course shows how to use CartoDB's JavaScript library CartoDB.js with external libraries and APIs.
+  community:
+    output: true
+    published: true
+    difficulty: mixed
+    title: "Community Content"
+    url: /courses/community/
+    description: >
+      Tutorials from CartoDB's community
 defaults:
   - scope:
       path: ""
@@ -133,3 +143,9 @@ defaults:
     values:
       layout: lesson
       body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: community
+    values:
+      layout: lesson
+      boty_class: 'js-Lesson'

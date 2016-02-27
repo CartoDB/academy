@@ -7,7 +7,7 @@
   border-style: solid;
   text-align: center;
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 12px;
   line-height: 1;
   border-radius: 50px;
@@ -22,29 +22,100 @@
     display: inline-block;
   }
 }
-/* sizes */
-.Button.Button--sSmall {
+.Button--responsive {
+  width: 100%;
+
+  > span {
+    max-width: 100%;
+  }
+}
+
+.Button--long {
+  > span {
+    min-width: 140px;
+  }
+}
+
+// Sizes
+.Button--sSmall {
   > span {
     padding: 8px $spacing-unit;
   }
 }
-.Button.Button--sMedium {
+.Button--sMedium {
   > span {
     padding: $spacing-unit / 2 $spacing-unit;
   }
 }
-.Button.Button--sLarge {
+.Button--sLarge {
   > span {
     padding: 12px $spacing-unit;
   }
 }
-/* colors */
-.Button.Button--cWhite {
-  @include button(#fff, $blue1);
+.Button--sXlarge {
+  > span {
+    padding: 14px $spacing-unit * 2;
+  }
 }
-.Button.Button--cBlue {
+
+// Colors
+.Button--cWhite {
+  @include button(#fff, $green1);
+
+  &.is-highlight--dark {
+    color: $grey2;
+  }
+
+  &.is-highlight--purple {
+    color: $purple1;
+  }
+}
+.Button--cBlue {
   @include button($blue1, #fff);
+
+  &.is-highlight--fb {
+    background: $facebook;
+    border-color: $facebook;
+
+    &:hover {
+      background: darken($facebook, 5%);
+      border-color: darken($facebook, 5%);
+    }
+  }
+
+  &.is-highlight--tw {
+    background: $twitter;
+    border: 2px solid $twitter;
+
+    &:hover {
+      background: darken($twitter, 5%);
+      border-color: darken($twitter, 5%);
+    }
+  }
+
+  &.is-highlight--li {
+    background: $linkedin;
+    border: 2px solid $linkedin;
+
+    &:hover {
+      background: darken($linkedin, 5%);
+      border-color: darken($linkedin, 5%);
+    }
+  }
+
 }
-.Button.Button--cGreen {
+.Button--cGrey {
+  @include button($grey2, #fff);
+
+  &.is-hover--dark {
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.Button--cGreen {
   @include button($green1, #fff);
+}
+.Button--cOrange {
+  @include button($orange1, #fff);
 }

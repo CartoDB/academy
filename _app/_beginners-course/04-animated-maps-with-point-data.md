@@ -1,5 +1,5 @@
 ---
-title: "Animated Maps with Point Data"
+title: "Online Mapping for Beginners — Animated Maps with Point Data"
 redirect_from: /courses/01-beginners-course/lesson-4.html
 permalink: /courses/beginners-course/animated-maps-with-point-data/
 permalink_next: /courses/beginners-course/multilayer-visualizations/
@@ -9,7 +9,7 @@ tweet_text: "Step by step is the way to go. I've finished the fourth lesson of t
 
 Lesson 4 will introduce you to Torque, which allows you to visualize data over time. This lesson follows straight from Lesson 3, so make sure you have a visualization with your tornado data to get started. We called our new visualization "Tornados over Time."
 
-Remember to now overwrite any of the visualizations you made in Lesson 3. You can create a new visualization from the Table View of your tornado data. In CartoDB, you can create as many visualizations as you want from one table, and they'll all exist independently.
+Remember to now overwrite any of the visualizations you made in Lesson 3. You can create a new visualization from the Data View of your tornado data. In CartoDB, you can create as many visualizations as you want from one dataset, and they'll all exist independently.
 
 
 ## Using Torque

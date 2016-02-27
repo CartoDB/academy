@@ -1,0 +1,101 @@
+// Sections
+// --------------------------------------------------
+
+.Section {
+  position: relative;
+  padding: $spacing-unit * 6 0;
+  background: #fff;
+  overflow: hidden;
+
+  @media (max-width: $layout-m) {
+    padding: $spacing-unit * 3 0;
+  }
+}
+.Section--short {
+  padding: $spacing-unit * 3 0 $spacing-unit * 6;
+}
+.Section--sLarge {
+  min-height: 720px;
+}
+.Section--sMedium {
+  min-height: 480px;
+}
+.Section--withFeatures {
+  padding-bottom: $spacing-unit * 3;
+
+  @media (max-width: $layout-m) {
+    padding-bottom: $spacing-unit * 2;
+  }
+}
+.Section--withoutBottom {
+  padding-bottom: 0;
+}
+.Section--nopadding {
+  padding-top: 0;
+}
+
+// Sizes
+.Section--brands {
+  padding: $spacing-unit 0;
+}
+
+// Colors
+.Section--cDark {
+  background: $grey2;
+}
+.Section--cGrey {
+  background: #f9f9f9;
+}
+.Section--gMap {
+  background-image: url('../img/backgrounds/signup/map.svg'), linear-gradient(0deg, #3BA9E2 0%, #2A7BBF 100%);
+  background-size: cover;
+  background-position: center;
+}
+.Section-background {
+  @include cover;
+}
+.Section-text {
+  font-size: 18px;
+  line-height: 32px;
+  color: $grey6;
+}
+.Section-list {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+.Section-text--cWhite {
+  color: #fff;
+}
+.Section-sep {
+  height: 1px;
+  background: #ddd;
+}
+.Section-offset--left {
+  transform: translateX(-80px);
+}
+.Section-offset--left--double {
+  transform: translateX(-160px);
+}
+.Section-offset--left--triple {
+  transform: translateX(-320px);
+}
+.Section-offset--right {
+  transform: translateX(80px);
+}
+.Section-offset--right--double {
+  transform: translateX(160px);
+}
+.Section-offset--right--triple {
+  transform: translateX(320px);
+}
+
+@media (max-width: $layout-l) {
+  .Section-offset--left,
+  .Section-offset--right,
+  .Section-offset--left--double,
+  .Section-offset--right--double,
+  .Section-offset--left--triple,
+  .Section-offset--right--triple {
+    transform: none;
+  }
+}

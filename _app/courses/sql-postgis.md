@@ -1,5 +1,6 @@
 ---
 layout: course
+title: "SQL and PostGIS in CartoDB"
 redirect_from: /courses/04-sql-postgis.html
 collection: sql-postgis
 mailchimp_id: eb9ddf4108

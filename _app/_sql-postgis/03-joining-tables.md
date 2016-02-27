@@ -1,5 +1,5 @@
 ---
-title: "JOINs in SQL and PostGIS"
+title: "SQL and PostGIS in CartoDB — JOINs in SQL and PostGIS"
 redirect_from: /courses/04-sql-postgis/lesson-3.html
 permalink: /courses/sql-postgis/joining-data/
 ---
@@ -37,7 +37,7 @@ FROM table_1, table_2
 WHERE table_1.iso_code = table_2.iso
 {% endhighlight %}
 
-You'll see, it doesn't matter that the columns in the two tables were different, `iso` versus just, `iso`, we still ran the join just fine. You could now use _Table from query_ under the _Options menu_ to create a new table with this data. Otherwise, we can just write it into the first table. Here's how.
+You'll see, it doesn't matter that the columns in the two tables were different, `iso` versus just, `iso`, we still ran the join just fine. You could now use _Merge with dataset_ from the Edit drop-down menu to create a new dataset with this data. Otherwise, we can just write it into the first table. Here's how.
 
 First, create a new column in `table_1` called 'population' and make it of type 'number'. You can do this by clicking the drop down arrow at the top of any column and selecting _Add new column_.
 
@@ -180,13 +180,13 @@ GROUP BY table_1.the_geom, table_1.iso_code
 
 ## Join two real datasets
 
-Now, let's run through an example using a couple real datasets. Start by getting two tables ready in your CartoDB account. To find them, go to your account dashboard. In the top menu click the _Common data option_. Find the dataset called 'World Rivers' and click in the _plus sign_ besides the element. This will load the data and take you to the resulting table. If you click on _Map view_, you'll see that it is a basic map of some of the worlds large rivers. This comes from [Natural Earth Data](http://naturalearthdata.com). Take note of the name of the table that was created, in our case it was `table_50m_rivers_lake_cen`.
+Now, let's run through an example using a couple real datasets. Start by getting two datasets ready in your CartoDB account. To find them, go to your account dashboard. From the Data View, click _Data library_. Search for the dataset called 'World Rivers' and click _Connect dataset_. This will load the data and take you to the resulting table. If you click on _Map view_, you'll see that it is a basic map of some of the worlds large rivers. This comes from [Natural Earth Data](http://naturalearthdata.com). Take note of the name of the table that was created, in our case it was `table_50m_rivers_lake_cen`.
 
-Next, go back to your Dashboard by clicking the _back link_ in the upper left. Repeat the process importing a different table from the _Common data_. This time you have to import 'World Borders' dataset. When the table finishes loading click _Map View_, and you'll see that it is a dataset of all country borders. Let's join the rivers with the countries so we can make a choropleth of the total length of big rivers in countries around the world. Of course, our map is going to ignore all the little rivers not included in our dataset, but this is just an example!
+Next, go back to your Dashboard by clicking the _back link_ in the upper left. Repeat the process importing a different table from the _Data library_. This time you have to import 'World Borders' dataset. When the table finishes loading click _Map View_, and you'll see that it is a dataset of all country borders. Let's join the rivers with the countries so we can make a choropleth of the total length of big rivers in countries around the world. Of course, our map is going to ignore all the little rivers not included in our dataset, but this is just an example!
 
 ### Joining the data
 
-From inside your country borders table create a new column to hold some numerical data. In the _Table view_, click the drop down arrow beside any regular column name and then click _Add new column_.
+From inside your country borders table create a new column to hold some numerical data. In the _Data View_, click the drop down arrow beside any regular column name and then click _Add new column_.
 
 <p class="wrap-border"><img src="{{ '/img/course4/lesson3/img1.png' | prepend: site.baseurl }}" alt="creating column" /></p>
 

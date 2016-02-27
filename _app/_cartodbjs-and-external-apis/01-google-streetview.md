@@ -1,6 +1,7 @@
 ---
 title: "Google Street View Infowindow Map Visualization"
 permalink: /courses/cartodbjs-and-external-apis/google-streetview/
+permalink_next: /courses/cartodbjs-and-external-apis/google-driving-directions/
 tweet_text: "Combine Google Streetview and CartoDB.js @cartoDB"
 lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 ---

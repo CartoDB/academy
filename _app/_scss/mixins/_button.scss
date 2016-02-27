@@ -6,8 +6,7 @@
   border-color: rgba($color1, .3);
 
   &:hover {
-    background: $color1;
-    color: $color2;
+    border-color: rgba($color1, .4);
   }
 
   &.is-highlight {
@@ -16,6 +15,19 @@
 
     &:hover {
       opacity: .9;
+    }
+  }
+
+  &.is-hover {
+    &:hover {
+      background: $color1;
+      color: $color2;
+    }
+  }
+
+  &.is-hover--dark {
+    &:hover {
+      color: $grey2;
     }
   }
 }

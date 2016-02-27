@@ -1,5 +1,5 @@
 ---
-title:  "How to Use Composite Operations in CartoCSS"
+title: "Intermediate Map Design — How to Use Composite Operations in CartoCSS"
 permalink: /courses/intermediate-design/use-composite-operations/
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
 ---
@@ -34,39 +34,23 @@ text-comp-op: screen;
 
 The layer (or text) that you choose the composite operation in is called the source. It's composite operation is applied to each layer beneath, which are called destination layers. In CartoDB the source layer itself needs to have a color fill, but it's composite operations apply to destination layers with color or texture fills, even raster ones. In this lesson we will apply composite operations to a marker source layer, that's on top of one destination layer containing lines and another destination layer containing a polygon with raster fill.
 
-CartoDB gets these composite operations from [Mapnik.](https://github.com/mapnik/mapnik/wiki/Compositing) There are over 30 to choose from. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) Mapnik bases these on:
+CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/mapnik/wiki/Compositing). There are over 30 comp ops. The ones you can use in CartoDB are below. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) for the ones in normal font, and [GNU Image Manipulation Program (GIMP)](http://docs.gimp.org/en/gimp-concepts-layer-modes.html) for the ones in italics:
 
-* multiply
-* darken
-* color-burn
-* lighten
-* screen
-* color-dodge
-* overlay
-* hard-light
-* soft-light
-* difference
-* exclusion
-* clear
-* src
-* dst
-* src-over
-* dst-over
-* src-in
-* dst-in
-* src-out
-* dst-out
-* src-atop
-* dst-atop
-* xor
-* plus
+| alpha comps  | color comps  | color comps  |
+|--------------|--------------|--------------|
+| src          | plus         | difference   |
+| dst          | multiply     | exclusion    |
+| src-over     | screen       | _minus (as 'subtract')_ |
+| dst-over     | overlay      | _value_      |
+| src-in       | darken       | _grain-merge_ | 
+| dst-in       | lighten      | _grain-extract_ |
+| src-out      | color-dodge  | invert | 
+| dst-out      | color-burn   | invert-rgb     | 
+| src-atop     | hard-light   | hue  | 
+| dst-atop     | soft-light   | saturation    | 
+| xor          |  contrast    | color   | 
 
-You can find more info about these in documentation for [GIMP,](http://docs.gimp.org/en/gimp-concepts-layer-modes.html) open-source image manipulation freeware: 
-
-* minus (as 'subtract')
-* value
-* grain-merge
-* grain-extract
+The comp-op `clear` affects both color and alpha.     
 
 Many CartoCSS comp-ops have [Photoshop blend mode](https://helpx.adobe.com/photoshop/using/blending-modes.html) equivalents. For easier comparison, we used Adobe's categories as a starting point to group them below by visual effect. The best way to learn about how comp-ops work is to try them out! You can use any of these in your map's custom CartoCSS panel, but some of our wizards also give you menu options for the most popular ones.
 
@@ -104,7 +88,7 @@ marker-comp-op: darken;
 
 ### Color-Burn
 
-Color-burn works similarly to color-dodge, but has a darkening effect. It increases the contrast between source and destination layers, with lighter pixels in your overlapping area tinted towards the source color. Use this when you want a darkening effect with more contrast than multiply or darken.
+Color-burn works similarly to color-dodge, but has a darkening effect. It increases the contrast between source and destination layers, with  pixels in your overlapping area tinted towards the source color. Use this when you want a darkening effect with more contrast than multiply or darken.
 
 {% highlight css %}
 marker-comp-op: color-burn;
@@ -120,7 +104,7 @@ For a good reason to use darkening effects, check out [this election map](https:
 
 ### Screen
 
-Like multiply, screen multiplies the overlapping areas. Unlike multiply, it subtracts the color channel numbers from 1 to invert them. This makes the overlapping areas brighter. If white is used, it won't change appearance. Black areas will disappear. Use this when you want to lighten overlapping areas in your map.
+Like multiply, screen multiplies the overlapping areas. Unlike multiply, it subtracts the multiplied color channel numbers from their added value to invert them. This makes the overlapping areas brighter. If white is used, it won't change appearance. Black areas will disappear. Use this when you want to lighten overlapping areas in your map.
 
 {% highlight css %}
 marker-comp-op: screen;
@@ -140,7 +124,7 @@ marker-comp-op: lighten;
 
 ### Color-Dodge
 
-The Color-dodge color blend mode is similar to Screen. It inverts the source layer color and decreases the contrast between the source and destination layers. The overall effect is more extreme than screen's. Your elements become much brighter (except if your source layer is black). Darker areas are tinted towards the source color. Use this when you want to have a major lightening effect with extreme contrast between your layers, without much detail showing.
+The Color-dodge color blend mode is similar to screen but the overall effect is more extreme. Your elements become much brighter (except if your source layer is black). Darker areas are tinted towards the source color. Use this when you want to have a major lightening effect with extreme contrast between your layers, without much detail showing.
 
 {% highlight css %}
 marker-comp-op: color-dodge;
@@ -156,7 +140,7 @@ A good reason to lighten a map element is to reduce how much it visually compete
 
 ### Overlay
 
-Overlay is a color blend mode that combines multiply and screen composite operations. Black appears as dark as it originally is in it's layer; white appears as bright as it originally is in it's layer. How purely other colors are rendered depends on how close they are to white or black. The closer a color is in value to pure midtone gray, the less it will appear. Use this when you want to show both light and dark in your overlapping layers, for example if you're using a textured polygon fill and want the highlights and shadows to appear through another layer. Notice in the example below how the gray areas take on the color of the source layer.
+Overlay is a color blend mode that combines multiply and screen composite operations. Black appears as dark as it originally is in it's layer; white appears as bright as it originally is in it's layer. How purely other colors are rendered depends on how close they are to white or black. The closer a color is in value to pure midtone gray, the less it will appear. Use this when you want to show both light and dark in your overlapping layers, for example if you're using a textured polygon fill and want the highlights and shadows to appear through another layer. Notice in the example below how the gray-equivalent areas take on the color of the source layer.
 
 {% highlight css %}
 marker-comp-op: overlay;
@@ -198,11 +182,11 @@ marker-comp-op: contrast;
 
 ![contrast]({{site.baseurl}}/img/course6/lesson4/contrast.png)
 
-Use contrast effects when you're trying to control how both dark and light elements in your map stand out from the other elements, or blend in with them better. For example, notice how the gray county outlines don't stand out as well in the darker red and blue areas in [the map](http://bit.ly/1M4v9tW) below. 
+Use contrast effects when you're trying to control how both dark and light elements in your map stand out from the other elements, or blend in with them better. For example, compare the dark red and blue areas to the lighter colored areas in the [the map](http://bit.ly/1M4v9tW) below. Notice how the gray county outlines don't stand out as well against the darker red and blue backgrounds.  
 
 ![overlay-use-case-1]({{site.baseurl}}/img/course6/lesson4/overlay-use-case-1.png)
 
-Now look how much more evenly they blend with background colors in [this map](http://bit.ly/1M4v9tW). We've also kept the white state outlines.
+Now look how much more evenly the county lines blend with background colors in [this map](http://bit.ly/1M4v9tW). We've also kept the white state outlines.
 
 ![overlay-use-case-2]({{site.baseurl}}/img/course6/lesson4/overlay-use-case-2.png)
 
@@ -210,7 +194,7 @@ Now look how much more evenly they blend with background colors in [this map](ht
 
 ### Difference
 
-The difference blending mode compares the source to the destination layers and finds the brightest color areas for each color channel. If the source has the brighter channel value, it's subtracted from the destination layer's channel. If the destination has the brighter channel value, it's subtracted from the source. Using pure white inverts the colors it's blending with; black has no effect. In areas where the colors being compared are very close in value, the result is black.
+The difference blending mode compares the source to the destination layers and finds the brightest color areas for each color channel. It gets the difference between color channel numbers by subtracting them from each other, and taking that absolute value. Using pure white inverts the colors it's blending with; black has no effect. In areas where the colors being compared are very close in value, the result is black.
 
 {% highlight css %}
 marker-comp-op: difference;
@@ -220,7 +204,7 @@ marker-comp-op: difference;
 
 ### Exclusion
 
-Exclusion is extremely similar to difference, but less extreme. In areas where the colors being compared are very close in value, the result is lighter than black. For example, notice the gray areas where the circle is the same color as the layers beneath in this map:
+Exclusion is similar to difference, but less extreme. In areas where the colors being compared are very close in value, the result is lighter than black. For example, notice the gray areas where the circle is the same color as the layers beneath in this map:
 
 {% highlight css %}
 marker-comp-op: exclusion;
@@ -230,9 +214,7 @@ marker-comp-op: exclusion;
 
 ### Invert
 
-Invert turns each RGB channel color into its opposite. Areas that look black originally will turn white, areas that look red will turn green, blues will turn orange, yellows will turn purple. Unlike invert-rgb though, this also inverts saturation and brightness values.
-
-Subtracts color channel value from 255 for destination layers.
+Invert turns each RGB channel color into its opposite. Areas that look black originally will turn white, areas that look red will turn green, blues will turn orange, yellows will turn purple.
 
 {% highlight css %}
 marker-comp-op: invert;
@@ -305,7 +287,7 @@ marker-comp-op: plus;
 
 ### Minus
 
-Minus works the same way as plus, but instead of adding the color channel values it subracts them. For example, if your source layer is mostly red, it will subract this from the destination layers so the overall color is mostly blue and green. This darkens the destination layer more extremely than color-burn, and is also more tinted towards the source color.
+Minus works the same way as plus, but instead of adding the color channel values it subracts them. For example, if your source layer is mostly red, it will subtract this from the destination layers so the overall color is mostly blue and green. This darkens the destination layer more extremely than color-burn, and is also more tinted towards the source color.
 
 {% highlight css %}
 marker-comp-op: minus;
