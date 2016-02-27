@@ -16,7 +16,7 @@
        height: 375px;
       }
       .cartodb-popup-content {
-       height: 375px;   
+       height: 375px;
       }
       #infowindow_template {
           width: 550px;
@@ -30,7 +30,7 @@
         height: 350px;
       }
     </style>
-    
+
   </head>
   <body>
     <div id="map"></div>
@@ -67,9 +67,9 @@
         L.tileLayer('https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png', {
           attribution: ''
         }).addTo(map);
-        
+
         cartodb.createLayer(map, 'https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
-        .addTo(map) 
+        .addTo(map)
         .done(function(layer) {
 
           var sublayer = layer.getSubLayer(0);
@@ -80,7 +80,7 @@
             templateType: 'mustache'
           });
 
-         layer.on('featureClick', function(e, latlng, pos, data, layerIndex){     
+         layer.on('featureClick', function(e, latlng, pos, data, layerIndex){
             var sv = new google.maps.StreetViewService();
             var myLatLng = new google.maps.LatLng(data.lat, data.lon);
             sv.getPanorama({location: myLatLng, radius: 50}, processSVData);
