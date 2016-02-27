@@ -6,22 +6,22 @@ lesson_message: "Congrats on mashing up Google Driving Directions and CartoDB!"
 ---
 
 ## Summary
-This lesson describes how to use CartoDB, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions) to create an interactive map that generates a driving direction route from a clicked point to a destination point. 
+This lesson describes how to use CartoDB, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions) to create an interactive map that generates a driving direction route from a clicked point to a destination point.
 
 This lesson is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), and the [CartoDB.js Map Academy course](http://academy.cartodb.com/courses/cartodbjs-ground-up/).
 
 ## The Data
 
-We will be using a dataset of locations of public schools in San Francisco, California. The final map will use Google's Directions API to generate a driving direction route to San Francisco’s Exploratorium museum, from any public school location the user clicks on the map.
+We will be using a dataset of locations of public schools in San Francisco, California. The final map will use Google's Directions API to generate a driving direction route to San Francisco’s [Exploratorium museum](http://www.exploratorium.edu/), from any public school location the user clicks on the map.
 
-If you want to work from your own account, [import this data](https://documentation.cartodb.com/tables/schools_public_pt/public), style it to your liking, and grab the viz.json file for later. Alternatively, you can use the viz.json files provided below, as an example. 
+If you want to work from your own account, [import this data](https://documentation.cartodb.com/tables/schools_public_pt/public), style it to your liking, and grab the viz.json file for later. Alternatively, you can use the viz.json files provided below, as an example.
 
 ## Resources
 
 * [Google Developers Console Help](https://developers.google.com/console/help/new)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions)
-* [Lesson 2 viz.JSON](http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json)
+* [Lesson 2 viz.JSON](http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json): `http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json`
 
 ## Google's Terms of Service
 
@@ -74,10 +74,10 @@ Within the body of the page, we have an empty div element with an id of “map,�
     <div id="map"></div>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=APIKEY"></script>
- 
+
     <!-- include cartodb.js library -->
    <script src="http://libs.cartodb.com/cartodb.js/v3/3.15/cartodb.js"></script>
- 
+
     <script>
 
     function main() {
@@ -85,7 +85,7 @@ Within the body of the page, we have an empty div element with an id of “map,�
     }
 
     window.onload = main;
-     
+
     </script>
 {% endhighlight %}
 
@@ -101,7 +101,7 @@ function main() {
      // Map options
      var myOptions = {
           zoom: 13,
-          center: myLatlng, 
+          center: myLatlng,
           disableDefaultUI: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -122,7 +122,7 @@ function main() {
       var directionsService = new google.maps.DirectionsService();
       var directionsDisplay = new google.maps.DirectionsRenderer();
           directionsDisplay.setMap(map);
-      
+
       // The location of the Exploratorium
       var exploratorium = new google.maps.LatLng(37.801434, -122.397561);
 
@@ -130,7 +130,7 @@ window.onload = main;
 </script>
 {% endhighlight %}
 
-Grab your viz.json link, or use [this link](http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json). We will load our viz.json layer using the [CartoDB.js method createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition), which provides access to the SQL and CSS of our map layer. We then enable interaction for the layer using the [CartoDB.js sublayer method setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add mouse events like mouseover or click events. 
+Grab your viz.json link, or use [this link](http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json). We will load our viz.json layer using the [CartoDB.js method createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition), which provides access to the SQL and CSS of our map layer. We then enable interaction for the layer using the [CartoDB.js sublayer method setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add mouse events like mouseover or click events.
 
 {% highlight javascript %}
 <script>
@@ -141,11 +141,11 @@ Grab your viz.json link, or use [this link](http://documentation.cartodb.com/api
       cartodb.createLayer(map, vizjson_url)
         .addTo(map)
         .done(function(layers) {
-          
+
             var subLayer = layers.getSubLayer(0);
-            
+
             subLayer.setInteraction(true); // Interaction for the layer must be enabled
-            
+
             // Setup our event when an object is clicked
             layers.on('featureClick', function(e, latlng, pos, data){
               // the location of the clicked school
@@ -233,7 +233,7 @@ That's it! Here is the complete code for generating driving directions using the
         var myLatlng = new google.maps.LatLng(37.753, -122.433);
         var myOptions = {
           zoom: 13,
-          center: myLatlng, 
+          center: myLatlng,
           disableDefaultUI: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
@@ -244,7 +244,7 @@ That's it! Here is the complete code for generating driving directions using the
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
-            
+
         // The location of the Exploratorium
         var exploratorium = new google.maps.LatLng(37.801434, -122.397561);
 
@@ -254,11 +254,11 @@ That's it! Here is the complete code for generating driving directions using the
         cartodb.createLayer(map, vizjson_url)
         .addTo(map)
         .done(function(layers) {
-          
+
             var subLayer = layers.getSubLayer(0);
 
             subLayer.setInteraction(true); // Interaction for that layer must be enabled
-         
+
             // Setup our event when an object is clicked
             layers.on('featureClick', function(e, latlng, pos, data){
               // the location of the clicked school

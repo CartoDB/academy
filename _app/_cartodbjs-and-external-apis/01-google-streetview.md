@@ -6,7 +6,7 @@ lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 ---
 
 ## Summary
-This tutorial will show you how to create a simple CartoDB map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CartoDB dataset, a CartoDB basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point. 
+This tutorial will show you how to create a simple CartoDB map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CartoDB dataset, a CartoDB basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point.
 
 This tutorial is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), the [CartoDB.js Map Academy course](http://academy.cartodb.com/courses/cartodbjs-ground-up/), and the [CartoDB.js tutorial](/tutorials/create_map_cartodbjs).
 
@@ -104,9 +104,9 @@ function main() {
         L.tileLayer('https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png', {
           attribution: ''
         }).addTo(map);
-        
+
         cartodb.createLayer(map, 'https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
-        .addTo(map) 
+        .addTo(map)
         .done(function(layer) {
 
         });
@@ -253,7 +253,7 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
         height: 350px;
       }
     </style>
-    
+
   </head>
   <body>
     <div id="map"></div>
@@ -290,9 +290,9 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
         L.tileLayer('https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png', {
           attribution: ''
         }).addTo(map);
-        
+
         cartodb.createLayer(map, 'https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
-        .addTo(map) 
+        .addTo(map)
         .done(function(layer) {
 
           var sublayer = layer.getSubLayer(0);
@@ -338,4 +338,4 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
 ## Resources
 * [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js/)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
-* [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en
+* [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en)
