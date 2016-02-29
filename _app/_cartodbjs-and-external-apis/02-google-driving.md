@@ -5,6 +5,8 @@ tweet_text: "Combine Google Driving Directions and CartoDB.js @cartoDB"
 lesson_message: "Congrats on mashing up Google Driving Directions and CartoDB!"
 ---
 
+<iframe width="100%" height="520" frameborder="0" src="http://academy.cartodb-staging.com/t/07-cartodbjs-and-external-apis/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
 ## Summary
 This lesson describes how to use CartoDB, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions) to create an interactive map that generates a driving direction route from a clicked point to a destination point.
 
