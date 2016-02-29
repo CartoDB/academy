@@ -6,6 +6,8 @@ tweet_text: "Combine Google Streetview and CartoDB.js @cartoDB"
 lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 ---
 
+<iframe width="100%" height="520" frameborder="0" src="http://academy.cartodb-staging.com/t/07-cartodbjs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
 ## Summary
 This tutorial will show you how to create a simple CartoDB map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CartoDB dataset, a CartoDB basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point.
 
