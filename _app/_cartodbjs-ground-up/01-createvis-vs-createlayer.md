@@ -15,20 +15,58 @@ In CartoDB, there are two main methods to bring your maps into custom webpages, 
 
 The first method, `createVis` allows for quick and easy maps with a large degree of customization. It gives two map layers in an array: layer 0 is the base map; layer 1 is the CartoDB data layer, which can contain multiple sublayers.
 
-The second method, `createLayer`, allows for much more customization, including the combining of layers from separate maps, each with its own levels of customization. `createLayer` also allows client-side control over basemaps.
+The second method, `createLayer`, allows for much more customization, including the combining of layers from separate maps, each with its own levels of customization. `createLayer` also allows client-side control over basemaps through [Leaflet](http://leafletjs.com/) or [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/).
 
 Both methods allow custom [CartoCSS](http://docs.cartodb.com/cartodb-platform/cartocss/) styling, [SQL queries](http://academy.cartodb.com/courses/sql-postgis/), and overlay options (zoom controls, a search box, a share button, etc.). Before showing these methods, we need to be introduced to these methods' main sources of information.
 
+To get started, we have to understand our HTML template so we know where to put the JavaScript for CartoDB.js.
+
+## Template Structure
+
+The template for this lesson is located in Map Academy's Github repo [template directory for this lesson](https://github.com/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-1/template.html). Go there to copy and paste the template, or clone Map Academy and work from a branch if you're so inclined!
+
+If you're not familiar with web development, here's a basic intro our HTML template. Follow along with the line numbers here:
+
+* [https://github.com/CartoDB/academy/blob/master/_app/t/03-cartodbjs-ground-up/lesson-1/template.html](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartodbjs-ground-up/lesson-1/template.html).
+
+_All are required to make your map appear on a custom webpage._
+
+### Basic HTML template
+
+* Line \#18 links to the stylesheet that CartoDB.js needs for overlays and map tile placement:
+{% highlight html %}
+<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+{% endhighlight %}
+
+* Line \#21 is the `div` element where the map will be placed by the `createLayer` or `createVis` methods:
+{% highlight html %}
+<div id="map"></div>
+{% endhighlight %}
+
+
+* Line \#24 includes the CartoDB.js JavaScript library. Notice that it contains the library version number:
+{% highlight html %}
+<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+{% endhighlight %}
+
+* Line \#28 - 30 is _**where the JavaScript you write for this lessons will be placed.**_
+{% highlight html %}
+<script>
+
+</script>
+{% endhighlight %}
+
+To get this to work on your computer, just save the HTML file to a project folder or your desktop and edit the code with a text editor such as [Atom](https://atom.io/) or [Sublime](https://www.sublimetext.com/). After you edit, simply save the file, and open it in your web browser by going to `File -> Open File...` and finding your script.
 
 ## _CreateVis_
 
 The most basic way to display your map from CartoDB.js involves a call to
 
 {% highlight javascript %}
-cartodb.createVis(div_id, viz_json_url)
+cartodb.createVis(div_id, viz_json_url);
 {% endhighlight %}
 
-Couched between the `<script> ... </script>` tags, createVis puts a map and CartoDB data layers into the DOM element you specify. In the snippet below we assume that `<div id='map'></div>` placed earlier in an HTML file.
+Couched between the `<script> ... </script>` tags, createVis puts a map and CartoDB data layers into the `div` element you specify. In the snippet below we assume that `<div id='map'></div>` placed earlier in an HTML file.
 
 {% highlight javascript %}
 window.onload = function() {
@@ -37,7 +75,7 @@ window.onload = function() {
 }
 {% endhighlight %}
 
-And that's it! All you need is that snippet of code, a script block that sources CartoDB.js, and inclusion of the CartoDB.js CSS file. It's really one of the easiest ways to create a custom map on your webpage.
+And that's it! All you need is that snippet of code, and make sure you follow all the steps in the [template structure](#template-structure). It's one of the easiest ways to create a custom map on your webpage.
 
 createVis also accepts options that you specifiy outside of the CartoDB Editor. They take the form of a [JS object](http://www.w3schools.com/js/js_objects.asp), and can be passed as a third optional argument.
 
