@@ -1,5 +1,5 @@
 ---
-title: "SQL and PostGIS in CartoDB — Intro to SQL and PostGIS"
+title: "SQL and PostGIS in CartoDB — Learning SQL through the CartoDB Editor"
 redirect_from: /courses/04-sql-postgis/lesson-1.html
 permalink: /courses/sql-postgis/intro-to-sql-and-postgis/
 permalink_next: /courses/sql-postgis/postgis-in-cartodb/
