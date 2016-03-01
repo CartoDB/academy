@@ -6,6 +6,8 @@ tweet_text: "Combine Google Streetview and CartoDB.js @cartoDB"
 lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 ---
 
+# Google Street View Infowindow Map Visualization
+
 <iframe width="100%" height="520" frameborder="0" src="http://academy.cartodb-staging.com/t/07-cartodbjs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Summary

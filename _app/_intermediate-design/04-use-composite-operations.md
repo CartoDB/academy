@@ -4,7 +4,7 @@ permalink: /courses/intermediate-design/use-composite-operations/
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
 ---
 
-## What are Composite Operations?
+# What are Composite Operations?
 
 In the last lesson we saw how colors are used to explain your map's data. We learned about contrast, which is used well in this [London crime incident map](https://data.police.uk/) to make markers stand out against the basemap:
 
