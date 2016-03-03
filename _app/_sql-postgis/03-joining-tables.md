@@ -242,7 +242,7 @@ SET big_rivers = (
   SELECT COUNT(table_50m_rivers_lake_cen.cartodb_id)
   FROM table_50m_rivers_lake_cen
   WHERE ST_Intersects(
-    wb.the_geom,
+    the_geom,
     table_50m_rivers_lake_cen.the_geom
   ))
 {% endhighlight %}
