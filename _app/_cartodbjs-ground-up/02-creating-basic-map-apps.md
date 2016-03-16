@@ -5,7 +5,7 @@ permalink: /courses/cartodbjs-ground-up/creating-basic-map-apps/
 permalink_next: /courses/cartodbjs-ground-up/basic-interactivity/
 tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
 ---
-# Creating basic map apps
+# Creating Basic Map Apps
 
 <p><iframe src="//player.vimeo.com/video/110427306" width="700" height="393" frameborder="0"></iframe> </iframe></p>
 

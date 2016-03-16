@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Street View</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .cartodb-popup-content-wrapper {
+       height: 375px;
+      }
+      .cartodb-popup-content {
+       height: 375px;
+      }
+      #infowindow_template {
+          width: 550px;
+      }
+      div.cartodb-popup.v2 {
+        width: 550px  !important;
+        height: 375px;
+      }
+      #panorama {
+        width: 100%;
+        height: 350px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script type="infowindow/html" id="infowindow_template">
+      <div class="cartodb-popup v2">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+         <div class="cartodb-popup-content-wrapper">
+           <div class="cartodb-popup-header">
+            <div id="panorama"></div>
+           </div>
+           <div class="cartodb-popup-content">
+             <h4>{{content.data.name}}</h4>
+           </div>
+         </div>
+         <div class="cartodb-popup-tip-container"></div>
+      </div>
+      </script>
+
+    <!-- include google maps library -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7QQEDD5_Z7OpgQFYquuJ9ixK-sQQUq5A"></script>
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <script>
+      function main() {
+
+        var map = new L.Map('map', {
+          center: [0,0],
+          zoom: 2
+        });
+
+        L.tileLayer('https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png', {
+          attribution: ''
+        }).addTo(map);
+
+        cartodb.createLayer(map, 'https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
+        .addTo(map)
+        .done(function(layer) {
+
+          var sublayer = layer.getSubLayer(0);
+          sublayer.setInteraction(true);
+
+          cartodb.vis.Vis.addInfowindow(map, sublayer, ['cartodb_id', 'lat', 'lon', 'name'],{
+            infowindowTemplate: $('#infowindow_template').html(),
+            templateType: 'mustache'
+          });
+
+         layer.on('featureClick', function(e, latlng, pos, data, layerIndex){
+            var sv = new google.maps.StreetViewService();
+            var myLatLng = new google.maps.LatLng(data.lat, data.lon);
+            sv.getPanorama({location: myLatLng, radius: 50}, processSVData);
+          });
+
+          function processSVData(data, status) {
+
+            if (status === google.maps.StreetViewStatus.OK) {
+                  console.log('creating panorama');
+                  var panorama;
+                  panorama = new google.maps.StreetViewPanorama(document.querySelector("#panorama"));
+                  panorama.setPosition(data.location.latLng);
+                  panorama.setPov(({
+                    heading: 265,
+                    pitch: 0
+                  }));
+                 panorama.setEnableCloseButton(false);
+                panorama.setVisible(true);
+            } else {
+              console.error('Street View data not found for this location.');
+            }
+          }
+        });
+      }
+
+      window.onload = main;
+    </script>
+  </body>
+</html>

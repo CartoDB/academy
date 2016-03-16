@@ -45,7 +45,7 @@ mailchimp_id: 7ee37359cf
     <section id="easy" class="Grid u-vspace--40">
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
-          <h2 class="Title Title--feature Sidebar-title">Easy tutorials</h2>
+          <h2 class="Title Title--feature Sidebar-title">Easy exercises</h2>
           <p class="Sidebar-content">Basic concepts of online mapping</p>
         </div>
 
@@ -86,7 +86,7 @@ mailchimp_id: 7ee37359cf
     <section id="medium" class="Grid u-vspace--40">
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
-          <h2 class="Title Title--feature Sidebar-title">Medium tutorials</h2>
+          <h2 class="Title Title--feature Sidebar-title">Medium exercises</h2>
           <p class="Sidebar-content">Queries to visualizations, and make informed choices about&nbsp;maps</p>
         </div>
 
@@ -124,10 +124,51 @@ mailchimp_id: 7ee37359cf
       </div>
     </section>
 
+    <section id="advanced" class="Grid u-vspace--40">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <h2 class="Title Title--feature Sidebar-title">Advanced exercises</h2>
+          <p class="Sidebar-content">Advanced integrations with CartoDB and your data</p>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <div class="Grid">
+            <ul class="Grid-inner Grid-inner--shortpadding">
+              {% for collection_item in site.collections %}
+                {% if collection_item.difficulty == "advanced" %}
+                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
+                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                      <div class="Card-inner">
+                        <div class="Feature-media">
+                          <picture>
+                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                          </picture>
+                        </div>
+
+                        <div class="Feature-content u-vspace--12">
+                          <h3 class="Title Title--feature u-vspace-12">{{ collection_item.title }}</h3>
+                          <p class="Feature-text u-vellipsis u-vellipsis--3" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                        </div>
+
+                        <div class="Feature-footer">
+                          <p class="Feature-text Feature-text--sSmall"><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="mixed" class="Grid u-vspace--40">
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
-          <h2 class="Title Title--feature Sidebar-title">Mixed difficulty</h2>
+          <h2 class="Title Title--feature Sidebar-title">Mixed exercises</h2>
           <p class="Sidebar-content">Bundles of lessons that are a range of difficulty</p>
         </div>
 
@@ -164,6 +205,7 @@ mailchimp_id: 7ee37359cf
         </div>
       </div>
     </section>
+
   </div>
 </div>
 

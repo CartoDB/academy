@@ -4,7 +4,7 @@ redirect_from: /courses/06-intermediate-design/lesson-1.html
 permalink: /courses/intermediate-design/which-kind-of-map-should-i-make/
 tweet_text: "Step by step is the way to go. I've finished the second map academy design course. Check it out!"
 ---
-# Which kind of map should I make?
+# Which Kind of Map should I Make?
 
 Congratulations if you completed our [first design course](/courses/design-for-beginners/)! Otherwise, congrats for finding your way to our second course in map-based data visualization! 
 

@@ -5,7 +5,7 @@ permalink: /courses/beginners-course/getting-started/
 permalink_next: /courses/beginners-course/colors-truth-insights/
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"
 ---
-# Getting Started
+# Getting Started with Map Design
 
 Welcome to Course 2 of Map Academy! Here we will start talking about designing your data for maps. This won't be a one-stop guide to all things map design, but will cover a few basic concepts to get you started. 
 

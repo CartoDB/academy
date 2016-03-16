@@ -1,7 +1,7 @@
 # Site settings
 title: The Map Academy — CartoDB
 description: >
-  Learn to create maps on the web and visualize geospatial data
+  Understand how location intelligence and big data tools work with CartoDB Academy documentation and training programs
 keywords: "data visualization tools, cartodb. location intelligence, big data, learning resources, deep insights"
 baseurl: ''
 
@@ -78,6 +78,14 @@ collections:
     url: /courses/intermediate-design/
     description: >
       Learn more about cartography and the pros and cons of thematic map types.
+  cartodbjs-and-external-apis:
+    output: true
+    published: true
+    difficulty: advanced
+    title: "CartoDB.js and External APIs"
+    url: /courses/cartodbjs-and-external-apis/
+    description: >
+      This course shows how to use CartoDB's JavaScript library CartoDB.js with external libraries and APIs.
   community:
     output: true
     published: true
@@ -131,7 +139,13 @@ defaults:
       body_class: 'js-Lesson'
   - scope:
       path: ""
-      type: community
+      type: cartodbjs-and-external-apis
     values:
       layout: lesson
       body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: community
+    values:
+      layout: lesson
+      boty_class: 'js-Lesson'
