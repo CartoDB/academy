@@ -418,11 +418,11 @@ module.exports = function (grunt) {
     if (env === 'staging' || env === 'production') {
       grunt.task.run([
         'build',
-        // 'htmlmin',
-        // 'compress',
-        // 'aws_s3:dist',
-        // 'aws_s3:assets',
-        // 'aws_s3:robots'
+        'htmlmin',
+        'compress',
+        'aws_s3:dist',
+        'aws_s3:assets',
+        'aws_s3:robots'
       ])
     } else {
       grunt.log.warn('The `deploy` task needs a target option. Use `deploy --target=ENV`')
