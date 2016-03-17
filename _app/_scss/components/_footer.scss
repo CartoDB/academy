@@ -4,6 +4,10 @@
 .Footer {
   background: #fff;
   padding-top: 120px;
+
+  @media (max-width: $layout-l) {
+    padding-top: 60px;
+  }
 }
 .Footer--cGrey {
   background: #f9f9f9;
