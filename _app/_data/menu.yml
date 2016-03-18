@@ -16,26 +16,26 @@ solutions:
     url: '/solutions/banking-and-finance/'
   - title: BI and Analytics
     url: '/solutions/business-intelligence-and-analytics/'
-  - title: Earth Observation and Space
-    title_short: Earth Observation
-    url: '/solutions/earth-observation-and-space/'
-  - title: Education and Research
-    title_short: Education
-    url: '/solutions/education-and-research/'
   - title: Government
     url: '/solutions/government/'
-  - title: Journalism and New Media
-    title_short: Journalism
-    url: '/solutions/journalism/'
-  - title: Natural resources
-    url: '/solutions/natural-resources/'
-  - title: Non-Profits
-    url: '/solutions/non-profits/'
   - title: Real Estate
     url: '/solutions/real-estate/'
   - title: Web and mobile development
     title_short: Web Development
     url: '/solutions/web-mobile/'
+  - title: Journalism and New Media
+    title_short: Journalism
+    url: '/solutions/journalism/'
+  - title: Natural resources
+    url: '/solutions/natural-resources/'
+  - title: Earth Observation and Space
+    title_short: Earth Observation
+    url: '/solutions/earth-observation-and-space/'
+  - title: Non-Profits
+    url: '/solutions/non-profits/'
+  - title: Education and Research
+    title_short: Education
+    url: '/solutions/education-and-research/'
 discover:
   - title: Gallery
     url: '/gallery/'
