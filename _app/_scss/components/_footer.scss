@@ -26,6 +26,52 @@
   position: relative;
   margin-bottom: 6px;
 }
+.Footer-social {
+  line-height: 40px;
+
+  @media (max-width: $layout-m) {
+    margin-top: 20px;
+  }
+}
+.Newsletter {
+  position: relative;
+
+  .hs-form {
+    margin-right: 0 !important;
+    padding-left: 0;
+
+    .input {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    .hs-input {
+      padding-right: 88px;
+    }
+  }
+}
+.hs-newsletter {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0px;
+  width: 100px;
+  border: 0;
+  font: 400 13px $font-family-base;
+  text-transform: uppercase;
+  background: #3AA9E3;
+  color: #fff;
+  border-radius: 0 4px 4px 0;
+  transition: all .15s;
+  cursor: pointer;
+  outline: none;
+  text-transform: none;
+
+  &:hover {
+    background: darken($blue1, 5%);
+    color: #fff;
+  }
+}
 .Footer-item--mobile {
   border-bottom: 1px solid #eee;
   display: block;
@@ -65,47 +111,6 @@
 }
 .Colophon-item {
   display: inline-block;
-}
-.Footer-social {
-  line-height: 40px;
-}
-.Newsletter {
-  position: relative;
-
-  .hs-form {
-    margin-right: 0 !important;
-    padding-left: 0;
-
-    .input {
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-
-    .hs-input {
-      padding-right: 88px;
-    }
-  }
-}
-.hs-newsletter {
-  position: absolute;
-  top: 0px;
-  right: 0;
-  bottom: 0px;
-  width: 100px;
-  border: 0;
-  font: 400 13px $font-family-base;
-  text-transform: uppercase;
-  background: #3AA9E3;
-  color: #fff;
-  border-radius: 0 4px 4px 0;
-  transition: all .15s;
-  cursor: pointer;
-  outline: none;
-
-  &:hover {
-    background: darken($blue1, 5%);
-    color: #fff;
-  }
 }
 .Footer-arrow {
   position: absolute;

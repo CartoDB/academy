@@ -25,6 +25,11 @@
 .Title--sectionLarge {
   font-size: 32px;
   line-height: 48px;
+
+  @media (max-width: $layout-l) {
+    font-size: 24px;
+    line-height: 36px;
+  }
 }
 .Title--sectionMedium {
   margin-bottom: $spacing-unit;
@@ -36,19 +41,35 @@
   font-size: 18px;
   line-height: 26px;
 }
-.Title--modules {
-  margin-bottom: 8px;
+.Title--card {
   font-size: 16px;
   line-height: 24px;
+
+  // @media (max-width: $layout-l) {
+  //   font-size: 13px;
+  //   line-height: 20px;
+  // }
 }
 .Title--small {
-  font-size: 16px;
+  font-size: 13px;
   line-height: 19px;
   letter-spacing: 1px;
   color: rgba(#fff, .6);
   text-transform: uppercase;
 }
+.Title-link {
+  color: $grey2;
+  transition: all .2s;
 
+  &:hover {
+    text-decoration: none;
+    color: darken($grey2, 5%);
+  }
+}
+.Title--quote {
+  font-weight: 300;
+  font-style: italic;
+}
 // Colors
 .Title--cWhite {
   color: #fff;
@@ -59,7 +80,7 @@
 .Title--cGrey2 {
   color: $grey2;
 }
-.Title-link {
+.Title-permalink {
   position: relative;
   left: .5em;
   opacity: 0;

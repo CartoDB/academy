@@ -1,6 +1,37 @@
 <footer class="Footer Footer--cGrey">
   <div class="Footer-inner">
     <div class="u-inner u-inner--10">
+      {% unless page.nofooter %}
+        <p class="Title Title--small Title--cGrey9 u-vspace--8">Subscribe</p>
+        <h3 class="Title Title--sectionMedium u-vspace--20">Keep up with CartoDB announcements</h3>
+
+        {% capture hubspot_css %}{% include css/hubspot.css %}{% endcapture %}
+
+        <div class="Grid u-vspace--40">
+          <ul class="Grid-inner">
+            <li class="Grid-cell Grid-cell--col5 Grid-cell--col6--tablet Grid-cell--col12--mobile">
+              <div class="Newsletter u-tspace-m js-Hubspot--newsletter">
+                <script>
+                  hbspt.forms.create({
+                    portalId: '{{ site.hubspot_id }}',
+                    formId: '2ed2a125-0e48-4d52-a03c-a1cb90f0433b',
+                    submitButtonClass: 'hs-newsletter',
+                    css: '{{ hubspot_css | split: " " | join: " " }}',
+                    target: '.js-Hubspot--newsletter'
+                 });
+                </script>
+              </div>
+            </li>
+
+            <li class="Grid-cell Grid-cell--col7 Grid-cell--col6--tablet Grid-cell--col12--mobile">
+              <p class="Footer-social">Or follow us on <a href="{{ site.twitter-baseurl }}" target="_blank" class="Footer-link u-lspace--20"><i class="Icon Icon--twitter Icon--s14 u-malign"></i></a> <a href="{{ site.facebook-baseurl }}" target="_blank" class="Footer-link u-lspace--20"><i class="Icon Icon--facebook Icon--s14 u-malign"></i></a> <a href="{{ site.linkedin-baseurl }}" target="_blank" class="Footer-link u-lspace--20"><i class="Icon Icon--linkedin Icon--s14 u-malign"></i></a></p>
+            </li>
+          </ul>
+        </div>
+
+        <hr class="Sep u-vspace--40 u-mobile-hide"></hr>
+      {% endunless %}
+
       <div class="u-block--mobile">
         <dl class="Footer-column Footer-column--mobile">
           {% for product_item in site.data.menu.product %}
