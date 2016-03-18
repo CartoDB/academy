@@ -3,28 +3,86 @@
 
 .Footer {
   background: #fff;
+  padding-top: 120px;
+
+  @media (max-width: $layout-l) {
+    padding-top: 60px;
+  }
 }
-.Footer-columns {
-  border-top: 1px solid #EEE;
-  padding-bottom: 60px;
-}
-.Footer-columns--noborder {
-  border-top: 0;
+.Footer--cGrey {
+  background: #f9f9f9;
 }
 .Footer-column {
-  padding-top: 60px;
+  padding-bottom: 40px;
 }
-.Footer-columnTitle {
-  margin-bottom: 12px;
+.Footer-column--mobile {
+  border-top: 1px solid #eee;
+}
+.Footer-title {
   font-weight: 600;
-  font-size: 12px;
-  text-transform: uppercase;
   color: $grey2;
-  letter-spacing: 1px;
+}
+.Footer-item {
+  position: relative;
+  margin-bottom: 6px;
+}
+.Footer-social {
+  line-height: 40px;
+
+  @media (max-width: $layout-m) {
+    margin-top: 20px;
+  }
+}
+.Newsletter {
+  position: relative;
+
+  .hs-form {
+    margin-right: 0 !important;
+    padding-left: 0;
+
+    .input {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    .hs-input {
+      padding-right: 88px;
+    }
+  }
+}
+.hs-newsletter {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0px;
+  width: 100px;
+  border: 0;
+  font: 400 13px $font-family-base;
+  text-transform: uppercase;
+  background: #3AA9E3;
+  color: #fff;
+  border-radius: 0 4px 4px 0;
+  transition: all .15s;
+  cursor: pointer;
+  outline: none;
+  text-transform: none;
+
+  &:hover {
+    background: darken($blue1, 5%);
+    color: #fff;
+  }
+}
+.Footer-item--mobile {
+  border-bottom: 1px solid #eee;
+  display: block;
+  padding: 13px 0;
+  margin-bottom: 0;
+
+  .Footer-link {
+    display: block;
+  }
 }
 .Footer-link {
-  line-height: 28px;
-  color: $grey9;
   transition: color .2s ease;
 
   &:hover {
@@ -42,10 +100,6 @@
   text-align: left;
   color: $grey9;
 }
-.Footer-title {
-  font-weight: 600;
-  color: $grey2;
-}
 .Colophon {
   padding-top: 13px;
   text-align: right;
@@ -57,4 +111,10 @@
 }
 .Colophon-item {
   display: inline-block;
+}
+.Footer-arrow {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  color: #ddd;
 }

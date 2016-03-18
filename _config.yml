@@ -18,7 +18,7 @@ blog-baseurl: 'http://blog.cartodb.com'
 github-baseurl: 'http://github.com/CartoDB/academy'
 
 # analytics_property_id: ''
-# hubspot_id: ''
+hubspot_id: 474999
 
 # Collections
 collections:

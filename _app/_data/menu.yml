@@ -7,33 +7,35 @@ product:
     url: /data/
   - title: Basemaps
     url: /basemaps/
-  # - title: Deep Insights
-  #   url: /deep-insights/
+  - title: Mobile
+    url: /mobile/
+  - title: Deep Insights
+    url: /deep-insights/
 solutions:
   - title: Banking and Finance
     url: '/solutions/banking-and-finance/'
   - title: BI and Analytics
     url: '/solutions/business-intelligence-and-analytics/'
-  - title: Earth Observation and Space
-    title_short: Earth Observation
-    url: '/solutions/earth-observation-and-space/'
-  - title: Education and Research
-    title_short: Education
-    url: '/solutions/education-and-research/'
   - title: Government
     url: '/solutions/government/'
-  - title: Journalism and New Media
-    title_short: Journalism
-    url: '/solutions/journalism/'
-  - title: Natural resources
-    url: '/solutions/natural-resources/'
-  - title: Non-Profits
-    url: '/solutions/non-profits/'
   - title: Real Estate
     url: '/solutions/real-estate/'
   - title: Web and mobile development
     title_short: Web Development
     url: '/solutions/web-mobile/'
+  - title: Journalism and New Media
+    title_short: Journalism
+    url: '/solutions/journalism/'
+  - title: Natural resources
+    url: '/solutions/natural-resources/'
+  - title: Earth Observation and Space
+    title_short: Earth Observation
+    url: '/solutions/earth-observation-and-space/'
+  - title: Non-Profits
+    url: '/solutions/non-profits/'
+  - title: Education and Research
+    title_short: Education
+    url: '/solutions/education-and-research/'
 discover:
   - title: Gallery
     url: '/gallery/'
@@ -79,22 +81,3 @@ learn:
     url: 'https://cartodb.com/webinars/'
   - title: Blog
     url: 'http://blog.cartodb.com/'
-about:
-  - title: Team
-    url: 'https://cartodb.com/team/'
-  - title: Board and Investors
-    url: 'https://cartodb.com/team/#board'
-  - title: Jobs
-    url: 'https://cartodb.com/jobs/'
-  - title: Media
-    url: 'https://cartodb.com/media/'
-  - title: Press
-    url: 'https://cartodb.com/press/'
-  - title: Partners
-    url: 'https://cartodb.com/partners/'
-  - title: Attributions
-    url: 'https://cartodb.com/attributions/'
-  - title: Contact Sales
-    url: 'mailto:sales@cartodb.com'
-  - title: Request a Demo
-    url: 'https://cartodb.com/request-live-demo/'
