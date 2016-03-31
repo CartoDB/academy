@@ -81,7 +81,7 @@ layout: default
             <div class="Lesson-footer">
               <div class="Circle Circle--cGreen u-valign u-rspace--20">
                 <i class="Icon Icon--checkFill Icon--hcenter Icon--s12 u-malign"></i>
-              </div> {% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
+              </div>{% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
 
               {% if page.permalink_next %}
                 <a href="{{ page.permalink_next }}" class="Button Button--sLarge Button--cGreen is-highlight u-right">
@@ -89,6 +89,10 @@ layout: default
                 </a>
               {% endif %}
             </div>
+
+            <div class="contributing" style="border-top: 1px solid #ddd; padding-top: 2em;">
+                <p style="font-style: oblique;">Have suggestions on how to improve this tutorial? Find typos or broken links?  Open a <a href="https://github.com/CartoDB/academy/issues" target="_blank">new issue</a> in The Map Academy repository, or contribute your own lesson to the <a href="http://academy.cartodb.com/courses/community/" target="_blank">Community Content</a> section.
+                </div>
           </article>
         </div>
       </div>
