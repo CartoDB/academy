@@ -36,7 +36,7 @@ Colors affect each other in our perception. Simply, the way to pick the best col
 
 You might have seen this before:
 
-![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/itten_wheel.png)
+![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/itten.png)
 
 This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. Complementary colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more. 
 
@@ -58,7 +58,9 @@ There's no exact rule for how much contrast your colors should have, apart from 
 
 If your eyes become fatigued looking at two colors together, or if they nearly vibrate in your vision, that's a hint they have too much contrast. An example is the red and green image at the beginning of this lesson.
 
-If it's hard to pick out one color against another like in this lesson's first map, that's a hint their contrast is too low.
+If it's hard to pick out one color against another, that's a hint their contrast is too low. For example, white text would stand out much better in the image below.
+
+![low_contrast]({{site.baseurl}}/img/course6/lesson2/low_contrast.png)
 
 In the next lesson we will cover how to choose quantitative and qualitative cartographic palette colors. When you're doing that though it's useful to know how to adjust the individual scheme colors, based on whether they contrast too much or too little for what you're trying to show on your map. Read on to find out how!
 
@@ -92,13 +94,12 @@ If your colors contrast too much, explore a less saturated version for at least 
 
 Changing the hue is also an option if your colors don't contrast enough. Use the color wheel as a guide to other colors that should be used with this new hue. If you like the hue you have but need to pump up the contrast, play with increasing the saturation or using a lighter or darker version of at least one color. 
 
-We toned down the first image in this lesson by decreasing the red's saturation and it's brightness. We also decreased the brightness of the text, and changed it's hue slightly. Use the slider we built with [this](http://kavyasukumar.com/apps/imgslider/) [code](http://zevross.com/blog/2014/08/12/add-a-before-after-map-slider-to-a-leaflet-map/) to see how it's not as annoying to read now:
+We toned down the first image in this lesson by decreasing the red's saturation and brightness. We decreased the text's brightness too, and changed it's hue slightly. Use the slider we built with [this](http://kavyasukumar.com/apps/imgslider/) [code](http://zevross.com/blog/2014/08/12/add-a-before-after-map-slider-to-a-leaflet-map/) to see how it's not as annoying to read now:
 
 <!-- SLIDER -->
 <iframe width="100%" height="120" frameborder="0" src="{{site.baseurl}}/t/06-intermediate-design/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-
-Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as #FF0000 in hexidecimal code. You can use these values your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
+Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as #FF0000 in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
 
 ## How to specify color in CartoCSS
 
@@ -169,11 +170,11 @@ Here are other things to keep in mind when you're adjusting colors:
 
 Look at the smaller squares below. Do they look like different colors?
 
-![simultaneous_contrast]({{site.baseurl}}/img/course6/lesson2/simultaneous_contrast.png)
+![simultaneous_contrast]({{site.baseurl}}/img/course6/lesson2/sim_cnt_1.png)
 
 Actually they are the same color, it's just that we perceive a color shift in them due to the colors they're seen against. 
 
-<!-- photoshop img w/grays next to each other goes here -->
+![simultaneous_contrast_reveal]({{site.baseurl}}/img/course6/lesson2/sim_cnt_2.png)
 
 There is no one formula to reduce simultaneous contrast since it depends on the colors you're using, but to lessen this effect try changing the contrast between foreground and background by changing hue, saturation and/or value.
 
@@ -195,7 +196,7 @@ Because the dots and background are using opposing hues from the color wheel, th
 
 ### Rainbow Palettes
 
-Be careful when using rainbow colors in your map, because they can make us perceive features that aren't really there. Read more about that [here](http://academy.cartodb.com/courses/intermediate-design/which-kind-of-map-should-i-make/#torque-torque-category-and-heatmap-wizards).
+Be careful when using rainbow colors in your map, because they can make us perceive features that aren't really there! Read more about that [here](http://academy.cartodb.com/courses/intermediate-design/which-kind-of-map-should-i-make/#torque-torque-category-and-heatmap-wizards).
 
 ## Creating color schemes
 
