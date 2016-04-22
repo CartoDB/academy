@@ -49,7 +49,7 @@
         <ul class="Grid-inner Grid-inner--shortpadding">
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--20">Product</dt>
+              <dt class="Footer-title u-vspace--8">Product</dt>
               {% for product_item in site.data.menu.product %}
                 <dd class="Footer-item"><a href="{{ product_item.url | prepend: site.cartodb-baseurl }}" class="Footer-link">{{ product_item.title }}</a></dd>
               {% endfor %}
@@ -64,7 +64,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--20">Solutions</dt>
+              <dt class="Footer-title u-vspace--8">Solutions</dt>
               {% for solutions_item in site.data.menu.solutions %}
                 <dd class="Footer-item"><a href="{{ solutions_item.url | prepend: site.cartodb-baseurl }}" title="{{ solutions_item.title }}" class="Footer-link">{% if solutions_item.title_short %}{{ solutions_item.title_short }}{% else %}{{ solutions_item.title }}{% endif %}</a></dd>
               {% endfor %}
@@ -73,7 +73,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--20">CartoDB for</dt>
+              <dt class="Footer-title u-vspace--8">CartoDB for</dt>
               {% for cartodbfor_item in site.data.menu.cartodbfor %}
                 <dd class="Footer-item"><a href="{{ cartodbfor_item.url | prepend: site.cartodb-baseurl }}" class="Footer-link">{{ cartodbfor_item.title }}</a></dd>
               {% endfor %}
@@ -82,7 +82,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--20">Discover</dt>
+              <dt class="Footer-title u-vspace--8">Discover</dt>
               {% for discover_item in site.data.menu.discover %}
                 <dd class="Footer-item"><a href="{{ discover_item.url | prepend: site.cartodb-baseurl }}" class="Footer-link">{{ discover_item.title }}</a></dd>
               {% endfor %}
@@ -92,7 +92,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--20">Learn</dt>
+              <dt class="Footer-title u-vspace--8">Learn</dt>
               {% for learn_item in site.data.menu.learn %}
                 <dd class="Footer-item"><a href="{{ learn_item.url }}" class="Footer-link">{{ learn_item.title }}</a></dd>
               {% endfor %}
@@ -103,7 +103,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--20">About us</dt>
+              <dt class="Footer-title u-vspace--8">About us</dt>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/team/" class="Footer-link">Team</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/team/#board" class="Footer-link">Board and Investors</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/jobs/" class="Footer-link">Jobs</a></dd>

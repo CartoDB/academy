@@ -9,7 +9,7 @@ body {
   background-color: $background-color;
   text-rendering: optimizeLegibility;
   -webkit-text-rendering: optimizeLegibility;
-  /* -webkit-font-smoothing: antialiased; */
+  -webkit-font-smoothing: antialiased;
   color: $text-color;
   font-weight: $font-weight-base;
   font-size: $font-size-base;

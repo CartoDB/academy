@@ -3,10 +3,8 @@ product:
     url: /editor/
   - title: Platform
     url: /platform/
-  - title: Data
-    url: /data/
-  - title: Basemaps
-    url: /basemaps/
+  - title: Location Data Services
+    url: /location-data-services/
   - title: Mobile
     url: /mobile/
   - title: Deep Insights
