@@ -6,7 +6,7 @@
   position: relative;
   z-index: 30;
   padding: $spacing-unit 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 14px;
 }
 .Navbar-header {
@@ -27,18 +27,26 @@
 }
 .Navbar-item {
   margin-left: $spacing-unit * 2;
-  font-size: 12px;
+  font-size: 13px;
 
   @media (max-width: $layout-l) {
     margin-left: $spacing-unit;
   }
 }
+.Breadcrumbs-item {
+  margin-left: $spacing-unit;
+  font-size: 13px;
+  font-weight: 500;
+
+  @media (max-width: $layout-m) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
 .Navbar-link,
 .Breadcrumbs-link {
   display: inline-block;
-  font-weight: 600;
   line-height: 1;
-  text-transform: uppercase;
   color: #fff;
   transition: all .2s;
 
@@ -53,6 +61,8 @@
     padding-top: 12px;
   }
 }
+.Navbar-link { font-weight: 600; }
+
 .Navbar-button,
 .Navbar-signup {
   display: none;
