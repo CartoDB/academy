@@ -62,7 +62,7 @@
   background: url("../img/backgrounds/academy.svg") center 77px repeat-x;
   opacity: .25;
 
-  .no-svg& {
+  .no-svg {
     background-image: url("../img/backgrounds/academy.png");
   }
 }
