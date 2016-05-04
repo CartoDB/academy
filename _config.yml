@@ -4,6 +4,7 @@ description: >
   Understand how location intelligence and big data tools work with CartoDB Academy documentation and training programs
 keywords: "data visualization tools, cartodb. location intelligence, big data, learning resources, deep insights"
 baseurl: ''
+url: 'http://academy.cartodb.com'
 
 # Build settings
 source: '_app'
