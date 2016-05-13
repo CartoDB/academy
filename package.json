@@ -2,7 +2,7 @@
   "name": "cartodb-academy",
   "version": "0.1.0",
   "author": "Carlos Matallín",
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^6.0.3",
     "grunt": "^0.4.5",
     "grunt-aws-s3": "^0.14.0",
