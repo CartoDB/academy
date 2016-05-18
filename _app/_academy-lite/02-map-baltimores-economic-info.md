@@ -8,11 +8,11 @@ lesson_message: "Congratulations! You've mapped Baltimore's economic data in Car
 
 <iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/eschbacher/editor/2ebfd01c-1d2f-11e6-85b7-0e31c9be1b51/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-In this Academy Lite lesson, we will learn how to make the map above in a small number of steps.
+In this Academy Lite lesson, we will learn how to create a map of economic data for the City of Baltimore in a small number of steps. If you want to go the extra mile and create a dashboard like above, checkout [DeepInsights.js](https://github.com/CartoDB/deep-insights.js).
 
 ### Get our boundaries
 
-Create an empty table, rename it to `baltimore_economic_data`
+Create an empty table, rename it to `baltimore_economic_data`.
 
 Get Boundaries, filter by Baltimore's FIPS (24510)
 
