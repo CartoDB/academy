@@ -15,8 +15,8 @@ gems:
 
 # Permalinks
 cartodb-baseurl: 'https://cartodb.com'
-blog-baseurl: 'http://blog.cartodb.com'
-github-baseurl: 'http://github.com/CartoDB/academy'
+blog-baseurl: 'https://blog.cartodb.com'
+github-baseurl: 'https://github.com/CartoDB/academy'
 
 # analytics_property_id: ''
 hubspot_id: 474999
