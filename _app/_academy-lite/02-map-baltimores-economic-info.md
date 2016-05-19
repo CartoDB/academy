@@ -8,7 +8,7 @@ lesson_message: "Congratulations! You've mapped Baltimore's economic data in Car
 
 <iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/eschbacher/editor/2ebfd01c-1d2f-11e6-85b7-0e31c9be1b51/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-In this Academy Lite lesson, we will learn how to create a map of economic data for the City of Baltimore in a small number of steps. If you want to go the extra mile and create a dashboard like above, checkout [DeepInsights.js](https://github.com/CartoDB/deep-insights.js).
+In this Academy Lite lesson, we will learn how to create a map of economic data for the City of Baltimore in a small number of steps by using CartoDB's [Data Observatory](http://cartodb.com/data/). If you want to go the extra mile and create a dashboard like above, checkout [DeepInsights.js](https://github.com/CartoDB/deep-insights.js).
 
 ### Get our boundaries
 
@@ -137,4 +137,4 @@ Once all of those measures are added to your table, you're ready to start visual
 }
 {% endhighlight %}
 
-Check out other [Map Academy courses](https://academy.cartodb.com/) to get more mapping skills.
+Checkout other [Map Academy courses](https://academy.cartodb.com/) to get more mapping skills. Read more about the Data Observatory in [documentation](https://docs.cartodb.com/cartodb-platform/data/).
