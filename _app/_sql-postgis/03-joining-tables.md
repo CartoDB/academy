@@ -37,7 +37,7 @@ FROM table_1, table_2
 WHERE table_1.iso_code = table_2.iso
 {% endhighlight %}
 
-You'll see, it doesn't matter that the columns in the two tables were different, `iso` versus just, `iso`, we still ran the join just fine. You could now use _Merge with dataset_ from the Edit drop-down menu to create a new dataset with this data. Otherwise, we can just write it into the first table. Here's how.
+You'll see, it doesn't matter that the columns in the two tables were different, `iso_code` versus just, `iso`, we still ran the join just fine. You could now use _Merge with dataset_ from the Edit drop-down menu to create a new dataset with this data. Otherwise, we can just write it into the first table. Here's how.
 
 First, create a new column in `table_1` called 'population' and make it of type 'number'. You can do this by clicking the drop down arrow at the top of any column and selecting _Add new column_.
 
