@@ -11,7 +11,7 @@ tweet_text: "I did CartoDB.js from the ground, Lesson 2! #CartoDB"
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CartoDB.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CartoDB.js](http://docs.cartodb.com/cartodb-platform/cartodb-js/), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [this link](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two datasets from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
+Download/copy the template for this lesson from [this link](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](https://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two datasets from CartoDB's [Common Data](http://blog.cartodb.com/better-common-data/), an expanding storehouse of great open data:
 
 + World Lakes has a dataset name `ne_50m_lakes`
 + African Countries has a dataset name `africa_admin0`
@@ -108,7 +108,7 @@ var layerSource = {
 }
 {% endhighlight %}
 
-If you look back at the [viz.json](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified. Therefore, `layer` in createLayer is equivalent to `layers[1]` in createVis.
+If you look back at the [viz.json](https://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) we inspected in Lesson 1, this layer we just created--which consists of two sublayers--is almost identical in structure to `layers[1]`. As you'll recall with createVis, `layers[0]` is the base map. createLayer does not carry a basemap with it unless it is previously specified. Therefore, `layer` in createLayer is equivalent to `layers[1]` in createVis.
 
 The following code block rehashes all we've seen in [Lesson 1](/courses/cartodbjs-ground-up/createvis-vs-createlayer/) and includes what we've encountered in this lesson so far. Before copying, pasting, and running the code, predict what will happen. Then paste it into the template between the `<script> ... </script>` tags and save it as `lesson-2-multilayer.html`. If you prefer jsFiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-2/jsfiddle_demo_multilayer). Compare your code to the one [here](/t/03-cartodbjs-ground-up/lesson-2/CartoDB-js-lesson2-multilayer.html).
 

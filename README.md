@@ -4,9 +4,9 @@
 
 The Map Academy is an online resource to learn all things digital maps, data visualization, and geospatial analysis. We'll go on publishing courses to tackle different challenges in online mapping, from introductory courses to advanced ones. It's an open project in which anyone can contribute.
 
-[More about The Map Academy](http://academy.cartodb.com/about/)
+[More about The Map Academy](https://academy.cartodb.com/about/)
 
-The Map Academy website can be found here [academy.cartodb.com](http://academy.cartodb.com/). The Map Academy website is built on top of [Jekyll](http://jekyllrb.com/), a simple content management system for static sites.
+The Map Academy website can be found here [academy.cartodb.com](https://academy.cartodb.com/). The Map Academy website is built on top of [Jekyll](http://jekyllrb.com/), a simple content management system for static sites.
 
 
 ## Develop

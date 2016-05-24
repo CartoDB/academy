@@ -7,12 +7,12 @@ lesson_message: "Congrats on mashing up Google Driving Directions and CartoDB!"
 
 # Google Map Driving Directions Visualization
 
-<iframe width="100%" height="520" frameborder="0" src="http://academy.cartodb-staging.com/t/07-cartodbjs-and-external-apis/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://academy.cartodb.com/t/07-cartodbjs-and-external-apis/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Summary
 This lesson describes how to use CartoDB, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions) to create an interactive map that generates a driving direction route from a clicked point to a destination point.
 
-This lesson is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), and the [CartoDB.js Map Academy course](http://academy.cartodb.com/courses/cartodbjs-ground-up/).
+This lesson is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), and the [CartoDB.js Map Academy course](https://academy.cartodb.com/courses/cartodbjs-ground-up/).
 
 ## The Data
 
@@ -25,7 +25,7 @@ If you want to work from your own account, [import this data](https://documentat
 * [Google Developers Console Help](https://developers.google.com/console/help/new)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions)
-* [Lesson 2 viz.JSON](http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json): `http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json`
+* [Lesson 2 viz.JSON](https://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json): `https://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json`
 
 ## Google's Terms of Service
 
@@ -50,7 +50,7 @@ Once you have your API key, refer to the html file you copied earlier. The Googl
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=APIKEY"></script>
 
 <!-- include cartodb.js library -->
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 {% endhighlight %}
 
 Within the script tag for the google maps library, replace “APIKEY” with your API key.
@@ -134,13 +134,13 @@ window.onload = main;
 </script>
 {% endhighlight %}
 
-Grab your viz.json link, or use [this link](http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json). We will load our viz.json layer using the [CartoDB.js method createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition), which provides access to the SQL and CSS of our map layer. We then enable interaction for the layer using the [CartoDB.js sublayer method setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add mouse events like mouseover or click events.
+Grab your viz.json link, or use [this link](https://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json). We will load our viz.json layer using the [CartoDB.js method createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition), which provides access to the SQL and CSS of our map layer. We then enable interaction for the layer using the [CartoDB.js sublayer method setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add mouse events like mouseover or click events.
 
 {% highlight javascript %}
 <script>
 
       // Our CartoDB visualization
-      var vizjson_url = "http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json";
+      var vizjson_url = "https://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json";
 
       cartodb.createLayer(map, vizjson_url)
         .addTo(map)
@@ -209,8 +209,8 @@ That's it! Here is the complete code for generating driving directions using the
     <title>Driving directions to clicked point | CartoDB.js</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="shortcut icon" href="https://cartodb.com/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 
     <style>
       html, body, #map {
@@ -227,7 +227,7 @@ That's it! Here is the complete code for generating driving directions using the
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxv5iwj5VZ4rjHvmhQrSSkMDFj1eBj9Js"></script>
 
     <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 
     <script>
       var map;
@@ -253,7 +253,7 @@ That's it! Here is the complete code for generating driving directions using the
         var exploratorium = new google.maps.LatLng(37.801434, -122.397561);
 
         // Our CartoDB visualization
-        var vizjson_url = "http://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json";
+        var vizjson_url = "https://documentation.cartodb.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json";
 
         cartodb.createLayer(map, vizjson_url)
         .addTo(map)
