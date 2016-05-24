@@ -28,7 +28,7 @@ Up to this point, all of the methods for displaying maps to the world have invol
 
 A viz.json is a file that contains all the data needed to reproduce the visualization you created in CartoDB. An analogy one can make is that CartoDB.js is like a DVD player, the viz.json is like the DVD disc, and CartoDB represents all the parts needed to create a film (cameras, actors, director, producers, etc.).
 
-Download the viz.json used in this lesson [here](http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). You can download a viz.json from any visualization you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz.json for a multi-layer map similar to the one created at the end of [Course 1](/courses/01-beginners-course/lesson-5.html). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information. 
+Download the viz.json used in this lesson [here](https://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). You can download a viz.json from any visualization you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz.json for a multi-layer map similar to the one created at the end of [Course 1](/courses/01-beginners-course/lesson-5.html). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information. 
 
 There's a lot of metadata in this file. Browsing through all the possibilities shows you how much power you have to customize your maps in the CartoDB Editor. Review the [documentation for CartoDB Editor](http://docs.cartodb.com/cartodb-editor.html) to explore what some of these JSON entries allow you to do in your maps.
 
@@ -148,13 +148,13 @@ Now that we're done with our crash course on the basics, let's finally dive into
 Use [this template](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-1/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CartoDB.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CartoDB.js library
 
 {% highlight html %}
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 {% endhighlight %}
 
 between the `<body>` tags **AND** the map styling sheet
 
 {% highlight html %}
-<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 

@@ -31,7 +31,7 @@ The data for this lesson comes from [Movebank](https://www.movebank.org), an ama
 Copy the link below to import the data into your account. Make sure the dataset name is `academy_torque_stork`. The file will take up approximately 8MB in your CartoDB account.
 
 {% highlight html %}
-http://academy.cartodb.com/d/academy_torque_stork.zip
+https://academy.cartodb.com/d/academy_torque_stork.zip
 {% endhighlight %}
 
 Lastly, update the privacy settings once the dataset is uploaded by clicking on the padlock icon in the upper left corner in the Data View and setting the privacy to 'Public.'

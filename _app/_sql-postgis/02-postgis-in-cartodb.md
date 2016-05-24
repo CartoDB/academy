@@ -19,7 +19,7 @@ Geospatially _revisit_ blues musician birthplaces along Highway 61 by using impo
 
 By the end of this lesson, you will be able to make this map:
 
-<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width='100%' height='520' frameborder='0' src='https://documentation.cartodb.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 _If you haven't gotten your feet wet with SQL in CartoDB, first check out [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/). This lesson relies exclusively on the CartoDB Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](/courses/beginners-course/making-your-first-map/)._
 
@@ -31,7 +31,7 @@ _If you haven't gotten your feet wet with SQL in CartoDB, first check out [Lesso
 We're going to use data derived from the [Federal Highway Administration](http://www.fhwa.dot.gov/policyinformation/hpms/shapefiles.cfm). Copy and paste the following URL into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data):
 
 {% highlight text %}
-http://academy.cartodb.com/d/highway_61.geojson
+https://academy.cartodb.com/d/highway_61.geojson
 {% endhighlight %}
 
 Don't worry about downloading and then uploading the data--just directly import it into your CartoDB account using the above link.
@@ -41,7 +41,7 @@ Don't worry about downloading and then uploading the data--just directly import 
 The second data set contains the coordinates of the birthplaces of a selection of Mississippi-born blues musicians as [listed on Wikipedia](http://en.wikipedia.org/wiki/List_of_Delta_blues_musicians).
 
 {% highlight text %}
-http://academy.cartodb.com/d/mississippi_blues_musicians.geojson
+https://academy.cartodb.com/d/mississippi_blues_musicians.geojson
 {% endhighlight %}
 
 
@@ -145,7 +145,7 @@ This command grabs all locations, names, cities, and cartodb_ids from rows in th
 
 The embedded map below has the bottom layer as the buffered highway, and the top layer as the SQL statement applied to the `mississippi_blues_musicians` table to only show the musicians within our buffer.
 
-<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/6c1f86e4-ab04-11e4-9c80-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width='100%' height='520' frameborder='0' src='https://documentation.cartodb.com/viz/6c1f86e4-ab04-11e4-9c80-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ### Finding Distance from Road
 

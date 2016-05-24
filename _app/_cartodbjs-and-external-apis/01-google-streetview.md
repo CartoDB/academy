@@ -8,12 +8,12 @@ lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 
 # Google Street View Infowindow Map Visualization
 
-<iframe width="100%" height="520" frameborder="0" src="http://academy.cartodb-staging.com/t/07-cartodbjs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://academy.cartodb.com/t/07-cartodbjs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Summary
 This tutorial will show you how to create a simple CartoDB map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CartoDB dataset, a CartoDB basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point.
 
-This tutorial is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), the [CartoDB.js Map Academy course](http://academy.cartodb.com/courses/cartodbjs-ground-up/), and the [CartoDB.js tutorial](/tutorials/create_map_cartodbjs).
+This tutorial is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), the [CartoDB.js Map Academy course](https://academy.cartodb.com/courses/cartodbjs-ground-up/), and the [CartoDB.js tutorial](/tutorials/create_map_cartodbjs).
 
 ## The Data
 
@@ -50,7 +50,7 @@ Once you have your API key, refer to the html file you copied earlier. The Googl
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=APIKEY"></script>
 
 <!-- include cartodb.js library -->
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 {% endhighlight %}
 
 Within the script tag for the google maps library, replace “APIKEY” with your API key.
@@ -235,7 +235,7 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
     <title>Google Street View</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 
     <style>
       html, body, #map {
@@ -285,7 +285,7 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=APIKEY"></script>
 
     <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 
     <script>
       function main() {
