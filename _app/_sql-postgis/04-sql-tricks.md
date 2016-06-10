@@ -5,7 +5,7 @@ permalink: /courses/sql-postgis/
 ---
 # Quick SQL Tricks
 
-CartoDB is built on a database called PostgreSQL. The SQL part of that means structured query language, which is a powerful and popular language for analyzing tables of data. This guide provides several SQl queries you can easily use as part of your data analysis workflow. If you are new to SQL, first review lesson one of this series, "SQL and PostGIS in CartoDB Editor".
+CartoDB is built on a database called PostgreSQL. The SQL part of that means structured query language, which is a powerful and popular language for analyzing tables of data. This reference guide provides several SQl queries you can easily use as part of your data analysis workflow. If you are new to SQL, first review lesson one of this series, "SQL and PostGIS in CartoDB Editor".
 
 ## Basic Math Queries
 
@@ -53,7 +53,7 @@ WHERE
 
 ### Normalize Data
 
-Normalize your data, this can be helpful with Torque maps that expect data in the range of 0-255.
+Normalize your data, this can be helpful with the Torque visualization style that expects data in the range of 0-255.
 
 {% highlight sql %}
 UPDATE 
@@ -74,6 +74,17 @@ FROM
 {% endhighlight %}
 
 ## Formatting Your Data
+
+Format your data in order to display in a more user-friendly format using the Postgres method ```to_char```
+
+### Format date to string
+
+{% highlight sql %}
+UPDATE 
+  tablename
+SET 
+  date = to_char(datecol, 'YYYY-MM-DD')
+{% endhighlight %}
 
 ## Date and Time
 
@@ -101,11 +112,11 @@ SET
 
 ## Updating Your Dataset
 
-Postgres also offers many convenience methods for updating a dataset including appending data, deleting data, and more!
+Postgres offers many convenience methods for updating a dataset including appending data, deleting data, and more!
 
 ### Insert Into
 
-If you need to combine datasets, add append rows from one table into another table using INSERT INTO.
+If you need to combine datasets, append rows from one table into another table using INSERT INTO.
 
 {% highlight sql %}
 INSERT INTO table2 (column, column, ...)
@@ -128,3 +139,35 @@ WHERE
 
 There are many ways to slice and dice your data in order to select a subset of data.
 
+### Select data that matches a string descriptor
+
+{% highlight sql %}
+SELECT * 
+FROM 
+  tablename 
+WHERE 
+  descriptor LIKE 'Noise: Construction Before/After Hours (NM1)%'
+{% endhighlight %}
+
+### Select null data
+
+{% highlight sql %}
+SELECT * 
+FROM 
+  tablename 
+WHERE 
+  the_geom_webmercator is null
+{% endhighlight %}
+
+### Sort Data
+
+Sorting data is helpful if you need the most recent data.
+
+{% highlight sql %}
+SELECT 
+  columntosort
+FROM 
+  tablename
+ORDER BY 
+  columntosort DESC
+{% endhighlight %}
