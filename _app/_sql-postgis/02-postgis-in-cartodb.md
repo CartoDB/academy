@@ -120,7 +120,7 @@ boolean ST_DWithin(geography gg1, geography gg2, double precision distance_meter
 
 Given two columns of geospatial data, you can use `ST_DWithin` to find out which points are within a given distance of each other. Notice that the return value is a boolean, so it is a good function for the `ON` part of `JOIN` or a `WHERE` part of SQL statements. If you're not familiar with `JOIN`s, check out a great discussion at [Coding Horror](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/).
 
-We'll continue our usage of `the_geom_webmercator`, so we will use the middle definition for `ST_DWithin` above.
+We'll continue our usage of `the_geom` cast into geography type, so we will use the middle definition for `ST_DWithin` above.
 
 The SQL query we'll run is the following:
 
