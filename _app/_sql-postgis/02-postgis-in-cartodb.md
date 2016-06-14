@@ -10,7 +10,7 @@ lesson_message: "Nice work geospatial explorer! More SQL &amp; PostGIS is coming
 
 <p><iframe src="//player.vimeo.com/video/120176143" width="700" height="393" frameborder="0"> </iframe></p>
 
-CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [PostGIS](http://www.postgis.net/) extension. This means that you have all the power of relational databases combined with hundreds of geospatial functions. 
+CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [PostGIS](http://www.postgis.net/) extension. This means that you have all the power of relational databases combined with hundreds of geospatial functions.
 
 In this lesson, we will introduce several commonly used functions in PostGIS with the goal of extending your geospatial analysis of data within CartoDB and show you some of the analysis you can do with your geospatial data.
 
@@ -109,7 +109,7 @@ ST_Intersects(
 
 `ST_Intersects()` returns true/false depending on whether or not two entries have an overlap, which is why it is good for a `WHERE` condition.
 
-The **better** choice is to use `ST_DWithin()`. 
+The **better** choice is to use `ST_DWithin()`.
 
 **Function definition**
 {% highlight js %}
@@ -131,12 +131,12 @@ SELECT
   mbm.city,
   mbm.cartodb_id
 FROM
-  mississippi_blues_musicians AS mbm, 
+  mississippi_blues_musicians AS mbm,
   highway_61 AS hwy
 WHERE
   ST_DWithin(
-    mbm.the_geom_webmercator,
-    hwy.the_geom_webmercator,
+    mbm.the_geom::geography,
+    hwy.the_geom::geography,
     25*1609
   )
 {% endhighlight %}
@@ -160,8 +160,8 @@ SELECT
   mbm.city,
   ceil(
     ST_Distance(
-      mbm.the_geom_webmercator,
-  	  hwy.the_geom_webmercator
+      mbm.the_geom::geography,
+  	  hwy.the_geom::geography
     ) / 1609
   ) AS d
 FROM
@@ -177,7 +177,7 @@ You could visualize the data in this newly created table by making a choropleth 
 
 ### Visualizing Lines from Musicians to the Road
 
-`ST_MakeLine()` returns a line geometry given two or more points. When working on a collection of points, it returns the path of connect-the-dot points ordered by cartodb_id. Check out the [documentation](http://postgis.net/) for more on this. 
+`ST_MakeLine()` returns a line geometry given two or more points. When working on a collection of points, it returns the path of connect-the-dot points ordered by cartodb_id. Check out the [documentation](http://postgis.net/) for more on this.
 
 In our case, we're interested in drawing [as-the-crow-flies](http://en.wikipedia.org/wiki/As_the_crow_flies) lines of any one musician to the highway's nearest respective point. Because the highway is a line and the musician birthplaces are points, we need to find a way to get the nearest point to the musician birthplaces.
 
@@ -187,9 +187,9 @@ Looking through the PostGIS docs, you'll find `ST_ClosestPoint()`, which fits th
 SELECT
   ST_MakeLine(
     ST_ClosestPoint(
-      hwy.the_geom_webmercator,
-      mbm.the_geom_webmercator),
-    mbm.the_geom_webmercator
+      hwy.the_geom,
+      mbm.the_geom)::geography,
+    mbm.the_geom::geography
   ) AS the_geom_webmercator
 FROM
   mississippi_blues_musicians AS mbm,
@@ -214,10 +214,10 @@ SELECT
   -- draw lines as the_geom_webmercator
   ST_MakeLine(
     ST_ClosestPoint(
-      hwy.the_geom_webmercator,
-      mbm.the_geom_webmercator
-	),
-    mbm.the_geom_webmercator
+      hwy.the_geom,
+      mbm.the_geom
+	)::geography,
+    mbm.the_geom::geography
   ) AS the_geom_webmercator,
   -- include musician name
   mbm.name,
@@ -226,14 +226,14 @@ SELECT
   -- rounded-up distance birthplace is from the highway
   ceil(
     ST_Distance(
-      mbm.the_geom_webmercator,
-  	  hwy.the_geom_webmercator
+      mbm.the_geom::geography,
+  	  hwy.the_geom::geography
     ) / 1609
   ) AS d
 FROM
   mississippi_blues_musicians AS mbm,
   highway_61 AS hwy
-UNION ALL 
+UNION ALL
 -- include highway in the same table
 SELECT
   the_geom_webmercator,
