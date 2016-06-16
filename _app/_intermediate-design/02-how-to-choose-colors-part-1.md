@@ -108,10 +108,10 @@ Pickers output your color in terms of different color models. For example a full
 There are a few different ways define color in CartoCSS. Here we're demonstrating them by styling a line, but you can use them to color polygons and points too.
 
 * HTML Color Names
-You can paste these into your CartoCSS or into a CartoDB wizard's color picker: red, maroon, brown, orange, yellow, lime, green, olive, cyan, blue, lightblue, darkblue, purple, magenta, white, silver, gray or grey, black.
+You can paste [these color names](http://www.colors.commutercreative.com/grid/) into your CartoCSS or into a CartoDB wizard's color picker:
 
 {% highlight css %}
-line-color: yellow;
+line-color: aquamarine;
 {% endhighlight %}
 
 * Hexadecimal Code
