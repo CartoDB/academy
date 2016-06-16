@@ -30,7 +30,7 @@ We focus on digital color in this lesson.
 
 ### Color Relationships
 
-Colors affect each other in our perception. Simply, the way to pick the best color is by assessing how it looks compared to other map colors you need to use. For example, which color will make your markers stand out against the basemap? Which color will differentiate secondary features from your basemap, but won't distract from primary features?
+Colors affect each other in our perception. Simply, the way to pick the best color is by assessing how it looks compared to other map colors you need to use. For example, which color will make your markers stand out against the basemap? Which color will differentiate secondary features from your basemap, but won't distract from primary features? Which colors show that one of your map attributes is increasing/decreasing, when they're put next to each other in a palette? A good starting point for learning how to compare colors is the color wheel.
 
 #### The Color Wheel
 
@@ -38,19 +38,17 @@ You might have seen this before:
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/itten.png)
 
-This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. Complementary colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more. 
+This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more. 
 
-In the color wheel's center are triadic colors. Triadic colors are any set of fourth colors on this wheel. These contrast with each other less than complementary colors do, but they are more [harmonious](https://www.colormatters.com/color-and-design/basic-color-theory). These are useful for picking one dominant color for your map's main features, and using the other two for contrasting accents or secondary features. We will describe how to use these in more detail in the next lesson. 
+In the color wheel's center are *triadic* colors. Triadic colors are any set of fourth colors on this wheel. These contrast with each other less than complementary colors do, but they are more [harmonious](https://www.colormatters.com/color-and-design/basic-color-theory). These are useful for picking one dominant color for your map's main features, and using the other two for accents or secondary features. We will describe how to use these in more detail in the next lesson. 
 
-You can also use color to group features together. Any three colors next to each other in this wheel are 'analagous'. They lack as much contrast as complementary colors, but for that reason they can make map features look related.
+You can also use color to group features together. Any three colors next to each other in this wheel are *analagous*. They lack as much contrast as complementary colors, but for that reason they can make map features look related.
 
 Check out how complementary and analagous colors are used in this map:
 
-<!-- asking permission for https://victoriano-v21.cartodb.com/viz/aac847aa-e882-11e2-bc2b-d90ab36db2dd/map -->
+<iframe width="100%" height="520" frameborder="0" src="https://inbo.cartodb.com/u/lifewatch/viz/caa466f4-0f7b-11e5-9d94-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-<!-- <iframe width="100%" height="520" frameborder="0" src="https://victoriano-v21.cartodb.com/viz/aac847aa-e882-11e2-bc2b-d90ab36db2dd/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
-
-Notice how easy it is to pick out the markers from their backgrounds, because they are using high-contrast blue and orange. The range of blues to greens to yellow analagous colors stand out from each other enough to distinguish areas of different density.
+Notice how easy it is to pick out birds from wind, because they are using high-contrast blue and orange. The range of yellow to orange analagous colors stand out from each other enough to distinguish take-off categories.
 
 If you don't already have some required colors for your map, you can use the color wheel as a starting point to pick some. It's also OK to use [established color conventions](http://gis.stackexchange.com/questions/3589/color-palette-conventions) since it's likely your audience is already familiar with their meaning. For example use blue to represent water, and green to represent vegetation.
 
@@ -90,7 +88,7 @@ Value is also called Brightness. It's how light or dark a color is.
 
 If you find that your colors aren't working well together, you can use a [free online color picker](http://mashable.com/2013/01/15/color-scheme-tools/#Cf8l1X..nZqs) to change these properties. For example with [Adobe's](https://color.adobe.com/create/color-wheel/) you can enter your starter color, then click on HSB below it's swatch. Then the top slider will let you change the swatch's hue, the middle slider will let you change it's saturation, and the bottom slider will let you make it darker or brighter. 
 
-If your colors contrast too much, explore a less saturated version for at least one of them. You can also experiment with using a lighter or darker version of one of the colors, or try changing its hue. 
+There's no [one amount](http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color) that you should increase or decrease hue, saturation or value by. In fact even if all of your colors have the 100% saturation and 100% value some would still look more visually prominent than others because of [how we perceive their hues.](https://vis4.net/blog/posts/avoid-equidistant-hsv-colors/) Experiment and use your judgement. Here are some suggestions: if your colors contrast too much, explore a less saturated version for at least one of them. If changing saturation isn't reducing the contrast enough, you can try using a lighter or darker version of one of the colors. If that's still not reducing the contrast enough you can try changing one color's hue altogether. 
 
 Changing the hue is also an option if your colors don't contrast enough. Use the color wheel as a guide to other colors that should be used with this new hue. If you like the hue you have but need to pump up the contrast, play with increasing the saturation or using a lighter or darker version of at least one color. 
 
@@ -98,6 +96,10 @@ We toned down the first image in this lesson by decreasing the red's saturation 
 
 <!-- SLIDER -->
 <iframe width="100%" height="120" frameborder="0" src="{{site.baseurl}}/t/06-intermediate-design/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+Here's another solution:
+
+![lighter_red]({{site.baseurl}}/img/course6/lesson2/lighter_red.png)
 
 Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as #FF0000 in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
 
@@ -119,7 +121,7 @@ line-color: yellow;
 line-color: #ffcc00;
 {% endhighlight %}
 
-The hex code above has three pairs of characters. If characters are the same for each pair like above, you can abbreviate them like this: 
+The hex code above has three pairs of characters. If characters are the same within each pair like above, you can abbreviate them this way: 
 
 {% highlight css %}
 line-color: #fc0;
@@ -154,7 +156,6 @@ line-color: hsla(100, 50%, 50%, 1);
 {% endhighlight %}
 
 There are also some more advanced ways to specify color in CartoCSS that we'll cover in the next lesson.
-<!-- spin & lighten -->
 
 ### Designing Accessible Maps
 
@@ -200,6 +201,4 @@ Be careful when using rainbow colors in your map, because they can make us perce
 
 ## Creating color schemes
 
-Now that you've learned what to be aware of when choosing colors for your maps, read on to our next lesson to learn how to pick a complete color scheme based on the kind of data you're using.
-
-
+Now that you know what to be aware of when picking map colors, learn how to put them together into complete palettes. In the next lesson we'll show you how to choose the right ones for your map's data!
