@@ -1,39 +1,46 @@
 ---
 title: "Quick SQL Tricks"
 redirect_from: 
-permalink: /courses/sql-postgis/
+permalink: /courses/sql-postgis/sql-tips-and-tricks/
 ---
 # Quick SQL Tricks
 
-CartoDB is built on a database called [PostgreSQL](https://www.postgresql.org/docs/9.4/static/index.html). The SQL part of that means structured query language, which is a powerful and popular language for analyzing tables of data. This reference guide provides several SQL queries you can easily use as part of your data analysis workflow. If you are new to SQL, first review lesson one of this series, [SQL and PostGIS in CartoDB Editor](01-intro-to-sql-and-postgis.md).
+The 'DB' part of CartoDB means that it is built on a database called [PostgreSQL](https://www.postgresql.org/docs/9.5/static/index.html). PostgreSQL's programming language is SQL, an acronym for structured query language, which is a powerful and popular language for analyzing tables of data. This reference guide provides several SQL queries and operations that you can easily use as part of your data analysis workflow. If you are new to SQL, first review lesson one of this series, [SQL and PostGIS in CartoDB Editor](https://academy.cartodb.com/courses/sql-postgis/intro-to-sql-and-postgis/).
 
 ## Basic Math Queries
 
-A selection of queries to help you with a few basic mathematical operations on your dataset! View more [aggregate functions](https://www.postgresql.org/docs/9.4/static/functions-aggregate.html).
+A selection of queries to help you with a few basic mathematical operations on your dataset! View more [aggregate functions](https://www.postgresql.org/docs/9.5/static/functions-aggregate.html).
+
+Some examples:
+
+{% highlight sql %}
+SELECT avg(interesting_column), max(interesting_column), min(interesting_column), stddev(interesting_column)
+FROM awesome_table
+{% endhighlight %}
+
 
 ### Count Data
 
-Running a [count](https://www.postgresql.org/docs/9.4/static/functions-aggregate.html) of your data can be helpful to determine if your dataset contains null data, or to make sure your dataset has the correct amount of data.
+Running a [count](https://www.postgresql.org/docs/9.5/static/functions-aggregate.html) of your data can be helpful to determine if your dataset contains null data, or to make sure your dataset has the correct amount of data.
 
-Example One
+Example One: count the number of rows in your table
+
 {% highlight sql %}
 SELECT COUNT(*) 
 FROM 
   tablename
 {% endhighlight %}
 
-Example Two
+Example Two: Count the number of values in `interesting_column` which are not null valued
 {% highlight sql %}
-SELECT COUNT(*) 
+SELECT COUNT(interesting_column), 100.0 * COUNT(interesting_column)::numeric / COUNT(*) As perc_not_null
 FROM 
   tablename 
-WHERE 
-  columnname is null
 {% endhighlight %}
 
 ### Find the Maximum Value of All Columns
 
-Locate the largest value of your dataset using [max](https://www.postgresql.org/docs/9.4/static/functions-aggregate.html).
+Locate the largest value of your dataset using [max](https://www.postgresql.org/docs/9.5/static/functions-aggregate.html). 
 
 {% highlight sql %}
 SELECT 
@@ -59,12 +66,12 @@ Normalize your data, this can be helpful with the Torque visualization style tha
 UPDATE 
   tablename 
 SET 
-  normedcolumn = datacolumn*255/360
+  normedcolumn = datacolumn * 255.0 / 360.0
 {% endhighlight %}
 
 ### Round data
 
-Showing numerical data as part of an infowindow? Round your number column for easy viewing. View more [mathematical operations](https://www.postgresql.org/docs/9.4/static/functions-math.html).
+Showing numerical data as part of an infowindow? Round your number column for easy viewing. View more [mathematical operations](https://www.postgresql.org/docs/9.5/static/functions-math.html).
 
 {% highlight sql %}
 SELECT 
@@ -95,14 +102,14 @@ set columnname = to_char(column_to_convert, 'FM$999,999,999,990D00')
 
 ## Date and Time
 
-Postgres accepts date and time in many [formats](https://www.postgresql.org/docs/9.4/static/datatype-datetime.html). Postgres also offers many [date and time functions](https://www.postgresql.org/docs/9.4/static/functions-datetime.html) for dealing with date and time types. 
+Postgres accepts date and time in many [formats](https://www.postgresql.org/docs/9.5/static/datatype-datetime.html). Postgres also offers many [date and time functions](https://www.postgresql.org/docs/9.5/static/functions-datetime.html) for dealing with date and time types. 
 
 ### Select by date part
 
 {% highlight sql %}
 SELECT * FROM table
-WHERE date_part('day', timestamp)=3 --> Selects every 3rd day
-AND date_part('month' timestamp)=5 --> Selects May dates
+WHERE date_part('day', timestamp) = 3 --> Selects every 3rd day
+AND date_part('month' timestamp) = 5 --> Selects May dates
 -- 'year', 'hour', 'minute', 'second' also work
 {% endhighlight %}
 
@@ -144,11 +151,11 @@ WHERE
 
 ## Selecting Data
 
-There are many ways to slice and dice your data in order to [SELECT](https://www.postgresql.org/docs/current/static/sql-select.html) a subset of data.
+There are many ways to slice and dice your data in order to [SELECT](https://www.postgresql.org/docs/9.5/static/sql-select.html) a subset of data.
 
 ### Select data that matches a string descriptor
 
-Learn more about pattern matching in Postgres [here](https://www.postgresql.org/docs/9.4/static/functions-matching.html).
+Learn more about pattern matching in Postgres [here](https://www.postgresql.org/docs/9.5/static/functions-matching.html).
 
 {% highlight sql %}
 SELECT * 
@@ -170,7 +177,7 @@ WHERE
 
 ### Sort Data
 
-[Sorting data](https://www.postgresql.org/docs/9.4/static/queries-order.html) is helpful if you need the most recent data.
+[Sorting data](https://www.postgresql.org/docs/9.5/static/queries-order.html) is helpful if you need the most recent data.
 
 {% highlight sql %}
 SELECT 
