@@ -36,7 +36,7 @@ Colors affect each other in our perception. Simply, the way to pick the best col
 
 You might have seen this before:
 
-![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/itten.png)
+![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/color_wheel_itten.png)
 
 This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more. 
 
