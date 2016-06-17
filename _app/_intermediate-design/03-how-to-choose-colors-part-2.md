@@ -15,18 +15,20 @@ We can tell that the red-colored Gold Coast City Council spends more on staff th
 Complete color palettes tell the story of your data. There are two main kinds: qualitative and quantitative. Read on to learn which type to use for your map!
 
 ## Qualitative color palettes
-Qualitative color palettes show categories. Use them when you need to show data that doesn't have numerical hierarchy. [Lifewatch INBO](http://lifewatch.inbo.be/) uses a qualitative palette well in this map:
-
-https://inbo.cartodb.com/u/lifewatch/viz/6a22a626-c509-11e5-8ec2-0e674067d321/public_map
+Qualitative color palettes show categories. Use them when you need to show data that doesn't have numerical hierarchy. [LifeWatch INBO](http://lifewatch.inbo.be/) uses a qualitative palette well in this map:
+  
+<iframe width="100%" height="520" frameborder="0" src="https://inbo.cartodb.com/u/lifewatch/viz/6a22a626-c509-11e5-8ec2-0e674067d321/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 There aren't any numerical attributes illustrated on this map, like length of migration route or how long each took. The point of this map is to demonstrate which route belongs to each bird. It's easy for viewers to pick out each route because of the [contrast between hues.](link to last lesson itten wheel)
 
 #### Make your own
-CartoDB's Category Wizard gives you a 10-color qualitative palette by default. If your data has more than 10 categories, our system automatically groups the rest into an 'Other' category and colors them gray. You can pick your own colors though! You should aim for hues that are not [analagous,](link to last lesson) because if they are too visually similar your audience will have a harder time differentiating them. Like in this map:
+CartoDB's Category Wizard gives you a 10-color qualitative palette by default. If your data has more than 10 categories, our system automatically groups the rest into an 'Other' category and colors them gray. You can pick your own colors though! 
+
+You should aim for hues that are not [analagous,](link to last lesson) because if they are too visually similar your audience will have a harder time differentiating them. Like in this map:
 
 <iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/stephaniemongon/viz/e72f1f40-3260-11e6-b082-0e3ff518bd15/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-Notice how the different tornado routes are easier to see in this map:
+Notice how the different tornado routes are easier to identify in this map:
 
 <iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/stephaniemongon/viz/d4ed8b56-325f-11e6-ae44-0ecd1babdde5/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
@@ -74,14 +76,14 @@ You can check value (lightness) numbers for each swatch with tools like this [br
 
 <!-- even lightness legend up close -->
 
-It's easier to see the difference between polygons now, but to make our swatches stand out from each other even more we can tweak the saturation, and even hue. [ColorBrewer]() already did it for us:
+It's easier to see the difference between polygons now, but to make our swatches stand out from each other even more we can tweak the saturation, and even hue. CartoDB already has a default close to ours that works better, based on [ColorBrewer](http://colorbrewer2.org/):
 
-<!-- color brewer palette up close -->
+![cdb_seq_green]({{site.baseurl}}/img/course6/lesson3/cdb_seq_green.png)
 
 <!-- 3 up of valencia maps with each color palette -->
 
 ### Divergent palettes
-Use a divergent palette when you want to highlight a natural midpoint in your data, for example when you are mapping temperature and have values above and below zero degrees. Divergent show two opposing hues radiating out from a neutral midpoint color. Here's an example from CartoDB users []():
+Use a divergent palette when you want to highlight a natural midpoint in your data, for example when you are mapping temperature and have values above and below zero degrees. Divergent palettes show two opposing hues radiating out from a neutral midpoint color. Here's an example from CartoDB users []():
 
 
 #### Make your own
@@ -91,49 +93,49 @@ A divergent palette is basically two sequential palettes. To pick the edge color
 
 We're starting with red. If we spin by 180 degrees we get the color with maximum contrast from our starting hue: green.
 
-```
+{% highlight css %}
 spin(#da0057, 180);
-``` 
+{% endhighlight %}
 
 ![red_green]({{site.baseurl}}/img/course6/lesson3/red_green.png)
 
 We want to avoid red/green combinations for our colorblind users though, so instead we can spin by more degrees. This gives us blue:
 
-```
-spin(#da0057, 135);
-```
+{% highlight css %}
+spin(#da0057, 225);
+{% endhighlight %}
 
 ![red_blue]({{site.baseurl}}/img/course6/lesson3/red_blue.png)
 
 It's ok to spin by more or less than 180 degrees since the opposing hues don't need to have maximum contrast. Just try to avoid neighboring wheel colors.
 
-Now we can pick a neutral color, and use [mix](https://docs.cartodb.com/cartodb-platform/cartocss/properties/#color) to find palette swatches between it and the red end of our palette. Our neutral is light gray, #ccc. This mix yields a color that has a higher percentage of red than gray:  
+Now we can pick a neutral color, and use [mix](https://docs.cartodb.com/cartodb-platform/cartocss/properties/#color) to find palette swatches between it and the red end of our palette. Our neutral is light gray, #ccc. This mix yields a color that has a higher percentage of red than gray: 
 
-```
+{% highlight css %}
 mix(#da0057, #ccc, 66%);
-```
+{% endhighlight %}
 
 ![red_66]({{site.baseurl}}/img/course6/lesson3/red_66.png)
 
 This mix uses less red:
 
-```
+{% highlight css %}
 mix(#da0057, #ccc, 33%);
-```
+{% endhighlight %}
 
 ![red_full]({{site.baseurl}}/img/course6/lesson3/red_full.png)
 
 With a [color picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka/related?hl=en) we can find the hex value for our blue spin result. Then we can use it with mix for the blue side of our palette:
 
-```
+{% highlight css %}
 mix(#2279e9, #ccc, 33%);
-```
+{% endhighlight %}
 
 ![blue_33]({{site.baseurl}}/img/course6/lesson3/blue_33.png)
 
-```
+{% highlight css %}
 mix(#2279e9, #ccc, 66%);
-```
+{% endhighlight %}
 
 ![blue_full]({{site.baseurl}}/img/course6/lesson3/blue_full.png)
 
