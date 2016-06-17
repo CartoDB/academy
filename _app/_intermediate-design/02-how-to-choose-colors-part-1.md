@@ -22,9 +22,9 @@ CartoDB wizards have default palettes available for each map layer. Or you can c
 
 ### The Color Spectrum
 
-Our eyes can see millions of colors. If you're looking at a printed map, you're seeing reflected light. A red line on that map is made of ink reflecting wavelengths our brain interprets as red. All other wavelengths from the visible spectrum are being absorbed instead of reflected. If you mix all of the printer ink colors together, you get black. This is called subtractive color mixing.
+Our eyes can see millions of colors. If you're looking at a printed map, you're seeing reflected light. A <span style="color: #FF0000;">red</span> line on that map is made of ink reflecting wavelengths our brain interprets as <span style="color: #FF0000;">red</span>. All other wavelengths from the visible spectrum are being absorbed instead of reflected. If you mix all of the printer ink colors together, you get <span style="color: #000000;">black</span>. This is called subtractive color mixing.
 
-Color works a little differently for a digital map: you're perceiving wavelengths emitted by your screen. Each pixel can emit red, green, and blue light. Different mixtures of these create other colors. If you mix pure red, green and blue light together, you get white. This is called additive color mixing.
+Color works a little differently for a digital map: you're perceiving wavelengths emitted by your screen. Each pixel can emit <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span>, and <span style="color: #2167AB;">blue</span> light. Different mixtures of these create other colors. If you mix pure <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> light together, you get white. This is called additive color mixing.
 
 We focus on digital color in this lesson. 
 
@@ -38,7 +38,7 @@ You might have seen this before:
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/color_wheel_itten.png)
 
-This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more. 
+This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure <span style="color: #FF5C00;">orange</span> marker over a pure <span style="color: #2167AB;">blue</span> background, they couldn't stand out from each other more. 
 
 In the color wheel's center are *triadic* colors. Triadic colors are any set of fourth colors on this wheel. These contrast with each other less than complementary colors do, but they are more [harmonious](https://www.colormatters.com/color-and-design/basic-color-theory). These are useful for picking one dominant color for your map's main features, and using the other two for accents or secondary features. We will describe how to use these in more detail in the next lesson. 
 
@@ -48,13 +48,13 @@ Check out how well complementary and analagous colors are used in this map, crea
 
 <iframe width="100%" height="520" frameborder="0" src="https://inbo.cartodb.com/u/lifewatch/viz/caa466f4-0f7b-11e5-9d94-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-Notice how easy it is to pick out birds from wind, because they are using high-contrast blue and orange. The range of yellow to orange analagous colors stand out from each other enough to distinguish take-off categories.
+Notice how easy it is to pick out birds from wind, because they are using high-contrast <span style="color: #2167AB;">blue</span> and <span style="color: #FF5C00;">orange</span>. The range of <span style="color: #FFA300;">yellow</span> to <span style="color: #FF5C00;">orange</span> analagous colors stand out from each other enough to distinguish take-off categories.
 
-If you don't already have some required colors for your map, you can use the color wheel as a starting point to pick some. It's also OK to use [established color conventions](http://gis.stackexchange.com/questions/3589/color-palette-conventions) since it's likely your audience is already familiar with their meaning. For example use blue to represent water, and green to represent vegetation.
+If you don't already have some required colors for your map, you can use the color wheel as a starting point to pick some. It's also OK to use [established color conventions](http://gis.stackexchange.com/questions/3589/color-palette-conventions) since it's likely your audience is already familiar with their meaning. For example use <span style="color: #2167AB;">blue</span> to represent water, and <span style="color: #006625;">green</span> to represent vegetation.
 
 There's no exact rule for how much contrast your colors should have, apart from accessibility guidelines for a low vision or color-blind audiences that we cover below. So use your eyes to judge! The goal is to find a balance between too much and too little contrast.
 
-If your eyes become fatigued looking at two colors together, or if they nearly vibrate in your vision, that's a hint they have too much contrast. An example is the red and green image at the beginning of this lesson.
+If your eyes become fatigued looking at two colors together, or if they nearly vibrate in your vision, that's a hint they have too much contrast. An example is the <span style="color: #FF0000;">red</span> and <span style="color: #006625;">green</span> image at the beginning of this lesson.
 
 If it's hard to pick out one color against another, that's a hint their contrast is too low. For example, white text would stand out much better in the image below.
 
@@ -68,7 +68,7 @@ In the next lesson we will cover how to choose quantitative and qualitative cart
 
 What makes one color different from another are it's [hue, saturation and value properties](http://munsell.com/about-munsell-color/). We use these to talk about how colors compare. You can fine-tune your colors for legibility by adjusting these properties.
 
-Hue is the dominant wavelength we see when we look at a color. It's synonymous with what we generally think of as a pure color, for example *red* or *blue*.
+Hue is the dominant wavelength we see when we look at a color. It's synonymous with what we generally think of as a pure color, for example <span style="color: #FF0000;">red</span> or <span style="color: #2167AB;">blue</span>.
 
 ![hue]({{site.baseurl}}/img/course6/lesson2/hue.png)
 
@@ -80,7 +80,7 @@ If it's at 100% brightness then a completely desaturated color is white.
 
 ![saturation_100]({{site.baseurl}}/img/course6/lesson2/saturation_brightness100.png)
 
-If it's at 0% brightness the color is already completely black, but if you also changed its saturation to 0% it would stay black.
+If it's at 0% brightness the color is already completely <span style="color: #000000;">black</span>, but if you also changed its saturation to 0% it would stay <span style="color: #000000;">black</span>.
 
 Value is also called Brightness. It's how light or dark a color is. 
 
@@ -92,16 +92,16 @@ There's no [one amount](http://stackoverflow.com/questions/596216/formula-to-det
 
 Changing the hue is also an option if your colors don't contrast enough. Use the color wheel as a guide to other colors that should be used with this new hue. If you like the hue you have but need to pump up the contrast, play with increasing the saturation or using a lighter or darker version of at least one color. 
 
-We toned down the first image in this lesson by decreasing the red's saturation and brightness. We decreased the text's brightness too, and changed it's hue slightly. Use the slider we built with [this](http://kavyasukumar.com/apps/imgslider/) [code](http://zevross.com/blog/2014/08/12/add-a-before-after-map-slider-to-a-leaflet-map/) to see how it's not as annoying to read now:
+We toned down the first image in this lesson by decreasing the <span style="color: #FF0000;">red's</span> saturation and brightness. We decreased the text's brightness too, and changed it's hue slightly. Use the slider we built with [this](http://kavyasukumar.com/apps/imgslider/) [code](http://zevross.com/blog/2014/08/12/add-a-before-after-map-slider-to-a-leaflet-map/) to see how it's not as annoying to read now:
 
 <!-- SLIDER -->
 <iframe width="100%" height="120" frameborder="0" src="{{site.baseurl}}/t/06-intermediate-design/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 Here's another solution:
 
-![lighter_red]({{site.baseurl}}/img/course6/lesson2/lighter_red.png)
+![lighter_red]({{site.baseurl}}/img/course6/lesson2/lighter_red_2.png)
 
-Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as #FF0000 in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
+Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with `255,0,0` in the RGB color model. The same color is represented as `#FF0000` in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
 
 ## How to specify color in CartoCSS
 
@@ -115,7 +115,7 @@ line-color: aquamarine;
 {% endhighlight %}
 
 * Hexadecimal Code
-[Hexadecimal code](http://techterms.com/definition/hexadecimal) uses a unique [series of numbers and letters](https://www.smashingmagazine.com/2012/10/the-code-side-of-color/#code-demands-precision) to define each color. Earlier in the lesson we described how digital color is made up of red, green and blue light. The first pair of hex characters controls the intensity of red, the second pair controls green, and the last pair controls blue. Keep in mind that different intensities of these form different colors. For example, yellow is #FFFF00. There are many [free online resources](http://www.colorhexa.com/) to help you pick color hex codes. These can be pasted into a CartoDB wizard's color picker also.
+[Hexadecimal code](http://techterms.com/definition/hexadecimal) uses a unique [series of numbers and letters](https://www.smashingmagazine.com/2012/10/the-code-side-of-color/#code-demands-precision) to define each color. Earlier in the lesson we described how digital color is made up of <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> light. The first pair of hex characters controls the intensity of <span style="color: #FF0000;">red</span>, the second pair controls <span style="color: #006625;">green</span>, and the last pair controls <span style="color: #2167AB;">blue</span>. Keep in mind that different intensities of these form different colors. For example, <span style="color: #FFA300;">yellow</span> is `#FFFF00`. There are many [free online resources](http://www.colorhexa.com/) to help you pick color hex codes. These can be pasted into a CartoDB wizard's color picker also.
 
 {% highlight css %}
 line-color: #ffcc00;
@@ -128,7 +128,7 @@ line-color: #fc0;
 {% endhighlight %}
 
 * RGB
-RGB notation is another way you can specify the intensity of red, green and blue color channels. The red channel is the first number in parentheses, green is second, and blue is third. The values for each channel can range from 0 to 255. Black is rgb(0,0,0), white is rbg(255,255,255). You can experiment with changing these numbers on your own, or get them from one of the online color pickers we mentioned above.
+RGB notation is another way you can specify the intensity of <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> color channels. The <span style="color: #FF0000;">red</span> channel is the first number in parentheses, <span style="color: #006625;">green</span> is second, and <span style="color: #2167AB;">blue</span> is third. The values for each channel can range from 0 to 255. <span style="color: #000000;">Black</span> is `rgb(0,0,0)`, white is `rbg(255,255,255)`. You can experiment with changing these numbers on your own, or get them from one of the online color pickers we mentioned above.
 
 {% highlight css %}
 line-color: rgb(255, 255, 0);
@@ -142,7 +142,7 @@ line-color: rgba(255, 255, 0, 1);
 {% endhighlight %}
 
 * HSL
-HSL stands for Hue, Saturation, and Lightness. Lightness is the same as Value described above. The first number in parentheses lets you control Hue, and can range from 0 to 360. You can think about it as choosing a color from the wheel above based on degrees, since a circle has 360 degrees. The second number is Saturation, and can range from 0 (totally desaturated) to 100 (totally saturated). Lightness can also range from 0 (completely black) to 100 (completely white).
+HSL stands for Hue, Saturation, and Lightness. Lightness is the same as Value described above. The first number in parentheses lets you control Hue, and can range from 0 to 360. You can think about it as choosing a color from the wheel above based on degrees, since a circle has 360 degrees. The second number is Saturation, and can range from 0 (totally desaturated) to 100 (totally saturated). Lightness can also range from 0 (completely <span style="color: #000000;">black</span>) to 100 (completely white).
 
 {% highlight css %}
 line-color: hsl(100, 50%, 50%);
@@ -159,7 +159,7 @@ There are also some more advanced ways to specify color in CartoCSS that we'll c
 
 ### Designing Accessible Maps
 
-Good use of color contrast is important to make your maps legible for people with color blindness or limited vision. [Accessibility guidelines](https://www.w3.org/TR/WCAG20/) offer standards for contrast ratios, but an even easier way to make sure your map can be seen well is to use an online contrast checker. [Here's one](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) that lets you look at your map while simulating different visual impairments. [Here's another](http://webaim.org/resources/contrastchecker/) that lets you enter pairs of hex values to check if their contrast ratio is high enough. Check out what our first red and green image above looks like in these tools! 
+Good use of color contrast is important to make your maps legible for people with color blindness or limited vision. [Accessibility guidelines](https://www.w3.org/TR/WCAG20/) offer standards for contrast ratios, but an even easier way to make sure your map can be seen well is to use an online contrast checker. [Here's one](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) that lets you look at your map while simulating different visual impairments. [Here's another](http://webaim.org/resources/contrastchecker/) that lets you enter pairs of hex values to check if their contrast ratio is high enough. Check out what our first <span style="color: #FF0000;">red</span> and <span style="color: #006625;">green</span> image above looks like in these tools! 
 
 Another great resource to use is [ColorBrewer.](http://colorbrewer2.org/) ColorBrewer provides complete cartographic palettes, and there is an option to only show ones that are colorblind-safe.
 
