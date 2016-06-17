@@ -44,7 +44,7 @@ In the color wheel's center are *triadic* colors. Triadic colors are any set of 
 
 You can also use color to group features together. Any three colors next to each other in this wheel are *analagous*. They lack as much contrast as complementary colors, but for that reason they can make map features look related.
 
-Check out how complementary and analagous colors are used in this map:
+Check out how well complementary and analagous colors are used in this map, created by [LifeWatch INBO](http://lifewatch.inbo.be/):
 
 <iframe width="100%" height="520" frameborder="0" src="https://inbo.cartodb.com/u/lifewatch/viz/caa466f4-0f7b-11e5-9d94-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
