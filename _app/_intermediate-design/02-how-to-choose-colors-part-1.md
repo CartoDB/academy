@@ -38,11 +38,7 @@ You might have seen this before:
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/color_wheel_itten.png)
 
-<<<<<<< HEAD
 This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure <span style="color: #FF5C00;">orange</span> marker over a pure <span style="color: #2167AB;">blue</span> background, they couldn't stand out from each other more. 
-=======
-This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more.
->>>>>>> 5202ba1d6c3ebf64d17b18a765f5f401f5c6aa57
 
 In the color wheel's center are *triadic* colors. Triadic colors are any set of fourth colors on this wheel. These contrast with each other less than complementary colors do, but they are more [harmonious](https://www.colormatters.com/color-and-design/basic-color-theory). These are useful for picking one dominant color for your map's main features, and using the other two for accents or secondary features. We will describe how to use these in more detail in the next lesson.
 
@@ -103,13 +99,9 @@ We toned down the first image in this lesson by decreasing the <span style="colo
 
 Here's another solution:
 
-![lighter_red]({{site.baseurl}}/img/course6/lesson2/lighter_red_2.png)
+![lighter_red]({{site.baseurl}}/img/course6/lesson2/lighter_red_3.png)
 
-<<<<<<< HEAD
 Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with `255,0,0` in the RGB color model. The same color is represented as `#FF0000` in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
-=======
-Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as <span style="color: #FF0000;">#FF0000</span> in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
->>>>>>> 5202ba1d6c3ebf64d17b18a765f5f401f5c6aa57
 
 ## How to specify color in CartoCSS
 
@@ -167,11 +159,7 @@ There are also some more advanced ways to specify color in CartoCSS that we'll c
 
 ### Designing Accessible Maps
 
-<<<<<<< HEAD
 Good use of color contrast is important to make your maps legible for people with color blindness or limited vision. [Accessibility guidelines](https://www.w3.org/TR/WCAG20/) offer standards for contrast ratios, but an even easier way to make sure your map can be seen well is to use an online contrast checker. [Here's one](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) that lets you look at your map while simulating different visual impairments. [Here's another](http://webaim.org/resources/contrastchecker/) that lets you enter pairs of hex values to check if their contrast ratio is high enough. Check out what our first <span style="color: #FF0000;">red</span> and <span style="color: #006625;">green</span> image above looks like in these tools! 
-=======
-Good use of color contrast is important to make your maps legible for people with color blindness or limited vision. [Accessibility guidelines](https://www.w3.org/TR/WCAG20/) offer standards for contrast ratios, but an even easier way to make sure your map can be seen well is to use an online contrast checker. [Here's one](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) that lets you look at your map while simulating different visual impairments. [Here's another](http://webaim.org/resources/contrastchecker/) that lets you enter pairs of hex values to check if their contrast ratio is high enough. Check out what our first red and green image above looks like in these tools!
->>>>>>> 5202ba1d6c3ebf64d17b18a765f5f401f5c6aa57
 
 Another great resource to use is [ColorBrewer.](http://colorbrewer2.org/) ColorBrewer provides complete cartographic palettes, and there is an option to only show ones that are colorblind-safe.
 
