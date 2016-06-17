@@ -14,7 +14,7 @@ Can you pick out **TSSE** from **VOIE** roads below? Their colors are too simila
 
 <iframe width="100%" height="520" frameborder="0" src="https://documentation.cartodb.com/viz/abea64fc-033b-11e6-bb66-0e3ff518bd15/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-This lesson will help you understand color perception, so you can choose palettes that communicate your data clearly and beautifully. It will also show you how to define color in CartoCSS. The next lesson applies these to choosing proper schemes for your map type. Read on to learn how to create maps that make viewers *want* to explore your data! 
+This lesson will help you understand color perception, so you can choose palettes that communicate your data clearly and beautifully. It will also show you how to define color in CartoCSS. The next lesson applies these to choosing proper schemes for your map type. Read on to learn how to create maps that make viewers *want* to explore your data!
 
 ## Where do I start?
 
@@ -26,7 +26,7 @@ Our eyes can see millions of colors. If you're looking at a printed map, you're 
 
 Color works a little differently for a digital map: you're perceiving wavelengths emitted by your screen. Each pixel can emit red, green, and blue light. Different mixtures of these create other colors. If you mix pure red, green and blue light together, you get white. This is called additive color mixing.
 
-We focus on digital color in this lesson. 
+We focus on digital color in this lesson.
 
 ### Color Relationships
 
@@ -38,9 +38,9 @@ You might have seen this before:
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson2/color_wheel_itten.png)
 
-This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more. 
+This is a color model made by [Johannes Itten](http://www.johannes-itten.com/). It's a quick way to see relationships between colors. *Complementary* colors are shown opposite each other, and have the highest amount of contrast. If you put a pure orange marker over a pure blue background, they couldn't stand out from each other more.
 
-In the color wheel's center are *triadic* colors. Triadic colors are any set of fourth colors on this wheel. These contrast with each other less than complementary colors do, but they are more [harmonious](https://www.colormatters.com/color-and-design/basic-color-theory). These are useful for picking one dominant color for your map's main features, and using the other two for accents or secondary features. We will describe how to use these in more detail in the next lesson. 
+In the color wheel's center are *triadic* colors. Triadic colors are any set of fourth colors on this wheel. These contrast with each other less than complementary colors do, but they are more [harmonious](https://www.colormatters.com/color-and-design/basic-color-theory). These are useful for picking one dominant color for your map's main features, and using the other two for accents or secondary features. We will describe how to use these in more detail in the next lesson.
 
 You can also use color to group features together. Any three colors next to each other in this wheel are *analagous*. They lack as much contrast as complementary colors, but for that reason they can make map features look related.
 
@@ -72,25 +72,25 @@ Hue is the dominant wavelength we see when we look at a color. It's synonymous w
 
 ![hue]({{site.baseurl}}/img/course6/lesson2/hue.png)
 
-Saturation is color intensity. A pure color is fully saturated. As you desaturate a color it becomes more gray, if it's at 50% brightness. 
+Saturation is color intensity. A pure color is fully saturated. As you desaturate a color it becomes more gray, if it's at 50% brightness.
 
 ![saturation_50]({{site.baseurl}}/img/course6/lesson2/saturation_brightness50.png)
 
-If it's at 100% brightness then a completely desaturated color is white. 
+If it's at 100% brightness then a completely desaturated color is white.
 
 ![saturation_100]({{site.baseurl}}/img/course6/lesson2/saturation_brightness100.png)
 
 If it's at 0% brightness the color is already completely black, but if you also changed its saturation to 0% it would stay black.
 
-Value is also called Brightness. It's how light or dark a color is. 
+Value is also called Brightness. It's how light or dark a color is.
 
 ![value]({{site.baseurl}}/img/course6/lesson2/brightness.png)
 
-If you find that your colors aren't working well together, you can use a [free online color picker](http://mashable.com/2013/01/15/color-scheme-tools/#Cf8l1X..nZqs) to change these properties. For example with [Adobe's](https://color.adobe.com/create/color-wheel/) you can enter your starter color, then click on HSB below it's swatch. Then the top slider will let you change the swatch's hue, the middle slider will let you change it's saturation, and the bottom slider will let you make it darker or brighter. 
+If you find that your colors aren't working well together, you can use a [free online color picker](http://mashable.com/2013/01/15/color-scheme-tools/#Cf8l1X..nZqs) to change these properties. For example with [Adobe's](https://color.adobe.com/create/color-wheel/) you can enter your starter color, then click on HSB below it's swatch. Then the top slider will let you change the swatch's hue, the middle slider will let you change it's saturation, and the bottom slider will let you make it darker or brighter.
 
-There's no [one amount](http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color) that you should increase or decrease hue, saturation or value by. In fact even if all of your colors have the 100% saturation and 100% value some would still look more visually prominent than others because of [how we perceive their hues.](https://vis4.net/blog/posts/avoid-equidistant-hsv-colors/) Experiment and use your judgement. Here are some suggestions: if your colors contrast too much, explore a less saturated version for at least one of them. If changing saturation isn't reducing the contrast enough, you can try using a lighter or darker version of one of the colors. If that's still not reducing the contrast enough you can try changing one color's hue altogether. 
+There's no [one amount](http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color) that you should increase or decrease hue, saturation or value by. In fact even if all of your colors have the 100% saturation and 100% value some would still look more visually prominent than others because of [how we perceive their hues.](https://vis4.net/blog/posts/avoid-equidistant-hsv-colors/) Experiment and use your judgement. Here are some suggestions: if your colors contrast too much, explore a less saturated version for at least one of them. If changing saturation isn't reducing the contrast enough, you can try using a lighter or darker version of one of the colors. If that's still not reducing the contrast enough you can try changing one color's hue altogether.
 
-Changing the hue is also an option if your colors don't contrast enough. Use the color wheel as a guide to other colors that should be used with this new hue. If you like the hue you have but need to pump up the contrast, play with increasing the saturation or using a lighter or darker version of at least one color. 
+Changing the hue is also an option if your colors don't contrast enough. Use the color wheel as a guide to other colors that should be used with this new hue. If you like the hue you have but need to pump up the contrast, play with increasing the saturation or using a lighter or darker version of at least one color.
 
 We toned down the first image in this lesson by decreasing the red's saturation and brightness. We decreased the text's brightness too, and changed it's hue slightly. Use the slider we built with [this](http://kavyasukumar.com/apps/imgslider/) [code](http://zevross.com/blog/2014/08/12/add-a-before-after-map-slider-to-a-leaflet-map/) to see how it's not as annoying to read now:
 
@@ -101,7 +101,7 @@ Here's another solution:
 
 ![lighter_red]({{site.baseurl}}/img/course6/lesson2/lighter_red.png)
 
-Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as #FF0000 in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
+Pickers output your color in terms of different color models. For example a fully-saturated pure red at maximum brightness is defined with '255,0,0' in the RGB color model. The same color is represented as <span style="color: #FF0000;">#FF0000</span> in hexidecimal code. You can use these values in your map's CartoCSS code, just click on the CSS button in the Map View page to access it. You can even adjust your colors there without using a color picker by changing the CartoCSS values!
 
 ## How to specify color in CartoCSS
 
@@ -121,7 +121,7 @@ line-color: aquamarine;
 line-color: #ffcc00;
 {% endhighlight %}
 
-The hex code above has three pairs of characters. If characters are the same within each pair like above, you can abbreviate them this way: 
+The hex code above has three pairs of characters. If characters are the same within each pair like above, you can abbreviate them this way:
 
 {% highlight css %}
 line-color: #fc0;
@@ -159,7 +159,7 @@ There are also some more advanced ways to specify color in CartoCSS that we'll c
 
 ### Designing Accessible Maps
 
-Good use of color contrast is important to make your maps legible for people with color blindness or limited vision. [Accessibility guidelines](https://www.w3.org/TR/WCAG20/) offer standards for contrast ratios, but an even easier way to make sure your map can be seen well is to use an online contrast checker. [Here's one](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) that lets you look at your map while simulating different visual impairments. [Here's another](http://webaim.org/resources/contrastchecker/) that lets you enter pairs of hex values to check if their contrast ratio is high enough. Check out what our first red and green image above looks like in these tools! 
+Good use of color contrast is important to make your maps legible for people with color blindness or limited vision. [Accessibility guidelines](https://www.w3.org/TR/WCAG20/) offer standards for contrast ratios, but an even easier way to make sure your map can be seen well is to use an online contrast checker. [Here's one](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) that lets you look at your map while simulating different visual impairments. [Here's another](http://webaim.org/resources/contrastchecker/) that lets you enter pairs of hex values to check if their contrast ratio is high enough. Check out what our first red and green image above looks like in these tools!
 
 Another great resource to use is [ColorBrewer.](http://colorbrewer2.org/) ColorBrewer provides complete cartographic palettes, and there is an option to only show ones that are colorblind-safe.
 
@@ -173,7 +173,7 @@ Look at the smaller squares below. Do they look like different colors?
 
 ![simultaneous_contrast]({{site.baseurl}}/img/course6/lesson2/sim_cnt_1.png)
 
-Actually they are the same color, it's just that we perceive a color shift in them due to the colors they're seen against. 
+Actually they are the same color, it's just that we perceive a color shift in them due to the colors they're seen against.
 
 ![simultaneous_contrast_reveal]({{site.baseurl}}/img/course6/lesson2/sim_cnt_2.png)
 
