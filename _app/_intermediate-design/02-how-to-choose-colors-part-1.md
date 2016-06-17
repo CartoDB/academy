@@ -108,6 +108,7 @@ Pickers output your color in terms of different color models. For example a full
 There are a few different ways define color in CartoCSS. Here we're demonstrating them by styling a line, but you can use them to color polygons and points too.
 
 * HTML Color Names
+
 You can paste [these color names](http://www.colors.commutercreative.com/grid/) into your CartoCSS or into a CartoDB wizard's color picker:
 
 {% highlight css %}
@@ -115,6 +116,7 @@ line-color: aquamarine;
 {% endhighlight %}
 
 * Hexadecimal Code
+
 [Hexadecimal code](http://techterms.com/definition/hexadecimal) uses a unique [series of numbers and letters](https://www.smashingmagazine.com/2012/10/the-code-side-of-color/#code-demands-precision) to define each color. Earlier in the lesson we described how digital color is made up of <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> light. The first pair of hex characters controls the intensity of <span style="color: #FF0000;">red</span>, the second pair controls <span style="color: #006625;">green</span>, and the last pair controls <span style="color: #2167AB;">blue</span>. Keep in mind that different intensities of these form different colors. For example, <span style="color: #FFA300;">yellow</span> is `#FFFF00`. There are many [free online resources](http://www.colorhexa.com/) to help you pick color hex codes. These can be pasted into a CartoDB wizard's color picker also.
 
 {% highlight css %}
@@ -128,6 +130,7 @@ line-color: #fc0;
 {% endhighlight %}
 
 * RGB
+
 RGB notation is another way you can specify the intensity of <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> color channels. The <span style="color: #FF0000;">red</span> channel is the first number in parentheses, <span style="color: #006625;">green</span> is second, and <span style="color: #2167AB;">blue</span> is third. The values for each channel can range from 0 to 255. <span style="color: #000000;">Black</span> is `rgb(0,0,0)`, white is `rbg(255,255,255)`. You can experiment with changing these numbers on your own, or get them from one of the online color pickers we mentioned above.
 
 {% highlight css %}
@@ -135,6 +138,7 @@ line-color: rgb(255, 255, 0);
 {% endhighlight %}
 
 * RGBA
+
 RGBA is the same as RGB, but with the ability to control color transparency. The fourth number lets you set the color's alpha channel to be completely transparent (0) to completely opaque (1).
 
 {% highlight css %}
@@ -142,6 +146,7 @@ line-color: rgba(255, 255, 0, 1);
 {% endhighlight %}
 
 * HSL
+
 HSL stands for Hue, Saturation, and Lightness. Lightness is the same as Value described above. The first number in parentheses lets you control Hue, and can range from 0 to 360. You can think about it as choosing a color from the wheel above based on degrees, since a circle has 360 degrees. The second number is Saturation, and can range from 0 (totally desaturated) to 100 (totally saturated). Lightness can also range from 0 (completely <span style="color: #000000;">black</span>) to 100 (completely white).
 
 {% highlight css %}
@@ -149,6 +154,7 @@ line-color: hsl(100, 50%, 50%);
 {% endhighlight %}
 
 * HSLA
+
 HSLA is the same as HSL but with the ability to control the color's alpha channel. Like RGBA, the fourth number in parentheses can range from 0 to 1.
 
 {% highlight css %}
