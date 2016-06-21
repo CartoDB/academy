@@ -1,5 +1,6 @@
 ---
 layout: course
+title: "Intermediate Map Design"
 redirect_from: /courses/06-intermediate-design.html
 collection: intermediate-design
 mailchimp_id: 7b12ebacde

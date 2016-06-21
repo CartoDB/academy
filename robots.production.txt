@@ -1,0 +1,6 @@
+# https://support.google.com/webmasters/answer/6062608
+
+User-agent: *
+Disallow:
+
+Sitemap: https://academy.cartodb.com/sitemap.xml

@@ -1,5 +1,5 @@
 ---
-title:  "CartoCSS"
+title: "Academy Lite — CartoCSS"
 redirect_from: /courses/05-academy-lite/lesson-1.html
 permalink: /courses/academy-lite/cartocss/
 tweet_text: "Have 5 min free to learn map design? Check out our CartoCSS Basics. @cartoDB"
@@ -151,15 +151,15 @@ Congratulations, you've completed a basic introduction to styling maps with Cart
 
 CartoCSS properties mentioned in this lesson:
 
-+ [marker-fill](https://github.com/mapbox/carto/blob/master/docs/latest.md#marker-fill-color)
-+ [polygon-fill](https://github.com/mapbox/carto/blob/master/docs/latest.md#polygon-fill-color)
-+ [polygon-opacity](https://github.com/mapbox/carto/blob/master/docs/latest.md#polygon-opacity-float)
-+ [line-color](https://github.com/mapbox/carto/blob/master/docs/latest.md#line-color-color)
-+ [line-width](https://github.com/mapbox/carto/blob/master/docs/latest.md#line-width-float)
-+ [line-opacity](https://github.com/mapbox/carto/blob/master/docs/latest.md#line-opacity-float)
-+ [line-dasharray](https://github.com/mapbox/carto/blob/master/docs/latest.md#line-dasharray-numbers)
-+ [polygon-pattern-file](https://github.com/mapbox/carto/blob/master/docs/latest.md#polygon-pattern-file-uri)
-+ [polygon-pattern-opacity](https://github.com/mapbox/carto/blob/master/docs/latest.md#polygon-pattern-opacity-float)
++ [marker-fill](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#marker-fill-color)
++ [polygon-fill](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-fill-color)
++ [polygon-opacity](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-opacity-float)
++ [line-color](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-color-color)
++ [line-width](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-width-float)
++ [line-opacity](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-opacity-float)
++ [line-dasharray](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-dasharray-numbers)
++ [polygon-pattern-file](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-pattern-file-uri)
++ [polygon-pattern-opacity](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-pattern-opacity-float)
 
 Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
 

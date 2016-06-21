@@ -3,20 +3,77 @@
 
 .Feature-item {
   display: block;
-  padding: $spacing-unit;
+  padding: 0 $spacing-unit;
   width: 100%;
-  border: 1px solid #DDD;
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 3;
   color: $grey9;
-  border-radius: 4px;
+
+  &.is-active {
+    .Feature-inner--withlink {
+      transition: all .2s;
+ 
+      &:hover {
+        .Feature-circle {
+          border-color: #2ca8e1;
+          color: #2ca8e1;
+        }
+
+        .Feature-text {
+          color: $grey2;
+        }
+      }
+
+      .Feature-circle {
+        border-color: #2ca8e1;
+        color: #2ca8e1;
+      }
+
+      .Feature-text {
+        color: $grey2;
+      }
+    }
+  }
+
+  @media (max-width: $layout-m) {
+    margin-bottom: $spacing-unit;
+  }
 }
-.Feature-item.Feature-item--with-link {
+.Feature-item--short {
+  margin-bottom: $spacing-unit;
+}
+.Feature-inner {
+  display: block;
+}
+.Feature-inner--withlink {
   transition: all .2s;
 
   &:hover {
-    border: 1px solid #CCC;
     text-decoration: none;
-    color: $grey6;
+
+    .Feature-text {
+      color: $grey6;
+    }
+
+    .Feature-circle {
+      border-color: #ccc;
+      color: #ccc;
+    }
+  }
+
+  .Feature-text {
+    color: $grey9;
+  }
+}
+.Feature-inner--withborder {
+  transition: all .2s;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &.Feature-inner--withlink {
+    &:hover {
+      border: 1px solid #ccc;
+    }
   }
 }
 .Feature-media {
@@ -24,13 +81,21 @@
   height: 48px;
   margin-bottom: $spacing-unit * 2;
 }
-.Feature-title {
-  min-height: 44px;
-  font-size: 16px;
-  margin-bottom: $spacing-unit / 2;
-  color: $grey2;
+.Feature-text {
+  font-size: 15px;
+  line-height: 26px;
+  color: $grey6;
+  transition: all .2s;
 }
+.Feature-text--cWhite {
+  color: #fff;
+}
+
 @media (max-width: $layout-m) {
+  .Features {
+    margin-bottom: 40px;
+  }
+
   .Feature-media,
   .Feature-content {
     float: left;

@@ -1,5 +1,5 @@
 ---
-title:  "Placing Your Labels"
+title: "Introduction to Map Design — Thinking About Labels"
 redirect_from: /courses/02-design-for-beginners/lesson-4.html
 permalink: /courses/beginners-course/placing-your-labels/
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"

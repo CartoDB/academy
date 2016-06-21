@@ -1,16 +1,16 @@
 ---
-title: "Multilayer Visualizations"
+title: "Online Mapping for Beginners — Multilayer Visualizations"
 redirect_from: /courses/01-beginners-course/lesson-5.html
 permalink: /courses/beginners-course/multilayer-visualizations/
 tweet_text: "Step by step is the way to go. I've finished the fifth lesson of the map academy. Check it out"
 ---
 # Multilayer Visualizations
 
-In this final lesson of Course 1, we will be talking about creating a two-layer map. We'll be using both data sets - the one on US Counties and on Tornados in the US - so make sure you have both in the Tables section of your dashboard.
+In this final lesson of Course 1, we will be talking about creating a two-layer map. We'll be using both data sets - the one on US Counties and on Tornados in the US - so make sure you have both in the Data View section of your dashboard.
 
 ## Creating a Two-Layer Map
 
-In order to create a multi-layer visualization, start by creating a visualization from one of the layers you'd like to include. We start with the US Counties table in this demo, but you could just as easily start with the Tornados table. Once you've created your visualization from one table, you can add another layer from the column of icons on the right. At the top of the pull-out tray, select the "+" icon. There, you can chose to "Add an existing table," and select the table you'd like to add. In our case, it was the tornado layer.
+In order to create a multi-layer visualization, start by creating a visualization from one of the layers you'd like to include. We start with the US Counties dataset in this demo, but you could just as easily start with the Tornados dataset. Once you've created your visualization from one dataset, you can add another layer from the column of icons on the right. At the top of the CartoDB sidebar, select the "+" icon. There, you can chose to "Add a new layer," and select the dataset you'd like to add. In our case, it was the tornado layer.
 
 ![Adding a layer.](/img/course1/lesson5/addlayer.png)
 

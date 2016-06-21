@@ -9,7 +9,7 @@ body {
   background-color: $background-color;
   text-rendering: optimizeLegibility;
   -webkit-text-rendering: optimizeLegibility;
-  /* -webkit-font-smoothing: antialiased; */
+  -webkit-font-smoothing: antialiased;
   color: $text-color;
   font-weight: $font-weight-base;
   font-size: $font-size-base;
@@ -42,7 +42,7 @@ button {
 }
 img {
   max-width: 100%;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 li {
   > ul,
@@ -64,8 +64,10 @@ code {
     background-color: #292C34;
   }
 }
+
 pre {
-  padding: 8px 12px;
+  padding: 14px 18px;
+  line-height: 19px;
   overflow-x: scroll;
 
   > code {
@@ -74,7 +76,14 @@ pre {
     padding-left: 0;
   }
 }
+.Code-title--dark,
+.Code-body--dark pre,
+.Code-body--dark code,
 .Console {
   background: #292C34;
   color: #999;
+}
+.Code-title--dark,
+.Code-body--dark pre {
+  border-color: #3C4048;
 }

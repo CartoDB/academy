@@ -1,56 +1,26 @@
-# Map Academy
+# The Map Academy
+
+## About
 
 The Map Academy is an online resource to learn all things digital maps, data visualization, and geospatial analysis. We'll go on publishing courses to tackle different challenges in online mapping, from introductory courses to advanced ones. It's an open project in which anyone can contribute.
 
-The Map Academy website is built on top of Jekyll, a simple content management system for static sites.
+[More about The Map Academy](https://academy.cartodb.com/about/)
 
-[More about the Map Academy](/about/)
+The Map Academy website can be found here [academy.cartodb.com](https://academy.cartodb.com/). The Map Academy website is built on top of [Jekyll](http://jekyllrb.com/), a simple content management system for static sites.
 
-
-## How to install
-
-In order to run Academy locally, install [bundler](http://bundler.io/) and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm). Once these are installed run the following:
-
-```
-npm install -g grunt-cli
-bundle install
-npm install
-bower install
-```
-
+  
 ## Develop
 
-When working on a new feature, we recommend forking and creating a new branch from `master`. After committing your changes open a Pull Request to initiate discussion.
+Be sure to look over the [installation guide](INSTALL.md) to verify your environment is prepared to run the website. Once you have verified that your system can run the website, check out the [commands](COMMANDS.md) available to get started.
 
-To run the Map Academy locally, run:
-
-```
-grunt serve
-```
-
-This will generate your site using Jekyll, run a local serve, and open a browser window for you at `localhost:9000`. 
-
-You can continue to edit your lesson files and grunt will detect any changes you make and regenerate the site for you.
 
 ## Contributing
 
-To contribute just check the instructions in [CONTRIBUTING.md](https://github.com/CartoDB/academy/blob/master/CONTRIBUTING.md)
+Contributions, questions and comments are all welcome and encouraged. For code contributions to The Map Academy website, please see our [Contribution guide](CONTRIBUTING.md) before submitting a pull request. [CartoDB](https://cartodb.com/) related issues should be filed on the [CartoDB](https://github.com/CartoDB/cartodb) issue tracker.
 
 
 ## Deploy
 
-Once the Pull Request has been reviewed _and the branch passes the tests_, it can be merged to the master branch for deployment.
+**DEPLOY HOOKS ARE CURRENTLY DISABLED, ASK FOR CREDENTIALS TO DEPLOY**
 
-Then, you can type:
-
-```
-grunt build
-```
-
-With the production configuraion to deploy the static files.
-
-
-## More info
-
-* http://jekyllrb.com/
-* https://guides.github.com/introduction/flow/
+New features should be tested locally, then we've set a hook so when pushing (or merging) to the `develop` branch in the repository automatically deploys to http://academy.cartodb-staging.com/ and pushing (or merging) to `master` branch deploys to the production website.

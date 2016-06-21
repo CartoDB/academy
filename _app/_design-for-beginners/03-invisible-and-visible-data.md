@@ -1,11 +1,11 @@
 ---
-title:  "Invisible and Visible Data"
+title: "Introduction to Map Design — Invisible and Visible Data"
 redirect_from: /courses/02-design-for-beginners/lesson-3.html
 permalink: /courses/beginners-course/invisible-and-visible-data/
 permalink_next: /courses/beginners-course/placing-your-labels/
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"
 ---
-# Data, How Much is Too Much?
+# Invisible and Visible Data
 
 In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we're talking about in this Course, is how to control your data in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data, and still leave your audience with a clear understanding of what you wish to communicate. But a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There's just _too much_.
 

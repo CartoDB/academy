@@ -1,5 +1,5 @@
 ---
-title: "Intro to SQL and PostGIS"
+title: "SQL and PostGIS in CartoDB — Learning SQL through the CartoDB Editor"
 redirect_from: /courses/04-sql-postgis/lesson-1.html
 permalink: /courses/sql-postgis/intro-to-sql-and-postgis/
 permalink_next: /courses/sql-postgis/postgis-in-cartodb/
@@ -19,12 +19,12 @@ In this lesson, we will be using CartoDB to discover some of the basic features 
 Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data):
 
 {% highlight bash %}
-  http://academy.cartodb.com/d/all_month.csv.zip
+  https://academy.cartodb.com/d/all_month.csv.zip
 {% endhighlight %}
 
 If you prefer to have up-to-date earthquake data, go to the [USGS site](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) and grab the "all earthquakes" data for the past 30 days.
 
-After your data is successfully imported, rename the table by clicking on the table name in the upper left and typing in `earthquake_sql`. After you have done this, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types: 
+After your data is successfully imported, rename the table by clicking on the dataset name in the upper left and typing in `earthquake_sql`. After you have done this, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types: 
 
 + number -- 1, 3.1415, -179.3, etc. using [double precision floats](http://www.postgresql.org/docs/9.1/static/datatype-numeric.html)
 + [string](http://en.wikipedia.org/wiki/String_(computer_science)) -- a string of characters, e.g., "Socotra archipelago"
@@ -273,9 +273,9 @@ _Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that
 
 ## Mapping with SQL results
 
-Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new data table. It is now easy to make a [choropleth map](/courses/beginners-course/your-first-choropleth-map/) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
+Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](/courses/beginners-course/your-first-choropleth-map/) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
-<iframe width='100%' height='520' frameborder='0' src='http://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
+<iframe width='100%' height='520' frameborder='0' src='https://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
 
 That's it for Lesson One of SQL and PostGIS in CartoDB.
 

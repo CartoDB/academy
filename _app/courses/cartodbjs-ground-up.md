@@ -1,5 +1,6 @@
 ---
 layout: course
+title: "CartoDB.js from the ground up"
 redirect_from: /courses/03-cartodbjs-ground-up.html
 collection: cartodbjs-ground-up
 mailchimp_id: 62856bf9d1

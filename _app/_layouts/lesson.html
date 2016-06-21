@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% comment %}https://github.com/jekyll/jekyll/issues/4047{% endcomment %}
 {% assign collection = false %}
 
 {% for collection_item in site.collections %}
@@ -10,7 +9,7 @@ layout: default
   {% endif %}
 {% endfor %}
 
-<header class="Header Header--cGreen js-Header">
+<header class="Header Header--cGreen Header--short js-Header">
   {% include navigation.html %}
 </header>
 
@@ -23,19 +22,19 @@ layout: default
             <a href="/" class="Breadcrumbs-link">
               <span>The Map Academy</span>
             </a>
-            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+            <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
-            <a href="{{ collection.url }}" class="Breadcrumbs-link">
-              <span>{{ collection.title }}</span>
+            <a href="{{ collection.url }}" class="Breadcrumbs-link" title="{{ collection.title }}">
+              <span>{{ collection.title | truncate: 25 }}</span>
             </a>
-            <i class="Icon Icon--arrowRight Icon--s6 Breadcrumb-arrow"></i>
+            <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
-            <a href="{{ page.url }}" class="Breadcrumbs-link is-active">
-              <span>{{ page.title }}</span>
+            <a href="{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title }}">
+              <span>{{ page.title | truncate: 25 }}</span>
             </a>
           </li>
         </ul>
@@ -65,7 +64,7 @@ layout: default
             <ul class="Sidebar-list Sidebar-list--notitle">
               {% for collection_item in collection.docs %}
                 <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
-                  <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--doc Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                  <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--docSmall Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
 
                   {% if collection_item.url == page.url %}<ul class="Subsidebar js-Subsidebar"></ul>{% endif %}
                 </li>
@@ -81,7 +80,7 @@ layout: default
 
             <div class="Lesson-footer">
               <div class="Circle Circle--cGreen u-valign u-rspace--20">
-                <i class="Icon Icon--check Icon--hcenter Icon--s12 u-malign"></i>
+                <i class="Icon Icon--checkFill Icon--hcenter Icon--s12 u-malign"></i>
               </div> {% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
 
               {% if page.permalink_next %}

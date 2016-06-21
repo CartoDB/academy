@@ -18,11 +18,27 @@
 .u-inner--20 {
   z-index: 20;
 }
+.u-inner--wide {
+  max-width: $layout-xl + 1;
+}
+.u-ilist > li {
+  display: inline-block;
+}
+.u-iblock {
+  display: inline-block;
+}
+.u-media-block {
+  max-width: 100%;
+  height: auto;
+}
+
+// Aligns
 .u-valign:before {
   display: inline-block;
   vertical-align: middle;
   content: "";
   height: 100%;
+  margin-left: -4px;
 }
 .u-malign {
   vertical-align: middle;
@@ -33,29 +49,20 @@
 .u-balign {
   vertical-align: bottom;
 }
-.u-txt-center {
+.u-txt--center {
   text-align: center;
+}
+.u-txt--left {
+  text-align: left;
+}
+.u-txt--right {
+  text-align: right;
+}
+.u-left {
+  float: left;
 }
 .u-right {
   float: right;
-}
-.u-vspace--12 {
-  margin-bottom: 12px;
-}
-.u-vspace--20 {
-  margin-bottom: $spacing-unit;
-}
-.u-vspace--40 {
-  margin-bottom: $spacing-unit * 2;
-}
-.u-vspace--60 {
-  margin-bottom: $spacing-unit * 3;
-}
-.u-tspace--60 {
-  margin-top: $spacing-unit * 3;
-}
-.u-rspace--20 {
-  margin-right: $spacing-unit;
 }
 .u-tupper {
   text-transform: uppercase;
@@ -76,6 +83,158 @@
   -webkit-line-clamp: 3;
 }
 
+@media (max-width: $layout-l) {
+  .u-txt--center--tablet {
+    text-align: center;
+  }
+}
+@media (max-width: $layout-m) {
+  .u-txt--center--mobile {
+    text-align: center;
+  }
+}
+
+// Margins
+$sizes: (0, 4, 8, 10, 12, 20, 30, 40, 60, 80, 100, 120, 240);
+
+@each $size in $sizes {
+  .u-tspace--#{$size}--n {
+    margin-top: -#{$size}px;
+  }
+  .u-tspace--#{$size} {
+    margin-top: #{$size}px;
+  }
+  .u-rspace--#{$size} {
+    margin-right: #{$size}px;
+  }
+  .u-vspace--#{$size} {
+    margin-bottom: #{$size}px;
+  }
+  .u-lspace--#{$size}--n {
+    margin-left: -#{$size}px;
+  }
+  .u-lspace--#{$size} {
+    margin-left: #{$size}px;
+  }
+}
+
+.u-block--desktop--sLarge {
+  display: none;
+
+  @media (min-width: $layout-xxl - 40) {
+    display: block;
+  }
+}
+.u-hide--desktop--sLarge {
+  display: block;
+
+  @media (min-width: $layout-xxl - 40) {
+    display: none;
+  }
+}
+
+
+@media (max-width: $layout-l) {
+  .u-tablet-hide,
+  .u-hide--tablet {
+    display: none;
+  }
+
+  @each $size in $sizes {
+    .u-tspace--#{$size}--tablet {
+      margin-top: #{$size}px;
+    }
+    .u-rspace--#{$size}--tablet {
+      margin-right: #{$size}px;
+    }
+    .u-vspace--#{$size}--tablet {
+      margin-bottom: #{$size}px;
+    }
+    .u-lspace--#{$size}--tablet {
+      margin-left: #{$size}px;
+    }
+  }
+}
+@media (min-width: $layout-s + 1) {
+  .u-block--small {
+    display: none;
+  }
+}
+@media (max-width: $layout-s) {
+  .u-small-hide {
+    display: none;
+  }
+  .u-block--small {
+    display: block;
+  }
+}
+@media (min-width: $layout-m + 1) {
+  .u-block--tablet {
+    display: block;
+  }
+  .u-iblock--tablet {
+    display: inline-block;
+  }
+  .u-block--mobile,
+  .u-iblock--mobile {
+    display: none;
+  }
+}
+@media (max-width: $layout-m) {
+  .u-mobile-hide {
+    display: none;
+  }
+
+  .u-block--tablet,
+  .u-iblock--tablet,
+  .u-hide--tablet,
+  .u-hide--mobile {
+    display: none;
+  }
+  .u-block--mobile {
+    display: block;
+  }
+  .u-iblock--mobile {
+    display: inline-block;
+  }
+  .u-lalign--mobile {
+    float: left;
+  }
+  .u-txt--left--mobile {
+    text-align: left;
+  }
+  .u-txt--right--mobile {
+    text-align: right;
+  }
+  .u-txt--center--mobile {
+    text-align: center;
+  }
+
+  @each $size in $sizes {
+    .u-tspace--#{$size}--mobile {
+      margin-top: #{$size}px;
+    }
+    .u-rspace--#{$size}--mobile {
+      margin-right: #{$size}px;
+    }
+    .u-vspace--#{$size}--mobile {
+      margin-bottom: #{$size}px;
+    }
+    .u-lspace--#{$size}--mobile {
+      margin-left: #{$size}px;
+    }
+  }
+}
+
+// Opacity
+$ops: ("90", "80", "70", "60", "50", "40", "30", "20", "10", "05", "02");
+
+@each $op in $ops {
+  .u-opacity--#{$op} {
+    opacity: unquote('0.#{$op}');
+  }
+}
+
 /* Helper class taken from Bootstrap.
    Hides an element to all devices except screen readers.
 */
@@ -88,4 +247,7 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+.u-hide {
+  display: none;
 }

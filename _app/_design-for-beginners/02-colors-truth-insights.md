@@ -1,13 +1,13 @@
 ---
-title:  "Colors. Truth & Insights"
+title: "Introduction to Map Design — Colors. Truth & Insights"
 redirect_from: /courses/02-design-for-beginners/lesson-2.html
 permalink: /courses/beginners-course/colors-truth-insights/
 permalink_next: /courses/beginners-course/invisible-and-visible-data/
 tweet_text: "Step by step is the way to go. I've finished the first lesson of the map academy. Check it out"
 ---
-# Colors are Important, and are Challenging to Master!
+# Colors. Truth & Insights
 
-Ugly maps, like the one we showed you at the end of the last lesson, are not hard to find. You can probably think of several maps you've seen that make you cringe. At the same time, you can likely think of many beautiful maps. One major component that makes a beautiful map beautiful is the color choices made for that map.
+Colors are important, and are challenging to master! Ugly maps, like the one we showed you at the end of the last lesson, are not hard to find. You can probably think of several maps you've seen that make you cringe. At the same time, you can likely think of many beautiful maps. One major component that makes a beautiful map beautiful is the color choices made for that map.
 
 Learning how to pick good colors for your data and basemaps can be challenging, and applying color principles is sometimes hard to do. Selecting good colors for data visualization has it's roots in math and color theory. It can get complex quickly - we won't get in to it now - but it is also very interesting. If you are interested, you can check out a [few](http://www.gretchenpeterson.com/blog/create-color-schemes-in-maps-using-color-theory/) [different](http://datadrivenjournalism.net/resources/colour_theory_and_mapping) [articles](http://blog.visual.ly/subtleties-of-color/) to get started, and feel free to explore more on your own!
 
@@ -19,7 +19,7 @@ For now, we are going to get our feet wet by looking at color in practice.
 To get started, go ahead and import the following data set on earthquakes into your account. The easiest way is to _copy the URL_ and _paste_ it into the [Import box](http://docs.cartodb.com/cartodb-editor/datasets/#connect-dataset). If you don't know how to do this, take a look at [Course 1](/courses/beginners-course/).
 
 {% highlight text %}
-http://academy.cartodb.com/d/1.0_month.csv
+https://academy.cartodb.com/d/1.0_month.csv
 {% endhighlight %}
 
 When we pull up the data, what we see is a distribution of dots (representing locations of earthquakes) that is hard to interpret. We know that there are many data points - many earthquakes - but it's hard to identify patterns of distribution and intensity.
@@ -54,6 +54,6 @@ There are many other resources you can use to help in picking colors. Mapbox has
 
 In addition to editing the colors of your markers, you can also edit how the colors of overlapping or intersecting markers interact with one another. This function is called "Composite Operations" in your Visualization wizard.
 
-While we won't dive into this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read [Comp Op documentation](https://www.mapbox.com/tilemill/docs/guides/comp-op/) from MapBox to learn more about the options available to you.
+While we won't dive into this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read our [Composite Operations lesson](https://academy.cartodb.com/courses/intermediate-design/use-composite-operations/) in the [Intermediate Design course](https://academy.cartodb.com/courses/intermediate-design/) to learn more about the options available to you.
 
 ![Multiply composite operation.](/img/course2/lesson2/multiply.png)

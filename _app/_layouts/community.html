@@ -1,0 +1,101 @@
+---
+layout: default
+---
+{% assign collection = false %}
+
+{% for collection_item in site.collections %}
+  {% if collection_item.label == page.collection %}
+    {% assign collection = collection_item %}
+  {% endif %}
+{% endfor %}
+
+<header class="Header Header--cGreen Header--short js-Header">
+  {% include navigation.html %}
+</header>
+
+<div class="Subheader">
+  <nav class="Breadcrumbs">
+    <div class="u-inner u-inner--10">
+      <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
+        <li class="Breadcrumbs-item">
+          <a href="/" class="Breadcrumbs-link">
+            <span>The Map Academy</span>
+          </a>
+          <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
+        </li>
+
+        <li class="Breadcrumbs-item">
+          <a href="{{ collection.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title | truncate: 25 }}">
+            <span>{{ collection.title | truncate: 25 }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="Breadcrumbs-inner Breadcrumbs-inner--right">
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="Content">
+  <div class="u-inner u-inner--10">
+    <div class="Grid">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <div class="Sidebar">
+            <ul class="Sidebar-list Sidebar-list--notitle">
+              {% for collection_item in site.collections %}
+                {% unless collection_item.label == "posts" %}
+                  <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
+                    <a href="{{ collection_item.url }}" class="Sidebar-link Sidebar-link--folder"><i class="Icon Icon--folder Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                  </li>
+                {% endunless %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <div class="Content-inner Content-inner--withlist">
+
+            {{ content }}
+
+          </div>
+
+          <ul class="List">
+            {% assign start_course = "#" %}
+
+            {% for collection_item in collection.docs %}
+              {% if forloop.first %}
+                {% assign start_course = collection_item.url %}
+              {% endif %}
+
+              <li class="List-item">
+                <a href="{{ collection_item.url }}" class="List-link"><i class="Icon Icon--doc Icon--s22 List-icon"></i>{{ collection_item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+
+          <div class="Content-inner Content-inner--afterlist">
+            <h2>Want to contribute a lesson?</h2>
+            <p>If you would like to nominate a new lesson for inclusion to our community section, please fill out <a href="https://docs.google.com/forms/d/13KyJ2qzQvIc0FXJ34v1TUZydxk4eoZzhHEnBm2dhu3s/viewform?usp=send_form">this form</a>.</p>
+
+            <h2>Want to contribute in another way?</h2>
+            <p>Map Academy is open source. What that means is that all lessons and code to create Map Academy lies in <a href="http://github.com/CartoDB/academy">our code repository</a>.</p>
+
+            <h3>Ways to contribute</h3>
+            <ul>
+              <li>Open issues if you find typos, incorrect directions, old screen captures, and more! You can open an issue at the following page: <a href="https://github.com/CartoDB/academy/issues/new">https://github.com/CartoDB/academy/issues/new</a></li>
+              <li>Open a <a href="https://github.com/CartoDB/academy/compare">Pull Request</a> to fix the problem you found in #1</li>
+              <li>Create new content to make Map Academy more full-featured. If you do this, we'll buy you lunch if you come to visit our office in New York! If you can't visit us, we can send swag anywhere in the world.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+{% include mailchimp.html %}
+{% endcomment %}

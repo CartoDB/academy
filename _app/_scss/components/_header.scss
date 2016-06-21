@@ -2,57 +2,76 @@
 // --------------------------------------------------
 
 .Header {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  z-index: 30;
+  min-height: 500px;
   background: $blue1;
+}
+
+// Sizes
+.Header--short {
+  min-height: 0;
 }
 .Header--tall {
   min-height: 550px;
 }
+.Header--full80 {
+  height: 80vh;
+}
+.Header--full100 {
+  height: 100vh;
+}
+.Header--withbrands {
+  height: calc(100vh - 86px);
+}
+
+// Colors
+.Header--dark {
+  background: $grey2;
+}
 .Header--cGreen {
   background: $green1;
 }
+.Header--cBlue {
+  background: $blue1;
+}
+.Header--cWhite {
+  background: #f9f9f9;
+}
+.Header--gBlue {
+  background-image: linear-gradient(-45deg, $blue1 0%, $blue2 100%);
+}
+.Header--gSkyBlue {
+  background-image: linear-gradient(-45deg, $blue2 0%, $green2 100%);
+}
+.Header--gPurple {
+  background-image: linear-gradient(135deg, $purple1 0%, $purple2 100%);
+}
+.Header--gGreen {
+  background-image: linear-gradient(135deg, $green3 0%, $green4 100%);
+}
 .Header-background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  @include cover;
+}
+.Header-background--cover {
+  background-size: cover;
+  background-position: center;
 }
 .Header-background--academy {
-  background: url("../img/backgrounds/academy.svg") center 77px no-repeat;
+  background: url("../img/backgrounds/academy.svg") center 77px repeat-x;
+  opacity: .25;
+
+  .no-svg {
+    background-image: url("../img/backgrounds/academy.png");
+  }
 }
 .Header-inner {
   padding: $spacing-unit * 4 0;
 }
-.Header-title {
-  font-size: 44px;
-  line-height: 56px;
-  letter-spacing: 1px;
-  color: #fff;
-}
-.Header-subtitle {
-  margin-bottom: 12px;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 1px;
-  color: rgba(#fff, .6);
-  text-transform: uppercase
-}
-.Subheader {
-  position: relative;
-  z-index: 20;
-  border-bottom: 1px solid #EEE;
-  background: #F9F9F9;
-}
-.Subheader.Subheader--fixed {
-  @media (min-width: $layout-m) {
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    &.is-fixed {
-      position: fixed;
-    }
-  }
+.Header-inner--vcenter {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  margin-top: -31px;
 }

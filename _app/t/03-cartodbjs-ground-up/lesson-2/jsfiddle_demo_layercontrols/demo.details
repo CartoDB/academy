@@ -4,7 +4,7 @@
  authors:
    - Andy Eschbacher
  resources:
-   - http://academy.cartodb.com/css/cdbui.css
+   - https://academy.cartodb.com/css/cdbui.css
    - http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js
    - http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css
  normalize_css: no

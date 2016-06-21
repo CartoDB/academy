@@ -1,7 +1,7 @@
 ---
 layout: default
-description: 'Learn to create maps on the web<br />and visualize geospatial data'
-vizjson: "http://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
+description: 'CartoDB Academy offers documentation and training programs to help people understand how Location Intelligence and Big Data tools work through CartoDB'
+vizjson: "https://documentation.cartodb.com/api/v2/viz/af43c3ea-bf46-11e3-8153-0edbca4b5057/viz.json"
 mailchimp_id: 7ee37359cf
 ---
 <header class="Header Header--tall Header--cGreen js-Header">
@@ -13,9 +13,9 @@ mailchimp_id: 7ee37359cf
     <div class="u-inner">
       <div class="Grid">
         <div class="Grid-inner">
-          <div class="Grid-cell Grid-cell--col9 Grid-cell--col6--tablet Grid-cell--col12--mobile">
-            <h1 class="Header-subtitle">The Map Academy</h1>
-            <p class="Header-title">Learn to create maps on the web and visualize geospatial data</p>
+          <div class="Grid-cell Grid-cell--col10 Grid-cell--col6--tablet Grid-cell--col12--mobile">
+            <h1 class="Title Title--small u-vspace--12">The Map Academy</h1>
+            <p class="Title Title--header">Learn to create maps on the web and visualize geospatial&nbsp;data</p>
           </div>
         </div>
       </div>
@@ -45,29 +45,33 @@ mailchimp_id: 7ee37359cf
     <section id="easy" class="Grid u-vspace--40">
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
-          <h2 class="Title Title--h2 Sidebar-title">Easy tutorials</h2>
+          <h2 class="Title Title--feature Sidebar-title">Easy exercises</h2>
           <p class="Sidebar-content">Basic concepts of online mapping</p>
         </div>
 
         <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
           <div class="Grid">
-            <ul class="Grid-inner">
+            <ul class="Grid-inner Grid-inner--shortpadding">
               {% for collection_item in site.collections %}
                 {% if collection_item.difficulty == "easy" %}
-                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Grid">
-                    <a href="{{ collection_item.url }}" class="Feature-item Feature-item--with-link">
-                      <div class="Feature-media">
-                        <picture>
-                          <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
-                          <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
-                        </picture>
-                      </div>
-                      <div class="Feature-content u-vspace--12">
-                        <h3 class="Feature-title">{{ collection_item.title }}</h3>
-                        <p class="u-vellipsis" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
-                      </div>
-                      <div class="Feature-footer">
-                        <p><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
+                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                      <div class="Card-inner">
+                        <div class="Feature-media">
+                          <picture>
+                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                          </picture>
+                        </div>
+
+                        <div class="Feature-content u-vspace--12">
+                          <h3 class="Title Title--feature u-vspace-12">{{ collection_item.title }}</h3>
+                          <p class="Feature-text u-vellipsis u-vellipsis--3" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                        </div>
+
+                        <div class="Feature-footer">
+                          <p class="Feature-text Feature-text--sSmall"><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                        </div>
                       </div>
                     </a>
                   </li>
@@ -79,32 +83,36 @@ mailchimp_id: 7ee37359cf
       </div>
     </section>
 
-    <section id="medium" class="Grid">
+    <section id="medium" class="Grid u-vspace--40">
       <div class="Grid-inner">
         <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
-          <h2 class="Title Title--h2 Sidebar-title">Medium tutorials</h2>
-          <p class="Sidebar-content">Queries to visualizations, and make informed choices about maps</p>
+          <h2 class="Title Title--feature Sidebar-title">Medium exercises</h2>
+          <p class="Sidebar-content">Queries to visualizations, and make informed choices about&nbsp;maps</p>
         </div>
 
         <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
           <div class="Grid">
-            <ul class="Grid-inner">
+            <ul class="Grid-inner Grid-inner--shortpadding">
               {% for collection_item in site.collections %}
                 {% if collection_item.difficulty == "medium" %}
-                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Grid">
-                    <a href="{{ collection_item.url }}" class="Feature-item Feature-item--with-link">
-                      <div class="Feature-media">
-                        <picture>
-                          <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
-                          <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
-                        </picture>
-                      </div>
-                      <div class="Feature-content u-vspace--12">
-                        <h3 class="Feature-title">{{ collection_item.title }}</h3>
-                        <p class="u-vellipsis" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
-                      </div>
-                      <div class="Feature-footer">
-                        <p><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
+                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                      <div class="Card-inner">
+                        <div class="Feature-media">
+                          <picture>
+                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                          </picture>
+                        </div>
+
+                        <div class="Feature-content u-vspace--12">
+                          <h3 class="Title Title--feature u-vspace-12">{{ collection_item.title }}</h3>
+                          <p class="Feature-text u-vellipsis u-vellipsis--3" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                        </div>
+
+                        <div class="Feature-footer">
+                          <p class="Feature-text Feature-text--sSmall"><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                        </div>
                       </div>
                     </a>
                   </li>
@@ -115,6 +123,89 @@ mailchimp_id: 7ee37359cf
         </div>
       </div>
     </section>
+
+    <section id="advanced" class="Grid u-vspace--40">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <h2 class="Title Title--feature Sidebar-title">Advanced exercises</h2>
+          <p class="Sidebar-content">Advanced integrations with CartoDB and your data</p>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <div class="Grid">
+            <ul class="Grid-inner Grid-inner--shortpadding">
+              {% for collection_item in site.collections %}
+                {% if collection_item.difficulty == "advanced" %}
+                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
+                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                      <div class="Card-inner">
+                        <div class="Feature-media">
+                          <picture>
+                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                          </picture>
+                        </div>
+
+                        <div class="Feature-content u-vspace--12">
+                          <h3 class="Title Title--feature u-vspace-12">{{ collection_item.title }}</h3>
+                          <p class="Feature-text u-vellipsis u-vellipsis--3" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                        </div>
+
+                        <div class="Feature-footer">
+                          <p class="Feature-text Feature-text--sSmall"><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mixed" class="Grid u-vspace--40">
+      <div class="Grid-inner">
+        <div class="Grid-cell Grid-cell--col3 Grid-cell--col12--mobile">
+          <h2 class="Title Title--feature Sidebar-title">Mixed exercises</h2>
+          <p class="Sidebar-content">Bundles of lessons that are a range of difficulty</p>
+        </div>
+
+        <div class="Grid-cell Grid-cell--col9 Grid-cell--col12--mobile">
+          <div class="Grid">
+            <ul class="Grid-inner Grid-inner--shortpadding">
+              {% for collection_item in site.collections %}
+                {% if collection_item.difficulty == "mixed" %}
+                  <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
+                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                      <div class="Card-inner">
+                        <div class="Feature-media">
+                          <picture>
+                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                          </picture>
+                        </div>
+
+                        <div class="Feature-content u-vspace--12">
+                          <h3 class="Title Title--feature u-vspace-12">{{ collection_item.title }}</h3>
+                          <p class="Feature-text u-vellipsis u-vellipsis--3" title="{{ collection_item.description }}">{{ collection_item.description }}</p>
+                        </div>
+
+                        <div class="Feature-footer">
+                          <p class="Feature-text Feature-text--sSmall"><i class="Icon Icon--lessons Icon--s12 Icon--cGreyC u-malign"></i> {{ collection_item.docs.size }} lesson{% if collection_item.docs.size > 1 %}s{% endif %}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </div>
 

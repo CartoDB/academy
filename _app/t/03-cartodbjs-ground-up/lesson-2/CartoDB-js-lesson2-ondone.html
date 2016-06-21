@@ -4,12 +4,12 @@
     <title>Lesson 2 | CartoDB.js | CartoDB</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <link rel="shortcut icon" href="https://cartodb.com/assets/favicon.ico" />
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-    <link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css">
+    <link rel="stylesheet" href="https://academy.cartodb.com/css/cdbui.css">
 
     <style>
       html, body {
@@ -55,13 +55,13 @@
     </div>
 
     <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 
     <!-- Place your code in the script tags below -->
     <script>
     window.onload = function() {
 
-        var vizjson_url = 'http://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json';
+        var vizjson_url = 'https://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json';
 
         cartodb.createVis('map', vizjson_url)
             .done(function(vis, layers) {

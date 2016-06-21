@@ -1,4 +1,3 @@
-/* Icons */
 @font-face {
   font-family: 'carto-icons';
   src: url('../fonts/carto-icons.eot');
@@ -9,7 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
-.Icon:before {
+.Icon {
   display: inline-block;
   font-family: "carto-icons";
   font-style: normal;
@@ -18,70 +17,249 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* Sizes */
-.Icon--s5 {
-  font-size: 5px;
-}
-.Icon--s6 {
-  font-size: 6px;
-}
-.Icon--s10 {
-  font-size: 10px;
-}
-.Icon--s20 {
-  font-size: 20px;
-}
-.Icon--s22 {
-  font-size: 22px;
-}
-.Icon--s48 {
-  font-size: 48px;
-}
-
-/* Colors */
-.Icon--cWhite {
-  color: #FFF;
-}
-.Icon--cBlue {
-  color: #3AA9E3;
-}
-.Icon--cGreen {
-  color: #9CCC65;
-}
-.Icon--cGrey {
-  color: #979EA1;
-}
-/* Align */
-.Icon--mAlign {
-  vertical-align: middle;
-}
-.Icon--cartofante:before {
+.Icon--logo:before {
   content: "\E001"
 }
-.Icon--arrowDown:before {
+.Icon--cartofante:before {
   content: "\E002"
 }
-.Icon--arrowRight:before {
+.Icon--caretDown:before {
   content: "\E003"
 }
-.Icon--doc:before {
+.Icon--caretRight:before {
   content: "\E004"
 }
-.Icon--video:before {
+.Icon--doc:before {
   content: "\E005"
 }
-.Icon--indent:before {
+.Icon--video:before {
   content: "\E006"
 }
-.Icon--menu:before {
+.Icon--indent:before {
   content: "\E007"
 }
-.Icon--check:before {
+.Icon--menu:before {
   content: "\E008"
 }
-.Icon--lessons:before {
+.Icon--check:before {
   content: "\E009"
 }
-.Icon--folder:before {
+.Icon--lessons:before {
   content: "\E00A"
+}
+.Icon--folder:before {
+  content: "\E00B"
+}
+.Icon--arrowLeft:before {
+  content: "\E00C"
+}
+.Icon--arrowRight:before {
+  content: "\E00D"
+}
+.Icon--close:before {
+  content: "\E00E"
+}
+.Icon--twitter:before {
+  content: "\E00F"
+}
+.Icon--facebook:before {
+  content: "\E010"
+}
+.Icon--linkedin:before {
+  content: "\E011"
+}
+.Icon--pin:before {
+  content: "\E012"
+}
+.Icon--search:before {
+  content: "\E013"
+}
+.Icon--design:before {
+  content: "\E014"
+}
+.Icon--map:before {
+  content: "\E015"
+}
+.Icon--refresh:before {
+  content: "\E016"
+}
+.Icon--gift:before {
+  content: "\E017"
+}
+.Icon--special:before {
+  content: "\E018"
+}
+.Icon--embed:before {
+  content: "\E019"
+}
+.Icon--secure:before {
+  content: "\E01A"
+}
+.Icon--power:before {
+  content: "\E01B"
+}
+.Icon--vip:before {
+  content: "\E01C"
+}
+.Icon--performance:before {
+  content: "\E01D"
+}
+.Icon--apis:before {
+  content: "\E01E"
+}
+.Icon--onpremises:before {
+  content: "\E01F"
+}
+.Icon--cloud:before {
+  content: "\E020"
+}
+.Icon--book:before {
+  content: "\E021"
+}
+.Icon--import:before {
+  content: "\E022"
+}
+.Icon--traffic:before {
+  content: "\E023"
+}
+.Icon--where:before {
+  content: "\E024"
+}
+.Icon--optimize:before {
+  content: "\E025"
+}
+.Icon--loop:before {
+  content: "\E026"
+}
+.Icon--integration:before {
+  content: "\E027"
+}
+.Icon--collaborative:before {
+  content: "\E028"
+}
+.Icon--extensible:before {
+  content: "\E029"
+}
+.Icon--storage:before {
+  content: "\E02A"
+}
+.Icon--opensource:before {
+  content: "\E02B"
+}
+.Icon--connectivity:before {
+  content: "\E02C"
+}
+.Icon--geospatial:before {
+  content: "\E02D"
+}
+.Icon--layers:before {
+  content: "\E02E"
+}
+.Icon--geocoding:before {
+  content: "\E02F"
+}
+.Icon--exploration:before {
+  content: "\E030"
+}
+.Icon--basemaps:before {
+  content: "\E031"
+}
+.Icon--brush:before {
+  content: "\E032"
+}
+.Icon--retina:before {
+  content: "\E033"
+}
+.Icon--data:before {
+  content: "\E034"
+}
+.Icon--license:before {
+  content: "\E035"
+}
+.Icon--recognition:before {
+  content: "\E036"
+}
+.Icon--visibility:before {
+  content: "\E037"
+}
+.Icon--collaborative:before {
+  content: "\E038"
+}
+.Icon--reporting:before {
+  content: "\E039"
+}
+.Icon--shared:before {
+  content: "\E03A"
+}
+.Icon--billing:before {
+  content: "\E03B"
+}
+.Icon--support:before {
+  content: "\E03C"
+}
+.Icon--plug:before {
+  content: "\E03D"
+}
+.Icon--gear:before {
+  content: "\E03E"
+}
+.Icon--stamen:before {
+  content: "\E03F"
+}
+.Icon--user:before {
+  content: "\E040"
+}
+.Icon--profile:before {
+  content: "\E041"
+}
+.Icon--administrations:before {
+  content: "\E042"
+}
+.Icon--placenames:before {
+  content: "\E043"
+}
+.Icon--ipaddresses:before {
+  content: "\E044"
+}
+.Icon--editor:before {
+  content: "\E045"
+}
+.Icon--discount:before {
+  content: "\E046"
+}
+.Icon--megaphone:before {
+  content: "\E047"
+}
+.Icon--events:before {
+  content: "\E048"
+}
+.Icon--love:before {
+  content: "\E049"
+}
+.Icon--fav:before {
+  content: "\E04A"
+}
+.Icon--server:before {
+  content: "\E04B"
+}
+.Icon--privacy:before {
+  content: "\E04C"
+}
+.Icon--satellite:before {
+  content: "\E04D"
+}
+.Icon--github:before {
+  content: "\E04E"
+}
+.Icon--dribbble:before {
+  content: "\E04F"
+}
+.Icon--checkFill:before {
+  content: "\E050"
+}
+.Icon--docSmall:before {
+  content: "\E051"
+}
+.Icon--link:before {
+  content: "\E052"
 }

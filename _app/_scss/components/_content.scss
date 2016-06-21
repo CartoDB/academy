@@ -5,8 +5,11 @@
   background: $background-color;
   padding-bottom: $spacing-unit * 3;
 }
-.Content.Content--withpadding {
+.Content--withpadding {
   padding-top: $spacing-unit * 3;
+}
+.Content--cWhite {
+  background: #fff;
 }
 .Content-inner {
   margin-top: $spacing-unit * 3;
@@ -14,7 +17,7 @@
   h1, h2, h3,
   p, blockquote, pre,
   ul, ol, dl, figure {
-    @include vertical-rhythm;
+    margin-bottom: $spacing-unit;
   }
   p, blockquote, pre,
   ul, ol, dl, figure {
@@ -41,27 +44,22 @@
       color: $grey9;
     }
   }
-
-  // .Title--h1
   h1 {
     margin-top: 0;
     margin-bottom: $spacing-unit;
     font-size: 22px;
     line-height: 30px;
   }
-  // .Title--h2
   h2 {
     margin-bottom: $spacing-unit / 2;
     font-size: 18px;
     line-height: 24px;
   }
-  // .Title--h3
   h3 {
     margin-bottom: 12px;
     font-size: 14px;
     line-height: 22px;
   }
-  // .Title--h4
   h4 {
     margin-top: $spacing-unit;
     margin-bottom: 8px;
@@ -141,12 +139,12 @@
     }
   }
 }
-.Content-inner.Content-inner--withsubheader {
+.Content-inner--withsubheader {
   @media (min-width: $layout-m) {
     margin-top: $spacing-unit * 3 + 77px;
   }
 }
-.Content-inner.Content-inner--withlist {
+.Content-inner--withlist {
   // margin-top: 0;
   margin-bottom: $spacing-unit * 2;
 
@@ -154,10 +152,9 @@
     margin-top: 0;
   }
 }
+.Content-inner--afterlist {
+  margin-top: 0;
+}
 .Content-meta {
   color: $grey9;
-}
-.Section-text {
-  font-size: 14px;
-  line-heigh: 28px;
 }
