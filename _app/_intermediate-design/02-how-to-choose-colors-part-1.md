@@ -10,7 +10,7 @@ In our beginner lesson we saw why color is important: it makes your data legible
 
 ![hard-to-read]({{site.baseurl}}/img/course6/lesson2/color1-rgTxt.png)
 
-Can you pick out **TSSE** from **VOIE** roads below? Their colors are too similar to distinguish from each other, or the basemap. Also light-to-dark color schemes usually represent *more* or *less* of something, but this map's using a sequential palette for un-ranked categories.
+Can you pick out **AV** from **BLVD** roads below? Their colors are too similar to distinguish from each other, or the basemap. Also light-to-dark color schemes usually represent *more* or *less* of something, but this map's using a sequential palette for un-ranked categories.
 
 <iframe width="100%" height="520" frameborder="0" src="https://documentation.cartodb.com/viz/abea64fc-033b-11e6-bb66-0e3ff518bd15/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
