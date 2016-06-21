@@ -8,6 +8,8 @@ tweet_text: "Step by step is the way to go. I've finished the second map academy
 
 Congratulations if you completed our [first design course](/courses/design-for-beginners/)! Otherwise, congrats for finding your way to our second course in map-based data visualization! 
 
+<iframe width="100%" height="520" frameborder="0" src="https://gkudos.cartodb.com/u/kudosg/viz/b42f3f50-d8aa-11e4-967d-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
 Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](/courses/beginners-course/colors-truth-insights/#why-to-think-about-colors) of how design choices can [completely obscure](/courses/beginners-course/invisible-and-visible-data/#data-how-much-is-too-much) or [clearly communicate](/courses/beginners-course/invisible-and-visible-data/#all-together-now) the information in your dataset. We hope this course inspires you to make beautiful maps, like the one above designed by CartoDB users [Kudos Ltda.](https://gkudos.cartodb.com/maps)
 
 Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor/maps/#wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use? 
