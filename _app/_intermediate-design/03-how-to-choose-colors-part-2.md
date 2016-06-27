@@ -66,6 +66,8 @@ A quick CartoCSS trick for this is **lighten**—or **darken** if you're startin
 lighten(#006D2C, 10%);
 {% endhighlight %}
 
+We used **lighten** in this map of Valencia, with data taken from [the Data Observatory:](https://cartodb.github.io/bigmetadata/tags.spain/tags.boundary.html)
+
 ![editor_lighten]({{site.baseurl}}/img/course6/lesson3/editor_lighten.png)
 
 Explore other color-generating shortcuts with [these](https://docs.cartodb.com/cartodb-platform/cartocss/properties/) CartoCSS parameters!
