@@ -24,4 +24,3 @@ Contributions, questions and comments are all welcome and encouraged. For code c
 **DEPLOY HOOKS ARE CURRENTLY DISABLED, ASK FOR CREDENTIALS TO DEPLOY**
 
 New features should be tested locally, then we've set a hook so when pushing (or merging) to the `develop` branch in the repository automatically deploys to http://academy.cartodb-staging.com/ and pushing (or merging) to `master` branch deploys to the production website.
-
