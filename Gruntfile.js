@@ -340,7 +340,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/_js',
-          dest: '<%= config.tmp %>/js/',
+          dest: '<%= config.tmp %><%= config.subfolder %>/js/',
           src: 'vendor/*.js'
         }]
       }
