@@ -18,14 +18,14 @@ layout: default
     <div class="u-inner u-inner--10">
       <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
         <li class="Breadcrumbs-item">
-          <a href="/" class="Breadcrumbs-link">
+          <a href="{{ site.baseurl }}/" class="Breadcrumbs-link">
             <span>The Map Academy</span>
           </a>
           <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
         </li>
 
         <li class="Breadcrumbs-item">
-          <a href="{{ collection.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title | truncate: 25 }}">
+          <a href="{{ site.baseurl }}{{ collection.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title | truncate: 25 }}">
             <span>{{ collection.title | truncate: 25 }}</span>
           </a>
         </li>
@@ -47,7 +47,7 @@ layout: default
               {% for collection_item in site.collections %}
                 {% unless collection_item.label == "posts" %}
                   <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
-                    <a href="{{ collection_item.url }}" class="Sidebar-link Sidebar-link--folder"><i class="Icon Icon--folder Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                    <a href="{{ site.baseurl }}{{ collection_item.url }}" class="Sidebar-link Sidebar-link--folder"><i class="Icon Icon--folder Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
                   </li>
                 {% endunless %}
               {% endfor %}
@@ -71,13 +71,13 @@ layout: default
               {% endif %}
 
               <li class="List-item">
-                <a href="{{ collection_item.url }}" class="List-link"><i class="Icon Icon--doc Icon--s22 List-icon"></i>{{ collection_item.title }}</a>
+                <a href="{{ site.baseurl }}{{ collection_item.url }}" class="List-link"><i class="Icon Icon--doc Icon--s22 List-icon"></i>{{ collection_item.title }}</a>
               </li>
             {% endfor %}
           </ul>
 
           <p>
-            <a href="{{ start_course }}" class="Button Button--sLarge Button--cGreen is-highlight">
+            <a href="{{ site.baseurl }}{{ start_course }}" class="Button Button--sLarge Button--cGreen is-highlight">
               <span class="u-tupper">Start course</span>
             </a>
           </p>
