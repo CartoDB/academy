@@ -28,7 +28,7 @@ mailchimp_id: 7ee37359cf
     <div class="u-inner u-inner--10">
       <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
         <li class="Breadcrumbs-item">
-          <a href="/" class="Breadcrumbs-link">
+          <a href="{{ site.baseurl }}/" class="Breadcrumbs-link">
             <span>The Map Academy</span>
           </a>
         </li>
@@ -55,12 +55,12 @@ mailchimp_id: 7ee37359cf
               {% for collection_item in site.collections %}
                 {% if collection_item.difficulty == "easy" %}
                   <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
-                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                    <a href="{{ site.baseurl }}{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
                       <div class="Card-inner">
                         <div class="Feature-media">
                           <picture>
-                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
-                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                            <source srcset="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png 1x, {{ site.baseurl }}/img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
                           </picture>
                         </div>
 
@@ -96,12 +96,12 @@ mailchimp_id: 7ee37359cf
               {% for collection_item in site.collections %}
                 {% if collection_item.difficulty == "medium" %}
                   <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
-                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                    <a href="{{ site.baseurl }}{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
                       <div class="Card-inner">
                         <div class="Feature-media">
                           <picture>
-                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
-                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                            <source srcset="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png 1x, {{ site.baseurl }}/img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
                           </picture>
                         </div>
 
@@ -137,12 +137,12 @@ mailchimp_id: 7ee37359cf
               {% for collection_item in site.collections %}
                 {% if collection_item.difficulty == "advanced" %}
                   <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
-                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                    <a href="{{ site.baseurl }}{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
                       <div class="Card-inner">
                         <div class="Feature-media">
                           <picture>
-                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
-                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                            <source srcset="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png 1x, {{ site.baseurl }}/img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
                           </picture>
                         </div>
 
@@ -178,12 +178,12 @@ mailchimp_id: 7ee37359cf
               {% for collection_item in site.collections %}
                 {% if collection_item.difficulty == "mixed" %}
                   <li class="Grid-cell Grid-cell--col4 Grid-cell--col12--mobile Grid-cell--col6--tablet Feature-item Feature-item--short">
-                    <a href="{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
+                    <a href="{{ site.baseurl }}{{ collection_item.url }}" class="Feature-inner Feature-inner--withborder Feature-inner--withlink Card Card--tall">
                       <div class="Card-inner">
                         <div class="Feature-media">
                           <picture>
-                            <source srcset="/img/icons/{{ collection_item.label }}.png 1x, /img/icons/{{ collection_item.label }}.svg 2x">
-                            <img src="/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
+                            <source srcset="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png 1x, {{ site.baseurl }}/img/icons/{{ collection_item.label }}.svg 2x">
+                            <img src="{{ site.baseurl }}/img/icons/{{ collection_item.label }}.png" alt="{{ collection_item.label }}" />
                           </picture>
                         </div>
 

@@ -19,21 +19,21 @@ layout: default
       <div class="u-inner u-inner--10">
         <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
           <li class="Breadcrumbs-item">
-            <a href="/" class="Breadcrumbs-link">
+            <a href="{{ site.baseurl }}/" class="Breadcrumbs-link">
               <span>The Map Academy</span>
             </a>
             <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
-            <a href="{{ collection.url }}" class="Breadcrumbs-link" title="{{ collection.title }}">
+            <a href="{{ site.baseurl }}{{ collection.url }}" class="Breadcrumbs-link" title="{{ collection.title }}">
               <span>{{ collection.title | truncate: 25 }}</span>
             </a>
             <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
           </li>
 
           <li class="Breadcrumbs-item">
-            <a href="{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title }}">
+            <a href="{{ site.baseurl }}{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ collection.title }}">
               <span>{{ page.title | truncate: 25 }}</span>
             </a>
           </li>
@@ -64,7 +64,7 @@ layout: default
             <ul class="Sidebar-list Sidebar-list--notitle">
               {% for collection_item in collection.docs %}
                 <li class="Sidebar-item {% if collection_item.url == page.url %}is-active{% endif %}">
-                  <a href="{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--docSmall Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
+                  <a href="{{ site.baseurl }}{{ collection_item.url }}" class="Sidebar-link"><i class="Icon Icon--docSmall Icon--s10 Sidebar-icon"></i>{{ collection_item.title }}</a>
 
                   {% if collection_item.url == page.url %}<ul class="Subsidebar js-Subsidebar"></ul>{% endif %}
                 </li>
@@ -84,7 +84,7 @@ layout: default
               </div> {% if page.lesson_message %}{{ page.lesson_message }}{% else %}Awesome, this is the end of this lesson.{% endif %}
 
               {% if page.permalink_next %}
-                <a href="{{ page.permalink_next }}" class="Button Button--sLarge Button--cGreen is-highlight u-right">
+                <a href="{{ site.baseurl }}{{ page.permalink_next }}" class="Button Button--sLarge Button--cGreen is-highlight u-right">
                   <span class="u-tupper">Continue to lesson {{ lesson_number | plus:1 }}</span>
                 </a>
               {% endif %}

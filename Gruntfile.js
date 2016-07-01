@@ -12,6 +12,7 @@ module.exports = function (grunt) {
     app: '_app',
     tmp: '.tmp',
     dist: '_site',
+    subfolder: '/academy',
     aws: grunt.file.readJSON('grunt-aws.' + env + '.json')
   }
 
@@ -130,9 +131,9 @@ module.exports = function (grunt) {
         options: {
           files: [
             '<%= config.app %>/{,*/}*.{html,md}',
-            '.tmp/css/{,*/}*.css',
+            '.tmp<%= config.subfolder %>/css/{,*/}*.css',
             '<%= config.app %>/img/{,*/}*',
-            '.tmp/js/{,*/}*.js'
+            '.tmp<%= config.subfolder %>/js/{,*/}*.js'
           ],
           port: 9000,
           server: {
@@ -184,7 +185,7 @@ module.exports = function (grunt) {
             '{,*/}*.js',
             '!vendor/*.js'
           ],
-          dest: '<%= config.tmp %>/js',
+          dest: '<%= config.tmp %><%= config.subfolder %>/js',
           ext: '.js'
         }]
       }
@@ -202,7 +203,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/_scss/',
           src: ['*.scss'],
-          dest: '<%= config.tmp %>/css',
+          dest: '<%= config.tmp %><%= config.subfolder %>/css',
           ext: '.css'
         }]
       },
@@ -211,7 +212,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/_scss/',
           src: ['*.scss'],
-          dest: '<%= config.tmp %>/css',
+          dest: '<%= config.tmp %><%= config.subfolder %>/css',
           ext: '.css'
         }]
       }
@@ -239,27 +240,27 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/js/{,*/}*.js',
-          '<%= config.dist %>/css/{,*/}*.css',
-          '<%= config.dist %>/img/**/*.*',
-          '<%= config.dist %>/fonts/{,*/}*.*'
+          '<%= config.dist %><%= config.subfolder %>/js/{,*/}*.js',
+          '<%= config.dist %><%= config.subfolder %>/css/{,*/}*.css',
+          '<%= config.dist %><%= config.subfolder %>/img/**/*.*',
+          '<%= config.dist %><%= config.subfolder %>/fonts/{,*/}*.*'
         ]
       }
     },
 
     useminPrepare: {
       options: {
-        dest: '<%= config.dist %>'
+        dest: '<%= config.dist %><%= config.subfolder %>'
       },
-      html: '<%= config.dist %>/index.html'
+      html: '<%= config.dist %><%= config.subfolder %>/index.html'
     },
 
     usemin: {
       options: {
         assetsDirs: [
-          '<%= config.dist %>',
-          '<%= config.dist %>/css',
-          '<%= config.dist %>/img'
+          '<%= config.dist %><%= config.subfolder %>',
+          '<%= config.dist %><%= config.subfolder %>/css',
+          '<%= config.dist %><%= config.subfolder %>/img'
         ],
         patterns: {
           html: [
@@ -267,10 +268,26 @@ module.exports = function (grunt) {
             [/(css\/.*?\.css)/gm, 'Update the html to reference revved stylesheets'],
             [/(js\/.*?\.js)/gm, 'Update the html to reference revved scripts']
           ]
+        },
+        blockReplacements: {
+          css: function (block) {
+            if (env === 'staging' || env === 'production') {
+              return '<link rel="stylesheet" href="' + config.subfolder + block.dest + '">'
+            } else {
+              return '<link rel="stylesheet" href="' + block.dest + '">'
+            }
+          },
+          js: function (block) {
+            if (env === 'staging' || env === 'production') {
+              return '<script src="' + config.subfolder + block.dest + '"></script>'
+            } else {
+              return '<script src="' + block.dest + '"></script>'
+            }
+          }
         }
       },
-      html: ['<%= config.dist %>/**/*.html'],
-      css: ['<%= config.dist %>/css/{,*/}*.css']
+      html: ['<%= config.dist %><%= config.subfolder %>/**/*.html'],
+      css: ['<%= config.dist %><%= config.subfolder %>/css/{,*/}*.css']
     },
 
     imagemin: {
@@ -279,7 +296,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/img',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/img'
+          dest: '<%= config.dist %><%= config.subfolder %>/img'
         }]
       }
     },
@@ -290,7 +307,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/img',
           src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/img'
+          dest: '<%= config.dist %><%= config.subfolder %>/img'
         }]
       }
     },
@@ -310,9 +327,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.dist %>',
+          cwd: '<%= config.dist %><%= config.subfolder %>',
           src: '{,*/}*.html',
-          dest: '<%= config.dist %>'
+          dest: '<%= config.dist %><%= config.subfolder %>'
         }]
       }
     },
@@ -329,20 +346,20 @@ module.exports = function (grunt) {
       }
     },
 
-    modernizr: {
-      dist: {
-        devFile: 'bower_components/modernizr/modernizr.js',
-        outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
-        files: {
-          src: [
-            '<%= config.dist %>/js/{,*/}*.js',
-            '<%= config.dist %>/css/{,*/}*.css',
-            '!<%= config.dist %>/js/vendor/*'
-          ]
-        },
-        uglify: true
-      }
-    },
+    // modernizr: {
+    //   dist: {
+    //     devFile: 'bower_components/modernizr/modernizr.js',
+    //     outputFile: '<%= config.dist %><%= config.subfolder %>/scripts/vendor/modernizr.js',
+    //     files: {
+    //       src: [
+    //         '<%= config.dist %><%= config.subfolder %>/js/{,*/}*.js',
+    //         '<%= config.dist %><%= config.subfolder %>/css/{,*/}*.css',
+    //         '!<%= config.dist %><%= config.subfolder %>/js/vendor/*'
+    //       ]
+    //     },
+    //     uglify: true
+    //   }
+    // },
 
     concurrent: {
       server: [
@@ -365,12 +382,12 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          src: ['<%= config.dist %>/css/*.css'],
+          src: ['<%= config.dist %><%= config.subfolder %>/css/*.css'],
           ext: '.css.gz',
           extDot: 'last'
         }, {
           expand: true,
-          src: ['<%= config.dist %>/js/{,*/}*.js'],
+          src: ['<%= config.dist %><%= config.subfolder %>/js/{,*/}*.js'],
           ext: '.js.gz',
           extDot: 'last'
         }]
@@ -409,7 +426,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
-    'modernizr',
+    // 'modernizr',
     'filerev',
     'usemin'
   ])

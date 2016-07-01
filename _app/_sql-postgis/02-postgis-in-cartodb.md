@@ -53,7 +53,7 @@ Like other PostGIS functions, it preserves the projection units. That is, if you
 
 The two examples below show how a point or line geometry can be transformed to a polygon geometry using `ST_Buffer`.
 
-![images comparing geometry before/after ST_Buffer()](/img/course4/lesson2/buffer-demo.png)
+![images comparing geometry before/after ST_Buffer()]({{ site.baseurl }}/img/course4/lesson2/buffer-demo.png)
 
 **Function definitions**
 {% highlight c++ %}
@@ -89,7 +89,7 @@ Also notice that the `cartodb_id` column was also selected so that interactivity
 
 To extend this to see which musicians are in the buffer, [create a multilayered map](http://docs.cartodb.com/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CartoDB Sidebar](http://docs.cartodb.com/cartodb-editor/maps/#cartodb-sidebar). Select the dataset `mississippi_blues_musicians`. Finally, style it to your liking.
 
-![ST_Buffer of U.S. Route 61](/img/course4/lesson2/buffer-example.png)
+![ST_Buffer of U.S. Route 61]({{ site.baseurl }}/img/course4/lesson2/buffer-example.png)
 
 There we go! We have a visual of what's going on to aid in our spatial analysis of the data.
 
@@ -173,7 +173,7 @@ ORDER BY
 
 You could visualize the data in this newly created table by making a choropleth on the column `d`. Since we already did something very similar to that in [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/), we'll move on to new functionality.
 
-![ST_Distance](/img/course4/lesson2/stdistance.png)
+![ST_Distance]({{ site.baseurl }}/img/course4/lesson2/stdistance.png)
 
 ### Visualizing Lines from Musicians to the Road
 
@@ -198,7 +198,7 @@ FROM
 
 Here is a screenshot of the result of this query.
 
-![ST_MakeLine example](/img/course4/lesson2/makeline.png)
+![ST_MakeLine example]({{ site.baseurl }}/img/course4/lesson2/makeline.png)
 
 
 ## Bringing It All Together

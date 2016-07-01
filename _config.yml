@@ -3,11 +3,12 @@ title: The Map Academy — CartoDB
 description: >
   Understand how location intelligence and big data tools work with CartoDB Academy documentation and training programs
 keywords: "data visualization tools, cartodb. location intelligence, big data, learning resources, deep insights"
-baseurl: ''
-url: 'http://academy.cartodb.com'
+baseurl: '/academy'
+url: 'https://cartodb.com'
 
 # Build settings
 source: '_app'
+destination: '_site/academy'
 markdown: kramdown
 permalink: pretty
 gems:

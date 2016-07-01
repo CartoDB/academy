@@ -52,7 +52,7 @@ SELECT the_geom, mag, place
 FROM earthquake_sql
 {% endhighlight %}
 
-![Selecting columns](/img/course4/lesson1/select-columns.png)
+![Selecting columns]({{ site.baseurl }}/img/course4/lesson1/select-columns.png)
 
 When you run this query by clicking the button "Apply query", or typing CMD+S (Mac)/CTRL+S (PC), you are presented with the option "create table from query" that allows you to create a new table from your SQL statement. If you choose this, you create a new data table that can be used independently of the current one. If you instead want to revert to having all the columns that you previously imported, clicking "clear view" returns your SQL statement to `SELECT * FROM earthquake_sql` and you see all of your data in the table again.
 
@@ -76,7 +76,7 @@ Filters in CartoDB are an excellent way to explore your data because they help y
 
 Start by exploring the options available when you apply the filters to your data. Look specifically at different columns of data and how you are presented with distinct methods for filtering.
 
-![Filters](/img/course4/lesson1/filters.png)
+![Filters]({{ site.baseurl }}/img/course4/lesson1/filters.png)
 
 Things to notice:
 
@@ -119,7 +119,7 @@ While % matches a sequence of zero or more characters, the underscore (_) matche
 
 _Tip:_ Make sure to use single quotes (') to enclose strings in the WHERE clause.
 
-![Multiple conditions in the WHERE clause](/img/course4/lesson1/filters-sql.png)
+![Multiple conditions in the WHERE clause]({{ site.baseurl }}/img/course4/lesson1/filters-sql.png)
 
 We now have a larger view of what a query can look like:
 

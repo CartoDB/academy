@@ -10,14 +10,14 @@ layout: default
     <div class="u-inner u-inner--10">
       <ul class="Breadcrumbs-inner Breadcrumbs-inner--left">
         <li class="Breadcrumbs-item">
-          <a href="/" class="Breadcrumbs-link">
+          <a href="{{ site.baseurl }}/" class="Breadcrumbs-link">
             <span>The Map Academy</span>
           </a>
           <i class="Icon Icon--caretRight Icon--s6 Breadcrumb-arrow"></i>
         </li>
 
         <li class="Breadcrumbs-item">
-          <a href="{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ page.title }}">
+          <a href="{{ site.baseurl }}{{ page.url }}" class="Breadcrumbs-link is-active" title="{{ page.title }}">
             <span>{{ page.title | truncate: 25 }}</span>
           </a>
         </li>
