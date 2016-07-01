@@ -44,7 +44,7 @@ FROM OBS_Search('gini')
 
 The temporary output looks like this:
 
-![SELECT * FROM OBS_Search('gini')](/img/course5/data-observatory-baltimore/obs_search_with_gini_index.png)
+![SELECT * FROM OBS_Search('gini')]({{ site.baseurl }}/img/course5/data-observatory-baltimore/obs_search_with_gini_index.png)
 
 Copy the id of the index you want. In our case, gini corresponds to `us.census.acs.B19083001`.
 

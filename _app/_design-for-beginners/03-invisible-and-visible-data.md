@@ -9,7 +9,7 @@ tweet_text: "Step by step is the way to go. I've finished the first lesson of th
 
 In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we're talking about in this Course, is how to control your data in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data, and still leave your audience with a clear understanding of what you wish to communicate. But a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There's just _too much_.
 
-![Bad map.](/img/course2/lesson1/badmap.png)
+![Bad map.]({{ site.baseurl }}/img/course2/lesson1/badmap.png)
 
 An important tactic, then, is focusing on the message you wish to convey. Think about what data you need on your map, and which you can go without. Are there other ways you can play with the hierarchy of how data is displayed so that you can communicate a clearer message? Unfortunately, there is no definitive, simple rule for how much data you "need" or "should have." There are, however, some tools in CartoDB that will allow you to work with the data you have, highlight important subsets of it, and create a clear communication. Let's get started looking at these tools!
 
@@ -18,7 +18,7 @@ An important tactic, then, is focusing on the message you wish to convey. Think 
 
 The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let's start by looking at [Stamen's map tiles](http://maps.stamen.com), which we've mentioned before. As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you're zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
 
-![Zoom-based styling in a Stamen map.](/img/course2/lesson3/stamen.gif)
+![Zoom-based styling in a Stamen map.]({{ site.baseurl }}/img/course2/lesson3/stamen.gif)
 
 Before we start making changes based on our zoom level, it's important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CartoDB, OpenStreetMap and MapBox), we'll be using CartoCSS, which we started learning about in our last lesson.
 
@@ -52,11 +52,11 @@ Looking at the map of earthquake data, and pulling out the Filters section of th
 
 Starting with the "time" field, we see that most of the recorded quakes occurred recently. This is kind of interesting, but makes sense, and is not the story we want to tell right now.
 
-![Filtered by the time column](/img/course2/lesson3/time.png)
+![Filtered by the time column]({{ site.baseurl }}/img/course2/lesson3/time.png)
 
 Perhaps filtering by `mag`, which is the severity of the earthquake, will be a more interesting story. Filtering by `mag`, we see that many quakes have a low `mag`, and many fewer have an `mag` value above 7. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below. 
 
-![Filtered by the mag column](/img/course2/lesson3/mag.png)
+![Filtered by the mag column]({{ site.baseurl }}/img/course2/lesson3/mag.png)
 
 
 ## Using Bubbles
@@ -69,7 +69,7 @@ You can also change the "Quantification Method" to affect the way that the data 
 
 We went with Heads/Tails to emphasize the biggest quakes, and assign the lowest hierarchy to the smallest quakes.
 
-![Our Bubble Visualization](/img/course2/lesson3/bubbleviz.png)
+![Our Bubble Visualization]({{ site.baseurl }}/img/course2/lesson3/bubbleviz.png)
 
 
 ## All Together, Now!
@@ -78,7 +78,7 @@ These tools and tactics that we've covered - changing marker size based on zoom,
 
 Here, we'll start with the bubble map we left off with. We have a simple visualization which highlights the more intense earthquakes by making their marker bigger. If we change the composite operation to multiply (which we started discussing in Lesson 2), we can also visualize the intensity of the quakes by region. Now, when there are multiple markers in the same area, they will darken. This highlights areas with high concentrations of quakes, as you can see below.
 
-![Our Bubble Visualization](/img/course2/lesson3/together1.png)
+![Our Bubble Visualization]({{ site.baseurl }}/img/course2/lesson3/together1.png)
 
 Once we have this, we can add the zoom-based styling. Remember that your sizing is already based upon the column `mag` since we're using the Bubble Visualization. This means that when you add the zoom-based styling, you'll need to apply it to each "bin" of data created by your Bubble Visualization. Overall, we will want to make markers larger as we zoom in, especially at the closest levels of zoom. This will help viewers interact with the map at close zooms. Take a look at the code below to see how this is done.
 
@@ -135,6 +135,6 @@ Once we have this, we can add the zoom-based styling. Remember that your sizing 
 
 When we're zoomed out, then, we are not overwhelmed by feeling as if there is too much data. When we are zoomed in, we are able to see what points are in our area of interest, and they're not too small. Play around with these interactions of size to see what you can come up with.
 
-![Zoom-based styling in a Stamen map.](/img/course2/lesson3/alltogether.gif)
+![Zoom-based styling in a Stamen map.]({{ site.baseurl }}/img/course2/lesson3/alltogether.gif)
 
 Ultimately, the goal in styling and filtering based on your data is to show a lot of information, but in such a way that viewers are not overwhelmed. These tools will get you started on doing exactly that!

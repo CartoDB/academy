@@ -16,7 +16,7 @@ The answer to that question depends on what information you are trying highlight
 
 Our [Analyzing your Dataset feature](http://docs.cartodb.com/cartodb-editor/datasets/#analyzing-your-dataset) can help you decide. It analyzes your uploaded datasets and makes suggestions of columns to visualize, then gives you a variety of sample maps to choose from. But how should you choose between them, and what if you want to make changes or create a map yourself?
 
-![one-click](/img/course6/lesson1/oneclick.png)
+![one-click]({{ site.baseurl }}/img/course6/lesson1/oneclick.png)
 
 This lesson will help you pick a wizard by outlining when to use each of the diffent map types. We use some ideas found in the book _[Thematic Cartography and Geovisualization](https://books.google.com/books/about/Thematic_Cartography_and_Geovisualizatio.html?id=P_URAQAAIAAJ)_. Check it out for more information.
 
@@ -55,11 +55,11 @@ Animated maps are possible with CartoDB's [Torque](http://docs.cartodb.com/carto
 
 When you connect a dataset to your CartoDB account, you'll see it's Map View is automatically styled according to our simple wizard. 
 
-![line_layer](/img/course6/lesson1/line_layer.png)
+![line_layer]({{ site.baseurl }}/img/course6/lesson1/line_layer.png)
 
 You may notice a pop-up in the lower left that has suggestions for other types of maps. This is the [Analyzing your Dataset feature.](http://docs.cartodb.com/cartodb-editor/datasets/#analyzing-your-dataset) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
 
-![one_click_popup](/img/course6/lesson1/popup.png)
+![one_click_popup]({{ site.baseurl }}/img/course6/lesson1/popup.png)
 
 In the simple wizard you can change color and other properties of your markers, lines, or polygons. The wizard writes CartoCSS code for you, which is visible if you click on the CSS menu button:
 
@@ -79,7 +79,7 @@ In the simple wizard you can change color and other properties of your markers, 
 
 Notice that the changes apply universally across a dataset. In this earthquake map below, how can you tell which ones were strongest?
 
-![earthquake_map](/img/course6/lesson1/earthquakes_2.png)
+![earthquake_map]({{ site.baseurl }}/img/course6/lesson1/earthquakes_2.png)
 
 You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the dataset, other wizards are a better choice. 
 
@@ -90,7 +90,7 @@ If you find that your location points are too close together to be readable, con
 
 Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons. 
 
-![Australia Categorized by State](/img/course6/lesson1/australia_cat.png)
+![Australia Categorized by State]({{ site.baseurl }}/img/course6/lesson1/australia_cat.png)
 
 We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson](/courses/academy-lite/). The CartoCSS used here is:
 
@@ -137,7 +137,7 @@ A good rule-of-thumb for category maps is to keep the number of categories at or
 
 Cluster maps are useful when you're plotting a large amount of point data. Take a look at this map of 2014 storms in the United States:
 
-![Storms in the USA in 2014](/img/course6/lesson1/storms_usa_2014_2.png)
+![Storms in the USA in 2014]({{ site.baseurl }}/img/course6/lesson1/storms_usa_2014_2.png)
 
 Did the Northeast have more storms than the Midwest? How many storms occurred around Washington, DC? Because of the large number of overlapping points, it's nearly impossible to tell. Our audience can't easily pick out general or specific information from this map.
 
@@ -147,7 +147,7 @@ You can choose the size of the grid cell by choosing how many buckets your data 
 
 Zooming in means a smaller area of your map is included in each grid cell; zooming out means a larger area is included. Notice how points fall into different aggregation grid cells depending on zoom level below.
 
-![cluster_zoom](/img/course6/lesson1/cluster_zoom_3.gif)
+![cluster_zoom]({{ site.baseurl }}/img/course6/lesson1/cluster_zoom_3.gif)
 
 
 ## Choropleth Wizard
@@ -158,7 +158,7 @@ A choropleth map depicts ranges of number data by color. The choropleth wizard o
 
 How your data is grouped into buckets depends on how the bucket widths are chosen. Changing this via the Quantification pulldown can dramatically change your map. To decide which to use, it's helpful to look at how your dataset's number column is distributed in the Filters tab. Take a look at this example of the percent of employees working over 50 hours per week, by country:
 
-![filter_1](/img/course6/lesson1/filter.png)
+![filter_1]({{ site.baseurl }}/img/course6/lesson1/filter.png)
 
 Most of the dataset's number column values are clustered towards the left end of the graph, but notice there is also an outlying value at the far right end. The objective of grouping data into buckets is to put similar values together. 
 
@@ -168,7 +168,7 @@ The **[Heads/Tails method](https://en.wikipedia.org/wiki/Head/tail_Breaks)** is 
 
 **Equal Interval classification** means the data values are bucketed according to ranges of equal width. For example 0 - 10, 10 - 20, 20 - 30. In our Work Life Balance map, take a look at the CartoCSS used to group the data, when the map is simplified to only show 3 buckets:
 
-![equal_interval](/img/course6/lesson1/equal_int.png)
+![equal_interval]({{ site.baseurl }}/img/course6/lesson1/equal_int.png)
 
 For this example we rounded the percent of employees working over 50 hours per week to whole numbers. This CartoCSS is splitting the percent of employees working over 50 hours per week into three groups. Notice the part between brackets. The lowest bucket includes values from 0 to about 14.3. The next bucket includes the next 14.3 values, so it ranges from 14.3 to about 28.6. The highest bucket includes the same 14.3 interval, so it continues the scale from 28.6 to 43.
 
@@ -180,13 +180,13 @@ An advantage of Equal Interval is that the ranges are easily understandable sinc
 
 Each bucket is assigned a color according to a scheme. Sequential color schemes show rank by changing the lightness and/or saturation or hue of a color. They are good to use when you want to represent one range of low to high values, like in our Work Life Balance map:
 
-![sequential_color](/img/course6/lesson1/seq_color.png)
+![sequential_color]({{ site.baseurl }}/img/course6/lesson1/seq_color.png)
 
 Generally light colors are understood to mean lower values, and darker, more highly saturated colors represent the highest values. We give you the option to reverse that scale if have other design needs.
 
 If your dataset has a midpoint and you want to emphasize values above or below that point, you should use a diverging color scheme. The map below is colored according to a number column showing the per capita growth rate for each country, compared to the previous year. If the country has a negative value in that column, meaning it's growth decreased, then it's polygon is colored blue. If a country's growth increased it's colored red, and if there was no change in the growth rate from the previous year, it's colored neutral beige. How much of an increase or decrease is indicated by how saturated the reds or blues are.
 
-![divergent_color](/img/course6/lesson1/divergent.png)
+![divergent_color]({{ site.baseurl }}/img/course6/lesson1/divergent.png)
 
 When you're making a choropleth map, be aware of these issues:
 
@@ -194,11 +194,11 @@ When you're making a choropleth map, be aware of these issues:
 
 Choropleths show your audience how much of an attribute each polygon or point's color represents. Which subway stop has more crime? It's a tricky question: technically Station A has twice as many muggings as Station B, but if what you're really trying to show is how safe Station A is compared to Station B then the map below is misleading.
 
-![non_normalized](/img/course6/lesson1/crime_incidents.png)
+![non_normalized]({{ site.baseurl }}/img/course6/lesson1/crime_incidents.png)
 
 This map uses raw numbers, so it's showing magnitude rather than concentration. Station A does have more crime incidents than Station B, but many more people travel through Station A than Station B. We can use extremely simplified round numbers to test it: 1000 people travel through Station A, and for the same time period 100 people travel through station B. If 10 crimes occurred during that time in Station A, and 5 crimes occurred in Station B, your chances of getting mugged are greater in Station B. To show our audience which station is safer, we should factor out the difference in the amount of people that travel through by using a rate. Instead of the number of crimes, this map is based on how many crimes occur per person traveling through:
 
-![normalized](/img/course6/lesson1/crime_rate.png)
+![normalized]({{ site.baseurl }}/img/course6/lesson1/crime_rate.png)
 
 Rates should also be used for polygon choropleths. For example, Russia has millions more people than Japan, but if you divide each country's population by it's land area in square kilometers, you find that even though Japan is geographically smaller it has a higher number of people per square kilometer. Larger polygons tend to visually dominate a map, so it's important to factor out the difference in polygon sizes by using a rate.
 
@@ -221,15 +221,15 @@ These circles can represent areas or exact locations, so this wizard is flexible
 
 An advantage of bubble maps have is that they can represent either raw or normalized numbers. Also, showing magnitude by circle size instead of polygon color means that your information will be communicated clearly even for easily-overlooked small polygons and for people with color blindness. In the choropleth below, Russia is more noticeable than Japan because of it's much larger polygon size. Notice how that dominance disappears when we switch to a bubble map.
 
-![bubble](/img/course6/lesson1/bubble.gif)
+![bubble]({{ site.baseurl }}/img/course6/lesson1/bubble.gif)
 
 One disadvantage to keep in mind is that humans do not generally estimate symbol size very well. For example, is the big dot below 12 or 18 times larger than the small one? How do the areas compare?
 
-![larger_dot](/img/course6/lesson1/larger.png)
+![larger_dot]({{ site.baseurl }}/img/course6/lesson1/larger.png)
 
 Which center dot is larger?
 
-![larger_center](/img/course6/lesson1/larger_center.png)
+![larger_center]({{ site.baseurl }}/img/course6/lesson1/larger_center.png)
 
 Both center dots are actually the same size.
 
@@ -240,7 +240,7 @@ People are able to judge shapes more accurately when there are fewer sizes to co
 
 If your map is illegible because it has too many overlapping points, the Density wizard can help communicate it's data more clearly. Use it if you want to show relative location data, for example if more earthquakes occurred in Alaska than Japan. Compared to the first storm map in this lesson, it's much easier to see where the most storms were concentrated in the map below. If you want to visualize other attributes like where the strongest earthquakes occurred, then a choropleth, bubble or category map is a better choice. 
 
-![density](/img/course6/lesson1/storm_density.png)
+![density]({{ site.baseurl }}/img/course6/lesson1/storm_density.png)
 
 The Density wizard is an aggregator that works similarly to the cluster wizard: a grid is laid over your map, and one marker is created to represent all of the points that are located in each grid cell. In the Density wizard, these markers are the grid cells. They can be hexagons or rectangles, but their size does not change. Instead, their color does: the more points in a cell, the darker the color (or lighter the color, depending on which color ramp you choose). You can see this defined in the conditional CartoCSS with parameters like this:
 
@@ -256,7 +256,7 @@ This “hexbin” or grid map has an advantage over polygon maps. Normally in ch
 
 There's a drawback to this format though. Map readers generally recognize a geographic area by it's shape and orientation to other areas. Since the grid format distorts shape and orientation, which geographic area a user's looking at is not as easily understandable. One solution for this is to choose a basemap that uses labels on top of your data layer.
 
-![density_labels](/img/course6/lesson1/density_labels.gif)
+![density_labels]({{ site.baseurl }}/img/course6/lesson1/density_labels.gif)
 
 
 ## Intensity Wizard
@@ -271,7 +271,7 @@ inside the layer's CartoCSS. Composite operations are explained in more detail i
 
 Like the Density and Cluster wizards it's good for showing relative location data. For example an intensity map of crime incidents can show users if more crime occurred in Madrid than New York, although they wouldn't be able to see other attributes like the type of crime. In the simple wizard map below, it's hard to see where more storms occurred because it's hard to tell if you're looking at an individual point or closely overlapping ones. Switching to the intensity wizard makes it easier to see that more storms occurred just south of Omaha.
 
-![intensity](/img/course6/lesson1/intensity.gif)
+![intensity]({{ site.baseurl }}/img/course6/lesson1/intensity.gif)
 
 The Intensity wizard is a better choice than the Density and Cluster wizards if you need to show your dataset's exact locations, because it doesn't aggregate points. Zooming won't change how your points relate to each other since they're not being aggregated into one grid cell or another. 
 
@@ -282,17 +282,17 @@ Use the Torque wizards when you want to show how your point data changes over ti
 
 Torque also aggregates by time. It calculates the whole time period from the first to last date/time in your column, and splits that time up into buckets. The number of buckets is the same as the number of steps you choose in the Editor, where one bucket is one animation frame.
 
-![torque](/img/course6/lesson1/torque.gif)
+![torque]({{ site.baseurl }}/img/course6/lesson1/torque.gif)
 
 In the Torque wizard you have the option to make Torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas. 
 
 Like the category wizard, Torque category colors your points based on a qualitative attribute in your dataset. There's no cumulative option for Torque category. While it's possible to do this with CartoCSS, it's not recommended: the category rendered last in an animation looks like it represents the category that occurred there most over time, but that's not necessarily true. For example, one location can have blue markers for most of the animation, but if at it's last date a red category was dominant, a red marker replaces the blue ones. Users won't be able to tell that area was anything but red, even though blue was the most dominant category for most of the time. You can control this behavior better by changing the composite operation.
 
-![Torque_cat](/img/course6/lesson1/torque_cat.gif)
+![Torque_cat]({{ site.baseurl }}/img/course6/lesson1/torque_cat.gif)
 
 Heatmaps can be cumulative; use them when you want to show intensity over time. A cumulative Torque map will show points filling a grid cell over time, but like in the map below it becomes hard to tell how density compares from area to area since the markers don't change color or size the more points are located there. 
 
-![cumulative_torque](/img/course6/lesson1/torque_cu.gif)
+![cumulative_torque]({{ site.baseurl }}/img/course6/lesson1/torque_cu.gif)
 
 Heatmaps show that in a better way by using a color gradient instead of a number of points. To get this effect we're using image filters to colorize a semi-transparent gradient image with CartoCSS like this:
 
@@ -307,14 +307,14 @@ Heatmaps show that in a better way by using a color gradient instead of a number
 
 Red indicates that your dataset's points are more densely clustered in that area. They are static by default, but can show how your data changes over time with the "Animated" toggle on. These maps show the same tweets as the map above: 
 
-![heatmap](/img/course6/lesson1/heatmap.gif)
+![heatmap]({{ site.baseurl }}/img/course6/lesson1/heatmap.gif)
 
 A criticism of rainbow color gradients is that there's no natural perceived order to their colors. In the top color ramp below, it's easier to see that the fifth swatch should come after the second swatch, because we're only slightly changing hue while ordering the colors according to brightness and saturation. Compare that to the variety of hues in a rainbow color scheme. The brightest color (yellow) falls near the middle of the ramp, and less-saturated colors like orange fall between more saturated colors like red and yellow. It takes slightly more time for your users to understand what the color values mean relative to each other in a rainbow color ramp. Generally though, when rainbow heatmaps are used the standard is that blue or purple means a low value and red means a high value.
 
-![rainbow](/img/course6/lesson1/rainbow.png)
+![rainbow]({{ site.baseurl }}/img/course6/lesson1/rainbow.png)
 
 Another criticism is that it can be hard to see which color value a location has: is the spot below green or cyan? 
 
-![green_or_cyan](/img/course6/lesson1/green_cyan.png)
+![green_or_cyan]({{ site.baseurl }}/img/course6/lesson1/green_cyan.png)
 
 Also, the way colors are rendered in an area can cause banding, which visually can look like a boundary that [doesn't really exist.](http://www.mathworks.com/tagteam/81137_92238v00_RainbowColorMap_57312.pdf) For more discussion about designing rainbow maps, check out [this webpage.](https://eagereyes.org/basics/rainbow-color-map)

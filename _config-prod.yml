@@ -1,7 +1,5 @@
 baseurl: '/academy'
 url: 'https://cartodb.com'
 
-destination: '_site/academy'
-
 analytics_property_id: UA-20934186-3
 hubspot_id: 474999

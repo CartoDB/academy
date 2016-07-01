@@ -24,7 +24,7 @@ Both methods allow custom CartoCSS styling, SQL queries, and overlay options (zo
 
 Up to this point, all of the methods for displaying maps to the world have involved the first two sharing options you've seen in the sharing panel (see below). The first, "Get the link," creates a shortened URL that points to a map in your account on CartoDB's website. The second, "Embed it," gives you an `iframe` that you can drop into your custom web page. The third option, "CartoDB.js," will be our jumping off point for this course because you'll easily be able to see how the API's methods line up with the data hierarchy of your map's metadata.
 
-![Share panel](/img/course3/lesson1/share-panel.png)
+![Share panel]({{ site.baseurl }}/img/course3/lesson1/share-panel.png)
 
 A viz.json is a file that contains all the data needed to reproduce the visualization you created in CartoDB. An analogy one can make is that CartoDB.js is like a DVD player, the viz.json is like the DVD disc, and CartoDB represents all the parts needed to create a film (cameras, actors, director, producers, etc.).
 
@@ -32,7 +32,7 @@ Download the viz.json used in this lesson [here](https://documentation.cartodb.c
 
 There's a lot of metadata in this file. Browsing through all the possibilities shows you how much power you have to customize your maps in the CartoDB Editor. Review the [documentation for CartoDB Editor](http://docs.cartodb.com/cartodb-editor.html) to explore what some of these JSON entries allow you to do in your maps.
 
-![Screenshot of viz.json](/img/course3/lesson1/json-view.png)
+![Screenshot of viz.json]({{ site.baseurl }}/img/course3/lesson1/json-view.png)
 
 Looking at your viz.json, find the top-most level called `layers`. You can see that it's an array of two objects. The first object's `options` have type "Tiled" and a name of "CartoDB Flat Blue." This layer, `layers[0]`, corresponds to the base layer map of our visualization. If you try changing the base map in CartoDB Editor and reload the viz.json, you will see the information in this layer change accordingly. Make note of other properties included in this `options` object as they will come up again later.
 
@@ -160,6 +160,6 @@ between the `<head>` tags. You need them both to get your maps going.
 
 After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](http://cartodb.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CartoDB.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-1/jsfiddle_demo).
 
-![Example of simple map created with CartoDB.js](/img/course3/lesson1/example-map.png)
+![Example of simple map created with CartoDB.js]({{ site.baseurl }}/img/course3/lesson1/example-map.png)
 
 By the way, CartoDB.js is open source. [Fork it and contribute](https://github.com/CartoDB/cartodb.js/).

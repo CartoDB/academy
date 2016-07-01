@@ -1,8 +1,6 @@
 baseurl: '/academy'
 url: 'https://cartodb-staging.com'
 
-destination: '_site/academy'
-
 cartodb-baseurl: 'https://cartodb-staging.com'
 blog-baseurl: 'http://blog.cartodb-staging.com'
 github-baseurl: 'http://github.com/CartoDB/academy'
