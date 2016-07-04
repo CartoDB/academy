@@ -62,12 +62,12 @@ cartodbfor:
     url: '/connectors/alteryx/'
 learn:
   - title: Documentation
-    url: 'http://docs.carto.com/'
+    url: 'https://carto.com/docs'
   - title: The Map Academy
-    url: 'http://academy.carto.com/'
+    url: 'https://carto.com/academy'
   - title: Resources Center
-    url: '/resources/'
+    url: 'https://carto.com/resources/'
   - title: Webinars
-    url: '/webinars/'
+    url: 'https://carto.com/webinars/'
   - title: Blog
-    url: 'http://blog.carto.com/'
+    url: 'https://carto.com/blog'
