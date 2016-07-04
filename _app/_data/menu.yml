@@ -1,81 +1,73 @@
 product:
-  - title: Editor
-    url: /editor/
-  - title: Platform
-    url: /platform/
-  - title: Location Data Services
-    url: /location-data-services/
+  - title: Builder
+    url: /builder/
+  - title: Engine
+    url: /engine/
   - title: Mobile
     url: /mobile/
-  - title: Deep Insights
-    url: /deep-insights/
+  - title: Location Data Services
+    url: /location-data-services/
+  - title: Data Observatory
+    url: /data-observatory/
 solutions:
-  - title: Banking and Finance
+  - title: Banking & Finance
     url: '/solutions/banking-and-finance/'
-  - title: BI and Analytics
+  - title: BI & Analytics
     url: '/solutions/business-intelligence-and-analytics/'
   - title: Government
     url: '/solutions/government/'
   - title: Real Estate
     url: '/solutions/real-estate/'
-  - title: Web and mobile development
+  - title: Web & mobile development
     title_short: Web Development
     url: '/solutions/web-mobile/'
-  - title: Journalism and New Media
+  - title: Journalism
     title_short: Journalism
     url: '/solutions/journalism/'
-  - title: Natural resources
+  - title: Natural Resources
     url: '/solutions/natural-resources/'
-  - title: Earth Observation and Space
+  - title: Earth Observation & Space
     title_short: Earth Observation
     url: '/solutions/earth-observation-and-space/'
   - title: Non-Profits
     url: '/solutions/non-profits/'
-  - title: Education and Research
+  - title: Education & Research
     title_short: Education
     url: '/solutions/education-and-research/'
 discover:
-  - title: Gallery
+  - title: Map Gallery
     url: '/gallery/'
   - title: Explore
-    url: '/explore'
+    url: '/explore/'
 cartodbfor:
-  - title: Google Platform
-    url: '/cartodb-for/google-platform/'
-  - title: Twitter Maps
-    url: '/cartodb-for/twitter-maps/'
-  - title: Excel Data
-    url: '/cartodb-for/excel-data/'
-  - title: Data Dashboards
-    url: '/cartodb-for/data-dashboard/'
-  - title: Election Maps
-    url: '/cartodb-for/election-maps/'
-  - title: Store Locator
-    url: '/cartodb-for/store-locator/'
-  - title: Online GIS Maps
-    url: '/cartodb-for/gis-online-software/'
-  - title: Satellite Imagery
-    url: '/cartodb-for/satellite-aerial-image/'
   - title: Dropbox
-    url: '/cartodb-for/dropbox/'
-  - title: MailChimp
-    url: '/cartodb-for/mailchimp/'
+    url: '/connectors/dropbox/'
   - title: Google Drive
-    url: '/cartodb-for/google-drive/'
+    url: '/connectors/google-drive/'
+  - title: Twitter Maps
+    url: '/connectors/twitter-maps/'
+  - title: MailChimp
+    url: '/connectors/mailchimp/'
+  - title: Excel Data
+    url: '/connectors/excel-data/'
   - title: ArcGIS&trade;
-    url: '/cartodb-for/arcgis/'
-  - title: Qlik
-    url: '/cartodb-for/qlik/'
+    url: '/connectors/arcgis/'
+  - title: Satellite Imagery
+    url: '/connectors/satellite-imagery/'
+  - title: Qlik®
+    url: '/connectors/qlik/'
   - title: Splunk
-    url: '/cartodb-for/splunk/'
+    url: '/connectors/splunk/'
+  - title: Alteryx
+    url: '/connectors/alteryx/'
 learn:
   - title: Documentation
-    url: 'http://docs.cartodb.com/'
+    url: 'http://docs.carto.com/'
   - title: The Map Academy
-    url: 'https://academy.cartodb.com/'
+    url: 'http://academy.carto.com/'
   - title: Resources Center
-    url: 'https://cartodb.com/resources/'
+    url: '/resources/'
   - title: Webinars
-    url: 'https://cartodb.com/webinars/'
+    url: '/webinars/'
   - title: Blog
-    url: 'http://blog.cartodb.com/'
+    url: 'http://blog.carto.com/'
