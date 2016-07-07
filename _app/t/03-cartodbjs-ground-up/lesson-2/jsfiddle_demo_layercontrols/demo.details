@@ -1,10 +1,10 @@
 ---
- name: CartoDB.js Lesson 2 
+ name: CARTO.js Lesson 2 
  description: Layer controls using .hide() and .show()
  authors:
    - Andy Eschbacher
  resources:
-   - https://academy.cartodb.com/css/cdbui.css
+   - https://carto.com/academy/css/cdbui.css
    - http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js
    - http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css
  normalize_css: no

@@ -1,5 +1,5 @@
 # Contributing to Map Academy
-This is an intro guide to creating a lesson on **Academy**, CartoDB's suite of courses broken down into lessons that aim to give a comprehensive overview of basic skills needed to make awesome online maps. 
+This is an intro guide to creating a lesson on **Academy**, CARTO's suite of courses broken down into lessons that aim to give a comprehensive overview of basic skills needed to make awesome online maps. 
 
 The guide closely follows the [Blog Post Guidelines](https://github.com/CartoDB/blog/wiki/Blog-post-guidelines) by @andrewxhill.
 
@@ -15,7 +15,7 @@ The guide has 4 parts:
 ## I. STRUCTURING
 
 ### General goals
-For a general guide to structuring your post, see this [example here](https://github.com/CartoDB/academy/blob/master/courses/03-cartodbjs-ground-up/lesson-3.md).
+For a general guide to structuring your post, see this [example here](https://github.com/CartoDB/academy/blob/master/courses/03-cartojs-ground-up/lesson-3.md).
 
 ### Lesson objectives
 
@@ -45,8 +45,6 @@ For a general guide to structuring your post, see this [example here](https://gi
 ### Geo/cultural bias
 * Aim to be global and highlight stories that are interesting and/or underrepresented. Although it's easy to focus on the U.S./NYC, strive to find data from other, international data sources.
 * Here are some data sources that might be of use/worth exploring if you're stumped:
-	* [CartoDB Data Portal--link needed]()
-	* [CartoDB Data Services/APIs--link needed]() 
 	* [European Open Data Portal](https://open-data.europa.eu/en/data/)
 	* [Cern Open Data](http://opendata.cern.ch/?ln=en)
 	* [Open Geo Data Portal](http://opengeoportal.org/)
@@ -75,22 +73,22 @@ Course Header:
 ```yaml
 ---
 layout: course
-title: "CartoDB.js"
-id: "03-cartodbjs-ground-up"
+title: "CARTO.js"
+id: "03-cartojs-ground-up"
 subtitle: From the ground up
 categories: Medium
 tag: design
 time: 1 hour
-description_short: Take advantage of the flexibiltity of cartodb.js to create custom webpages.
-description_long: This introduction to CartoDB.js from the ground up will take you through the common uses of the library. You'll start out by pulling your maps from CartoDB with only a few lines of code. Later you'll customize your maps with JavaScript, interact with the data, add custom SQL queries, integrate other features, and much more.
+description_short: Take advantage of the flexibiltity of CARTO.js to create custom webpages.
+description_long: This introduction to CARTO.js from the ground up will take you through the common uses of the library. You'll start out by pulling your maps from CARTO with only a few lines of code. Later you'll customize your maps with JavaScript, interact with the data, add custom SQL queries, integrate other features, and much more.
 prerequisite:
     - Intermediate experience coding in HTML and JavaScript
-    - Experience creating multi-layer visualizations in CartoDB
+    - Experience creating multi-layer visualizations in CARTO
     - Reliable Internet access
     - A modern browser like Chrome, Firefox, or Safari
     - A desire to learn!
 published: true
-vizjson: "https://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json"
+vizjson: "https://documentation.carto.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json"
 mailchimp_id: 62856bf9d1
 ---
 ```
@@ -102,10 +100,10 @@ id: 3
 layout: lesson
 title:  "Lesson 3"
 subtitle: "Basic interactivity"
-course: "CartoDB.js from the Ground Up"
-course_slug: "03-cartodbjs-ground-up"
+course: "CARTO.js from the Ground Up"
+course_slug: "03-cartojs-ground-up"
 tweet_text: "I'm learning how to use SQL and CartoCSS in @cartoDB's JavaScript API"
-vizjson: "https://documentation.cartodb.com/api/v2/viz/f5f2e48c-7c07-11e4-949c-0e4fddd5de28/viz.json"
+vizjson: "https://documentation.carto.com/api/v2/viz/f5f2e48c-7c07-11e4-949c-0e4fddd5de28/viz.json"
 ---
 ```
 
@@ -121,15 +119,15 @@ The **title**, **subtitle**, and **course** objects display on the website. Add 
 To ensure that images display full width, they need to be resized to a width of 700px. After resizing, process them with [ImageOptim](https://imageoptim.com/) to ensure the page loads quickly. Images are embedded using a markdown as follows:
 
 ```
-![image description](/img/05-lol-cats-in-cartodb/lesson-1/lol-cat-map.png)
+![image description](/img/05-lol-cats-in-carto/lesson-1/lol-cat-map.png)
 ```
 
 ### Embedded Maps
 
-Embedded maps use the `iframe` from the CartoDB Editor. Just paste it in.
+Embedded maps use the `iframe` from the CARTO Editor. Just paste it in.
 
 ```
-<iframe width='100%' height='520' frameborder='0' src='http://team.cartodb.com/u/eschbacher/viz/7e6815f4-b794-11e4-a4dd-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width='100%' height='520' frameborder='0' src='http://team.carto.com/u/eschbacher/viz/7e6815f4-b794-11e4-a4dd-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 ```
 
 If you want to customize the center (lat/long), zoom, disable scroll wheel zoom, etc., you can add the following to the URL:
@@ -177,7 +175,7 @@ The landing page for a course (made of multiple lessons) are saved in the `/cour
 
 Example:
 ```
-/courses/03-cartodbjs-ground-up.md
+/courses/03-cartojs-ground-up.md
 ```
 
 The format is yyyy-mm-dd-title.md.
@@ -185,7 +183,7 @@ The format is yyyy-mm-dd-title.md.
 Lessons are in the directory of the same name in the folder where all of these pages are located. Lessons are numbered sequentially:
 
 ```text
-/courses/03-cartodbjs-ground-up/lesson-2.md
+/courses/03-cartojs-ground-up/lesson-2.md
 ```
 
 ### Git-ing your lesson up

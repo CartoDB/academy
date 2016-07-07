@@ -1,8 +1,8 @@
 baseurl: '/academy'
-url: 'https://cartodb-staging.com'
+url: 'https://carto-staging.com'
 
-cartodb-baseurl: 'https://cartodb-staging.com'
-blog-baseurl: 'http://blog.cartodb-staging.com'
+cartodb-baseurl: 'https://carto-staging.com'
+blog-baseurl: 'https://carto-staging.com/blog'
 github-baseurl: 'http://github.com/CartoDB/academy'
 
 analytics_property_id: ''

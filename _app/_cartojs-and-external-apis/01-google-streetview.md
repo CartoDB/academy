@@ -1,23 +1,23 @@
 ---
 title: "Google Street View Infowindow Map Visualization"
-permalink: /courses/cartodbjs-and-external-apis/google-streetview/
-permalink_next: /courses/cartodbjs-and-external-apis/google-driving-directions/
-tweet_text: "Combine Google Streetview and CartoDB.js @cartoDB"
+permalink: /courses/cartojs-and-external-apis/google-streetview/
+permalink_next: /courses/cartojs-and-external-apis/google-driving-directions/
+tweet_text: "Combine Google Streetview and CARTO.js @cartoDB"
 lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 ---
 
 # Google Street View Infowindow Map Visualization
 
-<iframe width="100%" height="520" frameborder="0" src="https://academy.cartodb.com/t/07-cartodbjs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://carto.com/academy/t/07-cartojs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Summary
 This tutorial will show you how to create a simple CartoDB map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CartoDB dataset, a CartoDB basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point.
 
-This tutorial is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CartoDB.js. If you are not familiar with CartoDB.js, view the [CartoDB.js documentation](/cartodb-platform/cartodb-js.html), the [CartoDB.js Map Academy course](https://academy.cartodb.com/courses/cartodbjs-ground-up/), and the [CartoDB.js tutorial](/tutorials/create_map_cartodbjs).
+This tutorial is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CARTO.js. If you are not familiar with CARTO.js, view the [CARTO.js documentation](https://carto.com/docs/carto-engine/carto-js/), the [CARTO.js Map Academy course](https://carto.com/academy/courses/cartojs-ground-up/), and the [CARTO.js tutorial](https://carto.com/docs/tutorials/create_map_cartodbjs).
 
 ## The Data
 
-This tutorial uses a CartoDB dataset of locations listed as part of an article on [amazing street view places by Mental Floss](http://mentalfloss.com/article/51904/16-amazing-places-visit-google-street-view). If you want to work from your own account, [import the data](https://documentation.cartodb.com/tables/amazingstreetviews), style it to your liking, and grab the viz.json file for later. Alternatively, you can use the viz.json file we list below as an example.
+This tutorial uses a CartoDB dataset of locations listed as part of an article on [amazing street view places by Mental Floss](http://mentalfloss.com/article/51904/16-amazing-places-visit-google-street-view). If you want to work from your own account, [import the data](https://documentation.carto.com/tables/amazingstreetviews), style it to your liking, and grab the viz.json file for later. Alternatively, you can use the viz.json file we list below as an example.
 
 
 ## Resources
@@ -25,7 +25,7 @@ This tutorial uses a CartoDB dataset of locations listed as part of an article o
 * [Google Developers Console Help](https://developers.google.com/console/help/new)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en)
-* [Amazing Street Views viz.json](https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json)
+* [Amazing Street Views viz.json](https://documentation.carto.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json)
 
 ## Google's Terms of Service
 
@@ -34,7 +34,7 @@ When using Google's APIs, you agree to abide by their [Terms of Service](https:/
 
 ## Getting Started
 
-First, copy the HTML starter code stored [here](https://github.com/CartoDB/academy/blob/master/_app/t/07-cartodbjs-and-external-apis/lesson-1/template.html) to a file in the text editor of your choice. We will be adding code to this file throughout the tutorial.
+First, copy the HTML starter code stored [here](https://github.com/CartoDB/academy/blob/master/_app/t/07-cartojs-and-external-apis/lesson-1/template.html) to a file in the text editor of your choice. We will be adding code to this file throughout the tutorial.
 
 In order to use Google’s APIs, you will need a Google account, and to register your project in the [Google Developers Console](https://console.developers.google.com/).
 
@@ -95,7 +95,7 @@ Within the body of the page, we have an empty div element with an id of “map,�
 <div id="map"></div>
 {% endhighlight %}
 
-Now that we are familiar with our starter code, let's add additional code to create our map. Grab your viz.json link, or use [this link](https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json). Within the script tags in the body of the file, we need to add some additional code to setup a Leaflet map with a center of (0,0) and a zoom level of 2 in the function main(). We also add a basemap using Leaflet and our viz.json layer using the [CartoDB.js createLayer() method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). Here's the full code:
+Now that we are familiar with our starter code, let's add additional code to create our map. Grab your viz.json link, or use [this link](https://documentation.carto.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json). Within the script tags in the body of the file, we need to add some additional code to setup a Leaflet map with a center of (0,0) and a zoom level of 2 in the function main(). We also add a basemap using Leaflet and our viz.json layer using the [CARTO.js createLayer() method](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback). Here's the full code:
 
 {% highlight javascript %}
 <script>
@@ -110,7 +110,7 @@ function main() {
           attribution: ''
         }).addTo(map);
 
-        cartodb.createLayer(map, 'https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
+        cartodb.createLayer(map, 'https://documentation.carto.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
         .addTo(map)
         .done(function(layer) {
 
@@ -167,8 +167,8 @@ Now that we have added our infowindow template, we need to enable the infowindow
 
 Let's break the above code down further:
 
-1. We use the [CartoDB.js method getSubLayer()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition) in order to access the SQL and CartoCSS of our map layer.
-1. We then enable interaction for the layer using the CartoDB.js sublayer method [setInteraction()](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CartoDB.js events](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/) like [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add events like mouseover or click events.
+1. We use the [CARTO.js method getSubLayer()](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#sublayersetlayerdefinition) in order to access the SQL and CartoCSS of our map layer.
+1. We then enable interaction for the layer using the CARTO.js sublayer method [setInteraction()](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#sublayersetinteractivitycartodbid-name-) which will enable [CARTO.js events](https://carto.com/docs/cartodb-platform/cartodb-js/events/) like [featureClick](https://carto.com/docs/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex). This will allow us to add events like mouseover or click events.
 
 
 {% highlight html %}
@@ -178,7 +178,7 @@ Let's break the above code down further:
 </script>
 {% endhighlight %}
 
-We then add a click infowindow to our map using the CartoDB.js [`cartodb.vis.Vis.addInfowindow() ` method](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CartoDB layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called `lat` and `lon`. We also have a column called `name`, which stores titles for each Street View location. We pass our `infowindowTemplate` as a parameter, and setup the `templateType` as a mustache template. The  method returns an [infowindow object](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
+We then add a click infowindow to our map using the CARTO.js [`cartodb.vis.Vis.addInfowindow() ` method](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CartoDB layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called `lat` and `lon`. We also have a column called `name`, which stores titles for each Street View location. We pass our `infowindowTemplate` as a parameter, and setup the `templateType` as a mustache template. The  method returns an [infowindow object](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
 
 {% highlight html %}
 <script>
@@ -189,7 +189,7 @@ We then add a click infowindow to our map using the CartoDB.js [`cartodb.vis.Vis
 </script>
 {% endhighlight %}
 
-We set up our custom [featureClick](http://docs.cartodb.com/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex) event so we can access our latitude and longitude data. When the user clicks on a point on our map, we grab the latitude and longitude coordinates for that point from our `lat` and `lon` columns in our CartoDB dataset and pass the coordinates to the Google Street View Service to make our request for the location panorama. We use the `StreetViewService` object to make a `StreetViewLocationRequest` using our latitude and longitude values. The `getPanorama()` function needs a callback function (`processSVData`) to execute upon retrieval of a result from the StreetView Service. If the response from StreetView Service is positive, we will be able to generate our panorama. If the result is negative, an error message will be logged to the console.
+We set up our custom [featureClick](https://carto.com/docs/cartodb-platform/cartodb-js/events/#layerfeatureclickevent-latlng-pos-data-layerindex) event so we can access our latitude and longitude data. When the user clicks on a point on our map, we grab the latitude and longitude coordinates for that point from our `lat` and `lon` columns in our CartoDB dataset and pass the coordinates to the Google Street View Service to make our request for the location panorama. We use the `StreetViewService` object to make a `StreetViewLocationRequest` using our latitude and longitude values. The `getPanorama()` function needs a callback function (`processSVData`) to execute upon retrieval of a result from the StreetView Service. If the response from StreetView Service is positive, we will be able to generate our panorama. If the result is negative, an error message will be logged to the console.
 
 
 {% highlight html %}
@@ -299,7 +299,7 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
           attribution: ''
         }).addTo(map);
 
-        cartodb.createLayer(map, 'https://documentation.cartodb.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
+        cartodb.createLayer(map, 'https://documentation.carto.com/api/v2/viz/d482b58a-a432-11e5-a413-0ecd1babdde5/viz.json')
         .addTo(map)
         .done(function(layer) {
 
@@ -344,6 +344,6 @@ That's it! Here is the complete code for setting up the infowindow, make sure to
 {% endhighlight %}
 
 ## Resources
-* [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js/)
+* [CARTO.js documentation](https://carto.com/docs/cartodb-platform/cartodb-js/)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en)

@@ -1,6 +1,6 @@
 ---
- name: CartoDB.js Lesson 3 | CartoCSS Demo
- description: Changing CartoCSS in CartoDB.js
+ name: CARTO.js Lesson 3 | CartoCSS Demo
+ description: Changing CartoCSS in CARTO.js
  authors:
    - Andy Eschbacher
  resources:

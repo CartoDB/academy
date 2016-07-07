@@ -96,7 +96,7 @@ marker-comp-op: color-burn;
 
 ![color-burn]({{site.baseurl}}/img/course6/lesson4/color-burn.png)
 
-For a good reason to use darkening effects, check out [this election map](https://team.cartodb.com/u/stuartlynn/viz/ab4541a4-767b-11e5-b637-0ea31932ec1d/public_map). Its lower layer shows population density with gray scale colors, and its upper layer shows U.S. political parties in red and blue. When you use a darkening composite operation, the polygons show voting results by political party, modulated by the population density.
+For a good reason to use darkening effects, check out [this election map](https://team.carto.com/u/stuartlynn/viz/ab4541a4-767b-11e5-b637-0ea31932ec1d/public_map). Its lower layer shows population density with gray scale colors, and its upper layer shows U.S. political parties in red and blue. When you use a darkening composite operation, the polygons show voting results by political party, modulated by the population density.
 
 ![darken-use-case]({{site.baseurl}}/img/course6/lesson4/darken-use-case.png)
 

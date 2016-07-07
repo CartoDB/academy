@@ -16,10 +16,10 @@ SQL queries work on data arranged in tables that are visually similar to an Exce
 
 In this lesson, we will be using CartoDB to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
-Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CartoDB Importer](http://docs.cartodb.com/cartodb-editor.html#importing-data):
+Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CartoDB Importer](https://carto.com/docs/cartodb-editor.html#importing-data):
 
 {% highlight bash %}
-  https://academy.cartodb.com/d/all_month.csv.zip
+  https://carto.com/academy/d/all_month.csv.zip
 {% endhighlight %}
 
 If you prefer to have up-to-date earthquake data, go to the [USGS site](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) and grab the "all earthquakes" data for the past 30 days.
@@ -37,7 +37,7 @@ In addition, a cell without data entered will be shown as `null`. Notice also th
 
 ## SELECT, *, and FROM
 
-Once you have finished inspecting your data, click on the tab on the right labeled `SQL`. This gives you a view of a basic SQL statement. If you're unfamiliar with the sidebar, check out the documentation [here](http://docs.cartodb.com/cartodb-editor.html#cartodb-sidebar).
+Once you have finished inspecting your data, click on the tab on the right labeled `SQL`. This gives you a view of a basic SQL statement. If you're unfamiliar with the sidebar, check out the documentation [here](https://carto.com/docs/cartodb-editor.html#cartodb-sidebar).
 
 Notice the words in the text editor:
 
@@ -169,7 +169,7 @@ If you have any SQL applied, click on the "Clear view" option to reset your quer
 
 ## the_geom
 
-Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](http://docs.cartodb.com/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
+Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](https://carto.com/docs/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
 
 Start by double-clicking on a cell in the `the_geom` column. In the resulting menu, click the toggle next to "Geometry." You will notice that data is structured like the following:
 
@@ -275,13 +275,13 @@ _Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that
 
 Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](/courses/beginners-course/your-first-choropleth-map/) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
-<iframe width='100%' height='520' frameborder='0' src='https://documentation.cartodb.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
+<iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
 
 That's it for Lesson One of SQL and PostGIS in CartoDB.
 
 Want more? Check out some tutorials:
 
-+ [Projections, the_geom and the_geom_webmercator](http://docs.cartodb.com/tutorials/projections.html)
-+ [Query by distance](http://docs.cartodb.com/tutorials/query_by_distance.html)
-+ [Counting points in polygons](http://docs.cartodb.com/tutorials/counting_points.html)
-+ [CartoDB Tips and Tricks](http://docs.cartodb.com/tips-and-tricks.html)
++ [Projections, the_geom and the_geom_webmercator](https://carto.com/docs/tutorials/projections.html)
++ [Query by distance](https://carto.com/docs/tutorials/query_by_distance.html)
++ [Counting points in polygons](https://carto.com/docs/tutorials/counting_points.html)
++ [CartoDB Tips and Tricks](https://carto.com/docs/tips-and-tricks.html)

@@ -16,10 +16,10 @@ For now, we are going to get our feet wet by looking at color in practice.
 
 ## Why to think about colors?
 
-To get started, go ahead and import the following data set on earthquakes into your account. The easiest way is to _copy the URL_ and _paste_ it into the [Import box](http://docs.cartodb.com/cartodb-editor/datasets/#connect-dataset). If you don't know how to do this, take a look at [Course 1](/courses/beginners-course/).
+To get started, go ahead and import the following data set on earthquakes into your account. The easiest way is to _copy the URL_ and _paste_ it into the [Import box](https://carto.com/docs/cartodb-editor/datasets/#connect-dataset). If you don't know how to do this, take a look at [Course 1](/courses/beginners-course/).
 
 {% highlight text %}
-https://academy.cartodb.com/d/1.0_month.csv
+https://carto.com/academy/d/1.0_month.csv
 {% endhighlight %}
 
 When we pull up the data, what we see is a distribution of dots (representing locations of earthquakes) that is hard to interpret. We know that there are many data points - many earthquakes - but it's hard to identify patterns of distribution and intensity.
@@ -54,6 +54,6 @@ There are many other resources you can use to help in picking colors. Mapbox has
 
 In addition to editing the colors of your markers, you can also edit how the colors of overlapping or intersecting markers interact with one another. This function is called "Composite Operations" in your Visualization wizard.
 
-While we won't dive into this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read our [Composite Operations lesson](https://academy.cartodb.com/courses/intermediate-design/use-composite-operations/) in the [Intermediate Design course](https://academy.cartodb.com/courses/intermediate-design/) to learn more about the options available to you.
+While we won't dive into this now, take a look at the different options available. Each one offers a unique way of visualizing overlapping points, that could further shape the way that you want to display your data. Below is our earlier map but with the "multiply" operation selected. You can read our [Composite Operations lesson](https://carto.com/academy/courses/intermediate-design/use-composite-operations/) in the [Intermediate Design course](https://carto.com/academy/courses/intermediate-design/) to learn more about the options available to you.
 
 ![Multiply composite operation.]({{ site.baseurl }}/img/course2/lesson2/multiply.png)

@@ -6,17 +6,17 @@ lesson_message: "Congratulations! You've mapped Baltimore's economic data in Car
 
 ## Baltimore Economic Data through the Data Observatory
 
-<iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/eschbacher/editor/2ebfd01c-1d2f-11e6-85b7-0e31c9be1b51/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/eschbacher/editor/2ebfd01c-1d2f-11e6-85b7-0e31c9be1b51/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-In this Academy Lite lesson, we will learn how to create a map of economic data for the City of Baltimore in a small number of steps by using CartoDB's [Data Observatory](http://cartodb.com/data/). If you want to go the extra mile and create a dashboard like above, checkout [DeepInsights.js](https://github.com/CartoDB/deep-insights.js).
+In this Academy Lite lesson, we will learn how to create a map of economic data for the City of Baltimore in a small number of steps by using CartoDB's [Data Observatory](https://carto.com/data-observatory/). If you want to go the extra mile and create a dashboard like above, checkout [DeepInsights.js](https://github.com/CartoDB/deep-insights.js).
 
 ### Get our boundaries
 
 Create an empty table, rename it to `baltimore_economic_data`.
 
-To get boundaries, we can find out our options by looking in the [Data Observatory catalog](https://cartodb.github.io/bigmetadata/observatory.pdf) or using the [`OBS_GetAvailableBoundaries`](https://docs.cartodb.com/cartodb-platform/data/discovery-functions/#obsgetavailableboundariespointgeometry) function.
+To get boundaries, we can find out our options by looking in the [Data Observatory catalog](https://cartodb.github.io/bigmetadata/observatory.pdf) or using the [`OBS_GetAvailableBoundaries`](https://carto.com/docs/cartodb-platform/data/discovery-functions/#obsgetavailableboundariespointgeometry) function.
 
-For this map, we will choose `us.census.tiger.census_tract_clipped` to get Cenus tracts which are water-clipped. We can use [`OBS_GetBoundariesByPointAndRadius`](https://docs.cartodb.com/cartodb-platform/data/boundary-functions/#obsgetboundariesbypointandradiuspoint-geometry-radius-numeric-boundaryid-text) and filter by Baltimore's FIPS (24510), which is the state FIPS (25) plus the county FIPS (510).
+For this map, we will choose `us.census.tiger.census_tract_clipped` to get Cenus tracts which are water-clipped. We can use [`OBS_GetBoundariesByPointAndRadius`](https://carto.com/docs/cartodb-platform/data/boundary-functions/#obsgetboundariesbypointandradiuspoint-geometry-radius-numeric-boundaryid-text) and filter by Baltimore's FIPS (24510), which is the state FIPS (25) plus the county FIPS (510).
 
 This query inserts all of the boundaries into your new table, and stores the GEOIDs of the Census tracts in the column `name`.
 
@@ -137,4 +137,4 @@ Once all of those measures are added to your table, you're ready to start visual
 }
 {% endhighlight %}
 
-Checkout other [Map Academy courses](https://academy.cartodb.com/) to get more mapping skills. Read more about the Data Observatory in [documentation](https://docs.cartodb.com/cartodb-platform/data/).
+Checkout other [Map Academy courses](https://carto.com/academy/) to get more mapping skills. Read more about the Data Observatory in [documentation](https://carto.com/docs/cartodb-platform/data/).
