@@ -41,7 +41,7 @@
           <dd class="Footer-item Footer-item--mobile"><i class="Icon Icon--caretRight Icon--s10 Footer-arrow"></i><a href="{{ site.cartodb-baseurl }}/team/" class="Footer-link">Team</a></dd>
           <dd class="Footer-item Footer-item--mobile"><i class="Icon Icon--caretRight Icon--s10 Footer-arrow"></i><a href="{{ site.cartodb-baseurl }}/jobs/" class="Footer-link">Jobs</a></dd>
           <dd class="Footer-item Footer-item--mobile"><i class="Icon Icon--caretRight Icon--s10 Footer-arrow"></i><a href="{{ site.cartodb-baseurl }}/terms/" class="Footer-link">Terms of Service</a></dd>
-          <dd class="Footer-item Footer-item--mobile"><i class="Icon Icon--caretRight Icon--s10 Footer-arrow"></i><a href="{{ site.cartodb-baseurl }}/privacy/" class="Footer-link">Privacy Policy</a></dd>
+          <dd class="Footer-item Footer-item--mobile"><i class="Icon Icon--caretRight Icon--s10 Footer-arrow"></i><a href="{{ site.cartodb-baseurl }}/legal/" class="Footer-link">Legal</a></dd>
         </dl>
       </div>
 
@@ -53,11 +53,7 @@
               {% for product_item in site.data.menu.product %}
                 <dd class="Footer-item"><a href="{{ product_item.url | prepend: site.cartodb-baseurl }}" class="Footer-link">{{ product_item.title }}</a></dd>
               {% endfor %}
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/extras/" title="Extras" class="Footer-link">Extras</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/enterprise/" title="Enterprise" class="Footer-link">Enterprise</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/enterprise/#on-premises" title="Enterprise" class="Footer-link">On-premises</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/open-in-cartodb/" title="Open in CartoDB" class="Footer-link">Open in CartoDB</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/torque/" title="Torque" class="Footer-link">Torque</a></dd>
+              <dd class="Footer-item"><a href="https://github.com/CartoDB/cartodb" class="Footer-link">Source Code</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/pricing/" title="Pricing" class="Footer-link">Pricing</a></dd>
             </dl>
           </li>
@@ -73,7 +69,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--8">CartoDB for</dt>
+              <dt class="Footer-title u-vspace--8">Connectors</dt>
               {% for cartodbfor_item in site.data.menu.cartodbfor %}
                 <dd class="Footer-item"><a href="{{ cartodbfor_item.url | prepend: site.cartodb-baseurl }}" class="Footer-link">{{ cartodbfor_item.title }}</a></dd>
               {% endfor %}
@@ -82,7 +78,7 @@
 
           <li class="Grid-cell Grid-cell--col2 Grid-cell--col4--tablet">
             <dl class="Footer-column">
-              <dt class="Footer-title u-vspace--8">Discover</dt>
+              <dt class="Footer-title u-vspace--8">Community</dt>
               {% for discover_item in site.data.menu.discover %}
                 <dd class="Footer-item"><a href="{{ discover_item.url | prepend: site.cartodb-baseurl }}" class="Footer-link">{{ discover_item.title }}</a></dd>
               {% endfor %}
@@ -96,8 +92,6 @@
               {% for learn_item in site.data.menu.learn %}
                 <dd class="Footer-item"><a href="{{ learn_item.url }}" class="Footer-link">{{ learn_item.title }}</a></dd>
               {% endfor %}
-              <dd class="Footer-item"><a href="https://github.com/CartoDB/cartodb" class="Footer-link">Source Code</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/contributing/" class="Footer-link">Contributions</a></dd>
             </dl>
           </li>
 
@@ -105,34 +99,16 @@
             <dl class="Footer-column">
               <dt class="Footer-title u-vspace--8">About us</dt>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/team/" class="Footer-link">Team</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/team/#board" class="Footer-link">Board and Investors</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/jobs/" class="Footer-link">Jobs</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/press/" class="Footer-link">Press</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/partners/" class="Footer-link">Partners</a></dd>
               <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/attributions/" class="Footer-link">Attributions</a></dd>
+              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/contributing/" class="Footer-link">Contributions</a></dd>
               <dd class="Footer-item"><a class="Footer-link js-ContactLink" href="mailto:sales@cartodb.com">Contact Sales</a></dd>
-              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/request-live-demo/" class="Footer-link">Request a Demo</a></dd>
+              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/request-live-demo/" class="Footer-link">Request Live Demo</a></dd>
+              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/terms/" class="Footer-link">Terms of Service</a></dd>
+              <dd class="Footer-item"><a href="{{ site.cartodb-baseurl }}/legal/" class="Footer-link">Legal</a></dd>
             </dl>
-          </li>
-        </ul>
-      </div>
-
-      <div class="Grid u-vspace--60 u-vspace--40--mobile">
-        <ul class="Grid-inner">
-          <li class="Grid-cell Grid-cell--col6 Grid-cell--col12--mobile">
-            <a class="Logo Logo--footer Logo--dark Footer-logo" href="{{ site.cartodb-baseurl }}/">
-              <i class="Icon Icon--logo Icon--s36"></i>
-            </a>
-
-            <p class="Footer-credits"><strong class="Footer-title u-vspace--20">CartoDB</strong><br />Map Your World's Data</p>
-          </li>
-
-          <li class="Grid-cell Grid-cell--col6 u-mobile-hide">
-            <ul class="Colophon">
-              <li class="Colophon-item"><a href="{{ site.cartodb-baseurl }}/love/" class="Footer-link">Love</a> · </li>
-              <li class="Colophon-item"><a href="{{ site.cartodb-baseurl }}/terms/" class="Footer-link">Terms of Service</a> · </li>
-              <li class="Colophon-item"><a href="{{ site.cartodb-baseurl }}/privacy/" class="Footer-link">Privacy Policy</a></li>
-            </ul>
           </li>
         </ul>
       </div>
