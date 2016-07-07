@@ -1,10 +1,10 @@
 # Site settings
-title: The Map Academy — CartoDB
+title: The Map Academy — CARTO
 description: >
-  Understand how location intelligence and big data tools work with CartoDB Academy documentation and training programs
-keywords: "data visualization tools, cartodb. location intelligence, big data, learning resources, deep insights"
+  Understand how location intelligence and big data tools work with CARTO Academy documentation and training programs
+keywords: "data visualization tools, CARTO. location intelligence, big data, learning resources, deep insights"
 baseurl: '/academy'
-url: 'https://cartodb.com'
+url: 'https://carto.com'
 
 # Build settings
 source: '_app'
@@ -15,8 +15,8 @@ gems:
   - jekyll-redirect-from
 
 # Permalinks
-cartodb-baseurl: 'https://cartodb.com'
-blog-baseurl: 'https://blog.cartodb.com'
+cartodb-baseurl: 'https://carto.com'
+blog-baseurl: 'https://carto.com/blog'
 github-baseurl: 'https://github.com/CartoDB/academy'
 
 # analytics_property_id: ''
@@ -44,10 +44,10 @@ collections:
     output: true
     published: true
     difficulty: easy
-    title: "SQL and PostGIS in CartoDB"
+    title: "SQL and PostGIS in CARTO"
     url: /courses/sql-postgis/
     description: >
-      Discover the power of SQL and PostGIS by exploring CartoDB.
+      Discover the power of SQL and PostGIS by exploring CARTO.
   academy-lite:
     output: true
     published: true
@@ -56,14 +56,14 @@ collections:
     url: /courses/academy-lite/
     description: >
       Five minute lessons on basic skills for map creation.
-  cartodbjs-ground-up:
+  cartojs-ground-up:
     output: true
     published: true
     difficulty: medium
-    title: "CartoDB.js from the ground up"
-    url: /courses/cartodbjs-ground-up/
+    title: "CARTO.js from the ground up"
+    url: /courses/cartojs-ground-up/
     description: >
-      Take advantage of the flexibility of CartoDB.js to create custom webpages.
+      Take advantage of the flexibility of CARTO.js to create custom webpages.
   # rapid-map-prototyping:
   #   output: true
   #   published: false
@@ -80,14 +80,14 @@ collections:
     url: /courses/intermediate-design/
     description: >
       Learn more about cartography and the pros and cons of thematic map types.
-  cartodbjs-and-external-apis:
+  cartojs-and-external-apis:
     output: true
     published: true
     difficulty: advanced
-    title: "CartoDB.js and External APIs"
-    url: /courses/cartodbjs-and-external-apis/
+    title: "CARTO.js and External APIs"
+    url: /courses/cartojs-and-external-apis/
     description: >
-      This course shows how to use CartoDB's JavaScript library CartoDB.js with external libraries and APIs.
+      This course shows how to use CARTO's JavaScript library CARTO.js with external libraries and APIs.
   community:
     output: true
     published: true
@@ -95,7 +95,7 @@ collections:
     title: "Community Content"
     url: /courses/community/
     description: >
-      Tutorials from CartoDB's community
+      Tutorials from CARTO's community
 defaults:
   - scope:
       path: ""
@@ -123,7 +123,7 @@ defaults:
       body_class: 'js-Lesson'
   - scope:
       path: ""
-      type: cartodbjs-ground-up
+      type: cartojs-ground-up
     values:
       layout: lesson
       body_class: 'js-Lesson'
@@ -141,7 +141,7 @@ defaults:
       body_class: 'js-Lesson'
   - scope:
       path: ""
-      type: cartodbjs-and-external-apis
+      type: cartojs-and-external-apis
     values:
       layout: lesson
       body_class: 'js-Lesson'

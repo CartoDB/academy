@@ -1,7 +1,7 @@
 ---
-title: "CartoDB.js from the ground up — Torque.js"
-redirect_from: /courses/03-cartodbjs-ground-up/lesson-4.html
-permalink: /courses/cartodbjs-ground-up/torquejs/
+title: "CARTO.js from the ground up — Torque.js"
+redirect_from: /courses/03-cartojs-ground-up/lesson-4.html
+permalink: /courses/cartojs-ground-up/torquejs/
 tweet_text: "I'm more animated because of Torque.js @cartoDB"
 lesson_message: "Congrats on finishing animated JavaScript mapper!"
 ---
@@ -9,19 +9,19 @@ lesson_message: "Congrats on finishing animated JavaScript mapper!"
 
 <iframe src="https://player.vimeo.com/video/124651323" width="700" height="393" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-Torque was developed by CartoDB to show geospatial information that changes over time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](http://blog.cartodb.com/map-of-the-week-bbr/) of the acceleration felt along a bike ride. 
+Torque was developed by CartoDB to show geospatial information that changes over time, and the uses are very diverse! See the band INXS [take over the world](http://inxsmap.com/), a [striking map](http://cartodb.s3.amazonaws.com/static_vizz/sunrise.html) showing Tweets mentioning sunrise, or, the inspiration for this lesson, a [visualization](https://carto.com/blog/map-of-the-week-bbr/) of the acceleration felt along a bike ride. 
 
 Torque animated maps are great for [time series data](http://en.wikipedia.org/wiki/Time_series), that is, data that records measurements over a time interval. In order to use Torque, your data must include a timestamp or date. To learn more about the date formats CartoDB accepts, check out the [PostgreSQL documentation on date/time types](http://www.postgresql.org/docs/9.1/static/datatype-datetime.html), and [PostgreSQL functions for formatting dates](http://www.postgresql.org/docs/9.1/static/functions-formatting.html).
 
-This lesson strongly relies on techniques developed in the past three lessons on CartoDB.js, as well as general JavaScript skills. As usual, there will be some CartoCSS and SQL covered in this lesson. 
+This lesson strongly relies on techniques developed in the past three lessons on CARTO.js, as well as general JavaScript skills. As usual, there will be some CartoCSS and SQL covered in this lesson. 
 
 **Goals**
 
-1. Expose the rich methods and events in the [Torque.js](http://docs.cartodb.com/cartodb-platform/torque-js/) library
+1. Expose the rich methods and events in the [Torque.js](https://carto.com/docs/cartodb-platform/torque-js/) library
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
-<iframe src="/t/03-cartodbjs-ground-up/lesson-4/bonus.html" width="100%" height="480"></iframe>
+<iframe src="/t/03-cartojs-ground-up/lesson-4/bonus.html" width="100%" height="480"></iframe>
 
 
 ## Import your data
@@ -31,7 +31,7 @@ The data for this lesson comes from [Movebank](https://www.movebank.org), an ama
 Copy the link below to import the data into your account. Make sure the dataset name is `academy_torque_stork`. The file will take up approximately 8MB in your CartoDB account.
 
 {% highlight html %}
-https://academy.cartodb.com/d/academy_torque_stork.zip
+https://carto.com/academy/d/academy_torque_stork.zip
 {% endhighlight %}
 
 Lastly, update the privacy settings once the dataset is uploaded by clicking on the padlock icon in the upper left corner in the Data View and setting the privacy to 'Public.'
@@ -41,12 +41,12 @@ Lastly, update the privacy settings once the dataset is uploaded by clicking on 
 
 The HTML template we will be using for this lesson is available in the repository where all Map Academy lessons are stored.
 
-[Download](/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
+[Download](/t/03-cartojs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartojs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
 
 
 ## Getting started
 
-The basic piece required to create a Torque layer on the fly in CartoDB.js is the type of layer source object passed to createLayer.
+The basic piece required to create a Torque layer on the fly in CARTO.js is the type of layer source object passed to createLayer.
 
 The generic format for Torque is:
 
@@ -106,7 +106,7 @@ function main() {
   }
 
   var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CartoDB</a>'
   });
 
   map.addLayer(layer);
@@ -141,7 +141,7 @@ var layerSource = {
 }
 {% endhighlight %}
 
-This basic HTML template and `layerSource` will _almost_ produce a basic Torque map as you would see it in the CartoDB Editor. First though, we need to take advantage of some special Torque styling options using [CartoCSS](http://docs.cartodb.com/cartodb-platform/cartocss/), the syntax language that allows for greater control over how data is styled visually in CartoDB.
+This basic HTML template and `layerSource` will _almost_ produce a basic Torque map as you would see it in the CartoDB Editor. First though, we need to take advantage of some special Torque styling options using [CartoCSS](https://carto.com/docs/cartodb-platform/cartocss/), the syntax language that allows for greater control over how data is styled visually in CartoDB.
 
 It's often easiest to use CartoDB's Editor to start the styling for your map and then work from there to customize it further. First, place the following CartoCSS between the `<head>` tags: 
 
@@ -179,7 +179,7 @@ Map {
 </style>
 {% endhighlight %}
 
-Using the [techniques from the last lesson](/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
+Using the [techniques from the last lesson](/courses/cartojs-ground-up/basic-interactivity/#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
 
 Notice that this block's DOM `id` is "cartocss", so the
 
@@ -343,13 +343,13 @@ torqueLayer.on('load', function() {
 
 As a checkpoint, check yours against a working version:
 
-+ <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/" target="_blank">Source code</a>
-+ <a href="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-4/checkpoint.html" target="_blank">Live version</a>
++ <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartojs-ground-up/lesson-4/" target="_blank">Source code</a>
++ <a href="{{ site.baseurl }}/t/03-cartojs-ground-up/lesson-4/checkpoint.html" target="_blank">Live version</a>
 
 
 ## Taking it further
 
-We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. _Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">the source code</a> for the <a href="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead._
+We can wire up some query events to our SQL to investigate the behavior of our stork within specific countries. Like the static data layers we saw in the previous section, we can apply `setSQL(...)` to our `torqueLayer` to alter the data in our map. The following requires some more advanced uses of SQL and JavaScript. _Instead of copying and pasting as before, it is recommended to look at the <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartojs-ground-up/lesson-4/torque-sql.html" target="_blank">the source code</a> for the <a href="{{ site.baseurl }}/t/03-cartojs-ground-up/lesson-4/torque-sql.html" target="_blank">working example</a> instead._
 
 To do this, we need to do a spatial intersection of our data points with country polygons. I loaded the dataset of African Countries (`africa_adm0`) from Common Data, CartoDB's data library, and applied a query similar to the following (which we'll update to make it more responsive in JavaScript). This grabs all the data for the stork that intersects with the country Chad.
 
@@ -397,7 +397,7 @@ WHERE
 </style>
 {% endhighlight %}
 
-Besides relying on [jQuery](https://jquery.com/), CartoDB.js relies on [mustache.js](https://github.com/janl/mustache.js/), where you can easily template text strings. That's what's in `{% raw %}{{country}}{% endraw %}` above.
+Besides relying on [jQuery](https://jquery.com/), CARTO.js relies on [mustache.js](https://github.com/janl/mustache.js/), where you can easily template text strings. That's what's in `{% raw %}{{country}}{% endraw %}` above.
 
 We wire this into the JavaScript similar to what is below. It's close to what was done in the previous lesson but since the time component changes, the slider automatically changes to reflect the total span of time the stork visited the country selected.
 
@@ -459,7 +459,7 @@ And finally, we need to add buttons that will trigger the query to be applied ba
 </div>
 {% endhighlight %}
 
-Checkout a <a href="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartodbjs-ground-up/lesson-4/torque-sql.html" target="_blank">view the source code</a>.
+Checkout a <a href="{{ site.baseurl }}/t/03-cartojs-ground-up/lesson-4/torque-sql.html" target="_blank">live working example</a> or <a href="https://github.com/CartoDB/academy/raw/master/_app/t/03-cartojs-ground-up/lesson-4/torque-sql.html" target="_blank">view the source code</a>.
 
 
 ## Bonus: Adding another layer
@@ -486,7 +486,7 @@ The query makes a long line ordered by the column `timestamp`, and the CartoCSS 
 ## Resources and other examples
 
 * [Torque.js documentation](https://github.com/CartoDB/torque/blob/master/doc/API.md)
-* [CartoDB.js documentation](http://docs.cartodb.com/cartodb-platform/cartodb-js/)
+* [CARTO.js documentation](https://carto.com/docs/cartodb-platform/cartodb-js/)
 * [Visualize Bird Flight](http://lifewatch.inbo.be/blog/posts/forward-trajectory-visualizations.html) in a single night
 * [Bird Tracking](http://smithsonianscience.si.edu/2015/05/satellite-tracking-helps-with-curlew-conservation/) on Smithsonian Science
-* An [EcoHack](http://blog.cartodb.com/ecohack/) on animal tracks (map [here](http://robbykraft.github.io/AnimalTrack/))
+* An [EcoHack](https://carto.com/blog/ecohack/) on animal tracks (map [here](http://robbykraft.github.io/AnimalTrack/))

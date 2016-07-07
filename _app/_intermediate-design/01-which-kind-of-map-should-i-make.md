@@ -12,11 +12,11 @@ Congratulations if you completed our [first design course](/courses/design-for-b
 
 Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](/courses/beginners-course/colors-truth-insights/#why-to-think-about-colors) of how design choices can [completely obscure](/courses/beginners-course/invisible-and-visible-data/#data-how-much-is-too-much) or [clearly communicate](/courses/beginners-course/invisible-and-visible-data/#all-together-now) the information in your dataset. We hope this course inspires you to make beautiful maps, like the one above designed by CartoDB users [Kudos Ltda.](https://gkudos.cartodb.com/maps)
 
-Our Editor's [wizards](http://docs.cartodb.com/cartodb-editor/maps/#wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use? 
+Our Editor's [wizards](https://carto.com/docs/cartodb-editor/maps/#wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use? 
 
 The answer to that question depends on what information you are trying highlight in your data.
 
-Our [Analyzing your Dataset feature](http://docs.cartodb.com/cartodb-editor/datasets/#analyzing-your-dataset) can help you decide. It analyzes your uploaded datasets and makes suggestions of columns to visualize, then gives you a variety of sample maps to choose from. But how should you choose between them, and what if you want to make changes or create a map yourself?
+Our [Analyzing your Dataset feature](https://carto.com/docs/cartodb-editor/datasets/#analyzing-your-dataset) can help you decide. It analyzes your uploaded datasets and makes suggestions of columns to visualize, then gives you a variety of sample maps to choose from. But how should you choose between them, and what if you want to make changes or create a map yourself?
 
 ![one-click]({{ site.baseurl }}/img/course6/lesson1/oneclick.png)
 
@@ -50,7 +50,7 @@ There is no one accepted answer for this, but users should be able to see a clea
 
 **Do you want to map changes in your data over time?**
 
-Animated maps are possible with CartoDB's [Torque](http://docs.cartodb.com/cartodb-editor.html#map-wizards). With Torque you have the ability to show changes of geographical data over time with data aggregated as you specify.
+Animated maps are possible with CartoDB's [Torque](https://carto.com/docs/cartodb-editor.html#map-wizards). With Torque you have the ability to show changes of geographical data over time with data aggregated as you specify.
 
 
 ## Simple Wizard
@@ -59,7 +59,7 @@ When you connect a dataset to your CartoDB account, you'll see it's Map View is 
 
 ![line_layer]({{ site.baseurl }}/img/course6/lesson1/line_layer.png)
 
-You may notice a pop-up in the lower left that has suggestions for other types of maps. This is the [Analyzing your Dataset feature.](http://docs.cartodb.com/cartodb-editor/datasets/#analyzing-your-dataset) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
+You may notice a pop-up in the lower left that has suggestions for other types of maps. This is the [Analyzing your Dataset feature.](https://carto.com/docs/cartodb-editor/datasets/#analyzing-your-dataset) The algorithm that runs behind that pop-up uses many of the same rules-of-thumb we are listing in this lesson.
 
 ![one_click_popup]({{ site.baseurl }}/img/course6/lesson1/popup.png)
 

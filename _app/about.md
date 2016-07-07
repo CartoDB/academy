@@ -7,7 +7,7 @@ title:  "About the Map Academy"
 
 The Map Academy is an open source project, which serves as a resource for people creating maps on the web. Being open source means that the content that is here, will be free for everyone to access and build upon.
 
-Although is an initiative of [CartoDB](http://cartodb.com), it is not only a guide to this specific software. While we do think that CartoDB is a great tool to start learning online mapping, it is only one part of a growing network of mapping tools. It is our hope that as the program expands, you will find more and more content that is not related directly with CartoDB, and that will allow you to build your skills as a mapper. This means that at the Map Academy we will start to teach you skills you can use in other technologies such as ESRI, Google Maps, or Mapbox. 
+Although is an initiative of [CARTO](https://carto.com), it is not only a guide to this specific software. While we do think that CARTO is a great tool to start learning online mapping, it is only one part of a growing network of mapping tools. It is our hope that as the program expands, you will find more and more content that is not related directly with CARTO, and that will allow you to build your skills as a mapper. This means that at the Map Academy we will start to teach you skills you can use in other technologies such as ESRI, Google Maps, or Mapbox. 
 
 The Map Academy is designed for self-learners, but can also be used in traditional teaching environments. Since it's open source, re-publication, adaptations into product manuals, and any other creative usage of the Map Academy is permitted. When possible, we appreciate attribution to the Map Academy.
 

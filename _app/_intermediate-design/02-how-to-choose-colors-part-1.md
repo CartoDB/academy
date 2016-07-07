@@ -12,7 +12,7 @@ In our beginner lesson we saw why color is important: it makes your data legible
 
 Can you pick out **AV** from **BLVD** roads below? Their colors are too similar to distinguish from each other, or the basemap. Also light-to-dark color schemes usually represent *more* or *less* of something, but this map's using a sequential palette for un-ranked categories.
 
-<iframe width="100%" height="520" frameborder="0" src="https://documentation.cartodb.com/viz/abea64fc-033b-11e6-bb66-0e3ff518bd15/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/viz/abea64fc-033b-11e6-bb66-0e3ff518bd15/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 This lesson will help you understand color perception, so you can choose palettes that communicate your data clearly and beautifully. It will also show you how to define color in CartoCSS. The next lesson applies these to choosing proper schemes for your map type. Read on to learn how to create maps that make viewers *want* to explore your data!
 
@@ -46,7 +46,7 @@ You can also use color to group features together. Any three colors next to each
 
 Check out how well complementary and analagous colors are used in this map, created by [LifeWatch INBO](http://lifewatch.inbo.be/):
 
-<iframe width="100%" height="520" frameborder="0" src="https://inbo.cartodb.com/u/lifewatch/viz/caa466f4-0f7b-11e5-9d94-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://inbo.carto.com/u/lifewatch/viz/caa466f4-0f7b-11e5-9d94-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 Notice how easy it is to pick out birds from wind, because they are using high-contrast <span style="color: #2167AB;">blue</span> and <span style="color: #FF5C00;">orange</span>. The range of <span style="color: #FFA300;">yellow</span> to <span style="color: #FF5C00;">orange</span> analagous colors stand out from each other enough to distinguish take-off categories.
 
@@ -203,7 +203,7 @@ Because the dots and background are using opposing hues from the color wheel, th
 
 ### Rainbow Palettes
 
-Be careful when using rainbow colors in your map, because they can make us perceive features that aren't really there! Read more about that [here](http://academy.cartodb.com/courses/intermediate-design/which-kind-of-map-should-i-make/#torque-torque-category-and-heatmap-wizards).
+Be careful when using rainbow colors in your map, because they can make us perceive features that aren't really there! Read more about that [here](https://carto.com/academy/courses/intermediate-design/which-kind-of-map-should-i-make/#torque-torque-category-and-heatmap-wizards).
 
 ## Creating color schemes
 

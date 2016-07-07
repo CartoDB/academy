@@ -1,5 +1,5 @@
 ---
- name: CartoDB.js Lesson 1 
+ name: CARTO.js Lesson 1 
  description: First map using createLayer
  authors:
    - Andy Eschbacher
