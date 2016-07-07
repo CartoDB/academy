@@ -2,7 +2,7 @@
 title: "SQL and PostGIS in CartoDB — PostGIS in CartoDB"
 redirect_from: /courses/04-sql-postgis/lesson-2.html
 permalink: /courses/sql-postgis/postgis-in-cartodb/
-permalink_next: /courses/sql-postgis/editing-tables-more-advanced-postgis/
+permalink_next: /courses/sql-postgis/joining-data/
 tweet_text: "I just (geospatially) revisited Highway 61 @cartoDB"
 lesson_message: "Nice work geospatial explorer! More SQL &amp; PostGIS is coming up next!"
 ---
