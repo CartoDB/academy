@@ -1,5 +1,5 @@
 window.onload = function() {
-    var vizjson = 'https://documentation.cartodb.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json';
+    var vizjson = 'https://documentation.carto.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json';
 
     // Choose center and zoom level
     var options = {

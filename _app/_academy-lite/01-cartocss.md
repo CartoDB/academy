@@ -15,7 +15,7 @@ In this lesson, we will give you a five minute overview of CartoCSS basics, whic
 
 By the end of this lesson, you will be able to make this map:
 
-<iframe width='100%' height='520' frameborder='0' src='https://documentation.cartodb.com/viz/800cd86a-0ec2-11e5-88c1-0e018d66dc29/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/800cd86a-0ec2-11e5-88c1-0e018d66dc29/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 
 ## Cascading Style Sheets for Maps
@@ -40,14 +40,14 @@ In this lesson we’re targeting a map layer created from our “Null Island Ele
 
 **Where does CartoCSS code go?**
 
-In our CartoDB interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](http://docs.cartodb.com/cartodb-editor/maps/#cartocss). If you're using HTML and CartoDB.js to build your map, you can also write CartoCSS into your code using [these methods](/courses/cartodbjs-ground-up/basic-interactivity/#cartocss-strings-in-javascript).
+In our CARTO interface, you can click on the CSS menu button and write code into the [CartoCSS editor panel](https://carto.com/docs/cartodb-editor/maps/#cartocss). If you're using HTML and CARTO.js to build your map, you can also write CartoCSS into your code using [these methods](/courses/cartojs-ground-up/basic-interactivity/#cartocss-strings-in-javascript).
 
 
 ## CartoCSS Properties and Values
 
-**CartoDB's default CartoCSS**
+**CARTO's default CartoCSS**
 
-When you import a dataset into your CartoDB account and check it's _Map View_, you will see styling already applied to your data. CartoDB's default CartoCSS defines color, opacity, and line-width for polygons, point markers, and/or lines. It’s values include color defined with [hexadecimal code](http://www.htmlgoodies.com/tutorials/colors/article.php/3478951), opacity values ranging from 0 (fully transparent) to 1 (fully opaque), and line width for stroke measured in pixels.
+When you import a dataset into your CARTO account and check it's _Map View_, you will see styling already applied to your data. CARTO's default CartoCSS defines color, opacity, and line-width for polygons, point markers, and/or lines. It’s values include color defined with [hexadecimal code](http://www.htmlgoodies.com/tutorials/colors/article.php/3478951), opacity values ranging from 0 (fully transparent) to 1 (fully opaque), and line width for stroke measured in pixels.
 
 {% highlight scss %}
 #null_Island_el_dist {
@@ -61,7 +61,7 @@ When you import a dataset into your CartoDB account and check it's _Map View_, y
 
 **Other CartoCSS properties**
 
-A list of CartoCSS properties can be found [here](http://docs.cartodb.com/cartodb-platform/cartocss/properties/), including `line-dasharray`. The first number value for the `line-dasharray` property is dash width. The second is the width of the space between dashes. You can use more than one pair of dash width and space width numbers.
+A list of CartoCSS properties can be found [here](https://carto.com/docs/cartodb-platform/cartocss/properties/), including `line-dasharray`. The first number value for the `line-dasharray` property is dash width. The second is the width of the space between dashes. You can use more than one pair of dash width and space width numbers.
 
 {% highlight scss %}
 #null_Island_el_dist {
@@ -144,27 +144,27 @@ Another CartoCSS property example is polygon-pattern-file. This property takes a
 
 ## Learn More
 
-Congratulations, you've completed a basic introduction to styling maps with CartoCSS! To learn more, check out our [Introduction to Map Design Map Academy](/courses/design-for-beginners/) course, or some of our other [tutorials](http://docs.cartodb.com/tutorials/conditional_styling/). See some other ways to use CartoCSS by looking at our [courses on CartoDB.js](/courses/cartodbjs-ground-up/basic-interactivity/).
+Congratulations, you've completed a basic introduction to styling maps with CartoCSS! To learn more, check out our [Introduction to Map Design Map Academy](/courses/design-for-beginners/) course, or some of our other [tutorials](https://carto.com/docs/tutorials/conditional_styling/). See some other ways to use CartoCSS by looking at our [courses on CARTO.js](/courses/cartojs-ground-up/basic-interactivity/).
 
 
 ## Reference
 
 CartoCSS properties mentioned in this lesson:
 
-+ [marker-fill](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#marker-fill-color)
-+ [polygon-fill](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-fill-color)
-+ [polygon-opacity](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-opacity-float)
-+ [line-color](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-color-color)
-+ [line-width](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-width-float)
-+ [line-opacity](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-opacity-float)
-+ [line-dasharray](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#line-dasharray-numbers)
-+ [polygon-pattern-file](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-pattern-file-uri)
-+ [polygon-pattern-opacity](http://docs.cartodb.com/cartodb-platform/cartocss/properties/#polygon-pattern-opacity-float)
++ [marker-fill](https://carto.com/docs/cartodb-platform/cartocss/properties/#marker-fill-color)
++ [polygon-fill](https://carto.com/docs/cartodb-platform/cartocss/properties/#polygon-fill-color)
++ [polygon-opacity](https://carto.com/docs/cartodb-platform/cartocss/properties/#polygon-opacity-float)
++ [line-color](https://carto.com/docs/cartodb-platform/cartocss/properties/#line-color-color)
++ [line-width](https://carto.com/docs/cartodb-platform/cartocss/properties/#line-width-float)
++ [line-opacity](https://carto.com/docs/cartodb-platform/cartocss/properties/#line-opacity-float)
++ [line-dasharray](https://carto.com/docs/cartodb-platform/cartocss/properties/#line-dasharray-numbers)
++ [polygon-pattern-file](https://carto.com/docs/cartodb-platform/cartocss/properties/#polygon-pattern-file-uri)
++ [polygon-pattern-opacity](https://carto.com/docs/cartodb-platform/cartocss/properties/#polygon-pattern-opacity-float)
 
 Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
 
 **See also**
 
-* Create an [intensity map](http://docs.cartodb.com/tutorials/intensity_map/) from point data with CartoCSS. 
-* Create a [choropleth map](http://docs.cartodb.com/tutorials/electoral_map/) of election results.
-* Take a conditional styling [tutorial](http://docs.cartodb.com/tutorials/conditional_styling/).
+* Create an [intensity map](https://carto.com/docs/tutorials/intensity_map/) from point data with CartoCSS. 
+* Create a [choropleth map](https://carto.com/docs/tutorials/electoral_map/) of election results.
+* Take a conditional styling [tutorial](https://carto.com/docs/tutorials/conditional_styling/).

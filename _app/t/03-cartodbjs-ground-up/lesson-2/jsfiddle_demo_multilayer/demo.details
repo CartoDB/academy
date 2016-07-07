@@ -1,6 +1,6 @@
 ---
- name: CartoDB.js Lesson 2 
- description: Testing out multiple layer maps in CartoDB.js
+ name: CARTO.js Lesson 2 
+ description: Testing out multiple layer maps in CARTO.js
  authors:
    - Andy Eschbacher
  resources:

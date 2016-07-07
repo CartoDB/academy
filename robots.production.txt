@@ -3,4 +3,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://academy.cartodb.com/sitemap.xml
+Sitemap: https://carto.com/academy/sitemap.xml

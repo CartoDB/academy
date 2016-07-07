@@ -10,10 +10,10 @@ tweet_text: "Step by step is the way to go. I've finished the second lesson of t
 To make your first choropleth map, you will be using U.S. county population data. First, copy this link:
 
 {% highlight text %}
-https://academy.cartodb.com/d/counties.zip
+https://carto.com/academy/d/counties.zip
 {% endhighlight %}
 
-If you skipped the Beginners' Course Lesson 1, and have not yet created a visualization or dataset, you will need to navigate to [your datasets dashboard](http://docs.cartodb.com/cartodb-editor/dashboard/#your-datasets-dashboard), and create a new dataset with the [_NEW DATASET_](http://docs.cartodb.com/cartodb-editor/datasets/#connect-dataset) button. 
+If you skipped the Beginners' Course Lesson 1, and have not yet created a visualization or dataset, you will need to navigate to [your datasets dashboard](https://carto.com/docs/cartodb-editor/dashboard/#your-datasets-dashboard), and create a new dataset with the [_NEW DATASET_](https://carto.com/docs/cartodb-editor/datasets/#connect-dataset) button. 
 
 In the Connect dataset dialog box, paste the link you copied above into the URL input field, click _SUBMIT_ to add the file. 
 
