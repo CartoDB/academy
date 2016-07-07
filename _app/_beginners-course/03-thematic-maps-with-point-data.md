@@ -79,7 +79,7 @@ In "density" you can also change the number of buckets, which is the number of t
 
 ## Adding Labels
 
-Thought this dataset isn't ideal for adding labels, let's take a look at how you would do it when you do have a dataset that would benefit from labeling. 
+Though this dataset isn't ideal for adding labels, let's take a look at how you would do it when you do have a dataset that would benefit from labeling. 
 
 First, select the "simple" visualization. Go to "Label Text" and from there, select the column that contains the text that will be the label. With our tornado dataset, we chose the "damage" column.
 
