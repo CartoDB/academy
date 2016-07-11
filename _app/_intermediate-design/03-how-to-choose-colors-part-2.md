@@ -34,7 +34,7 @@ Notice how the different tornado routes are easier to identify in this map:
 
 In fact if you have more than 12 categories it gets hard to choose colors that contrast enough. At that point we recommend grouping your data into fewer categories.
 
-For a real challenge try to make a perceptual color palette! Some colors will appear more prominent even if you keep saturation and value the same for all your palette hues. That's because some colors are inherently brighter in our perception. For example in the rainbow palette below, red stands out more than cyan.
+For a real challenge try to make a perceptual color palette! Some colors will appear more prominent even if you keep saturation and value the same for all your palette hues. That's because some colors are inherently brighter in our perception. For example in the rainbow palette below, <span style="color: #FF0000;">red</span> stands out more than <span style="color: #3fbbba;">cyan</span>.
 
 ![uneven_rainbow]({{site.baseurl}}/img/course6/lesson3/uneven_rainbow.png)
 
@@ -110,7 +110,7 @@ You can check value (lightness) numbers for each swatch with tools like this [br
 
 ![valencia_value_15]({{site.baseurl}}/img/course6/lesson3/valencia_value_15.png)
 
-It's easier to see the difference between polygons now. To make our swatches stand out from each other even more though we can tweak the saturation, and even hue. CARTO already has a default green sequential palette that works better:
+It's easier to see the difference between polygons now. To make our swatches stand out from each other even more though we can tweak the saturation, and even hue. CARTO already has a default <span style="color: #006625;">green</span> sequential palette that works better:
 
 ![cdb_seq_green]({{site.baseurl}}/img/course6/lesson3/cdb_seq_green.png)
 
@@ -128,7 +128,7 @@ A divergent palette is basically two sequential palettes. To pick the edge color
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson3/color_wheel_itten.png)
 
-We're starting with red. If we spin by 180 degrees we get the color with maximum contrast from our starting hue: green.
+We're starting with <span style="color: #FF0000;">red</span>. If we spin by 180 degrees we get the color with maximum contrast from our starting hue: <span style="color: #006625;">green</span>.
 
 {% highlight css %}
 spin(#da0057, 180);
@@ -136,7 +136,7 @@ spin(#da0057, 180);
 
 ![red_green]({{site.baseurl}}/img/course6/lesson3/red_green.png)
 
-We want to avoid pure red/pure green combinations for our colorblind users though, so instead we can spin by more degrees. This gives us blue:
+We want to avoid pure red/pure green combinations for our colorblind users though, so instead we can spin by more degrees. This gives us <span style="color: #2167AB;">blue</span>:
 
 {% highlight css %}
 spin(#da0057, 225);
@@ -146,7 +146,7 @@ spin(#da0057, 225);
 
 It's ok to spin by more or less than 180 degrees since the opposing hues don't need to have maximum contrast. Just try to avoid neighboring wheel colors.
 
-Now we can pick a neutral color, and use [mix](https://carto.com/docs/carto-engine/cartocss/properties/#color) to find palette swatches between it and the red end of our palette. Our neutral is light gray, `#ccc`. This mix yields a color that has a higher percentage of red than gray: 
+Now we can pick a neutral color, and use [mix](https://carto.com/docs/carto-engine/cartocss/properties/#color) to find palette swatches between it and the <span style="color: #FF0000;">red</span> end of our palette. Our neutral is light gray, `#ccc`. This mix yields a color that has a higher percentage of <span style="color: #FF0000;">red</span> than gray: 
 
 {% highlight css %}
 mix(#da0057, #ccc, 66%);
@@ -154,7 +154,7 @@ mix(#da0057, #ccc, 66%);
 
 ![red_66]({{site.baseurl}}/img/course6/lesson3/red_66.png)
 
-This mix uses less red:
+This mix uses less <span style="color: #FF0000;">red</span>:
 
 {% highlight css %}
 mix(#da0057, #ccc, 33%);
@@ -162,7 +162,7 @@ mix(#da0057, #ccc, 33%);
 
 ![red_full]({{site.baseurl}}/img/course6/lesson3/red_full.png)
 
-With a [color picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka/related?hl=en) we can find the hex value for our blue spin result. Then we can use it with mix for the blue side of our palette:
+With a [color picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka/related?hl=en) we can find the hex value for our <span style="color: #2167AB;">blue</span> spin result. Then we can use it with mix for the <span style="color: #2167AB;">blue</span> side of our palette:
 
 {% highlight css %}
 mix(#2279e9, #ccc, 33%);
@@ -180,7 +180,7 @@ Here's our whole sequential palette so far.
 
 ![rb_divergent]({{site.baseurl}}/img/course6/lesson3/rb_divergent.png)
 
-This palette works, but we can make it easier to see differences between polygons using this if we tweak hue, saturation and value as mentioned in the sequential palette section above. That's already been done for one of our default CARTO palettes! Notice we can even make the original blue hue closer to green. For color-blind viewers the resulting teal color is still distinguishable from the toned-down red at the other end of this palette:
+This palette works, but we can make it easier to see differences between polygons using this if we tweak hue, saturation and value as mentioned in the sequential palette section above. That's already been done for one of our default CARTO palettes! Notice we can even make the original <span style="color: #2167AB;">blue</span> hue closer to <span style="color: #006625;">green</span>. For color-blind viewers the resulting <span style="color: #009392;">teal</span> color is still distinguishable from the toned-down <span style="color: #FF0000;">red</span> at the other end of this palette:
 
 ![divergent_default]({{site.baseurl}}/img/course6/lesson3/divergent_default.png)
 
@@ -205,4 +205,3 @@ marker-width: ramp([your_column_name], 4, 18, 6 jenks));
 {% endhighlight %}
 
 Learn to refine your maps with even more advanced CartoCSS in our [next lesson on composite operations](https://academy.carto.com/courses/intermediate-design/use-composite-operations/).
-
