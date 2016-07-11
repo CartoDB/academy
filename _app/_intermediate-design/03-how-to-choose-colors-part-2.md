@@ -6,31 +6,31 @@ tweet_text: "Step by step is the way to go. I've finished the second map academy
 
 ## Color palettes tell a story
 
-In the [last lesson](https://academy.cartodb.com/courses/intermediate-design/choose-colors-1/) we learned that colors affect each other in our visual perception. These color relationships also have meaning. For example, check out this choropleth map made by CartoDB users [The Netherlands Red Cross:](www.rodekruis.nl)
+In the [last lesson](https://academy.carto.com/courses/intermediate-design/choose-colors-1/) we learned that colors affect each other in our visual perception. These color relationships also have meaning. For example, check out this choropleth map made by CARTO users [The International Federation of Red Cross and Red Crescent Societies:](http://www.ifrc.org/)
 
-<iframe width="100%" height="520" frameborder="0" src="https://nlrc.cartodb.com/u/redcross-sims/viz/e70ac940-fd43-11e4-9243-0e853d047bba/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://nlrc.carto.com/u/redcross-sims/editor/e70ac940-fd43-11e4-9243-0e853d047bba/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-The light to dark sequential color scheme here gives us enough information to figure out which areas in Nepal received more tarpaulins in a glance.
+They're using a light-to-dark sequential color scheme based on [ColorBrewer.](http://colorbrewer2.org/) It gives us enough information to figure out which areas in Nepal received more tarpaulins in a glance.
 
 Complete color palettes tell the story of your data. There are two main kinds: qualitative and quantitative. Read on to learn which type to use for your map!
 
 ## Qualitative color palettes
 Qualitative color palettes show categories. Use them when you need to show data that doesn't have numerical hierarchy. [LifeWatch INBO](http://lifewatch.inbo.be/) uses a qualitative palette well in this map:
   
-<iframe width="100%" height="520" frameborder="0" src="https://inbo.cartodb.com/u/lifewatch/viz/6a22a626-c509-11e5-8ec2-0e674067d321/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://inbo.carto.com/u/lifewatch/editor/6a22a626-c509-11e5-8ec2-0e674067d321/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-There aren't any numerical attributes illustrated on this map, like length of migration route or how long each took. The point of this map is to demonstrate which route belongs to each bird. It's easy for viewers to pick out each route because of the [contrast between hues.](https://academy.cartodb.com/courses/intermediate-design/choose-colors-1/#color-relationships)
+There aren't any numerical attributes illustrated on this map, like length of migration route or how long each took. The point of this map is to demonstrate which route belongs to each bird. It's easy for viewers to pick out each route because of the [contrast between hues.](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#color-relationships)
 
 #### Make your own
-CartoDB's Category Wizard gives you a 10-color qualitative palette by default. If your data has more than 10 categories, our system automatically groups the rest into an 'Other' category and colors them gray. You can pick your own colors though! 
+The CARTO Builder's Formula Widget gives you a 5-color qualitative palette by default if you are coloring by category. If your data has more than 5 categories, our system automatically groups the rest into an 'Other' category and colors them gray. We give you 10 default categories with the 11th as gray if you are styling a Builder map's layer by Value in a column, or using the Editor's [Category Wizard.](https://carto.com/academy/courses/intermediate-design/which-kind-of-map-should-i-make/#category-wizard) You can pick your own colors though! 
 
-You should aim for hues that are not [analagous](https://academy.cartodb.com/courses/intermediate-design/choose-colors-1/#color-relationships), because if they are too visually similar your audience will have a harder time differentiating them. Like in this map:
+You should aim for hues that are not [analagous](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#color-relationships), because if they are too visually similar your audience will have a harder time differentiating them. Like in this map:
 
-<iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/stephaniemongon/viz/e72f1f40-3260-11e6-b082-0e3ff518bd15/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/editor/6b5f40ea-d27d-45d9-82ba-43060fdf65a6/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 Notice how the different tornado routes are easier to identify in this map:
 
-<iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/stephaniemongon/viz/d4ed8b56-325f-11e6-ae44-0ecd1babdde5/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/editor/290789dd-a68a-426a-95de-8b9b990ac72b/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 In fact if you have more than 12 categories it gets hard to choose colors that contrast enough. At that point we recommend grouping your data into fewer categories.
 
@@ -43,22 +43,22 @@ Perceptual quantitative palettes take this into account. In perceptual palettes 
 <!-- placeholder: replace w/new palettes -->
 ![perceptual_rainbow]({{site.baseurl}}/img/course6/lesson3/perceptual_rainbow.png)
 
-This is where your color adjustment skills from the [last lesson](https://academy.cartodb.com/courses/intermediate-design/choose-colors-1/) come in handy!
+This is where your color adjustment skills from the [last lesson](https://academy.carto.com/courses/intermediate-design/choose-colors-1/) come in handy!
 
 ## Quantitative color palettes
 Use quantitative palettes if you're trying to show rank in your data. There are two kinds: sequential and divergent.  
 
 ### Sequential palettes
-You can use sequential palettes to show order by specific amounts, like in the choropleth at the beginning of this lesson. You can also use them to illustrate ordinal data, like this map showing the amount of coyote complaints from CartoDB users [AppGeo](http://www.appgeo.com/) showing *more* and *less*.
+You can use sequential palettes to show order by specific amounts, like in the choropleth at the beginning of this lesson. You can also use them to illustrate ordinal data, like in this map by CARTO users [AppGeo](http://www.appgeo.com/) showing *more* and *less* coyote complaints.
 
-<iframe width="100%" height="520" frameborder="0" src="https://appgeo.cartodb.com/u/roverland/viz/6dc0b1f2-ef75-11e4-a378-0e49835281d6/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://appgeo.carto.com/u/roverland/viz/6dc0b1f2-ef75-11e4-a378-0e49835281d6/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 #### Make your own
-CartoDB's choropleth wizard gives you a choice of light-to-dark or dark-to-light sequential palettes. Generally lighter colors are understood as *less* and darker colors as *more*. You can reverse that if you're using a dark basemap and want your *more* values to stand out most. Make sure to use a legend.
+CARTO gives you a choice of light-to-dark or dark-to-light sequential palettes. Generally lighter colors are understood as *less* and darker colors as *more*. You can reverse that if you're using a dark basemap and want your *more* values to stand out most. Make sure to use a legend.
 
-You can also create your own palettes in CartoDB! Enter the colors you want in your map's swatch color pickers or CartoCSS code. 
+You can also create your own palettes in CARTO! Enter the colors you want in your map's swatch color pickers or CartoCSS code. 
 
-Since there are no exact rules for adjusting color to get the best palette, it requires experimentation and using your own judgement. There are guidelines though! According to [Cynthia Brewer](http://colorbrewer2.org/learnmore/schemes_full.html) changes in lightness should be the most prominent difference across sequential palette colors. A good starting point is to pick one color and incrementally change it's [value](https://academy.cartodb.com/courses/intermediate-design/choose-colors-1/#hue-saturation-and-value) for each swatch, while keeping hue and saturation the same.
+Since there are no exact rules for adjusting color to get the best palette, it requires experimentation and using your own judgement. There are guidelines though! According to [Cynthia Brewer](http://colorbrewer2.org/learnmore/schemes_full.html) changes in lightness should be the most prominent difference across sequential palette colors. A good starting point is to pick one color and incrementally change it's [value](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#hue-saturation-and-value) for each swatch, while keeping hue and saturation the same.
 
 A quick CartoCSS trick for this is **lighten**—or **darken** if you're starting with a light color.
 
@@ -66,13 +66,43 @@ A quick CartoCSS trick for this is **lighten**—or **darken** if you're startin
 lighten(#006D2C, 10%);
 {% endhighlight %}
 
-We used **lighten** in this map of Valencia, with data taken from [the Data Observatory:](https://cartodb.github.io/bigmetadata/tags.spain/tags.boundary.html)
+We used both in this map of Valencia, with data taken from [the Data Observatory:](https://cartodb.github.io/bigmetadata/tags.spain/tags.boundary.html)
 
-![editor_lighten]({{site.baseurl}}/img/course6/lesson3/editor_lighten.png)
+<iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/editor/4e6a659c-b42c-43e3-98e2-f2df1c034711/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-Explore other color-generating shortcuts with [these](https://docs.cartodb.com/cartodb-platform/cartocss/properties/) CartoCSS parameters!
+Notice we used a variable in this map's code below, `@grn`. It makes editing more efficient. CartoCSS variables must be prepended with an @ symbol.
 
-You should aim for equal value differences between sequential palette colors. The change in brightness between our map's last two legend swatches looks more dramatic than between the first two.
+{% highlight css %}
+@grn: #4c9b82;
+
+#valencia_rented_dwellings{
+  polygon-fill: #444444;
+  polygon-opacity: 1;
+  line-color: #444444;
+  line-width: .8;
+  line-opacity: 1;
+  line-comp-op: overlay;
+}
+#valencia_rented_dwellings [ pct_of_total_dwellings_rented <= 47.3333333333333] {
+   polygon-fill: darken(@grn, 20%);
+}
+#valencia_rented_dwellings [ pct_of_total_dwellings_rented <= 20.1834862385321] {
+   polygon-fill: darken(@grn, 10%);
+}
+#valencia_rented_dwellings [ pct_of_total_dwellings_rented <= 13.5802469135802] {
+   polygon-fill: @grn;
+}
+#valencia_rented_dwellings [ pct_of_total_dwellings_rented <= 9.2896174863388] {
+   polygon-fill: lighten(@grn, 10%);
+}
+#valencia_rented_dwellings [ pct_of_total_dwellings_rented <= 5.55555555555556] {
+   polygon-fill: lighten(@grn, 20%);
+}
+{% endhighlight %} 
+
+Explore other color-generating shortcuts with [these](https://carto.com/docs/carto-engine/cartocss/properties/#color) CartoCSS parameters!
+
+You should aim for equal value differences between sequential palette colors. The change in brightness between our map's last two legend swatches looks more dramatic than between the first two:
 
 ![valencia_lighten]({{site.baseurl}}/img/course6/lesson3/valencia_lighten.png)
 
@@ -80,21 +110,21 @@ You can check value (lightness) numbers for each swatch with tools like this [br
 
 ![valencia_value_15]({{site.baseurl}}/img/course6/lesson3/valencia_value_15.png)
 
-It's easier to see the difference between polygons now, but to make our swatches stand out from each other even more we can tweak the saturation, and even hue. CartoDB already has a default green palette that works better, based on [ColorBrewer](http://colorbrewer2.org/):
+It's easier to see the difference between polygons now. To make our swatches stand out from each other even more though we can tweak the saturation, and even hue. CARTO already has a default green sequential palette that works better:
 
 ![cdb_seq_green]({{site.baseurl}}/img/course6/lesson3/cdb_seq_green.png)
 
-This palette is better because it's colors make it easier to differentiate our map's polygons at a glance. Compare the screen shot below to the map above.
+This palette is better because it's colors make it easier to differentiate our map's polygons at a glance. Compare the map above to this one:
 
-![editor_default]({{site.baseurl}}/img/course6/lesson3/editor_default.png)
+<iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/editor/6d142c66-23e8-4bac-930c-edb9de107baf/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ### Divergent palettes
-Use a divergent palette when you want to highlight a natural midpoint in your data, for example when you are mapping temperature and have values above and below zero degrees. Divergent palettes show two opposing hues radiating out from a neutral midpoint color. They are often used for [election maps.](https://gist.github.com/ohasselblad/03a1c707ffafffbbd277) Here's a different kind of example from CartoDB users [Radio France](http://www.radiofrance.fr/) showing amount of illegal immigrants to the United States between 2007 and 2012:
+Use a divergent palette when you want to highlight a natural midpoint in your data, for example when you are mapping temperature and have values above and below zero degrees. Divergent palettes show two opposing hues radiating out from a neutral midpoint color. They are often used for [election maps.](https://gist.github.com/ohasselblad/03a1c707ffafffbbd277) Here's a different kind of example from CARTO users [Radio France](http://www.radiofrance.fr/) showing amount of illegal immigrants to the United States between 2007 and 2012:
 
-<iframe width="100%" height="520" frameborder="0" src="https://radiofrance-maps.cartodb.com/u/radiofrance/viz/479c0b78-ed00-11e5-ab6d-0e787de82d45/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://radiofrance-maps.carto.com/u/radiofrance/editor/479c0b78-ed00-11e5-ab6d-0e787de82d45/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 #### Make your own
-A divergent palette is basically two sequential palettes. To pick the edge colors let's start with one hue, and use CartoCSS [spin](https://docs.cartodb.com/cartodb-platform/cartocss/properties/#color) to get an opposing hue from across the color wheel.
+A divergent palette is basically two sequential palettes. To pick the edge colors let's start with one hue, and use CartoCSS [spin](https://carto.com/docs/carto-engine/cartocss/properties/#color) to get an opposing hue from across the color wheel.
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson3/color_wheel_itten.png)
 
@@ -106,7 +136,7 @@ spin(#da0057, 180);
 
 ![red_green]({{site.baseurl}}/img/course6/lesson3/red_green.png)
 
-We want to avoid red/green combinations for our colorblind users though, so instead we can spin by more degrees. This gives us blue:
+We want to avoid pure red/pure green combinations for our colorblind users though, so instead we can spin by more degrees. This gives us blue:
 
 {% highlight css %}
 spin(#da0057, 225);
@@ -116,7 +146,7 @@ spin(#da0057, 225);
 
 It's ok to spin by more or less than 180 degrees since the opposing hues don't need to have maximum contrast. Just try to avoid neighboring wheel colors.
 
-Now we can pick a neutral color, and use [mix](https://docs.cartodb.com/cartodb-platform/cartocss/properties/#color) to find palette swatches between it and the red end of our palette. Our neutral is light gray, `#ccc`. This mix yields a color that has a higher percentage of red than gray: 
+Now we can pick a neutral color, and use [mix](https://carto.com/docs/carto-engine/cartocss/properties/#color) to find palette swatches between it and the red end of our palette. Our neutral is light gray, `#ccc`. This mix yields a color that has a higher percentage of red than gray: 
 
 {% highlight css %}
 mix(#da0057, #ccc, 66%);
@@ -150,19 +180,21 @@ Here's our whole sequential palette so far.
 
 ![rb_divergent]({{site.baseurl}}/img/course6/lesson3/rb_divergent.png)
 
-It needs some hue, saturation and value tweaking mentioned in the sequential palette section above. That's already been done for one of our default CartoDB palettes!
+This palette works, but we can make it easier to see differences between polygons using this if we tweak hue, saturation and value as mentioned in the sequential palette section above. That's already been done for one of our default CARTO palettes! Notice we can even make the original blue hue closer to green. For color-blind viewers the resulting teal color is still distinguishable from the toned-down red at the other end of this palette:
 
-![cdb_rb_divergent]({{site.baseurl}}/img/course6/lesson3/cdb_rb_divergent.png)
+![divergent_default]({{site.baseurl}}/img/course6/lesson3/divergent_default.png)
 
 Now we can use it to show which areas of Madrid have a majority of males, and which have a majority of females:
 
 <!-- replace this with new obs spanish data & transfer to documentation account -->
-<iframe width="100%" height="520" frameborder="0" src="https://team.cartodb.com/u/eschbacher/viz/5503b580-3725-11e6-ac88-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/eschbacher/viz/5503b580-3725-11e6-ac88-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 <!-- ask abel if he wants his name on this + if github link is ok? -->
-Congratulations, you've just learned a lot about cartographic color palettes and some CartoCSS tricks! [Here is a color picker tool](http://cartodb.github.io/labs-colorscales/) to help you make your own, designed by [one of CartoDB's Solutions Engineers](https://github.com/AbelVM).
+Congratulations, you've just learned a lot about cartographic color palettes and some CartoCSS tricks! Here is a color picker tool to help you quickly preview color palettes, designed by [one of CARTO's Solutions Engineers](https://github.com/AbelVM). You can also edit hex colors in it to customize them:
 
-We also have a feature called [Turbo-Carto](https://github.com/CartoDB/turbo-carto) that provides color ramps for you, and makes writing CartoCSS conditions even easier. It calculates choropleth bins for you, so you can filter a dataset and have the bins/palette colors automatically change as needed. Learn more about it [here.](https://blog.cartodb.com/turbo-carto/)
+<a href="http://cartodb.github.io/labs-colorscales/">![abel_picker]({{site.baseurl}}/img/course6/lesson3/abel_picker.png)</a>
+
+We also have a feature called [Turbo-Carto](https://github.com/CartoDB/turbo-carto) that provides color ramps for you, and makes writing CartoCSS conditions even easier. It calculates choropleth bins for you, so you can filter a dataset and have the bins/palette colors automatically change as needed. Learn more about it [here.](https://blog.carto.com/turbo-carto/)
 
 {% highlight css %}
 /* Creating a color ramp with Turbo Carto */
@@ -172,5 +204,5 @@ marker-width: ramp([your_column_name], 4, 18, 6 jenks));
 /* Where 4 is the minimum size, 18 the max size, 6, the number of buckets, and jenks the quantification method */
 {% endhighlight %}
 
-Learn to refine your maps with even more advanced CartoCSS in our [next lesson on composite operations](https://academy.cartodb.com/courses/intermediate-design/use-composite-operations/).
+Learn to refine your maps with even more advanced CartoCSS in our [next lesson on composite operations](https://academy.carto.com/courses/intermediate-design/use-composite-operations/).
 
