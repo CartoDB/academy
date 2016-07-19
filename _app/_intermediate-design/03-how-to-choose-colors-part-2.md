@@ -179,12 +179,15 @@ Here's our whole sequential palette so far.
 
 ![rb_divergent]({{site.baseurl}}/img/course6/lesson3/rb_divergent.png)
 
-This palette works, but we can make it even easier to see differences between polygons using this if we tweak hue, saturation and value as mentioned in the sequential palette section above. That's already been done for the default CARTO palette used in the map above. 
+This palette works, but we can make it even easier to see differences between polygons using this if we tweak hue, saturation and value as mentioned in the sequential palette section above. [ColorBrewer](http://colorbrewer2.org/) has already researched a more optimal <span style="color: #FF0000;">red</span> and <span style="color: #2167AB;">blue</span> version for us:
 
-Notice we can even make the original <span style="color: #2167AB;">blue</span> hue closer to <span style="color: #006625;">green</span>. For color-blind viewers the resulting <span style="color: #009392;">teal</span> color is still distinguishable from the toned-down <span style="color: #FF0000;">red</span> at the other end.
+![colorbrewer_redblue]({{site.baseurl}}/img/course6/lesson3/color_brewer_red_blue.png)
+
+CARTO also has a custom <span style="color: #FF0000;">red</span> and <span style="color: #2167AB;">blue</span> default palette available for you. It's used in the map above. Notice we can even make our original <span style="color: #2167AB;">blue</span> hue closer to <span style="color: #006625;">green</span>. For color-blind viewers the resulting <span style="color: #009392;">teal</span> color is still distinguishable from the toned-down <span style="color: #FF0000;">red</span> at the other end.
 
 ![divergent_default]({{site.baseurl}}/img/course6/lesson3/divergent_default.png)
 
+### Resources
 Congratulations, you've just learned a lot about cartographic color palettes and some CartoCSS tricks! Here is a color picker tool to help you quickly preview color palettes, designed by [one of CARTO's Solutions Engineers](https://github.com/AbelVM). You can also edit hex colors in it to customize them:
 
 <a href="http://cartodb.github.io/labs-colorscales/">![abel_picker]({{site.baseurl}}/img/course6/lesson3/abel_picker.png)</a>
@@ -198,5 +201,7 @@ marker-fill: ramp([your_column_name], colorbrewer(Greens));
 marker-width: ramp([your_column_name], 4, 18, 6 jenks));
 /* Where 4 is the minimum size, 18 the max size, 6, the number of buckets, and jenks the quantification method */
 {% endhighlight %}
+
+For more tips about choosing map colors, check out this [blog post](https://carto.com/blog/cartography-data-extract-value/) and CARTO's [best practices documentation.](https://carto.com/docs/tips-and-tricks/best-practices-checklist/#designing-your-map)
 
 Learn to refine your maps with even more advanced CartoCSS in our [next lesson on composite operations](https://academy.carto.com/courses/intermediate-design/use-composite-operations/).
