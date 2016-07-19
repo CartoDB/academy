@@ -22,9 +22,9 @@ Qualitative color palettes show categories. Use them when you need to show data 
 There aren't any numerical attributes illustrated on this map, like length of migration route or how long each took. The point of this map is to demonstrate which route belongs to each bird. It's easy for viewers to pick out each route because of the [contrast between hues.](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#color-relationships)
 
 #### Make your own
-The CARTO Builder's Formula Widget gives you a 5-color qualitative palette by default if you are coloring by category. If your data has more than 5 categories, our system automatically groups the rest into an 'Other' category and colors them gray. We give you 10 default categories with the 11th as gray if you are styling a Builder map's layer by Value in a column, or using the Editor's [Category Wizard.](https://carto.com/academy/courses/intermediate-design/which-kind-of-map-should-i-make/#category-wizard) You can pick your own colors though! 
+The [CARTO Builder](https://carto.com/docs/carto-builder/)'s Formula Widget gives you a 5-color qualitative palette by default if you are coloring by category. If your data has more than 5 categories, our system automatically groups the rest into an 'Other' category and colors them gray. We give you 10 default categories with the 11th as gray if you are styling a Builder map's layer by Value in a column, or using the Editor's [Category Wizard.](https://carto.com/academy/courses/intermediate-design/which-kind-of-map-should-i-make/#category-wizard) You can pick your own colors though! 
 
-You should aim for hues that are not [analagous](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#color-relationships), because if they are too visually similar your audience will have a harder time differentiating them. Like in this map:
+You should aim for hues that are not [analagous](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#color-relationships) because if they are too visually similar your audience will have a harder time differentiating them. Like in this map:
 
 <iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/viz/6b5f40ea-d27d-45d9-82ba-43060fdf65a6/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
@@ -38,7 +38,7 @@ For a real challenge try to make a perceptual color palette! Some colors will ap
 
 ![uneven_rainbow]({{site.baseurl}}/img/course6/lesson3/uneven_rainbow.png)
 
-Perceptual quantitative palettes take this into account. In perceptual palettes hue, saturation, and value are adjusted so that one color doesn't look more dominant than another. This is valuable because one category's data won't be emphasized over another in your map. This perceptual example is more visually even:
+Perceptual quantitative palettes take this into account. In perceptual palettes the properties of hue, saturation, and value are adjusted so that one color doesn't look more dominant than another. This is valuable because one category's data won't be emphasized over another in your map. This perceptual example is more visually even:
 
 ![perceptual_rainbow]({{site.baseurl}}/img/course6/lesson3/perceptual_rainbow.png)
 
@@ -59,17 +59,17 @@ You can also create your own palettes in CARTO! Enter the colors you want in you
 
 Since there are no exact rules for adjusting color to get the best palette, it requires experimentation and using your own judgement. There are guidelines though! According to [Cynthia Brewer](http://colorbrewer2.org/learnmore/schemes_full.html) changes in lightness should be the most prominent difference across sequential palette colors. A good starting point is to pick one color and incrementally change it's [value](https://academy.carto.com/courses/intermediate-design/choose-colors-1/#hue-saturation-and-value) for each swatch, while keeping hue and saturation the same.
 
-A quick CartoCSS trick for this is **lighten**—or **darken** if you're starting with a light color.
+A quick CartoCSS trick for this is [**lighten**](https://carto.com/docs/carto-engine/cartocss/properties/#color) if you're starting with a light color (there's also **darken** for the opposite effect).
 
 {% highlight css %}
 lighten(#006D2C, 10%);
 {% endhighlight %}
 
-We used both in this map of Valencia, with data taken from [the Data Observatory:](https://cartodb.github.io/bigmetadata/tags.spain/tags.boundary.html)
+We used both in this map of Valencia, with data taken from [the Data Observatory](https://cartodb.github.io/bigmetadata/tags.spain/tags.boundary.html):
 
 <iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/viz/4e6a659c-b42c-43e3-98e2-f2df1c034711/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-Notice we used a variable in this map's code below, `@grn`. It makes editing more efficient. CartoCSS variables must be prepended with an @ symbol.
+Notice we used a variable in this map's code below, `@grn`. It makes editing more efficient because we can reuse this variable through out the code. CartoCSS variables must be prepended with an @ symbol.
 
 {% highlight css %}
 @grn: #4c9b82;
@@ -103,13 +103,13 @@ Explore other color-generating shortcuts with [these](https://carto.com/docs/car
 
 You should aim for equal value differences between sequential palette colors. The change in brightness between our map's last two legend swatches looks more dramatic than between the first two:
 
-![valencia_lighten]({{site.baseurl}}/img/course6/lesson3/valencia_lighten.png)
+![valencia lighten]({{site.baseurl}}/img/course6/lesson3/valencia_lighten.png)
 
 You can check value (lightness) numbers for each swatch with tools like this [browser extension](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka/related?hl=en). Then you can adjust those numbers in your [preferred color picker tool](http://mashable.com/2013/01/15/color-scheme-tools/#LpxUevvRxZqb), and paste the output color's hex code into your map's CartoCSS or swatch color picker. For example we edited the palette above so the value changed by 15 between each swatch:
 
 ![valencia_value_15]({{site.baseurl}}/img/course6/lesson3/valencia_value_15.png)
 
-It's easier to see the difference between polygons now. To make our swatches stand out from each other even more though we can adjust the saturation, and hue. CARTO already has a default <span style="color: #006625;">green</span> sequential palette that works better:
+It's easier to see the difference between polygons now. To make our swatches stand out from each other even more, we can adjust the saturation and hue. CARTO already has a default <span style="color: #006625;">green</span> sequential palette that works better:
 
 ![cdb_seq_green]({{site.baseurl}}/img/course6/lesson3/cdb_seq_green.png)
 
@@ -118,12 +118,12 @@ This palette is better because it's colors make it easier to differentiate our m
 <iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/viz/6d142c66-23e8-4bac-930c-edb9de107baf/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ### Divergent palettes
-Use a divergent palette when you want to highlight a natural midpoint in your data, for example when you are mapping temperature and have values above and below zero degrees. Divergent palettes show two opposing hues radiating out from a neutral midpoint color. They are often used for [election maps.](https://gist.github.com/ohasselblad/03a1c707ffafffbbd277) Here's a different kind of example showing the male vs. female percentage of total population in Spanish census tracts:
+Use a divergent palette when you want to highlight a natural midpoint in your data, such as when you are mapping temperature and have values above and below zero degrees. Divergent palettes show two opposing hues radiating out from a neutral midpoint color. They are often used for [election maps](https://gist.github.com/ohasselblad/03a1c707ffafffbbd277). Here's a different kind of example showing the male vs. female percentage of total population in Spanish census tracts:
 
 <iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/viz/84bce9f8-c7f1-45a9-82ef-258c2eb5f802/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 #### Make your own
-A divergent palette is basically two sequential palettes. To pick the edge colors let's start with one hue, and use CartoCSS [spin](https://carto.com/docs/carto-engine/cartocss/properties/#color) to get an opposing hue from across the color wheel.
+A divergent palette is basically two sequential palettes. To pick the edge colors, let's start with one hue and then use CartoCSS [spin](https://carto.com/docs/carto-engine/cartocss/properties/#color) to get an opposing hue from across the color wheel.
 
 ![itten_color_wheel]({{site.baseurl}}/img/course6/lesson3/color_wheel_itten.png)
 
@@ -135,7 +135,7 @@ spin(#da0057, 180);
 
 ![red_green]({{site.baseurl}}/img/course6/lesson3/red_green.png)
 
-We want to avoid pure red/pure green combinations for our colorblind users though, so instead we can spin by more degrees. This gives us <span style="color: #2167AB;">blue</span>:
+We want to avoid pure red/pure green combinations for our colorblind users though, so instead we can spin by a larger number of degrees. This gives us <span style="color: #2167AB;">blue</span>:
 
 {% highlight css %}
 spin(#da0057, 225);
@@ -145,7 +145,7 @@ spin(#da0057, 225);
 
 It's ok to spin by more or less than 180 degrees since the opposing hues don't need to have maximum contrast. Just try to avoid neighboring wheel colors.
 
-Now we can pick a neutral color, and use [mix](https://carto.com/docs/carto-engine/cartocss/properties/#color) to find palette swatches between it and the <span style="color: #FF0000;">red</span> end of our palette. Our neutral is light gray, `#ccc`. This mix yields a color that has a higher percentage of <span style="color: #FF0000;">red</span> than gray: 
+Now we can pick a neutral color and use [mix](https://carto.com/docs/carto-engine/cartocss/properties/#color) to find palette swatches between it and the <span style="color: #FF0000;">red</span> end of our palette. Our neutral is light gray: `#ccc`. This mix yields a color that has a higher percentage of <span style="color: #FF0000;">red</span> than gray: 
 
 {% highlight css %}
 mix(#da0057, #ccc, 66%);
@@ -175,11 +175,11 @@ mix(#2279e9, #ccc, 66%);
 
 ![blue_full]({{site.baseurl}}/img/course6/lesson3/blue_full.png)
 
-Here's our whole sequential palette so far.
+Here's our whole sequential palette so far:
 
 ![rb_divergent]({{site.baseurl}}/img/course6/lesson3/rb_divergent.png)
 
-This palette works, but we can make it even easier to see differences between polygons using this if we tweak hue, saturation and value as mentioned in the sequential palette section above. [ColorBrewer](http://colorbrewer2.org/) has already researched a more optimal <span style="color: #FF0000;">red</span> and <span style="color: #2167AB;">blue</span> version for us:
+This palette works, but we can make it even easier to see differences between polygons using this if we tweak hue, saturation, and value as mentioned in the sequential palette section above. [ColorBrewer](http://colorbrewer2.org/) has already researched a more optimal <span style="color: #FF0000;">red</span> and <span style="color: #2167AB;">blue</span> version for us:
 
 ![colorbrewer_redblue]({{site.baseurl}}/img/course6/lesson3/color_brewer_red_blue.png)
 
