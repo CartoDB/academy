@@ -22,10 +22,6 @@ App.Views.Main = Backbone.View.extend({
     ga('send', 'event', 'NAVengine', 'click', 'Builder')
   },
 
-  _onClickNAVdataserv: function () {
-    ga('send', 'event', 'NAVdataserv', 'click', 'Builder')
-  },
-
   _onClickNAVsolutions: function () {
     ga('send', 'event', 'NAVsolutions', 'click', 'Builder')
   },
