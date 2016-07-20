@@ -2,8 +2,8 @@
 title: "Google Street View Infowindow Map Visualization"
 permalink: /courses/cartojs-and-external-apis/google-streetview/
 permalink_next: /courses/cartojs-and-external-apis/google-driving-directions/
-tweet_text: "Combine Google Streetview and CARTO.js @cartoDB"
-lesson_message: "Congrats on mashing up Streeview and CartoDB!"
+tweet_text: "Combine Google Streetview and CARTO.js @CARTO"
+lesson_message: "Congrats on mashing up Streeview and CARTO!"
 ---
 
 # Google Street View Infowindow Map Visualization
@@ -11,13 +11,13 @@ lesson_message: "Congrats on mashing up Streeview and CartoDB!"
 <iframe width="100%" height="520" frameborder="0" src="https://carto.com/academy/t/07-cartojs-and-external-apis/lesson-1/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Summary
-This tutorial will show you how to create a simple CartoDB map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CartoDB dataset, a CartoDB basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point.
+This tutorial will show you how to create a simple CARTO map visualization of locations with click infowindows that display a Google Street View Panorama of the location. The visualization uses a CARTO dataset, a CARTO basemap, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and the [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview?hl=en). The tutorial walks through creating a pop-up information window that appears over selected points when clicking on the point.
 
 This tutorial is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CARTO.js. If you are not familiar with CARTO.js, view the [CARTO.js documentation](https://carto.com/docs/carto-engine/carto-js/), the [CARTO.js Map Academy course](https://carto.com/academy/courses/cartojs-ground-up/), and the [CARTO.js tutorial](https://carto.com/docs/tutorials/create_map_cartodbjs).
 
 ## The Data
 
-This tutorial uses a CartoDB dataset of locations listed as part of an article on [amazing street view places by Mental Floss](http://mentalfloss.com/article/51904/16-amazing-places-visit-google-street-view). If you want to work from your own account, [import the data](https://documentation.carto.com/tables/amazingstreetviews), style it to your liking, and grab the viz.json file for later. Alternatively, you can use the viz.json file we list below as an example.
+This tutorial uses a CARTO dataset of locations listed as part of an article on [amazing street view places by Mental Floss](http://mentalfloss.com/article/51904/16-amazing-places-visit-google-street-view). If you want to work from your own account, [import the data](https://documentation.carto.com/tables/amazingstreetviews), style it to your liking, and grab the viz.json file for later. Alternatively, you can use the viz.json file we list below as an example.
 
 
 ## Resources
@@ -59,10 +59,10 @@ Within the script tag for the google maps library, replace “APIKEY” with you
 
 Let’s walk through our starter code HTML file.
 
-Within the head tag of the body, we have included a link to the CartoDB CSS stylesheet, some basic CSS styles for our map to render it as full screen, as well as styles specifying the size of our infowindow.
+Within the head tag of the body, we have included a link to the CARTO CSS stylesheet, some basic CSS styles for our map to render it as full screen, as well as styles specifying the size of our infowindow.
 
 {% highlight html %}
-<link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 <style>
   html, body, #map {
     height: 100%;
@@ -122,7 +122,7 @@ function main() {
 
 Check that you have correctly added your map by navigating to a web browser to run your HTML file, or by loading up a [Python SimpeHTTPServer](https://docs.python.org/2/library/simplehttpserver.html).
 
-Now that we have created our map, our next step is to create the CartoDB infowindows. This will be a two step process in which we setup interactivity so that infowindows can be enabled in our JavaScript done function, and add an HTML template for our infowindows. Let's start by adding our infowindow HTML template code! Add the following script to your HTML file beneath <div id="map"></div> within the body of the file.
+Now that we have created our map, our next step is to create the CARTO infowindows. This will be a two step process in which we setup interactivity so that infowindows can be enabled in our JavaScript done function, and add an HTML template for our infowindows. Let's start by adding our infowindow HTML template code! Add the following script to your HTML file beneath <div id="map"></div> within the body of the file.
 
 {% highlight html %}
 <script type="infowindow/html" id="infowindow_template">
@@ -141,7 +141,7 @@ Now that we have created our map, our next step is to create the CartoDB infowin
 </script>
 {% endhighlight %}
 
-Within our infowindow HTMl template is a `div` with an id of "panorama". This div will be used later to append our Google Street View Panorama to the DOM once the panorama is generated. We also include a `h4` element and use [mustache templates](https://mustache.github.io/) to grab data from our table for the name of each Street View location. The infowindow template includes div elements that have CSS styles that correspond to styles setup in our CartoDB stylesheet to style the display of the infowindow.
+Within our infowindow HTML template is a `div` with an id of "panorama". This div will be used later to append our Google Street View Panorama to the DOM once the panorama is generated. We also include a `h4` element and use [mustache templates](https://mustache.github.io/) to grab data from our table for the name of each Street View location. The infowindow template includes div elements that have CSS styles that correspond to styles setup in our CARTO stylesheet to style the display of the infowindow.
 
 Now that we have added our infowindow template, we need to enable the infowindow interactivity in our JavaScript. Within the `.done` callback function in our JavaScript, add the following code:
 
@@ -178,7 +178,7 @@ Let's break the above code down further:
 </script>
 {% endhighlight %}
 
-We then add a click infowindow to our map using the CARTO.js [`cartodb.vis.Vis.addInfowindow() ` method](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CartoDB layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called `lat` and `lon`. We also have a column called `name`, which stores titles for each Street View location. We pass our `infowindowTemplate` as a parameter, and setup the `templateType` as a mustache template. The  method returns an [infowindow object](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
+We then add a click infowindow to our map using the CARTO.js [`cartodb.vis.Vis.addInfowindow()` method](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#visaddinfowindowmap-layer-fields--options). The method takes our map object, CARTO layer (or sublayer), and an array of column names for which interactivity will be enabled (the columns in our dataset that we need to access as part of our infowindow setup). Within our dataset are two columns that store our latitude and longitude coordinates separately called `lat` and `lon`. We also have a column called `name`, which stores titles for each Street View location. We pass our `infowindowTemplate` as a parameter, and setup the `templateType` as a mustache template. The  method returns an [infowindow object](https://carto.com/docs/cartodb-platform/cartodb-js/api-methods/#sublayerinfowindow)!
 
 {% highlight html %}
 <script>
