@@ -31,11 +31,11 @@ In this lesson, we will be using these powerful languages to boost the expressiv
 
 ## Modifying SQL and CartoCSS
 
-This is the third lesson in the course _CARTO.js from the ground up_. While still covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://carto.com/docs/cartodb-platform/cartocss/) and [use cases](/courses/intermediate-design/) for CartoCSS. For SQL, you can teach yourself in the CartoDB Editor by using our first lesson in the [SQL and PostGIS in CartoDB](/courses/sql-postgis/) series.
+This is the third lesson in the course _CARTO.js from the ground up_. While still covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://carto.com/docs/cartodb-platform/cartocss/) and [use cases](/courses/intermediate-design/) for CartoCSS. For SQL, you can teach yourself in the CARTO Editor by using our first lesson in the [SQL and PostGIS in CARTO](/courses/sql-postgis/) series.
 
 _SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_.
 
-_CartoCSS_ is a language for altering the appearance of the CartoDB data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](http://cartodb.github.io/torque/). To find out more about it, read [the documentation](https://carto.com/docs/cartodb-platform/cartocss/).
+_CartoCSS_ is a language for altering the appearance of the CARTO data layer on your map. It helps you make your maps beautiful. Look up at the layer source code above, you can see some of the simpler ways of styling data. It was created by [MapBox](https://www.mapbox.com), is [open source](https://github.com/mapbox/carto), and is [lots of fun](http://cartodb.github.io/torque/). To find out more about it, read [the documentation](https://carto.com/docs/cartodb-platform/cartocss/).
 
 Using the [CARTO.js library](https://carto.com/docs/cartodb-platform/cartodb-js.html), the main method to change the SQL and CartoCSS after they have been declared is `sublayer.set(sublayerDefinition)`, where `sublayerDefinition` is equivalent to one of the objects in the `sublayers` array declared in `layerSource` above. If you only need to change one of CartoCSS or SQL for a previously created layer, there are some convenient methods:
 
@@ -71,9 +71,9 @@ We will start out with the following layer source. We will be able to update the
 
 {% highlight javascript %}
 var layerSource = {
-  user_name: 'documentation', 
+  user_name: 'documentation',
   type: 'cartodb',
-  sublayers: [{ 
+  sublayers: [{
     sql: "SELECT * FROM earthquakes_cdbjs_lesson3", // Earthquakes from the past 30 days
     cartocss: '#all_day{marker-fill-opacity:0.9;marker-line-color:FFF;marker-line-width: 1.5;marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;marker-width: 10;marker-fill: #FF6600;marker-allow-overlap: true;}' // Simple visualization
   }]
@@ -85,7 +85,7 @@ var layerSource = {
 
 Since we have only point data in our earthquake dataset, we will be focusing on the `marker` type of CartoCSS, but as you can see in the [documentation](https://carto.com/docs/cartodb-platform/cartocss/) it is only one of several elements that can be styled directly on your map.
 
-An easy way to get used to the basics of CartoCSS is by using the [Vizualization Wizard](https://carto.com/docs/cartodb-editor/maps/#wizards) in the CartoDB Editor. It allows you to pick different visualizations to style them differently in the wizard.
+An easy way to get used to the basics of CartoCSS is by using the [Vizualization Wizard](https://carto.com/docs/cartodb-editor/maps/#wizards) in the CARTO Editor. It allows you to pick different visualizations to style them differently in the wizard.
 
 Make sure you're in "MAP VIEW" to see your data visualized with _Simple_.  Sticking with _Simple_, click on the [CartoCSS Editor tab](https://carto.com/docs/cartodb-editor/maps/#cartocss) (the one with `CSS`) two below the Wizards tab to see how your data is styled.
 
@@ -102,15 +102,15 @@ One option is to pass it as a string concatenated from separate lines:
 
 {% highlight js %}
 var simpleStyle = '#earthquakes_cdbjs_lesson3 {' +
-  'marker-fill-opacity: 0.9;' + 
-  'marker-line-color: #FFF;' + 
-  'marker-line-width: 1.5;' + 
-  'marker-line-opacity: 1;' + 
-  'marker-placement: point;' + 
-  'marker-type: ellipse;' + 
-  'marker-width: 10;' + 
-  'marker-fill: #FF6600;' + 
-  'marker-allow-overlap: true;' + 
+  'marker-fill-opacity: 0.9;' +
+  'marker-line-color: #FFF;' +
+  'marker-line-width: 1.5;' +
+  'marker-line-opacity: 1;' +
+  'marker-placement: point;' +
+  'marker-type: ellipse;' +
+  'marker-width: 10;' +
+  'marker-fill: #FF6600;' +
+  'marker-allow-overlap: true;' +
 '}';
 {% endhighlight %}
 
@@ -164,11 +164,11 @@ sublayer.setCartoCSS(simpleStyle);
 </script>
 {% endhighlight %}
 
-The `<script>` portion of the code pulls the text between the specified style tags (`#simple` in this case) and sets `simpleStyle` equal to it. This option allows you to directly copy and paste the code from the CartoDB Editor without worrying about the errors that can occur from reformatting. Because of it's ease of use and readability, this is the format we will use for this lesson. As with other style tags, we will place this structure in the `<head>` section of the HTML document.
+The `<script>` portion of the code pulls the text between the specified style tags (`#simple` in this case) and sets `simpleStyle` equal to it. This option allows you to directly copy and paste the code from the CARTO Editor without worrying about the errors that can occur from reformatting. Because of it's ease of use and readability, this is the format we will use for this lesson. As with other style tags, we will place this structure in the `<head>` section of the HTML document.
 
 ### Conditions in CartoCSS
 
-Now that we know what the _Simple_ visualization looks like in CartoCSS, let's look at other visualizations. Switch to _Choropleth_, select the `mag` column, and choose _Equal Interval_ for Quantification. Now switch to the CartoCSS tab again. 
+Now that we know what the _Simple_ visualization looks like in CartoCSS, let's look at other visualizations. Switch to _Choropleth_, select the `mag` column, and choose _Equal Interval_ for Quantification. Now switch to the CartoCSS tab again.
 
 You can see that in addition to the first data structure, there are additional structures with conditional statements on the `mag` column. The statements style your data based on the conditions in the square brackets. If you switch to select _Bubble_ from the Visualization Wizard, you will see your markers are given conditional sizes similar to the following:
 
@@ -182,15 +182,15 @@ You can see that in addition to the first data structure, there are additional s
 ...
 {% endhighlight %}
 
-By writing CartoCSS like this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, bubble map, or intensity visualization just as you would with the Visualization Wizard in the CartoDB Editor.
+By writing CartoCSS like this, your styles are more dynamic and responsive to your data. It allows you to easily make your own choropleth, category, bubble map, or intensity visualization just as you would with the Visualization Wizard in the CARTO Editor.
 
 ### Maps styled by end user
 
-CartoDB was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartojs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
+CARTO was created with the goal of helping people from all walks of life tell stories with maps and data. Let's say you're contracted by the USGS to create a simple interface to easily communicate earthquake data. We will be working from [this template](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartojs-ground-up/lesson-3/CartoDB-js-lesson3-template.html) (follow the link, then copy &amp; paste). Rename it to `cartocss-style.html`
 
 First, we'll define the style for a _Simple visualization_ between custom `<style>` tags as we discussed above. Put the `<style type='cartocss/text' id='...'>CartoCSS Styles</style>` element between the `<head>` tags, below the CSS and JavaScript library inclusions.
-    
-Next we need to add more styles from the CartoDB Editor. The visualizations that I am recreating are: 
+
+Next we need to add more styles from the CARTO Editor. The visualizations that I am recreating are:
 
 + Simple with an `id` of `simple`
 + Category by reporting station (`net` column), `id` is `categ-report-sta`
@@ -208,9 +208,9 @@ window.onload = function () {
 
   // Put layer data into a JS object
   var layerSource = {
-    user_name: 'documentation', 
+    user_name: 'documentation',
     type: 'cartodb',
-    sublayers: [{ 
+    sublayers: [{
       sql: "SELECT * FROM " + tableName, // All recorded earthquakes past 30 days
       cartocss: $("#simple").text() // Simple visualization
     }]
@@ -240,7 +240,7 @@ window.onload = function () {
     });
 }
 {% endhighlight %}
-    
+
 Now that we have our styles, we need to interact with them. Our first step is to create some buttons with the following HTML that is placed immediately after the `<div id='map'></div>` element:
 
 {% highlight html %}
@@ -278,7 +278,7 @@ function createSelector(layer) {
 {% endhighlight %}
 
 Place this function after createLayer. This code finds all the `li` elements and stores their reference in the variable `$options`. Once one of the `li` elements is clicked, its reference is stored in `$li`, and its `data` is extracted and placed in the variable `selected`. The style of the buttons is altered, and then the CartoCSS text is retrieved from the `<style>` structures you previously created. Finally, the layer is told to change is appearance once the `setCartoCSS()` method is applied to it.
-    
+
 The last piece is putting a call to `createSelector(sublayer);` right after `sublayer` is set equal to `layer.getSubLayer(0);` within `.done()`.
 
 Check out a live version [here](/t/03-cartojs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartojs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings](/t/03-cartojs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartojs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
@@ -286,9 +286,9 @@ Check out a live version [here](/t/03-cartojs-ground-up/lesson-3/cartocss-style.
 
 ## Basic SQL queries
 
-Let's do a few simple queries in the CartoDB Editor, and then work in JavaScript to extend our application with some of the more interesting queries. Copy your previous file to a new one called `cartocss-and-sql.html`.
+Let's do a few simple queries in the CARTO Editor, and then work in JavaScript to extend our application with some of the more interesting queries. Copy your previous file to a new one called `cartocss-and-sql.html`.
 
-Going back to the CartoDB Editor in your browser, try experimenting with some SQL statements in the SQL editor in the right pane. Note that `SELECT * FROM earthquakes_cdbjs_lesson3` just gives you all the rows and columns of your data.
+Going back to the CARTO Editor in your browser, try experimenting with some SQL statements in the SQL editor in the right pane. Note that `SELECT * FROM earthquakes_cdbjs_lesson3` just gives you all the rows and columns of your data.
 
 We will be passing the following SQL statements to our method `sublayer.setSQL("...")`:
 
