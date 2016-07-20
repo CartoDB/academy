@@ -10,7 +10,7 @@ In this final lesson of Course 1, we will be talking about creating a two-layer 
 
 ## Creating a Two-Layer Map
 
-In order to create a multi-layer visualization, start by creating a visualization from one of the layers you'd like to include. We start with the US Counties dataset in this demo, but you could just as easily start with the Tornados dataset. Once you've created your visualization from one dataset, you can add another layer from the column of icons on the right. At the top of the CartoDB sidebar, select the "+" icon. There, you can chose to "Add a new layer," and select the dataset you'd like to add. In our case, it was the tornado layer.
+In order to create a multi-layer visualization, start by creating a visualization from one of the layers you'd like to include. We start with the US Counties dataset in this demo, but you could just as easily start with the Tornados dataset. Once you've created your visualization from one dataset, you can add another layer from the column of icons on the right. At the top of the CARTO sidebar, select the "+" icon. There, you can chose to "Add a new layer," and select the dataset you'd like to add. In our case, it was the tornado layer.
 
 ![Adding a layer.]({{ site.baseurl }}/img/course1/lesson5/addlayer.png)
 
