@@ -16,46 +16,63 @@ lesson_message: "Congratulations! You’ve completed the introduction to the Bui
 ![vid_splash]({{ site.baseurl }}/img/builder-intro/lesson1/0-vid-splash.png)
 
 
-In this lesson, we will give you a five minute overview of the Builder UI. When you log in to CARTO, the Data and Maps views on your account will appear similar. Where the new CARTO Builder comes in is when you create a new map.
+In this lesson, we will give you an overview of the Builder User Interface (UI). When you log in to CARTO, the Data and Maps views on your account will appear similar. Where you'll see the new CARTO Builder  is when you create a new map.
 
 ## User Interface (UI) Updates
 
-The CARTO Builder pane is located on the left side of the screen. 
+The CARTO Builder pane is located on the left side of the screen. There will be some layers visible in the **LAYERS** tab. You should also see an **ELEMENTS** tab and a **WIDGETS** tab. 
 
 ![1-ui.png]({{ site.baseurl }}/img/builder-intro/lesson1/1-ui.png)
 
 ### Layers
-In the Builder, layers are referenced as letters. Learn more about [LAYERS in the CARTO docs]({{site.url}}/docs/carto-builder/introduction-to-the-builder/#layers). Layers may be reordered by clicking and dragging layers into the preferred order. In the top-right corner of the layer 'card', you may turn the view on or off and remove layers. 
+In the Builder, **LAYERS** are referenced as letters. Layers are ordered alphabetically (A, B, C, D and so on) and each layer displays a unique color. Learn more about [LAYERS in the CARTO Documentation]({{site.url}}/docs/carto-builder/introduction-to-the-builder/#layers). Layers may be reordered by clicking and dragging layers into the preferred order. In the top-right corner of the layer 'card,' you may turn the view on or off and remove layers. 
 
 ![2-layers]({{ site.baseurl }}/img/builder-intro/lesson1/2-layers.png) 
-
-The CARTO Builder UI includes the **basemap** as a layer. You can turn layers on or off by clicking the eye-shaped icon and have more options by clicking the three-dot icon. 
-
 ![3-layers-options]({{ site.baseurl }}/img/builder-intro/lesson1/3-layers-options.png)
 
-And in the top-right of the Builder pane, you can **ADD** button to add a layer button.
+### Basemap and Labels as layers
+The CARTO Builder User Interface (UI) includes the **Basemap** and **Labels** as a layer. You can turn layers on or off by clicking the eye-shaped icon and have more options by clicking the three-dot icon. 
+
+![2-5-basemap-as-layer]({{ site.baseurl }}/img/builder-intro/lesson1/2-5-basemap-as-layer.png)
+
+### Adding layers
+And in the top-right of the Builder pane, you can use the **ADD** button to add a layer to your map. You can select existing datasets you have in CARTO or connect a new data layer. 
 
 ![4-add-layer]({{ site.baseurl }}/img/builder-intro/lesson1/4-add-layer.png)
 
 ## Layer Options
 
-Click on a layer to get a new view of the layer options.
+Click on a layer to get a new view of the layer options and explore your data. In the layer options the following options for data exploration are; **DATA, ANALYSIS, STYLE, POP-UP and LEGEND**. 
 
 ![5-click-layer]({{ site.baseurl }}/img/builder-intro/lesson1/5-click-layer.png)
 
-In the layer options the following options for data exploration are; **Data, Analysis, Style, Pop-Up and Legend**.
+## Data 
+You can learn more about the [LAYERS options from the CARTO Introduction to the Builder in our website Documentation section](https://carto.com/docs/carto-builder/introduction-to-the-builder/#layers). The **DATA** view will immediately display some potential **WIDGET** options that may be added to your map visualization. [Learn more about WIDGETS in the Documentation section in the CARTO website](https://carto.com/docs/carto-builder/introduction-to-the-builder/#widgets). You'll see some high level statistics generated on the fly in the Data view. 
 
-![6-layer-options]({{ site.baseurl }}/img/builder-intro/lesson1/6-layer-options.png)
 
-## Data
+<!--![6-layer-options]({{ site.baseurl }}/img/builder-intro/lesson1/6-layer-options.png)-->
+
+<!--## Data-->
 
 ![7-data.png]({{ site.baseurl }}/img/builder-intro/lesson1/7-data.png)
 
- ![](data layer panel screenshot)
- 	* Summary of all of the columns in the dataset.
- 	* Data view in bottom right (along with Map view).
- 		* Column views/editing  ![](column views eidting)
 
- 	* SQL Pane (bottom left) ![](sql-view screenshot)
+## Data View
+When you're working in the Map Data view you can also access the Layers data view by clicking the data view button in the bottom center of your map. You'll have access to the column views and are able to edit the data. Toggle back to the Map view by hitting the pushpin icon. 
 
 
+![8-data-view-toggle]({{ site.baseurl }}/img/builder-intro/lesson1/8-data-view-toggle.png)
+
+
+## SQL Pane
+
+
+To access the familiar SQL pane, select the slider from **VALUES** and slide it over to **SQL** in the bottom left corner of the layer pane. 
+
+![9-sql-pane]({{ site.baseurl }}/img/builder-intro/lesson1/9-sql-pane.png)
+
+### SQL 
+
+Just as in the Editor, you can write and edit your SQL statements related to your data tables. All the familiar and useful functions from the editor are still available in the Builder along with some other features that will be sure to improve your mapping and analysis in the CARTO platform. 
+
+![10-sql]({{ site.baseurl }}/img/builder-intro/lesson1/10-sql.png)

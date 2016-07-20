@@ -1,20 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="92px" height="96px" viewBox="0 0 92 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.4.2 (15857) - http://www.bohemiancoding.com/sketch -->
-    <title>1</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="1" sketch:type="MSLayerGroup" transform="translate(2.000000, 2.000000)" stroke="#9CCC65" stroke-width="4" stroke-linejoin="round">
-            <path d="M0,68 L48,20" id="Stroke-139" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M32,36 L64,67.748" id="Stroke-140" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M80,46 L80,77.644 C80,81.16 77.312,84 74,84 L6,84 C2.688,84 0,81.16 0,77.644 L0,26.36 C0,22.844 2.688,20 6,20 L48,20" id="Stroke-141" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M14,92 L66,92" id="Stroke-142" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M40,84 L40,92" id="Stroke-143" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M42,76 C42,77.104 41.1,78 40,78 C38.896,78 38,77.104 38,76 C38,74.896 38.896,74 40,74 C41.1,74 42,74.896 42,76 L42,76 Z" id="Stroke-144" sketch:type="MSShapeGroup"></path>
-            <path d="M0,68 L80,68" id="Stroke-145" sketch:type="MSShapeGroup"></path>
-            <path d="M88,16 C88,24.836 72,44 72,44 C72,44 56,24.836 56,16 C56,7.16 63.16,0 72,0 C80.836,0 88,7.16 88,16 L88,16 Z" id="Stroke-146" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M78,16 C78,19.316 75.312,22 72,22 C68.68,22 66,19.316 66,16 C66,12.684 68.68,10 72,10 C75.312,10 78,12.684 78,16 L78,16 Z" id="Stroke-147" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
+<svg width="48px" height="38px" viewBox="0 0 48 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Docs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Documentation" transform="translate(-1231.000000, -1312.000000)" fill="#99CE59">
+            <g id="Categories" transform="translate(251.000000, 531.000000)">
+                <g id="Card-Copy-20-+-Card-Copy-29-+-CartoDB-Editor-Copy-+-The-documentation-be" transform="translate(0.000000, 761.000000)">
+                    <g id="Card-Copy-20" transform="translate(960.000000, 0.000000)">
+                        <path d="M68,53 L68,25 C68,22.2391017 65.7616715,20 63,20 L25,20 C22.2397153,20 20,22.2397153 20,25 L20,53 C20,55.7602847 22.2397153,58 25,58 L63,58 C65.7616715,58 68,55.7608983 68,53 Z M66,53 C66,54.6564834 64.6569473,56 63,56 L25,56 C23.3442847,56 22,54.6557153 22,53 L22,25 C22,23.3442847 23.3442847,22 25,22 L63,22 C64.6569473,22 66,23.3435166 66,25 L66,53 Z M22,30 L66,30 L66,32 L22,32 L22,30 Z M35,32 L37,32 L37,56 L35,56 L35,32 Z M25,39 L30,39 L30,41 L25,41 L25,39 Z M25,35 L32,35 L32,37 L25,37 L25,35 Z M42,25.9864 C42,27.0904 41.104,27.9864 40,27.9864 C38.896,27.9864 38,27.0904 38,25.9864 C38,24.8824 38.896,23.9864 40,23.9864 C41.104,23.9864 42,24.8824 42,25.9864 Z M36,25.9864 C36,27.0904 35.104,27.9864 34,27.9864 C32.896,27.9864 32,27.0904 32,25.9864 C32,24.8824 32.896,23.9864 34,23.9864 C35.104,23.9864 36,24.8824 36,25.9864 Z M30,25.9864 C30,27.0904 29.104,27.9864 28,27.9864 C26.896,27.9864 26,27.0904 26,25.9864 C26,24.8824 26.896,23.9864 28,23.9864 C29.104,23.9864 30,24.8824 30,25.9864 Z" id="builder"></path>
+                    </g>
+                </g>
+            </g>
         </g>
     </g>
 </svg>
