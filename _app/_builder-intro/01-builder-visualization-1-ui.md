@@ -20,7 +20,7 @@ In this lesson, we will give you an overview of the Builder User Interface (UI).
 
 ## User Interface (UI) Updates
 
-The CARTO Builder pane is located on the left side of the screen. There will be some layers visible in the **LAYERS** tab. You should also see an **ELEMENTS** tab and a **WIDGETS** tab. 
+The CARTO Builder pane is located on the left side of the screen. You will see your layers visible in the **LAYERS** tab. You should also see an **ELEMENTS** tab and a **WIDGETS** tab. 
 
 ![1-ui.png]({{ site.baseurl }}/img/builder-intro/lesson1/1-ui.png)
 
