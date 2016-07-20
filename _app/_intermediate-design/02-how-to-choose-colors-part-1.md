@@ -18,7 +18,7 @@ This lesson will help you understand color perception, so you can choose palette
 
 ## Where do I start?
 
-CartoDB wizards have default palettes available for each map layer. Or you can choose your own custom colors. To pick a scheme that represents your data and works well with your other map elements it's helpful to understand how your viewers perceive color first.
+CARTO wizards have default palettes available for each map layer. Or you can choose your own custom colors. To pick a scheme that represents your data and works well with your other map elements it's helpful to understand how your viewers perceive color first.
 
 ### The Color Spectrum
 
@@ -109,7 +109,7 @@ There are a few different ways define color in CartoCSS. Here we're demonstratin
 
 * HTML Color Names
 
-You can paste [these color names](http://www.colors.commutercreative.com/grid/) into your CartoCSS or into a CartoDB wizard's color picker:
+You can paste [these color names](http://www.colors.commutercreative.com/grid/) into your CartoCSS or into a CARTO wizard's color picker:
 
 {% highlight css %}
 line-color: aquamarine;
@@ -117,7 +117,7 @@ line-color: aquamarine;
 
 * Hexadecimal Code
 
-[Hexadecimal code](http://techterms.com/definition/hexadecimal) uses a unique [series of numbers and letters](https://www.smashingmagazine.com/2012/10/the-code-side-of-color/#code-demands-precision) to define each color. Earlier in the lesson we described how digital color is made up of <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> light. The first pair of hex characters controls the intensity of <span style="color: #FF0000;">red</span>, the second pair controls <span style="color: #006625;">green</span>, and the last pair controls <span style="color: #2167AB;">blue</span>. Keep in mind that different intensities of these form different colors. For example, <span style="color: #FFA300;">yellow</span> is `#FFFF00`. There are many [free online resources](http://www.colorhexa.com/) to help you pick color hex codes. These can be pasted into a CartoDB wizard's color picker also.
+[Hexadecimal code](http://techterms.com/definition/hexadecimal) uses a unique [series of numbers and letters](https://www.smashingmagazine.com/2012/10/the-code-side-of-color/#code-demands-precision) to define each color. Earlier in the lesson we described how digital color is made up of <span style="color: #FF0000;">red</span>, <span style="color: #006625;">green</span> and <span style="color: #2167AB;">blue</span> light. The first pair of hex characters controls the intensity of <span style="color: #FF0000;">red</span>, the second pair controls <span style="color: #006625;">green</span>, and the last pair controls <span style="color: #2167AB;">blue</span>. Keep in mind that different intensities of these form different colors. For example, <span style="color: #FFA300;">yellow</span> is `#FFFF00`. There are many [free online resources](http://www.colorhexa.com/) to help you pick color hex codes. These can be pasted into a CARTO wizard's color picker also.
 
 {% highlight css %}
 line-color: #ffcc00;
