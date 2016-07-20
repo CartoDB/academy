@@ -67,7 +67,7 @@ As was mentioned in the [previous lesson](/courses/sql-postgis/intro-to-sql-and-
 
 For our work here, we will be needing to work in distances on the earth's surface such as meters. Therefore, we need to cast our geometry in `the_geom` to [geography](http://postgis.net/docs/manual-1.5/ch04.html#PostGIS_Geography), buffer off of that in meters, and then transform to Mercator to display along with our Web Mercator-projected basemap.
 
-To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CARTO [SQL editor](https://carto.com/docs/cartodb-editor/managing-your-data/#running-sql-queries). Go to MAP VIEW to see the result of the query.
+To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CARTO [SQL editor](https://carto.com/docs/carto-editor/managing-your-data/). Go to MAP VIEW to see the result of the query.
 
 {% highlight sql %}
 SELECT
@@ -87,7 +87,7 @@ This statement draws a 25 mile buffer around our road segment, the Mississippi p
 
 Also notice that the `cartodb_id` column was also selected so that interactivity (click events, hovers) can be enabled.
 
-To extend this to see which musicians are in the buffer, [create a multilayered map](https://carto.com/docs/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CARTO Sidebar](https://carto.com/docs/cartodb-editor/maps/#cartodb-sidebar). Select the dataset `mississippi_blues_musicians`. Finally, style it to your liking.
+To extend this to see which musicians are in the buffer, [create a multilayered map](https://carto.com/docs/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CARTO Sidebar](https://carto.com/docs/carto-editor/maps/#carto-sidebar). Select the dataset `mississippi_blues_musicians`. Finally, style it to your liking.
 
 ![ST_Buffer of U.S. Route 61]({{ site.baseurl }}/img/course4/lesson2/buffer-example.png)
 
