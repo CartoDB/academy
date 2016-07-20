@@ -1,18 +1,18 @@
 ---
-title: "SQL and PostGIS in CartoDB — PostGIS in CartoDB"
+title: "SQL and PostGIS in CARTO — PostGIS in CARTO"
 redirect_from: /courses/04-sql-postgis/lesson-2.html
 permalink: /courses/sql-postgis/postgis-in-cartodb/
 permalink_next: /courses/sql-postgis/joining-data/
 tweet_text: "I just (geospatially) revisited Highway 61 @cartoDB"
 lesson_message: "Nice work geospatial explorer! More SQL &amp; PostGIS is coming up next!"
 ---
-# PostGIS in CartoDB
+# PostGIS in CARTO
 
 <p><iframe src="//player.vimeo.com/video/120176143" width="700" height="393" frameborder="0"> </iframe></p>
 
-CartoDB is built on top of [PostgreSQL](http://www.postgresql.org/) using the [PostGIS](http://www.postgis.net/) extension. This means that you have all the power of relational databases combined with hundreds of geospatial functions.
+CARTO is built on top of [PostgreSQL](http://www.postgresql.org/) using the [PostGIS](http://www.postgis.net/) extension. This means that you have all the power of relational databases combined with hundreds of geospatial functions.
 
-In this lesson, we will introduce several commonly used functions in PostGIS with the goal of extending your geospatial analysis of data within CartoDB and show you some of the analysis you can do with your geospatial data.
+In this lesson, we will introduce several commonly used functions in PostGIS with the goal of extending your geospatial analysis of data within CARTO and show you some of the analysis you can do with your geospatial data.
 
 **Our goal with this lesson:**
 Geospatially _revisit_ blues musician birthplaces along Highway 61 by using important functions in PostGIS and SQL. Yep, this is a reference to the Bob Dylan album [_Highway 61 Revisited_](http://en.wikipedia.org/wiki/Highway_61_Revisited).
@@ -21,20 +21,20 @@ By the end of this lesson, you will be able to make this map:
 
 <iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-_If you haven't gotten your feet wet with SQL in CartoDB, first check out [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/). This lesson relies exclusively on the CartoDB Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](/courses/beginners-course/making-your-first-map/)._
+_If you haven't gotten your feet wet with SQL in CARTO, first check out [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/). This lesson relies exclusively on the CARTO Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](/courses/beginners-course/making-your-first-map/)._
 
 
 ## Data
 
 **Mississippi portion of US Route 61**
 
-We're going to use data derived from the [Federal Highway Administration](http://www.fhwa.dot.gov/policyinformation/hpms/shapefiles.cfm). Copy and paste the following URL into the [CartoDB Importer](https://carto.com/docs/cartodb-editor.html#importing-data):
+We're going to use data derived from the [Federal Highway Administration](http://www.fhwa.dot.gov/policyinformation/hpms/shapefiles.cfm). Copy and paste the following URL into the [CARTO Importer](https://carto.com/docs/cartodb-editor.html#importing-data):
 
 {% highlight text %}
 https://carto.com/academy/d/highway_61.geojson
 {% endhighlight %}
 
-Don't worry about downloading and then uploading the data--just directly import it into your CartoDB account using the above link.
+Don't worry about downloading and then uploading the data--just directly import it into your CARTO account using the above link.
 
 **Birthplaces of Mississippi Blues Musicians**
 
@@ -63,11 +63,11 @@ geography ST_Buffer(geography g1, float radius_of_buffer_in_meters)
 
 The function `ST_Buffer` takes a geometry such as a point as the first argument, and the radius for the buffer as the second argument. For more information, see the PostGIS [documentation page](http://www.postgis.org/docs/ST_Buffer.html) for additional information and function definitions.
 
-As was mentioned in the [previous lesson](/courses/sql-postgis/intro-to-sql-and-postgis/), there is a hidden column in CartoDB called `the_geom_webmercator` which is responsible for making the data appear on your map in the correct location. It is usually in the projection [Web Mercator](), but it doesn't have to be. To use it with other projections, just project the data and alias the column as `the_geom_webmercator`.
+As was mentioned in the [previous lesson](/courses/sql-postgis/intro-to-sql-and-postgis/), there is a hidden column in CARTO called `the_geom_webmercator` which is responsible for making the data appear on your map in the correct location. It is usually in the projection [Web Mercator](), but it doesn't have to be. To use it with other projections, just project the data and alias the column as `the_geom_webmercator`.
 
 For our work here, we will be needing to work in distances on the earth's surface such as meters. Therefore, we need to cast our geometry in `the_geom` to [geography](http://postgis.net/docs/manual-1.5/ch04.html#PostGIS_Geography), buffer off of that in meters, and then transform to Mercator to display along with our Web Mercator-projected basemap.
 
-To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CartoDB [SQL editor](https://carto.com/docs/cartodb-editor/managing-your-data/#running-sql-queries). Go to MAP VIEW to see the result of the query.
+To visualize a 25 mile corridor around U.S. Route 61, put the following command into the CARTO [SQL editor](https://carto.com/docs/cartodb-editor/managing-your-data/#running-sql-queries). Go to MAP VIEW to see the result of the query.
 
 {% highlight sql %}
 SELECT
@@ -87,7 +87,7 @@ This statement draws a 25 mile buffer around our road segment, the Mississippi p
 
 Also notice that the `cartodb_id` column was also selected so that interactivity (click events, hovers) can be enabled.
 
-To extend this to see which musicians are in the buffer, [create a multilayered map](https://carto.com/docs/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CartoDB Sidebar](https://carto.com/docs/cartodb-editor/maps/#cartodb-sidebar). Select the dataset `mississippi_blues_musicians`. Finally, style it to your liking.
+To extend this to see which musicians are in the buffer, [create a multilayered map](https://carto.com/docs/tutorials/multilayer_overview.html) by clicking on "+ Add Layer" at the top of the [CARTO Sidebar](https://carto.com/docs/cartodb-editor/maps/#cartodb-sidebar). Select the dataset `mississippi_blues_musicians`. Finally, style it to your liking.
 
 ![ST_Buffer of U.S. Route 61]({{ site.baseurl }}/img/course4/lesson2/buffer-example.png)
 
@@ -315,7 +315,7 @@ Functions mentioned in this lesson:
 + [ST_DWithin](http://postgis.net/docs/ST_DWithin.html)
 + [ceil](http://www.postgresql.org/docs/9.3/static/functions-math.html)
 
-Here are some of the most commonly used PostGIS functions in CartoDB:
+Here are some of the most commonly used PostGIS functions in CARTO:
 
 1. [ST_Transform](http://postgis.net/docs/ST_Transform.html)
 2. [ST_Area](http://postgis.net/docs/ST_Area.html)
@@ -330,5 +330,5 @@ Here are some of the most commonly used PostGIS functions in CartoDB:
 
 **See also**
 
-* Basic `ST_Buffer` usage in the CartoDB tutorial [_Drawing a circle from a point and radius_](https://carto.com/docs/tutorials/circle_point_radius.html)
+* Basic `ST_Buffer` usage in the CARTO tutorial [_Drawing a circle from a point and radius_](https://carto.com/docs/tutorials/circle_point_radius.html)
 * Maptime NYC [blog post about PostGIS and SQL](https://carto.com/blog/maptime-entry/)

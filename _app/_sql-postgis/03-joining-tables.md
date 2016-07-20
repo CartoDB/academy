@@ -1,11 +1,11 @@
 ---
-title: "SQL and PostGIS in CartoDB — JOINs in SQL and PostGIS"
+title: "SQL and PostGIS in CARTO — JOINs in SQL and PostGIS"
 redirect_from: /courses/04-sql-postgis/lesson-3.html
 permalink: /courses/sql-postgis/joining-data/
 ---
 # JOINs in SQL and PostGIS
 
-Joining data in CartoDB is a very common task. Not all joins are equal though, and the one you use is going to depend a lot on your data and what you want to create. Here we are going to walk you through some common `JOIN` methods in CartoDB. In each section we will show you how to join the data using SQL on-the-fly and then show you how to write the result of a join into your table.
+Joining data in CARTO is a very common task. Not all joins are equal though, and the one you use is going to depend a lot on your data and what you want to create. Here we are going to walk you through some common `JOIN` methods in CARTO. In each section we will show you how to join the data using SQL on-the-fly and then show you how to write the result of a join into your table.
 
 ## Join two tables by a shared value in each row
 
@@ -180,7 +180,7 @@ GROUP BY table_1.the_geom, table_1.iso_code
 
 ## Join two real datasets
 
-Now, let's run through an example using a couple real datasets. Start by getting two datasets ready in your CartoDB account. To find them, go to your account dashboard. From the Data View, click _Data library_. Search for the dataset called 'World Rivers' and click _Connect dataset_. This will load the data and take you to the resulting table. If you click on _Map view_, you'll see that it is a basic map of some of the worlds large rivers. This comes from [Natural Earth Data](http://naturalearthdata.com). Take note of the name of the table that was created, in our case it was `table_50m_rivers_lake_cen`.
+Now, let's run through an example using a couple real datasets. Start by getting two datasets ready in your CARTO account. To find them, go to your account dashboard. From the Data View, click _Data library_. Search for the dataset called 'World Rivers' and click _Connect dataset_. This will load the data and take you to the resulting table. If you click on _Map view_, you'll see that it is a basic map of some of the worlds large rivers. This comes from [Natural Earth Data](http://naturalearthdata.com). Take note of the name of the table that was created, in our case it was `table_50m_rivers_lake_cen`.
 
 Next, go back to your Dashboard by clicking the _back link_ in the upper left. Repeat the process importing a different table from the _Data library_. This time you have to import 'World Borders' dataset. When the table finishes loading click _Map View_, and you'll see that it is a dataset of all country borders. Let's join the rivers with the countries so we can make a choropleth of the total length of big rivers in countries around the world. Of course, our map is going to ignore all the little rivers not included in our dataset, but this is just an example!
 
