@@ -25,7 +25,7 @@ To narrow our focus a bit, we're going to be talking about designing digital, on
 
 One of the first things people probably think of when considering web maps is Google Maps. Google has developed a wealth of resources that make their online maps easy to use, and customize. One interesting tool is the [Styled Maps Wizard](http://bit.ly/1r4PW3A), which allows you to change the way different features of the map are visualized. You can edit color, stroke, fill of things like administrative divisions, roads, or water. Essentially, you can edit the features of what is called the basemap. The basemap is the map upon which you would overlay your data, and is an important part of making a good-looking map. Go ahead and see what you can create.
 
-Another example of how you can edit a map's features is [Tilemill](http://bit.ly/1mdl4jE). Using this great tool, you can build basemaps quickly and easily. See what you can make there, too!
+Another example of how you can edit a map's features is [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Using this great tool, you can build basemaps quickly and easily. See what you can make there, too!
 
 While designing your own basemaps can be fun and rewarding, there are also some great existing basemaps out there. [Stamen](http://bit.ly/1i2aeoG) produces great digital cartography and basemaps that you can use in your maps! In future Courses, we'll take a look at how to add these, but if you want to, you can take a [sneak peak at a quick how-to](http://vimeo.com/79772252) or head over to see what [basemaps are available in CARTO](http://bit.ly/1ldR1IT).
 
