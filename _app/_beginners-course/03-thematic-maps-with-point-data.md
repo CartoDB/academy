@@ -35,7 +35,7 @@ Now select the arrow next to the "damage" column and change its data type to "nu
 
 ## Making a Thematic Map
 
-As you did in lessons 1 and 2, you'll start by creating a simple visualization. Navigate to "Map view," then select whichever basemap you like; in our example we've changed the map to "CARTO Flat Blue." Go to the "Visualization wizard" by clicking on the paintbrush icon in the right-hand pull-out tray and note that you're by default on the "simple" visualization.  Now you're ready to play around with modifying the markers.
+As you did in lessons 1 and 2, you'll start by creating a simple visualization. Navigate to "Map view," then select whichever basemap you like; in our example we've changed the map to "CARTO World Flat Blue." Go to the "Visualization wizard" by clicking on the paintbrush icon in the right-hand pull-out tray and note that you're by default on the "simple" visualization.  Now you're ready to play around with modifying the markers.
 
 "Marker Fill" has three elements you can change.  The first represents the overall size of the marker.  The second is the fill color of the marker, and the third element allows you to modify the opacity of the fill color.
 
