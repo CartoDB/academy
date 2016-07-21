@@ -4,7 +4,7 @@ permalink: /courses/community/torque-bird-tracking/
 permalink_next: /courses/community/earthquake-risk/
 ---
 
-<div style="font-size: 24px; margin: 25px 0px;"><a href="http://lifewatch.inbo.be/blog/posts/cartodb-tracking-data-tutorial.html">Use CartoDB to visualize Bird Tracking Data</a>, by Peter Desmet</div>
+<div style="font-size: 24px; margin: 25px 0px;"><a href="http://lifewatch.inbo.be/blog/posts/cartodb-tracking-data-tutorial.html">Use CARTO to visualize Bird Tracking Data</a>, by Peter Desmet</div>
 
 <div class="Lesson-info">
     <p>This tutorial was written by Peter Desmet for <a href="http://lifewatch.inbo.be/">LifeWatch INBO</a> and is being released under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license. It <a href="http://lifewatch.inbo.be/blog/posts/cartodb-tracking-data-tutorial.html">originally appeared</a> on the <a href="http://lifewatch.inbo.be/blog/">LifeWatch INBO blog</a> on September 1, 2015.</p>

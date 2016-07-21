@@ -11,7 +11,7 @@ tweet_text: "I did CARTO.js from the ground, Lesson 2! #CartoDB"
 
 In the last lesson, we saw that it is easy building custom webpages in JavaScript by using createVis and createLayer from the CARTO.js library. In this lesson we will take a look at some of the methods we can use to alter the layers of our map. If you take a look through the [documentation of CARTO.js](https://carto.com/docs/cartodb-platform/cartodb-js/), you will see that there are many methods to boost the power of your maps.
 
-Download/copy the template for this lesson from [this link](/t/03-cartojs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](https://documentation.carto.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two datasets from CartoDB's [Common Data](https://carto.com/blog/better-common-data/), an expanding storehouse of great open data:
+Download/copy the template for this lesson from [this link](/t/03-cartojs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), or use [jsFiddle](http://jsfiddle.net/) to follow along and explore. We will also use the [viz.json file from the last lesson](https://documentation.carto.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json) in our first example. Finally, we will be using the following two datasets from CARTO's [Common Data](https://carto.com/blog/better-common-data/), an expanding storehouse of great open data:
 
 + World Lakes has a dataset name `ne_50m_lakes`
 + African Countries has a dataset name `africa_admin0`
@@ -35,7 +35,7 @@ cartodb.createVis(map_id, vizjson_url)
   });
 {% endhighlight %}
 
-The JS alert box tells us the number of layers by returning `layers.length`. As mentioned before, `layers` is an array where `layers[0]` is the base map, and `layers[1]` contains all the data sublayers of a visualization created in the CartoDB Editor. 
+The JS alert box tells us the number of layers by returning `layers.length`. As mentioned before, `layers` is an array where `layers[0]` is the base map, and `layers[1]` contains all the data sublayers of a visualization created in the CARTO Editor.
 
 Grab the [template](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartojs-ground-up/lesson-2/CartoDB-js-lesson2-template.html), copy and paste the code for createVis, and save your file as `lesson-2-ondone.html`. If you prefer jsFiddle, check out the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartojs-ground-up/lesson-2/jsfiddle_demo_ondone).
 
@@ -68,12 +68,12 @@ Here we used the layer method `getSubLayerCount()` to get the number of sublayer
 
 {% highlight javascript %}
 var layerSource = {
-  user_name: 'a CartoDB username',
+  user_name: 'a CARTO username',
   type: 'cartodb',
   sublayers: [{
     sql: "SELECT * FROM table_name_1",
     cartocss: '#table_name_1 {...CartoCSS styles...}'
-  }, 
+  },
   {
     sql: "SELECT * FROM table_name_2",
     cartocss: '#table_name_2 {...CartoCSS styles...}'
@@ -81,9 +81,9 @@ var layerSource = {
 }
 {% endhighlight %}
 
-If you are not familiar with SQL or CartoCSS, don't worry! Their use in CARTO.js is covered in Lesson 3. 
+If you are not familiar with SQL or CartoCSS, don't worry! Their use in CARTO.js is covered in Lesson 3.
 
-From now on, the blocks of code for createVis and createLayer above will be our working examples for extending our CARTO.js adventures. 
+From now on, the blocks of code for createVis and createLayer above will be our working examples for extending our CARTO.js adventures.
 
 ### Adding multiple layers from different Visualizations
 
@@ -140,7 +140,7 @@ window.onload = function () {
       for (var i = 0; i < layer.getSubLayerCount(); i++) {
         sublayers[i] = layer.getSubLayer(i);
         alert("Congrats, you added sublayer #" + i + "!");
-      } 
+      }
     })
     .error(function(err) {
       console.log("error: " + err);
@@ -179,7 +179,7 @@ $("#sublayer0").on('click', function() {
   } else {
     sublayers[0].show();
   }
-  sublayer0Shown = !sublayer0Shown; 
+  sublayer0Shown = !sublayer0Shown;
 });
 {% endhighlight %}
 
@@ -192,7 +192,7 @@ Check yours with [this working example](/t/03-cartojs-ground-up/lesson-2/CartoDB
 
 ## Layer opacity
 
-To wrap up our brief introduction to the layer and sublayer methods, let's further control the display of our map by changing the opacity. Again appealing to jQuery, we can simply copy the example code from the [UI slider widget](http://jqueryui.com/slider/#rangemin) and make small modifications. 
+To wrap up our brief introduction to the layer and sublayer methods, let's further control the display of our map by changing the opacity. Again appealing to jQuery, we can simply copy the example code from the [UI slider widget](http://jqueryui.com/slider/#rangemin) and make small modifications.
 
 First place the following tags into the `<head>` tags:
 

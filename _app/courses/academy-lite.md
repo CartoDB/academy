@@ -7,4 +7,4 @@ mailchimp_id: 6ae533ab3c
 ---
 # Academy Lite
 
-These quick-start lessons will give you the basic skills needed for creating maps in CartoDB.
+These quick-start lessons will give you the basic skills needed for creating maps in CARTO.

@@ -16,15 +16,15 @@ We can use color in an even better way to fix this though. Look what happens whe
 
 ![multiply-anim]({{site.baseurl}}/img/course6/lesson4/multiply_anim.gif)
 
-The areas of greatest density stand out easily because they've become red. In the first map above overlapping colors were kept separate, like laying one piece of opaque colored paper on top of another. In the second map the overlapping parts effect each other. Hue, saturation and brightness change in the denser areas based on a blend of color information from each overlapping layer. 
+The areas of greatest density stand out easily because they've become red. In the first map above overlapping colors were kept separate, like laying one piece of opaque colored paper on top of another. In the second map the overlapping parts effect each other. Hue, saturation and brightness change in the denser areas based on a blend of color information from each overlapping layer.
 
-Composite operations are blending modes for your map layers. They fall into two main categories: color and [alpha](https://msdn.microsoft.com/en-us/library/windows/desktop/dd183352(v=vs.85).aspx), and can be applied to all non-basemap elements in your CartoDB map by adding a line like this to your CartoCSS code:
+Composite operations are blending modes for your map layers. They fall into two main categories: color and [alpha](https://msdn.microsoft.com/en-us/library/windows/desktop/dd183352(v=vs.85).aspx), and can be applied to all non-basemap elements in your CARTO map by adding a line like this to your CartoCSS code:
 
 {% highlight css %}
 comp-op: multiply;
 {% endhighlight %}
 
-Comp-ops can also be applied to different elements individually, like markers, polygons, lines or text: 
+Comp-ops can also be applied to different elements individually, like markers, polygons, lines or text:
 
 {% highlight css %}
 marker-comp-op: multiply;
@@ -32,9 +32,9 @@ polygon-comp-op: color-burn;
 text-comp-op: screen;
 {% endhighlight %}
 
-The layer (or text) that you choose the composite operation in is called the source. It's composite operation is applied to each layer beneath, which are called destination layers. In CartoDB the source layer itself needs to have a color fill, but it's composite operations apply to destination layers with color or texture fills, even raster ones. In this lesson we will apply composite operations to a marker source layer, that's on top of one destination layer containing lines and another destination layer containing a polygon with raster fill.
+The layer (or text) that you choose the composite operation in is called the source. It's composite operation is applied to each layer beneath, which are called destination layers. In CARTO the source layer itself needs to have a color fill, but it's composite operations apply to destination layers with color or texture fills, even raster ones. In this lesson we will apply composite operations to a marker source layer, that's on top of one destination layer containing lines and another destination layer containing a polygon with raster fill.
 
-CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/mapnik/wiki/Compositing). There are over 30 comp ops. The ones you can use in CartoDB are below. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) for the ones in normal font, and [GNU Image Manipulation Program (GIMP)](http://docs.gimp.org/en/gimp-concepts-layer-modes.html) for the ones in italics:
+CARTO gets these composite operations from [Mapnik](https://github.com/mapnik/mapnik/wiki/Compositing). There are over 30 comp ops. The ones you can use in CARTO are below. This lesson explains their visual effects and a little bit about the math behind them. For more technical documentation, check out [the SVG Compositing Specification](http://www.w3.org/TR/SVGCompositing/) for the ones in normal font, and [GNU Image Manipulation Program (GIMP)](http://docs.gimp.org/en/gimp-concepts-layer-modes.html) for the ones in italics:
 
 | alpha comps  | color comps  | color comps  |
 |--------------|--------------|--------------|
@@ -42,13 +42,13 @@ CartoDB gets these composite operations from [Mapnik](https://github.com/mapnik/
 | dst          | multiply     | exclusion    |
 | src-over     | screen       | _minus (as 'subtract')_ |
 | dst-over     | overlay      | _value_      |
-| src-in       | darken       | _grain-merge_ | 
+| src-in       | darken       | _grain-merge_ |
 | dst-in       | lighten      | _grain-extract_ |
-| src-out      | color-dodge  | invert | 
-| dst-out      | color-burn   | invert-rgb     | 
-| src-atop     | hard-light   | hue  | 
-| dst-atop     | soft-light   | saturation    | 
-| xor          |  contrast    | color   | 
+| src-out      | color-dodge  | invert |
+| dst-out      | color-burn   | invert-rgb     |
+| src-atop     | hard-light   | hue  |
+| dst-atop     | soft-light   | saturation    |
+| xor          |  contrast    | color   |
 
 The comp-op `clear` affects both color and alpha.     
 
@@ -62,9 +62,9 @@ The main reason to use composite operations is to fine-tune how much some featur
 
 ### Multiply
 
-Multiply literally multiplies the color of the top layer by the color of each layer beneath, which usually means overlapping areas become darker. 
+Multiply literally multiplies the color of the top layer by the color of each layer beneath, which usually means overlapping areas become darker.
 
-A layer's color is made of a mix of red, green and blue color channels. Each channel is assigned a percentage decimal value from 0 to 1. If all channels had a 0 value the color would be completely black; if they all had a value of 1 the color would be completely white. Multiply takes these channel numbers for one layer and multiplies them with the channel numbers of another. Your colors will often get darker because multiplying two decimal numbers together gives you a smaller decimal, which is therefore closer to 0 (black). Multiplying 1 (white) by another value will give you that other value, so the area where white mixes with another color will become that other color. Multiplying any color by 0 (black) will always render black. 
+A layer's color is made of a mix of red, green and blue color channels. Each channel is assigned a percentage decimal value from 0 to 1. If all channels had a 0 value the color would be completely black; if they all had a value of 1 the color would be completely white. Multiply takes these channel numbers for one layer and multiplies them with the channel numbers of another. Your colors will often get darker because multiplying two decimal numbers together gives you a smaller decimal, which is therefore closer to 0 (black). Multiplying 1 (white) by another value will give you that other value, so the area where white mixes with another color will become that other color. Multiplying any color by 0 (black) will always render black.
 
 You can picture it like layering colored sheets of cellophane over one another; white disappears, black stays black. Use this when you want to darken overlapping areas in your map.
 
@@ -247,7 +247,7 @@ marker-comp-op: hue;
 
 ### Saturation
 
-Saturation keeps the hue and brightness levels of the destination layers, but renders a result with the same level of saturation as the source layer. If you're using white in the source layer, there will be less saturation in the result. Black will render the highest level of saturation. Color half way between them, gray, will not have an effect. 
+Saturation keeps the hue and brightness levels of the destination layers, but renders a result with the same level of saturation as the source layer. If you're using white in the source layer, there will be less saturation in the result. Black will render the highest level of saturation. Color half way between them, gray, will not have an effect.
 
 {% highlight css %}
 marker-comp-op: saturation;
@@ -277,7 +277,7 @@ marker-comp-op: value;
 
 ### Plus
 
-The plus composite operation adds the color channel values of the source with the destination's. Visually it adds the source's color to the darkest parts of the destination, and brightens the lighter parts, but tinted towards the source color. If you add a source color where red is the dominant color channel to the destination's red green and blue color channels, the dominant color in the result will be red. The overall effect is brighter than color-dodge. Lighter source colors effect the destination layer more than dark ones. A black source layer will have no effect; a white one will paint the whole destination layer white in the area of overlap. 
+The plus composite operation adds the color channel values of the source with the destination's. Visually it adds the source's color to the darkest parts of the destination, and brightens the lighter parts, but tinted towards the source color. If you add a source color where red is the dominant color channel to the destination's red green and blue color channels, the dominant color in the result will be red. The overall effect is brighter than color-dodge. Lighter source colors effect the destination layer more than dark ones. A black source layer will have no effect; a white one will paint the whole destination layer white in the area of overlap.
 
 {% highlight css %}
 marker-comp-op: plus;
@@ -363,7 +363,7 @@ marker-comp-op: src-in;
 
 ### Src-out
 
-Src-out only shows the part of the source layer that does not intersect with the destination layer. The destination layers are also not drawn within the area of overlap. 
+Src-out only shows the part of the source layer that does not intersect with the destination layer. The destination layers are also not drawn within the area of overlap.
 
 {% highlight css %}
 marker-comp-op: src-out;
@@ -393,7 +393,7 @@ marker-comp-op: dst-over;
 
 ### Dst-in
 
-Inside the overlap area, dst-in only shows the destination layer. 
+Inside the overlap area, dst-in only shows the destination layer.
 
 {% highlight css %}
 marker-comp-op: dst-in;
@@ -433,7 +433,7 @@ marker-comp-op: xor;
 
 ### Clear
 
-The clear composite operation acts as an eraser. It makes all pixels transparent in the area where source and destination layers overlap. 
+The clear composite operation acts as an eraser. It makes all pixels transparent in the area where source and destination layers overlap.
 
 {% highlight css %}
 marker-comp-op: clear;

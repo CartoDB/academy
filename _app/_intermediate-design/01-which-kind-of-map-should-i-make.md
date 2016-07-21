@@ -6,13 +6,13 @@ tweet_text: "Step by step is the way to go. I've finished the second map academy
 ---
 # Which Kind of Map should I Make?
 
-Congratulations if you completed our [first design course](/courses/design-for-beginners/)! Otherwise, congrats for finding your way to our second course in map-based data visualization! 
+Congratulations if you completed our [first design course](/courses/design-for-beginners/)! Otherwise, congrats for finding your way to our second course in map-based data visualization!
 
 <iframe width="100%" height="520" frameborder="0" src="https://gkudos.cartodb.com/u/kudosg/viz/b42f3f50-d8aa-11e4-967d-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](/courses/beginners-course/colors-truth-insights/#why-to-think-about-colors) of how design choices can [completely obscure](/courses/beginners-course/invisible-and-visible-data/#data-how-much-is-too-much) or [clearly communicate](/courses/beginners-course/invisible-and-visible-data/#all-together-now) the information in your dataset. We hope this course inspires you to make beautiful maps, like the one above designed by CartoDB users [Kudos Ltda.](https://gkudos.cartodb.com/maps)
+Our first design course taught the basics of designing web maps using filtered data, colors, and labels. You saw [an example](/courses/beginners-course/colors-truth-insights/#why-to-think-about-colors) of how design choices can [completely obscure](/courses/beginners-course/invisible-and-visible-data/#data-how-much-is-too-much) or [clearly communicate](/courses/beginners-course/invisible-and-visible-data/#all-together-now) the information in your dataset. We hope this course inspires you to make beautiful maps, like the one above designed by CARTO users [Kudos Ltda.](https://gkudos.cartodb.com/maps)
 
-Our Editor's [wizards](https://carto.com/docs/cartodb-editor/maps/#wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use? 
+Our Editor's [wizards](https://carto.com/docs/cartodb-editor/maps/#wizards) make it easy for you to filter and style your data. With so many types of data, though, which wizard and settings should you use?
 
 The answer to that question depends on what information you are trying highlight in your data.
 
@@ -25,7 +25,7 @@ This lesson will help you pick a wizard by outlining when to use each of the dif
 
 ## A good starting point
 
-There's no exact formula for building a map, but asking yourself these questions can help narrow down design options. Keep the answers in mind as you're learning about each wizard. 
+There's no exact formula for building a map, but asking yourself these questions can help narrow down design options. Keep the answers in mind as you're learning about each wizard.
 
 **Do you want your audience to pick out specific or general information from your map?**
 
@@ -50,12 +50,12 @@ There is no one accepted answer for this, but users should be able to see a clea
 
 **Do you want to map changes in your data over time?**
 
-Animated maps are possible with CartoDB's [Torque](https://carto.com/docs/cartodb-editor.html#map-wizards). With Torque you have the ability to show changes of geographical data over time with data aggregated as you specify.
+Animated maps are possible with CARTO's [Torque](https://carto.com/docs/cartodb-editor.html#map-wizards). With Torque you have the ability to show changes of geographical data over time with data aggregated as you specify.
 
 
 ## Simple Wizard
 
-When you connect a dataset to your CartoDB account, you'll see it's Map View is automatically styled according to our simple wizard. 
+When you connect a dataset to your CARTO account, you'll see it's Map View is automatically styled according to our simple wizard.
 
 ![line_layer]({{ site.baseurl }}/img/course6/lesson1/line_layer.png)
 
@@ -83,14 +83,14 @@ Notice that the changes apply universally across a dataset. In this earthquake m
 
 ![earthquake_map]({{ site.baseurl }}/img/course6/lesson1/earthquakes_2.png)
 
-You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the dataset, other wizards are a better choice. 
+You can't since there are no differences in marker size or color to indicate magnitude. In general, the Simple wizard option works well for visualizations that show location only. But if you also want to show other attributes from the dataset, other wizards are a better choice.
 
 If you find that your location points are too close together to be readable, consider using a cluster or density map instead. Within the Simple wizard, you also have the ability to do color and alpha composite operations, but those will be covered in a later lesson on color.
 
 
 ## Category Wizard
 
-Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons. 
+Use the Category wizard when you want to show location and one other qualitative attribute (i.e., categories). In the map below we can identify each of Australia's states because of color differences between the polygons.
 
 ![Australia Categorized by State]({{ site.baseurl }}/img/course6/lesson1/australia_cat.png)
 
@@ -143,9 +143,9 @@ Cluster maps are useful when you're plotting a large amount of point data. Take 
 
 Did the Northeast have more storms than the Midwest? How many storms occurred around Washington, DC? Because of the large number of overlapping points, it's nearly impossible to tell. Our audience can't easily pick out general or specific information from this map.
 
-The Cluster wizard solves this by reducing the number of points. It lays an invisible grid over our map, then creates one marker to symbolize all of the points that fall into each grid cell. Larger markers represent more points, and a marker's number shows how many points it has aggregated. 
+The Cluster wizard solves this by reducing the number of points. It lays an invisible grid over our map, then creates one marker to symbolize all of the points that fall into each grid cell. Larger markers represent more points, and a marker's number shows how many points it has aggregated.
 
-You can choose the size of the grid cell by choosing how many buckets your data is divided into in the wizard's pulldown menu. A smaller bucket number means a larger aggregation area, so more points will potentially be included in each grid cell. The grid's pixel size stays the same on zoom. 
+You can choose the size of the grid cell by choosing how many buckets your data is divided into in the wizard's pulldown menu. A smaller bucket number means a larger aggregation area, so more points will potentially be included in each grid cell. The grid's pixel size stays the same on zoom.
 
 Zooming in means a smaller area of your map is included in each grid cell; zooming out means a larger area is included. Notice how points fall into different aggregation grid cells depending on zoom level below.
 
@@ -162,7 +162,7 @@ How your data is grouped into buckets depends on how the bucket widths are chose
 
 ![filter_1]({{ site.baseurl }}/img/course6/lesson1/filter.png)
 
-Most of the dataset's number column values are clustered towards the left end of the graph, but notice there is also an outlying value at the far right end. The objective of grouping data into buckets is to put similar values together. 
+Most of the dataset's number column values are clustered towards the left end of the graph, but notice there is also an outlying value at the far right end. The objective of grouping data into buckets is to put similar values together.
 
 If we use the **Quantile method** here, it's going to put an equal number of values in each bucket. That means the far right outlying value of 43% is going to fall in the same bucket as the next value to it's left, 29%. Other buckets would have values that aren't as different: for example the first bucket would include values 1% and 5%. If our dataset's values were more evenly distributed on the graph, Quantile could be a good choice because it's easy to understand, and each bucket's data would be equally represented on the map. In this case though it's coloring countries with 43% people working over 50 hours per week exactly the same as countries where only 27% of people are. It's making very different areas on your map look similar.
 
@@ -240,7 +240,7 @@ People are able to judge shapes more accurately when there are fewer sizes to co
 
 ## Density Wizard
 
-If your map is illegible because it has too many overlapping points, the Density wizard can help communicate it's data more clearly. Use it if you want to show relative location data, for example if more earthquakes occurred in Alaska than Japan. Compared to the first storm map in this lesson, it's much easier to see where the most storms were concentrated in the map below. If you want to visualize other attributes like where the strongest earthquakes occurred, then a choropleth, bubble or category map is a better choice. 
+If your map is illegible because it has too many overlapping points, the Density wizard can help communicate it's data more clearly. Use it if you want to show relative location data, for example if more earthquakes occurred in Alaska than Japan. Compared to the first storm map in this lesson, it's much easier to see where the most storms were concentrated in the map below. If you want to visualize other attributes like where the strongest earthquakes occurred, then a choropleth, bubble or category map is a better choice.
 
 ![density]({{ site.baseurl }}/img/course6/lesson1/storm_density.png)
 
@@ -254,7 +254,7 @@ The wizard calculates points_density values for you, based on how many buckets y
 
 Like cluster wizard maps, you can change the size of your aggregation grid by choosing how many buckets your data is binned into. The aggregation grid's pixel dimensions don't change on zoom. That means the map area included in each grid cell will change as you zoom in and out, which means a point could fall into a different aggregation cell. If it's important for your dataset's points to keep the same spatial relationship to each other no matter the zoom level, then consider using the Intensity wizard instead.
 
-This “hexbin” or grid map has an advantage over polygon maps. Normally in choropleths, a large polygon's data looks more emphasized just because of size. In this density map, easily overlooked tiny polygons have their data represented equally to large polygons. 
+This “hexbin” or grid map has an advantage over polygon maps. Normally in choropleths, a large polygon's data looks more emphasized just because of size. In this density map, easily overlooked tiny polygons have their data represented equally to large polygons.
 
 There's a drawback to this format though. Map readers generally recognize a geographic area by it's shape and orientation to other areas. Since the grid format distorts shape and orientation, which geographic area a user's looking at is not as easily understandable. One solution for this is to choose a basemap that uses labels on top of your data layer.
 
@@ -263,7 +263,7 @@ There's a drawback to this format though. Map readers generally recognize a geog
 
 ## Intensity Wizard
 
-The intensity wizard works with point data. It makes a clutter of points more legible by creating darker, more saturated color areas to show users where points overlap. It does this by using 
+The intensity wizard works with point data. It makes a clutter of points more legible by creating darker, more saturated color areas to show users where points overlap. It does this by using
 
 {% highlight scss %}
 marker-comp-op: multiply;
@@ -275,7 +275,7 @@ Like the Density and Cluster wizards it's good for showing relative location dat
 
 ![intensity]({{ site.baseurl }}/img/course6/lesson1/intensity.gif)
 
-The Intensity wizard is a better choice than the Density and Cluster wizards if you need to show your dataset's exact locations, because it doesn't aggregate points. Zooming won't change how your points relate to each other since they're not being aggregated into one grid cell or another. 
+The Intensity wizard is a better choice than the Density and Cluster wizards if you need to show your dataset's exact locations, because it doesn't aggregate points. Zooming won't change how your points relate to each other since they're not being aggregated into one grid cell or another.
 
 
 ## Torque, Torque Category, and Heatmap Wizards
@@ -286,13 +286,13 @@ Torque also aggregates by time. It calculates the whole time period from the fir
 
 ![torque]({{ site.baseurl }}/img/course6/lesson1/torque.gif)
 
-In the Torque wizard you have the option to make Torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas. 
+In the Torque wizard you have the option to make Torque cumulative. Users won't be able to pick out specific information from this like how many points appear exactly, but they will generally be able to see how much data appears in a region over time and compare areas.
 
 Like the category wizard, Torque category colors your points based on a qualitative attribute in your dataset. There's no cumulative option for Torque category. While it's possible to do this with CartoCSS, it's not recommended: the category rendered last in an animation looks like it represents the category that occurred there most over time, but that's not necessarily true. For example, one location can have blue markers for most of the animation, but if at it's last date a red category was dominant, a red marker replaces the blue ones. Users won't be able to tell that area was anything but red, even though blue was the most dominant category for most of the time. You can control this behavior better by changing the composite operation.
 
 ![Torque_cat]({{ site.baseurl }}/img/course6/lesson1/torque_cat.gif)
 
-Heatmaps can be cumulative; use them when you want to show intensity over time. A cumulative Torque map will show points filling a grid cell over time, but like in the map below it becomes hard to tell how density compares from area to area since the markers don't change color or size the more points are located there. 
+Heatmaps can be cumulative; use them when you want to show intensity over time. A cumulative Torque map will show points filling a grid cell over time, but like in the map below it becomes hard to tell how density compares from area to area since the markers don't change color or size the more points are located there.
 
 ![cumulative_torque]({{ site.baseurl }}/img/course6/lesson1/torque_cu.gif)
 
@@ -307,7 +307,7 @@ Heatmaps show that in a better way by using a color gradient instead of a number
 }
 {% endhighlight %}
 
-Red indicates that your dataset's points are more densely clustered in that area. They are static by default, but can show how your data changes over time with the "Animated" toggle on. These maps show the same tweets as the map above: 
+Red indicates that your dataset's points are more densely clustered in that area. They are static by default, but can show how your data changes over time with the "Animated" toggle on. These maps show the same tweets as the map above:
 
 ![heatmap]({{ site.baseurl }}/img/course6/lesson1/heatmap.gif)
 
@@ -315,7 +315,7 @@ A criticism of rainbow color gradients is that there's no natural perceived orde
 
 ![rainbow]({{ site.baseurl }}/img/course6/lesson1/rainbow.png)
 
-Another criticism is that it can be hard to see which color value a location has: is the spot below green or cyan? 
+Another criticism is that it can be hard to see which color value a location has: is the spot below green or cyan?
 
 ![green_or_cyan]({{ site.baseurl }}/img/course6/lesson1/green_cyan.png)
 
