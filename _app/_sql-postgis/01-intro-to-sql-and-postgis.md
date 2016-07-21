@@ -16,7 +16,7 @@ SQL queries work on data arranged in tables that are visually similar to an Exce
 
 In this lesson, we will be using CARTO to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
-Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CARTO Importer](https://carto.com/docs/cartodb-editor.html#importing-data):
+Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CARTO Importer](https://carto.com/docs/carto-editor/datasets/#connect-dataset):
 
 {% highlight bash %}
   https://carto.com/academy/d/all_month.csv.zip
