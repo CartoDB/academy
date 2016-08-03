@@ -4,7 +4,42 @@ App.Views.Main = Backbone.View.extend({
 
   events: {
     'click': '_closeDropdowns',
-    'keydown': '_onKeyDown'
+    'keydown': '_onKeyDown',
+    'click .js-Action--NAVbuilder': '_onClickNAVbuilder',
+    'click .js-Action--NAVengine': '_onClickNAVengine',
+    'click .js-Action--NAVsolutions': '_onClickNAVsolutions',
+    'click .js-Action--NAVpricing': '_onClickNAVpricing',
+    'click .js-Action--NAVblog': '_onClickNAVblog',
+    'click .js-Action--NAVlogin': '_onClickNAVlogin',
+    'click .js-Action--NAVcontact': '_onClickNAVcontact',
+  },
+
+  _onClickNAVbuilder: function () {
+    ga('send', 'event', 'NAVbuilder', 'click', 'Builder')
+  },
+
+  _onClickNAVengine: function () {
+    ga('send', 'event', 'NAVengine', 'click', 'Builder')
+  },
+
+  _onClickNAVsolutions: function () {
+    ga('send', 'event', 'NAVsolutions', 'click', 'Builder')
+  },
+
+  _onClickNAVpricing: function () {
+    ga('send', 'event', 'NAVpricing', 'click', 'Builder')
+  },
+
+  _onClickNAVblog: function () {
+    ga('send', 'event', 'NAVblog', 'click', 'Builder')
+  },
+
+  _onClickNAVlogin: function () {
+    ga('send', 'event', 'NAVlogin', 'click', 'Builder')
+  },
+
+  _onClickNAVcontact: function () {
+    ga('send', 'event', 'NAVcontact', 'click', 'Builder')
   },
 
   initialize: function() {

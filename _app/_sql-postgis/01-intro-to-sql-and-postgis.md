@@ -1,22 +1,22 @@
 ---
-title: "SQL and PostGIS in CartoDB — Learning SQL through the CartoDB Editor"
+title: "SQL and PostGIS in CARTO — Learning SQL through the CARTO Editor"
 redirect_from: /courses/04-sql-postgis/lesson-1.html
 permalink: /courses/sql-postgis/intro-to-sql-and-postgis/
 permalink_next: /courses/sql-postgis/postgis-in-cartodb/
-tweet_text: "CartoDB Academy taught me all about SQL and PostGIS"
+tweet_text: "CARTO Academy taught me all about SQL and PostGIS"
 lesson_message: "Congrats on doing awesome in SQL"
 ---
-# Learning SQL through the CartoDB Editor
+# Learning SQL through the CARTO Editor
 
 <p><iframe src="//player.vimeo.com/video/112283723" width="700" height="466" frameborder="0"> </iframe></p>
 
-CartoDB is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra, which has a solid foundation.
+CARTO is built on a database called [PostgreSQL](http://www.postgresql.org/). The SQL part of that means _structured query language_, which is a powerful and popular language for analyzing tables of data. It is based on mathematics called relational algebra, which has a solid foundation.
 
-SQL queries work on data arranged in tables that are visually similar to an Excel spreadsheet, but have very different underlying mechanics. Table names are lowercase, contain no spaces, and are unique within a CartoDB account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
+SQL queries work on data arranged in tables that are visually similar to an Excel spreadsheet, but have very different underlying mechanics. Table names are lowercase, contain no spaces, and are unique within a CARTO account. Tables have columns that have headings that are all lowercase with no spaces. Column names cannot be the same as some of the keywords in SQL.
 
-In this lesson, we will be using CartoDB to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
+In this lesson, we will be using CARTO to discover some of the basic features of SQL and introduce the geospatial extension called PostGIS. PostGIS allows you to perform geospatial queries such as finding all data points that are within a given radius, the area of polygons in your table, and much more.
 
-Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CartoDB Importer](https://carto.com/docs/cartodb-editor.html#importing-data):
+Let's get started exploring SQL by working with our familiar dataset on earthquakes. You can easily import it by copying the following link and pasting it into the [CARTO Importer](https://carto.com/docs/carto-editor/datasets/#connect-dataset):
 
 {% highlight bash %}
   https://carto.com/academy/d/all_month.csv.zip
@@ -24,7 +24,7 @@ Let's get started exploring SQL by working with our familiar dataset on earthqua
 
 If you prefer to have up-to-date earthquake data, go to the [USGS site](http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) and grab the "all earthquakes" data for the past 30 days.
 
-After your data is successfully imported, rename the table by clicking on the dataset name in the upper left and typing in `earthquake_sql`. After you have done this, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types: 
+After your data is successfully imported, rename the table by clicking on the dataset name in the upper left and typing in `earthquake_sql`. After you have done this, inspect the columns you have in your table. Each column has a unique name, and the columns of data are imported as one of five types:
 
 + number -- 1, 3.1415, -179.3, etc. using [double precision floats](http://www.postgresql.org/docs/9.1/static/datatype-numeric.html)
 + [string](http://en.wikipedia.org/wiki/String_(computer_science)) -- a string of characters, e.g., "Socotra archipelago"
@@ -72,7 +72,7 @@ _Pro Tip:_ If you want to rename a column when you create a new table from query
 
 Still in the Data View, check out the tab below the SQL tab, the one that has a bar graph. This is our Filters tab.
 
-Filters in CartoDB are an excellent way to explore your data because they help you analyze the contents of columns by showing, depending on the characteristics of the data in the column, the unique entries, a histogram of the data distribution, or the range in values of another column. For instance, it may not be obvious to expect that _quarry_, _quarry_blast_, _explosion_, or _sonic_boom_ are possible entries that can exist alongside of _earthquakes_ in the `type` column.
+Filters in CARTO are an excellent way to explore your data because they help you analyze the contents of columns by showing, depending on the characteristics of the data in the column, the unique entries, a histogram of the data distribution, or the range in values of another column. For instance, it may not be obvious to expect that _quarry_, _quarry_blast_, _explosion_, or _sonic_boom_ are possible entries that can exist alongside of _earthquakes_ in the `type` column.
 
 Start by exploring the options available when you apply the filters to your data. Look specifically at different columns of data and how you are presented with distinct methods for filtering.
 
@@ -103,7 +103,7 @@ Switch back to the Filters tab, hit "Clear view" to clear the last SQL command, 
 + `<=` for less than or equal to
 + `<>` or `!=` for not equal to
 
-We also discover that we can chain conditions together using the 'AND' keyword. In the case of our `depth` filter, you have the following format: 
+We also discover that we can chain conditions together using the 'AND' keyword. In the case of our `depth` filter, you have the following format:
 
 {% highlight sql %}
   depth <= value1 AND depth >= value2
@@ -132,15 +132,15 @@ WHERE conditions
 
 ## ORDER BY and LIMIT
 
-Another way to inspect your data is by ordering the columns of the table differently. CartoDB has automatic ordering built in--just click on a column name and select ASC or DESC to get the data ordered how you want. ASC orders your data by lowest number or highest in the alphabet (closest to A) first, while DESC does the opposite.
+Another way to inspect your data is by ordering the columns of the table differently. CARTO has automatic ordering built in--just click on a column name and select ASC or DESC to get the data ordered how you want. ASC orders your data by lowest number or highest in the alphabet (closest to A) first, while DESC does the opposite.
 
 You can perform the same operations using the SQL keywords ORDER BY. Try it out by first clearing your view and then, after your table name, typing:
 
 {% highlight sql %}
 ORDER BY depth ASC
 {% endhighlight %}
-    
-This will arrange your data in your table to be ordered by the `depth` column. The result has no effect on how the data is displayed in CartoDB unless you apply other keywords to your overall SQL statement.
+
+This will arrange your data in your table to be ordered by the `depth` column. The result has no effect on how the data is displayed in CARTO unless you apply other keywords to your overall SQL statement.
 
 _Pro Tip:_ You can add multiple columns after the ORDER BY keywords. The first column is sorted first, then within that ordering the second column is ordered, etc. It goes like this:
 
@@ -169,7 +169,7 @@ If you have any SQL applied, click on the "Clear view" option to reset your quer
 
 ## the_geom
 
-Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CartoDB. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](https://carto.com/docs/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CartoDB knows at import to read these into the `the_geom` column.
+Now that we have a handle on some basic SQL, we will shift our focus to two special columns in CARTO. The first is `the_geom`, which is where some of your geospatial data is stored. If your data does not have latitude and longitude, or other complicated geospatial data types such as lines, polygons, etc., then you can try [georefrencing](https://carto.com/docs/tutorials/how_to_georeference.html) to obtain them. Since our earthquake data comes with latitude and longitude already, CARTO knows at import to read these into the `the_geom` column.
 
 Start by double-clicking on a cell in the `the_geom` column. In the resulting menu, click the toggle next to "Geometry." You will notice that data is structured like the following:
 
@@ -185,7 +185,7 @@ While the underlying geometry is in a different format, this data has been trans
 
 ## the_geom_webmercator
 
-The other geospatial column that CartoDB uses is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected to Web Mercator, a web-optimized version of the historical Mercator projection. `The_geom_webmercator` is required by CartoDB to display information on your map. It is normally hidden from view because CartoDB updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
+The other geospatial column that CARTO uses is `the_geom_webmercator`. This column contains all the same points that were in `the_geom`, but projected to Web Mercator, a web-optimized version of the historical Mercator projection. `The_geom_webmercator` is required by CARTO to display information on your map. It is normally hidden from view because CARTO updates it in the background so you can work purely in WGS84. You can easily inspect it by typing the following SQL/PostGIS statement into the text editor in the SQL tab:
 
 {% highlight sql %}
 SELECT cartodb_id, ST_AsText(the_geom_webmercator) AS the_geom_webmercator
@@ -196,10 +196,10 @@ As you can see, the values range from around -20 million meters to +20 million m
 
 Also note a new type of object appearing in the SQL statement above: `ST_AsText()`. This is a [PostGIS function](http://www.postgis.org/docs/ST_AsText.html) that takes a geometry and returns it in a more readable form.
 
-There are many variants to the common projections, so groups of scientists and engineers got together to create unambiguous designations for projections known as [SRID](http://en.wikipedia.org/wiki/SRID). The two of interest to us are: 
+There are many variants to the common projections, so groups of scientists and engineers got together to create unambiguous designations for projections known as [SRID](http://en.wikipedia.org/wiki/SRID). The two of interest to us are:
 
-+ **4326** for [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System), which defines `the_geom`; 
-+ **3857** for [Web Mercator](http://en.wikipedia.org/wiki/Web_Mercator), which defines `the_geom_webmercator`. 
++ **4326** for [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System), which defines `the_geom`;
++ **3857** for [Web Mercator](http://en.wikipedia.org/wiki/Web_Mercator), which defines `the_geom_webmercator`.
 
 We will find out how to use these in the section below and in future lessons.
 
@@ -208,14 +208,14 @@ We will find out how to use these in the section below and in future lessons.
 
 In this section, we are going to just get our feet wet with PostGIS. Like we did with the data we've encountered so far, spatial data can be manipulated, filtered, ordered, and measured in a database by using the geometry in `the_geom` or `the_geom_webmercator`.
 
-The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with `ST_AsText()` above. CartoDB also introduces some [helper functions](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) that reduce the amount of typing on the user's end. These begin with "CDB_". For example, we will use `CDB_LatLng(lat,long)` to get a coordinate in the 4326 projection (WGS84).
+The functions that allow us to do this come out of PostGIS and all begin with "ST\_", just as we saw with `ST_AsText()` above. CARTO also introduces some [helper functions](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) that reduce the amount of typing on the user's end. These begin with "CDB_". For example, we will use `CDB_LatLng(lat,long)` to get a coordinate in the 4326 projection (WGS84).
 
 We'll keep working with the earthquake data, but trying to generate some new useful information from it. Say you are interested in knowing the distance in kilometers your office is from all of the earthquakes in the data table. How would you go about doing this?
 
 First you would need to know your location. Let's say you're in downtown San Francisco, which is near (37.7833&deg; N,-122.4167&deg; W), so we can just use the `CDB_LatLng()` function to generate the proper geometry.
 
 
-## Introduction to Measurements 
+## Introduction to Measurements
 
 Next we need to find a PostGIS function that allows us to find the distance we are from another lat/long location. Looking through the [PostGIS documentation](http://postgis.net/docs/reference.html#Spatial_Relationships_Measurements), you will find a function called `ST_Distance()` that has the following function prototypes:
 
@@ -227,7 +227,7 @@ float ST_Distance(geography gg1, geography gg2, boolean use_spheroid)
 
 This function is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), meaning that we have multiple options for the input variables we can pass to it. Before using it, though, we should look at what the arguments mean:
 
-+ `geometry` type arguments: allows you to measure the distance in degrees (lat/long) 
++ `geometry` type arguments: allows you to measure the distance in degrees (lat/long)
 + `geography` type arguments: allows you to measure the distance in meters
 + `use_spheroid` argument: use WGS84's [oblate spheroid earth](http://en.wikipedia.org/wiki/World_Geodetic_System#Main_parameters) (pass `true`) or assume the earth is perfectly spherical (pass `false`)
 
@@ -235,16 +235,16 @@ Two things to notice about this function. First, we cannot mix projection types.
 
 ### Measurement Units
 
-What does that mean, _measurement in the same units as the input projection_? Well, it is a funny thing. Let's say you want to measure the distance between two points stored in `the_geom` that we can call `the_geom_a` and `the_geom_b`. If you input them both into `ST_Distance(the_geom_a, the_geom_b)` the result would come back in units of WGS84. This is not very useful because the answer is in degrees. Instead, we want to measure distance in meters (or kilometers). 
+What does that mean, _measurement in the same units as the input projection_? Well, it is a funny thing. Let's say you want to measure the distance between two points stored in `the_geom` that we can call `the_geom_a` and `the_geom_b`. If you input them both into `ST_Distance(the_geom_a, the_geom_b)` the result would come back in units of WGS84. This is not very useful because the answer is in degrees. Instead, we want to measure distance in meters (or kilometers).
 
-You can measure distances (and make many other measurements in PostGIS) using meter units if you run the measurements with data on a spherical globe. That means we can exclude the first version of `ST_Distance()`. Instead, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers. 
+You can measure distances (and make many other measurements in PostGIS) using meter units if you run the measurements with data on a spherical globe. That means we can exclude the first version of `ST_Distance()`. Instead, we need to project `the_geom` and our point to PostGIS geography type. We can do this by appending `::geography` to both of them in the function call, as below. Notice that we need to divide the value returned by `ST_Distance()` by 1000 to go from meters to kilometers.
 
 <a name="sql_to_use"></a>
 {% highlight sql %}
 SELECT
   *,
   ST_Distance(
-    the_geom::geography, 
+    the_geom::geography,
     CDB_LatLng(37.7833,-122.4167)::geography
   ) / 1000 AS dist
 FROM
@@ -275,13 +275,13 @@ _Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that
 
 Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](/courses/beginners-course/your-first-choropleth-map/) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
-<iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> 
+<iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-That's it for Lesson One of SQL and PostGIS in CartoDB.
+That's it for Lesson One of SQL and PostGIS in CARTO.
 
 Want more? Check out some tutorials:
 
 + [Projections, the_geom and the_geom_webmercator](https://carto.com/docs/tutorials/projections.html)
 + [Query by distance](https://carto.com/docs/tutorials/query_by_distance.html)
 + [Counting points in polygons](https://carto.com/docs/tutorials/counting_points.html)
-+ [CartoDB Tips and Tricks](https://carto.com/docs/tips-and-tricks.html)
++ [CARTO Tips and Tricks](https://carto.com/docs/tips-and-tricks.html)

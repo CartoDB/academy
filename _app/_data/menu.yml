@@ -49,7 +49,7 @@ cartodbfor:
   - title: MailChimp
     url: '/connectors/mailchimp/'
   - title: Excel Data
-    url: '/connectors/excel-data/'
+    url: '/connectors/excel/'
   - title: ArcGIS&trade;
     url: '/connectors/arcgis/'
   - title: Satellite Imagery

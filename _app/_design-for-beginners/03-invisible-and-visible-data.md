@@ -11,7 +11,7 @@ In the last lesson, we talked about how you can use color as a tool to present y
 
 ![Bad map.]({{ site.baseurl }}/img/course2/lesson1/badmap.png)
 
-An important tactic, then, is focusing on the message you wish to convey. Think about what data you need on your map, and which you can go without. Are there other ways you can play with the hierarchy of how data is displayed so that you can communicate a clearer message? Unfortunately, there is no definitive, simple rule for how much data you "need" or "should have." There are, however, some tools in CartoDB that will allow you to work with the data you have, highlight important subsets of it, and create a clear communication. Let's get started looking at these tools!
+An important tactic, then, is focusing on the message you wish to convey. Think about what data you need on your map, and which you can go without. Are there other ways you can play with the hierarchy of how data is displayed so that you can communicate a clearer message? Unfortunately, there is no definitive, simple rule for how much data you "need" or "should have." There are, however, some tools in CARTO that will allow you to work with the data you have, highlight important subsets of it, and create a clear communication. Let's get started looking at these tools!
 
 
 ## Zoom-Based Styling
@@ -20,9 +20,9 @@ The first tool we will look at is zoom-based styling. Zoom-based styling refers 
 
 ![Zoom-based styling in a Stamen map.]({{ site.baseurl }}/img/course2/lesson3/stamen.gif)
 
-Before we start making changes based on our zoom level, it's important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CartoDB, OpenStreetMap and MapBox), we'll be using CartoCSS, which we started learning about in our last lesson.
+Before we start making changes based on our zoom level, it's important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CARTO, OpenStreetMap and MapBox), we'll be using CartoCSS, which we started learning about in our last lesson.
 
-To start working with zoom-based styling, let's go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we'll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CartoDB that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CartoDB to change marker width at all zoom levels _larger than_ a specified level. Take a look at the last three lines of our code block here.
+To start working with zoom-based styling, let's go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we'll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CARTO that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CARTO to change marker width at all zoom levels _larger than_ a specified level. Take a look at the last three lines of our code block here.
 
 {% highlight scss %}
 #cartodb_query_{
@@ -38,10 +38,10 @@ To start working with zoom-based styling, let's go back to the Simple visualizat
   [zoom = 4] {marker-width: 6}
   [zoom = 5] {marker-width: 12}
   [zoom > 5] {marker-width: 16}
-} 
+}
 {% endhighlight %}
 
-We can see that CartoDB will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is _larger than_ 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. Go ahead and play around with this to see what kinds of visualizations you can make based on zoom.
+We can see that CARTO will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is _larger than_ 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. Go ahead and play around with this to see what kinds of visualizations you can make based on zoom.
 
 
 ## Filter, Filter, Filter
@@ -54,7 +54,7 @@ Starting with the "time" field, we see that most of the recorded quakes occurred
 
 ![Filtered by the time column]({{ site.baseurl }}/img/course2/lesson3/time.png)
 
-Perhaps filtering by `mag`, which is the severity of the earthquake, will be a more interesting story. Filtering by `mag`, we see that many quakes have a low `mag`, and many fewer have an `mag` value above 7. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below. 
+Perhaps filtering by `mag`, which is the severity of the earthquake, will be a more interesting story. Filtering by `mag`, we see that many quakes have a low `mag`, and many fewer have an `mag` value above 7. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below.
 
 ![Filtered by the mag column]({{ site.baseurl }}/img/course2/lesson3/mag.png)
 

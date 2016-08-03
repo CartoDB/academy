@@ -2,7 +2,7 @@
 title: "Google Map Driving Directions Visualization"
 permalink: /courses/cartojs-and-external-apis/google-driving-directions/
 tweet_text: "Combine Google Driving Directions and CARTO.js @cartoDB"
-lesson_message: "Congrats on mashing up Google Driving Directions and CartoDB!"
+lesson_message: "Congrats on mashing up Google Driving Directions and CARTO!"
 ---
 
 # Google Map Driving Directions Visualization
@@ -10,7 +10,7 @@ lesson_message: "Congrats on mashing up Google Driving Directions and CartoDB!"
 <iframe width="100%" height="520" frameborder="0" src="https://carto.com/academy/t/07-cartojs-and-external-apis/lesson-2/index.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Summary
-This lesson describes how to use CartoDB, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions) to create an interactive map that generates a driving direction route from a clicked point to a destination point.
+This lesson describes how to use CARTO, the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) and [Google Directions Service](https://developers.google.com/maps/documentation/javascript/directions) to create an interactive map that generates a driving direction route from a clicked point to a destination point.
 
 This lesson is for users who are familiar with JavaScript, and have already mastered the basics of creating a map with CARTO.js. If you are not familiar with CARTO.js, view the [CARTO.js documentation](https://carto.com/docs/carto-engine/carto-js/), and the [CARTO.js Map Academy course](https://carto.com/academy/courses/cartojs-ground-up/).
 
@@ -59,10 +59,10 @@ Within the script tag for the google maps library, replace “APIKEY” with you
 
 Let’s walk through our starter code HTML file.
 
-Within the head tag of the body, we have included a link to the CartoDB CSS stylesheet and some basic CSS styles for our map to render it as full screen.
+Within the head tag of the body, we have included a link to the CARTO CSS stylesheet and some basic CSS styles for our map to render it as full screen.
 
 {% highlight html %}
-<link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 <style>
   html, body, #map {
     height: 100%;
@@ -80,7 +80,7 @@ Within the body of the page, we have an empty div element with an id of “map,�
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=APIKEY"></script>
 
     <!-- include cartodb.js library -->
-   <script src="http://libs.cartodb.com/cartodb.js/v3/3.15/cartodb.js"></script>
+   <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 
     <script>
 
@@ -139,7 +139,7 @@ Grab your viz.json link, or use [this link](https://documentation.carto.com/api/
 {% highlight javascript %}
 <script>
 
-      // Our CartoDB visualization
+      // Our CARTO visualization
       var vizjson_url = "https://documentation.carto.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json";
 
       cartodb.createLayer(map, vizjson_url)
@@ -200,7 +200,7 @@ Earlier in our code, we set directionsDisplay to draw on our map using setMap(),
 </script>
 {% endhighlight %}
 
-That's it! Here is the complete code for generating driving directions using the Google Maps API and CartoDB, make sure to add your Google API key:
+That's it! Here is the complete code for generating driving directions using the Google Maps API and CARTO, make sure to add your Google API key:
 
 {% highlight html %}
 <!DOCTYPE html>
@@ -252,7 +252,7 @@ That's it! Here is the complete code for generating driving directions using the
         // The location of the Exploratorium
         var exploratorium = new google.maps.LatLng(37.801434, -122.397561);
 
-        // Our CartoDB visualization
+        // Our CARTO visualization
         var vizjson_url = "https://documentation.carto.com/api/v2/viz/4a885510-d6fb-11e4-aedb-0e4fddd5de28/viz.json";
 
         cartodb.createLayer(map, vizjson_url)

@@ -7,19 +7,19 @@ tweet_text: "Step by step is the way to go. I've finished the first lesson of th
 ---
 # Making your First Map
 
-Welcome to CartoDB Academy! In this first lesson in Course 1, we'll walk you through the steps that will help you make your first map. It is intended to give you a quick overview and familiarize you with some of the basics of CartoDB. In subsequent lessons we'll dive into specifics.
+Welcome to CARTO Academy! In this first lesson in Course 1, we'll walk you through the steps that will help you make your first map. It is intended to give you a quick overview and familiarize you with some of the basics of CARTO. In subsequent lessons we'll dive into specifics.
 
 
 ## Making an Account
 
-Creating an account with CartoDB is quick and easy; you can head over to [our website](https://carto.com/signup), and create a free account in just a few minutes.
+Creating an account with CARTO is quick and easy; you can head over to [our website](https://carto.com/signup), and create a free account in just a few minutes.
 
-If you're interested in a plan with more data storage or other features, please check out a full [list of CartoDB plans]({{ site.cartodb-baseurl }}/pricing/).
+If you're interested in a plan with more data storage or other features, please check out a full [list of CARTO plans]({{ site.cartodb-baseurl }}/pricing/).
 
 
 ## Creating a Dataset
 
-Once you’re logged in and on your dashboard, click "New Map" in the upper right-hand corner. Next, click "Create New Map", and then select "Data Library." This is CartoDB’s public library of open data that is a good starting place for many maps you will create. The dataset we will be using is called "Populated Places". Find it by searching for "populated" in the search box on the left. You may see multiple datasets here, but make sure to select the one with a little green book on the top right corner. Clicking on the dataset's name and then clicking "Create Map" will import it into your account.
+Once you’re logged in and on your dashboard, click "New Map" in the upper right-hand corner. Next, click "Data Library." This is CARTO’s public library of open data that is a good starting place for many maps you will create. The dataset we will be using is called "Populated Places". Find it by searching for "populated" in the search box on the left. You may see multiple datasets here, but make sure to select the one with a little green book on the top right corner. Clicking on the dataset's name and then clicking "Create Map" will import it into your account.
 
 ![Add Common Data]({{ site.baseurl }}/img/course1/lesson1/commondata.gif)
 
