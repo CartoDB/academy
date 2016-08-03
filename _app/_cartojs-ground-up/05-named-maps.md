@@ -3,9 +3,10 @@ title: 'CARTO.js from the ground up - Named Maps'
 permalink: /courses/cartojs-ground-up/named-maps/
 lesson_message: "Congrats on finishing Named Maps!"
 ---
-<iframe width="100%" height="520" frameborder="0" src="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-5/named-maps-example.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-## Summary
+# Named Maps -- Public maps from private data
+
+<iframe width="100%" height="520" frameborder="0" src="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-5/named-maps-example.html" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 _Named Maps_ allow you to make public maps out of private data. Unlike other maps created through our APIs, Named Maps need to be pre-configured; you set the SQL and CartoCSS ahead of time on the server, not in the browser as in normal CARTO.js usage. Updates to and deletions of the map need to be run with future authenticated API calls. On the surface, Named Maps look the same as other maps created through CARTO.js, but if you inspect how your browser interacts with the server, you will see that it only pulls the information that you pre-configure so you can control which data remains private.
 
