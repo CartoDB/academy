@@ -43,7 +43,6 @@
 	  cartodb.createLayer(map, {
 	    user_name: 'documentation',
 	    type: 'namedmap',
-      https: true, 
 	    named_map: {
 	      name: "namedmap_tutorial",
 	      layers: [{
@@ -51,7 +50,7 @@
 	        interactivity: "cartodb_id, name, pop_max"
 	       }]
 	     }
-	    })
+     }, {https: true})
 	    .addTo(map)
 	    .done(function(layer) {
 	      layer.getSubLayer(0).setInteraction(true);
