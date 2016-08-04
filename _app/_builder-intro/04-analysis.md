@@ -1,6 +1,7 @@
 ---
 title: "Builder Introduction - Analysis"
 permalink: /courses/builder-intro/analysis/
+permalink_next: /courses/builder-intro/sharing/
 tweet_text: ""
 lesson_message: "Nice work analyzing map data on the web :)"
 ---
@@ -9,7 +10,7 @@ lesson_message: "Nice work analyzing map data on the web :)"
 
 ![vid_splash]({{ site.baseurl }}/img/builder-intro/lesson1/0-vid-splash.png)
 
-Analysis in CARTO Builder allows you to create analysis workflows from one or many datasets that update even if the underlying data changes. It's one of the most powerful features of the Builder, and is a part that will be growing quickly as more analysis methods are added.
+Analysis in CARTO Builder allows you to create analysis workflows from one or more datasets that update even if the underlying data changes. It's one of the most powerful features of the Builder, and is a part that will be growing quickly as more analysis methods are added.
 
 In this Introduction to Analysis, you will learn how to build basic analysis workflows from data you have in your CARTO account.
 
@@ -33,7 +34,7 @@ Using the Store Locations dataset, we can find the area that represents a 300 se
 * **TRACTS**: 1
 * **BOUNDARIES**: Intact
 
-This will create areas from the points in our original dataset (**B0**) that take 300 seconds or less to travel from by car. The Tracts option lets you choose the number of intermediate values between 0 and the number of seconds you choose, while Boundaries lets you get the individual boundaries or all merged as one. **_double check this information_**
+This will create areas from the points in our original dataset (**B0**) that take **300 seconds** or less **time** to travel from by **car**. The Tracts option lets you choose the number of intermediate values between 0 and the number of seconds you choose, while Boundaries lets you get the individual boundaries or all merged as one. **_double check this information_**
 
 ## Pulling out an Analysis Step
 
