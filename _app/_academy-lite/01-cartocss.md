@@ -7,8 +7,6 @@ lesson_message: "Congratulations! You’ve completed CartoCSS in minutes, and kn
 ---
 # Learn to Style Your Maps with CartoCSS
 
-## Test
-
 <p><iframe src="//player.vimeo.com/video/130347084" width="700" height="393" frameborder="0"> </iframe></p>
 
 In this lesson, we will give you a five minute overview of CartoCSS basics, which you can use to style your maps.
