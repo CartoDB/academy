@@ -16,24 +16,27 @@ lesson_message: "Congratulations! You’ve completed the introduction to the Bui
 ![vid_splash]({{ site.baseurl }}/img/builder-intro/lesson1/0-vid-splash.png)
 
 
-In this lesson, we will give you an overview of the Builder User Interface (UI). When you log in to CARTO, the Data and Maps views on your account will appear similar. Where you'll see the new CARTO Builder  is when you create a new map.
+Welcome to the exciting new CARTO Builder! In this lesson, we will give you an overview of the Builder. When you log in to CARTO, the Datasets and Maps Dashboards on your account will appear similar. Where you'll see the exciting features of the new CARTO Builder is when you create a new map. Let's get started!
 
-## User Interface (UI) Updates
+## Builder Features
 
-The CARTO Builder pane is located on the left side of the screen. You will see your layers visible in the **LAYERS** tab. You should also see an **ELEMENTS** tab and a **WIDGETS** tab. 
+The CARTO Builder pane is located on the left side of the screen. You will see Basemap and Data Layers in the **LAYERS** tab. Above this are the **ELEMENTS** and **WIDGETS** tabs. 
 
 ![1-ui.png]({{ site.baseurl }}/img/builder-intro/lesson1/1-ui.png)
 
 ### Layers
-In the Builder, **LAYERS** are referenced as letters. Layers are ordered alphabetically (A, B, C, D and so on) and each layer displays a unique color. Learn more about [LAYERS in the CARTO Documentation]({{site.url}}/docs/carto-builder/introduction-to-the-builder/#layers). Layers may be reordered by clicking and dragging layers into the preferred order. In the top-right corner of the layer 'card,' you may turn the view on or off and remove layers. 
+In the Builder, **LAYERS** are referenced as letters. Layers are named alphabetically (A, B, C, D and so on) and each layer displays a unique color. Learn more about [LAYERS in the Builder Documentation]({{site.url}}/docs/carto-builder/introduction-to-the-builder/#layers). Layers may be reordered by clicking and dragging. 
 
 ![2-layers]({{ site.baseurl }}/img/builder-intro/lesson1/2-layers.png) 
+
+In the top-right corner of the layer, you may show or hide or delete it. 
+
 ![3-layers-options]({{ site.baseurl }}/img/builder-intro/lesson1/3-layers-options.png)
 
 ### Basemap and Labels as layers
-The CARTO Builder User Interface (UI) includes the **Basemap** and **Labels** as a layer. You can turn layers on or off by clicking the eye-shaped icon and have more options by clicking the three-dot icon. 
+The CARTO Builder includes the **Basemap** and **Labels** as a layer. You can turn data layers on or off by clicking the eye-shaped icon and have more options by clicking the three-dot icon. 
 
-![2-5-basemap-as-layer]({{ site.baseurl }}/img/builder-intro/lesson1/2-5-basemap-as-layer.png)
+![3-5-basemap-as-layer]({{ site.baseurl }}/img/builder-intro/lesson1/3-5-basemap-as-layer.png)
 
 ### Adding layers
 And in the top-right of the Builder pane, you can use the **ADD** button to add a layer to your map. You can select existing datasets you have in CARTO or connect a new data layer. 
