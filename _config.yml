@@ -6,10 +6,6 @@ keywords: "data visualization tools, CARTO. location intelligence, big data, lea
 baseurl: '/academy'
 url: 'https://carto.com'
 
-# Variables
-bldr: 'Builder'
-crto: 'CARTO'
-
 # Build settings
 source: '_app'
 destination: '_site/academy'
