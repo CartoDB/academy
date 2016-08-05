@@ -45,7 +45,7 @@ And in the top-right of the Builder pane, you can use the **ADD** button to add 
 
 ## Layer Options
 
-Click on a layer to get a new view of the layer options and explore your data. In the layer options the following options for data exploration are; **DATA, ANALYSIS, STYLE, POP-UP and LEGEND**. 
+Click on a layer to get a new view of the layer options and explore your data. In the layer options the following options for data exploration are; **DATA, ANALYSIS, STYLE, POP-UP and LEGEND**. Learn more about [Styling Map Layers](https://carto.com/docs/carto-builder/styling-map-layers/)
 
 ![5-click-layer]({{ site.baseurl }}/img/builder-intro/lesson1/5-click-layer.png)
 
@@ -76,6 +76,6 @@ To access the familiar SQL pane, select the slider from **VALUES** and slide it 
 
 ### SQL 
 
-Just as in the Editor, you can write and edit your SQL statements related to your data tables. All the familiar and useful functions from the editor are still available in the Builder along with some other features that will be sure to improve your mapping and analysis in the CARTO platform. 
+Just as in the Editor, you can write and edit your SQL statements related to your data tables. All the familiar and useful functions from the editor are still available in the Builder along with some other features that will be sure to improve your mapping and analysis in the CARTO platform. Read up in our Doc's section about [Applying Code in the Builder](https://carto.com/docs/carto-builder/applying-code-in-the-builder/).
 
 ![10-sql]({{ site.baseurl }}/img/builder-intro/lesson1/10-sql.png)
