@@ -200,7 +200,7 @@ Next we need to add more styles from the CARTO Editor. The visualizations that I
 
 All of these CartoCSS styles go in their own `<style type='cartocss/text' id='...'>` structure between the `<head>` tags. The only one that requires some direct editing is the last one. This pulls the conditional styles from two different visualizations.
 
-Next, we'll initialize a map like we have done already in [Lesson 2](https://carto.com/academy/courses/cartojs-ground-up/creating-basic-map-apps/#exploring-callback-functions):
+Next, we'll initialize a map like we have done already in [Lesson 2]({{ site.baseurl }}/courses/cartojs-ground-up/creating-basic-map-apps/#exploring-callback-functions):
 
 {% highlight js %}
 window.onload = function () {

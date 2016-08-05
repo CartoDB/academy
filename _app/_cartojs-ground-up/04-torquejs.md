@@ -41,7 +41,7 @@ Lastly, update the privacy settings once the dataset is uploaded by clicking on 
 
 The HTML template we will be using for this lesson is available in the repository where all Map Academy lessons are stored.
 
-[Download](https://github.com/CartoDB/academy/blob/master/_app/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
+[Download]({{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-4/template.html) (right click and Save As...) the template HTML file or [copy it from here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-4/template.html) and open it in your preferred text editor.
 
 
 ## Getting started
@@ -179,7 +179,7 @@ Map {
 </style>
 {% endhighlight %}
 
-Using the [techniques from the last lesson](https://carto.com/academy/courses/cartojs-ground-up/basic-interactivity/#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
+Using the [techniques from the last lesson]({{ site.baseurl }}/courses/cartojs-ground-up/basic-interactivity/#cartocss-strings-in-javascript), we can apply our CartoCSS styles to a DOM element by using [jQuery](https://jquery.com/).
 
 Notice that this block's DOM `id` is "cartocss", so the
 
