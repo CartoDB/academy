@@ -145,7 +145,7 @@ Now that we're done with our crash course on the basics, let's finally dive into
 
 <iframe src="//player.vimeo.com/video/108146837" width="700" height="438" frameborder="0"></iframe>
 
-Use [this template](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartojs-ground-up/lesson-1/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CARTO.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CARTO.js library
+Use [this template](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-1/CartoDB-js-lesson1-template.html), the URL for the viz.json linked above, and the code snippets for createVis or createLayer to make your first map using CARTO.js. There are a couple of new things to notice about the template. Besides the normal HTML skeleton, the template includes the CARTO.js library
 
 {% highlight html %}
 <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
@@ -158,7 +158,7 @@ between the `<body>` tags **AND** the map styling sheet
 {% endhighlight %}
 between the `<head>` tags. You need them both to get your maps going.
 
-After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](https://carto.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CARTO.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartojs-ground-up/lesson-1/jsfiddle_demo).
+After you get it working, swap out the viz.json we provided with some of the viz.jsons from your own visualizations. Try putting in the createVis examples introduced before. Check out stellar examples in the [Map Gallery](https://carto.com/gallery/), look at some of the [examples](https://github.com/CartoDB/cartodb.js/tree/develop/examples) in the official CARTO.js repository, and hack away! If you prefer JS Fiddle, run the demo [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-1/jsfiddle_demo).
 
 ![Example of simple map created with CARTO.js]({{ site.baseurl }}/img/course3/lesson1/example-map.png)
 
