@@ -21,7 +21,7 @@ This lesson strongly relies on techniques developed in the past three lessons on
 2. Make temporal mapping more accessible and hackable
 3. Make this map using JavaScript:
 
-<iframe src="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-4/bonus.html" width="100%" height="480"></iframe>
+<iframe src="{{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-4/bonus-header-map.html" width="100%" height="480"></iframe>
 
 
 ## Import your data
