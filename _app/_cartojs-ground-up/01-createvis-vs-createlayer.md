@@ -11,7 +11,7 @@ _Since this course explains CARTO.js, it relies heavily on the JavaScript progra
 
 The CARTO.js API provides powerful tools to build dynamic web apps. Along with CartoCSS, other JS libraries, and our SQL API, the sky's the limit. This course, _CARTO.js from the Ground Up_, will show you how to build amazing apps in a small amount of time.
 
-In CARTO, there are two main methods to bring your maps into custom webpages, [createVis](/courses/cartojs-ground-up/createvis-vs-createlayer/#createvis) and [createLayer](/courses/cartojs-ground-up/createvis-vs-createlayer/#createlayer).
+In CARTO, there are two main methods to bring your maps into custom webpages, [createVis]({{ site.baseurl }}/courses/cartojs-ground-up/createvis-vs-createlayer/#createvis) and [createLayer]({{ site.baseurl }}/courses/cartojs-ground-up/createvis-vs-createlayer/#createlayer).
 
 The first method, createVis allows for quick and easy maps with a large degree of customization. It gives two map layers in an array: layer 0 is the base map; layer 1 is the CARTO data layer.
 
@@ -28,7 +28,7 @@ Up to this point, all of the methods for displaying maps to the world have invol
 
 A viz.json is a file that contains all the data needed to reproduce the visualization you created in CARTO. An analogy one can make is that CARTO.js is like a DVD player, the viz.json is like the DVD disc, and CARTO represents all the parts needed to create a film (cameras, actors, director, producers, etc.).
 
-Download the viz.json used in this lesson [here](https://documentation.carto.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). You can download a viz.json from any visualization you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz.json for a multi-layer map similar to the one created at the end of [Course 1](/courses/01-beginners-course/lesson-5.html). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information.
+Download the viz.json used in this lesson [here](https://documentation.carto.com/api/v2/viz/23f2abd6-481b-11e4-8fb1-0e4fddd5de28/viz.json). You can download a viz.json from any visualization you've created and inspect it with your favorite text editor, or view it in your browser if you have a JSON viewer. For this lesson, we will be using the viz.json for a multi-layer map similar to the one created at the end of [Course 1]({{ site.baseurl }}/courses/01-beginners-course/lesson-5.html). If you're unfamiliar with the JSON file format, check out the [official site](http://json.org/) or [Wikipedia](http://en.wikipedia.org/wiki/JSON) for a lot more information.
 
 There's a lot of metadata in this file. Browsing through all the possibilities shows you how much power you have to customize your maps in the CARTO Editor. Review the [documentation for CARTO Editor](https://carto.com/docs/cartodb-editor.html) to explore what some of these JSON entries allow you to do in your maps.
 
@@ -44,7 +44,7 @@ sublayer2 = layers[1].getSubLayer(1);
 ...
 {% endhighlight %}
 
-Looking back at our viz.json, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
+Looking back at our viz.json, we can see that the zeroth layer, buried under options, has a `layer_name` of "us_counties" and comes from our [us_counties dataset](https://github.com/CartoDB/academy/blob/master/_app/d/counties.zip) back in the Beginner's Course. The second comes from another familiar [dataset](https://github.com/CartoDB/academy/blob/master/_app/d/tornadoes.zip) on tornados in the United States. Other important info to pick out:
 
 + **sql:** tells you the SQL statement used with each data set (defaults to `select * from dataset`)
 + **visible:** means it will display (defaults to `true`)
