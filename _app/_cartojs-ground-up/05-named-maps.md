@@ -12,9 +12,9 @@ _Named Maps_ allow you to make public maps out of private data. Unlike other map
 
 If you're a developer who is working with data to which you don't own the license or for which you don't have the license to distribute publicly, or if you want to protect your data from misuse and modification, this tutorial is for you.
 
-**This tutorial only works for users with paid accounts.** Check out [our plans]({{ site.carto-baseurl }}/pricing) for upgrade options.
+**This tutorial only works for users with paid accounts.** Check out [our plans](https://carto.com/pricing) for upgrade options.
 
-**Note:** There is a limit of 4,096 Named Maps allowed per account. If you need to create more Named Maps, it is recommended to use a single Named Map and change the variables using placeholders, instead of uploading multiple [Named Map MapConfigs]({{ site.baseurl }}/carto-engine/maps-api/mapconfig/#named-map-layer-options).
+**Note:** There is a limit of 4,096 Named Maps allowed per account. If you need to create more Named Maps, it is recommended to use a single Named Map and change the variables using placeholders, instead of uploading multiple [Named Map MapConfigs](https://carto.com/docs/carto-engine/maps-api/mapconfig/#named-map-layer-options).
 
 #### Lesson goal
 
@@ -34,7 +34,7 @@ There are four main steps:
 
 #### Data
 
-For this tutorial we are going to use the Populated Places dataset from [Natural Earth](http://www.naturalearthdata.com). The Populated Places dataset is available from the CARTO Data library. For details about how to connect to a public dataset, see [Data library]({{ site.baseurl }}/carto-editor/datasets/#data-library).
+For this tutorial we are going to use the Populated Places dataset from [Natural Earth](http://www.naturalearthdata.com). The Populated Places dataset is available from the CARTO Data library. For details about how to connect to a public dataset, see [Data library](https://carto.com/docs/carto-editor/datasets/#data-library).
 
 #### HTML Template
 
@@ -47,7 +47,7 @@ For this tutorial we are going to use the Populated Places dataset from [Natural
 
 #### Documentation
 
-Named Maps are part of CARTO's [Maps API]({{ site.baseurl }}/carto-engine/maps-api/named-maps/).
+Named Maps are part of CARTO's [Maps API](https://carto.com/docs/carto-engine/maps-api/named-maps/).
 
 
 ## Loading data, making dataset private
@@ -58,18 +58,18 @@ To get started, we'll be using the _Populated Places_ data found in Common Data.
 https://common-data.carto.com/api/v2/sql?q=select%20*%20from%20ne_10m_populated_places_simple&filename=named_map_tutorial_table&format=shp
 {% endhighlight %}
 
-Not sure how to import your data? You can import using the [Editor]({{ site.baseurl }}/carto-editor/) or the [Import API]({{ site.baseurl }}/carto-engine/import-api/).
+Not sure how to import your data? You can import using the [Editor](https://carto.com/docs/carto-editor/) or the [Import API](https://carto.com/docs/carto-engine/import-api/).
 
-Once the data is imported, set it to "private" (see [Dataset Privacy Settings]({{ site.baseurl }}/carto-editor/datasets/#dataset-privacy) for more information). Also make sure that the dataset name is `named_map_tutorial_table`. You can change the name of your dataset by clicking on the dataset name in the upper left-hand corner and entering the new name.
+Once the data is imported, set it to "private" (see [Dataset Privacy Settings](https://carto.com/docs/carto-editor/datasets/#dataset-privacy) for more information). Also make sure that the dataset name is `named_map_tutorial_table`. You can change the name of your dataset by clicking on the dataset name in the upper left-hand corner and entering the new name.
 
 
 ## Constructing a config file, sending it to the server
 
-Now that we have a private dataset to work from, we will style the data in the [Editor]({{ site.baseurl }}/carto-editor/) and copy the [CartoCSS](https://www.mapbox.com/tilemill/docs/manual/cartodb/) code to use for the configuration file we will send to the server to setup the Named Map. You can use any style you would like, but I am using the following settings.
+Now that we have a private dataset to work from, we will style the data in the [Editor](https://carto.com/docs/carto-editor/) and copy the [CartoCSS](https://carto.com/docs/carto-editor/maps/#cartocss) code to use for the configuration file we will send to the server to setup the Named Map. You can use any style you would like, but I am using the following settings.
 
 <span class="wrap-border"><img src="{{ site.baseurl }}/img/course3/lesson5/img1.png" alt="map stylings used for named map" /></span>
 
-By clicking [CartoCSS]({{ site.baseurl }}/carto-editor/maps/#cartocss) from the CARTO sidebar, you can see the stylings that you chose by using the Map layer wizard.
+By clicking [CartoCSS](https://carto.com/docs/carto-editor/maps/#cartocss) from the CARTO sidebar, you can see the stylings that you chose by using the Map layer wizard.
 
 Now open a text editor and paste the following text into it. Notice the CartoCSS corresponds to what was done in the Editor above. Name the file `config.json`.
 
@@ -93,7 +93,7 @@ Now open a text editor and paste the following text into it. Notice the CartoCSS
 }
 {% endhighlight %}
 
-If you're familiar with the `cartodb.createLayer(...)` method from CARTO.js, this JSON object will [look somewhat familiar]({{ site.baseurl }}/carto-engine/carto-js/getting-started/#creating-visualizations-at-runtime). A layer source JSON object was also discussed in the [Map Academy course on CARTO.js]({{ site.academy-baseurl}}/courses/cartojs-ground-up/creating-basic-map-apps/#adding-multiple-layers-from-different-visualizations).
+If you're familiar with the `cartodb.createLayer(...)` method from CARTO.js, this JSON object will [look somewhat familiar](https://carto.com/docs/carto-engine/carto-js/getting-started/#creating-visualizations-at-runtime). A layer source JSON object was also discussed in the [Map Academy course on CARTO.js]({{ site.baseurl }}/courses/cartojs-ground-up/creating-basic-map-apps/#adding-multiple-layers-from-different-visualizations).
 
 A major difference between what was previously seen in createLayer and the object above is the presence of the `"name"` key. This is where the term "Named Maps" comes from. The name of your map can be changed to whatever you want, but here we will just use `namedmap_tutorial`.
 
@@ -103,7 +103,7 @@ A major difference between what was previously seen in createLayer and the objec
 - the dataset is set to "private"
 - you have a file named `config.json` with the JSON object above in it
 
-Now that we have our private dataset and a config file that says how we want that data to be visualized, we need to send the information to the server. Make sure you have your API key on hand. You can get your API key through your [account dashboard]({{ site.baseurl }}/carto-engine/sql-api/authentication/#api-key).
+Now that we have our private dataset and a config file that says how we want that data to be visualized, we need to send the information to the server. Make sure you have your API key on hand. You can get your API key through your [account dashboard](https://carto.com/docs/carto-engine/sql-api/authentication/#api-key).
 
 Using the command line tool [curl](http://curl.haxx.se/), we create the map using an authenticated call. Scroll horizontally to see the full command. _Make sure that your working directory in your terminal is the same place where you stored `config.json`_.
 
@@ -135,7 +135,7 @@ Now we have the information from the server response needed to construct our pub
 
 Having already created a Named Map, we will now look at how to use the CARTO.js library to bring the map's tiles to a webpage.
 
-To create a basic version that has a basemap and interactivity on the data layer, we will use [createLayer]({{ site.baseurl }}/carto-engine/carto-js/api-methods/#cartodbcreatelayer) along with the [Leaflet library](http://leafletjs.com) similar to what was done in the [second Map Academy lesson]({{site.academy-baseurl }}/courses/cartojs-ground-up/creating-basic-map-apps/) on CARTO.js.
+To create a basic version that has a basemap and interactivity on the data layer, we will use [createLayer](https://carto.com/docs/carto-engine/carto-js/api-methods/#cartodbcreatelayer) along with the [Leaflet library](http://leafletjs.com) similar to what was done in the [second Map Academy lesson]({{ site.baseurl }}/courses/cartojs-ground-up/creating-basic-map-apps/) on CARTO.js.
 
 This is the recommended way to use Named Maps because the maps are instantiated on the fly so you do not need to worry about temporal URLs.
 
@@ -255,12 +255,12 @@ curl -X DELETE 'https://{username}.carto.com/api/v1/map/named/{template_name}?ap
 
 #### See also
 
-- Named Maps documentation is in the [Maps API documentation page]({{ site.baseurl }}/carto-engine/maps-api.html)
-- [Anonymous Maps]({{ site.baseurl }}/carto-engine/maps-api/anonymous-maps/) are a similar type of map, but not from private data
-- Take your Named Maps further with [CARTO.js's]({{ site.baseurl }}/carto-engine/carto-js/) related methods:
+- Named Maps documentation is in the [Maps API documentation page](https://carto.com/docs/carto-engine/maps-api/)
+- [Anonymous Maps](https://carto.com/docs/carto-engine/maps-api/anonymous-maps/) are a similar type of map, but not from private data
+- Take your Named Maps further with [CARTO.js's](https://carto.com/docs/carto-engine/carto-js/) related methods:
 
-    1. [layer.setAuthToken()]({{ site.baseurl }}/carto-engine/carto-js/api-methods/#layersetauthtokenauthtoken)
-    2. [layer.setParams()]({{ site.baseurl }}/carto-engine/carto-js/api-methods/#layersetparamskey-value)
+    1. [layer.setAuthToken()](https://carto.com/docs/carto-engine/carto-js/api-methods/#layersetauthtokenauthtoken)
+    2. [layer.setParams()](https://carto.com/docs/carto-engine/carto-js/api-methods/#layersetparamskey-value)
 
-- Need more info about CARTO.js? Check out the [docs]({{ site.baseurl }}/carto-engine/carto-js/), [tutorials]({{ site.baseurl }}/tutorials/), and [Map Academy lessons]({{ site.academy-baseurl }}/courses/cartojs-ground-up/)
+- Need more info about CARTO.js? Check out the [docs](https://carto.com/docs/carto-engine/carto-js/), [tutorials](https://carto.com/docs/tutorials/), and [Map Academy lessons]({{ site.baseurl }}/courses/cartojs-ground-up/)
 - More info about [curl](http://curl.haxx.se/)
