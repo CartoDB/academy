@@ -2,6 +2,7 @@
 title: "CARTO.js from the ground up — Torque.js"
 redirect_from: /courses/03-cartojs-ground-up/lesson-4.html
 permalink: /courses/cartojs-ground-up/torquejs/
+permalink_next: /courses/cartojs-ground-up/named-maps/
 tweet_text: "I'm more animated because of Torque.js @cartoDB"
 lesson_message: "Congrats on finishing animated JavaScript mapper!"
 ---
