@@ -96,7 +96,7 @@ cartodb.createVis('map',vizjson,options);
 
 To see createVis out in the wild, check out an [awesome example](https://carto.com/blog/map-of-the-week-swiss-soccer/) in our Map of the Week series on our blog.
 
-[Documentation for `cartodb.createVis`](/courses/cartojs-ground-up/createvis-vs-createlayer/#createvis).
+[Documentation for `cartodb.createVis`]({{ site.baseurl }}/courses/cartojs-ground-up/createvis-vs-createlayer/#createvis).
 
 
 ## _CreateLayer_
