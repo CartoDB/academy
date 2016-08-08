@@ -31,7 +31,7 @@ In this lesson, we will be using these powerful languages to boost the expressiv
 
 ## Modifying SQL and CartoCSS
 
-This is the third lesson in the course _CARTO.js from the ground up_. While still covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://carto.com/docs/carto-engine/cartocss/) and [use cases](https://carto.com/academy/courses/intermediate-design/) for CartoCSS. For SQL, you can teach yourself in the CARTO Editor by using our first lesson in the [SQL and PostGIS in CARTO](https://carto.com/academy/courses/sql-postgis/) series.
+This is the third lesson in the course _CARTO.js from the ground up_. While still covering our JavaScript API in more depth, this lesson also relies on a basic understanding of the CartoCSS and SQL languages. We will keep it pretty simple here so you should not have trouble following along. If you would prefer to have a crash course before starting, check out some of the [great documentation](https://carto.com/docs/carto-engine/cartocss/) and [use cases]({{ site.baseurl }}/courses/intermediate-design/) for CartoCSS. For SQL, you can teach yourself in the CARTO Editor by using our first lesson in the [SQL and PostGIS in CARTO]({{ site.baseurl }}/courses/sql-postgis/) series.
 
 _SQL_ is a language for posing queries on your data and getting back the data that matches your query. For instance, if you have a database of home prices in different postal codes, one can easily find all homes within a certain price range in a specific postal code. SQL is an acronym for _structured querying language_.
 
@@ -281,7 +281,7 @@ Place this function after createLayer. This code finds all the `li` elements and
 
 The last piece is putting a call to `createSelector(sublayer);` right after `sublayer` is set equal to `layer.getSubLayer(0);` within `.done()`.
 
-Check out a live version [here]({{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html) or the source code [here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
+Check out a live version [here]({{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-3/cartocss-style-hosted.html) or the source code [here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-style.html). There is also a version that uses [minified strings](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-string.html) if you prefer that method. And look [here](http://jsfiddle.net/gh/get/library/pure/CartoDB/academy/tree/master/_app/t/03-cartodbjs-ground-up/lesson-3/jsfiddle_demo_cartocss) for a jsFiddle.
 
 
 ## Basic SQL queries
@@ -344,7 +344,7 @@ function createSelector(layer) {
 }
 {% endhighlight %}
 
-That's it! If you're having trouble getting yours to work, check out the source code [here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html), or a live version [here]({{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html)
+That's it! If you're having trouble getting yours to work, check out the source code [here](https://raw.githubusercontent.com/CartoDB/academy/master/_app/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql.html), or a live version [here]({{ site.baseurl }}/t/03-cartodbjs-ground-up/lesson-3/cartocss-and-sql-hosted.html)
 
 _Pro tip:_ If you want to take your map to a different location based on coordinates and zoom, you can call `map_object.setView([lat,lon],zoom)` method from the [Leaflet.js library](http://leafletjs.com/). In our case, if you want the map to go to Papua New Guinea after a user clicks on that option, you could grab the latitude and longitude from [here](http://tools.wmflabs.org/geohack/geohack.php?pagename=Papua_New_Guinea&params=9_30_S_147_07_E_type:country), and then add an `if` statement like this:
 
