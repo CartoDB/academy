@@ -2,6 +2,7 @@
 title: "SQL and PostGIS in CARTO — JOINs in SQL and PostGIS"
 redirect_from: /courses/04-sql-postgis/lesson-3.html
 permalink: /courses/sql-postgis/joining-data/
+permalink_next: /courses/sql-postgis/intermediate-sql/
 ---
 # JOINs in SQL and PostGIS
 
