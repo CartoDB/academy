@@ -7,7 +7,7 @@ tweet_text: "Step by step is the way to go. I've finished the first lesson of th
 ---
 # Invisible and Visible Data
 
-In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we're talking about in this Course, is how to control your data in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data, and still leave your audience with a clear understanding of what you wish to communicate. But a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There's just _too much_.
+In the last lesson, we talked about how you can use color as a tool to present your data, and to highlight your message. The second tool we're talking about in this course is how to control your data, in order to highlight the message you want to communicate. In well-designed maps and visualizations, you can pack in a lot of complex data and still leave your audience with a clear understanding of what you wish to communicate. However, a lot of data can sometimes become too much data. It can get overwhelming and distracting, perhaps ruining what you are trying to communicate. We can see some of this in our bad map. There's just _too much_.
 
 ![Bad map.]({{ site.baseurl }}/img/course2/lesson1/badmap.png)
 
@@ -22,18 +22,22 @@ The first tool we will look at is zoom-based styling. Zoom-based styling refers 
 
 Before we start making changes based on our zoom level, it's important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CARTO, OpenStreetMap and MapBox), we'll be using CartoCSS, which we started learning about in our last lesson.
 
-To start working with zoom-based styling, let's go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we'll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CARTO that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CARTO to change marker width at all zoom levels _larger than_ a specified level. Take a look at the last three lines of our code block here.
+Before we start working with zoom-based styling, let's go back to the map you created in the last lesson and reset it to a simple default style. In the table_0_month layer's STYLE tab, click on the FILL color bar again, and click on the SOLID tab. Choose any color you want from the picker. Reset the BLENDING section to none.  
+
+![Reset to simple style.]({{ site.baseurl }}/img/course2/lesson3/style_reset.png)
+
+Now let's start! Click the toggle at the bottom of the layer's style panel to switch to CartoCSS view. Edit the code you see there to reduce the marker size to 3 pixels. That way we can see more of our data points.
+
+We're going to add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CARTO that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CARTO to change marker width at all zoom levels _larger than_ a specified level. Take a look at the last three lines of our code block here.
 
 {% highlight scss %}
-#cartodb_query_{
-  marker-fill-opacity: 0.9;
-  marker-line-color: #FFF;
-  marker-line-width: 0;
+#layer {
+  marker-line-width: .5;
+  marker-line-color: #5b5b5b;
   marker-line-opacity: 1;
-  marker-placement: point;
-  marker-type: ellipse;
   marker-width: 3;
-  marker-fill: #FF6600;
+  marker-fill: #ff0000;
+  marker-fill-opacity: 1;
   marker-allow-overlap: true;
   [zoom = 4] {marker-width: 6}
   [zoom = 5] {marker-width: 12}
@@ -46,24 +50,22 @@ We can see that CARTO will read this as all markers should have a width value of
 
 ## Filter, Filter, Filter
 
-Another tactic that you can use to control how your data is displayed is filtering. By using filters, you can reduce what data is shown on your map.
+Another tactic that you can use to control how your data is displayed is filtering. By using filters, you can reduce what data is shown on your map. The CARTO Builder provides you with [Widgets](https://carto.com/docs/carto-builder/interactive-map-widgets/) that allow you to filter your data. We will demonstrate Widgets in detail in another lesson, but for now lets use a [Histogram Widget](https://carto.com/docs/carto-builder/interactive-map-widgets/#widget-types) to see how it's filtering helps our map.
 
-Looking at the map of earthquake data, and pulling out the Filters section of the pull-out tray, we can see that there are some interesting columns by which we could filter: `time` and `mag`. Selecting either one of these will pull up a small graph showing the distribution of the data in accordance to the column selected. You can drag the sliders to restrict which portion of the data is visualized on your map.
+Click on the table_0_month layer's DATA tab. As you scroll down the DATA panel, you will see histogram previews of each column's data. These are not the same as the histograms shown in a Widget. These DATA panel graphics show the distribution of null values in that column, but a Histogram Widget's graph will show information about the non-null values. For example, a `mag` column Histogram Widget is going to illustrate the distribution of earthquakes by severity.
 
-Starting with the "time" field, we see that most of the recorded quakes occurred recently. This is kind of interesting, but makes sense, and is not the story we want to tell right now.
+Scroll down to the `mag` column, and click the checkbox that says *Add as a widget.* Notice that Builder added a Histogram Widget to the right side of your map. When Widgets are added using this method, Builder detects the type of information in the column and automatically chooses an appropriate Widget type. Because our `mag` column contains numbers, Builder automatically added the Histogram Widget. Now for example we can see how many earthquakes fall into the bucket of highest severity, or how earthquakes of mid-range severity occurred. You can change the number of buckets by exiting the layer, clicking on the WIDGETS tab, and clicking on the card representing the mag Widget there. Move the Buckets slider to change how many bins the earthquakes are divided into.  
 
-![Filtered by the time column]({{ site.baseurl }}/img/course2/lesson3/time.png)
+We're going to leave the default number of buckets. Now let's use the Widget to filter: click on the graph in the Histogram Widget, then drag the sliders to restrict which portion of the data is visualized on your map. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below.
 
-Perhaps filtering by `mag`, which is the severity of the earthquake, will be a more interesting story. Filtering by `mag`, we see that many quakes have a low `mag`, and many fewer have an `mag` value above 7. We can filter what data is shown to highlight only these more severe quakes, as you see in the screenshot below.
-
-![Filtered by the mag column]({{ site.baseurl }}/img/course2/lesson3/mag.png)
+![Histogram Widget filtering.]({{ site.baseurl }}/img/course2/lesson3/histo-widget.png)
 
 
 ## Using Bubbles
 
 We can also change the sizes of our markers based upon a column we're interested in. For example, if we want markers representing a very intense earthquake (a data point with a high `mag` value) to be bigger than those of less intense earthquakes, we can use the Bubble Visualization. This creates a size hierarchy based on an attribute of the data. Here, we're interested in the attribute of quake intensity (measured by the column `mag`).
 
-To do this, just select the Bubble Visualization in your Visualization Wizard. You can play with the largest and smallest sizes to emphasize the variation in sizes. We went ahead and made our marker radius range go from 1 to 50.
+To do this, just click on the FILL number in your layer's STYLE panel, then click BY VALUE and select mag. You can play with the largest and smallest sizes to emphasize the variation in sizes. We went ahead and made our marker radius range go from 1 to 45.
 
 You can also change the "Quantification Method" to affect the way that the data is displayed. The Quantification Method basically decides how the data should be cut up in to groups, or bins, and each one is different in how it displays your data. It is great to understand what each of these means in terms of interpreting your data, and you can read more [here](http://blog.cartographica.com/blog/2010/8/16/gis-data-classifications-in-cartographica.html) and [here](http://individual.utoronto.ca/lackner/ggr272/DataClassificationMethods.pdf).
 
