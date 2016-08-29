@@ -96,6 +96,14 @@ collections:
     url: /courses/community/
     description: >
       Tutorials from CARTO's community
+  cartography:
+    output: true
+    published: true
+    difficulty: easy
+    title: "Cartography"
+    url: /courses/cartography/
+    description: >
+      Designing bad ass maps
 defaults:
   - scope:
       path: ""
@@ -148,6 +156,12 @@ defaults:
   - scope:
       path: ""
       type: community
+    values:
+      layout: lesson
+      boty_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: cartography
     values:
       layout: lesson
       boty_class: 'js-Lesson'
