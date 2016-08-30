@@ -64,14 +64,6 @@ collections:
     url: /courses/cartojs-ground-up/
     description: >
       Take advantage of the flexibility of CARTO.js to create custom webpages.
-  # rapid-map-prototyping:
-  #   output: true
-  #   published: false
-  #   difficulty: TBD
-  #   title: "Rapid Map Prototyping"
-  #   url: /courses/rapid-map-prototyping/
-  #   description: >
-  #     TBD
   intermediate-design:
     output: true
     published: true
@@ -104,6 +96,14 @@ collections:
     url: /courses/cartography/
     description: >
       Designing bad ass maps
+  analysis:
+    output: true
+    published: true
+    difficulty: medium
+    title: "Analysis"
+    url: /courses/analysis/
+    description: >
+      Analyzing lots of things
 defaults:
   - scope:
       path: ""
@@ -156,6 +156,12 @@ defaults:
   - scope:
       path: ""
       type: community
+    values:
+      layout: lesson
+      boty_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: cartography
     values:
       layout: lesson
       boty_class: 'js-Lesson'

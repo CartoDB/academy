@@ -4,6 +4,6 @@ title: "Cartography"
 collection: cartography
 
 ---
-# Academy Lite
+# Cartography
 
-These quick-start lessons will give you the basic cartography skills needed for creating maps in CARTO.
+Learn cartography through the CARTO Builder and Engine
