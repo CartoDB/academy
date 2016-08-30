@@ -188,8 +188,8 @@ SELECT
   ST_MakeLine(
     ST_ClosestPoint(
       hwy.the_geom,
-      mbm.the_geom)::geography,
-    mbm.the_geom::geography
+      mbm.the_geom),
+    mbm.the_geom
   ) AS the_geom_webmercator
 FROM
   mississippi_blues_musicians AS mbm,
@@ -207,7 +207,7 @@ We can bring together all the SQL statements and create a chroropleth of the lin
 
 One new additional piece is `UNION ALL`. These SQL keywords allow us to concatenate tables together as long as the schema are the same. Notice that `the_geom_webmercator` has type geography, name and city are strings, and distance is a float. Since it doesn't make sense to talk about how far an object is away from itself, we can put `null` for the value of `d` for the highway.
 
-Note that comment lines begin with a double hyphen.
+Note that comment lines begin with a double hyphen. Also, please make sure to remove the comments from the query while copying directly from here and pasting into the editor to avoid undue errors.
 
 {% highlight sql %}
 SELECT
@@ -216,8 +216,8 @@ SELECT
     ST_ClosestPoint(
       hwy.the_geom,
       mbm.the_geom
-	)::geography,
-    mbm.the_geom::geography
+	),
+    mbm.the_geom
   ) AS the_geom_webmercator,
   -- include musician name
   mbm.name,
@@ -226,8 +226,8 @@ SELECT
   -- rounded-up distance birthplace is from the highway
   ceil(
     ST_Distance(
-      mbm.the_geom::geography,
-  	  hwy.the_geom::geography
+      mbm.the_geom,
+  	  hwy.the_geom
     ) / 1609
   ) AS d
 FROM
