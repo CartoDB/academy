@@ -1,80 +1,45 @@
 ---
-layout: tutorials_item
-title: 'Merging Data from Two Datasets'
+title: 'Merging data from two datasets'
+permalink: /courses/analysis/merging_datasets/
 description: Merge aggregated data from two datasets into a new, third dataset.
-level: basic
 time_needed: '20 minutes'
-redirect_from: /tutorials/merging_data.html
-embed_url: 'https://documentation.cartodb.com/viz/81d928bc-e9c9-11e2-b5ac-5404a6a683d5/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&scrollwheel=false&sql=&zoom=2&center_lat=20.96143961409684&center_lon=-19.335937499999996&height=300&id=cartodb-1373506565633'
 original_source: https://github.com/CartoDB/docs/blob/master/_app/_tutorials/merging_data.md
 ---
 
-# Summary
+<iframe src="https://documentation.cartodb.com/viz/81d928bc-e9c9-11e2-b5ac-5404a6a683d5/embed_map" width=700 height=520></iframe>
 
-It is a common scenario when creating maps that you will want to combine data from two different datasets. If you are comfortable using SQL, you can apply an SQL query for [merging](http://www.postgresql.org/docs/9.5/static/xoper-optimization.html) and [inserting](http://www.postgresql.org/docs/9.5/static/sql-insert.html) data. Alternatively, you can use the Builder Analysis step _Merge with dataset_ option, which guides you through the process of merging data directly through your datasets dashboard. This tutorial focuses on the CARTO Editor method for merging data, using the following workflow:
+# Merging data from two datasets
+
+It is a common scenario when creating maps that you will want to combine data from two different datasets. A common case is aggregating points into polygons: counting how many events happen in a county, summation or average of a quantity, or max/min values.
+
+If you are comfortable using SQL, you can apply a SQL queries to [join tables](https://carto.com/academy/courses/sql-postgis/joining-data/) or by [inserting](http://www.postgresql.org/docs/9.5/static/sql-insert.html) values into one table from another.
+
+Alternatively, you can use the Builder Analysis _Intersect second layer_, which guides you through the process of merging data directly. This tutorial focuses on the CARTO Builder method for merging data, using the following workflow:
 
 * Connect to two datasets from the CARTO public data library
-* Aggregate data from selected interesting geometries. For example, count all the points in a polygon, sum an attribute of all the points in a polygon, an so on
+* Aggregate data from selected interesting geometries. For example, count all the points in a polygon, sum an attribute of all the points in a polygon, and so on
 * Merge aggregated data from the two datasets into a new, third dataset
 
+## Getting the data
 
-## Preparing the Data
+For this tutorial, we will use two datasets that are available from the CARTO public data library. For this tutorial, we'll use a .carto file to load it into your account, but the datasets are also available in the Data Library.
 
-For this tutorial, we will use two datasets that are available from the CARTO public data library. {% include carto-editor/descrip_datalibrary.md %}
+Grab the .carto file from this page: https://documentation.carto.com/viz/81d928bc-e9c9-11e2-b5ac-5404a6a683d5/public_map
 
-1. From your datasets dashboard, click _Data library_ to view a list of all the available datasets in the data library.
+If you haven't worked with .carto files before, read about them in [documentation](TODO: link/to/documentation).
 
-    <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/common/datalibrary.jpg" alt="Data Library data" /></span>
+## Merge by Column Join
 
-2. Connect to the world borders dataset
+This is the _Join column by second layer_ analysis
 
-    - From the Search field, enter "world borders" and press _Enter_ from your keyboard
-
-        <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/merging_data/search_data_library.png" alt="Search data library" /></span>
-
-        The closest matched datasets appear.
-
-        <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/merging_data/world_borders_search_results.png" alt="World borders search results" /></span>
-
-    - Select the public dataset, `World borders` and click _Connect Dataset_
-
-        <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/merging_data/world_borders_connect_dataset.png" alt="World borders connect dataset" /></span>
-
-    - Once the dataset is connected, it appears in the Data View and displays the sync options. For details, see [Syncing Datasets]({{ site.baseurl }}/carto-editor/datasets/#syncing-datasets).
-
-    - Go back to your dashboard by clicking the return arrow (located before the name of your dataset).
-
-      <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/merging_data/world_borders_returnarrow.png" alt="Return to dashboard" /></span>
-
-      The page refreshes and displays a list of your connected datasets from your dashboard. The first dataset, "world_borders" appears in the list.
-
-3. Connect to the populated places dataset
-
-    {% include carto-editor/connect_popplaces.md %}
-
-  - Go back to your dashboard by clicking the return arrow (located before the name of your dataset).
-
-    <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/merging_data/pop_places_returnarrow.png" alt="Return to dashboard" /></span>
-
-    The page refreshes and displays the second dataset, "populated_places" in your list of connected datasets.
-
-Now you can merge data between the first and the second dataset.
-
-
-## Merge Options
-
-This portion of the tutorial describes how to access the _merge with dataset_ options from the CARTO Editor.
-
-### Merge by Column Join
-
-{% include carto-editor/column_join.md %}
+<!-- include text from here? carto-editor/column_join.md -->
 
 To use the same data for the next section of this tutorial, _Merge by Spatial Join_, you can [delete]({{ site.baseurl }}/carto-editor/datasets/#delete-dataset) this merged dataset from your dashboard or merge data on top of this data.
 
 ### Merge by Spatial Join
 
-{% include carto-editor/spatial_join.md %}
+<!-- include text from here? carto-editor/spatial_join.md -->
 
 Congratulations, you successfully merged data in CARTO. Switch to the MAP VIEW to visualize your values. For example, use the [CARTO Sidebar]({{ site.baseurl }}/carto-editor/maps/#carto-sidebar) options to create a Choropleth map with the intersect_count column, and customize and style your map.
 
-<span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/merging_data/img2.png" alt="cloropeth" /></span>
+<span class="wrap-border"><img src="{{ site.baseurl }}/img/analysis/merging_data/img2.png" alt="cloropeth" /></span>
