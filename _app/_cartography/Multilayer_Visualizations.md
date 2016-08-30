@@ -6,9 +6,22 @@ tweet_text: "Step by step is the way to go. I've finished the fifth lesson of th
 ---
 # Multilayer Visualizations
 
+## Importing a data file from Data Library
+
 In this final lesson on exploring multilayer visualizations, we will be talking about creating a two-layer map. We'll be using two data sets from the data library within CARTO - the one on US County subdivisions (called 'cb_2013_cousub_500k') and the other on Tornados in the US (called 'tornado'). Please make sure to search within the data library section to access these in the Data View section of your dashboard.
 
 ![Data View]({{ site.baseurl }}/img/cartography/multiviz/data-view.png)
+
+## Importing a Shapefile
+
+If you have a shapefile of the data you want to use, you can also import that in a few simple steps in CARTO. CARTO requires that you create a .zip file containing the .SHP, .DBF, .SHX and .PRJ files, all prefixed with same name (while not required, this is a suggested best practice).
+For example, in this case the shapefile `cb_2015_us_county_500k.zip` zip file contains `cb_2015_us_county_500k.shp`, `cb_2015_us_county_500k.dbf`, `cb_2015_us_county_500k.shx`, and `cb_2015_us_county_500k.prj`.
+
+Once you have that ready, just click on the `New Map`, subsequently on the `Connect Dataset` and drag-drop your .zip file into the tab.
+
+![Shapefile]({{ site.baseurl }}/img/cartography/multiviz/ml_13.gif)
+
+For more details on importing shapefiles you can refer to out docs [here](https://carto.com/docs/carto-builder/managing-your-data/#connect-a-dataset)!
 
 ## Creating a Two-Layer Map
 
