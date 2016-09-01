@@ -6,7 +6,7 @@ lesson_message: "Nice work mapping 311 Rat Complaints using Intermediate SQL!"
 ---
 # Intermediate SQL
 
-<p><iframe width='100%' height='520' frameborder='0' src='https://team.carto.com/u/eschbacher/viz/09fcb7e0-b948-11e5-a80a-0ea31932ec1d/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></p>
+<p><iframe width="100%" height="520" frameborder="0" src="https://documentation.carto.com/viz/cd9573c0-7074-11e6-8eb7-0e98b61680bf/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></p>
 
 ## 311 Complaints about Rats
 The data that we are going to use for this lesson is the 311 complaint data for rat sightings in neighborhoods in New York City. The source of the data used is [NYC's Open Data](https://data.cityofnewyork.us/Social-Services/Rat-Sightings/3q43-55fe)
@@ -394,9 +394,9 @@ Map {
 
 If you want to explore more cartography techniques check out our [introduction]({{ site.baseurl }}/courses/design-for-beginners/) and [intermediate]({{ site.baseurl }}/courses/intermediate-design/) map design courses. To explore much better proportional symbol map techniques also check out [this blogpost](http://blog.cartodb.com/proportional-symbol-maps/) by Mamata Akella.
 
-[![]({{ site.baseurl }}/img/course4/lesson4/nyc_rat_map.png)](https://team.cartodb.com/u/eschbacher/viz/09fcb7e0-b948-11e5-a80a-0ea31932ec1d/embed_map)
+[![]({{ site.baseurl }}/img/course4/lesson4/311_map.png)](https://documentation.carto.com/viz/cd9573c0-7074-11e6-8eb7-0e98b61680bf/public_map)
 
-Check out the [final map](https://team.cartodb.com/u/eschbacher/viz/09fcb7e0-b948-11e5-a80a-0ea31932ec1d/embed_map "Proportional symbol map visualizing the number of reported rat sightings")!
+Check out the [final map](https://documentation.carto.com/viz/cd9573c0-7074-11e6-8eb7-0e98b61680bf/public_map)!
 
 ## Resources
 
