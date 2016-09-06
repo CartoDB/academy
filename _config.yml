@@ -96,14 +96,6 @@ collections:
     url: /courses/community/
     description: >
       Tutorials from CARTO's community
-  builder-intro:
-    output: true
-    published: true
-    difficulty: easy
-    title: "Builder Intro"
-    url: /courses/builder-intro/
-    description: >
-      Introduction to CARTO's Builder
 defaults:
   - scope:
       path: ""
@@ -156,12 +148,6 @@ defaults:
   - scope:
       path: ""
       type: community
-    values:
-      layout: lesson
-      boty_class: 'js-Lesson'
-  - scope:
-      path: ""
-      type: builder-intro
     values:
       layout: lesson
       boty_class: 'js-Lesson'

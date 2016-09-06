@@ -28,7 +28,7 @@ selector {
 }
 {% endhighlight %}
 
-CartoCSS allows you to control styles specifically for map elements. Selectors are typically the name of the dataset you are visualizing on a map, but they can also be other elements:
+CartoCSS allows you to control styles specifically for map elements. Selectors are typically the name of the dataset you are visualizing on a map, but they can also be other elements: 
 
 {% highlight scss %}
 Map {
@@ -127,7 +127,7 @@ We also used the CartoCSS below for labels.
 
 ## Using images with CartoCSS
 
-Another CartoCSS property example is polygon-pattern-file. This property takes an image url for its value, because it is used to fill your polygon with a tiled picture. You can change the image fill opacity using the polygon-pattern-opacity property. If less than maximum opacity is used in addition to a polygon-fill color, the color will show up beneath the image fill layer.
+Another CartoCSS property example is polygon-pattern-file. This property takes an image url for its value, because it is used to fill your polygon with a tiled picture. You can change the image fill opacity using the polygon-pattern-opacity property. If less than maximum opacity is used in addition to a polygon-fill color, the color will show up beneath the image fill layer. 
 
 {% highlight scss %}
 #null_island_el_dist{
@@ -165,6 +165,6 @@ Read more about [null island](http://en.wikipedia.org/wiki/Null_Island).
 
 **See also**
 
-* Create an [intensity map](https://carto.com/docs/tutorials/intensity_map/) from point data with CartoCSS.
+* Create an [intensity map](https://carto.com/docs/tutorials/intensity_map/) from point data with CartoCSS. 
 * Create a [choropleth map](https://carto.com/docs/tutorials/electoral_map/) of election results.
 * Take a conditional styling [tutorial](https://carto.com/docs/tutorials/conditional_styling/).
