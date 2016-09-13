@@ -3,6 +3,7 @@ title: "Google Map Driving Directions Visualization"
 permalink: /courses/cartojs-and-external-apis/google-driving-directions/
 tweet_text: "Combine Google Driving Directions and CARTO.js @cartoDB"
 lesson_message: "Congrats on mashing up Google Driving Directions and CARTO!"
+redirect_from: /courses/cartodbjs-and-external-apis/google-driving-directions/
 ---
 
 # Google Map Driving Directions Visualization
