@@ -1,10 +1,11 @@
 ---
 title: "Publishing, Sharing, and Embedding your Map"
 permalink: /courses/tutorials/publishing-sharing-and-embedding-your-map/
-tweet_text: "Describes how to share CARTO maps with viewers and how to manage your publishing options."
+tweet_text: "Describes how to share CARTO maps and manage your publishing options."
 redirect_from: https://carto.com/docs/carto-builder/publishing-and-sharing-maps/
 embed_url: 'https://documentation.cartodb.com/viz/de9b05e8-8a0d-11e5-b315-0ea31932ec1d/embed_map'
 ---
+
 # Publishing, Sharing, and Embedding your Map
 
 This tutorial is intended for beginners who are getting started using the CARTO Builder. It describes the basic functionality for how to prepare your map (and data) for publishing, and how to manage your [publish options](#publish-options) when you edit your map. It also includes the [attribution requirements](#attribution-requirements) that you must include with a published map.
