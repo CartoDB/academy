@@ -111,6 +111,8 @@ To make it easier to visualize the results, you can add an interactive widget th
 
 	A confirmation message appears and a shortcut to EDIT the details of the widget appears. Optionally, click _EDIT_ to open and manage the widget details.
 
+	**Tip:** Ensure your web browser is maximized in order to see all of your widgets. 
+
 Since `point_count` is a column that contains numbers as the data type, the widget automatically appears as a _Formula_ type of widget. Formula widgets filter data based on a defined counted number of elements in a row. This is useful for viewing analysis results. You can configure values by a data column, define the operation, and add additional text to define how the widget interacts with the data.
 
 <span class="wrap-border"><img src="/academy/img/tutorials/counting_points_polygons/point_count_widget.jpg" alt="Point Count widget" /></span>
