@@ -5,11 +5,17 @@ tweet_text: "Counting points in polygons with the CARTO Builder."
 redirect_from: https://carto.com/docs/tutorials/counting_points.html
 ---
 
-# Counting Points with Polygons
+# Counting Points in Polygons
 
-This tutorial describes how to count the number of points that intersect with each polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places). 
+This tutorial describes how to count the number of points that intersect in a polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places).
 
-If you were applying code, you would create a new column in your European country dataset (polygon) and apply a SQL query to store and visualize the number of populated places (points) in each European country. With the Builder, this is easily applied by adding the _Intersect second layer_ analysis option and by including the results as a widget on your map.
+If you were applying SQL code, you would create a new column in your European country dataset (polygon) and apply a SQL query to store and visualize the number of populated places (points) in each European country. With the Builder, this is easily applied by adding the _Intersect second layer_ analysis option.
+
+This tutorial guides you through the process of:
+
+- Creating a map with two layers, by connecting a point and polygon dataset from the CARTO Data Library
+- Applying the _Intersect second layer_ analysis option to count all the points in a polygon, and style the analyzed results by value
+- Including a _Formula_ widget to display the number of points in the polygon directly on your map
 
 ## Create a Multi-Layer Map with Two Geometries
 
@@ -49,7 +55,7 @@ The following image displays a map containing two layers with different geometri
 
 ## Analyze the Map by Intersecting Layers
 
-You can count all the points (populated places) in the polygon (European countries) by applying the _Intersect second layer_ analysis option.
+You can count all the points (populated places) in the polygon (European countries) by applying the _Intersect second layer_ analysis option, and style the results based on the analysis.
 
 1. Click the _ADD ANALYSIS_ shortcut from the `ne_10m_populated_places_simple` data layer
 
@@ -67,11 +73,29 @@ You can count all the points (populated places) in the polygon (European countri
 
 5. Click APPLY
 
-	A confirmation dialog appears, indicating the columns that were applied to support the analysis.  Click _NONE_ to return to the map visualization.
+	A confirmation dialog appears, indicating the columns that were applied to support the analysis.
 
-The map refreshes and displays only the European countries with point and polygon data.
+6. Click STYLE THIS ANALYSIS
 
-<span class="wrap-border"><img src="/academy/img/tutorials/counting_points_polygons/analysis_applied.jpg" alt="Analysis applied" /></span>
+	<span class="wrap-border"><img src="/academy/img/tutorials/counting_points_polygons/style_this_analysis.jpg" alt="Style Analysis" /></span>
+
+	The STYLE options for the map layer appear, and enable you to apply unique styling based on the analyzed results, which are the `count_vals` and `count_vals_density` columns.
+
+7. Style by Value
+
+	- From the STYLE options, changed the aggregation style to _ANIMATED_, and select the type as _Heatmap_
+
+	This is just an example to represent how you can change your style options. In this case, the ANIMATED aggregation style displays a selected column as an animated visualization, where you can style the different animation options for time-series data. When animated aggregation is selected for your map, it adds the duration as a widget.
+
+	- Click the _Fill_ number to adjust fixed value of the point. You can use the slider bar to select a width, or type a width in the input field
+
+	- Click on the _Fill_ color, and click _BY VALUE_ to select a data column and search for one of the analyzed data columns, `count_vals` or `count_vals_density`
+
+	- Select one of the analyzed columns to style the animated map layer by the analyzed results
+
+		**Tip**: Since the analyzed results contain numbers, you can edit the buckets and quantification for the selected number column. Scroll to view and select a color ramp. Optionally, click _Custom color set_ to customize the selected color ramp with your own hex and RGB colors.
+
+	<span class="wrap-border"><img src="/academy/img/tutorials/counting_points_polygons/style_by_value.jpg" alt="Style by value" /></span>
 
 ## View the Counted Points
 
