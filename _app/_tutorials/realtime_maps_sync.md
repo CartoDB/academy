@@ -1,5 +1,6 @@
 ---
 title: "Syncing Real-Time Data with the CARTO Builder"
+description: Describes how to sync real-time data with the CARTO Builder.
 permalink: /courses/tutorials/syncing-real-time-data-with-carto/
 tweet_text: "Sync real-time data with the CARTO Builder."
 redirect_from: https://carto.com/docs/tutorials/realtime_maps_sync/
@@ -9,7 +10,12 @@ redirect_from: https://carto.com/docs/tutorials/realtime_maps_sync/
 
 This tutorial describes how to access, connect, and manage real-time data in your CARTO account. This lesson is intended for all CARTO users who want to sync their data dynamically.
 
-{% comment %}writer note_csobier: add gif video of image here?{% endcomment %}
+The objective of this guide is to:
+
+- Understand what synced data is
+- Learn how to connect and sync data from _Your datasets_ dashboard
+- Sync data directly from a map layer in the Builder
+- Review the syncing data rules
 
 ## What is Synced Data?
 
@@ -27,7 +33,7 @@ You can manage the frequency of your synced options from _Your datasets_ dashboa
 
 **Tip:** When connecting to a dataset from the Data Library, some public datasets contain dynamic updates and enable you to select options for syncing with the connected data.
 
-## Sync a Dataset
+## Syncing a Dataset
 
 Once a synced dataset is connected, the sync status appears as part of your dataset. The following image displays the sync tooltip from a connected dataset in the datasets dashboard.
 

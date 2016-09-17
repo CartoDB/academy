@@ -1,23 +1,24 @@
 ---
 title: "Counting Points in Polygons"
+description: Describe how to count points in polygons by intersecting layers with the CARTO Builder.
 permalink: /courses/tutorials/counting-points-with-polygons/
-tweet_text: "Counting points in polygons with the CARTO Builder."
+tweet_text: "Counting points in polygons by intersecting layers."
 redirect_from: https://carto.com/docs/tutorials/counting_points.html
 ---
 
 # Counting Points in Polygons
 
-This tutorial describes how to count the number of points that intersect in a polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places).
+This guide describes how to count the number of points that intersect in a polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places).
 
 If you were applying SQL code, you would create a new column in your European country dataset (polygon) and apply a SQL query to store and visualize the number of populated places (points) in each European country. With the Builder, this is easily applied by adding the _Intersect second layer_ analysis option.
 
-This tutorial guides you through the process of:
+The objective of this guide is to:
 
-- Creating a map with two layers, by connecting a point and polygon dataset from the CARTO Data Library
-- Applying the _Intersect second layer_ analysis option to count all the points in a polygon, and style the analyzed results by value
-- Including a _Formula_ widget to display the number of points in the polygon directly on your map
+- Create a map with two layers, by connecting a point and polygon dataset from the CARTO Data Library
+- Apply the _Intersect second layer_ analysis option to count all the points in a polygon, and style the analyzed results by value
+- Include a _Formula_ widget to display the number of points in the polygon directly on your map
 
-## Create a Multi-Layer Map with Two Geometries
+## Creating a Multi-Layer Map with Two Geometries
 
 Create a map with two layers, and two different geometries, by using the _Data Library_ as your resource.
 
@@ -53,7 +54,7 @@ The following image displays a map containing two layers with different geometri
 
 <span class="wrap-border"><img src="/academy/img/tutorials/counting_points_polygons/point_polygon_layers.jpg" alt="A map showing points and polygons" /></span>
 
-## Analyze the Map by Intersecting Layers
+## Analyzing the Map by Intersecting Layers
 
 You can count all the points (populated places) in the polygon (European countries) by applying the _Intersect second layer_ analysis option, and style the results based on the analysis.
 
@@ -97,7 +98,7 @@ You can count all the points (populated places) in the polygon (European countri
 
 	<span class="wrap-border"><img src="/academy/img/tutorials/counting_points_polygons/style_by_value.jpg" alt="Style by value" /></span>
 
-## View the Counted Points
+## Viewing the Counted Points
 
 To make it easier to visualize the results, you can add an interactive widget that is embedded on your map, to clearly display the number of points in the polygon. There is a shortcut to add widgets directly from your map layer.
 

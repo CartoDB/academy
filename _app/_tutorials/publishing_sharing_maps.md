@@ -1,7 +1,8 @@
 ---
 title: "Publishing, Sharing, and Embedding your Map"
+description: Describes how to share CARTO maps and manage your publishing options with the CARTO Builder.
 permalink: /courses/tutorials/publishing-sharing-and-embedding-your-map/
-tweet_text: "Describes how to share CARTO maps and manage your publishing options."
+tweet_text: "Describes how to share maps with CARTO."
 redirect_from: https://carto.com/docs/carto-builder/publishing-and-sharing-maps/
 embed_url: 'https://documentation.cartodb.com/viz/de9b05e8-8a0d-11e5-b315-0ea31932ec1d/embed_map'
 ---
@@ -10,16 +11,25 @@ embed_url: 'https://documentation.cartodb.com/viz/de9b05e8-8a0d-11e5-b315-0ea319
 
 This tutorial is intended for beginners who are getting started using the CARTO Builder. It describes the basic functionality for how to prepare your map (and data) for publishing, and how to manage your [publish options](#publish-options) when you edit your map. It also includes the [attribution requirements](#attribution-requirements) that you must include with a published map.
 
+The objective of this guide is to:
+
+- Prepare your map for publishing, and select the visible map options that you want to show or hide on your published map
+- Ensure copyright attributes are included in your map
+- Review the publishing rules
+- Learn the available publish options
+- Publish an unpublished map
+- Update a published map
+- Share a published map
+
 ## Prepare for Publishing
 
-Before you publish your map, ensure that you set the following options for your map and datasource. There are shortcuts to each of these privacy and metadata options directly from a selected map in the Builder.
+Before you publish your map, ensure that you select the privacy settings for the map, and add the map metadata that appears for your published map. The privacy setting appears as a shortcut underneath the map name, and the map metadata option is available from the map name context menu. 
 
-- Set Map Privacy for how viewers access your map
-- Include Map Metadata to tag and describe your map
-- Set the Dataset Privacy for how viewers access your data
-- Include the Dataset Metadata to tag and describe your data
-- Select the visible [map options](#map-options) to show or hide on your published map
-- Include copyright [Attributions](#attribution-requirements) for your datasource
+<span class="wrap-border"><img src="/academy/img/tutorials/publishing/privacy_shortcut.jpg" alt="Map Privacy shortcut" /></span>
+
+You should also set the privacy settings for the data in each map layer. When a map layer is selected in the Builder, there is a link to open each dataset in a separate tab, where you can edit the dataset privacy and metadata.
+
+<span class="wrap-border"><img src="/academy/img/tutorials/publishing/shortcut_to_dataset.jpg" alt="Shortcut to dataset" /></span>
 
 ### Map Options
 
@@ -79,11 +89,7 @@ Embed it | Provides HTML code to embed the map and customize any of your iframe 
 CARTO.js | Provides a URL to your viz.json file, which is required if you are using the CARTO JavaScript library to publish maps in an external application<br /><br />**Tip:** For details about CARTO.js, view the [related documentation](https://carto.com/docs/carto-engine/carto-js/).<br /><br />_**Note:** If you are using the early access version of the Builder, see the current [limitations](https://carto.com//docs/carto-builder/faqs/#limitations)._
 CARTO Mobile SDK | Provides a URL to the mobile viz.json file, which is required if you are using the [CARTO Mobile SDK](https://cartodb.com/mobile/) to publish custom maps for Android, iOS, and Windows platforms
 
-## Accessing the Publishing Option
-
-This section describes how to use the Builder to publish your map for the first time, and how to manage your publish options.
-
-### Unpublished Map
+## Publishing an Unpublished Map
 
 This procedure describes how to use the Builder to publish your map for the first time.
 
