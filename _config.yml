@@ -56,6 +56,14 @@ collections:
     url: /courses/academy-lite/
     description: >
       Five minute lessons on basic skills for map creation.
+  lessons:
+    output: true
+    published: true
+    difficulty: easy
+    title: "Lessons"
+    url: /courses/lessons/
+    description: >
+      Lessons to teach you complete workflows with the CARTO Builder.
   cartojs-ground-up:
     output: true
     published: true
@@ -121,6 +129,13 @@ defaults:
     values:
       layout: lesson
       body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: lessons
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+ 
   - scope:
       path: ""
       type: cartojs-ground-up
