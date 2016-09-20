@@ -9,7 +9,7 @@ embed_url: 'https://documentation.cartodb.com/viz/de9b05e8-8a0d-11e5-b315-0ea319
 
 # Publishing and Sharing Maps
 
-This tutorial is intended for beginners who are getting started using the CARTO Builder. It describes the basic functionality for how to prepare your map (and data) for publishing, and how to manage your [publish options](#publish-options) when you edit your map. It also includes the [attribution requirements](#attribution-requirements) that you must include with a published map.
+This guide is intended for beginners who are getting started using the CARTO Builder. It describes the basic functionality for how to prepare your map (and data) for publishing, and how to manage your [publish options](#publish-options) when you edit your map. It also includes the [attribution requirements](#attribution-requirements) that you must include with a published map.
 
 The objective of this guide is to:
 

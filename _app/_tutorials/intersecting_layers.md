@@ -1,12 +1,12 @@
 ---
-title: "Counting Points in Polygons"
+title: "Intersecting Geometry Layers"
 description: Describe how to count points in polygons by intersecting layers with the CARTO Builder.
-permalink: /courses/tutorials/counting-points-with-polygons/
+permalink: /courses/tutorials/intersecting-goemetry-layers/
 tweet_text: "Counting points in polygons by intersecting layers."
 redirect_from: https://carto.com/docs/tutorials/counting_points.html
 ---
 
-# Counting Points in Polygons
+# Intersecting Geometry Layers
 
 This guide describes how to count the number of points that intersect in a polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places).
 
