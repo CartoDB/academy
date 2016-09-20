@@ -1,7 +1,7 @@
 ---
 title: "Publishing and Sharing Maps"
 description: Describes how to share CARTO maps and manage your publishing options with the CARTO Builder.
-permalink: /courses/tutorials/publishing-sharing-maps/
+permalink: /courses/guides/publishing-sharing-maps/
 tweet_text: "Describes how to share maps with CARTO."
 redirect_from: https://carto.com/docs/carto-builder/publishing-and-sharing-maps/
 embed_url: 'https://documentation.cartodb.com/viz/de9b05e8-8a0d-11e5-b315-0ea31932ec1d/embed_map'

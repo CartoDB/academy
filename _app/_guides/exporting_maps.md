@@ -1,7 +1,7 @@
 ---
 title: "Exporting CARTO Maps"
 description: Describes how to.... with the CARTO Builder.
-permalink: /courses/tutorials/exporting-carto-maps/
+permalink: /courses/guides/exporting-carto-maps/
 tweet_text: "Export your map as a .carto file"
 redirect_from: https://carto.com/docs/carto-builder/managing-your-map/#export-map
 ---
@@ -25,15 +25,15 @@ This procedure describes how to export a CARTO map from the Builder.
 
 2. Select the *Export map* option from the Edit drop-down menu
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/exporting_maps/map_name_context_menu.jpg" alt="Map name context menu" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/exporting_maps/map_name_context_menu.jpg" alt="Map name context menu" /></span>
 
     The _Export map_ confirmation appears.
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/exporting_maps/export_map.jpg" alt="Export Map confirmation" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/exporting_maps/export_map.jpg" alt="Export Map confirmation" /></span>
 
     **Tip:** You can also access this option by clicking the export icon from any CARTO Public Profile map.
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/exporting_maps/public_profile_map_export_icon.jpg" alt="Export Map from a Public Profile page" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/exporting_maps/public_profile_map_export_icon.jpg" alt="Export Map from a Public Profile page" /></span>
 
 3. Click _OK, EXPORT_
 

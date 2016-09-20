@@ -1,7 +1,7 @@
 ---
 title: "Guides Template- Title"
 description: Describes how to.... with the CARTO Builder.
-permalink: /courses/tutorials/file-name-matches-title/
+permalink: /courses/guides/file-name-matches-title/
 tweet_text: "Tweet description, keep it professional"
 redirect_from: https://carto.com/docs/tutorials/counting_points.html (example of redirect, if rewriting a legacy Editor Tutorial)
 ---
