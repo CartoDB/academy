@@ -35,6 +35,22 @@ lesson_message: "Rewrite lesson complete message..."
 
 ## Connect Data and Create a Map
 
+{% comment %}writer note_csobier: we have resources of the completed map, it would be nice to start with the separate datasets and build the map. See note in template lesson about how to find/manage data for lessons.{% endcomment %}
+
+From the CARTO team public profile page, download the public map for this
+lesson:
+
+[https://team.carto.com/u/builder-demo/viz/d5112b61-7792-4707-8792-199037466b87/public_map](https://team.carto.com/u/builder-demo/viz/d5112b61-7792-4707-8792-199037466b87/public_map)
+
+The Marketing Analysis Demo includes the following datasets: 
+
+- NYC Subway stations dataset, `subways_stations_1_2`
+- Starbucks locations in NYC dataset, `starbucks_2`
+
+### Importing a .carto File
+
+Description and steps....
+
 ## Change the Default Basemap
 
 ## Add a New Map Layer
