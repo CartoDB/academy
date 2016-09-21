@@ -6,11 +6,13 @@ lesson_message: "Rewrite workflow complete message..."
 ---
 # Identify Retail Opportunities by Location
 
-This lesson describes how to create a map and visualize market opportunities based on identifying and filtering areas of interest in your location data.
+Learn how to visualize new retail opportunities in New York City by building a real world map application. Use the Builder to analyze data of Starbucks stores in New York City, located near high-foot traffic areas, to identify new retail opportunities for Starbucks locations.
 
-Use Case: Suppose you want to identify where to open up a new Starbucks location near high-pedestrian areas in New York City. Create a multi-layer map showing all NYC subway entrances and existing Starbucks stores to analyze where missing retail opportunities might exist.
+**Prerequisites:** Familiarity with importing data to CARTO Builder and creating multi-layer map visualizations gained through [this lesson](tbd).
 
-**writer note_csobier:** Design to create some kind of button, or font, or color for Use Case?
+<span class="wrap-border"><img src="/academy/img/lessons/retail_by_location/final_starbucks_map.jpg" alt="Final Starbucks map" /></span>
+
+**writer note_csobier:** Recapture image to show updated UI for layers.
 
 <span class="wrap-border"><img src="/academy/img/lessons/next_in_workflow.jpg" alt="Example of workflow navigation" /></span>
 **writer note_csobier:** Example of workflow navigation for Design, you can create anything similar. You can skip around to different sections, you are not forced to take a guided course consecutively. Sections in the workflow are high-level, to guide the users towards the end result.
