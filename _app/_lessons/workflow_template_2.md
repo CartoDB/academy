@@ -18,6 +18,8 @@ Analysis options covered in this lesson:
 
 Prerequisites: Familiarity with importing data to CARTO Builder and creating multi-layer map visualizations gained through [this lesson](tbd).
 
+<span class="wrap-border"><img src="/academy/img/lessons/retail_by_location/final_starbucks_map.jpg" alt="Final startbucks map" /></span>
+
 ------ Each subsequent section should be a new section in the lesson ---
 
 ## Why Analyze your Location Data?
