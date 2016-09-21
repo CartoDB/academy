@@ -4,79 +4,52 @@ permalink: /courses/lessons/workflow-template-2/
 tweet_text: "???"
 lesson_message: "Rewrite workflow complete message..."
 ---
-# Identify Retail Opportunities by Location
-
-Learn how to visualize new retail opportunities in New York City by building a real world map application. Use the Builder to analyze data of Starbucks stores, located near high-foot traffic areas near NYC subways, to identify new retail opportunities for Starbucks locations.
-
-**Analysis options**:
-
-- Create areas of influence
-- Enrich from the Data Observatory
-- Filter points in polygons
-
-**Prerequisites:** Familiarity with importing data to CARTO Builder and creating multi-layer map visualizations gained through [this lesson](tbd).
-
-<span class="wrap-border"><img src="/academy/img/lessons/retail_by_location/final_starbucks_map.jpg" alt="Final Starbucks map" /></span>
-
-**writer note_csobier:** Recapture image to show updated UI for layers.
-
 <span class="wrap-border"><img src="/academy/img/lessons/next_in_workflow.jpg" alt="Example of workflow navigation" /></span>
 **writer note_csobier:** Example of workflow navigation for Design, you can create anything similar. You can skip around to different sections, you are not forced to take a guided course consecutively. Sections in the workflow are high-level, to guide the users towards the end result.
 
------- Each subsequent section should be a new section in the lesson ---
+# Identify Retail Opportunities by Location
 
-## Why use Location Data?
+Learn how to visualize new retail opportunities in New York City by building a real world map application. Use the Builder to analyze Starbucks stores located near busy NYC subways to identify Starbucks locations that receive the most foot traffic, and would be good candidates for promotional marketing campaign.
 
-Most public data typically contains 80% of location-based information. Location-based data is not just for cartographers or geographic information system (GIS) specialist. Understanding how to leverage your location-based intelligence into something that you can visualize enables you to gain key insights about your data, that you may have otherwise missed.
+Analysis options covered in this lesson:
 
-[CARTO Builder](https://vimeo.com/173591785) not only enables you to find location-based data, it converts your data to geometries. Allowing you to style, analyze, and visualize the hidden values that your data contains. This is useful since the geometry of your data controls how features are visualized.
+- Creating areas of influence
+- Filtering points in polygons
 
------- Each subsequent section should be a new section in the lesson ---
-
-## Analyzing your Data
-
-There are no particular requirements when adding analyses. This is where you get to put on your analytical thinking cap and explore your data. This section describes why each analysis is being applied in this use case.
-
-### Create Areas of Influence
-
-Overview of this analysis, and why it is being applied for this use case? 
-
-Describe hypothesis with a list of questions, a table, or workflow diagram, and how using the Builder analysis is a solution.
-
-### Enrich form the Data Observatory
-
-Overview of this analysis, and why it is being applied for this use case.
-
-### Filter Points in Polygons
-
-Overview of this analysis, and why it is being applied for this use case.
-
-(Discuss importance of chaining analysis as part of a workflow)
+Prerequisites: Familiarity with importing data to CARTO Builder and creating multi-layer map visualizations gained through [this lesson](tbd).
 
 ------ Each subsequent section should be a new section in the lesson ---
 
-## Creating a Map of NYC Subways and Starbucks Locations
+## Why Analyze your Location Data?
+
+Understanding how to leverage your location-based intelligence into something that you can visualize enables you to gain key insights about your data that you may have otherwise missed.
+
+[CARTO Builder](https://vimeo.com/173591785) not only enables you to enrich your map visualizations with location-based data, but also comes bundled with a wealth of analysis options to extract hidden insights from your data.
+
+### Real World Problem: Starbucks
+
+A common business problem is identifying new opportunities in reaching customers by location. This could mean everything from identifying new locations for retail stores to identifying stores that reach the most customers and could be a good target of promotional campaigns or testing of new products. 
+
+### The Solution: Areas of Influence
+
+With the CARTO Builder, the area of influence analysis option allows us to calculate the amount of travel time required by foot or car to reach a certain distance. By applying an area of influence analysis to our New York City subway locations, we can identify Starbucks locations located within 100 meters of a NYC subway. This allows us to identify Starbucks locations that potentially receive the greatest foot traffic.
+
+------ Each subsequent section should be a new section in the lesson ---
+
+## Building The Map
 
 Create a map with two layers, by using the CARTO teams' public profile page to download a .carto file.
 
 Connect the following datasets and create a map:
-
 - NYC Subway stations dataset, `subways_stations_1_2`
 - Starbucks locations in NYC dataset, `starbucks_2`
 
-The following image displays the initial map containing two layers with NYC subway entrances and existing Starbucks stores.
-
-<image>
-
-**Tip:** If you need help creating this map, follow [this procedure](#procedure).
-**writer note_csobier:** Is there a way to expand/collapse content? For example, default appears collapsed. Click on "Procedure" to expand and view the steps below.
-
 ------ Each subsequent section should be a new section in the lesson ---
 
-## Next
+## Additional Information
 
------- Each subsequent section should be a new section in the lesson ---
+Interested in learning more about analyzing your data for market and business opportunities? View these tutorials:
 
-## Next
-
-Now that you understand the workflow, you can use your own data to identify retail or market opportunities.
+- Tutorial 1
+- Tutorial 2
+- Tutorial 3
