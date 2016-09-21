@@ -8,11 +8,11 @@ redirect_from: https://carto.com/docs/tutorials/counting_points.html
 
 # Intersecting Geometry Layers
 
-This guide describes how to count the number of points that intersect in a polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places).
+This lesson describes how to count the number of points that intersect in a polygon. Suppose you have a map of European countries and populated places. One map layer contains polygon geometries (European countries) and one layer contains polygon geometries (populated places).
 
 If you were applying SQL code, you would create a new column in your European country dataset (polygon) and apply a SQL query to store and visualize the number of populated places (points) in each European country. With the Builder, this is easily applied by adding the _Intersect second layer_ analysis option.
 
-The objective of this guide is to:
+The objective of this lesson is to:
 
 - Create a map with two layers, by connecting a point and polygon dataset from the CARTO Data Library
 - Apply the _Intersect second layer_ analysis option to count all the points in a polygon, and style the analyzed results by value
