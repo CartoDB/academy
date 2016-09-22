@@ -3,7 +3,7 @@ title: "Syncing Real-Time Data"
 description: Describes how to sync real-time data with the CARTO Builder.
 permalink: /courses/guides/syncing-real-time-data/
 tweet_text: "Sync real-time data with the CARTO Builder."
-redirect_from: https://carto.com/docs/tutorials/realtime_maps_sync/
+redirect_from: https://carto.com/docs/guides/realtime_maps_sync/
 ---
 
 # Syncing Real-Time Data
@@ -29,7 +29,7 @@ If you are using synced data in a published map, you do not have to manually upd
 
 You can manage the frequency of your synced options from _Your datasets_ dashboard, or directly from a map layer in the Builder.
 
-<span class="wrap-border"><img src="/academy/img/tutorials/realtime_maps_sync/sync_dataset_options.jpg" alt="Synced dataset options" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/realtime_maps_sync/sync_dataset_options.jpg" alt="Synced dataset options" /></span>
 
 **Tip:** When connecting to a dataset from the Data Library, some public datasets contain dynamic updates and enable you to select options for syncing with the connected data.
 
@@ -37,7 +37,7 @@ You can manage the frequency of your synced options from _Your datasets_ dashboa
 
 Once a synced dataset is connected, the sync status appears as part of your dataset. The following image displays the sync tooltip from a connected dataset in the datasets dashboard.
 
-<span class="wrap-border"><img src="/academy/img/tutorials/realtime_maps_sync/synced_dataset_tooltip.jpg" alt="Synced Dataset tooltip from Your datasets dashboard" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/realtime_maps_sync/synced_dataset_tooltip.jpg" alt="Synced Dataset tooltip from Your datasets dashboard" /></span>
 
 To edit the sync options from _Your datasets_ dashboard:
 
@@ -47,7 +47,7 @@ To edit the sync options from _Your datasets_ dashboard:
 
 2. Click _view options_ next the synced timestamp
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/realtime_maps_sync/view_options_dataset.jpg" alt="Synced view options from a selected dataset" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/realtime_maps_sync/view_options_dataset.jpg" alt="Synced view options from a selected dataset" /></span>
 
     The _Sync dataset options_  appear.
 
@@ -59,7 +59,7 @@ To edit the sync options from _Your datasets_ dashboard:
 
 If you are connecting a dataset to external connected resource, or an external URL data file, the sync options appear when during the connect dataset process, as shown in the example image.
 
-<span class="wrap-border"><img src="/academy/img/tutorials/realtime_maps_sync/external_sync_my_data.jpg" alt="Connect data sync my data" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/realtime_maps_sync/external_sync_my_data.jpg" alt="Connect data sync my data" /></span>
 
 You can modify the frequency of these sync options anytime after connecting the dataset.
 
@@ -73,7 +73,7 @@ The following procedure describes how you can access the sync options for a conn
 
 2. Click _view options_ next the synced timestamp
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/realtime_maps_sync/sync_from_builder.jpg" alt="Synced view options from a selected map layer" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/realtime_maps_sync/sync_from_builder.jpg" alt="Synced view options from a selected map layer" /></span>
 
     The _Sync dataset options_  appear.
 

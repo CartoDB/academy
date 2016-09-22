@@ -25,24 +25,24 @@ The objective of this guide is to:
 
 Before you publish your map, ensure that you select the privacy settings for the map, and add the map metadata that appears for your published map. The privacy setting appears as a shortcut underneath the map name, and the map metadata option is available from the map name context menu. 
 
-<span class="wrap-border"><img src="/academy/img/tutorials/publishing/privacy_shortcut.jpg" alt="Map Privacy shortcut" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/publishing/privacy_shortcut.jpg" alt="Map Privacy shortcut" /></span>
 
 You should also set the privacy settings for the data in each map layer. When a map layer is selected in the Builder, there is a link to open each dataset in a separate tab, where you can edit the dataset privacy and metadata.
 
-<span class="wrap-border"><img src="/academy/img/tutorials/publishing/shortcut_to_dataset.jpg" alt="Shortcut to dataset" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/publishing/shortcut_to_dataset.jpg" alt="Shortcut to dataset" /></span>
 
 ### Map Options
 
 You can control which components are visible on your map. Click the _Map Options_ button from the CARTO Toolbar to show or hide visible map components for your published map. 
 
-<span class="wrap-border"><img src="/academy/img/tutorials/publishing/map_options.jpg" alt="Map Options" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/publishing/map_options.jpg" alt="Map Options" /></span>
 
 The following map options are available:
 
 Map Option | Description
 --- | ---
-SEARCH BOX | Displays a search option on the map, enabling the viewer to move the map based on a search location<br/><br/>**Tip:** This function does not search through your dataset, it queries location by CARTO's default location data service providers, which varies, depending on your account plan. [Contact Sales](mailto:sales@carto.com) if you have questions about your location data service providers<br /><br />- Click the magnifying glass and enter a named place<br/><br/><img src="/academy/img/tutorials/publishing/search_location.jpg" alt="Search by location" /><br /><br />- The map moves to the matched location (based on the service provider), and automatically updates the zoom level accordingly. If there is a direct matched result, it moves to the matched location and displays a marker.<br/><br/>**Note:** Searching by location moves your map. If you want to go back to your previous location, you will have to search for your original location
-ZOOM CONTROLS | Enables viewers to zoom in (+), or zoom out (-), of the map. If not enabled, viewers can only see the default level of the map visualization<br /><br />**Note:** To set the default zoom level from an open map in the Builder:<br/><br/>- Increase or decrease to the desired zoom level<br/><br/><img src="/academy/img/tutorials/publishing/zoom_controls.jpg" alt="Zoom controls" /><br/><br/>- [Update](#updating-a-published-map) your published map. The initial map displays at the default zoom level you specified<br/><br/>**Tip:** There is a zoom box keyboard shortcut to zoom to a targeted area on your map. Press and hold _shift_, while dragging, to display the zoom box selector. The visualization refreshes to the zoomed area<br/><br/><img src="/academy/img/tutorials/publishing/zoom_box.jpg" alt="Zoom box shortcut" />
+SEARCH BOX | Displays a search option on the map, enabling the viewer to move the map based on a search location<br/><br/>**Tip:** This function does not search through your dataset, it queries location by CARTO's default location data service providers, which varies, depending on your account plan. [Contact Sales](mailto:sales@carto.com) if you have questions about your location data service providers<br /><br />- Click the magnifying glass and enter a named place<br/><br/><img src="/academy/img/guides/publishing/search_location.jpg" alt="Search by location" /><br /><br />- The map moves to the matched location (based on the service provider), and automatically updates the zoom level accordingly. If there is a direct matched result, it moves to the matched location and displays a marker.<br/><br/>**Note:** Searching by location moves your map. If you want to go back to your previous location, you will have to search for your original location
+ZOOM CONTROLS | Enables viewers to zoom in (+), or zoom out (-), of the map. If not enabled, viewers can only see the default level of the map visualization<br /><br />**Note:** To set the default zoom level from an open map in the Builder:<br/><br/>- Increase or decrease to the desired zoom level<br/><br/><img src="/academy/img/guides/publishing/zoom_controls.jpg" alt="Zoom controls" /><br/><br/>- [Update](#updating-a-published-map) your published map. The initial map displays at the default zoom level you specified<br/><br/>**Tip:** There is a zoom box keyboard shortcut to zoom to a targeted area on your map. Press and hold _shift_, while dragging, to display the zoom box selector. The visualization refreshes to the zoomed area<br/><br/><img src="/academy/img/guides/publishing/zoom_box.jpg" alt="Zoom box shortcut" />
 FULLSCREEN | Enables you to display the map in fullscreen mode
 CARTO LOGO | Enables you to include or hide the CARTO logo on your map<br /><br />**Note:** This feature is only available for **paid** accounts that include the _Removable brand_ feature, which allows you to remove the CARTO logo from your maps. [Contact Sales](mailto:sales@carto.com) if you are interested in this feature.
 LAYER SELECTOR | Enables you to display the visible layers on the map
@@ -76,7 +76,7 @@ If you apply any edits to your map, these changes are **not** updated dynamicall
 
 These features ensure that your published maps remain stable, and give you complete control over any updates that you wish to share. 
 
-**Note:** The publishing options do not apply to synced datasets. [Synced data](/academy/courses/tutorials/syncing-real-time-data-with-carto/) from published maps will continue to update dynamically.
+**Note:** The publishing options do not apply to synced datasets. [Synced data](/academy/courses/guides/syncing-real-time-data-with-carto/) from published maps will continue to update dynamically.
 
 ## Publish Options
 
@@ -97,29 +97,29 @@ This procedure describes how to use the Builder to publish your map for the firs
 
 3. Click _SHARE_ to open the publishing options
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/unpublished.jpg" alt="Unpublished in the Builder" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/unpublished.jpg" alt="Unpublished in the Builder" /></span>
 
     The publishing options appear disabled, and it is indicated that your map has not been published.
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/first_time_publish.jpg" alt="First time publishing with the Builder" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/first_time_publish.jpg" alt="First time publishing with the Builder" /></span>
 
     **Note:** If you are publishing a private map, the _Get the link_ and _Embed it_ options are disabled. You can only use viz.json links for your applications.
 
 4. Optionally, there is a shortcut to change your map privacy directly from the publishing options
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/change_privacy_from_publishing.jpg" alt="Change map privacy from publishing options" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/change_privacy_from_publishing.jpg" alt="Change map privacy from publishing options" /></span>
 
 5. Click _PUBLISH_
 
     The publishing options are activated and display URL links that you can copy for the publishing option of your choice. Additionally, the publishing dialog displays the timestamp of when the map was published. If you have a public map, it will be live as of the published time.
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/publishing_options_copy.jpg" alt="Copy the publishing option of your choice" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/publishing_options_copy.jpg" alt="Copy the publishing option of your choice" /></span>
 
 6. Click _DONE_ to close the publishing options and return to the Builder
 
     The map includes a timestamp of the last time it was published.
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/published_time_on_map.jpg" alt="Displays the published time on a map" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/published_time_on_map.jpg" alt="Displays the published time on a map" /></span>
 
 ## Updating a Published Map
 
@@ -127,13 +127,13 @@ This procedure assumes that you are in the process of applying edits to a publis
 
 1. Once you make any change that modifies your original map, the Builder indicates that there are unpublished changes
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/edited_map.jpg" alt="Edited map displays unpublished status" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/edited_map.jpg" alt="Edited map displays unpublished status" /></span>
 
 2. Click _SHARE_ to open the Publish options to update your map
 
     It displays the last time your map was updated.
 
-    <span class="wrap-border"><img src="/academy/img/tutorials/publishing/update_publish.jpg" alt="Update published map" /></span>
+    <span class="wrap-border"><img src="/academy/img/guides/publishing/update_publish.jpg" alt="Update published map" /></span>
 
 3. Click _UPDATE_ to update the timestamp and refresh the URL links
 
@@ -149,8 +149,8 @@ This procedure assumes that you are in the process of applying edits to a publis
 
 When a map is published, click the caret button from the toolbar to expand the social media sharing options, as shown in the following embedded map.
 
-<span class="wrap-border"><img src="/academy/img/tutorials/publishing/view_published.jpg" alt="View an embedded publish map" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/publishing/view_published.jpg" alt="View an embedded publish map" /></span>
 
 You can share the map on Twitter and Facebook. The map metadata name and description also appears, along with the map builder name. Click the caret button again to collapse the sharing shortcuts.
 
-<span class="wrap-border"><img src="/academy/img/tutorials/publishing/sharing_options.jpg" alt="Expand sharing options on a published map" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/publishing/sharing_options.jpg" alt="Expand sharing options on a published map" /></span>
