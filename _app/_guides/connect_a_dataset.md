@@ -7,7 +7,7 @@ redirect_from: https://carto.com/docs/carto-builder/managing-your-data/#connect-
 
 # Connecting Data
 
-The guides describes how to import data with the CARTO Builder and connect datasets to your account. You can import data from a local file (or public URL), connect to an external dataset, use the public Data Library, or create an empty dataset.
+This guide describes how to import data with the CARTO Builder and connect datasets to your account. You can import data from a local file (or public URL), connect to an external dataset, use the public Data Library, or create an empty dataset.
 
 The objective of this guide is to:
 
