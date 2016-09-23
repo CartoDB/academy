@@ -8,7 +8,7 @@ redirect_from: https://carto.com/docs/guides/realtime_maps_sync/
 
 # Syncing Real-Time Data
 
-This tutorial describes how to access, connect, and manage real-time data in your CARTO account. This lesson is intended for all CARTO users who want to sync their data dynamically with the CARTO Builder.
+This guide describes how to access, connect, and manage real-time data in your CARTO account. This lesson is intended for all CARTO users who want to sync their data dynamically with the CARTO Builder.
 
 The objective of this guide is to:
 

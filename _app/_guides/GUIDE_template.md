@@ -10,12 +10,6 @@ redirect_from: https://carto.com/docs/tutorials/counting_points.html (example of
 
 Summary of the guide and steps of the features it covers.
 
-The objective of this guide is to: (THE H2 Headings from the GUIDE WILL APPEAR AS STEPS ON THE RIGHT-SIDE NAVIGATION OF THE GUIDES TEMPLATE- see wireframe)
-
-- Descriptive text of the first step in the guide
-- Descriptive text of the next step
-- Descriptive text of the next step
-
 ## H2 Title of the the First Step in the Guide
 
 Description of steps.

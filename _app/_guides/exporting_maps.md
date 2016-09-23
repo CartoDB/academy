@@ -8,7 +8,7 @@ redirect_from: https://carto.com/docs/carto-builder/managing-your-map/#export-ma
 
 # Exporting CARTO Maps
 
-The guides describes how to use the *Export map* option to download a map, and the connected dataset(s), as a [.carto file](https://carto.com/docs/carto-engine/import-api/importing-geospatial-data/#supported-geospatial-data-formats). This .carto file includes the dataset and visualization definition, which contains any SQL queries, CartoCSS, basemaps, attributions, metadata, and styling that was applied to a map.
+This guide describes how to use the *Export map* option to download a map, and the connected dataset(s), as a [.carto file](https://carto.com/docs/carto-engine/import-api/importing-geospatial-data/#supported-geospatial-data-formats). This .carto file includes the dataset and visualization definition, which contains any SQL queries, CartoCSS, basemaps, attributions, metadata, and styling that was applied to a map.
 
 The objective of this guide is to:
 
