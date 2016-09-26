@@ -9,7 +9,7 @@ redirect_from: https://carto.com/docs/carto-builder/managing-your-map/#export-ma
 
 This guide describes how to export any of your map layers for use offline, regardless of whether or not an analysis was applied. For example, suppose you are a Business Analyst and you want to export an analyzed map layer into Excel for additional reporting. The _Export data_ option enables you to export the map layer as a _CSV_ file. You can also export a selected map layer using other image and geospatial formats, such as _SHP, KML, GEO JSON,_ and _SVG_.
 
-### Export Data
+## Export Data
 
 This procedure describes how to export a selected map layer from an open map, in the Builder.
 
