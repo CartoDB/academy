@@ -2,7 +2,7 @@
 title: "Interactive Map Widgets"
 description: Describes how to add interactive widgets for viewing your map data.
 permalink: /courses/guides/interactive-map-widgets/
-redirect_from: https://carto.com/docs/carto-builder/managing-your-map/#export-map
+redirect_from: https://carto.com/docs/carto-builder/interactive-map-widgets/
 ---
 
 # Interactive Map Widgets

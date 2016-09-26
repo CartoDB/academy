@@ -31,7 +31,7 @@ Analysis Option | Description
 *Enrich from Data Observatory | Add a new column with contextual demographic and economic measures<br /><br />*[Data Observatory](https://carto.com/docs/carto-engine/data/) functions consume quota
 Join columns from 2nd layer | Join columns from a second layer by linking a shared value found in both datasets
 Filter by layer | Calculate a direct or weighted centroid based on all rows of a layer or by categories
-Filter centroid by geometries | Calculate a direct or weighted centroid based on all rows of a layer or by categories
+Filter centroid by geometries | Calculate a direct or weighted centroid based on all rows of a layer or by categoriesexport
 Group points into polygons | Aggregate points into polygons, such as convex hulls or bounding boxes
 *Create areas of influence | Use travel time (e.g. walking or driving) or distance to calculate areas of influence (AOI) from points<br /><br />*Based on the service provider included with your account plan, AOI may consume quota.
 Intersect second layer | Intersect with a second layer and calculate aggregations on the fly

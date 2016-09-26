@@ -17,11 +17,3 @@
     The data is downloaded based on your web browser process. Once your data is downloaded, you can retrieve the data file offline.
 
     <span class="wrap-border"><img src="/academy/img/common/downloaded_file.jpg" alt="Example of a map layer file download" /></span>
-
-**Tip:** If you are using the SQL API, you can use your table URL to run a response query and export downloads in different formats. For example, the following sample code shows the *CSV* export format for a SQL API request.
-
-{% highlight bash %}
-http://{USERNAME}.cartodb.com/api/v2/sql?format=csv&q=SELECT+*+FROM+tm_world_borders_sim
-{% endhighlight %}
-
-For more information about using the SQL API, see the [SQL and PostGIS in CARTO]({{ site.academy-baseurl }}/courses/04-sql-postgis.html) Map Academy course.
