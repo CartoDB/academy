@@ -1,15 +1,15 @@
 ---
 title: "Animating Maps with Point Data"
 description: Describes how to change the style aggregation option to animate your map layer with the CARTO Builder.
-permalink: /courses/guides/animated-maps-with-point-data/
+permalink: /courses/guides/animating-maps-with-point-data/
 redirect_from: https://carto.com/academy/courses/beginners-course/animated-maps-with-point-data/
 ---
 
 # Animating Maps with Point Data
 
-This guide describes how to visualize geographic data over time, by applying the _Animated_ aggregation style to animate your map. In order to animate your data, you _must_ have a map layer containing point geometries.
+This guide describes how to visualize geographic data over time, by applying the _Animated_ aggregation style to animate your map. In order to animate your data, you _must_ have a map layer containing point geometries, and a dataset column containing a timestamp, count, or range of data. Otherwise, you can animate points based on the [`cartodb_id`](https://carto.com/docs/carto-engine/import-api/importing-geospatial-data/#dataset-basics) column.
 
-When the animated style option is selected, you can display the animation by points, or as a animated heatmap (which is temporal data that can be animated).
+When the animated style option is selected, you can display the animation as a progression of points, or as an animated heatmap to show different color intensities.
 
 **Download guide resources**
 
@@ -78,6 +78,8 @@ From the STYLE options, you can use the FILL option to select the column value t
 1. Click the _FILL_ number to adjust fixed value of the point. You can use the slider bar to select a width, or type a width in the input field
 
 2. From the _FILL_ color, click _BY VALUE_ to select a data column from your dataset
+
+	You can style by value and choose the column that contains the categories. You can even customize the color ramps of the category.
 
 **Cheat sheet** to style by colors.
 
