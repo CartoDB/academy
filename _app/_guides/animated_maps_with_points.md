@@ -61,7 +61,7 @@ The imported populated places dataset displays the geometries as a simple point.
 
 	<span class="wrap-border"><img src="/academy/img/guides/animated_maps/scroll_aggregation.jpg" alt="Scroll to see all aggregation options" /></span>
 
-2. Select _ANIMATED_ as the _Aggregation_ style for the map layer
+3. Select _ANIMATED_ as the _Aggregation_ style for the map layer
 
 	The _Style_ options refresh, displaying the animation options. By default, the animation type appears by _Points_.
 
