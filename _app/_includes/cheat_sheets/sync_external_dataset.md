@@ -1,3 +1,4 @@
+
 ## Syncing to an External Dataset
 
 If you are connecting a dataset to external connected resource, or an external URL data file, the sync options appear when during the connect dataset process, as shown in the example image.

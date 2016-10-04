@@ -1,14 +1,15 @@
+
 ## Exporting CARTO Maps
 
 The *Export map* option enables you to download a map, and the connected dataset(s), as a [.carto file](https://carto.com/docs/carto-engine/import-api/importing-geospatial-data/#supported-geospatial-data-formats). This .carto file includes the dataset and visualization definition, which contains any SQL queries, CartoCSS, basemaps, attributions, metadata, and styling that was applied to a map.
 
 - From a selected map in the Builder, select the *Export map* option from the map name context menu
 
-    **Tip:** You can also access this option by clicking the export icon from any CARTO Public Profile map.
+	**Tip:** You can also access this option by clicking the export icon from any CARTO Public Profile map.
 
 The map, and connected data, is exported to your Downloads folder as a .carto file. See the [rules](#exportingimporting-carto-files) about what is exported.
 
-    **Note:** The _Ready to Download_ dialog will appear if you do not have pop-ups enabled for CARTO. Allow pop-ups from CARTO in your web browser to begin the download and export process.
+ 	**Note:** The _Ready to Download_ dialog will appear if you do not have pop-ups enabled for CARTO. Allow pop-ups from CARTO in your web browser to begin the download and export process.
 
 You can import a .carto file with the CARTO Builder. This is useful if you are sharing maps with team members, exported a public map from someone's CARTO's Public Profile page, or if you are migrating maps to another account. From the Connect Dataset options, select _Data file_ to browse to, or drag your downloaded .carto file.
 
@@ -19,7 +20,7 @@ Privacy settings are enforced when exporting a .carto file. The following rules 
 - When exporting a viewed map, the map and data privacy settings are inherited in the .carto file. You will only be able to export what the map owner shared with you, everything else is excluded from the .carto file
     - For Private and Password protected maps, only the owner can export
         
-        **Note:** If you are the map owner with access to all data, be mindful that if you share your .carto file, it is considered open source and anyone that you share the .carto file with will be able to view your data.
+    **Note:** If you are the map owner with access to all data, be mindful that if you share your .carto file, it is considered open source and anyone that you share the .carto file with will be able to view your data.
 
     - For With Link and Public maps, everyone who has access to the link, or public map, can export
     - For [Enterprise users](https://carto.com/docs/carto-enterprise/users/#share-with-your-colleagues), you can export private maps that have been shared with you

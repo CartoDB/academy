@@ -64,6 +64,14 @@ collections:
     url: /courses/guides/
     description: >
       Quick reference guides for learning individual CARTO Builder features.
+  cheatsheets:
+    output: true
+    published: true
+    difficulty: easy
+    title: "Cheat Sheets"
+    url: /courses/cheatsheets/
+    description: >
+      Notes and tips about CARTO Builder features.
   cartojs-ground-up:
     output: true
     published: true
@@ -132,6 +140,12 @@ defaults:
   - scope:
       path: ""
       type: guides
+    values:
+      layout: lesson
+      body_class: 'js-Lesson'
+  - scope:
+      path: ""
+      type: cheatsheets
     values:
       layout: lesson
       body_class: 'js-Lesson'
