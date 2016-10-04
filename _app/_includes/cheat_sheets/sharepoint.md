@@ -4,13 +4,13 @@ You can insert a CARTO Map into Microsoft SharePoint by using the _Embed it_ pub
 
 [Login to SharePoint](https://portal.office.com/Home) and go to the Sharepoint site that you want to add your a CARTO map to. This might be a URL such as, <https://yourOrgName-public.sharepoint.com/>. 
 
-- From the "PAGE" tab in SharePoint, click "Edit" to enable editing mode
+- From the "PAGE" ribbon in SharePoint, click "Edit" to enable editing mode
 
 <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/sharepoint/img1.jpg" alt="Edit button" /></span>
 
 - Place your cursor at the point in the page where you want the CARTO map to appear
 
-- From the INSERT tab in SharePoint, select "Embed Code"
+- From the INSERT ribbon in SharePoint, select "Embed Code"
 
 <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/sharepoint/img2.jpg" alt="Insert tab" /></span>
 
@@ -22,6 +22,6 @@ You can insert a CARTO Map into Microsoft SharePoint by using the _Embed it_ pub
 
 **Tip:** You may want to change the default 'width' and 'height' dimensions of your visualization's embed code. _It is suggested to use a width of 600 and a height of 520_, as these sizes seem to work well in the body of the SharePoint template. When your previewed map looks good, click "Insert" to embed the CARTO visualization in the page.
 
-- When you are ready to publish your SharePoint page with the embedded CARTO map, go back to the "Format Text" tab and hit the "Save and Publish" button. Now all your colleagues can see the new CARTO map you created on your Sharepoint page!
+- When you are ready to publish your SharePoint page with the embedded CARTO map, go back to the "FORMET TEXT" ribbon and hit the "Save and Publish" button. Now all your colleagues can see the new CARTO map you created on your Sharepoint page!
 
 <span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/sharepoint/img5.jpg" alt="Save and publish" /></span>
