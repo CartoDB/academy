@@ -1,4 +1,4 @@
-## What is OpenStreetMap?
+## Importing OpenStreetMap Data
 
 OpenStreetMap data contains features that make up our cities, including polygons for neighborhoods and streets, roads, and even lampposts. OpenStreetMap data is contributed by a diverse community, is rich with local knowledge, and frequently updated. 
 

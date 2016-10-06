@@ -1,6 +1,8 @@
+## Importing Shapefiles
+
 A shapefile is the ESRI created format for transferring geographic data. Shapefiles are collections of three or more associated files that come together to represent vector features, such as points, lines, and polygons, each with descriptive attributes for an area, such as "name" or "temperature". When imported into CARTO, these attributes comprise your dataset. You can import shapefiles with the Connect Dataset options. Additionally, you can export any dataset and save as the shapefile (SHP) file format.
 
-## Required Files for Shapefile Import
+### Required Files for Shapefile Import
 
 CARTO suggests that you create a .ZIP file containing the .SHP, .DBF, .SHX and .PRJ files, all prefixed with same name. 
 

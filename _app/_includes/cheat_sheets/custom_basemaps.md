@@ -5,11 +5,11 @@ permalink: /courses/guides/creating-custom-basemaps/
 redirect_from: https://carto.com/docs/tutorials/custom_basemaps/
 ---
 
-# Adding a Custom Basemap
+## Adding a Custom Basemap
 
 This guide describes how to select a custom basemap in the Builder. You may import a custom basemap from XYZ, Mapbox, WMS/WMTS, TileJSON, and NASA. These external basemaps sources need to be hosted online and available to the public.
 
-## Select the Basemap Source and Add Style
+### Select the Basemap Source and Add Style
 
 When you open a map in CARTO, the map opens in the Builder and displays the Basemap and Layer(s) for the selected map. The map layers and map background are required for rendering data.
 
