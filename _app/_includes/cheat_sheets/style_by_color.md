@@ -21,3 +21,9 @@ When color options appear, you can apply colors by attributes or by a column val
       <span class="wrap-border"><img src="/academy/img/guides/styling/stroke_color_by_string.jpg" alt="Stroke color by string column" /></span> 
 
 **Tip:** For more information about applying color to data, see the related _Map Academy_ lesson about how [_Color palettes tell a story_](https://carto.com/academy/courses/intermediate-design/choose-colors-2/).
+
+- Reverse the color ramp. By default, color ramps are shown from dark (representing high values) to to light (represented by low values). There also so diverging color ramps to represent categories. Click the toggle arrows to switch the color ramp from dark (high values) to light (low values)
+
+	<span class="wrap-border"><img src="/academy/img/guides/heatmaps/reverse_color_ramp.jpg" alt="Reverse color ramp to show intensity" /></span>
+
+	**Tip:** Toggling the color ramp is also useful if you have a dark background. Reversing the color ramp can help better visualize the results. For details, see [5 CARTOGRAPHIC TIPS FOR YOUR DATA OBSERVATORY MAPS](https://carto.com/blog/cartography-data-extract-value/).
