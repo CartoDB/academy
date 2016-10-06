@@ -15,6 +15,8 @@ A list of cheat sheets that contain notes and tips about CARTO Builder features.
 
 {% include cheat_sheets/supported_geospatial_formats.md %}
 
+{% include cheat_sheets/map_layer_tips.md %}
+
 {% include cheat_sheets/shapefiles.md %}
 
 {% include cheat_sheets/osm_data.md %}
@@ -25,9 +27,27 @@ A list of cheat sheets that contain notes and tips about CARTO Builder features.
 
 {% include cheat_sheets/sync_external_dataset.md %}
 
+{% include cheat_sheets/sync_data_rules.md %}
+
 ### Map Styling
 
+{% include cheat_sheets/map_styling_tips.md %}
+
 {% include cheat_sheets/custom_basemaps.md %}
+
+{% include cheat_sheets/point_aggregation_options.md %}
+
+{% include cheat_sheets/label_styles.md %}
+
+{% include cheat_sheets/style_by_color.md %}
+
+{% include cheat_sheets/style_by_quantification.md %}
+
+### Analyses
+
+{% include cheat_sheets/analysis_rules.md %}
+
+{% include cheat_sheets/create_layer_from_analysis.md %}
 
 ### Widgets
 
