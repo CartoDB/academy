@@ -10,7 +10,7 @@ This guide describes how to easily import data with the drag and drop functional
 
 - Click and drag a supported geospatial format file directly onto your datasets dashboard
 
-image of gif?
+<span class="wrap-border"><img src="/academy/img/guides/quick_import/drag_file.gif" alt="Drag file to import /></span>
 
 cheatsheets: supported geospatial formats.
 

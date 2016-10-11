@@ -31,7 +31,7 @@ The imported populated places dataset displays the geometries as a simple point.
 
     <span class="wrap-border"><img src="/academy/img/guides/animated_maps/animation_options.jpg" alt="Animation options to see all aggregation options" /></span>
 
-    **Note:**  When _ANIMATED_ aggregation is selected for your layer, it adds the duration as a widget.  
+    **Note:**  When _ANIMATED_ aggregation is selected for your layer, it adds the duration as a time-series widget.  
 
     **Cheat sheet** how to modify and edit widgets.
 
