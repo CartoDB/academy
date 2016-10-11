@@ -94,7 +94,7 @@ Use the Category wizard when you want to show location and one other qualitative
 
 ![Australia Categorized by State]({{ site.baseurl }}/img/course6/lesson1/australia_cat.png)
 
-We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson](/courses/academy-lite/). The CartoCSS used here is:
+We can't see any quantitative data though, like which state had the highest number of earthquakes this year, or which is most densely populated. If you want to show differences in your data by rank or scale, try other wizards like bubble or choropleth instead. If you want to add more category colors than the wizard automatically provides, you can do it with CartoCSS. Learn how in [this five-minute lesson]({{ site.baseurl }}/courses/academy-lite/). The CartoCSS used here is:
 
 {% highlight scss %}
 #australia_adm1 {
