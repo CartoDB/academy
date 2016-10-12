@@ -19,6 +19,7 @@ For this example, the _Predict trends and volatility_ analysis predicts trends o
 <span class="wrap-border"><img src="/academy/img/guides/predict_trends/example.jpg" alt="Example of Predict trends and volatility analysis map" /></span>
 
 **NEED final IMAGE FROM MAMATA- placeholder is a static image from the research google doc**
+**reviewer note from Mehak: recreate image to show diverging ramp on the trend column.**
 
 ### Results
 
