@@ -15,29 +15,13 @@ This guide describes how to visualize point data by a slowly changing dimension 
 
 ## Static Heatmap
 
-A static heatmap displays temporal data by applying a color ramp to represent the intensity of data.
+A static heatmap displays temporal data by applying a color ramp to represent the intensity of data. You must select a map layer containing point geometries.
 
-1. Select a map layer that contains point geometries
-
-	**Note:** Each map layer icon in the Builder displays the geometry type behind the data  as either a point, line, or polygon.
-
-	The DATA, ANALYSES, STYLE, POP-UP, and LEGEND options are available for the selected layer. The DATA section appears by default.
-
-2. Click _STYLE_ to access the styling options for the selected map layer
-
-    <span class="wrap-border"><img src="/academy/img/guides/styling/select_style.jpg" alt="Select STYLE for a map layer" /></span>
-
-    A list of style options, based on your point data, appears. Use the scroll bar to view all aggregation options.
-
-	<span class="wrap-border"><img src="/academy/img/guides/animated_maps/scroll_aggregation.jpg" alt="Scroll to see all aggregation options" /></span>
+- Select _PIXEL_ as the _Aggregation_ style for the selected map layer
 
 	**Note:** For point geometries only, you can select the aggregation style of your data. These aggregation styles contain their own CartoCSS property, which you can further customize based on the overall spatial pattern of your map.
 
-3. Select _PIXEL_ as the _Aggregation_ style
-
-	The Style options refresh, displaying the static heatmap options.
-
-4. Style the heatmap by value
+- Style the heatmap by value
 
 	Use the FILL option to select the column value that drives the static pixels of temporal data. When Heatmap is selected, you can only style by value.
 
@@ -53,7 +37,7 @@ A static heatmap displays temporal data by applying a color ramp to represent th
 
 If you want the temporal data to appear animated, there is a separate _Aggregation_ style for animation and you can select different options for rendering the animation.
 
-1. From the map layer STYLE options, select _ANIMATED_ as the _Aggregation_ style
+- Select _ANIMATED_ as the _Aggregation_ style for the selected map layer
 
 	The _Style_ options refresh, displaying the animation options. By default, the animation type appears by _Points_.
 
@@ -61,13 +45,13 @@ If you want the temporal data to appear animated, there is a separate _Aggregati
 
 	**Cheat sheet** how to modify and edit widgets.
 
-2. Select _Heatmap_ as the animated TYPE
+- Select _Heatmap_ as the animated TYPE
 
 	The map displays animated temporal data.
 
     <span class="wrap-border"><img src="/academy/img/guides/heatmaps/heatmap_animation_options.jpg" alt="Heatmap animated options" /></span>
 
-3. Style the animated heatmap by value
+- Style the animated heatmap by value
 
 	Use the FILL option to select the column value that drives the animation. When ANIMATED Heatmap is selected, you can only style by value.
 
@@ -83,15 +67,9 @@ Optionally, you can apply the same options (and even some custom enhancements) u
 
 - Switch the slider button, located at the bottom of the _STYLE_ options, from VALUES to CARTOCSS
 
-	The CartoCSS syntax for the animation appears using Torque properties.
+The CartoCSS syntax for the animation appears using Torque properties. You can edit or add custom styles with CartoCSS. See [CartoCSS - Torque Heatmaps](https://carto.com/docs/carto-engine/cartocss/properties-for-torque/#cartocss---torque-heatmaps) for a description and available values for each property.
 
-	 <span class="wrap-border"><img src="/academy/img/guides/heatmaps/heatmap_cartocss.jpg" alt="CartoCSS code of heatmap" /></span>
-
-- You can edit or add custom styles with CartoCSS
-
-	**Note:** See [CartoCSS - Torque Heatmaps](https://carto.com/docs/carto-engine/cartocss/properties-for-torque/#cartocss---torque-heatmaps) for a description and available values for each property.
-
-	The _cartodb_id_ column a required CartoCSS property when heatmaps are applied.
+The _cartodb_id_ column a required CartoCSS property when heatmaps are applied.
 
 ## Reverse the Intensity of Data
 

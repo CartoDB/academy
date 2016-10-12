@@ -6,17 +6,26 @@ _**Note**: The LABELS? option appears for all geometries and aggregation styles,
 
 <span class="wrap-border"><img src="/academy/img/guides/styling/labels.jpg" alt="Label style options in the Builder" /></span>
 
-The following animation options are available:
+The following label options are available:
 
-Label Option | Description
---- | ---
-COLUMN | Select the column to act as a map label
-FONT | Select the label font. See a list of the [supported fonts](#supported-fonts)
-SIZE/COLOR | Select the size and color of the label. See the FILL style description for how to access the size and color options
-HALO | Edit the color and width of the text shadow. This is helpful for increasing readability
-OFFSET | Edit how far the label text sits from the geometry. Positive values display the label below the marker, negative values display the label above the marker. If set to `0`, the geometry appears directly under the corresponding label
-OVERLAP | Shows or hides overlapping labels. If set to `false`, it does not allow labels to overlap, and overlapping labels are hidden
-PLACEMENT | Controls the placement of the label:<br /><br>- point (places labels on top of points)<br /><br>- line (is placed along multiple lines or border, repeatedly)<br /><br>- vertex (is placed on the vertexes of points, repeatedly)<br /><br>- interior (is placed in the interior, inside a point (or polygon). The label remains in place, even if the center is outside of the geometry)
+- COLUMN - Select the column to act as a map label
+
+- FONT - Select the label font. See a list of the [supported fonts](#supported-fonts)
+
+- SIZE/COLOR - Select the size and color of the label. See the FILL style description for how to access the size and color options
+
+- HALO - Edit the color and width of the text shadow. This is helpful for increasing readability
+
+- OFFSET - Edit how far the label text sits from the geometry. Positive values display the label below the marker, negative values display the label above the marker. If set to `0`, the geometry appears directly under the corresponding label
+
+- OVERLAP - Shows or hides overlapping labels. If set to `false`, it does not allow labels to overlap, and overlapping labels are hidden
+
+- PLACEMENT - Controls the placement of the label:
+
+	- point (places labels on top of points)
+	- line (is placed along multiple lines or border, repeatedly)
+	- vertex (is placed on the vertexes of points, repeatedly)
+	- interior (is placed in the interior, inside a point (or polygon). The label remains in place, even if the center is outside of the geometry)
 
 ### Supported Fonts
 

@@ -6,10 +6,13 @@ Regardless of your CARTO account plan, you must include proper attributions when
 
 There are several methods of defining map attributions.
 
-Attribution Method | Requirement
---- | ---
-Automatic Attributions | When you choose a basemap with the CARTO Builder, map attributions are automatically included.<br /><br />When you export a map with the CARTO Builder, map attributions are automatically included.<br /><br />_**Note:** Do not remove any automatic attributions._
-Dataset Attributions | When you are using third-party data for your maps, you may need to provide attributions about the data sources. To add attributions to a dataset, use the _Edit metadata_ option, which is accessible from the dataset name menu option
+- Automatic Attributions - When you choose a basemap with the CARTO Builder, map attributions are automatically included
+
+	When you export a map with the CARTO Builder, map attributions are automatically included.
+
+	_**Note:** Do not remove any automatic attributions._
+
+- Dataset Attributions - When you are using third-party data for your maps, you may need to provide attributions about the data sources. To add attributions to a dataset, use the _Edit metadata_ option, which is accessible from the dataset name menu option
 
 **Tip:** For more information about how CARTO defines map attributions, see [Attributions](https://carto.com/attributions/).
 

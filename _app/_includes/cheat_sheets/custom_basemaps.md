@@ -1,13 +1,6 @@
----
-title: "Adding a Custom Basemap"
-description: Describes how to add XYZ, Mapbox, WMS/WMTS, TileJSON, and NASA basemaps to your CARTO account.
-permalink: /courses/guides/creating-custom-basemaps/
-redirect_from: https://carto.com/docs/tutorials/custom_basemaps/
----
-
 ## Adding a Custom Basemap
 
-This guide describes how to select a custom basemap in the Builder. You may import a custom basemap from XYZ, Mapbox, WMS/WMTS, TileJSON, and NASA. These external basemaps sources need to be hosted online and available to the public.
+You can import a custom basemap from XYZ, Mapbox, WMS/WMTS, TileJSON, and NASA. These external basemaps sources need to be hosted online and available to the public.
 
 ### Select the Basemap Source and Add Style
 

@@ -15,6 +15,8 @@ A list of cheat sheets that contain notes and tips about CARTO Builder features.
 
 {% include cheat_sheets/supported_geospatial_formats.md %}
 
+{% include cheat_sheets/data_library.md %}
+
 {% include cheat_sheets/map_layer_tips.md %}
 
 {% include cheat_sheets/shapefiles.md %}
