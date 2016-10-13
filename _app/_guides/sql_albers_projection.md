@@ -15,7 +15,7 @@ This guide describes how to quickly project your map and data with the Albers pr
 
 **Download guide resources**
 
-- `cb_2013_us_county_500k`
+- `cb_2013_us_county_500k` - link to .carto file? Albers Projection (on 2016-10-12 at 18.41.20).carto
 
 ## Create a Map using US Counties
 

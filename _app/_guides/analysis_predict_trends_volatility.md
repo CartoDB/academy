@@ -12,7 +12,7 @@ The data suitable for this analysis are "dependent random events", where the lik
 
 ## Example
 
-For this example, the _Predict trends and volatility_ analysis predicts trends on data on per capita income, observed annually from 1929 to 2010 for the lower 48 US states. 
+The _Predict trends and volatility_ analysis predicts trends on data on per capita income, observed annually from 1929 to 2010 for the lower 48 US states. 
 
 <iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/mehak-carto/builder/81bfd32c-7543-11e6-b62d-0ee66e2c9693/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 

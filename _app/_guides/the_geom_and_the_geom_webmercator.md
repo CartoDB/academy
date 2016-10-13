@@ -1,6 +1,6 @@
 ---
 title: "Projections, the_geom and the_geom_webmercator"
-description: Describes how to project your map in CARTO using the Albers projection.
+description: Describes how to project your map in CARTO using the Web Mercator projection.
 permalink: /courses/guides/projections-the-geom-and-the-geom-webmercator/
 redirect_from: https://carto.com/docs/tutorials/albers/
 ---
@@ -15,7 +15,7 @@ This guide describes how to use a SQL query to store data in the `the_geom_webme
 
 **Download guide resources**
 
-- `ne_10m_populated_places_simple`
+- `ne_10m_populated_places_simple` - link to .carto file? Projections, the_geom and the_geom_webmercator (on 2016-10-13 at 17.47.24).carto
 
 ## View `the_geom_webmercator` Data
 
@@ -75,11 +75,13 @@ FROM ne_10m_populated_places_simple
 
 As a result, all the points on your map visualization have lined up into a neat little grid. The grid is 4 degrees by 4 degrees.
 
-**WRITER NOTE:CSOBIER, NEED TO INCLUDE CARTO FILE OF DATA/OUTPUT? TO PLAY WITH**
+<span class="wrap-border"><img src="/academy/img/guides/the_geom_webmercator/example_output.jpg" alt="Web Mercator projection" /></span>
 
 ## Writing `the_geom` Updates
 
 To include these grids of points as real data in your dataset, you can _modify your original data_ in `the_geom` column and update it, by applying the following SQL query.
+
+**Tip:** It is suggested to create a duplicate copy of your dataset prior to modifying it with UPDATE, INSERT or DELETE SQL query statements, if you want to avoid overwriting your original data.
 
 {% highlight bash %}
 UPDATE ne_10m_populated_places_simple
