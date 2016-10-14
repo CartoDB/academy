@@ -92,8 +92,7 @@ SELECT * FROM dataset_twitter ORDER BY retweetcount DESC
 
 Creating a simple category map gives you a better analysis about your Twitter data. You can use the column `twitter_lang` to compare tweet languages with their locations, or you can use the `postedtime` column to perform a dynamic Torque map.
 
-**TRYING TO CREATE AN EXAMPLE CATEGORY MAP WITH TWITTER DATA**
-<span class="wrap-border"><img src="{{ site.baseurl }}/img/layout/tutorials/connect_twitter_datasource/twitter_2.jpg" alt="Retweets map" /></span>
+<span class="wrap-border"><img src="/academy/img/guides/twitter/style_by_twitter_value.jpg" alt="Style BY VALUE using Twitter data" /></span>
 
 **More Advanced Query Examples**
 
