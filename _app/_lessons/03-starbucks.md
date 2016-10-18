@@ -76,11 +76,11 @@ CONTINUE
 
 ## How Close am I to the Subway Station?
 
-![step2](https://cloud.githubusercontent.com/assets/1779444/19423851/578b1a58-93f2-11e6-8202-881d0b81b681.gif)
-
 We know that we want to find Starbucks locations that are close to subway entrances, to target commuters that could potentially stop for coffee on their way to work. How do we define what 'close' means, and how can we show it on our map?
 
 We can do this with an _Areas of influence_ analysis. This allows us pick a certain distance from a subway entrance, and draw a circle around each station using that distance as a radius. Any Starbucks within this area is considered 'close' to a subway station. This is the same as using [PostgreSQL](https://www.postgresql.org/) and [PostGIS](http://www.postgis.net/) to create a [buffer](http://www.postgis.org/docs/ST_Buffer.html), but CARTO enables us do it with the click of a button, instead of writing code.
+
+![step2](https://cloud.githubusercontent.com/assets/1779444/19423851/578b1a58-93f2-11e6-8202-881d0b81b681.gif)
 
 1. Toggle off the Starbucks layer (to hide) and show the just the NYC subway layer
 
@@ -138,9 +138,9 @@ CONTINUE
 
 ## Share your Map
 
-![step4](https://cloud.githubusercontent.com/assets/1779444/19423869/854ba624-93f2-11e6-8f4b-7f97676fc6aa.gif)
-
 Now that we have applied our analyses to pick out the most useful information from our data, we can publish and share this map with our colleagues.
+
+![step4](https://cloud.githubusercontent.com/assets/1779444/19423869/854ba624-93f2-11e6-8f4b-7f97676fc6aa.gif)
 
 [Final [.carto file]() for reference.
 
