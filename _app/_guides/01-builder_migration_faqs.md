@@ -1,7 +1,7 @@
 ---
 title: CARTO Builder Migration FAQs
 title_meta: CARTO Builder — Frequently Asked Questions
-description: Frequently Asked Questions about the migration of the CARTO Editor to the CARTO Builder.
+description: Frequently Asked Questions about the migration of CARTO Editor to CARTO Builder.
 permalink: /courses/guides/carto-builder-migration-faqs/
 ---
 # CARTO Builder Migration FAQs
