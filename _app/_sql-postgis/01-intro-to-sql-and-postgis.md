@@ -273,7 +273,7 @@ _Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that
 
 ## Mapping with SQL results
 
-Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](/courses/beginners-course/your-first-choropleth-map/) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
+Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](https://carto.com/academy/courses/beginners-course/your-first-choropleth-map) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
 <iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
@@ -281,7 +281,7 @@ That's it for Lesson One of SQL and PostGIS in CARTO.
 
 Want more? Check out some tutorials:
 
-+ [Projections, the_geom and the_geom_webmercator](https://carto.com/docs/tutorials/projections.html)
++ [Projections, the_geom and the_geom_webmercator](https://carto.com/learn/guides/data-and-sql/changing-map-projections)
 + [Query by distance](https://carto.com/docs/tutorials/query_by_distance.html)
 + [Counting points in polygons](https://carto.com/docs/tutorials/counting_points.html)
 + [CARTO Tips and Tricks](https://carto.com/docs/tips-and-tricks.html)
