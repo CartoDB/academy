@@ -273,7 +273,7 @@ _Pro Tip:_ Aggregate functions such as `AVG()` and `STDDEV()` are functions that
 
 ## Mapping with SQL results
 
-Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](https://carto.com/academy/courses/beginners-course/your-first-choropleth-map) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
+Once you successfully run your <a href="#sql_to_run">query from above</a>, save the result as a new dataset. It is now easy to make a [choropleth map](https://carto.com/learn/guides/styling/choropleth-map-for-statistical-data) by using the new `dist` column to give a visualization of earthquakes in proximity to San Francisco.
 
 <iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/14abb440-6e79-11e4-9a76-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
