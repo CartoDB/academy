@@ -21,7 +21,7 @@ By the end of this lesson, you will be able to make this map:
 
 <iframe width='100%' height='520' frameborder='0' src='https://documentation.carto.com/viz/88c8383e-ab10-11e4-8a1f-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-_If you haven't gotten your feet wet with SQL in CARTO, first check out [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/). This lesson relies exclusively on the CARTO Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](/courses/beginners-course/making-your-first-map/)._
+_If you haven't gotten your feet wet with SQL in CARTO, first check out [Lesson 1](/courses/sql-postgis/intro-to-sql-and-postgis/). This lesson relies exclusively on the CARTO Editor. If you're not familiar with the Editor, first get started with [Online Mapping for Beginners](https://carto.com/learn/guides/styling/animating-maps-with-point-data)._
 
 
 ## Data
