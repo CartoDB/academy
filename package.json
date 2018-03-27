@@ -27,5 +27,8 @@
     "grunt-usemin": "^3.1.1",
     "jit-grunt": "^0.9.1",
     "time-grunt": "^1.2.1"
+  },
+  "scripts": {
+    "build": "grunt build --target=${NODE_ENV:=production} && echo ${NODE_ENV}"
   }
 }
