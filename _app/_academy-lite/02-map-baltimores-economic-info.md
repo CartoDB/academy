@@ -6,7 +6,7 @@ lesson_message: "Congratulations! You've mapped Baltimore's economic data in CAR
 
 ## Baltimore Economic Data through the Data Observatory
 
-<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/eschbacher/editor/2ebfd01c-1d2f-11e6-85b7-0e31c9be1b51/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="520" frameborder="0" src="https://public.carto.com/builder/543510f6-7e25-4958-bfe6-25b69325a54b/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 In this Academy Lite lesson, we will learn how to create a map of economic data for the City of Baltimore in a small number of steps by using CARTO's [Data Observatory](https://carto.com/data-observatory/). If you want to go the extra mile and create a dashboard like above, checkout [DeepInsights.js](https://github.com/CartoDB/deep-insights.js).
 

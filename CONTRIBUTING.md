@@ -127,7 +127,7 @@ To ensure that images display full width, they need to be resized to a width of 
 Embedded maps use the `iframe` from the CARTO Editor. Just paste it in.
 
 ```
-<iframe width='100%' height='520' frameborder='0' src='http://team.carto.com/u/eschbacher/viz/7e6815f4-b794-11e4-a4dd-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width='100%' height='520' frameborder='0' src='https://public.carto.com/builder/d47f982a-04c2-41b7-a970-3b1779ca7a64/embed' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 ```
 
 If you want to customize the center (lat/long), zoom, disable scroll wheel zoom, etc., you can add the following to the URL:
